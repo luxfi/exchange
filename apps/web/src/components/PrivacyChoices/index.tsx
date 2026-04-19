@@ -2,12 +2,12 @@ import { useAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { useCallback, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Anchor, Button, Checkbox, Flex, ModalCloseIcon, Text } from 'ui/src'
-import { Lock } from 'ui/src/components/icons/Lock'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { Anchor, Button, Checkbox, Flex, ModalCloseIcon, Text } from '@l.x/ui/src'
+import { Lock } from '@l.x/ui/src/components/icons/Lock'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { PRIVACY_SHARING_OPT_OUT_STORAGE_KEY } from '~/components/PrivacyChoices/constants'
 import { useModalState } from '~/hooks/useModalState'
 
@@ -49,7 +49,7 @@ export function PrivacyChoicesModal() {
                 components={{
                   privacyLink: (
                     <Anchor
-                      href={uniswapUrls.privacyPolicyUrl}
+                      href={lxUrls.privacyPolicyUrl}
                       target="_blank"
                       textDecorationLine="none"
                       fontSize="inherit"

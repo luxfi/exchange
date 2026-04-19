@@ -1,6 +1,6 @@
-import { Currency, Token, TradeType } from '@uniswap/sdk-core'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { Currency, Token, TradeType } from '@luxamm/sdk-core'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { GetQuoteArgs, PoolType, RouterPreference, TokenInRoute, URAQuoteType } from '~/state/routing/types'
 import { computeRoutes } from '~/state/routing/utils'
 
@@ -21,11 +21,11 @@ const BASE_ARGS = {
   amount: '100',
   routerPreference: RouterPreference.API,
   tradeType: TradeType.EXACT_INPUT,
-  uniswapXForceSyntheticQuotes: false,
+  dexForceSyntheticQuotes: false,
   sendPortionEnabled: true,
 }
 
-// oxlint-disable-next-line max-params
+// eslint-disable-next-line max-params
 function constructArgs(currencyIn: Currency, currencyOut: Currency, routingType: URAQuoteType): GetQuoteArgs {
   return {
     ...BASE_ARGS,

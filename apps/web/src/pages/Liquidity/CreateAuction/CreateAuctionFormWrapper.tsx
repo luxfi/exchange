@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useMedia } from 'ui/src'
-import { Chevron } from 'ui/src/components/icons/Chevron'
+import { Flex, Text, useMedia } from '@l.x/ui/src'
+import { Chevron } from '@l.x/ui/src/components/icons/Chevron'
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import {
   PoolProgressIndicator,
@@ -12,20 +12,29 @@ import {
   useCreateAuctionStore,
   useCreateAuctionStoreActions,
 } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
-  const isStep0Valid = useIsStepValid(CreateAuctionStep.ADD_TOKEN_INFO)
-  const isStep1Valid = useIsStepValid(CreateAuctionStep.CONFIGURE_AUCTION)
+import { CreateAuctionStep } from '~/pages/Liquidity/CreateAuction/types'
+
+const WIDTH = {
+  positionCard: 720,
+  sidebar: SIDEBAR_WIDTH,
+}
+
+export function CreateAuctionFormWrapper({ children }: { children: React.ReactNode }) {
+  const { t } = useTranslation()
+  const media = useMedia()
+  const step = useCreateAuctionStore((state) => state.step)
+  const { setStep } = useCreateAuctionStoreActions()
 
   const progressSteps = useMemo(() => {
-    const stepValidities = [isStep0Valid, isStep1Valid]
-
-    const createStep = ({ label, stepEnum }: { label: string; stepEnum: CreateAuctionStep }) => {
-      const canNavigate = stepEnum < step || stepValidities.slice(0, stepEnum).every(Boolean)
-      return {
-        label,
-        active: step === stepEnum,
-        onPress: canNavigate ? () => setStep(stepEnum) : undefined,
-      }
-    }
+    const createStep = ({ label, stepEnum }: { label: string; stepEnum: CreateAuctionStep }) => ({
+      label,
+      active: step === stepEnum,
+      onPress: () => {
+        if (stepEnum < step) {
+          setStep(stepEnum)
+        }
+      },
+    })
 
     return [
       createStep({ label: t('toucan.createAuction.step.tokenInfo'), stepEnum: CreateAuctionStep.ADD_TOKEN_INFO }),
@@ -36,7 +45,7 @@ import {
       createStep({ label: t('toucan.createAuction.step.customizePool'), stepEnum: CreateAuctionStep.CUSTOMIZE_POOL }),
       // Review step intentionally excluded - shown inline without step navigation
     ]
-  }, [step, setStep, t, isStep0Valid, isStep1Valid])
+  }, [step, setStep, t])
 
   return (
     <Flex

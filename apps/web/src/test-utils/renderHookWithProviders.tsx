@@ -3,22 +3,22 @@ import { configureStore } from '@reduxjs/toolkit'
 import { RenderHookOptions, RenderHookResult, renderHook } from '@testing-library/react'
 import { PropsWithChildren } from 'react'
 import { Provider } from 'react-redux'
-import { uniswapReducer } from 'uniswap/src/state/uniswapReducer'
+import { lxReducer } from '@l.x/lx/src/state/lxReducer'
 
-// Type for the uniswap state
-type UniswapState = ReturnType<typeof uniswapReducer>
+// Type for the lux state
+type LXState = ReturnType<typeof lxReducer>
 
 // This type extends the default options for renderHook from RTL, as well
 // as allows the user to specify other things such as initialState, store.
 type ExtendedRenderHookOptions<Props> = RenderHookOptions<Props> & {
-  preloadedState?: PreloadedState<UniswapState>
-  store?: EnhancedStore<UniswapState>
+  preloadedState?: PreloadedState<LXState>
+  store?: EnhancedStore<LXState>
 }
 
-// Create a test store using the uniswap reducer
-const createTestStore = (preloadedState?: PreloadedState<UniswapState>) => {
+// Create a test store using the lux reducer
+const createTestStore = (preloadedState?: PreloadedState<LXState>) => {
   return configureStore({
-    reducer: uniswapReducer,
+    reducer: lxReducer,
     preloadedState: {
       transactions: {},
       ...preloadedState,

@@ -1,12 +1,12 @@
-import { LiquidityService } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_connect'
-import { PERMIT2_ADDRESS } from '@uniswap/permit2-sdk'
-import { V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
-import { computePairAddress } from '@uniswap/v2-sdk'
+import { LiquidityService } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_connect'
+import { PERMIT2_ADDRESS } from '@luxamm/permit2-sdk'
+import { V2_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
+import { computePairAddress } from '@luxamm/v2-sdk'
 import { FeatureFlags, getFeatureFlagName } from '@l.x/gating'
-import { USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { WETH } from 'uniswap/src/test/fixtures/lib/sdk'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { USDT } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { WETH } from 'lx/src/test/fixtures/lib/sdk'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { parseEther } from 'viem'
 import { ONE_MILLION_USDT } from '~/playwright/anvil/utils'
 import { expect, getTest, type Page } from '~/playwright/fixtures'
@@ -44,7 +44,7 @@ test.describe(
       await page.goto('/positions/create')
       await page.getByRole('button', { name: 'Choose token' }).click()
       await page.getByTestId(TestID.ExploreSearchInput).fill(USDT.address)
-      // oxlint-disable-next-line
+      // eslint-disable-next-line
       await page.getByTestId('token-option-1-USDT').first().click()
       await page.getByRole('button', { name: 'Continue' }).click()
       await graphql.waitForResponse('PoolPriceHistory')
@@ -64,7 +64,7 @@ test.describe(
       await page.goto('/positions/create')
       await page.getByRole('button', { name: 'Choose token' }).click()
       await page.getByTestId(TestID.ExploreSearchInput).fill(USDT.address)
-      // oxlint-disable-next-line
+      // eslint-disable-next-line
       await page.getByTestId('token-option-1-USDT').first().click()
       await page.getByRole('button', { name: 'Continue' }).click()
       await graphql.waitForResponse('PoolPriceHistory')
@@ -264,18 +264,18 @@ test.describe(
           endpoint: LiquidityService.methods.createLPPosition,
           modifyRequestData,
         })
-        await page.route('**/uniswap.liquidity.v1.LiquidityService/PoolInfo*', async (route) => {
+        await page.route('**/lx.liquidity.v1.LiquidityService/PoolInfo*', async (route) => {
           await route.fulfill({ path: Mocks.LiquidityService.pool_info_eth_weeth })
         })
         await graphql.intercept('PoolPriceHistory', Mocks.PoolPriceHistory.eth_weeth)
         await graphql.intercept('AllV4Ticks', Mocks.AllV4Ticks.eth_weeth)
-        await anvil.setBalance({ address: assume0xAddress(TEST_WALLET_ADDRESS), value: parseEther('10') })
-        await anvil.setErc20Balance({ address: assume0xAddress(WEETH_ADDRESS), balance: parseEther('100') })
+        await anvil.setBalance({ address: assume0xAddress(TEST_WALLET_ADDRESS), value: parseEther('0.03733') })
+        await anvil.setErc20Balance({ address: assume0xAddress(WEETH_ADDRESS), balance: parseEther('0.0654') })
 
         await page.goto(ETH_WEETH_CREATE_URL)
 
         await page.getByTestId(TestID.AmountInputIn).last().click()
-        await page.getByTestId(TestID.AmountInputIn).last().fill('3')
+        await page.getByTestId(TestID.AmountInputIn).last().fill('0.065')
         await expect(page.getByText('Slippage automatically reduced')).toBeVisible()
       })
 
@@ -289,18 +289,18 @@ test.describe(
             return data
           },
         })
-        await page.route('**/uniswap.liquidity.v1.LiquidityService/PoolInfo*', async (route) => {
+        await page.route('**/lx.liquidity.v1.LiquidityService/PoolInfo*', async (route) => {
           await route.fulfill({ path: Mocks.LiquidityService.pool_info_eth_weeth })
         })
         await graphql.intercept('PoolPriceHistory', Mocks.PoolPriceHistory.eth_weeth)
         await graphql.intercept('AllV4Ticks', Mocks.AllV4Ticks.eth_weeth)
-        await anvil.setBalance({ address: assume0xAddress(TEST_WALLET_ADDRESS), value: parseEther('10000') })
-        await anvil.setErc20Balance({ address: assume0xAddress(WEETH_ADDRESS), balance: parseEther('10') })
+        await anvil.setBalance({ address: assume0xAddress(TEST_WALLET_ADDRESS), value: parseEther('0.03733') })
+        await anvil.setErc20Balance({ address: assume0xAddress(WEETH_ADDRESS), balance: parseEther('0.0654') })
 
         await page.goto(ETH_WEETH_CREATE_URL)
 
         await page.getByTestId(TestID.AmountInputIn).last().click()
-        await page.getByTestId(TestID.AmountInputIn).last().fill('5')
+        await page.getByTestId(TestID.AmountInputIn).last().fill('0.065')
         await page.getByRole('button', { name: 'Review' }).click()
         await expect(page.getByText('Very high slippage')).toBeVisible()
         await page.getByRole('button', { name: 'Cancel' }).click()

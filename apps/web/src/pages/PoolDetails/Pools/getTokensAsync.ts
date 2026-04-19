@@ -1,13 +1,13 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@luxamm/sdk-core'
 import { Interface } from 'ethers/lib/utils'
-import ERC20_ABI from 'uniswap/src/abis/erc20.json'
-import { Erc20Interface } from 'uniswap/src/abis/types/Erc20'
-import { Erc20Bytes32Interface } from 'uniswap/src/abis/types/Erc20Bytes32'
-import { UniswapInterfaceMulticall } from 'uniswap/src/abis/types/v3'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { logger } from 'utilities/src/logger/logger'
-import { DEFAULT_ERC20_DECIMALS } from 'utilities/src/tokens/constants'
+import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
+import { Erc20Interface } from '@l.x/lx/src/abis/types/Erc20'
+import { Erc20Bytes32Interface } from '@l.x/lx/src/abis/types/Erc20Bytes32'
+import { LXInterfaceMulticall } from '@l.x/lx/src/abis/types/v3'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { DEFAULT_ERC20_DECIMALS } from '@l.x/utils/src/tokens/constants'
 import { INTERNAL_JSON_RPC_ERROR_CODE } from '~/constants/misc'
 import { arrayToSlices } from '~/utils/arrays'
 import { buildCurrencyKey, CurrencyKey, currencyKey } from '~/utils/currencyKey'
@@ -22,7 +22,7 @@ const Erc20Bytes32 = new Interface(ERC20_ABI) as Erc20Bytes32Interface // Used f
 
 // TODO(WEB-1760): cartcrom - adapt support for multi-function multi-interface multicalls into redux-multicall to remove than this custom cache/chunking logic
 // Infura rejects calls with gas costs > 10x the current block gas limit; in such case we split the call into 2 chunks
-async function fetchChunk(multicall: UniswapInterfaceMulticall, chunk: Call[]): Promise<CallResult[]> {
+async function fetchChunk(multicall: LXInterfaceMulticall, chunk: Call[]): Promise<CallResult[]> {
   try {
     return (await multicall.callStatic.multicall(chunk)).returnData
   } catch (error) {
@@ -74,7 +74,7 @@ function parseTokens({
 }) {
   const tokenDataSlices = arrayToSlices(returnData, 5)
 
-  // oxlint-disable-next-line max-params
+  // eslint-disable-next-line max-params
   return tokenDataSlices.reduce((acc: TokenMap, slice, index) => {
     const parsedToken = tryParseToken({ address: addresses[index], chainId, data: slice })
     if (parsedToken) {
@@ -108,7 +108,7 @@ export async function getTokensAsync({
 }: {
   addresses: string[]
   chainId: UniverseChainId
-  multicall: UniswapInterfaceMulticall
+  multicall: LXInterfaceMulticall
 }): Promise<TokenMap> {
   if (addresses.length === 0) {
     return {}

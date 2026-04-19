@@ -1,15 +1,15 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
-import { Flex, styled, Text, useMedia, View } from 'ui/src'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { NumberType } from 'utilities/src/format/types'
+import { Flex, styled, Text, useMedia, View } from '@l.x/ui/src'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { PoolData } from '~/appGraphql/data/pools/usePoolData'
 import { getTokenDetailsURL, unwrapToken } from '~/appGraphql/data/util'
 import { DeltaArrow } from '~/components/DeltaArrow/DeltaArrow'
@@ -18,7 +18,7 @@ import { LoadingBubble } from '~/components/Tokens/loading'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCurrency } from '~/hooks/Tokens'
 import { DetailBubble } from '~/pages/PoolDetails/components/shared'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const HeaderText = styled(Text, {
   fontWeight: '$book',
@@ -100,7 +100,7 @@ const StyledLink = styled(Link, {
   display: 'flex',
   alignItems: 'center',
   color: '$neutral1',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 const BalanceChartSide = ({ percent, color, isLeft }: { percent: number; color: string; isLeft: boolean }) => (

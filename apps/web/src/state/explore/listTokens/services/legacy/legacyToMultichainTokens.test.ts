@@ -1,4 +1,4 @@
-import { SafetyLevel, SpamCode, TokenType } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { SafetyLevel, SpamCode, TokenType } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { describe, expect, it, vi } from 'vitest'
 import { tokenStatsToMultichainTokens } from '~/state/explore/listTokens/services/legacy/legacyToMultichainTokens'
 import type { TokenStat } from '~/state/explore/types'

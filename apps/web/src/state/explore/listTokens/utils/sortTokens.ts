@@ -21,3 +21,23 @@ export const TokenSortMethods: Record<TokenSortMethod, (a: TokenStat, b: TokenSt
     giveExploreStatDefaultValue(b.fullyDilutedValuation?.value) -
     giveExploreStatDefaultValue(a.fullyDilutedValuation?.value),
 }
+
+/**
+ * Sorts tokens using the specified sort method.
+ * @param tokens - Array of tokens to sort
+ * @param sortMethod - The sorting method to use
+ * @param sortAscending - Whether to sort in ascending order
+ * @returns Sorted array of tokens
+ */
+export function sortTokens({
+  tokens,
+  sortMethod,
+  sortAscending,
+}: {
+  tokens: TokenStat[]
+  sortMethod: TokenSortMethod
+  sortAscending: boolean
+}): TokenStat[] {
+  const sorted = [...tokens].sort(TokenSortMethods[sortMethod])
+  return sortAscending ? sorted.reverse() : sorted
+}

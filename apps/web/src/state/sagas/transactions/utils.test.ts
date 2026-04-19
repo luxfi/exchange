@@ -1,9 +1,9 @@
 import { runSaga } from 'redux-saga'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { addTransaction } from 'uniswap/src/features/transactions/slice'
-import type { HandleOnChainStepParams, OnChainTransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
-import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { addTransaction } from 'lx/src/features/transactions/slice'
+import type { HandleOnChainStepParams, OnChainTransactionStep } from 'lx/src/features/transactions/steps/types'
+import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
+import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
 
 const mockSendTransaction = vi.fn()
 

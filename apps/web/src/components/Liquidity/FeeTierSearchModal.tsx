@@ -1,30 +1,30 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import type { Currency } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import type { Currency } from '@luxamm/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import ms from 'ms'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-// oxlint-disable-next-line no-restricted-imports -- styled-components needed for custom component styling
+// biome-ignore lint/style/noRestrictedImports: styled-components needed for custom component styling
 import styled from 'styled-components'
-import { Button, Flex, ModalCloseIcon, Text, Tooltip } from 'ui/src'
-import { BackArrow } from 'ui/src/components/icons/BackArrow'
-import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
-import { Plus } from 'ui/src/components/icons/Plus'
-import { Search } from 'ui/src/components/icons/Search'
-import { useDynamicFontSizing } from 'ui/src/hooks/useDynamicFontSizing'
-import { zIndexes } from 'ui/src/theme'
-import { AmountInput } from 'uniswap/src/components/AmountInput/AmountInput'
-import { numericInputRegex } from 'uniswap/src/components/AmountInput/utils/numericInputEnforcer'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { LiquidityEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { FeePoolSelectAction } from 'uniswap/src/features/telemetry/types'
+import { Button, Flex, ModalCloseIcon, Text, Tooltip } from '@l.x/ui/src'
+import { BackArrow } from '@l.x/ui/src/components/icons/BackArrow'
+import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
+import { Plus } from '@l.x/ui/src/components/icons/Plus'
+import { Search } from '@l.x/ui/src/components/icons/Search'
+import { useDynamicFontSizing } from '@l.x/ui/src/hooks/useDynamicFontSizing'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { AmountInput } from '@l.x/lx/src/components/AmountInput/AmountInput'
+import { numericInputRegex } from '@l.x/lx/src/components/AmountInput/utils/numericInputEnforcer'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { LiquidityEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { FeePoolSelectAction } from '@l.x/lx/src/features/telemetry/types'
 import useResizeObserver from 'use-resize-observer'
-import { NumberType } from 'utilities/src/format/types'
-import { isMobileWeb } from 'utilities/src/platform'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isMobileWeb } from '@l.x/utils/src/platform'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import type { FeeData } from '~/components/Liquidity/Create/types'
 import { useAllFeeTierPoolData } from '~/components/Liquidity/hooks/useAllFeeTierPoolData'
 import {
@@ -37,7 +37,7 @@ import {
 import { LpIncentivesAprDisplay } from '~/components/LpIncentives/LpIncentivesAprDisplay'
 import { StyledPercentInput } from '~/components/PercentInput'
 import { NumericalInputMimic, NumericalInputSymbolContainer } from '~/pages/Swap/common/shared'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const FeeTierPercentInput = styled(StyledPercentInput)`
   flex-grow: 0;
@@ -186,7 +186,7 @@ export function FeeTierSearchModal({
       <Flex width="100%" gap="$gap20">
         <Flex row justifyContent="space-between" alignItems="center" gap="$spacing4" width="100%">
           {createModeEnabled && (
-            <Flex {...ClickableTamaguiStyle} onPress={() => setCreateModeEnabled(false)}>
+            <Flex {...ClickableGuiStyle} onPress={() => setCreateModeEnabled(false)}>
               <BackArrow size="$icon.24" color="$neutral2" />
             </Flex>
           )}
@@ -233,7 +233,7 @@ export function FeeTierSearchModal({
                     return newValue.toFixed(MAX_FEE_TIER_DECIMALS)
                   })
                 }}
-                {...ClickableTamaguiStyle}
+                {...ClickableGuiStyle}
               >
                 <Text variant="heading3" mb="$spacing4">
                   -
@@ -282,12 +282,31 @@ export function FeeTierSearchModal({
                     return validateFeeTier(newValue.toFixed(MAX_FEE_TIER_DECIMALS))
                   })
                 }}
-                {...ClickableTamaguiStyle}
+                {...ClickableGuiStyle}
               >
                 <Text variant="heading3">+</Text>
               </Flex>
             </Flex>
-                {/* oxlint-disable-next-line typescript/no-unnecessary-condition */}
+            <Flex row>
+              <Button
+                variant="default"
+                isDisabled={!createFeeValue || createFeeValue === ''}
+                onPress={() => {
+                  onSelectFee({
+                    isDynamic: false,
+                    feeAmount: feeHundredthsOfBips,
+                    tickSpacing: calculateTickSpacingFromFeeAmount(feeHundredthsOfBips),
+                  })
+                  sendAnalyticsEvent(LiquidityEventName.SelectLiquidityPoolFeeTier, {
+                    action: FeePoolSelectAction.Search,
+                    fee_tier: feeHundredthsOfBips,
+                    is_new_fee_tier: Boolean(feeTierData[feeHundredthsOfBips]),
+                    ...trace,
+                  })
+                  onClose()
+                }}
+              >
+                {/* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */}
                 {feeTierData[feeHundredthsOfBips] ? t('fee.tier.select.existing.button') : t('fee.tier.create.button')}
               </Button>
             </Flex>
@@ -363,7 +382,7 @@ export function FeeTierSearchModal({
                     key={pool.id + pool.formattedFee}
                     py="$padding12"
                     justifyContent="space-between"
-                    {...ClickableTamaguiStyle}
+                    {...ClickableGuiStyle}
                     onPress={() => {
                       if (isDynamicFeeTier(pool.fee)) {
                         if (onSelectDynamicFee) {

@@ -1,7 +1,7 @@
-import { TimestampedAmount } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { useMemo } from 'react'
-import { logger } from 'utilities/src/logger/logger'
-import { useProtocolStats } from '~/state/explore'
+import { TimestampedAmount } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
+import { useContext, useMemo } from 'react'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ExploreContext } from '~/state/explore'
 
 /**
  * Extracts the latest and previous values for a protocol from timestamped data.
@@ -50,7 +50,9 @@ function getLatestAndPreviousValues(
  * Each protocol uses its own latest available data point, preventing 0 values when timestamps differ.
  */
 export function use24hProtocolVolume() {
-  const { data, isLoading } = useProtocolStats()
+  const {
+    protocolStats: { data, isLoading },
+  } = useContext(ExploreContext)
 
   const v2Data: TimestampedAmount[] | undefined = data?.historicalProtocolVolume?.Month?.v2
   const v3Data: TimestampedAmount[] | undefined = data?.historicalProtocolVolume?.Month?.v3
@@ -98,7 +100,9 @@ export function use24hProtocolVolume() {
  * Each protocol uses its own latest available data point, preventing 0 values when timestamps differ.
  */
 export function useDailyTVLWithChange() {
-  const { data, isLoading } = useProtocolStats()
+  const {
+    protocolStats: { data, isLoading },
+  } = useContext(ExploreContext)
 
   const v2Data: TimestampedAmount[] | undefined = data?.dailyProtocolTvl?.v2
   const v3Data: TimestampedAmount[] | undefined = data?.dailyProtocolTvl?.v3

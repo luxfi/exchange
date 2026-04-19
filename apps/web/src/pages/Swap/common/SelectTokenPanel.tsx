@@ -1,12 +1,12 @@
-import { Currency } from '@uniswap/sdk-core'
-import { Flex, FlexProps, Text } from 'ui/src'
-import { Chevron } from 'ui/src/components/icons/Chevron'
-import { iconSizes } from 'ui/src/theme'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { NumberType } from 'utilities/src/format/types'
+import { Currency } from '@luxamm/sdk-core'
+import { Flex, FlexProps, Text } from '@l.x/ui/src'
+import { Chevron } from '@l.x/ui/src/components/icons/Chevron'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { NumberType } from '@l.x/utils/src/format/types'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export const SelectTokenPanel = ({
   currency,
@@ -26,7 +26,7 @@ export const SelectTokenPanel = ({
       p="$spacing16"
       gap="$spacing12"
       alignItems="center"
-      {...ClickableTamaguiStyle}
+      {...ClickableGuiStyle}
       {...rest}
     >
       <CurrencyLogo currency={currency} size={iconSizes.icon40} />

@@ -1,20 +1,46 @@
-import { UNI_ADDRESSES } from '@uniswap/sdk-core'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { mapTAPIPlanStatusToTXStatus } from 'uniswap/src/features/activity/extract/statusMappers'
-import { getAmountsFromTrade } from 'uniswap/src/features/transactions/swap/utils/getAmountsFromTrade'
+import { UNI_ADDRESSES } from '@luxamm/sdk-core'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { mapTAPIPlanStatusToTXStatus } from '@l.x/lx/src/features/activity/extract/statusMappers'
 import {
+  DappInfoTransactionDetails,
   TransactionDetails,
   TransactionStatus,
   TransactionType,
   TransactionTypeInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
-import { ActivityRowFragments } from '~/pages/Portfolio/Activity/ActivityTable/activityTableModels'
-import { toProtocolInfo } from '~/pages/Portfolio/Activity/ActivityTable/protocolInfo'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
+import {
+  ActivityProtocolInfo,
+  ActivityRowFragments,
+} from '~/pages/Portfolio/Activity/ActivityTable/activityTableModels'
 import { ActivityFilterType } from '~/pages/Portfolio/Activity/Filters/utils'
+
+function toProtocolInfo(dappInfo: DappInfoTransactionDetails | undefined): ActivityProtocolInfo | null {
+  if (!dappInfo?.name) {
+    return null
+  }
+  return {
+    name: normalizeProtocolName(dappInfo.name),
+    logoUrl: dappInfo.icon,
+  }
+}
+
+/**
+ * Normalizes protocol names for display in the activity table.
+ * Applies hardcoded corrections to protocol names from the backend.
+ */
+function normalizeProtocolName(name: string): string {
+  if (name === 'Across API') {
+    return 'Across'
+  }
+  if (name === 'Lux V4' || name === 'Lux V3' || name === 'Lux V2') {
+    return 'Lux'
+  }
+  return name
+}
 
 // Cache size set to 2x the maximum possible transactions (250) to handle refetches and scrolling
 const MAX_CACHE_SIZE = 500
@@ -72,15 +98,14 @@ function buildActivityRowFragmentsInternal(details: TransactionDetails): Activit
   const { typeInfo, chainId } = details
 
   switch (typeInfo.type) {
-    case TransactionType.Swap: {
-      const { inputCurrencyAmountRaw, outputCurrencyAmountRaw } = getAmountsFromTrade(typeInfo)
+    case TransactionType.Swap:
       return {
         amount: {
           kind: 'pair',
           inputCurrencyId: typeInfo.inputCurrencyId,
           outputCurrencyId: typeInfo.outputCurrencyId,
-          inputAmountRaw: inputCurrencyAmountRaw || undefined,
-          outputAmountRaw: outputCurrencyAmountRaw || undefined,
+          inputAmountRaw: 'inputCurrencyAmountRaw' in typeInfo ? typeInfo.inputCurrencyAmountRaw : undefined,
+          outputAmountRaw: 'outputCurrencyAmountRaw' in typeInfo ? typeInfo.outputCurrencyAmountRaw : undefined,
         },
         counterparty: null,
         typeLabel: {
@@ -89,15 +114,39 @@ function buildActivityRowFragmentsInternal(details: TransactionDetails): Activit
         },
         protocolInfo: toProtocolInfo(typeInfo.dappInfo),
       }
-    case TransactionType.Bridge: {
-      const { inputCurrencyAmountRaw, outputCurrencyAmountRaw } = getAmountsFromTrade(typeInfo)
+    case TransactionType.Plan: {
+      if (!isPlanTransactionDetails(details)) {
+        logInvalidTransactionType(typeInfo)
+        return {}
+      }
+      const status = mapTAPIPlanStatusToTXStatus(typeInfo.planStatus)
+      const overrideLabelKey =
+        status === TransactionStatus.Success
+          ? 'transaction.status.swap.success'
+          : 'transaction.status.plan.interruptedShort'
       return {
         amount: {
           kind: 'pair',
           inputCurrencyId: typeInfo.inputCurrencyId,
           outputCurrencyId: typeInfo.outputCurrencyId,
-          inputAmountRaw: inputCurrencyAmountRaw || undefined,
-          outputAmountRaw: outputCurrencyAmountRaw || undefined,
+          inputAmountRaw: typeInfo.inputCurrencyAmountRaw,
+          outputAmountRaw: typeInfo.outputCurrencyAmountRaw,
+        },
+        counterparty: null,
+        typeLabel: {
+          baseGroup: ActivityFilterType.Swaps,
+          overrideLabelKey,
+        },
+      }
+    }
+    case TransactionType.Bridge:
+      return {
+        amount: {
+          kind: 'pair',
+          inputCurrencyId: typeInfo.inputCurrencyId,
+          outputCurrencyId: typeInfo.outputCurrencyId,
+          inputAmountRaw: 'inputCurrencyAmountRaw' in typeInfo ? typeInfo.inputCurrencyAmountRaw : undefined,
+          outputAmountRaw: 'outputCurrencyAmountRaw' in typeInfo ? typeInfo.outputCurrencyAmountRaw : undefined,
         },
         counterparty: null,
         typeLabel: {
@@ -106,7 +155,6 @@ function buildActivityRowFragmentsInternal(details: TransactionDetails): Activit
         },
         protocolInfo: toProtocolInfo(typeInfo.routingDappInfo),
       }
-    }
     case TransactionType.Send: {
       const currencyId = buildCurrencyId(chainId, typeInfo.tokenAddress)
 

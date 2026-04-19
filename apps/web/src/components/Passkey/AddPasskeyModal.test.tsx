@@ -3,15 +3,15 @@ import {
   authenticateWithPasskey,
   getPrivyEnums,
   registerNewAuthenticator,
-} from 'uniswap/src/features/passkey/embeddedWallet'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+} from 'lx/src/features/passkey/embeddedWallet'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { AddPasskeyModal } from '~/components/Passkey/AddPasskeyModal'
 import { useModalState } from '~/hooks/useModalState'
 import { usePasskeyAuthWithHelpModal } from '~/hooks/usePasskeyAuthWithHelpModal'
 import { useEmbeddedWalletState } from '~/state/embeddedWallet/store'
 import { render, screen } from '~/test-utils/render'
 
-vi.mock('uniswap/src/features/passkey/embeddedWallet', () => ({
+vi.mock('lx/src/features/passkey/embeddedWallet', () => ({
   authenticateWithPasskey: vi.fn(),
   getPrivyEnums: vi.fn(),
   registerNewAuthenticator: vi.fn(),
@@ -30,7 +30,7 @@ vi.mock('~/state/embeddedWallet/store', async (importOriginal) => ({
   useEmbeddedWalletState: vi.fn(),
 }))
 
-vi.mock('uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
+vi.mock('lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
   useUnitagsAddressQuery: vi.fn(() => ({ data: undefined, isLoading: false })),
 }))
 

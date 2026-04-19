@@ -2,13 +2,13 @@ import { GraphQLApi } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useLocation, useParams } from 'react-router'
-import { useSporeColors } from 'ui/src'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
-import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+import { useSporeColors } from '@l.x/ui/src'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
+import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
 import { gqlToCurrency } from '~/appGraphql/data/util'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useActiveAddresses } from '~/features/accounts/store/hooks'
@@ -41,7 +41,21 @@ export function useCreateTDPContext(): PendingTDPContext | LoadedTDPContext {
   })
   const currency = useMemo(() => {
     if (isNative) {
-  // oxlint-disable-next-line typescript/no-unnecessary-condition
+      return nativeOnChain(currencyChainInfo.id)
+    }
+    if (tokenQuery.data?.token) {
+      return gqlToCurrency(tokenQuery.data.token)
+    }
+    return undefined
+  }, [tokenQuery.data?.token, isNative, currencyChainInfo.id])
+
+  const chartState = useCreateTDPChartState(tokenDBAddress, currencyChainInfo.backendChain.chain)
+
+  const multiChainMap = useMultiChainMap(tokenQuery)
+
+  // Extract color for page usage
+  const colors = useSporeColors()
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const { preloadedLogoSrc } = (useLocation().state as { preloadedLogoSrc?: string }) ?? {}
   const extractedColorSrc = tokenQuery.data?.token?.project?.logoUrl ?? preloadedLogoSrc
   const tokenColor =

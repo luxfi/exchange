@@ -1,10 +1,10 @@
-import { MaxUint160, MaxUint256, PERMIT2_ADDRESS } from '@uniswap/permit2-sdk'
-import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@uniswap/universal-router-sdk'
+import { MaxUint160, MaxUint256, PERMIT2_ADDRESS } from '@luxamm/permit2-sdk'
+import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@luxamm/universal-router-sdk'
 import { TradingApi } from '@l.x/api'
-import { USDT } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { USDT } from '@l.x/lx/src/constants/tokens'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { parseEther } from 'viem'
 import { ONE_MILLION_USDT } from '~/playwright/anvil/utils'
 import { expect, getTest } from '~/playwright/fixtures'
@@ -25,16 +25,15 @@ test.describe(
   },
   () => {
     test('should swap ETH to USDC', async ({ page, anvil }) => {
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
+      await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
+      await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.quote })
       await anvil.setErc20Balance({ address: assume0xAddress(USDT.address), balance: 100_000_000n })
 
       await page.goto('/swap')
 
       await page.getByTestId(TestID.ChooseOutputToken).click()
       await page.getByTestId(TestID.ExploreSearchInput).fill('USDT') // necessary to guarantee token option shows up in DOM bc of virtualized token selector list
-      // Select USDT token
-      // oxlint-disable-next-line
+      // eslint-disable-next-line
       await page.getByTestId('token-option-1-USDT').first().click()
       // Confirm wallet balance is shown
       await expect(page.getByText('100 USDT')).toBeVisible()
@@ -56,9 +55,9 @@ test.describe(
     })
 
     test('should be able to swap token with FOT warning via TDP', async ({ page, anvil }) => {
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
+      await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.quote })
 
-      await page.route(`${uniswapUrls.tradingApiUrl}/v1/swap`, async (route) => {
+      await page.route(`${lxUrls.tradingApiUrl}/v1/swap`, async (route) => {
         const request = route.request()
         const postData = request.postDataJSON()
 
@@ -100,8 +99,8 @@ test.describe(
     })
 
     test('should bridge from ETH to L2', async ({ page, anvil }) => {
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
+      await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
+      await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.quote })
       await page.goto(`/swap?inputCurrency=ETH`)
       await page.getByTestId(TestID.ChooseOutputToken).click()
       await page.getByTestId(TestID.ExploreSearchInput).fill('Base ETH') // necessary to guarantee token option shows up in DOM bc of virtualized token selector list
@@ -133,7 +132,7 @@ test.describe(
       test.beforeEach(async ({ page }) => {
         await stubTradingApiEndpoint({
           page,
-          endpoint: uniswapUrls.tradingApiPaths.quote,
+          endpoint: lxUrls.tradingApiPaths.quote,
           modifyRequestData: (data) => ({
             ...data,
             protocols: [TradingApi.ProtocolItems.V4, TradingApi.ProtocolItems.V3, TradingApi.ProtocolItems.V2],
@@ -142,7 +141,7 @@ test.describe(
       })
 
       test('prompts signature when there is no permit2 allowance', async ({ page, anvil }) => {
-        await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
+        await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
         await anvil.setErc20Balance({ address: assume0xAddress(USDT.address), balance: ONE_MILLION_USDT })
         await page.goto(`/swap?inputCurrency=${USDT.address}&outputCurrency=ETH`)
         await page.getByTestId(TestID.AmountInputIn).click()
@@ -168,10 +167,10 @@ test.describe(
       })
 
       test('swaps with existing permit2 approval and missing token approval', async ({ page, anvil }) => {
-        await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
+        await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
         await stubTradingApiEndpoint({
           page,
-          endpoint: uniswapUrls.tradingApiPaths.quote,
+          endpoint: lxUrls.tradingApiPaths.quote,
           modifyResponseData: (data) => ({
             ...data,
             permitData: null,
@@ -208,10 +207,10 @@ test.describe(
        *   https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
        */
       test('swaps USDT with existing but insufficient approval permit2', async ({ page, anvil }) => {
-        await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
+        await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
         await stubTradingApiEndpoint({
           page,
-          endpoint: uniswapUrls.tradingApiPaths.approval,
+          endpoint: lxUrls.tradingApiPaths.approval,
           modifyResponseData: (data) => ({
             ...data,
             cancel: {
@@ -243,7 +242,7 @@ test.describe(
       })
 
       test('prompts signature when existing permit approval is expired', async ({ page, anvil }) => {
-        await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
+        await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
         await anvil.setErc20Balance({ address: assume0xAddress(USDT.address), balance: ONE_MILLION_USDT })
         await anvil.setPermit2Allowance({
           owner: TEST_WALLET_ADDRESS,
@@ -264,7 +263,7 @@ test.describe(
       })
 
       test('prompts signature when existing permit approval amount is too low', async ({ page, anvil }) => {
-        await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
+        await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
         await anvil.setErc20Balance({ address: assume0xAddress(USDT.address), balance: ONE_MILLION_USDT })
         await anvil.setPermit2Allowance({
           owner: TEST_WALLET_ADDRESS,

@@ -1,15 +1,15 @@
 import 'utilities/src/logger/mocks'
-import { WETH9 } from '@uniswap/sdk-core'
+import { WETH9 } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+  DEXOrderDetails,
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import { vi } from 'vitest'
 import {
   CancellationState,
@@ -17,12 +17,12 @@ import {
 } from '~/components/AccountDrawer/MiniPortfolio/Activity/CancelOrdersDialog'
 import { render, screen } from '~/test-utils/render'
 
-const mockOrderDetails: UniswapXOrderDetails = {
+const mockOrderDetails: DEXOrderDetails = {
   routing: TradingApi.Routing.DUTCH_V2,
   orderHash: '0x1234',
   status: TransactionStatus.Pending,
   typeInfo: {
-    isUniswapXOrder: true,
+    isLXOrder: true,
     type: TransactionType.Swap,
     tradeType: 0,
     inputCurrencyId: currencyId(DAI),

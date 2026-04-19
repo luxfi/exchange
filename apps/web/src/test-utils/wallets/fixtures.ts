@@ -1,4 +1,4 @@
-import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from '@l.x/lx/src/constants/web3'
 import { CONNECTOR_ICON_OVERRIDE_MAP } from '~/components/Web3Provider/constants'
 import { WalletConnectorMeta } from '~/features/wallet/connection/types/WalletConnectorMeta'
 
@@ -18,10 +18,10 @@ export const COINBASE_WALLET_CONNECTOR: WalletConnectorMeta = {
   analyticsWalletType: 'Coinbase Wallet',
 }
 
-export const UNISWAP_WALLET_CONNECTOR: WalletConnectorMeta = {
-  name: CONNECTION_PROVIDER_NAMES.UNISWAP_WALLET,
-  icon: CONNECTOR_ICON_OVERRIDE_MAP[CONNECTION_PROVIDER_NAMES.UNISWAP_WALLET],
-  customConnectorId: CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID,
+export const LUX_WALLET_CONNECTOR: WalletConnectorMeta = {
+  name: CONNECTION_PROVIDER_NAMES.LUX_WALLET,
+  icon: CONNECTOR_ICON_OVERRIDE_MAP[CONNECTION_PROVIDER_NAMES.LUX_WALLET],
+  customConnectorId: CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID,
   isInjected: false,
   analyticsWalletType: 'Wallet Connect',
 }

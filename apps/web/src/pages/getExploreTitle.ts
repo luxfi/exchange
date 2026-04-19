@@ -1,6 +1,6 @@
 import { capitalize } from 'tsafe/capitalize'
-import i18n from 'uniswap/src/i18n'
-import { logger } from 'utilities/src/logger/logger'
+import i18n from '@l.x/lx/src/i18n'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { ExploreTab } from '~/pages/Explore/constants'
 import { isChainUrlParam } from '~/utils/chainParams'
 

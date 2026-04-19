@@ -1,9 +1,9 @@
-/* oxlint-disable no-restricted-syntax */
+/* eslint-disable no-restricted-syntax */
 
-import { UNI, USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { AddressStringFormat, normalizeAddress } from 'uniswap/src/utils/addresses'
+import { UNI, USDT } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/addresses'
 import { expect, getTest } from '~/playwright/fixtures'
 
 const test = getTest()

@@ -1,5 +1,5 @@
-import { Flex } from 'ui/src'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
+import { Flex } from '@l.x/ui/src'
+import { SwapTab } from '@l.x/lx/src/types/screens/interface'
 import { MultichainContextProvider } from '~/state/multichain/MultichainContext'
 import { SwapAndLimitContextProvider } from '~/state/swap/SwapContext'
 import { useSwapAndLimitContext } from '~/state/swap/useSwapContext'

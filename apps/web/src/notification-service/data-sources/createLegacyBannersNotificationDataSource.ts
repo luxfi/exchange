@@ -7,7 +7,7 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import {
@@ -17,15 +17,15 @@ import {
 } from '@l.x/notifications'
 import {
   NO_FEES_ICON,
-  NO_UNISWAP_INTERFACE_FEES_BANNER_DARK,
-  NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT,
+  NO_LUX_INTERFACE_FEES_BANNER_DARK,
+  NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
   SOLANA_BANNER_DARK,
   SOLANA_BANNER_LIGHT,
   SOLANA_LOGO,
-} from 'ui/src/assets'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import i18n from 'uniswap/src/i18n'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/ui/src/assets'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import i18n from '@l.x/lx/src/i18n'
+import { logger } from '@l.x/utils/src/logger/logger'
 import store from '~/state/index'
 
 // Legacy storage keys from the old banner implementation
@@ -35,7 +35,7 @@ const LEGACY_SOLANA_PROMO_STORAGE_KEY = 'solanaPromoHidden'
 const SOLANA_BANNER_ID = 'local:solana_promo_banner'
 const SOLANA_MODAL_ID = 'local:solana_promo_modal'
 const BRIDGING_BANNER_ID = 'local:bridging_popular_tokens_banner'
-const NO_UNISWAP_INTERFACE_FEES_BANNER_ID = 'local:no_uniswap_interface_fees_banner'
+const NO_LUX_INTERFACE_FEES_BANNER_ID = 'local:no_lux_interface_fees_banner'
 
 interface CreateLegacyBannersNotificationDataSourceContext {
   tracker: NotificationTracker
@@ -93,7 +93,7 @@ export function createLegacyBannersNotificationDataSource(
 
       // Migrate BridgingBanner dismissal from Redux
       const state = store.getState()
-      const bridgingWasDismissed = state.uniswapBehaviorHistory.hasDismissedBridgedAssetsBannerV2
+      const bridgingWasDismissed = state.luxBehaviorHistory.hasDismissedBridgedAssetsBannerV2
       if (bridgingWasDismissed) {
         logger.info(
           'createLegacyBannersNotificationDataSource',
@@ -169,10 +169,10 @@ export function createLegacyBannersNotificationDataSource(
 async function fetchNotifications(isDarkMode: boolean): Promise<InAppNotification[]> {
   const notifications: InAppNotification[] = []
 
-  // Priority 1: No Uniswap interface fees banner
-  const noUniswapInterfaceFeesBanner = await checkNoUniswapInterfaceFeesBanner(isDarkMode)
-  if (noUniswapInterfaceFeesBanner) {
-    notifications.push(noUniswapInterfaceFeesBanner)
+  // Priority 1: No Lux interface fees banner
+  const noLuxInterfaceFeesBanner = await checkNoLuxInterfaceFeesBanner(isDarkMode)
+  if (noLuxInterfaceFeesBanner) {
+    notifications.push(noLuxInterfaceFeesBanner)
   }
 
   // Priority 2: SolanaPromoBanner + Modal (chained)
@@ -183,17 +183,17 @@ async function fetchNotifications(isDarkMode: boolean): Promise<InAppNotificatio
 }
 
 /**
- * Check if No Uniswap interface fees banner should be shown based on feature flag.
+ * Check if No Lux interface fees banner should be shown based on feature flag.
  * The processor will filter based on tracked state.
  */
-async function checkNoUniswapInterfaceFeesBanner(isDarkMode: boolean): Promise<InAppNotification | null> {
-  const isEnabled = getFeatureFlag(FeatureFlags.NoUniswapInterfaceFeesNotification)
+async function checkNoLuxInterfaceFeesBanner(isDarkMode: boolean): Promise<InAppNotification | null> {
+  const isEnabled = getFeatureFlag(FeatureFlags.NoLuxInterfaceFeesNotification)
 
   if (!isEnabled) {
     return null
   }
 
-  return createNoUniswapInterfaceFeesBanner(isDarkMode)
+  return createNoLuxInterfaceFeesBanner(isDarkMode)
 }
 
 /**
@@ -292,11 +292,11 @@ function createSolanaPromoModal(): InAppNotification {
 }
 
 /**
- * Create No Uniswap interface fees banner notification
+ * Create No Lx interface fees banner notification
  */
-function createNoUniswapInterfaceFeesBanner(isDarkMode: boolean): InAppNotification {
+function createNoLuxInterfaceFeesBanner(isDarkMode: boolean): InAppNotification {
   return new Notification({
-    id: NO_UNISWAP_INTERFACE_FEES_BANNER_ID,
+    id: NO_LUX_INTERFACE_FEES_BANNER_ID,
     content: new Content({
       version: NotificationVersion.V0,
       style: ContentStyle.LOWER_LEFT_BANNER,
@@ -305,10 +305,10 @@ function createNoUniswapInterfaceFeesBanner(isDarkMode: boolean): InAppNotificat
       iconLink: NO_FEES_ICON,
       background: new Background({
         backgroundType: BackgroundType.IMAGE,
-        link: isDarkMode ? NO_UNISWAP_INTERFACE_FEES_BANNER_DARK : NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT,
+        link: isDarkMode ? NO_LUX_INTERFACE_FEES_BANNER_DARK : NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
         backgroundOnClick: new OnClick({
           onClick: [OnClickAction.EXTERNAL_LINK, OnClickAction.DISMISS, OnClickAction.ACK],
-          onClickLink: uniswapUrls.helpArticleUrls.swapFeeInfo,
+          onClickLink: lxUrls.helpArticleUrls.swapFeeInfo,
         }),
       }),
       onDismissClick: new OnClick({

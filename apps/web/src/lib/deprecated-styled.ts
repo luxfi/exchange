@@ -1,5 +1,5 @@
 /**
- * Note: we're deprecating styled-components in favor of Tamagui, which you
+ * Note: we're deprecating styled-components in favor of Gui, which you
  * should import from `ui/src`. It should cover most of what styled-components
  * handles.
  *
@@ -7,7 +7,13 @@
  * tag, or we can add on any one-off CSS by either inlining a style tag in the
  * component itself, or importing it via CSS modules.
  */
-  // oxlint-disable-next-line no-restricted-imports -- This is a legacy compatibility file that re-exports styled-components for migration purposes
+import styledFn, {
+  createGlobalStyle as createGlobalStyleSC,
+  css as cssSC,
+  type DefaultTheme as DefaultThemeSC,
+  keyframes as keyframesFnSC,
+  ThemeProvider as ThemeProviderSC,
+  // biome-ignore lint/style/noRestrictedImports: This is a legacy compatibility file that re-exports styled-components for migration purposes
 } from 'styled-components'
 
 /** @deprecated use `styled` from `ui/src` instead */

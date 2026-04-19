@@ -2,23 +2,23 @@ import { ReactNode } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { capitalize } from 'tsafe'
-import { Button, Flex, Separator, styled } from 'ui/src'
-import { Passkey } from 'ui/src/components/icons/Passkey'
-import { Unitag } from 'ui/src/components/icons/Unitag'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
-import { selectHasDismissedLowNetworkTokenWarning } from 'uniswap/src/features/behaviorHistory/selectors'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { ElementName, UniswapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { LowNativeBalanceModal } from 'uniswap/src/features/transactions/modals/LowNativeBalanceModal'
-import { shortenAddress } from 'utilities/src/addresses'
-import { NumberType } from 'utilities/src/format/types'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { Button, Flex, Separator, styled } from '@l.x/ui/src'
+import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
+import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
+import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
+import { selectHasDismissedLowNetworkTokenWarning } from '@l.x/lx/src/features/behaviorHistory/selectors'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useGetPasskeyAuthStatus } from '@l.x/lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { ElementName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { LowNativeBalanceModal } from '@l.x/lx/src/features/transactions/modals/LowNativeBalanceModal'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
 import { ChainLogo } from '~/components/Logo/ChainLogo'
 import { useAccount } from '~/hooks/useAccount'
@@ -118,7 +118,7 @@ export function SendReviewModalInner({ onConfirm, isConfirming }: SendModalInner
 
   const handleConfirm = () => {
     if (!hasDismissedLowNetworkTokenWarning && isMax && inputCurrency?.isNative) {
-      sendAnalyticsEvent(UniswapEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
+      sendAnalyticsEvent(LXEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
       handleShowMaxTransferModal()
       return
     }
@@ -176,7 +176,7 @@ export function SendReviewModalInner({ onConfirm, isConfirming }: SendModalInner
               size="large"
               loading={isConfirming}
               isDisabled={isConfirming}
-              icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$white" /> : undefined}
+              icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$neutral1" /> : undefined}
               onPress={handleConfirm}
             >
               <Trans i18nKey="common.confirmSend.button" />

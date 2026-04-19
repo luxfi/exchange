@@ -1,18 +1,18 @@
 import { TradingApi } from '@l.x/api'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
-import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import type { SwapRouting } from 'uniswap/src/features/telemetry/types'
-import { planAnalyticsToSnakeCase } from 'uniswap/src/features/transactions/swap/plan/types'
-import { SwapEventType, timestampTracker } from 'uniswap/src/features/transactions/swap/utils/SwapEventTimestampTracker'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import type { SwapRouting } from '@l.x/lx/src/features/telemetry/types'
+import { planAnalyticsToSnakeCase } from '@l.x/lx/src/features/transactions/swap/plan/types'
+import { SwapEventType, timestampTracker } from '@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
 import {
   type PlanSwapTransactionInfoFields,
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
-import type { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@l.x/utils/src/logger/logger'
+import type { ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import type { ConfirmedTransactionDetails } from '~/state/transactions/types'
 
 type OnChainSwapTransactionType = TransactionType.Swap | TransactionType.Bridge
@@ -86,12 +86,12 @@ const ROUTING_TO_SWAP_ROUTING: Partial<Record<TradingApi.Routing, SwapRouting>> 
   [TradingApi.Routing.CLASSIC]: 'classic',
   [TradingApi.Routing.DUTCH_LIMIT]: 'limit_order',
   [TradingApi.Routing.PRIORITY]: 'priority_order',
-  [TradingApi.Routing.DUTCH_V2]: 'uniswap_x_v2',
-  [TradingApi.Routing.DUTCH_V3]: 'uniswap_x_v3',
+  [TradingApi.Routing.DUTCH_V2]: 'dex_v2',
+  [TradingApi.Routing.DUTCH_V3]: 'dex_v3',
   [TradingApi.Routing.BRIDGE]: 'bridge',
 }
 
-export function logUniswapXSwapFinalized({
+export function logLXSwapFinalized({
   id,
   hash,
   orderHash,

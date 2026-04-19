@@ -1,8 +1,8 @@
 import { useAuthorizationSignature, useLoginWithEmail, usePrivy } from '@privy-io/react-auth'
 import { fireEvent, waitFor } from '@testing-library/react'
-import { EmbeddedWalletApiClient } from 'uniswap/src/data/rest/embeddedWallet/requests'
-import { attemptPinDecryption, executeRecovery } from 'uniswap/src/features/passkey/recoveryExecute'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
+import { attemptPinDecryption, executeRecovery } from 'lx/src/features/passkey/recoveryExecute'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { RecoverWalletModal } from '~/components/Passkey/RecoverWalletModal'
 import { useModalState } from '~/hooks/useModalState'
 import { render, screen } from '~/test-utils/render'
@@ -21,22 +21,22 @@ vi.mock('~/hooks/useModalState', () => ({
   useModalState: vi.fn(),
 }))
 
-vi.mock('uniswap/src/data/rest/embeddedWallet/requests', () => ({
+vi.mock('lx/src/data/rest/embeddedWallet/requests', () => ({
   EmbeddedWalletApiClient: {
     fetchGetRecoveryConfig: vi.fn(),
   },
 }))
 
-vi.mock('uniswap/src/features/passkey/recoveryExecute', () => ({
+vi.mock('lx/src/features/passkey/recoveryExecute', () => ({
   attemptPinDecryption: vi.fn(),
   executeRecovery: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/passkey/embeddedWallet', () => ({
+vi.mock('lx/src/features/passkey/embeddedWallet', () => ({
   registerNewPasskey: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/telemetry/send', () => ({
+vi.mock('lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: vi.fn(),
 }))
 
@@ -300,7 +300,7 @@ describe('RecoverWalletModal', () => {
 
   it('Add passkey button triggers executeRecovery', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {})
-    const { registerNewPasskey } = await import('uniswap/src/features/passkey/embeddedWallet')
+    const { registerNewPasskey } = await import('lx/src/features/passkey/embeddedWallet')
     setupMocks()
     render(<RecoverWalletModal />)
     await goToEnterPinStep()

@@ -1,10 +1,10 @@
 import { Trans, useTranslation } from 'react-i18next'
-import { Anchor, Button, Flex, Text, TouchableArea } from 'ui/src'
-import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
-import { UserLock } from 'ui/src/components/icons/UserLock'
-import { X } from 'ui/src/components/icons/X'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Anchor, Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
+import { UserLock } from '@l.x/ui/src/components/icons/UserLock'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
 
 interface KycInterstitialModalProps {

@@ -1,11 +1,18 @@
-import { Amount, PriceHistory, TokenStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { useMemo } from 'react'
-import { PricePoint, TimePeriod } from '~/appGraphql/data/util'
-import { TokenSortMethod } from '~/components/Tokens/constants'
-import { useExploreStats } from '~/state/explore'
+import { Amount, PriceHistory, TokenStats } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
+import { useContext, useMemo } from 'react'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { SparklineMap } from '~/appGraphql/data/types'
+import { PricePoint, TimePeriod, unwrapToken } from '~/appGraphql/data/util'
+import { NATIVE_CHAIN_ID } from '~/constants/tokens'
+import { ExploreContext } from '~/state/explore'
+import { EXPLORE_API_PAGE_SIZE } from '~/state/explore/constants'
 import { UseListTokensOptions, type UseListTokensSortOptions } from '~/state/explore/listTokens/types'
 import { TokenSortMethods } from '~/state/explore/listTokens/utils/sortTokens'
 import { TokenStat } from '~/state/explore/types'
+import { getChainIdFromChainUrlParam } from '~/utils/chainParams'
 
 function convertPriceHistoryToPricePoints(priceHistory?: PriceHistory): PricePoint[] | undefined {
   return priceHistory?.values.map((value, index) => {
@@ -64,22 +71,43 @@ function useSortedTokens({
     if (!tokens) {
       return undefined
     }
-    // PRICE sort is done in processMultichainTokensForDisplay after convert to multichain; avoid duplicate sort here.
-    if (sortMethod === TokenSortMethod.PRICE) {
-      return tokens
-    }
     const tokenArray = Array.from(tokens).sort(TokenSortMethods[sortMethod])
+
     return sortAscending ? tokenArray.reverse() : tokenArray
   }, [tokens, sortMethod, sortAscending])
 }
 
+function useFilteredTokens(tokens: TokenStat[] | undefined, filterString: string) {
+  const lowercaseFilterString = useMemo(() => filterString.toLowerCase(), [filterString])
+
+  return useMemo(() => {
+    if (!tokens) {
+      return undefined
+    }
+    let returnTokens = tokens
+    if (lowercaseFilterString) {
+      returnTokens = returnTokens.filter((token) => {
+        const addressIncludesFilterString = normalizeTokenAddressForCache(token.address).includes(lowercaseFilterString)
+        const projectNameIncludesFilterString = token.project?.name?.toLowerCase().includes(lowercaseFilterString)
+        const nameIncludesFilterString = token.name?.toLowerCase().includes(lowercaseFilterString)
+        const symbolIncludesFilterString = token.symbol?.toLowerCase().includes(lowercaseFilterString)
+        return (
+          projectNameIncludesFilterString ||
+          nameIncludesFilterString ||
+          symbolIncludesFilterString ||
+          addressIncludesFilterString
+        )
+      })
+    }
+    return returnTokens
+  }, [tokens, lowercaseFilterString])
+}
+
 /**
- * Legacy hook that uses useExploreStats() with client-side sorting only (no filter, no slice).
- * Filter and PRICE sort are done in processMultichainTokensForDisplay; slice in useListTokens.
- * tokenSortRank and sparklines are computed in useListTokens from the final multichain tokens.
- *
- * @param enabled - Whether to process the data. When false, returns empty results.
- * @param options - Resolved sort and filter options (duration + sort used here; filter applied later).
+ * Legacy hook that uses ExploreContext with client-side sorting/filtering.
+ * Filter state is passed in; caller (useListTokens) reads from store when needed.
+ * @param enabled - Whether to process the data (default: true). When false, skips processing and returns empty results.
+ * @param options - Resolved sort and filter options (caller provides via getEffectiveListTokensOptions).
  */
 export function useTopTokensLegacy({
   enabled,
@@ -88,8 +116,10 @@ export function useTopTokensLegacy({
   enabled: boolean
   options: Required<UseListTokensOptions>
 }) {
-  const { filterTimePeriod: duration, sortMethod, sortAscending } = options
-  const { data, isLoading, error: isError } = useExploreStats()
+  const { filterString, filterTimePeriod: duration, sortMethod, sortAscending } = options
+  const {
+    exploreStats: { data, isLoading, error: isError },
+  } = useContext(ExploreContext)
 
   const tokenStats = useMemo(() => {
     if (!enabled) {
@@ -102,6 +132,37 @@ export function useTopTokensLegacy({
     tokens: tokenStats,
     sortOptions: { sortMethod, sortAscending },
   })
+  const filteredTokens = useFilteredTokens(sortedTokenStats, filterString)?.slice(0, EXPLORE_API_PAGE_SIZE)
+  const tokenSortRank = useMemo(
+    () =>
+      // eslint-disable-next-line max-params
+      sortedTokenStats?.reduce((acc, cur, i) => {
+        if (!cur.address) {
+          return acc
+        }
+        const currCurrencyId = buildCurrencyId(fromGraphQLChain(cur.chain) ?? UniverseChainId.Mainnet, cur.address)
+        return {
+          ...acc,
+          [currCurrencyId]: i + 1,
+        }
+      }, {}) ?? {},
+    [sortedTokenStats],
+  )
+  const sparklines = useMemo(() => {
+    const unwrappedTokens = filteredTokens?.map((tokenStat) => {
+      const chainId = getChainIdFromChainUrlParam(tokenStat.chain.toLowerCase())
+      return chainId ? unwrapToken(chainId, tokenStat) : undefined
+    })
+    const map: SparklineMap = {}
+    unwrappedTokens?.forEach((current) => {
+      if (current !== undefined) {
+        const address =
+          current.address === NATIVE_CHAIN_ID ? NATIVE_CHAIN_ID : normalizeTokenAddressForCache(current.address)
+        map[address] = current.priceHistory
+      }
+    })
+    return map
+  }, [filteredTokens])
 
-  return { topTokens: sortedTokenStats, isLoading, isError: !!isError }
+  return { topTokens: filteredTokens, sparklines, tokenSortRank, isLoading, isError }
 }

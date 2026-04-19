@@ -1,15 +1,15 @@
 import { Dispatch, SetStateAction, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex } from 'ui/src'
-import { Check } from 'ui/src/components/icons/Check'
-import { Faceid } from 'ui/src/components/icons/Faceid'
-import { Fingerprint } from 'ui/src/components/icons/Fingerprint'
-import { Passkey } from 'ui/src/components/icons/Passkey'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Button, Flex } from '@l.x/ui/src'
+import { Check } from '@l.x/ui/src/components/icons/Check'
+import { Faceid } from '@l.x/ui/src/components/icons/Faceid'
+import { Fingerprint } from '@l.x/ui/src/components/icons/Fingerprint'
+import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { Page } from '~/components/NavBar/DownloadApp/Modal'
 import { ModalContent } from '~/components/NavBar/DownloadApp/Modal/Content'
 import { useModalState } from '~/hooks/useModalState'
@@ -74,7 +74,7 @@ export function PasskeyGenerationModal({
             </Flex>
           </Flex>
         }
-        learnMoreLink={uniswapUrls.helpArticleUrls.passkeysInfo}
+        learnMoreLink={lxUrls.helpArticleUrls.passkeysInfo}
         onClose={onClose}
         goBack={goBack}
       >
@@ -87,7 +87,7 @@ export function PasskeyGenerationModal({
                 hasWalletCreationSuccess ? (
                   <Check size="$icon.24" color="$neutral2" />
                 ) : (
-                  <Passkey size="$icon.24" color="$white" />
+                  <Passkey size="$icon.24" color="$neutral1" />
                 )
               }
               emphasis="primary"

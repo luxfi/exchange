@@ -1,12 +1,12 @@
 import { useMemo } from 'react'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   type Register,
   type UseAccountReturnType as UseAccountReturnTypeWagmi,
-  // oxlint-disable-next-line no-restricted-imports -- wagmi account hook needed for wallet integration
+  // biome-ignore lint/style/noRestrictedImports: wagmi account hook needed for wallet integration
   useAccount as useAccountWagmi,
-  // oxlint-disable-next-line no-restricted-imports -- wagmi chain hook needed for chain management
+  // biome-ignore lint/style/noRestrictedImports: wagmi chain hook needed for chain management
   useChainId,
 } from 'wagmi'
 

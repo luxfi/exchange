@@ -1,16 +1,16 @@
 import { type ColumnDef, Row } from '@tanstack/react-table'
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxamm/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { TouchableArea } from 'ui/src'
-import { InformationBanner } from 'uniswap/src/components/banners/InformationBanner'
-import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { HiddenTokenInfoModal } from 'uniswap/src/features/transactions/modals/HiddenTokenInfoModal'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { TouchableArea } from '@l.x/ui/src'
+import { InformationBanner } from '@l.x/lx/src/components/banners/InformationBanner'
+import { ElementName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { HiddenTokenInfoModal } from '@l.x/lx/src/features/transactions/modals/HiddenTokenInfoModal'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { Table } from '~/components/Table'
 import { PORTFOLIO_TABLE_ROW_HEIGHT } from '~/pages/Portfolio/constants'
 import { useNavigateToTokenDetails } from '~/pages/Portfolio/Tokens/hooks/useNavigateToTokenDetails'
@@ -37,7 +37,19 @@ export function TokensTableInner({
   externalScrollSync = true,
   scrollGroup = 'portfolio-tokens',
   analyticsContext,
-  showUnrealizedPnlPercent?: boolean
+}: {
+  tokenData: TokenData[]
+  hideHeader?: boolean
+  showHiddenTokensBanner?: boolean
+  loading?: boolean
+  error?: Error | undefined
+  hiddenColumns?: TokenColumns[]
+  maxHeight?: number
+  maxWidth?: number
+  loadingRowsCount?: number
+  externalScrollSync?: boolean
+  scrollGroup?: string
+  analyticsContext?: { element: ElementName; section: SectionName }
 }) {
   const { t } = useTranslation()
   const { value: isModalVisible, setTrue: openModal, setFalse: closeModal } = useBooleanState(false)
@@ -46,7 +58,7 @@ export function TokensTableInner({
   const multichainExpandable = useFeatureFlag(FeatureFlags.MultichainTokenUx)
   const rows = useMemo(() => buildTokenTableRows(tokenData, multichainExpandable), [tokenData, multichainExpandable])
 
-  const columns = useTokenColumns({ hiddenColumns, showLoadingSkeleton, showUnrealizedPnlPercent })
+  const columns = useTokenColumns({ hiddenColumns, showLoadingSkeleton })
 
   const navigateToTokenDetails = useNavigateToTokenDetails()
 

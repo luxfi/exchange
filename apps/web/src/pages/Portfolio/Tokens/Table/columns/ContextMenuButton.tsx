@@ -1,8 +1,8 @@
 import { memo } from 'react'
-import { Flex, useIsTouchDevice } from 'ui/src'
-import { ContextMenuTriggerButton } from 'uniswap/src/components/menus/ContextMenuTriggerButton'
-import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Flex, useIsTouchDevice } from '@l.x/ui/src'
+import { ContextMenuTriggerButton } from 'lx/src/components/menus/ContextMenuTriggerButton'
+import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { TokenData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 import { TokensContextMenuWrapper } from '~/pages/Portfolio/Tokens/Table/TokensContextMenuWrapper'
 

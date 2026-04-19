@@ -1,6 +1,6 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { USDC, USDC_MAINNET, USDT } from 'uniswap/src/constants/tokens'
-import { ETH } from 'uniswap/src/test/fixtures/lib/sdk'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { USDC, USDC_MAINNET, USDT } from '@l.x/lx/src/constants/tokens'
+import { ETH } from '@l.x/lx/src/test/fixtures/lib/sdk'
 import {
   buildBucketChartEntries,
   buildBuckets,

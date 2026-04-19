@@ -1,22 +1,22 @@
 import { createColumnHelper, Row } from '@tanstack/react-table'
-import { SharedEventName } from '@uniswap/analytics-events'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { SharedEventName } from '@luxamm/analytics-events'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { TFunction } from 'i18next'
 import { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea, useScrollbarStyles } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import { useFormattedCurrencyAmountAndUSDValue } from 'uniswap/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
-import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'uniswap/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
-import { getDurationRemainingString } from 'utilities/src/time/duration'
+import { Flex, Text, TouchableArea, useScrollbarStyles } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { useFormattedCurrencyAmountAndUSDValue } from '@l.x/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
+import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { ElementName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+import { getDurationRemainingString } from '@l.x/utils/src/time/duration'
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import {
   useOpenOffchainActivityModal,
@@ -57,7 +57,7 @@ function getExpiryText(expiry: number | undefined, t: TFunction): string | null 
 }
 
 // Left column cell component
-const LimitInfoCell = memo(function LimitInfoCell({ order }: { order: UniswapXOrderDetails }) {
+const LimitInfoCell = memo(function LimitInfoCell({ order }: { order: DEXOrderDetails }) {
   const { t } = useTranslation()
   const { formatCurrencyAmount } = useLocalizationContext()
   const amounts = useOrderAmounts(order)
@@ -103,7 +103,7 @@ const LimitInfoCell = memo(function LimitInfoCell({ order }: { order: UniswapXOr
 })
 
 // Right column cell component
-const LimitActionCell = memo(function LimitActionCell({ order }: { order: UniswapXOrderDetails }) {
+const LimitActionCell = memo(function LimitActionCell({ order }: { order: DEXOrderDetails }) {
   const formatter = useLocalizationContext()
   const amounts = useOrderAmounts(order)
 
@@ -161,7 +161,7 @@ export const OpenLimitsTable = memo(function OpenLimitsTable({
   }, [openLimitOrders, maxLimits])
 
   const columns = useMemo(() => {
-    const columnHelper = createColumnHelper<UniswapXOrderDetails>()
+    const columnHelper = createColumnHelper<DEXOrderDetails>()
     const showLoadingSkeleton = loading
 
     return [
@@ -179,7 +179,7 @@ export const OpenLimitsTable = memo(function OpenLimitsTable({
         cell: (info) => {
           return (
             <Cell loading={showLoadingSkeleton} justifyContent="flex-start">
-              {hasRow<UniswapXOrderDetails>(info) && <LimitInfoCell order={info.row.original} />}
+              {hasRow<DEXOrderDetails>(info) && <LimitInfoCell order={info.row.original} />}
             </Cell>
           )
         },
@@ -198,7 +198,7 @@ export const OpenLimitsTable = memo(function OpenLimitsTable({
         cell: (info) => {
           return (
             <Cell loading={showLoadingSkeleton} justifyContent="flex-end">
-              {hasRow<UniswapXOrderDetails>(info) && <LimitActionCell order={info.row.original} />}
+              {hasRow<DEXOrderDetails>(info) && <LimitActionCell order={info.row.original} />}
             </Cell>
           )
         },
@@ -207,7 +207,7 @@ export const OpenLimitsTable = memo(function OpenLimitsTable({
   }, [t, loading])
 
   const rowWrapper = useCallback(
-    (row: Row<UniswapXOrderDetails>, content: JSX.Element) => {
+    (row: Row<DEXOrderDetails>, content: JSX.Element) => {
       const order = row.original
       return (
         <TouchableArea

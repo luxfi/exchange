@@ -1,9 +1,9 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useNativeCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { NumberType } from 'utilities/src/format/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useNativeCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { fromQ96ToDecimalWithTokenDecimals } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
 import { PreparedBidTransaction, SubmitState } from '~/components/Toucan/Auction/hooks/useBidFormSubmit'
 import { useFormattedGasFee } from '~/components/Toucan/Auction/hooks/useFormattedGasFee'
@@ -124,7 +124,7 @@ export function useBidReviewData({
 
   // Prepare transaction when modal opens or inputs change
   // retryTrigger is intentionally included to trigger re-execution when user clicks retry
-  // oxlint-disable-next-line react/exhaustive-deps -- retryTrigger is intentionally included, submitState properties excluded
+  // biome-ignore lint/correctness/useExhaustiveDependencies: retryTrigger is intentionally included, submitState properties excluded
   useEffect(() => {
     let cancelled = false
 
@@ -152,7 +152,7 @@ export function useBidReviewData({
     ;(async () => {
       try {
         const result = await submitState.prepareTransaction()
-        // oxlint-disable-next-line typescript/no-unnecessary-condition
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!cancelled) {
           // If result is undefined after passing validation, it means preparation failed
           if (!result) {
@@ -168,15 +168,15 @@ export function useBidReviewData({
           }
         }
       } catch (error) {
-        // oxlint-disable-next-line typescript/no-unnecessary-condition
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!cancelled) {
-          // oxlint-disable-next-line no-console -- intentional error logging for debugging
+          // biome-ignore lint/suspicious/noConsole: intentional error logging for debugging
           console.error('Bid preparation failed:', error)
           setPreparedBid(undefined)
           setPreparationError(error instanceof Error ? error : new Error('Failed to prepare bid'))
         }
       } finally {
-        // oxlint-disable-next-line typescript/no-unnecessary-condition
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!cancelled) {
           setIsPreparing(false)
         }
@@ -189,7 +189,6 @@ export function useBidReviewData({
     // Note: submitState.isDisabled and submitState.prepareTransaction are intentionally NOT in deps
     // because they can change during the async operation and would cause infinite re-runs
     // Using captured values to prevent re-triggering when live form values change
-    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
   }, [
     auctionAddress,
     capturedBudgetRawAmount,

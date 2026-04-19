@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useMedia } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Flex, Text, useMedia } from '@l.x/ui/src'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { BidAveragePriceSection } from '~/components/Toucan/Auction/Bids/BidDetailsModal/BidAveragePriceSection'
 import { BidDescription } from '~/components/Toucan/Auction/Bids/BidDetailsModal/BidDescription'
 import { BidDetailsHeader } from '~/components/Toucan/Auction/Bids/BidDetailsModal/BidDetailsHeader'
@@ -123,7 +123,6 @@ function BidDetailsModalContent({
   bidTokenInfo,
   auctionDetails,
   clearingPrice,
-  // oxlint-disable-next-line no-unused-vars -- biome-parity: oxlint is stricter here
   onchainClearingPrice,
   isGraduated,
   isInPreClaimWindow,

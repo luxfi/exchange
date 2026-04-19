@@ -1,5 +1,5 @@
 import { createPromiseClient } from '@connectrpc/connect'
-import { DataApiService } from '@uniswap/client-data-api/dist/data/v1/api_connect'
+import { DataApiService } from '@luxamm/client-data-api/dist/data/v1/api_connect'
 import { getEntryGatewayUrl, getTransport } from '@l.x/api'
 import type { RestPriceClient, TokenIdentifier, TokenPriceData } from '@l.x/prices'
 import { createPriceKey } from '@l.x/prices'

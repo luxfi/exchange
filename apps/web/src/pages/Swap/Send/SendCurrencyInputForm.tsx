@@ -1,23 +1,23 @@
-import { type Currency } from '@uniswap/sdk-core'
+import { type Currency } from '@luxamm/sdk-core'
 import { useCallback, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Button, type ButtonProps, Flex, styled, Text } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { useCurrencyInputFontSize } from 'uniswap/src/components/CurrencyInputPanel/hooks/useCurrencyInputFontSize'
-import { TokenSelectorVariation } from 'uniswap/src/components/TokenSelector/types'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { getPrimaryStablecoin } from 'uniswap/src/features/chains/utils'
-import { useAppFiatCurrency, useFiatCurrencyComponents } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Button, type ButtonProps, Flex, styled, Text } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { useCurrencyInputFontSize } from 'lx/src/components/CurrencyInputPanel/hooks/useCurrencyInputFontSize'
+import { TokenSelectorVariation } from 'lx/src/components/TokenSelector/types'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getPrimaryStablecoin } from 'lx/src/features/chains/utils'
+import { useAppFiatCurrency, useFiatCurrencyComponents } from 'lx/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import useResizeObserver from 'use-resize-observer'
-import { NumberType } from 'utilities/src/format/types'
-import { isSafeNumber } from 'utilities/src/primitives/integer'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isSafeNumber } from '@l.x/utils/src/primitives/integer'
 import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
 import { isInputGreaterThanDecimals } from '~/components/NumericalInput'
@@ -30,7 +30,7 @@ import { SendInputError } from '~/state/send/hooks'
 import { useSendContext } from '~/state/send/SendContext'
 import { type CurrencyState } from '~/state/swap/types'
 import { ThemedText } from '~/theme/components'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { maxAmountSpend } from '~/utils/maxAmountSpend'
 
 const Wrapper = styled(Flex, {
@@ -298,7 +298,7 @@ export default function SendCurrencyInputForm({
           <Flex
             row
             justifyContent="space-between"
-            {...ClickableTamaguiStyle}
+            {...ClickableGuiStyle}
             onPress={() => setTokenSelectorOpen(true)}
           >
             <Flex row alignItems="center" gap="$gap12">

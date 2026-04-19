@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router'
-import { Anchor, Button, Flex, SpinningLoader, Text } from 'ui/src'
-import { EnvelopeHeart } from 'ui/src/components/icons/EnvelopeHeart'
-import { Passkey } from 'ui/src/components/icons/Passkey'
-import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { parseMessage } from 'uniswap/src/extension/messagePassing/platform'
+import { Anchor, Button, Flex, SpinningLoader, Text } from '@l.x/ui/src'
+import { EnvelopeHeart } from '@l.x/ui/src/components/icons/EnvelopeHeart'
+import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
+import { LuxLogo } from '@l.x/ui/src/components/icons/LXLogo'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { parseMessage } from '@l.x/lx/src/extension/messagePassing/platform'
 import {
   InterfaceToExtensionRequestType,
   PasskeyCredentialError,
@@ -14,14 +14,14 @@ import {
   PasskeyRequest,
   PasskeyRequestSchema,
   PasskeySignInFlowOpened,
-} from 'uniswap/src/extension/messagePassing/types/requests'
-import { authenticatePasskey } from 'uniswap/src/features/passkey/passkey'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { getChromeRuntime, getChromeRuntimeWithThrow } from 'utilities/src/chrome/chrome'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
-import { useTimeout } from 'utilities/src/time/timing'
+} from '@l.x/lx/src/extension/messagePassing/types/requests'
+import { authenticatePasskey } from '@l.x/lx/src/features/passkey/passkey'
+import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { getChromeRuntime, getChromeRuntimeWithThrow } from '@l.x/utils/src/chrome/chrome'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 import { useExternallyConnectableExtensionId } from '~/pages/ExtensionPasskeyAuthPopUp/useExternallyConnectableExtensionId'
 
 // Passkey Auth Flow: Extension <> Web App
@@ -46,7 +46,7 @@ export default function ExtensionPasskeyAuthPopUp() {
 
   const [searchParams] = useSearchParams()
 
-  // oxlint-disable-next-line react/exhaustive-deps -- Intentionally only runs once on mount
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Intentionally only runs once on mount
   useEffect(() => {
     const chromeRuntime = getChromeRuntime()
 
@@ -98,7 +98,82 @@ export default function ExtensionPasskeyAuthPopUp() {
       } satisfies PasskeySignInFlowOpened,
       handleMessageRequestPasskey,
     )
-                href={uniswapUrls.helpArticleUrls.passkeysInfo}
+  }, [])
+
+  const onPressSignIn = async () => {
+    if (
+      signInAttemptStatus !== ReferrerVerification.Allowed ||
+      !passkeyRequestData ||
+      !passkeyRequestData.challengeJson
+    ) {
+      logger.debug('ExtensionPasskeyAuthPopUp/index.tsx', 'onPressSignIn', 'Invalid state', {
+        signInAttemptStatus,
+        passkeyRequestData,
+      })
+      return
+    }
+
+    const chromeRuntime = getChromeRuntimeWithThrow()
+
+    try {
+      if (!passkeyRequestData.challengeJson) {
+        return
+      }
+      const credential = await authenticatePasskey(passkeyRequestData.challengeJson)
+
+      if (!credential) {
+        logger.debug(
+          'ExtensionPasskeyAuthPopUp/index.tsx',
+          'onPressSignIn',
+          `Sending PasskeyCredentialError message to extension ID ${extensionId}`,
+        )
+
+        chromeRuntime.sendMessage(extensionId, {
+          type: InterfaceToExtensionRequestType.PasskeyCredentialError,
+          requestId: passkeyRequestData.requestId,
+          error: 'No credential returned',
+        } satisfies PasskeyCredentialError)
+
+        return
+      }
+
+      logger.debug(
+        'ExtensionPasskeyAuthPopUp/index.tsx',
+        'onPressSignIn',
+        `Sending PasskeyCredentialRetrieved message to extension ID ${extensionId}`,
+      )
+
+      chromeRuntime.sendMessage(extensionId, {
+        type: InterfaceToExtensionRequestType.PasskeyCredentialRetrieved,
+        requestId: passkeyRequestData.requestId,
+        credential,
+      } satisfies PasskeyCredentialRetrieved)
+    } catch (error) {
+      logger.error(error, {
+        tags: {
+          file: 'ExtensionPasskeyAuthPopUp/index.tsx',
+          function: 'onPressSignIn',
+        },
+      })
+    }
+  }
+
+  useTimeout(() => {
+    setSignInAttemptStatus((currentStatus) => {
+      return currentStatus === ReferrerVerification.Verifying ? ReferrerVerification.Denied : currentStatus
+    })
+  }, EXTENSION_REFERRER_VERIFICATION_TIMEOUT)
+
+  return (
+    <Trace logImpression page={InterfacePageName.ExtensionPasskeySignInPage}>
+      <Flex flexDirection="column" alignItems="center" justifyContent="center" minHeight="100vh">
+        <Flex width="400px" padding="$spacing16" flexDirection="column" gap="$spacing16">
+          <Flex row justifyContent="flex-end">
+            <Flex row width="fit-content">
+              <Anchor
+                target="_blank"
+                rel="noreferrer"
+                href={lxUrls.helpArticleUrls.passkeysInfo}
                 textDecorationLine="none"
               >
                 <Button icon={<EnvelopeHeart size="$icon.16" color="$neutral2" />} size="xxsmall" emphasis="secondary">
@@ -109,7 +184,7 @@ export default function ExtensionPasskeyAuthPopUp() {
           </Flex>
 
           <Flex alignItems="center">
-            <UniswapLogo size="$icon.40" color="$accent1" />
+            <LuxLogo size="$icon.40" color="$accent1" />
           </Flex>
 
           {signInAttemptStatus === ReferrerVerification.Denied ? (

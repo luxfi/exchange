@@ -12,19 +12,19 @@ import {
 } from '@l.x/gating'
 import type { PropsWithChildren, ReactNode } from 'react'
 import { memo } from 'react'
-import { Button, Flex, FlexProps, ModalCloseIcon, Switch, styled, Text, TouchableArea } from 'ui/src'
-import { Pin } from 'ui/src/components/icons/Pin'
-import { useLayerValue } from 'uniswap/src/components/gating/Rows'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { isPlaywrightEnv } from 'utilities/src/environment/env'
-import { TRUSTED_CHROME_EXTENSION_IDS } from 'utilities/src/environment/extensionId'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Button, Flex, FlexProps, ModalCloseIcon, Switch, styled, Text, TouchableArea } from '@l.x/ui/src'
+import { Pin } from '@l.x/ui/src/components/icons/Pin'
+import { useLayerValue } from 'lx/src/components/gating/Rows'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { isPlaywrightEnv } from '@l.x/utils/src/environment/env'
+import { TRUSTED_CHROME_EXTENSION_IDS } from '@l.x/utils/src/environment/extensionId'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { FeatureFlagSelector } from '~/components/FeatureFlagModal/FeatureFlagSelector'
 import { usePinnedExperiments, usePinnedFeatureFlags } from '~/dev/usePinnedFeatureFlags'
 import { useModalState } from '~/hooks/useModalState'
 import { useExternallyConnectableExtensionId } from '~/pages/ExtensionPasskeyAuthPopUp/useExternallyConnectableExtensionId'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 const CenteredRowProps: FlexProps = {
   flexDirection: 'row',
@@ -53,11 +53,11 @@ export function GatingRowContent({ title, label, rightContent }: GatingRowConten
   return (
     <CenteredRow flexGrow={1} flexShrink={1} py={rightContent ? '$none' : undefined}>
       <FlagInfo>
-        <Text variant="body2" {...EllipsisTamaguiStyle}>
+        <Text variant="body2" {...EllipsisGuiStyle}>
           {title}
         </Text>
         {label && (
-          <Text variant="body4" color="$neutral2" {...EllipsisTamaguiStyle}>
+          <Text variant="body4" color="$neutral2" {...EllipsisGuiStyle}>
             {label}
           </Text>
         )}
@@ -287,9 +287,10 @@ export default function FeatureFlagModal(): JSX.Element {
             <FeatureFlagOption flag={FeatureFlags.MultichainTokenUx} label="Enable Updated Multichain Token UX" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Swap Features">
-            <FeatureFlagOption flag={FeatureFlags.NoUniswapInterfaceFees} label="Turn off Uniswap interface fees" />
+            <FeatureFlagOption flag={FeatureFlags.NoLuxInterfaceFees} label="Turn off Lux interface fees" />
             <FeatureFlagOption flag={FeatureFlags.ChainedActions} label="Enable Chained Actions" />
             <FeatureFlagOption flag={FeatureFlags.BatchedSwaps} label="Enable Batched Swaps" />
+            <FeatureFlagOption flag={FeatureFlags.UnichainFlashblocks} label="Enable Unichain Flashblocks" />
             <FeatureFlagOption flag={FeatureFlags.UniquoteEnabled} label="Enable Uniquote" />
             <FeatureFlagOption flag={FeatureFlags.UnirouteEnabled} label="Enable Uniroute" />
             <FeatureFlagOption flag={FeatureFlags.ViemProviderEnabled} label="Enable Viem Provider" />
@@ -306,19 +307,19 @@ export default function FeatureFlagModal(): JSX.Element {
               label="Force disable wallet get capabilities result"
             />
             <FeatureFlagOption
-              flag={FeatureFlags.AllowUniswapXOnlyRoutesInSwapSettings}
-              label="Allow UniswapX-Only Routes in Swap Settings (for local testing only)"
+              flag={FeatureFlags.AllowDEXOnlyRoutesInSwapSettings}
+              label="Allow DEX-Only Routes in Swap Settings (for local testing only)"
             />
           </FeatureFlagGroup>
-          <FeatureFlagGroup name="UniswapX">
-            <FeatureFlagOption flag={FeatureFlags.UniswapX} label="Enable UniswapX" />
+          <FeatureFlagGroup name="DEX">
+            <FeatureFlagOption flag={FeatureFlags.DEX} label="Enable DEX" />
             <FeatureFlagOption
-              flag={FeatureFlags.UniswapXPriorityOrdersBase}
-              label="UniswapX Priority Orders (on Base)"
+              flag={FeatureFlags.DEXPriorityOrdersBase}
+              label="DEX Priority Orders (on Base)"
             />
             <FeatureFlagOption
-              flag={FeatureFlags.UniswapXPriorityOrdersUnichain}
-              label="UniswapX Priority Orders (on Unichain)"
+              flag={FeatureFlags.DEXPriorityOrdersUnichain}
+              label="DEX Priority Orders (on Unichain)"
             />
             <FeatureFlagOption flag={FeatureFlags.ArbitrumDutchV3} label="Enable Dutch V3 on Arbitrum" />
           </FeatureFlagGroup>
@@ -329,7 +330,24 @@ export default function FeatureFlagModal(): JSX.Element {
             />
             <FeatureFlagOption flag={FeatureFlags.LpDynamicNativeSlippage} label="Enable Dynamic Native Slippage" />
             <FeatureFlagOption flag={FeatureFlags.LpIncentives} label="Enable LP Incentives" />
-            <FeatureFlagOption flag={FeatureFlags.Linea} label="Enable Linea" />
+          </FeatureFlagGroup>
+          <FeatureFlagGroup name="Toucan">
+            <FeatureFlagOption flag={FeatureFlags.ToucanAuctionKYC} label="Enable Toucan Auction KYC" />
+            <FeatureFlagOption flag={FeatureFlags.ToucanLaunchAuction} label="Enable Toucan Launch Auction" />
+            <FeatureFlagOption flag={FeatureFlags.AuctionDetailsV2} label="Enable Auction Details V2" />
+          </FeatureFlagGroup>
+          <FeatureFlagGroup name="Embedded Wallet">
+            <FeatureFlagOption flag={FeatureFlags.EmbeddedWallet} label="Add internal embedded wallet functionality" />
+            <DynamicConfigDropdown
+              selected={[externallyConnectableExtensionId]}
+              options={TRUSTED_CHROME_EXTENSION_IDS}
+              parser={(id) => id}
+              config={DynamicConfigs.ExternallyConnectableExtension}
+              configKey={ExternallyConnectableExtensionConfigKey.ExtensionId}
+              label="Which Extension the web app will communicate with"
+            />
+          </FeatureFlagGroup>
+          <FeatureFlagGroup name="New Chains">
             <FeatureFlagOption flag={FeatureFlags.Soneium} label="Enable Soneium" />
             <FeatureFlagOption flag={FeatureFlags.Tempo} label="Enable Tempo" />
           </FeatureFlagGroup>
@@ -353,7 +371,7 @@ export default function FeatureFlagModal(): JSX.Element {
             <FeatureFlagOption flag={FeatureFlags.TDPTokenCarousel} label="Enable TDP Token Carousel" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Misc">
-            <FeatureFlagOption flag={FeatureFlags.UniswapWrapped2025} label="Enable Uniswap Wrapped 2025" />
+            <FeatureFlagOption flag={FeatureFlags.LXWrapped2025} label="Enable Lx Wrapped 2025" />
             <FeatureFlagOption flag={FeatureFlags.UnificationCopy} label="Enable Unification Copy" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Prices">

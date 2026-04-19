@@ -1,10 +1,10 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { Receipt } from 'ui/src/components/icons/Receipt'
-import { iconSizes } from 'ui/src/theme'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { shortenHash } from 'utilities/src/addresses'
+import { Flex, Text } from '@l.x/ui/src'
+import { Receipt } from '@l.x/ui/src/components/icons/Receipt'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { shortenHash } from '@l.x/utils/src/addresses'
 import { ActivityProtocolInfo } from '~/pages/Portfolio/Activity/ActivityTable/activityTableModels'
 
 interface GenericCompactLayoutProps {
@@ -13,11 +13,7 @@ interface GenericCompactLayoutProps {
   labelOverride?: string
 }
 
-function GenericCompactLayoutInner({
-  transaction,
-  protocolInfo,
-  labelOverride,
-}: GenericCompactLayoutProps): JSX.Element {
+function _GenericCompactLayout({ transaction, protocolInfo, labelOverride }: GenericCompactLayoutProps): JSX.Element {
   const { t } = useTranslation()
 
   return (
@@ -54,4 +50,4 @@ function GenericCompactLayoutInner({
   )
 }
 
-export const GenericCompactLayout = memo(GenericCompactLayoutInner)
+export const GenericCompactLayout = memo(_GenericCompactLayout)

@@ -1,14 +1,14 @@
-import { UNI_ADDRESSES } from '@uniswap/sdk-core'
+import { UNI_ADDRESSES } from '@luxamm/sdk-core'
 import { parse } from 'qs'
 import { ReactNode } from 'react'
-import { DAI, nativeOnChain, UNI, USDC_OPTIMISM } from 'uniswap/src/constants/tokens'
-import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
-import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
-import { AccountsStore } from 'uniswap/src/features/accounts/store/types/AccountsState'
-import { GQL_MAINNET_CHAINS, GQL_TESTNET_CHAINS } from 'uniswap/src/features/chains/chainInfo'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { DAI, nativeOnChain, UNI, USDC_OPTIMISM } from '@l.x/lx/src/constants/tokens'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { useUrlContext } from '@l.x/lx/src/contexts/UrlContext'
+import { AccountsStore } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { GQL_MAINNET_CHAINS, GQL_TESTNET_CHAINS } from '@l.x/lx/src/features/chains/chainInfo'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import {
   queryParametersToCurrencyState,
@@ -28,18 +28,18 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('uniswap/src/contexts/UniswapContext')
+vi.mock('lx/src/contexts/LuxContext')
 
-vi.mock('uniswap/src/features/chains/hooks/useEnabledChains', async () => {
-  const actual = await vi.importActual('uniswap/src/features/chains/hooks/useEnabledChains')
+vi.mock('lx/src/features/chains/hooks/useEnabledChains', async () => {
+  const actual = await vi.importActual('lx/src/features/chains/hooks/useEnabledChains')
   return {
     ...actual,
     useEnabledChains: vi.fn(),
   }
 })
 
-vi.mock('uniswap/src/contexts/UrlContext', async () => {
-  const actual = await vi.importActual('uniswap/src/contexts/UrlContext')
+vi.mock('lx/src/contexts/UrlContext', async () => {
+  const actual = await vi.importActual('lx/src/contexts/UrlContext')
   return {
     ...actual,
     useUrlContext: vi.fn(),
@@ -311,7 +311,7 @@ describe('hooks', () => {
 
   describe('#useInitialCurrencyState', () => {
     beforeEach(() => {
-      return mocked(useUniswapContext).mockReturnValue({
+      return mocked(useLuxContext).mockReturnValue({
         swapInputChainId: undefined,
         navigateToSwapFlow: () => {},
         navigateToFiatOnRamp: () => {},
@@ -433,7 +433,6 @@ describe('hooks', () => {
     })
 
     describe('Connected wallet with balance', () => {
-      // oxlint-disable-next-line vitest/hoisted-apis-on-top -- suppressed
       vi.mock('~/appGraphql/data/apollo/TokenBalancesProvider', () => ({
         TokenBalancesProvider: ({ children }: { children: ReactNode }) => children,
         useTokenBalancesQuery: () => ({

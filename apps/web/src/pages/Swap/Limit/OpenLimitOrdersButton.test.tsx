@@ -1,11 +1,11 @@
 import { TradingApi } from '@l.x/api'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+  DEXOrderDetails,
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { OpenLimitOrdersButton } from '~/pages/Swap/Limit/OpenLimitOrdersButton'
 import { mocked } from '~/test-utils/mocked'
@@ -19,7 +19,7 @@ vi.mock('~/components/AccountDrawer/MiniPortfolio/Activity/hooks', async () => {
   }
 })
 
-const mockLimitActivity: UniswapXOrderDetails = {
+const mockLimitActivity: DEXOrderDetails = {
   id: '0x123',
   hash: '0x123',
   orderHash: '0x123',
@@ -38,7 +38,7 @@ const mockLimitActivity: UniswapXOrderDetails = {
     expectedOutputCurrencyAmountRaw: '2000000000000000000',
     minimumOutputCurrencyAmountRaw: '2000000000000000000',
     settledOutputCurrencyAmountRaw: '2000000000000000000',
-    isUniswapXOrder: true,
+    isLXOrder: true,
   },
 }
 

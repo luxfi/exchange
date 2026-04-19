@@ -1,20 +1,20 @@
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { CurrencyAmount } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, useSporeColors } from 'ui/src'
-import { Blocked } from 'ui/src/components/icons/Blocked'
-import { Dialog } from 'uniswap/src/components/dialog/Dialog'
-import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
-import { NumberType } from 'utilities/src/format/types'
+import { Flex, styled, Text, useSporeColors } from '@l.x/ui/src'
+import { Blocked } from '@l.x/ui/src/components/icons/Blocked'
+import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
+import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { useCancelOrdersGasEstimate } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { ConfirmedIcon, LogoContainer, SubmittedIcon } from '~/components/AccountDrawer/MiniPortfolio/Activity/Logos'
 import { LoaderV3 } from '~/components/Icons/LoadingSpinner'
@@ -44,7 +44,7 @@ export enum CancellationState {
 }
 
 interface CancelOrdersDialogProps {
-  orders: UniswapXOrderDetails[]
+  orders: DEXOrderDetails[]
   cancelState: CancellationState
   cancelTxHash?: string
   onConfirm: () => void
@@ -54,7 +54,7 @@ interface CancelOrdersDialogProps {
 
 function useCancelOrdersDialogContent(
   state: CancellationState,
-  orders: UniswapXOrderDetails[],
+  orders: DEXOrderDetails[],
 ): { title?: string; icon: JSX.Element } {
   const { t } = useTranslation()
   const colors = useSporeColors()
@@ -134,7 +134,7 @@ export function CancelOrdersDialog(props: CancelOrdersDialogProps) {
             {cancelSubmitted ? (
               <ExternalLink
                 href={
-                  // oxlint-disable-next-line typescript/no-unnecessary-condition
+                  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
                   firstOrder
                     ? getExplorerLink({
                         chainId: firstOrder.chainId,
@@ -173,7 +173,7 @@ export function CancelOrdersDialog(props: CancelOrdersDialogProps) {
         displayHelpCTA
         iconBackgroundColor="$surface3"
       >
-        {/* oxlint-disable-next-line typescript/no-unnecessary-condition */}
+        {/* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */}
         <GasEstimateDisplay chainId={orders[0].chainId} gasEstimateValue={cancellationGasFeeInfo?.gasFeeDisplayValue} />
       </Dialog>
     )

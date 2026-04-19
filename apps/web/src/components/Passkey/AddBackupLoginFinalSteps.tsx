@@ -1,11 +1,11 @@
 import type { TFunction } from 'i18next'
-import { Button, Flex, SpinningLoader, Text, TouchableArea } from 'ui/src'
-import { Lock } from 'ui/src/components/icons/Lock'
-import { ShieldCheck } from 'ui/src/components/icons/ShieldCheck'
-import { X } from 'ui/src/components/icons/X'
-import type { EncryptedRecoveryState } from 'uniswap/src/features/passkey/embeddedWallet'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { Button, Flex, SpinningLoader, Text, TouchableArea } from '@l.x/ui/src'
+import { Lock } from '@l.x/ui/src/components/icons/Lock'
+import { ShieldCheck } from '@l.x/ui/src/components/icons/ShieldCheck'
+import { X } from '@l.x/ui/src/components/icons/X'
+import type { EncryptedRecoveryState } from 'lx/src/features/passkey/embeddedWallet'
+import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { BackupMethodSummary, IconBox } from '~/components/Passkey/BackupLoginComponents'
 
 export function ConfirmPasscodeExtra({

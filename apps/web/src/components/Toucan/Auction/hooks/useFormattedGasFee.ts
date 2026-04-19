@@ -1,8 +1,8 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from 'utilities/src/format/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 const DEFAULT_PLACEHOLDER = '—'
 

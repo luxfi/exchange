@@ -69,14 +69,5 @@ ENV NEXT_TELEMETRY_DISABLED=1 NODE_ENV=production DOCKER_BUILD=true
 RUN cd apps/web && DISABLE_EXTRACTION=1 NODE_OPTIONS="--max-old-space-size=8192" pnpm exec vite build
 
 # Stage 3: Runner (tiny — just serve + static files)
-FROM node:22-alpine AS runner
-RUN npm install -g serve@14
-RUN addgroup -g 1001 -S app && adduser -S app -u 1001
-WORKDIR /app
-COPY --from=builder /app/apps/web/build /app/public
-COPY docker/entrypoint.sh /app/entrypoint.sh
-RUN chown -R app:app /app
-USER app
-EXPOSE 3000
-ENTRYPOINT ["/app/entrypoint.sh"]
-CMD ["serve", "-s", "public", "-l", "3000"]
+FROM ghcr.io/hanzoai/spa
+COPY --from=builder /app/apps/web/build /public

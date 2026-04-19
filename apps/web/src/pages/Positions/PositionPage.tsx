@@ -1,7 +1,7 @@
-/* oxlint-disable max-lines */
+/* eslint-disable max-lines */
 import { BigNumber } from '@ethersproject/bignumber'
-import { Position, PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount, Percent, Price } from '@uniswap/sdk-core'
+import { Position, PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Percent, Price } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo, useState } from 'react'
@@ -18,33 +18,33 @@ import {
   Text,
   TouchableArea,
   useSporeColors,
-} from 'ui/src'
-import { ArrowLeft } from 'ui/src/components/icons/ArrowLeft'
-import { ExchangeHorizontal } from 'ui/src/components/icons/ExchangeHorizontal'
-import { Flag } from 'ui/src/components/icons/Flag'
-import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { breakpoints } from 'ui/src/theme/breakpoints'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { PollingInterval, ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { useGetPositionQuery } from 'uniswap/src/data/rest/getPosition'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { useCurrencyInfos } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { usePositionVisibilityCheck } from 'uniswap/src/features/visibility/hooks/usePositionVisibilityCheck'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
-import { buildCurrencyId, currencyId, currencyIdToAddress } from 'uniswap/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
-import { isMobileWeb } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@l.x/ui/src'
+import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
+import { ExchangeHorizontal } from '@l.x/ui/src/components/icons/ExchangeHorizontal'
+import { Flag } from '@l.x/ui/src/components/icons/Flag'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { breakpoints } from '@l.x/ui/src/theme/breakpoints'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { PollingInterval, ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { useGetPositionQuery } from '@l.x/lx/src/data/rest/getPosition'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { isEVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
+import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { useCurrencyInfos } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { usePositionVisibilityCheck } from '@l.x/lx/src/features/visibility/hooks/usePositionVisibilityCheck'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { buildCurrencyId, currencyId, currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isMobileWeb } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import { WrappedLiquidityPositionRangeChart } from '~/components/Charts/LiquidityPositionRangeChart/LiquidityPositionRangeChart'
 import { Dropdown } from '~/components/Dropdowns/Dropdown'
@@ -72,7 +72,7 @@ import { useDynamicMetatags } from '~/pages/metatags'
 import NotFound from '~/pages/NotFound'
 import { MultichainContextProvider } from '~/state/multichain/MultichainContext'
 import { usePendingLPTransactionsChangeListener } from '~/state/transactions/hooks'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { useChainIdFromUrlParam } from '~/utils/chainParams'
 
 const BodyWrapper = styled(Main, {
@@ -151,12 +151,12 @@ function PositionPage({ chainId }: { chainId: EVMUniverseChainId | undefined }) 
     const token0Symbol = positionInfo?.currency0Amount.currency.symbol
     const token1Symbol = positionInfo?.currency1Amount.currency.symbol
     if (!token0Symbol || !token1Symbol || !chainInfo?.urlParam || !tokenIdFromUrl) {
-      return { title: 'Position on Uniswap', url: window.location.href }
+      return { title: 'Position on Lx', url: window.location.href }
     }
     const poolName = `${token0Symbol}/${token1Symbol}`
     const version = pathname.includes('v3') ? 'v3' : 'v4'
     return {
-      title: `${poolName} on Uniswap`,
+      title: `${poolName} on Lx`,
       url: window.location.href,
       image: `${window.location.origin}/api/image/positions/${version}/${chainInfo.urlParam}/${tokenIdFromUrl}`,
     }
@@ -482,7 +482,7 @@ function PositionPage({ chainId }: { chainId: EVMUniverseChainId | undefined }) 
                       borderColor="$surface3"
                       borderWidth="$spacing1"
                       gap="$gap6"
-                      {...ClickableTamaguiStyle}
+                      {...ClickableGuiStyle}
                     >
                       {mainViewOptions.find((p) => p.value === mainView)?.display}
                       <RotatableChevron direction="down" size="$icon.16" color="$neutral2" />
@@ -542,7 +542,7 @@ function PositionPage({ chainId }: { chainId: EVMUniverseChainId | undefined }) 
                         borderColor="$surface3"
                         borderWidth="$spacing1"
                         gap="$gap6"
-                        {...ClickableTamaguiStyle}
+                        {...ClickableGuiStyle}
                       >
                         {timePeriodOptions.options.find((p) => p.value === timePeriodOptions.selected)?.display}
                         <RotatableChevron direction="down" size="$icon.16" color="$neutral2" />

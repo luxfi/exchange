@@ -1,11 +1,11 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { isLowSlippage } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageLPWarning'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { isLowSlippage } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageLPWarning'
 import {
   useTransactionSettingsAutoSlippageToleranceStore,
   useTransactionSettingsStore,
-} from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 import { ErrorCallout } from '~/components/ErrorCallout'
 
 export function LowLPSlippageWarning({ isNativePool }: { isNativePool: boolean }) {

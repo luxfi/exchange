@@ -1,12 +1,18 @@
 import { curveCardinal, scaleLinear } from 'd3'
 import { memo } from 'react'
-import { Flex, useSporeColors } from 'ui/src'
+import { Flex, useSporeColors } from '@l.x/ui/src'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { SparklineMap } from '~/appGraphql/data/types'
 import { PricePoint } from '~/appGraphql/data/util'
 import { getPriceBounds } from '~/components/Charts/PriceChart/utils'
 import LineChart from '~/components/Charts/SparklineChart/LineChart'
 import { LoadingBubble } from '~/components/Tokens/loading'
+import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { TokenStat } from '~/state/explore/types'
+import { getChainIdFromChainUrlParam } from '~/utils/chainParams'
 
 interface SparklineChartProps {
   width: number
@@ -16,9 +22,18 @@ interface SparklineChartProps {
   sparklineMap: SparklineMap
 }
 
-function SparklineChartInner({ width, height, tokenData, pricePercentChange, sparklineMap }: SparklineChartProps) {
+function _SparklineChart({ width, height, tokenData, pricePercentChange, sparklineMap }: SparklineChartProps) {
   const colors = useSporeColors()
-  const pricePoints = tokenData.id ? sparklineMap[tokenData.id] : null
+  // for sparkline
+  const chainId = getChainIdFromChainUrlParam(tokenData.chain.toLowerCase())
+  const chainInfo = chainId && getChainInfo(chainId)
+  const isNative = areAddressesEqual({
+    addressInput1: { address: tokenData.address, platform: chainInfo?.platform ?? Platform.EVM },
+    addressInput2: { address: chainInfo?.wrappedNativeCurrency.address, platform: chainInfo?.platform ?? Platform.EVM },
+  })
+  const pricePoints = tokenData.address
+    ? sparklineMap[isNative ? NATIVE_CHAIN_ID : normalizeTokenAddressForCache(tokenData.address)]
+    : null
 
   // Don't display if there's one or less pricepoints
   if (!pricePoints || pricePoints.length <= 1) {
@@ -59,4 +74,4 @@ function SparklineChartInner({ width, height, tokenData, pricePercentChange, spa
   )
 }
 
-export default memo(SparklineChartInner)
+export default memo(_SparklineChart)

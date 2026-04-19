@@ -1,10 +1,10 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { TFunction } from 'i18next'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain, getChainLabel } from 'uniswap/src/features/chains/utils'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain, getChainLabel } from '@l.x/lx/src/features/chains/utils'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 
 export function getTokenStructuredData({
@@ -21,7 +21,7 @@ export function getTokenStructuredData({
   }
 
   const chainUrlParam = getChainInfo(fromGraphQLChain(tokenQueryData.chain) ?? UniverseChainId.Mainnet).urlParam
-  const tokenDetailsUrl = `${uniswapUrls.webInterfaceTokensUrl}/${chainUrlParam}/${tokenQueryData.address ?? NATIVE_CHAIN_ID}`
+  const tokenDetailsUrl = `${lxUrls.webInterfaceTokensUrl}/${chainUrlParam}/${tokenQueryData.address ?? NATIVE_CHAIN_ID}`
   return [
     {
       '@context': 'https://schema.org/',
@@ -44,7 +44,7 @@ export function getTokenStructuredData({
           '@type': 'ListItem',
           position: 1,
           name: 'Explore',
-          item: uniswapUrls.webInterfaceTokensUrl,
+          item: lxUrls.webInterfaceTokensUrl,
         },
         {
           '@type': 'ListItem',

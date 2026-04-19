@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react'
-import { Flex, styled } from 'ui/src'
+import { Flex, styled } from '@l.x/ui/src'
 import { MAX_WIDTH_MEDIA_BREAKPOINT } from '~/constants/breakpoints'
 import useSimplePagination from '~/hooks/useSimplePagination'
 import { useExploreTablesFilterStore } from '~/pages/Explore/exploreTablesFilterStore'
@@ -8,9 +8,10 @@ import {
   TokenTableSortStoreContextProvider,
   useTokenTableSortStore,
 } from '~/pages/Explore/tables/Tokens/tokenTableSortStore'
+import { LuxTokensTable } from '~/pages/Explore/tables/LuxTokensTable'
+import { isLuxChainId } from '~/state/explore/luxSubgraph'
 import { TABLE_PAGE_SIZE } from '~/state/explore'
 import { useListTokens } from '~/state/explore/listTokens/useListTokens'
-import { useExploreBackendSortingEnabled } from '~/state/explore/useExploreBackendSortingEnabled'
 import { useChainIdFromUrlParam } from '~/utils/chainParams'
 
 const TableWrapper = styled(Flex, {
@@ -18,7 +19,7 @@ const TableWrapper = styled(Flex, {
   maxWidth: MAX_WIDTH_MEDIA_BREAKPOINT,
 })
 
-function TopTokensTableContent(): JSX.Element {
+function DefaultTokensTableContent(): JSX.Element {
   const chainId = useChainIdFromUrlParam()
   const sortMethod = useTokenTableSortStore((s) => s.sortMethod)
   const sortAscending = useTokenTableSortStore((s) => s.sortAscending)
@@ -30,7 +31,11 @@ function TopTokensTableContent(): JSX.Element {
     [sortMethod, sortAscending, filterString, timePeriod],
   )
 
-  const displayedTokens = backendSortingEnabled ? topTokens : topTokens.slice(0, page * TABLE_PAGE_SIZE)
+  const { topTokens, tokenSortRank, isLoading, sparklines, isError, loadMore } = useListTokens(chainId, options)
+
+  const { page, loadMore: clientLoadMore } = useSimplePagination()
+  const effectiveLoadMore = loadMore ?? clientLoadMore
+  const displayedTokens = loadMore ? topTokens : topTokens?.slice(0, page * TABLE_PAGE_SIZE)
 
   return (
     <TableWrapper data-testid="top-tokens-explore-table">
@@ -44,6 +49,16 @@ function TopTokensTableContent(): JSX.Element {
       />
     </TableWrapper>
   )
+}
+
+function TopTokensTableContent(): JSX.Element {
+  const chainId = useChainIdFromUrlParam()
+
+  if (isLuxChainId(chainId as number | undefined)) {
+    return <LuxTokensTable />
+  }
+
+  return <DefaultTokensTableContent />
 }
 
 export const TopTokensTable = memo(function TopTokensTable() {

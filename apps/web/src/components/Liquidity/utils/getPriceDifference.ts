@@ -1,5 +1,5 @@
-import { Currency, Price } from '@uniswap/sdk-core'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { Currency, Price } from '@luxamm/sdk-core'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { PriceDifference } from '~/components/Liquidity/Create/types'
 
 const WARNING_PRICE_DIFFERENCE_PERCENTAGE = 5

@@ -4,9 +4,9 @@ import { atomWithStorage } from 'jotai/utils'
 import { parse } from 'qs'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
-import { useConversionTracking } from 'uniswap/src/data/rest/conversionTracking/useConversionTracking'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useConversionTracking } from '@l.x/lx/src/data/rest/conversionTracking/useConversionTracking'
+import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { PRIVACY_SHARING_OPT_OUT_STORAGE_KEY } from '~/components/PrivacyChoices/constants'
 import { useAccount } from '~/hooks/useAccount'
@@ -47,7 +47,7 @@ export default function Landing() {
   }, [initConversionTracking, privacySharingOptOut])
 
   // Smoothly redirect to swap page if user connects while on landing page
-  // oxlint-disable-next-line react/exhaustive-deps -- account dependency is sufficient for this effect
+  // biome-ignore lint/correctness/useExhaustiveDependencies: account dependency is sufficient for this effect
   useEffect(() => {
     // Skip logic on the first render because prevAccount will always be undefined on the first render
     // and we don't want to redirect on the first render because that mean's we're possibly coming from

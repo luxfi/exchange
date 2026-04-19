@@ -1,5 +1,5 @@
 import { GraphQLApi } from '@l.x/api'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 export type ChainOutageData = {
   chainId: UniverseChainId

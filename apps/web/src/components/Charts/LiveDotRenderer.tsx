@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Flex, useSporeColors } from 'ui/src'
+import { Flex, useSporeColors } from '@l.x/ui/src'
 
 export interface ChartModelWithLiveDot {
   getLastPointCoordinates?: () => { x: number; y: number } | null
@@ -15,7 +15,16 @@ interface LiveDotRendererProps {
   chartContainer?: HTMLElement | null
   overrideColor?: string
   dataKey?: string | number // Tracks when chart data changes (e.g., time period change)
-  coordinateOverride,
+}
+
+export function LiveDotRenderer({
+  chartModel,
+  isHovering,
+  isZoomed,
+  hoverCoordinates,
+  chartContainer,
+  overrideColor,
+  dataKey,
 }: LiveDotRendererProps) {
   const colors = useSporeColors()
   const [coordinates, setCoordinates] = useState<{ x: number; y: number } | null>(null)
@@ -93,11 +102,11 @@ interface LiveDotRendererProps {
     return null
   }
 
-  if (!isHovering && !coordinateOverride && !coordinates) {
+  if (!isHovering && !coordinates) {
     return null
   }
 
-  const renderCoordinates = isHovering ? hoverCoordinates : (coordinateOverride ?? coordinates)
+  const renderCoordinates = isHovering ? hoverCoordinates : coordinates
   if (!renderCoordinates) {
     return null
   }

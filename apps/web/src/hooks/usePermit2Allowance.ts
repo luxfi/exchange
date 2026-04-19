@@ -1,7 +1,7 @@
-import { permit2Address } from '@uniswap/permit2-sdk'
-import { CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { permit2Address } from '@luxamm/permit2-sdk'
+import { CurrencyAmount, Token } from '@luxamm/sdk-core'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { AVERAGE_L1_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+import { AVERAGE_L1_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
 import { useAccount } from '~/hooks/useAccount'
 import { PermitSignature, usePermitAllowance, useUpdatePermitAllowance } from '~/hooks/usePermitAllowance'
 import { useRevokeTokenAllowance, useTokenAllowance, useUpdateTokenAllowance } from '~/hooks/useTokenAllowance'
@@ -133,7 +133,7 @@ export default function usePermit2Allowance({
 
   const shouldRequestApproval = !(isApproved || isApprovalLoading)
 
-  // UniswapX trades do not need a permit signature step in between because the swap step _is_ the permit signature
+  // DEX trades do not need a permit signature step in between because the swap step _is_ the permit signature
   const shouldRequestSignature = tradeFillType === TradeFillType.Classic && !(isPermitted || isSigned)
 
   const addTransaction = useTransactionAdder()

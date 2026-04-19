@@ -1,6 +1,6 @@
 import { Trans } from 'react-i18next'
-import { X } from 'ui/src/components/icons/X'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import Row from '~/components/deprecated/Row'
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'
 import { ThemedText } from '~/theme/components'

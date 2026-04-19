@@ -1,15 +1,11 @@
 import { NetworkStatus } from '@apollo/client'
-import { GetWalletTokensProfitLossResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
-import { DEFAULT_NATIVE_ADDRESS } from 'uniswap/src/features/chains/evm/rpc'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { isStablecoinAddress } from 'uniswap/src/features/chains/utils'
-import { useSortedPortfolioBalancesMultichain } from 'uniswap/src/features/dataApi/balances/balances'
-import type { PortfolioMultichainBalance } from 'uniswap/src/features/dataApi/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { currencyAddress } from 'uniswap/src/utils/currencyId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useSortedPortfolioBalancesMultichain } from 'lx/src/features/dataApi/balances/balances'
+import type { PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
 import { createChainFilter } from '~/pages/Portfolio/Tokens/utils/filterMultichainBalancesByChain'
 
@@ -35,15 +31,12 @@ export interface TokenData {
   totalValue: number
   allocation: number
   isHidden: boolean | null | undefined
-export function useTransformTokenTableData({
-  chainIds,
-  limit,
-  tokenProfitLossData,
-}: {
-  chainIds?: UniverseChainId[]
-  limit?: number
-  tokenProfitLossData?: GetWalletTokensProfitLossResponse
-}): {
+}
+
+// Custom hook to format portfolio data
+// When flag OFF: do not request multichain from backend → backend returns legacy → we transform to multichain shape for the table.
+// When flag ON: request multichain from backend → backend returns portfolio.multichainBalances → no transform needed.
+export function useTransformTokenTableData({ chainIds, limit }: { chainIds?: UniverseChainId[]; limit?: number }): {
   visible: TokenData[] | null
   hidden: TokenData[] | null
   totalCount: number | null
@@ -101,17 +94,42 @@ export function useTransformTokenTableData({
 
     const totalUSDVisible = visibleBalances.reduce((sum, b) => sum + getValueUsdForBalance(b), 0)
 
-      // oxlint-disable-next-line typescript/no-unnecessary-condition
+    const mapBalanceToTokenData = (
+      balance: PortfolioMultichainBalance,
+      allocationFromTotal?: number,
+    ): TokenData | null => {
+      const tokensForRow = getTokensForRow(balance)
+      const tokens: TokenData['tokens'] = tokensForRow
+        .map((t) => ({
+          chainId: t.chainId,
+          currencyInfo: t.currencyInfo,
+          quantity: t.quantity,
+          valueUsd: t.valueUsd ?? 0,
+          symbol: t.currencyInfo.currency.symbol,
+        }))
+        .sort((a, b) => b.valueUsd - a.valueUsd)
+      const first = tokens[0]
+      // useTransformTokenTableData already ensures that there is at least one token, but adding check for safety
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (!first) {
         throw new Error('Invariant violation: tokens array is empty after filtering')
       }
       const totalValue = getValueUsdForBalance(balance)
       const price =
         first.valueUsd > 0 && first.quantity > 0 ? first.valueUsd / first.quantity : (balance.priceUsd ?? undefined)
-        avgCost: pnl?.avgCost,
-        unrealizedPnl: pnl?.unrealizedPnl,
-        unrealizedPnlPercent: pnl?.unrealizedPnlPercent,
-        isStablecoin,
+      return {
+        id: balance.id,
+        testId: `${TestID.TokenTableRowPrefix}${balance.id}`,
+        chainId: first.chainId,
+        currencyInfo: first.currencyInfo,
+        quantity: first.quantity,
+        symbol: first.symbol,
+        price,
+        tokens,
+        totalValue,
+        allocation: allocationFromTotal ?? 0,
+        change1d: balance.pricePercentChange1d ?? undefined,
+        isHidden: balance.isHidden,
       }
     }
 
@@ -141,5 +159,5 @@ export function useTransformTokenTableData({
       networkStatus,
       error,
     }
-  }, [loading, sortedBalances, error, refetch, networkStatus, limit, chainIds, tokenProfitLossData])
+  }, [loading, sortedBalances, error, refetch, networkStatus, limit, chainIds])
 }

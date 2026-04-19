@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from 'react'
-import { Flex } from 'ui/src'
-import { StepStatus } from 'uniswap/src/components/ConfirmSwapModal/types'
+import { Flex } from '@l.x/ui/src'
+import { StepStatus } from '@l.x/lx/src/components/ConfirmSwapModal/types'
 import { CheckMark } from '~/components/Icons/CheckMark'
 import { LoaderV3 } from '~/components/Icons/LoadingSpinner'
 import { deprecatedStyled, keyframes } from '~/lib/deprecated-styled'
@@ -20,7 +20,7 @@ export interface StepDetails {
   actionRequiredTitle: string | ReactElement
   // Text shown when user input has been accepted and step has yet to complete
   inProgressTitle?: string
-  // Amount of time in seconds the user has to take action on a step (e.g. UniswapX exclusivity window)
+  // Amount of time in seconds the user has to take action on a step (e.g. DEX exclusivity window)
   timeToStart?: number
   // Text shown when timeToStart is exceeded (countdown reaches zero)
   delayedStartTitle?: string

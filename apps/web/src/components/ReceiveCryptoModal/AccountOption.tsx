@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Text } from 'ui/src'
-import { MAINNET_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/mainnet'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { SOLANA_CHAIN_INFO } from 'uniswap/src/features/chains/svm/info/solana'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { shortenAddress } from 'utilities/src/addresses'
-import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
+import { Text } from '@l.x/ui/src'
+import { MAINNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/mainnet'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { SOLANA_CHAIN_INFO } from '@l.x/lx/src/features/chains/svm/info/solana'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
 import { AddressDisplay } from '~/components/AccountDetails/AddressDisplay'
 import StatusIcon from '~/components/StatusIcon'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
@@ -30,11 +30,11 @@ const Identifiers = deprecatedStyled.div`
 export function AccountOption({
   account,
   ensUsername,
-  uniswapUsername,
+  luxUsername,
 }: {
   account: string
   ensUsername?: string | null
-  uniswapUsername?: string
+  luxUsername?: string
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const { t } = useTranslation()
@@ -51,7 +51,7 @@ export function AccountOption({
         <ThemedText.SubHeader>
           <AddressDisplay address={account} />
         </ThemedText.SubHeader>
-        {uniswapUsername || ensUsername ? (
+        {luxUsername || ensUsername ? (
           <Text variant="body4" color="neutral2">
             {isHovered ? platformAddressDisplay : shortenAddress({ address: account })}
           </Text>

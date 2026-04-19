@@ -1,46 +1,52 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ClaimLPFeesRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { V3Pool, V3Position, V4Pool, V4Position } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { ClaimFeesRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
-import { type Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { type Dispatch, type SetStateAction, useMemo, useState } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { Button, Flex, Switch, Text } from 'ui/src'
-import { Passkey } from 'ui/src/components/icons/Passkey'
-import { iconSizes } from 'ui/src/theme'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { PollingInterval, ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { useClaimFeesQuery } from 'uniswap/src/data/apiClients/liquidityService/useClaimFeesQuery'
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { useQuery } from '@tanstack/react-query'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { ClaimLPFeesRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import {
-  type CollectFeesTxAndGasInfo,
+  V2Pool,
+  V2Position,
+  V3Pool,
+  V3Position,
+  V4Pool,
+  V4Position,
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+import { Dispatch, SetStateAction, useMemo, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import { Button, Flex, Switch, Text } from '@l.x/ui/src'
+import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { PollingInterval, ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useGetPasskeyAuthStatus } from '@l.x/lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { InterfaceEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import {
+  CollectFeesTxAndGasInfo,
   isValidLiquidityTxContext,
   LiquidityTransactionType,
-} from 'uniswap/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay, parseErrorMessageTitle } from 'uniswap/src/features/transactions/liquidity/utils'
-import type { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
-import { isSignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { currencyId } from 'uniswap/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
-import { logger } from 'utilities/src/logger/logger'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+} from '@l.x/lx/src/features/transactions/liquidity/types'
+import { getErrorMessageToDisplay, parseErrorMessageTitle } from '@l.x/lx/src/features/transactions/liquidity/utils'
+import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
+import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
+import { isSignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { getLPBaseAnalyticsProperties } from '~/components/Liquidity/analytics'
-import type { PositionInfo } from '~/components/Liquidity/types'
+import { PositionInfo } from '~/components/Liquidity/types'
 import { canUnwrapCurrency, getCurrencyWithOptionalUnwrap } from '~/components/Liquidity/utils/currency'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
 import { useAccount } from '~/hooks/useAccount'
@@ -65,30 +71,48 @@ function getProtocolCase(
   }
 }
 
-  isClaimFeesNewEndpoint,
+function getClaimLpFeesRequest({
+  currency0,
+  currency1,
+  positionInfo,
+  unwrapNativeCurrency,
+  address,
 }: {
   currency0: Currency
   currency1: Currency
   positionInfo: PositionInfo
   unwrapNativeCurrency: boolean
   address: string | undefined
-  isClaimFeesNewEndpoint: boolean
-}): ClaimLPFeesRequest | ClaimFeesRequest | undefined {
+}): ClaimLPFeesRequest | undefined {
   const protocolCase = getProtocolCase(positionInfo.version)
 
-  if (!protocolCase || !address || !positionInfo.tokenId) {
+  if (!protocolCase || !address) {
     return undefined
   }
 
-  if (isClaimFeesNewEndpoint) {
-    return new ClaimFeesRequest({
-      walletAddress: address,
-      chainId: currency0.chainId,
-      tokenId: positionInfo.tokenId,
-      simulateTransaction: true,
-      collectAsWeth: positionInfo.version !== ProtocolVersion.V4 ? !unwrapNativeCurrency : undefined,
-      protocol: getProtocols(positionInfo.version),
+  if (protocolCase === 'v2ClaimLpFeesRequest') {
+    return new ClaimLPFeesRequest({
+      claimLPFeesRequest: {
+        case: protocolCase,
+        value: {
+          simulateTransaction: true,
+          protocol: getProtocols(positionInfo.version),
+          position: new V2Position({
+            pool: new V2Pool({
+              token0: currency0.isNative ? ZERO_ADDRESS : currency0.address,
+              token1: currency1.isNative ? ZERO_ADDRESS : currency1.address,
+            }),
+          }),
+          walletAddress: address,
+          chainId: currency0.chainId,
+          collectAsWETH: !unwrapNativeCurrency,
+        },
+      },
     })
+  }
+
+  if (!positionInfo.tokenId) {
+    return undefined
   }
 
   if (protocolCase === 'v3ClaimLpFeesRequest') {
@@ -117,33 +141,31 @@ function getProtocolCase(
         },
       },
     })
-  } else if (protocolCase === 'v4ClaimLpFeesRequest') {
-    return new ClaimLPFeesRequest({
-      claimLPFeesRequest: {
-        case: protocolCase,
-        value: {
-          simulateTransaction: true,
-          protocol: getProtocols(positionInfo.version),
-          tokenId: Number(positionInfo.tokenId),
-          position: new V4Position({
-            pool: new V4Pool({
-              token0: currency0.isNative ? ZERO_ADDRESS : currency0.address,
-              token1: currency1.isNative ? ZERO_ADDRESS : currency1.address,
-              fee: positionInfo.feeTier?.feeAmount,
-              tickSpacing: positionInfo.tickSpacing ? Number(positionInfo.tickSpacing) : undefined,
-              hooks: positionInfo.v4hook,
-            }),
-            tickLower: positionInfo.tickLower,
-            tickUpper: positionInfo.tickUpper,
-          }),
-          walletAddress: address,
-          chainId: currency0.chainId,
-        },
-      },
-    })
   }
 
-  return undefined
+  return new ClaimLPFeesRequest({
+    claimLPFeesRequest: {
+      case: protocolCase,
+      value: {
+        simulateTransaction: true,
+        protocol: getProtocols(positionInfo.version),
+        tokenId: Number(positionInfo.tokenId),
+        position: new V4Position({
+          pool: new V4Pool({
+            token0: currency0.isNative ? ZERO_ADDRESS : currency0.address,
+            token1: currency1.isNative ? ZERO_ADDRESS : currency1.address,
+            fee: positionInfo.feeTier?.feeAmount,
+            tickSpacing: positionInfo.tickSpacing ? Number(positionInfo.tickSpacing) : undefined,
+            hooks: positionInfo.v4hook,
+          }),
+          tickLower: positionInfo.tickLower,
+          tickUpper: positionInfo.tickUpper,
+        }),
+        walletAddress: address,
+        chainId: currency0.chainId,
+      },
+    },
+  })
 }
 
 function UnwrapUnderCard({
@@ -223,9 +245,7 @@ export function ClaimFeeModal() {
     connectedAccount.connector?.id,
   )
 
-  const isClaimFeesV2 = useFeatureFlag(FeatureFlags.ClaimFeesV2)
-
-  const claimFeesQueryParams = useMemo((): ClaimLPFeesRequest | ClaimFeesRequest | undefined => {
+  const claimLpFeesParams = useMemo(() => {
     if (!positionInfo || !currency0 || !currency1) {
       return undefined
     }
@@ -236,25 +256,24 @@ export function ClaimFeeModal() {
       positionInfo,
       unwrapNativeCurrency,
       address: account?.address,
-      isClaimFeesNewEndpoint: isClaimFeesV2,
     })
-  }, [account?.address, currency0, currency1, positionInfo, unwrapNativeCurrency, isClaimFeesV2])
+  }, [account?.address, currency0, currency1, positionInfo, unwrapNativeCurrency])
 
   const {
-    claimFeesData: data,
-    claimFeesLoading: calldataLoading,
-    claimFeesError: error,
-    claimFeesRefetch: refetch,
-  } = useClaimFeesQuery({
-    claimFeesQueryParams,
-    isQueryEnabled: Boolean(claimFeesQueryParams),
-  })
+    data,
+    isLoading: calldataLoading,
+    error,
+    refetch,
+  } = useQuery(
+    liquidityQueries.claimFees({
+      params: claimLpFeesParams,
+      enabled: Boolean(claimLpFeesParams),
+    }),
+  )
 
   // prevent logging of the empty error object for now since those are burying signals
   if (error && Object.keys(error).length > 0) {
-    const message = parseErrorMessageTitle(error, {
-      defaultTitle: 'unknown ClaimLPFeesCalldataQuery',
-    })
+    const message = parseErrorMessageTitle(error, { defaultTitle: 'unknown ClaimLPFeesCalldataQuery' })
     logger.error(message, {
       tags: {
         file: 'ClaimFeeModal',
@@ -264,7 +283,75 @@ export function ClaimFeeModal() {
 
     sendAnalyticsEvent(InterfaceEventName.CollectLiquidityFailed, {
       message,
-          link={uniswapUrls.helpRequestUrl}
+    })
+  }
+
+  const txInfo = useMemo((): CollectFeesTxAndGasInfo | undefined => {
+    const validatedTxRequest = validateTransactionRequest(data?.claim)
+
+    if (!positionInfo || !validatedTxRequest) {
+      return undefined
+    }
+
+    return {
+      type: LiquidityTransactionType.Collect,
+      protocolVersion: positionInfo.version,
+      action: {
+        type: LiquidityTransactionType.Collect,
+        currency0Amount: fee0Amount || CurrencyAmount.fromRawAmount(positionInfo.currency0Amount.currency, 0),
+        currency1Amount: fee1Amount || CurrencyAmount.fromRawAmount(positionInfo.currency1Amount.currency, 0),
+      },
+      txRequest: validatedTxRequest,
+    }
+  }, [data?.claim, fee0Amount, fee1Amount, positionInfo])
+
+  const onPressConfirm = async () => {
+    const isValidTx = isValidLiquidityTxContext(txInfo)
+    if (!account || !isSignerMnemonicAccountDetails(account) || !isValidTx) {
+      return
+    }
+
+    dispatch(
+      liquiditySaga.actions.trigger({
+        selectChain,
+        startChainId,
+        account,
+        liquidityTxContext: txInfo,
+        setCurrentStep: setCurrentTransactionStep,
+        setSteps: () => undefined,
+        onSuccess: () => {
+          closeModal()
+        },
+        onFailure: () => {
+          setCurrentTransactionStep(undefined)
+        },
+        analytics:
+          positionInfo && fee0Amount?.currency && fee1Amount?.currency
+            ? {
+                ...getLPBaseAnalyticsProperties({
+                  trace,
+                  tickSpacing: positionInfo.tickSpacing,
+                  tickLower: positionInfo.tickLower,
+                  tickUpper: positionInfo.tickUpper,
+                  hook: positionInfo.v4hook,
+                  poolId: positionInfo.poolId,
+                  currency0: currencyInfo0?.currency ?? fee0Amount.currency,
+                  currency1: currencyInfo1?.currency ?? fee1Amount.currency,
+                  currency0AmountUsd: fee0AmountUsd,
+                  currency1AmountUsd: fee1AmountUsd,
+                  version: positionInfo.version,
+                }),
+              }
+            : undefined,
+      }),
+    )
+  }
+
+  return (
+    <Modal name={ModalName.ClaimFee} onClose={closeModal} isDismissible>
+      <Flex gap="$gap16">
+        <GetHelpHeader
+          link={lxUrls.helpRequestUrl}
           title={t('pool.collectFees')}
           closeModal={closeModal}
           closeDataTestId="ClaimFeeModal-close-icon"
@@ -336,7 +423,7 @@ export function ClaimFeeModal() {
             size="large"
             variant="branded"
             onPress={onPressConfirm}
-            icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$white" /> : undefined}
+            icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$neutral1" /> : undefined}
           >
             {currentTransactionStep
               ? isSignedInWithPasskey

@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Accordion, AnimateTransition, Flex, Separator, Square, Text } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Accordion, AnimateTransition, Flex, Separator, Square, Text } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { HelpModal } from '~/components/HelpModal/HelpModal'
 import { MenuSectionTitle, useMenuContent } from '~/components/NavBar/CompanyMenu/Content'
 import { MenuLink } from '~/components/NavBar/CompanyMenu/MenuDropdown'
@@ -53,7 +53,7 @@ export function MobileMenuDrawer({ isOpen, closeMenu }: { isOpen: boolean; close
   const [openSections, setOpenSections] = useState<string[]>()
   const [settingsView, setSettingsView] = useState<PreferencesView>(PreferencesView.SETTINGS)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  // oxlint-disable-next-line react/exhaustive-deps -- +setSettingsView, +dropdownRef
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +setSettingsView, +dropdownRef
   const changeView = useCallback(
     (view: PreferencesView) => {
       setSettingsView(view)

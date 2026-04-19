@@ -1,9 +1,9 @@
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { parseUSDValueFromAssetChange } from 'uniswap/src/features/activity/utils/remote'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { ONE_DAY_MS } from 'utilities/src/time/time'
+import { parseUSDValueFromAssetChange } from '@l.x/lx/src/features/activity/utils/remote'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
 
 /**
  * Hook to fetch swap USD values from GraphQL for transactions from the last 7 days

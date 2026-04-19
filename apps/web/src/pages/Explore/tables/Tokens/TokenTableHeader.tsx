@@ -1,14 +1,11 @@
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { Flex } from '@l.x/ui/src'
 import { OrderDirection } from '~/appGraphql/data/util'
 import { ClickableHeaderRow, HeaderArrow, HeaderSortText } from '~/components/Table/shared/SortableHeader'
-import { getHeaderDescription, TokenSortMethod } from '~/components/Tokens/constants'
+import { HEADER_DESCRIPTIONS, TokenSortMethod } from '~/components/Tokens/constants'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
-import { useExploreParams } from '~/pages/Explore/redirects'
 import { useTokenTableSortStoreActions } from '~/pages/Explore/tables/Tokens/tokenTableSortStore'
-import { getChainIdFromChainUrlParam } from '~/utils/chainParams'
 
 function getHeaderText({ t, category }: { t: (key: string) => string; category: TokenSortMethod }): string {
   const SORT_METHOD_LABEL_KEYS: Record<TokenSortMethod, string> = {
@@ -31,18 +28,18 @@ export function TokenTableHeader({
   direction: OrderDirection
 }) {
   const { t } = useTranslation()
-  const networkName = useMemo(() => {
-    if (category !== TokenSortMethod.PRICE || !chainName) {
-      return undefined
-    }
-    const chainId = getChainIdFromChainUrlParam(chainName)
-    return chainId ? getChainInfo(chainId).name : undefined
-  }, [category, chainName])
-  const tooltipContent = useMemo(() => getHeaderDescription({ t, category, networkName }), [t, category, networkName])
+  const headerText = useMemo(() => getHeaderText({ t, category }), [t, category])
+  const { setSort } = useTokenTableSortStoreActions()
+  const handleSortCategory = useCallback(() => setSort(category), [setSort, category])
 
   return (
     <ClickableHeaderRow onPress={handleSortCategory} group>
-      <MouseoverTooltip disabled={!tooltipContent} size={TooltipSize.Small} text={tooltipContent} placement="top">
+      <MouseoverTooltip
+        disabled={!HEADER_DESCRIPTIONS[category]}
+        size={TooltipSize.Small}
+        text={HEADER_DESCRIPTIONS[category]}
+        placement="top"
+      >
         <Flex row gap="$gap4" alignItems="center">
           {isCurrentSortMethod && <HeaderArrow orderDirection={direction} size="$icon.16" />}
           <HeaderSortText active={isCurrentSortMethod} variant="body3">

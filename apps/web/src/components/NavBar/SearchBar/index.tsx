@@ -1,18 +1,18 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { Search } from 'ui/src/components/icons/Search'
-import { ElementName, InterfaceEventName, ModalName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { KeyAction } from 'utilities/src/device/keyboard/types'
-import { useKeyDown } from 'utilities/src/device/keyboard/useKeyDown'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Search } from '@l.x/ui/src/components/icons/Search'
+import { ElementName, InterfaceEventName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { KeyAction } from '@l.x/utils/src/device/keyboard/types'
+import { useKeyDown } from '@l.x/utils/src/device/keyboard/useKeyDown'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { NavIcon } from '~/components/NavBar/NavIcon'
 import { SearchModal } from '~/components/NavBar/SearchBar/SearchModal'
 import { useIsSearchBarVisible } from '~/components/NavBar/SearchBar/useIsSearchBarVisible'
 import { useModalState } from '~/hooks/useModalState'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 const NAV_SEARCH_MIN_WIDTH = '340px'
 
@@ -99,7 +99,7 @@ export const SearchBar = () => {
                 element={ElementName.NavbarSearchInput}
                 properties={{ ...trace }}
               >
-                <Text fontWeight="$book" color="$neutral2" textAlign="left" {...EllipsisTamaguiStyle}>
+                <Text fontWeight="$book" color="$neutral2" textAlign="left" {...EllipsisGuiStyle}>
                   {placeholderText}
                 </Text>
               </Trace>

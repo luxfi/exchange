@@ -3,20 +3,20 @@ import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useUpdateAtom } from 'jotai/utils'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router'
-import { CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
-import { CONVERSION_EVENTS } from 'uniswap/src/data/rest/conversionTracking/constants'
-import { useConversionTracking } from 'uniswap/src/data/rest/conversionTracking/useConversionTracking'
-import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { WalletConnectedProperties, WalletConnectionResult } from 'uniswap/src/features/telemetry/types'
-import { InterfaceUserPropertyName, setUserProperty } from 'uniswap/src/features/telemetry/user'
-import { logger } from 'utilities/src/logger/logger'
-import { useEvent } from 'utilities/src/react/hooks'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
-// oxlint-disable-next-line no-restricted-imports -- direct wagmi hooks needed so we can access user's chainId even if unsupported chain
+import { CONNECTION_PROVIDER_NAMES } from '@l.x/lx/src/constants/web3'
+import { CONVERSION_EVENTS } from '@l.x/lx/src/data/rest/conversionTracking/constants'
+import { useConversionTracking } from '@l.x/lx/src/data/rest/conversionTracking/useConversionTracking'
+import { useIsSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { WalletConnectedProperties, WalletConnectionResult } from '@l.x/lx/src/features/telemetry/types'
+import { InterfaceUserPropertyName, setUserProperty } from '@l.x/lx/src/features/telemetry/user'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+// biome-ignore lint/style/noRestrictedImports: direct wagmi hooks needed so we can access user's chainId even if unsupported chain
 import { useAccount as useAccountWagmi } from 'wagmi'
 import { recentConnectorIdAtom } from '~/components/Web3Provider/constants'
 import { RPC_PROVIDERS } from '~/constants/providers'
@@ -50,7 +50,7 @@ export function WebAccountsStoreUpdater() {
   const shouldTrace = useFeatureFlag(FeatureFlags.TraceJsonRpc)
   const isSupportedChain = useIsSupportedChainId(account.chainId)
   const networkProvider = isSupportedChain && account.chainId ? RPC_PROVIDERS[account.chainId] : undefined
-  // oxlint-disable-next-line react/exhaustive-deps -- +analyticsContext
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +analyticsContext
   useEffect(() => {
     if (shouldTrace) {
       provider?.on('debug', trace)
@@ -250,7 +250,7 @@ export function WebAccountsStoreUpdater() {
       sendAnalyticsEvent(InterfaceEventName.WalletConnected, walletConnectedProperties)
     }
 
-    if (evmWalletName === CONNECTION_PROVIDER_NAMES.UNISWAP_EXTENSION) {
+    if (evmWalletName === CONNECTION_PROVIDER_NAMES.LUX_EXTENSION) {
       trackConversions(CONVERSION_EVENTS.Extension.Downloaded)
     }
 

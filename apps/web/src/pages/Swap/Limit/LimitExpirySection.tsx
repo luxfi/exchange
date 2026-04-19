@@ -1,8 +1,8 @@
 import { TFunction } from 'i18next'
 import { Trans, useTranslation } from 'react-i18next'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { LimitsExpiry } from 'uniswap/src/types/limits'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { LimitsExpiry } from '@l.x/lx/src/types/limits'
 import Row from '~/components/deprecated/Row'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { useLimitContext } from '~/state/limit/LimitContext'
@@ -31,7 +31,7 @@ const LimitExpiryButton = deprecatedStyled.button<{ $selected: boolean }>`
 
 const EXPIRY_OPTIONS = [LimitsExpiry.Day, LimitsExpiry.Week, LimitsExpiry.Month, LimitsExpiry.Year]
 
-// oxlint-disable-next-line consistent-return
+// eslint-disable-next-line consistent-return
 function getExpiryLabelText(t: TFunction, expiry: LimitsExpiry): string {
   switch (expiry) {
     case LimitsExpiry.Day:

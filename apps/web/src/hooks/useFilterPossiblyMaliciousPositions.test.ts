@@ -1,4 +1,5 @@
 import '~/test-utils/tokens/mocks'
+
 import { BigNumber } from '@ethersproject/bignumber'
 import { useFilterPossiblyMaliciousPositions } from '~/hooks/useFilterPossiblyMaliciousPositions'
 import { useTokenContractsConstant } from '~/hooks/useTokenContractsConstant'
@@ -62,3 +63,11 @@ describe('useFilterPossiblyMaliciousPositions', () => {
   })
   it('filters out unsafe positions', async () => {
     mocked(useTokenContractsConstant).mockReturnValue([{ result: 'Lux-LP.org' }, { result: 'Claim Rewards' }])
+
+    const { result } = renderHook(() => useFilterPossiblyMaliciousPositions(positions))
+
+    expect(result.current.some((position) => position.token1 === '0xB85C51F89788C1B3Bd4568f773e8FfB40cA587Bb')).toEqual(
+      false,
+    )
+  })
+})

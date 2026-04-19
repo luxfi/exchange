@@ -1,11 +1,14 @@
+import { brand } from '@l.x/config'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { lazy, ReactNode, Suspense, useMemo } from 'react'
+import { lazy, type PropsWithChildren, ReactNode, Suspense, useMemo } from 'react'
 import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router'
-import { WRAPPED_PATH } from 'uniswap/src/components/banners/shared/utils'
-import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from 'uniswap/src/constants/urls'
-import { WRAPPED_SOL_ADDRESS_SOLANA } from 'uniswap/src/features/chains/svm/defaults'
-import { EXTENSION_PASSKEY_AUTH_PATH } from 'uniswap/src/features/passkey/constants'
-import i18n from 'uniswap/src/i18n'
+import { WRAPPED_PATH } from '@l.x/lx/src/components/banners/shared/utils'
+import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from '@l.x/lx/src/constants/urls'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from '@l.x/lx/src/features/chains/svm/defaults'
+import { EXTENSION_PASSKEY_AUTH_PATH } from '@l.x/lx/src/features/passkey/constants'
+import { SwapTransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/SwapTransactionSettingsStoreContextProvider'
+import { SwapFormStoreContextProvider } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
+import i18n from '@l.x/lx/src/i18n'
 import { getExploreDescription, getExploreTitle } from '~/pages/getExploreTitle'
 import { getPortfolioDescription, getPortfolioTitle } from '~/pages/getPortfolioTitle'
 import {
@@ -50,6 +53,25 @@ const CreateAuction = lazy(() => import('~/pages/Liquidity/CreateAuction/CreateA
 const XOAuthCallbackPage = lazy(() => import('~/pages/Liquidity/CreateAuction/XOAuthCallbackPage'))
 const BetaPage = lazy(() => import('~/pages/Beta'))
 const Wrapped = lazy(() => import('~/pages/Wrapped'))
+const TradePage = lazy(() => import('~/pages/Trade'))
+const Options = lazy(() => import('~/pages/Options'))
+const Bridge = lazy(() => import('~/pages/Bridge'))
+const TermsOfService = lazy(() => import('~/pages/Legal/TermsOfService'))
+const PrivacyPolicyPage = lazy(() => import('~/pages/Legal/PrivacyPolicy'))
+
+/**
+ * Wrapper that provides SwapFormStoreContextProvider for routes that use
+ * shared components (CurrencyInputPanel, TokenRate, etc.) which depend on
+ * the swap form store context. Without this, those components throw
+ * "useSwapFormStore must be used within SwapFormStoreContextProvider".
+ */
+function WithSwapFormStore({ children }: PropsWithChildren): JSX.Element {
+  return (
+    <SwapTransactionSettingsStoreContextProvider>
+      <SwapFormStoreContextProvider>{children}</SwapFormStoreContextProvider>
+    </SwapTransactionSettingsStoreContextProvider>
+  )
+}
 
 interface RouterConfig {
   browserRouterEnabled?: boolean
@@ -66,7 +88,7 @@ export function useRouterConfig(): RouterConfig {
   const browserRouterEnabled = isBrowserRouterEnabled()
   const { hash } = useLocation()
   const isEmbeddedWalletEnabled = useFeatureFlag(FeatureFlags.EmbeddedWallet)
-  const isWrappedEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
+  const isWrappedEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
   const isToucanLaunchAuctionEnabled = useFeatureFlag(FeatureFlags.ToucanLaunchAuction)
 
   return useMemo(
@@ -83,21 +105,21 @@ export function useRouterConfig(): RouterConfig {
 
 // SEO titles and descriptions sourced from https://docs.google.com/spreadsheets/d/1_6vSxGgmsx6QGEZ4mdHppv1VkuiJEro3Y_IopxUHGB4/edit#gid=0
 // getTitle and getDescription are used as static metatags for SEO. Dynamic metatags should be set in the page component itself
+// Lazy getters so i18n.t() runs at render time (after brand config injects defaultVariables)
 const StaticTitlesAndDescriptions = {
-  UniswapTitle: i18n.t('title.uniswapTradeCrypto'),
-  SwapTitle: i18n.t('title.buySellTradeEthereum'),
-  SwapDescription: i18n.t('title.swappingMadeSimple'),
-  DetailsPageBaseTitle: i18n.t('common.buyAndSell'),
-  TDPDescription: i18n.t('title.realTime'),
-  PDPDescription: i18n.t('title.tradeTokens'),
-  MigrateTitle: i18n.t('title.migratev2'),
-  MigrateTitleV3: i18n.t('title.migratev3'),
-  MigrateDescription: i18n.t('title.easilyRemove'),
-  MigrateDescriptionV4: i18n.t('title.easilyRemoveV4'),
-  AddLiquidityDescription: i18n.t('title.earnFees'),
-  PasskeyManagementTitle: i18n.t('title.managePasskeys'),
-  // TODO(LP-295): Update after launch
-  ToucanPlaceholderDescription: 'Placeholder description for Toucan page',
+  get LuxTitle() { return i18n.t('title.lxTradeCrypto') },
+  get SwapTitle() { return i18n.t('title.buySellTradeEthereum') },
+  get SwapDescription() { return i18n.t('title.swappingMadeSimple') },
+  get DetailsPageBaseTitle() { return i18n.t('common.buyAndSell') },
+  get TDPDescription() { return i18n.t('title.realTime') },
+  get PDPDescription() { return i18n.t('title.tradeTokens') },
+  get MigrateTitle() { return i18n.t('title.migratev2') },
+  get MigrateTitleV3() { return i18n.t('title.migratev3') },
+  get MigrateDescription() { return i18n.t('title.easilyRemove') },
+  get MigrateDescriptionV4() { return i18n.t('title.easilyRemoveV4') },
+  get AddLiquidityDescription() { return i18n.t('title.earnFees') },
+  get PasskeyManagementTitle() { return i18n.t('title.managePasskeys') },
+  get ToucanDescription() { return i18n.t('title.toucanDescription') },
 }
 
 export interface RouteDefinition {
@@ -113,7 +135,7 @@ export interface RouteDefinition {
 function createRouteDefinition(route: Partial<RouteDefinition>): RouteDefinition {
   return {
     getElement: () => null,
-    getTitle: () => StaticTitlesAndDescriptions.UniswapTitle,
+    getTitle: () => StaticTitlesAndDescriptions.LuxTitle,
     getDescription: () => StaticTitlesAndDescriptions.SwapDescription,
     enabled: () => true,
     path: '/',
@@ -126,7 +148,7 @@ function createRouteDefinition(route: Partial<RouteDefinition>): RouteDefinition
 export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/',
-    getTitle: () => StaticTitlesAndDescriptions.UniswapTitle,
+    getTitle: () => StaticTitlesAndDescriptions.LuxTitle,
     getDescription: () => StaticTitlesAndDescriptions.SwapDescription,
     getElement: (args) => {
       return args.browserRouterEnabled && args.hash ? <Navigate to={args.hash.replace('#', '')} replace /> : <Landing />
@@ -187,7 +209,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/explore/auctions/:chainName/:auctionAddress',
     getTitle: () => StaticTitlesAndDescriptions.DetailsPageBaseTitle,
-    getDescription: () => StaticTitlesAndDescriptions.ToucanPlaceholderDescription,
+    getDescription: () => StaticTitlesAndDescriptions.ToucanDescription,
     getElement: () => (
       <Suspense fallback={null}>
         <ToucanToken />
@@ -197,7 +219,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/liquidity/launch-auction',
     getTitle: () => i18n.t('toucan.createAuction.title'),
-    getDescription: () => StaticTitlesAndDescriptions.ToucanPlaceholderDescription,
+    getDescription: () => StaticTitlesAndDescriptions.ToucanDescription,
     enabled: (args) => args.isToucanLaunchAuctionEnabled ?? false,
     getElement: () => (
       <Suspense fallback={null}>
@@ -218,17 +240,16 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/vote/*',
     getTitle: () => i18n.t('title.voteOnGov'),
-    getDescription: () => i18n.t('title.uniToken'),
+    getDescription: () => i18n.t('title.luxToken'),
     getElement: () => {
       return (
         <Routes>
           <Route
             path="*"
             Component={() => {
-              window.location.href = 'https://vote.uniswapfoundation.org'
+              window.location.href = 'https://vote.luxfoundation.org'
               return null
             }}
-            // oxlint-disable-next-line react/self-closing-comp -- biome-parity: oxlint is stricter here
           ></Route>
         </Routes>
       )
@@ -242,17 +263,17 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/buy',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
   }),
   createRouteDefinition({
     path: '/sell',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
   }),
   createRouteDefinition({
     path: '/send',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => i18n.t('title.sendTokens'),
   }),
   createRouteDefinition({
@@ -262,23 +283,18 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/limit',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => i18n.t('title.placeLimit'),
   }),
   createRouteDefinition({
-    path: '/buy',
-    getElement: () => <Swap />,
-    getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
-  }),
-  createRouteDefinition({
     path: '/swap',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
   }),
   // Refreshed pool routes
   createRouteDefinition({
     path: '/positions/create',
-    getElement: () => <CreatePosition />,
+    getElement: () => <WithSwapFormStore><CreatePosition /></WithSwapFormStore>,
     getTitle: getPositionPageTitle,
     getDescription: getPositionPageDescription,
     nestedPaths: [':protocolVersion'],
@@ -365,7 +381,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/add/v2',
     nestedPaths: [':currencyIdA', ':currencyIdA/:currencyIdB'],
-    getElement: () => <AddLiquidityV2WithTokenRedirects />,
+    getElement: () => <WithSwapFormStore><AddLiquidityV2WithTokenRedirects /></WithSwapFormStore>,
     getTitle: getAddLiquidityPageTitle,
     getDescription: () => StaticTitlesAndDescriptions.AddLiquidityDescription,
   }),
@@ -377,7 +393,7 @@ export const routes: RouteDefinition[] = [
       ':currencyIdA/:currencyIdB/:feeAmount',
       ':currencyIdA/:currencyIdB/:feeAmount/:tokenId',
     ],
-    getElement: () => <AddLiquidityV3WithTokenRedirects />,
+    getElement: () => <WithSwapFormStore><AddLiquidityV3WithTokenRedirects /></WithSwapFormStore>,
     getTitle: getAddLiquidityPageTitle,
     getDescription: () => StaticTitlesAndDescriptions.AddLiquidityDescription,
   }),
@@ -422,22 +438,42 @@ export const routes: RouteDefinition[] = [
       ':walletAddress/activity',
     ],
   }),
-  // Uniswap Extension Uninstall Page
+  // Lux Extension Uninstall Page
   createRouteDefinition({
     path: CHROME_EXTENSION_UNINSTALL_URL_PATH,
     getElement: () => <ExtensionUninstall />,
     getTitle: () => i18n.t('title.extension.uninstall'),
   }),
-  // Uniswap Wrapped
+  // Lux Wrapped
   createRouteDefinition({
     path: WRAPPED_PATH,
     getElement: () => <Wrapped />,
-    getTitle: () => 'Uniswap Wrapped',
+    getTitle: () => `${brand.shortName || 'LX'} Wrapped`,
     enabled: (args) => args.isWrappedEnabled ?? false,
   }),
   createRouteDefinition({
+    path: '/options',
+    getTitle: () => 'Options | Derivatives Trading',
+    getDescription: () => 'Trade on-chain options, futures, and multi-leg strategies',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <Options />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
+    path: '/bridge',
+    getTitle: () => 'Bridge | Cross-Chain Transfer',
+    getDescription: () => 'Transfer tokens across chains with one click',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <Bridge />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
     path: '/preview',
-    getTitle: () => 'Uniswap Preview',
+    getTitle: () => `${brand.shortName || 'LX'} Preview`,
     getElement: () => (
       <Suspense fallback={null}>
         <BetaPage />
@@ -474,3 +510,23 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
   }),
+  createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),
+  createRouteDefinition({ path: '/not-found', getElement: () => <NotFound /> }),
+]
+
+export const findRouteByPath = (pathname: string) => {
+  for (const route of routes) {
+    const match = matchPath(route.path, pathname)
+    if (match) {
+      return route
+    }
+    const subPaths = route.nestedPaths.map((nestedPath) => `${route.path}/${nestedPath}`)
+    for (const subPath of subPaths) {
+      const match = matchPath(subPath, pathname)
+      if (match) {
+        return route
+      }
+    }
+  }
+  return undefined
+}

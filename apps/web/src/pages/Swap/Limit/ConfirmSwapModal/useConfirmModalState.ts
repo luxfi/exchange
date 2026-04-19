@@ -1,10 +1,10 @@
-import { Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@luxamm/sdk-core'
 import { useCallback, useEffect, useState } from 'react'
 import invariant from 'tiny-invariant'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { NumberType } from 'utilities/src/format/types'
-import { logger } from 'utilities/src/logger/logger'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { RESET_APPROVAL_TOKENS } from '~/components/swap/constants'
 import { useAccount } from '~/hooks/useAccount'
 import { Allowance, AllowanceState } from '~/hooks/usePermit2Allowance'
@@ -52,7 +52,22 @@ export function useConfirmModalState({
   allowedSlippage: Percent
   onSwap: () => void
   allowance: Allowance
-    // Limit orders still require wrapping ETH to WETH (unlike regular UniswapX swaps which now support native ETH)
+  onCurrencySelection: (field: CurrencyField, currency: Currency, isResettingWETHAfterWrap?: boolean) => void
+}) {
+  const [confirmModalState, setConfirmModalState] = useState<ConfirmModalState>(ConfirmModalState.REVIEWING)
+  const [approvalError, setApprovalError] = useState<PendingModalError>()
+  const [pendingModalSteps, setPendingModalSteps] = useState<PendingConfirmModalState[]>([])
+  const { formatCurrencyAmount } = useLocalizationContext()
+
+  const account = useAccount()
+  const { chainId } = useMultichainContext()
+
+  // This is a function instead of a memoized value because we do _not_ want it to update as the allowance changes.
+  // For example, if the user needs to complete 3 steps initially, we should always show 3 step indicators
+  // at the bottom of the modal, even after they complete steps 1 and 2.
+  const generateRequiredSteps = useCallback(() => {
+    const steps: PendingConfirmModalState[] = []
+    // Limit orders still require wrapping ETH to WETH (unlike regular DEX swaps which now support native ETH)
     if (isLimitTrade(trade) && trade.wrapInfo.needsWrap) {
       steps.push(ConfirmModalState.WRAPPING)
     }

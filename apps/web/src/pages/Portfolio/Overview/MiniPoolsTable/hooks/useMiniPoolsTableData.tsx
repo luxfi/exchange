@@ -1,9 +1,9 @@
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
-import { useGetPositionsQuery } from 'uniswap/src/data/rest/getPositions'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { usePositionVisibilityCheck } from 'uniswap/src/features/visibility/hooks/usePositionVisibilityCheck'
+import { useGetPositionsQuery } from 'lx/src/data/rest/getPositions'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { usePositionVisibilityCheck } from 'lx/src/features/visibility/hooks/usePositionVisibilityCheck'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { parseRestPosition } from '~/components/Liquidity/utils/parseFromRest'
 import { usePendingLPTransactionsChangeListener } from '~/state/transactions/hooks'
@@ -22,7 +22,7 @@ export function useMiniPoolsTableData({ account, maxPools = 5, chainId }: UseMin
   const { chains } = useEnabledChains()
   const isPositionVisible = usePositionVisibilityCheck()
 
-  // Positions are EVM-only (Uniswap V2/V3/V4), so skip if no EVM address
+  // Positions are EVM-only (LX V2/V3/V4), so skip if no EVM address
   const skipQuery = !account
 
   const { data, isLoading, refetch } = useGetPositionsQuery(

@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect } from 'react'
 import { Helmet } from 'react-helmet-async/lib/index'
 import { Navigate, useLocation } from 'react-router'
-import { useSporeColors } from 'ui/src'
-import { initializeScrollWatcher } from 'uniswap/src/components/modals/ScrollLock'
-import { EXTENSION_PASSKEY_AUTH_PATH } from 'uniswap/src/features/passkey/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { brand } from '@l.x/config'
+import { useSporeColors } from '@l.x/ui/src'
+import { initializeScrollWatcher } from '@l.x/lx/src/components/modals/ScrollLock'
+import { EXTENSION_PASSKEY_AUTH_PATH } from '@l.x/lx/src/features/passkey/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import { useFeatureFlagUrlOverrides } from '~/featureFlags/useFeatureFlagUrlOverrides'
 import { Body } from '~/pages/App/Body'
@@ -34,7 +35,7 @@ export default function App() {
   }, [])
 
   const metaTags = useDynamicMetatags()
-  const staticTitle = findRouteByPath(pathname)?.getTitle(pathname) ?? 'Uniswap Interface'
+  const staticTitle = findRouteByPath(pathname)?.getTitle(pathname) ?? (brand.title || brand.name || 'Exchange')
   const staticDescription = findRouteByPath(pathname)?.getDescription(pathname)
 
   // redirect address to landing pages until implemented
@@ -68,7 +69,7 @@ export default function App() {
         <Helmet>
           <title>{staticTitle}</title>
           {staticDescription && <meta name="description" content={staticDescription} />}
-          {staticDescription && <meta property="og:description" content={staticDescription} />}
+          <meta name="twitter:card" content="summary_large_image" />
           {metaTags.map((tag, index) => (
             <meta key={index} {...tag} />
           ))}

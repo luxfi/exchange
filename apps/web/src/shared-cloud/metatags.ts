@@ -1,3 +1,5 @@
+import { brand } from '@l.x/config'
+
 export type MetaTagInjectorInput = {
   title: string
   image?: string
@@ -18,3 +20,4 @@ export function formatTokenMetatagTitleName(symbol: string | undefined, name: st
     return 'Get ' + name + ' on ' + b
   }
   return 'View Token on ' + b
+}

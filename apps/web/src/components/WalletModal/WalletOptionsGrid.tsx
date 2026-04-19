@@ -1,12 +1,12 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Fragment } from 'react'
-import { Flex, Separator } from 'ui/src'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { isMobileWeb } from 'utilities/src/platform'
+import { Flex, Separator } from '@l.x/ui/src'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { isMobileWeb } from '@l.x/utils/src/platform'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import { NoSolanaWalletConnectedView } from '~/components/WalletModal/NoSolanaWalletConnectedView'
-import { UniswapMobileWalletConnectorOption } from '~/components/WalletModal/UniswapMobileWalletConnectorOption'
+import { LXMobileWalletConnectorOption } from '~/components/WalletModal/LXMobileWalletConnectorOption'
 import { OtherWalletsOption, WalletConnectorOption } from '~/components/WalletModal/WalletConnectorOption'
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { useOrderedWallets } from '~/features/wallet/connection/hooks/useOrderedWalletConnectors'
@@ -36,7 +36,7 @@ export function WalletOptionsGrid({
 
   const shouldShowMobileConnector =
     showMobileConnector &&
-    (recentConnectorId === CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID ||
+    (recentConnectorId === CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID ||
       isMobileWeb ||
       isEmbeddedWalletEnabled)
 
@@ -57,7 +57,7 @@ export function WalletOptionsGrid({
       >
         {shouldShowMobileConnector && (
           <>
-            <UniswapMobileWalletConnectorOption />
+            <LXMobileWalletConnectorOption />
             {isEmbeddedWalletEnabled ? <Flex height={2} backgroundColor="$surface1" /> : <Separator />}
           </>
         )}

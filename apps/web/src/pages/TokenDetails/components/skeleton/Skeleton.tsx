@@ -1,14 +1,14 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { ComponentProps, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useParams } from 'react-router'
 import { capitalize } from 'tsafe'
-import { Anchor, Flex, styled, Text, TextProps, useMedia } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { zIndexes } from 'ui/src/theme'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { Anchor, Flex, styled, Text, TextProps, useMedia } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import { LoadingChart } from '~/components/Explore/chart/LoadingChart'
 import { ACTION_BUBBLE_SIZE } from '~/components/Explore/stickyHeader/constants'
@@ -19,7 +19,7 @@ import { LoadingBubble } from '~/components/Tokens/loading'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCurrency } from '~/hooks/Tokens'
 import { StatsWrapper, StatWrapper } from '~/pages/TokenDetails/components/info/StatsSection'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { useChainIdFromUrlParam } from '~/utils/chainParams'
 
 const SWAP_COMPONENT_WIDTH = 360
@@ -173,7 +173,7 @@ const LoadingFooterHeaderContainer = styled(Flex, {
 const LoadingFooterLink = styled(Anchor, {
   fontFamily: '$body',
   ...loadingFooterTextStyle,
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 // exported for testing

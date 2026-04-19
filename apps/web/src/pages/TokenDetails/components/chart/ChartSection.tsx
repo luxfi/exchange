@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { useTokenPriceChange } from 'uniswap/src/features/dataApi/tokenDetails/useTokenDetailsData'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+import { Flex } from '@l.x/ui/src'
+import { useTokenPriceChange } from '@l.x/lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import { TimePeriod, toHistoryDuration } from '~/appGraphql/data/util'
 import { ChartSkeleton } from '~/components/Charts/LoadingState'
 import { PriceChart } from '~/components/Charts/PriceChart'
@@ -43,7 +43,7 @@ export function ChartSection() {
   // Use API's 24hr change for 1d, calculated change for other durations
   const pricePercentChange = timePeriod === TimePeriod.DAY ? priceChange24h : calculatedPriceChange
 
-  // oxlint-disable-next-line consistent-return
+  // eslint-disable-next-line consistent-return
   const getSection = () => {
     if (activeQuery.dataQuality === DataQuality.INVALID) {
       return (

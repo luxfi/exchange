@@ -1,15 +1,16 @@
 import '~/test-utils/tokens/mocks'
+
 import { enableNetConnect } from 'nock'
-import { dismissTokenWarning } from 'uniswap/src/features/tokens/warnings/slice/slice'
-import { TokenProtectionWarning } from 'uniswap/src/features/tokens/warnings/types'
+import { dismissTokenWarning } from '@l.x/lx/src/features/tokens/warnings/slice/slice'
+import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
 import { PoolDetailsStats } from '~/pages/PoolDetails/components/PoolDetailsStats'
 import store from '~/state'
 import mockMediaSize from '~/test-utils/mockMediaSize'
 import { validPoolDataResponse } from '~/test-utils/pools/fixtures'
 import { act, render, screen } from '~/test-utils/render'
 
-vi.mock('tamagui', async () => {
-  const actual = await vi.importActual('tamagui')
+vi.mock('gui', async () => {
+  const actual = await vi.importActual('gui')
   return {
     ...actual,
     useMedia: vi.fn(),

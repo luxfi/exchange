@@ -1,18 +1,18 @@
 import { TradingApi } from '@l.x/api'
 import ms from 'ms'
 import { useCallback, useEffect, useMemo } from 'react'
-import { TradingApiClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiClient'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { RetryOptions, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { checkedTransaction } from 'uniswap/src/features/transactions/slice'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { toTradingApiSupportedChainId } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
-import { TransactionReceipt, TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { receiptFromViemReceipt } from 'uniswap/src/features/transactions/utils/receipt'
-import { shouldCheckTransaction } from 'uniswap/src/utils/polling'
-import { isValidHexString } from 'utilities/src/addresses/hex'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { RetryOptions, UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { checkedTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { toTradingApiSupportedChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
+import { TransactionReceipt, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { receiptFromViemReceipt } from '@l.x/lx/src/features/transactions/utils/receipt'
+import { shouldCheckTransaction } from '@l.x/lx/src/utils/polling'
+import { isValidHexString } from '@l.x/utils/src/addresses/hex'
 import { usePublicClient } from 'wagmi'
 import { useAccount } from '~/hooks/useAccount'
 import useCurrentBlockTimestamp from '~/hooks/useCurrentBlockTimestamp'
@@ -37,8 +37,8 @@ function usePendingTransactions(chainId?: UniverseChainId): PendingTransactionDe
     }
     return multichainTransactions.flatMap(([tx, txChainId]) => {
       // Avoid polling for already-deposited bridge transactions, as they will be finalized by the bridge updater.
-      // Also avoid polling UniswapX orders, as they are polled by usePollPendingOrders using the UniswapX backend API.
-      if (isPendingTx(tx, /* skipDepositedBridgeTxs = */ true) && txChainId === chainId && !isUniswapX(tx)) {
+      // Also avoid polling DEX orders, as they are polled by usePollPendingOrders using the DEX backend API.
+      if (isPendingTx(tx, /* skipDepositedBridgeTxs = */ true) && txChainId === chainId && !isLX(tx)) {
         // Ignore batch txs which need to be polled against wallet instead of chain.
         return tx.batchInfo ? [] : [tx]
       }

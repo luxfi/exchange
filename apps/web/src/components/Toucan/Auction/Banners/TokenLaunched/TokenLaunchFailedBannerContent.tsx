@@ -1,13 +1,13 @@
 import { CSSProperties, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useSporeColors } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { opacifyRaw, zIndexes } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { Flex, Text, useSporeColors } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { opacifyRaw, zIndexes } from '@l.x/ui/src/theme'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { TokenLaunchedBannerWrapper } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBannerWrapper'
 import { ExternalLink } from '~/theme/components/Links'
 
-const LEARN_MORE_URL = uniswapUrls.helpArticleUrls.toucanFailedToLaunchHelp
+const LEARN_MORE_URL = lxUrls.helpArticleUrls.toucanFailedToLaunchHelp
 
 interface TokenLaunchFailedBannerContentProps {
   tokenName: string

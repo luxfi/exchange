@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { buildCurrency } from 'uniswap/src/features/dataApi/utils/buildCurrency'
-import { useCurrencyInfoWithLoading } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { buildCurrency } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
+import { useCurrencyInfoWithLoading } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { useTokenInfoFromContract } from '~/components/Toucan/Auction/hooks/useTokenInfoFromContract'
 import { getAuctionMetadata } from '~/components/Toucan/Config/config'
 
@@ -11,7 +11,7 @@ import { getAuctionMetadata } from '~/components/Toucan/Config/config'
  * Hook to fetch auction token information (the token being auctioned off)
  * Derives symbol, name, decimals, and logoUrl from tokenAddress and chainId
  *
- * First attempts to fetch from Uniswap's GraphQL API, then falls back to on-chain
+ * First attempts to fetch from Lux's GraphQL API, then falls back to on-chain
  * RPC calls if the token is not indexed (common for testnet tokens).
  *
  * @param tokenAddress - The address of the auction token

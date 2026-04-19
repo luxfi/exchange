@@ -1,7 +1,7 @@
 import React from 'react'
 import { vi } from 'vitest'
 
-// Mock problematic Tamagui hooks
+// Mock problematic Gui hooks
 vi.mock('@hanzogui/use-event', () => ({
   useEvent: (callback: unknown) => {
     // Return a stable callback that won't throw during render
@@ -16,12 +16,23 @@ vi.mock('@hanzogui/use-event', () => ({
       return undefined
     }, [])
   },
-  // oxlint-disable-next-line
+  // eslint-disable-next-line
   useGet: (currentValue: unknown, initialValue: unknown, forwardToFunction: unknown) => {
     const curRef = React.useRef(initialValue ?? currentValue)
     React.useLayoutEffect(() => {
       curRef.current = currentValue
     })
+    return React.useCallback(
+      forwardToFunction && curRef.current
+        ? // @ts-ignore
+          (...args: unknown[]) => curRef.current?.apply(null, args)
+        : // @ts-ignore
+          () => curRef.current,
+      [],
+    )
+  },
+}))
+
 // Mock @hanzogui/use-element-layout used by HeightAnimator
 vi.mock('@hanzogui/use-element-layout', () => ({
   useElementLayout: () => ({
@@ -50,13 +61,13 @@ const createMockDialogElement = () => {
   return elem
 }
 
-// Filter out Tamagui-specific props that shouldn't be passed to DOM elements
-const filterTamaguiProps = (props: any) => {
+// Filter out Gui-specific props that shouldn't be passed to DOM elements
+const filterGuiProps = (props: any) => {
   const filtered: any = {}
 
   return filtered
   for (const key in props) {
-    // Skip Tamagui-specific props that start with $ or other non-DOM props
+    // Skip Gui-specific props that start with $ or other non-DOM props
     if (
       !key.startsWith('$') &&
       !key.startsWith('on') && // Skip event handlers like onOpenChange
@@ -99,7 +110,7 @@ const filterTamaguiProps = (props: any) => {
   return filtered
 }
 
-// Mock Tamagui Dialog component to avoid DOM method issues
+// Mock Gui Dialog component to avoid DOM method issues
 const mockDialogComponents = () => {
   const DialogContent = ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => {
     const ref = React.useRef<HTMLDivElement>(null)
@@ -127,26 +138,26 @@ const mockDialogComponents = () => {
       }
     }, [])
 
-    return React.createElement('div', { ref, ...filterTamaguiProps(props) }, children)
+    return React.createElement('div', { ref, ...filterGuiProps(props) }, children)
   }
 
   const DialogComponent = Object.assign(
     ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) =>
-      React.createElement('div', filterTamaguiProps(props), children),
+      React.createElement('div', filterGuiProps(props), children),
     {
       Portal: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) =>
-        React.createElement('div', filterTamaguiProps(props), children),
+        React.createElement('div', filterGuiProps(props), children),
       Content: DialogContent,
       Overlay: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) =>
-        React.createElement('div', filterTamaguiProps(props), children),
+        React.createElement('div', filterGuiProps(props), children),
       Title: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) =>
-        React.createElement('div', filterTamaguiProps(props), children),
+        React.createElement('div', filterGuiProps(props), children),
       Description: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) =>
-        React.createElement('div', filterTamaguiProps(props), children),
+        React.createElement('div', filterGuiProps(props), children),
       Close: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) =>
-        React.createElement('button', filterTamaguiProps(props), children),
+        React.createElement('button', filterGuiProps(props), children),
       Trigger: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) =>
-        React.createElement('button', filterTamaguiProps(props), children),
+        React.createElement('button', filterGuiProps(props), children),
     },
   )
 
@@ -163,9 +174,9 @@ const mockDialogComponents = () => {
 
 vi.mock('@hanzogui/dialog', () => mockDialogComponents())
 
-// Also mock Dialog , which is imported as part of 'tamagui'
-vi.mock('tamagui', async () => {
-  const actual = await vi.importActual('tamagui')
+// Also mock Dialog , which is imported as part of 'gui'
+vi.mock('gui', async () => {
+  const actual = await vi.importActual('gui')
   return {
     ...actual,
     ...mockDialogComponents(),

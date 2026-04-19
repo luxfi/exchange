@@ -1,5 +1,5 @@
 import type { UTCTimestamp } from 'lightweight-charts'
-import type { UseSporeColorsReturn } from 'ui/src/hooks/useSporeColors'
+import type { UseSporeColorsReturn } from '@l.x/ui/src/hooks/useSporeColors'
 import type { BidTokenInfo } from '~/components/Toucan/Auction/store/types'
 
 export interface ClearingPriceChartPoint {
@@ -64,8 +64,57 @@ interface ClearingPriceChartControllerCallbacks {
   onZoomStateChange?: (state: ClearingPriceZoomState) => void
   /** Called when y-axis labels are computed (for custom overlay rendering) */
   onYAxisLabelsChange?: (labels: YAxisLabel[]) => void
-  /** When true, disables mouse wheel scroll/scale so an external handler can manage Y-axis pan/zoom */
-  disableMouseWheelInteractions?: boolean
+}
+
+export interface ClearingPriceChartControllerCreateParams {
+  container: HTMLDivElement
+  height: number
+  colors: UseSporeColorsReturn
+  tokenColor?: string
+  bidTokenInfo: BidTokenInfo
+  maxFractionDigits: number
+  callbacks: ClearingPriceChartControllerCallbacks
+}
+
+export interface ClearingPriceChartControllerUpdateParams {
+  /** Scaled chart data */
+  data: ClearingPriceChartPoint[]
+  /** Scaled Y-axis minimum */
+  scaledYMin: number
+  /** Scaled Y-axis maximum */
+  scaledYMax: number
+  /** Scale factor for value transformation */
+  scaleFactor: number
+  /** Bid token symbol for Y-axis formatting */
+  bidTokenSymbol: string
+  /** Maximum fraction digits for price formatting */
+  maxFractionDigits: number
+  /** Time span in days for x-axis format */
+  timeSpanDays: number
+  /** Visible range start time (auction start) for setting chart bounds */
+  visibleRangeStart?: UTCTimestamp
+  /** Visible range end time (data end) for setting chart bounds */
+  visibleRangeEnd?: UTCTimestamp
+  /** Full range start time for zoom bounds */
+  fullRangeStart?: UTCTimestamp
+  /** Full range end time for zoom bounds */
+  fullRangeEnd?: UTCTimestamp
+  /** Initial visible range start time for reset */
+  initialRangeStart?: UTCTimestamp
+  /** Initial visible range end time for reset */
+  initialRangeEnd?: UTCTimestamp
+  /** Token color for chart line styling */
+  tokenColor?: string
+  /**
+   * Whether to use logical range positioning (75% visible data width).
+   * When true, data is positioned at 75% of the chart with blank space on right.
+   * This controls rendering behavior, not actual auction state.
+   */
+  useLogicalRangePositioning?: boolean
+  /** Whether to hide the x-axis (when using two-chart overlay mode) */
+  hideXAxis?: boolean
+  /** Whether zoom/pan interactions are enabled */
+  isZoomEnabled?: boolean
 }
 
 export interface YAxisLabel {

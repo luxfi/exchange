@@ -1,13 +1,14 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { parseToRgb } from 'polished'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, useSporeColors } from 'ui/src'
-import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { NumberType } from 'utilities/src/format/types'
+import { Flex, styled, Text, useSporeColors } from '@l.x/ui/src'
+import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { LiveIcon, StatCard } from '~/pages/Landing/components/StatCard'
 import { useInView } from '~/pages/Landing/sections/useInView'
 import { use24hProtocolVolume, useDailyTVLWithChange } from '~/state/explore/protocolStats'
+import { useFactoryStats } from '~/state/explore/useFactoryStats'
 import { ExternalLink } from '~/theme/components/Links'
 
 const Container = styled(Flex, {
@@ -174,33 +175,33 @@ function Cards({ inView }: { inView: boolean }) {
   const { convertFiatAmountFormatted, formatNumberOrString } = useLocalizationContext()
   const { totalVolume } = use24hProtocolVolume()
   const { totalTVL } = useDailyTVLWithChange()
-  // Currently hardcoded, BE task [DAT-1435] to make this data available
-  const allTimeVolume = 4.0 * 10 ** 12
-  const allTimeSwappers = 119 * 10 ** 6
+  const { txCount, poolCount } = useFactoryStats()
 
   return (
     <GridArea>
       <LeftTop>
         <StatCard
-          title={t('stats.allTimeVolume')}
-          value={convertFiatAmountFormatted(allTimeVolume, NumberType.FiatTokenStats)}
+          title={t('stats.tvl')}
+          value={convertFiatAmountFormatted(totalTVL, NumberType.FiatTokenStats)}
+          live
           delay={0}
           inView={inView}
         />
       </LeftTop>
       <RightTop>
         <StatCard
-          title={t('stats.tvl')}
-          value={convertFiatAmountFormatted(totalTVL, NumberType.FiatTokenStats)}
+          title={t('stats.24swapVolume')}
+          value={convertFiatAmountFormatted(totalVolume, NumberType.FiatTokenStats)}
+          live
           delay={0.2}
           inView={inView}
         />
       </RightTop>
       <LeftBottom>
         <StatCard
-          title={t('stats.allTimeSwappers')}
+          title={t('stats.allTimeTxns')}
           value={formatNumberOrString({
-            value: allTimeSwappers,
+            value: txCount,
             type: NumberType.TokenQuantityStats,
           })}
           delay={0.4}
@@ -209,9 +210,11 @@ function Cards({ inView }: { inView: boolean }) {
       </LeftBottom>
       <RightBottom>
         <StatCard
-          title={t('stats.24swapVolume')}
-          value={convertFiatAmountFormatted(totalVolume, NumberType.FiatTokenStats)}
-          live
+          title={t('stats.activePools')}
+          value={formatNumberOrString({
+            value: poolCount,
+            type: NumberType.TokenQuantityStats,
+          })}
           delay={0.6}
           inView={inView}
         />

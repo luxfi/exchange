@@ -1,13 +1,13 @@
-import { Anchor, styled } from 'ui/src'
-import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
+import { Anchor, styled } from '@l.x/ui/src'
+import { useCurrentLocale } from 'lx/src/features/language/hooks'
 import { TableText } from '~/components/Table/shared/TableText'
 import { useAbbreviatedTimeString } from '~/components/Table/utils/useAbbreviatedTimeString'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const StyledExternalLink = styled(Anchor, {
   textDecorationLine: 'none',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
   color: '$neutral1',
   target: '_blank',
   rel: 'noopener noreferrer',

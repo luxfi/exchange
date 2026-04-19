@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@l.x/api'
 import { PersistState } from 'redux-persist'
-import { createPersistState, createSafeMigration } from 'uniswap/src/state/createSafeMigration'
-import { PreV55SearchResult, PreV55SearchResultType, TokenSearchResult } from 'uniswap/src/state/oldTypes'
+import { createPersistState, createSafeMigration } from '@l.x/lx/src/state/createSafeMigration'
+import { PreV55SearchResult, PreV55SearchResultType, TokenSearchResult } from '@l.x/lx/src/state/oldTypes'
 
 export type PersistAppStateV15 = {
   _persist: PersistState
@@ -18,7 +18,7 @@ type TokenSearchResultWeb = Omit<TokenSearchResult, 'type'> & {
   isNative?: boolean
 }
 
-function webResultToUniswapResult(webItem: TokenSearchResultWeb): PreV55SearchResult | null {
+function webResultToLuxResult(webItem: TokenSearchResultWeb): PreV55SearchResult | null {
   if (webItem.type === PreV55SearchResultType.Token) {
     return {
       type: PreV55SearchResultType.Token,
@@ -29,7 +29,7 @@ function webResultToUniswapResult(webItem: TokenSearchResultWeb): PreV55SearchRe
       logoUrl: webItem.logoUrl,
       safetyInfo: webItem.safetyInfo,
     }
-    // oxlint-disable-next-line typescript/no-unnecessary-condition
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   } else if (webItem.type === PreV55SearchResultType.NFTCollection) {
     return {
       type: PreV55SearchResultType.NFTCollection,
@@ -62,7 +62,7 @@ export const migration15 = createSafeMigration({
 
     // map old search items to new search items
     const translatedResults: PreV55SearchResult[] = webSearchHistory
-      .map(webResultToUniswapResult)
+      .map(webResultToLuxResult)
       .filter((r): r is PreV55SearchResult => r !== null)
 
     // set new state as this modified search history

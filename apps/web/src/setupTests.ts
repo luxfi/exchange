@@ -1,11 +1,10 @@
-/* oxlint-disable max-lines */
+/* eslint-disable max-lines */
 import '@testing-library/jest-dom' // jest custom assertions
 import 'jest-styled-components' // adds style diffs to snapshot tests
 import '~/polyfills' // add polyfills
-// oxlint-disable-next-line
-import './test-utils/mockTamagui' // mock problematic Tamagui components
-import { Readable } from 'stream'
-import { TextDecoder, TextEncoder } from 'util'
+// eslint-disable-next-line
+import './test-utils/mockGui' // mock problematic Gui components
+
 import { type createPopper } from '@popperjs/core'
 import {
   BaseWalletAdapter,
@@ -19,9 +18,11 @@ import { config as loadEnv } from 'dotenv'
 import failOnConsole from 'jest-fail-on-console'
 import { disableNetConnect, restore as restoreNetConnect } from 'nock'
 import React from 'react'
-import { type UniverseChainId } from 'uniswap/src/features/chains/types'
-import { setupi18n } from 'uniswap/src/i18n/i18n-setup-interface'
-import { mockLocalizationContext } from 'uniswap/src/test/mocks/locale'
+import { Readable } from 'stream'
+import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { setupi18n } from '@l.x/lx/src/i18n/i18n-setup-interface'
+import { mockLocalizationContext } from '@l.x/lx/src/test/mocks/locale'
+import { TextDecoder, TextEncoder } from 'util'
 import { toBeVisible } from '~/test-utils/matchers'
 import { mocked } from '~/test-utils/mocked'
 
@@ -102,10 +103,10 @@ setupi18n()
 
 // Sets origin to the production origin, because some tests depend on this.
 // This prevents each test file from needing to set this manually.
-globalThis.origin = 'https://app.uniswap.org'
+globalThis.origin = 'https://lux.exchange'
 
 // Polyfill browser APIs (jest is a node.js environment):
-// oxlint-disable-next-line no-lone-blocks -- block used to scope polyfill assignments
+// biome-ignore lint/complexity/noUselessLoneBlockStatements: block used to scope polyfill assignments
 {
   window.open = vi.fn()
   window.getComputedStyle = vi.fn()
@@ -118,7 +119,7 @@ globalThis.origin = 'https://app.uniswap.org'
   }
 
   globalThis.matchMedia =
-    // oxlint-disable-next-line typescript/no-unnecessary-condition
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     globalThis.matchMedia ||
     ((query) => {
       const reducedMotion = query.match(/prefers-reduced-motion: ([a-zA-Z0-9-]+)/)
@@ -169,7 +170,7 @@ vi.mock('@datadog/browser-logs', () => ({
 }))
 
 // This package must be mocked because it doesn't support ESM
-vi.mock('@uniswap/analytics-events', () => {
+vi.mock('@luxamm/analytics-events', () => {
   return {
     SharedEventName: {},
     sendAnalyticsEvent: vi.fn(),
@@ -197,7 +198,7 @@ vi.mock('@hanzogui/animations-moti', () => ({
   },
 }))
 
-vi.mock('@uniswap/analytics', () => ({
+vi.mock('@luxamm/analytics', () => ({
   Trace: ({ children }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -234,7 +235,7 @@ vi.mock('utilities/src/platform', async () => {
   }
 })
 
-vi.mock('uniswap/src/features/telemetry/Trace', () => ({
+vi.mock('lx/src/features/telemetry/Trace', () => ({
   default: ({ children }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -243,7 +244,7 @@ vi.mock('uniswap/src/features/telemetry/Trace', () => ({
   },
 }))
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useConnectionStatus: vi.fn(() => ({ isConnecting: false })),
 }))
 
@@ -328,7 +329,7 @@ vi.mock('@popperjs/core', async () => {
   }
 })
 
-vi.mock('uniswap/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
+vi.mock('lx/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
 
 vi.mock('@web3-react/core', async () => {
   const web3React: any = await vi.importActual('@web3-react/core')
@@ -377,7 +378,7 @@ failOnConsole({
   shouldFailOnWarn: true,
   allowMessage: (message, type) => {
     if (type === 'error') {
-      // TODO(TAM-47): remove this allowed warning once Tamagui is upgraded >= 1.100
+      // TODO(TAM-47): remove this allowed warning once Gui is upgraded >= 1.100
       if (message.startsWith('[moti]: Invalid transform value.')) {
         return true
       }
@@ -385,15 +386,15 @@ failOnConsole({
       if (
         message.includes('Each child in a list should have a unique') &&
         (message.includes('Trans') ||
-          message.includes('UniswapXDescription') ||
+          message.includes('DEXDescription') ||
           message.includes('SwapPreview') ||
           message.includes('LimitPriceInputLabel'))
       ) {
         return true
       }
-      // Nuances from tamagui causing issues with React 19
+      // Nuances from gui causing issues with React 19
       if (message.includes('React does not recognize the') && message.includes('prop on a DOM element')) {
-        // This is coming from tamagui passing through props to the DOM element
+        // This is coming from gui passing through props to the DOM element
         return true
       }
 
@@ -444,14 +445,14 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('uniswap/src/features/chains/hooks/useOrderedChainIds', () => {
+vi.mock('lx/src/features/chains/hooks/useOrderedChainIds', () => {
   return {
     useOrderedChainIds: (chainIds: UniverseChainId[]) => chainIds,
   }
 })
 
 function muteStatsigWarnings() {
-  // oxlint-disable-next-line no-console -- strictly for testing
+  // biome-ignore lint/suspicious/noConsole: strictly for testing
   const originalWarn = console.warn
   vi.spyOn(console, 'warn').mockImplementation((message, ...args) => {
     const isStatsigWarning = args.some((arg) => {
@@ -467,7 +468,7 @@ function muteStatsigWarnings() {
   })
 }
 
-// oxlint-disable-next-line no-console -- strictly for testing
+// biome-ignore lint/suspicious/noConsole: strictly for testing
 const originalConsoleDebug = console.debug
 // Mocks are configured to reset between tests (by CRA), so they must be set in a beforeEach.
 beforeEach(() => {

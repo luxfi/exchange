@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Image, QRCodeDisplay, Separator, Text, useSporeColors } from 'ui/src'
-import { CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ElementName, InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
-import MobileAppLogo from '~/assets/svg/uniswap_app_logo.svg'
+import { Button, Flex, Image, QRCodeDisplay, Separator, Text, useSporeColors } from '@l.x/ui/src'
+import { CloseIconWithHover } from '@l.x/ui/src/components/icons/CloseIconWithHover'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ElementName, InterfaceEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { isWebAndroid, isWebIOS } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import MobileAppLogo from '~/assets/svg/lux_app_logo.svg'
 import { useConnectWallet } from '~/features/wallet/connection/hooks/useConnectWallet'
 import { openDownloadApp } from '~/utils/openDownloadApp'
 
@@ -17,21 +17,21 @@ export default function UniwalletModal() {
 
   const { isConnecting, reset } = useConnectWallet()
 
-  // Displays the modal if not on iOS/Android, a Uniswap Wallet Connection is pending, & qrcode URI is available
+  // Displays the modal if not on iOS/Android, a Lux Wallet Connection is pending, & qrcode URI is available
   const onLaunchedMobilePlatform = isWebIOS || isWebAndroid
   const open = !onLaunchedMobilePlatform && !!uri && isConnecting
 
   useEffect(() => {
     function listener({ type, data }: { type: string; data?: unknown }) {
-      if (type === 'display_uniswap_uri' && typeof data === 'string') {
+      if (type === 'display_lux_uri' && typeof data === 'string') {
         setUri(data)
       }
     }
 
-    window.addEventListener('display_uniswap_uri', listener)
+    window.addEventListener('display_lux_uri', listener)
 
     return () => {
-      window.removeEventListener('display_uniswap_uri', listener)
+      window.removeEventListener('display_lux_uri', listener)
     }
   }, [])
 
@@ -42,7 +42,7 @@ export default function UniwalletModal() {
 
   useEffect(() => {
     if (open) {
-      sendAnalyticsEvent(InterfaceEventName.UniswapWalletConnectModalOpened)
+      sendAnalyticsEvent(InterfaceEventName.LuxWalletConnectModalOpened)
     } else {
       setUri(undefined)
     }
@@ -85,7 +85,7 @@ export default function UniwalletModal() {
               size="small"
               emphasis="primary"
               variant="branded"
-              onPress={() => openDownloadApp({ element: ElementName.UniswapWalletModalDownloadButton })}
+              onPress={() => openDownloadApp({ element: ElementName.LuxWalletModalDownloadButton })}
             >
               {t('common.download')}
             </Button>

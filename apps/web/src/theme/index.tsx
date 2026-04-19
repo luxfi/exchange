@@ -1,6 +1,7 @@
 import { PropsWithChildren, useMemo } from 'react'
-import { breakpoints } from 'ui/src/theme'
-import { useSelectedColorScheme } from 'uniswap/src/features/appearance/hooks'
+import { brand } from '@l.x/config'
+import { breakpoints } from '@l.x/ui/src/theme'
+import { useSelectedColorScheme } from '@l.x/lx/src/features/appearance/hooks'
 import { createGlobalStyle, css, ThemeProvider as StyledComponentsThemeProvider } from '~/lib/deprecated-styled'
 import { darkTheme, lightTheme, ThemeColors } from '~/theme/colors'
 import { darkDeprecatedTheme, lightDeprecatedTheme } from '~/theme/deprecatedColors'
@@ -18,7 +19,7 @@ export const MAX_CONTENT_WIDTH_PX = 1200
 const deprecated_mediaWidthTemplates: { [width in keyof typeof MEDIA_WIDTHS]: typeof css } = Object.keys(
   MEDIA_WIDTHS,
 ).reduce((acc, size) => {
-  // oxlint-disable-next-line max-params
+  // eslint-disable-next-line max-params
   acc[size] = (a: any, b: any, c: any) => css`
     @media (max-width: ${(MEDIA_WIDTHS as any)[size]}px) {
       ${css(a, b, c)}
@@ -96,7 +97,7 @@ function getSettings(darkMode: boolean) {
   }
 }
 
-// oxlint-disable-next-line import/no-unused-modules -- used in styled.d.ts
+// eslint-disable-next-line import/no-unused-modules -- used in styled.d.ts
 export function getTheme(darkMode: boolean, overriddenColors?: Partial<ThemeColors>) {
   const [colors, deprecatedColors] = darkMode ? [darkTheme, darkDeprecatedTheme] : [lightTheme, lightDeprecatedTheme]
   const colorsWithOverrides = applyOverriddenColors(colors, overriddenColors)
@@ -110,13 +111,16 @@ function applyOverriddenColors(defaultColors: ThemeColors, overriddenColors?: Pa
   }
 
   // Remove any undefined values from the object such that no theme values are overridden by undefined
-  const definedOverriddenColors = Object.keys(overriddenColors).reduce((acc, curr) => {
-    const key = curr as keyof ThemeColors
-    if (overriddenColors[key] !== undefined) {
-      acc[key] = overriddenColors[key]
-    }
-    return acc
-  }, {} as Partial<ThemeColors>)
+  const definedOverriddenColors = Object.keys(overriddenColors).reduce(
+    (acc, curr) => {
+      const key = curr as keyof ThemeColors
+      if (overriddenColors[key] !== undefined) {
+        acc[key] = overriddenColors[key]
+      }
+      return acc
+    },
+    {} as Partial<ThemeColors>,
+  )
 
   const mergedColors = { ...defaultColors, ...definedOverriddenColors }
 
@@ -132,13 +136,49 @@ function applyOverriddenColors(defaultColors: ThemeColors, overriddenColors?: Pa
   return mergedColors
 }
 
+/**
+ * Derive ThemeColors overrides from the runtime brand config (config.json).
+ * Maps brand.theme.dark/light BrandTheme fields to styled-components ThemeColors.
+ */
+function getBrandThemeOverrides(darkMode: boolean): Partial<ThemeColors> {
+  const bt = darkMode ? brand.theme?.dark : brand.theme?.light
+  if (!bt) return {}
+  const o: Partial<ThemeColors> = {}
+  if (bt.accent1) o.accent1 = bt.accent1
+  if (bt.accent1Hovered) o.accent1Hovered = bt.accent1Hovered
+  if (bt.accent2) o.accent2 = bt.accent2
+  if (bt.accent3) o.accent3 = bt.accent3
+  if (bt.surface1) o.surface1 = bt.surface1
+  if (bt.surface2) o.surface2 = bt.surface2
+  if (bt.surface3) o.surface3 = bt.surface3
+  if (bt.neutral1) o.neutral1 = bt.neutral1
+  if (bt.neutral2) o.neutral2 = bt.neutral2
+  if (bt.neutral3) o.neutral3 = bt.neutral3
+  if (bt.neutralContrast) o.neutralContrast = bt.neutralContrast
+  if (bt.background) o.background = bt.background
+  if (bt.statusSuccess) o.success = bt.statusSuccess
+  if (bt.statusCritical) o.critical = bt.statusCritical
+  if (bt.statusWarning) o.warning = bt.statusWarning
+  if (bt.scrim) o.scrim = bt.scrim
+  return o
+}
+
 export function ThemeProvider({ children, ...overriddenColors }: PropsWithChildren<Partial<ThemeColors>>) {
   const darkMode = useSelectedColorScheme() === 'dark'
-  // oxlint-disable-next-line react/exhaustive-deps -- Only update when darkMode or overriddenColors' entries change
-  const themeObject = useMemo(() => getTheme(darkMode, overriddenColors), [darkMode, JSON.stringify(overriddenColors)])
+  const themeObject = useMemo(() => {
+    // Merge: brand config overrides first, then component-level overrides on top
+    const brandOverrides = getBrandThemeOverrides(darkMode)
+    const merged = { ...brandOverrides, ...overriddenColors }
+    return getTheme(darkMode, Object.keys(merged).length > 0 ? merged : undefined)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Only update when darkMode or overriddenColors' entries change
+  }, [darkMode, JSON.stringify(overriddenColors)])
 
-  // TODO(WEB-7508): set theme for wallet connect modal
+  return <StyledComponentsThemeProvider theme={themeObject}>{children}</StyledComponentsThemeProvider>
+}
 
+/** Force dark theme regardless of user settings - for use on dark backgrounds like hero sections */
+export function ForceDarkThemeProvider({ children }: PropsWithChildren) {
+  const themeObject = useMemo(() => getTheme(true), [])
   return <StyledComponentsThemeProvider theme={themeObject}>{children}</StyledComponentsThemeProvider>
 }
 

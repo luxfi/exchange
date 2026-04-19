@@ -1,23 +1,21 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Input, Popover, Text, TouchableArea } from 'ui/src'
-import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
-import { Edit } from 'ui/src/components/icons/Edit'
-import { ImageUpload } from 'ui/src/components/icons/ImageUpload'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { fonts, iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { Button, Flex, Input, Popover, Text, TouchableArea } from '@l.x/ui/src'
+import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
+import { Edit } from '@l.x/ui/src/components/icons/Edit'
+import { ImageUpload } from '@l.x/ui/src/components/icons/ImageUpload'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { fonts, iconSizes } from '@l.x/ui/src/theme'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { useActiveAddress } from '~/features/accounts/store/hooks'
+import { useCreateAuctionStoreActions } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
 import { NoWalletSection } from '~/pages/Liquidity/CreateAuction/components/NoWalletSection'
 import { TokenAdditionalInfoSection } from '~/pages/Liquidity/CreateAuction/components/TokenAdditionalInfoSection'
-import { useCreateAuctionStoreActions } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
-import { useCreateAuctionTokenColor } from '~/pages/Liquidity/CreateAuction/hooks/useCreateAuctionTokenColor'
 import { useCreateNewTokenAllowedNetworks } from '~/pages/Liquidity/CreateAuction/hooks/useCreateNewTokenAllowedNetworks'
-import { useIsStepValid } from '~/pages/Liquidity/CreateAuction/hooks/useIsStepValid'
-import { CreateAuctionStep, type CreateNewTokenFormState } from '~/pages/Liquidity/CreateAuction/types'
+import { type CreateNewTokenFormState } from '~/pages/Liquidity/CreateAuction/types'
 
 function NetworkSelector({
   network,
@@ -92,11 +90,11 @@ function NetworkSelector({
 
 export function CreateNewTokenForm({ createNew }: { createNew: CreateNewTokenFormState }) {
   const { t } = useTranslation()
-  const tokenColor = useCreateAuctionTokenColor()
   const { updateCreateNewTokenField, commitTokenFormAndAdvance } = useCreateAuctionStoreActions()
   const [isEditingName, setIsEditingName] = useState(false)
 
-  const canContinue = useIsStepValid(CreateAuctionStep.ADD_TOKEN_INFO)
+  const canContinue =
+    createNew.name.trim().length > 0 && createNew.symbol.trim().length > 0 && createNew.description.trim().length > 0
   const allowedNetworks = useCreateNewTokenAllowedNetworks()
   const address = useActiveAddress(Platform.EVM)
 
@@ -203,14 +201,7 @@ export function CreateNewTokenForm({ createNew }: { createNew: CreateNewTokenFor
         </Flex>
       </Flex>
       <Flex row>
-        <Button
-          size="large"
-          emphasis="primary"
-          onPress={commitTokenFormAndAdvance}
-          isDisabled={!canContinue}
-          fill
-          backgroundColor={tokenColor}
-        >
+        <Button size="large" emphasis="primary" onPress={commitTokenFormAndAdvance} isDisabled={!canContinue} fill>
           {t('common.button.continue')}
         </Button>
       </Flex>

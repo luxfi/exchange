@@ -1,11 +1,11 @@
 import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useRef } from 'react'
-import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
-import { DEFAULT_NATIVE_ADDRESS } from 'uniswap/src/features/chains/evm/rpc'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import { removeDuplicatesBy } from 'utilities/src/primitives/array'
+import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from '@l.x/lx/src/constants/pools'
+import { DEFAULT_NATIVE_ADDRESS } from '@l.x/lx/src/features/chains/evm/rpc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
+import { removeDuplicatesBy } from '@l.x/utils/src/primitives/array'
 import {
   calculate1DVolOverTvl,
   calculateApr,
@@ -21,7 +21,11 @@ export function usePoolsFromTokenAddress({
   sortState,
   chainId,
   isNative,
-  multichain?: boolean
+}: {
+  tokenAddress: string
+  sortState: PoolTableSortState
+  chainId: UniverseChainId
+  isNative?: boolean
 }) {
   const chain = toGraphQLChain(chainId)
   const skipPoolQueries = isSVMChain(chainId)
@@ -36,7 +40,20 @@ export function usePoolsFromTokenAddress({
       first: DEFAULT_QUERY_SIZE,
       tokenAddress: isNative ? DEFAULT_NATIVE_ADDRESS : tokenAddress,
       chain,
-      multichain,
+    },
+    skip: skipPoolQueries,
+  })
+
+  const {
+    loading: loadingV3,
+    error: errorV3,
+    data: dataV3,
+    fetchMore: fetchMoreV3,
+  } = GraphQLApi.useTopV3PoolsQuery({
+    variables: {
+      first: DEFAULT_QUERY_SIZE,
+      tokenAddress,
+      chain,
     },
     skip: skipPoolQueries,
   })
@@ -51,7 +68,6 @@ export function usePoolsFromTokenAddress({
       first: DEFAULT_QUERY_SIZE,
       tokenAddress,
       chain,
-      multichain,
     },
     skip: skipPoolQueries,
   })

@@ -1,13 +1,12 @@
-/* oxlint-disable react-hooks/rules-of-hooks -- Playwright fixtures use `use()` which is not a React hook */
-// oxlint-disable-next-line no-restricted-imports -- Anvil test fixtures need direct ethers imports
+// biome-ignore lint/style/noRestrictedImports: Anvil test fixtures need direct ethers imports
 import { test as base } from '@playwright/test'
-import { MaxUint160, MaxUint256, permit2Address } from '@uniswap/permit2-sdk'
-import { WETH_ADDRESS } from '@uniswap/universal-router-sdk'
-import PERMIT2_ABI from 'uniswap/src/abis/permit2'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { DAI, USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { sleep } from 'utilities/src/time/timing'
+import { MaxUint160, MaxUint256, permit2Address } from '@luxamm/permit2-sdk'
+import { WETH_ADDRESS } from '@luxamm/universal-router-sdk'
+import PERMIT2_ABI from '@l.x/lx/src/abis/permit2'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { DAI, USDT } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { sleep } from '@l.x/utils/src/time/timing'
 import { type Address, erc20Abi } from 'viem'
 import { mainnet } from 'viem/chains'
 import type { AnvilClient as BaseAnvilClient } from '~/playwright/anvil/anvil-manager'
@@ -232,7 +231,7 @@ const createAnvilClient = () => {
 }
 
 export const test = base.extend<{ anvil: AnvilClient; delegateToZeroAddress?: void }>({
-  // oxlint-disable-next-line no-empty-pattern -- it's ok here
+  // biome-ignore lint/correctness/noEmptyPattern: it's ok here
   async anvil({}, use) {
     // Ensure Anvil is running and healthy
     if (!(await getAnvilManager().ensureHealthy())) {

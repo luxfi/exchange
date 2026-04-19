@@ -1,9 +1,9 @@
 import { QueryResult } from '@apollo/client'
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { createContext } from 'react'
-import { GqlChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { GqlChainId, UniverseChainId } from 'lx/src/features/chains/types'
+import { PortfolioBalance } from 'lx/src/features/dataApi/types'
 import { TDPChartState } from '~/pages/TokenDetails/components/chart/TDPChartState'
 import type { createTDPStore } from '~/pages/TokenDetails/context/createTDPStore'
 

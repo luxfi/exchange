@@ -1,11 +1,11 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, Tooltip, useMedia } from 'ui/src'
-import { Check } from 'ui/src/components/icons/Check'
-import { zIndexes } from 'ui/src/theme'
-import { ModalName, UniswapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { Flex, Text, Tooltip, useMedia } from '@l.x/ui/src'
+import { Check } from '@l.x/ui/src/components/icons/Check'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { ModalName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 import {
   AuctionVerificationFilter as AuctionVerificationFilterEnum,
@@ -24,7 +24,7 @@ export function AuctionVerificationFilter() {
     (filter: AuctionVerificationFilterEnum) => {
       setSelectedFilter(filter)
       setOpen(false)
-      sendAnalyticsEvent(UniswapEventName.AuctionFilterSelected, {
+      sendAnalyticsEvent(LXEventName.AuctionFilterSelected, {
         filter,
       })
     },

@@ -1,9 +1,9 @@
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { WalletConnectionResult } from 'uniswap/src/features/telemetry/types'
-import { logger } from 'utilities/src/logger/logger'
-import { pipe } from 'utilities/src/primitives/array'
-import { useEvent } from 'utilities/src/react/hooks'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { WalletConnectionResult } from '@l.x/lx/src/features/telemetry/types'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { pipe } from '@l.x/utils/src/primitives/array'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import {
   ConnectWalletMutationParams,
   useConnectWalletMutation,

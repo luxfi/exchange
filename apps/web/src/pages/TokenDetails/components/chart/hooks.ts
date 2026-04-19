@@ -1,9 +1,9 @@
 import { GraphQLApi } from '@l.x/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo, useReducer } from 'react'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { PriceChartData } from '~/components/Charts/PriceChart'
 import { StackedLineData } from '~/components/Charts/StackedLineChart'
 import {
@@ -74,7 +74,7 @@ export function useTDPPriceChartData({
     // IMPORTANT: Must use no-cache to prevent infinite query loop.
     //
     // TokenPriceHistory returns Token objects (with chain/address) nested inside tokenProjects.
-    // Apollo normalizes these into the shared Token[chain, address] cache (defined in packages/uniswap/src/data/cache.ts).
+    // Apollo normalizes these into the shared Token[chain, address] cache (defined in pkgs/lx/src/data/cache.ts).
     // This triggers watchers on TokenWeb and TokenPrice queries (which use the same cache keys),
     // causing them to re-emit, which triggers re-renders, which re-executes this query → infinite loop.
     fetchPolicy: 'no-cache',
@@ -88,7 +88,71 @@ export function useTDPPriceChartData({
 
     // Data source strategy: prefer CoinGecko for line charts, use subgraph for candlesticks
     // Prefer per-chain CoinGecko history when available so multi-chain tokens render correctly
-      // oxlint-disable-next-line typescript/no-unnecessary-condition
+    const coinGeckoProject = coinGeckoData?.tokenProjects?.[0]
+    const coinGeckoMarket = coinGeckoProject?.markets?.[0]
+    const coinGeckoTokenMarket = coinGeckoProject?.tokens.find((token) => token.chain === variables.chain)?.market
+    const coinGeckoPriceHistory = coinGeckoTokenMarket?.priceHistory ?? coinGeckoMarket?.priceHistory
+    const coinGeckoAggregatedPrice = coinGeckoTokenMarket?.price?.value ?? coinGeckoMarket?.price?.value
+
+    // For line charts, prefer CoinGecko priceHistory but use PER-CHAIN current price
+    // For candlestick charts, always use subgraph OHLC (only source)
+    const useCoinGeckoHistory = priceChartType === PriceChartType.LINE && coinGeckoPriceHistory
+    const priceHistory = useCoinGeckoHistory ? coinGeckoPriceHistory : subgraphPriceHistory
+
+    // CRITICAL: Always use per-chain price from subgraph for multi-chain tokens
+    // This ensures USDC on Ethereum shows Ethereum price, not aggregated price
+    // When centralized prices are enabled, the override provides live WebSocket prices
+    const currentPrice = currentPriceOverride ?? subgraphPrice?.value ?? coinGeckoAggregatedPrice
+
+    let entries =
+      (ohlc
+        ? ohlc.filter((v): v is GraphQLApi.CandlestickOhlcFragment => v !== undefined).map(toPriceChartData)
+        : priceHistory
+            ?.filter((v): v is GraphQLApi.PriceHistoryFallbackFragment => v !== undefined)
+            .map(fallbackToPriceChartData)) ?? []
+
+    if (ohlc) {
+      // Special case: backend returns invalid OHLC data on some chains. If we detect long series of 0's, return an empty array to trigger fallback.
+      const zeroCount = entries.filter((x) => x.value === 0).length
+      if (!ohlc.length || zeroCount / entries.length > CANDLESTICK_FALLBACK_THRESHOLD) {
+        enablePriceHistoryFallback() // triggers a re-fetch that uses priceHistory instead of OHLC
+        return {
+          chartType: ChartType.PRICE,
+          entries: [],
+          loading: true,
+          disableCandlestickUI: true,
+          dataQuality: DataQuality.INVALID,
+        }
+      }
+
+      // For line charts made using ohlc data, the min and max entries should point to their low/high, rather than close,
+      // to ensure the chart line makes contact with the min/max lines.
+      if (priceChartType === PriceChartType.LINE) {
+        let min = entries[0].low
+        let minIndex = 0
+        let max = entries[0].high
+        let maxIndex = 0
+
+        entries.forEach((entry, index) => {
+          if (entry.low < min) {
+            min = entry.low
+            minIndex = index
+          }
+          if (entry.high > max) {
+            max = entry.high
+            maxIndex = index
+          }
+        })
+        // Avoid modifying the last entry, as it should point to the current price
+        if (minIndex !== entries.length - 1) {
+          entries[minIndex].value = min
+        }
+        if (maxIndex !== entries.length - 1) {
+          entries[maxIndex].value = max
+        }
+      }
+      // Special case: backend data for OHLC data is currently too granular, so points should be combined, halving the data
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       else if (priceChartType === PriceChartType.CANDLESTICK) {
         const combinedEntries = []
 
@@ -137,11 +201,9 @@ export function useTDPPriceChartData({
 
     const dataQuality = checkDataQuality({ data: entries, chartType: ChartType.PRICE, duration: variables.duration })
     return { chartType: ChartType.PRICE, entries, loading, dataQuality, disableCandlestickUI: fallback }
-    // oxlint-disable-next-line react-hooks/exhaustive-deps -- coinGeckoData.tokenProjects is intentionally accessed via optional chaining
   }, [
     currentPriceOverride,
     subgraphData?.token?.market,
-    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
     coinGeckoData?.tokenProjects?.[0],
     fallback,
     loading,

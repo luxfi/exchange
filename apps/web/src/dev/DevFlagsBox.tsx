@@ -9,19 +9,19 @@ import {
 } from '@l.x/gating'
 import { memo, useContext, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Button, Flex, Switch, Text, useShadowPropsShort } from 'ui/src'
-import { Flag } from 'ui/src/components/icons/Flag'
-import { Settings } from 'ui/src/components/icons/Settings'
-import { resetUniswapBehaviorHistory } from 'uniswap/src/features/behaviorHistory/slice'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Button, Flex, Switch, Text, useShadowPropsShort } from '@l.x/ui/src'
+import { Flag } from '@l.x/ui/src/components/icons/Flag'
+import { Settings } from '@l.x/ui/src/components/icons/Settings'
+import { resetLxBehaviorHistory } from '@l.x/lx/src/features/behaviorHistory/slice'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { GatingRowContent, GatingSwitch } from '~/components/FeatureFlagModal/FeatureFlagModal'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { usePinnedExperiments, usePinnedFeatureFlags } from '~/dev/usePinnedFeatureFlags'
 import { useModalState } from '~/hooks/useModalState'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 const FLAG_BOX_MAX_WIDTH = 300
 
@@ -59,7 +59,7 @@ const PinnedFlagRow = memo(function PinnedFlagRow({ gateName }: { gateName: stri
       py="$spacing4"
       onPress={(e: { stopPropagation: () => void }) => e.stopPropagation()}
     >
-      <Text {...EllipsisTamaguiStyle}>{gateName}</Text>
+      <Text {...EllipsisGuiStyle}>{gateName}</Text>
       <Switch checked={checked} onCheckedChange={onCheckedChange} variant="branded" />
     </Flex>
   )
@@ -130,7 +130,7 @@ export default function DevFlagsBox() {
   const dispatch = useDispatch()
 
   const onPressReset = (): void => {
-    dispatch(resetUniswapBehaviorHistory())
+    dispatch(resetLxBehaviorHistory())
   }
 
   return (

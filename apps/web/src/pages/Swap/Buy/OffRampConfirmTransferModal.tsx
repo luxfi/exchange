@@ -1,34 +1,34 @@
 import { useMutation } from '@tanstack/react-query'
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { CurrencyAmount } from '@luxamm/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router'
-import { Button, Flex, Image, Text, useIsDarkMode } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
-import { Dialog } from 'uniswap/src/components/dialog/Dialog'
-import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
-import { NetworkFeeWarning } from 'uniswap/src/components/gas/NetworkFeeWarning'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useFiatOnRampAggregatorOffRampTransferDetailsQuery } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { Button, Flex, Image, Text, useIsDarkMode } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
+import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
+import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
+import { NetworkFeeWarning } from '@l.x/lx/src/components/gas/NetworkFeeWarning'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useFiatOnRampAggregatorOffRampTransferDetailsQuery } from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
 import {
   FORTransaction,
   OffRampTransferDetailsRequest,
   OffRampTransferDetailsResponse,
-} from 'uniswap/src/features/fiatOnRamp/types'
-import { useUSDValueOfGasFee } from 'uniswap/src/features/gas/hooks'
-import { GasSpeed } from 'uniswap/src/features/gas/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { FiatOffRampEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
-import { shortenAddress } from 'utilities/src/addresses'
-import { NumberType } from 'utilities/src/format/types'
+} from '@l.x/lx/src/features/fiatOnRamp/types'
+import { useUSDValueOfGasFee } from '@l.x/lx/src/features/gas/hooks'
+import { GasSpeed } from '@l.x/lx/src/features/gas/utils'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { FiatOffRampEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { NumberType } from '@l.x/utils/src/format/types'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
@@ -266,7 +266,7 @@ export const OffRampConfirmTransferModal = ({
                 {t('common.youreSelling')}
               </Text>
             }
-            link={uniswapUrls.helpArticleUrls.fiatOffRampHelp}
+            link={lxUrls.helpArticleUrls.fiatOffRampHelp}
             closeModal={onClose}
           />
           <Flex py="$gap12" gap="$gap16">

@@ -1,14 +1,13 @@
-import { ChartPeriod } from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+import { ChartPeriod } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { memo, useMemo, useState } from 'react'
-import { Flex, Separator, styled, useMedia } from 'ui/src'
-import { useGetPortfolioHistoricalValueChartQuery } from 'uniswap/src/data/rest/getPortfolioChart'
-import { useActivityData } from 'uniswap/src/features/activity/hooks/useActivityData'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { usePortfolioTotalValue } from 'uniswap/src/features/dataApi/balances/balancesRest'
-import { usePortfolioChartBalanceMismatch } from 'uniswap/src/features/portfolio/usePortfolioChartBalanceMismatch'
-import { ElementName, InterfacePageName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
+import { Flex, Separator, styled, useMedia } from '@l.x/ui/src'
+import { useGetPortfolioHistoricalValueChartQuery } from 'lx/src/data/rest/getPortfolioChart'
+import { useActivityData } from 'lx/src/features/activity/hooks/useActivityData'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { usePortfolioTotalValue } from 'lx/src/features/dataApi/balances/balancesRest'
+import { usePortfolioChartBalanceMismatch } from 'lx/src/features/portfolio/usePortfolioChartBalanceMismatch'
+import { ElementName, InterfacePageName, SectionName } from 'lx/src/features/telemetry/constants'
+import { Trace } from 'lx/src/features/telemetry/Trace'
 import { EmptyWalletCards } from '~/components/emptyWallet/EmptyWalletCards'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
@@ -17,7 +16,27 @@ import { OVERVIEW_RIGHT_COLUMN_WIDTH } from '~/pages/Portfolio/Overview/constant
 import { useIsPortfolioZero } from '~/pages/Portfolio/Overview/hooks/useIsPortfolioZero'
 import { PortfolioOverviewTables } from '~/pages/Portfolio/Overview/OverviewTables'
 import { PortfolioChart } from '~/pages/Portfolio/Overview/PortfolioChart'
-  const isProfitLossEnabled = useFeatureFlag(FeatureFlags.ProfitLoss)
+import { OverviewStatsTiles } from '~/pages/Portfolio/Overview/StatsTiles'
+import { filterDefinedWalletAddresses } from '~/utils/filterDefinedWalletAddresses'
+
+const ActionsAndStatsContainer = styled(Flex, {
+  width: OVERVIEW_RIGHT_COLUMN_WIDTH,
+  gap: '$spacing16',
+  variants: {
+    fullWidth: {
+      true: {
+        width: '100%',
+      },
+      false: {
+        width: OVERVIEW_RIGHT_COLUMN_WIDTH,
+      },
+    },
+  } as const,
+})
+
+export const PortfolioOverview = memo(function PortfolioOverview() {
+  const media = useMedia()
+  const isFullWidth = media.xl
   const { chainId, isExternalWallet } = usePortfolioRoutes()
   const portfolioAddresses = usePortfolioAddresses()
   const { chains: allChainIds } = useEnabledChains()
@@ -103,7 +122,7 @@ import { PortfolioChart } from '~/pages/Portfolio/Overview/PortfolioChart'
             <Trace section={SectionName.PortfolioOverviewTab} element={ElementName.PortfolioActionTiles}>
               <ActionsAndStatsContainer fullWidth={isFullWidth}>
                 <OverviewActionTiles />
-                {isProfitLossEnabled ? <PortfolioPerformance /> : <OverviewStatsTiles activityData={activityData} />}
+                <OverviewStatsTiles activityData={activityData} />
               </ActionsAndStatsContainer>
             </Trace>
           )}

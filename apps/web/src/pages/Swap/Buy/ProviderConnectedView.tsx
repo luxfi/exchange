@@ -1,8 +1,9 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans, useTranslation } from 'react-i18next'
-import { Flex, Text, useIsDarkMode, useSporeColors } from 'ui/src'
-import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
-import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+import { Flex, Text, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
+import { ServiceProviderLogoStyles } from '@l.x/lx/src/features/fiatOnRamp/constants'
+import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from '@l.x/lx/src/features/fiatOnRamp/utils'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { ConnectingViewWrapper } from '~/pages/Swap/Buy/shared'
 import { ExternalLink } from '~/theme/components/Links'
@@ -27,7 +28,7 @@ export function ProviderConnectedView({ closeModal, selectedServiceProvider }: P
       <Flex alignItems="center" gap="$spacing48">
         <Flex alignItems="center" gap="$spacing24">
           <img
-            style={ServiceProviderLogoStyles.uniswapLogoWrapper}
+            style={ServiceProviderLogoStyles.luxLogoWrapper}
             height={120}
             src={getOptionalServiceProviderLogo(selectedServiceProvider.logos, isDarkMode)}
             width={120}
@@ -52,12 +53,12 @@ export function ProviderConnectedView({ closeModal, selectedServiceProvider }: P
             }}
             components={{
               tosLink: (
-                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/terms-of-service/">
+                <StyledLink color={colors.neutral3.val} href={getBrandUrl("/terms")}>
                   {t('common.termsOfService')}
                 </StyledLink>
               ),
               privacyLink: (
-                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/privacy-policy">
+                <StyledLink color={colors.neutral3.val} href={getBrandUrl("/privacy")}>
                   {t('common.privacyPolicy')}
                 </StyledLink>
               ),

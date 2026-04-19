@@ -2,13 +2,13 @@ import { GraphQLApi } from '@l.x/api'
 import { ReactNode, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { capitalize } from 'tsafe'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { Globe } from 'ui/src/components/icons/Globe'
-import { X } from 'ui/src/components/icons/X'
-import { zIndexes } from 'ui/src/theme'
-import { useShadowPropsShort } from 'ui/src/theme/shadows'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Globe } from '@l.x/ui/src/components/icons/Globe'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { useShadowPropsShort } from '@l.x/ui/src/theme/shadows'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ExternalLink } from '~/theme/components/Links'
 import { getChainUrlParam } from '~/utils/chainParams'
 
@@ -147,7 +147,7 @@ export function LimitedDataBanner({
         <Text variant="body3" color="$neutral2">
           {t('outageBanner.message.sub')}
         </Text>
-        <ExternalLink href={uniswapUrls.helpArticleUrls.uniswapVersionsInfo}>
+        <ExternalLink href={lxUrls.helpArticleUrls.luxVersionsInfo}>
           <Text variant="body3" color="$accent1">
             {t('common.button.learn')}
           </Text>
@@ -170,7 +170,7 @@ export function LimitedDataBanner({
       <Text variant="body3" color="$neutral2">
         {t('limitedTransactionData.sub')}
       </Text>
-      <ExternalLink href={uniswapUrls.helpArticleUrls.uniswapVersionsInfo}>
+      <ExternalLink href={lxUrls.helpArticleUrls.luxVersionsInfo}>
         <Text variant="body3" color="$accent1">
           {t('common.button.learn')}
         </Text>

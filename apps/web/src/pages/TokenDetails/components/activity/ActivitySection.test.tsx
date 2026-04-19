@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/react'
-import { Token } from '@uniswap/sdk-core'
-import * as chainsUtils from 'uniswap/src/features/platforms/utils/chains'
+import { Token } from '@luxamm/sdk-core'
+import * as chainsUtils from '@l.x/lx/src/features/platforms/utils/chains'
 import { ActivitySection } from '~/pages/TokenDetails/components/activity/ActivitySection'
 import { render } from '~/test-utils/render'
 
 const mockToken = new Token(1, '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2', 18, 'WETH', 'Wrapped Ether')
 
-vi.mock('uniswap/src/features/platforms/utils/chains')
+vi.mock('lx/src/features/platforms/utils/chains')
 
 vi.mock('~/pages/TokenDetails/context/useTDPStore', () => ({
   useTDPStore: (selector: (s: { currency: Token; currencyChainId: number }) => unknown) =>

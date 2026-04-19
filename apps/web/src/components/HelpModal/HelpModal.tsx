@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { Flex, Popover, Theme, TouchableArea, useMedia, useSporeColors } from 'ui/src'
-import { QuestionInCircleFilled } from 'ui/src/components/icons/QuestionInCircleFilled'
-import { zIndexes } from 'ui/src/theme'
-import { useSelectedColorScheme } from 'uniswap/src/features/appearance/hooks'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Flex, Popover, Theme, TouchableArea, useMedia, useSporeColors } from '@l.x/ui/src'
+import { QuestionInCircleFilled } from '@l.x/ui/src/components/icons/QuestionInCircleFilled'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { useSelectedColorScheme } from 'lx/src/features/appearance/hooks'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { HelpContent } from '~/components/HelpModal/HelpContent'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function HelpModal({ showOnXL = false }: { showOnXL?: boolean }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,7 +42,7 @@ export function HelpModal({ showOnXL = false }: { showOnXL?: boolean }) {
         onOpenChange={(open) => setIsOpen(open)}
       >
         <Popover.Trigger>
-          <TouchableArea hoverable {...ClickableTamaguiStyle}>
+          <TouchableArea hoverable {...ClickableGuiStyle}>
             <QuestionInCircleFilled size={20} color={colors.neutral1.get()} data-testid={TestID.HelpIcon} />
           </TouchableArea>
         </Popover.Trigger>

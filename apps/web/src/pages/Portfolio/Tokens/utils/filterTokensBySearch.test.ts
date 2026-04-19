@@ -1,14 +1,14 @@
-import type { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import type { TokenData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 import { filterTokensBySearch } from '~/pages/Portfolio/Tokens/utils/filterTokensBySearch'
 import { TEST_TOKEN_1 } from '~/test-utils/constants'
 
 // Mock the doesTokenMatchSearchTerm function to have full control over test scenarios
-vi.mock('uniswap/src/utils/search/doesTokenMatchSearchTerm', () => ({
+vi.mock('lx/src/utils/search/doesTokenMatchSearchTerm', () => ({
   doesTokenMatchSearchTerm: vi.fn(),
 }))
 
-import { doesTokenMatchSearchTerm } from 'uniswap/src/utils/search/doesTokenMatchSearchTerm'
+import { doesTokenMatchSearchTerm } from '@l.x/lx/src/utils/search/doesTokenMatchSearchTerm'
 
 const mockDoesTokenMatchSearchTerm = vi.mocked(doesTokenMatchSearchTerm)
 

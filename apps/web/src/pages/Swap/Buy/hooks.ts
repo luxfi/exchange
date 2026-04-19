@@ -6,20 +6,20 @@ import {
   getFiatCurrencyName,
   useAppFiatCurrency,
   useFiatCurrencyComponents,
-} from 'uniswap/src/features/fiatCurrency/hooks'
+} from '@l.x/lx/src/features/fiatCurrency/hooks'
 import {
   useFiatOnRampAggregatorSupportedFiatCurrenciesQuery,
   useFiatOnRampAggregatorSupportedTokensQuery,
-} from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+} from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
 import {
   FiatCurrencyInfo,
   FiatOnRampCurrency,
   FORCountry,
   OffRampTransferDetailsRequest,
   RampDirection,
-} from 'uniswap/src/features/fiatOnRamp/types'
-// oxlint-disable-next-line no-restricted-imports -- Buy hooks need direct SDK imports
-import { getFiatCurrencyComponents } from 'utilities/src/format/localeBased'
+} from '@l.x/lx/src/features/fiatOnRamp/types'
+// biome-ignore lint/style/noRestrictedImports: Buy hooks need direct SDK imports
+import { getFiatCurrencyComponents } from '@l.x/utils/src/format/localeBased'
 import { useMeldSupportedCurrencyToCurrencyInfo } from '~/appGraphql/data/types'
 
 type FiatOnRampCurrencyInfo = {

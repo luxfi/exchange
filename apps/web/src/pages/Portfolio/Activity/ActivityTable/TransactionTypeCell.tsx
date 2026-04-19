@@ -1,12 +1,12 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, SpinningLoader, Text } from 'ui/src'
-import { Receipt } from 'ui/src/components/icons/Receipt'
-import { getTransactionSummaryTitle } from 'uniswap/src/features/activity/utils/getTransactionSummaryTitle'
+import { Flex, SpinningLoader, Text } from '@l.x/ui/src'
+import { Receipt } from '@l.x/ui/src/components/icons/Receipt'
+import { getTransactionSummaryTitle } from '@l.x/lx/src/features/activity/utils/getTransactionSummaryTitle'
 import {
   TEMPORARY_TRANSACTION_STATUSES,
   TransactionDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { buildActivityRowFragments } from '~/pages/Portfolio/Activity/ActivityTable/registry'
 import { getTransactionTypeFilterOptions } from '~/pages/Portfolio/Activity/Filters/utils'
 
@@ -14,7 +14,7 @@ interface TransactionTypeCellProps {
   transaction: TransactionDetails
 }
 
-function TransactionTypeCellInner({ transaction }: TransactionTypeCellProps) {
+function _TransactionTypeCell({ transaction }: TransactionTypeCellProps) {
   const { t } = useTranslation()
   const isTemporaryStatus = TEMPORARY_TRANSACTION_STATUSES.includes(transaction.status)
 
@@ -49,4 +49,4 @@ function TransactionTypeCellInner({ transaction }: TransactionTypeCellProps) {
   )
 }
 
-export const TransactionTypeCell = memo(TransactionTypeCellInner)
+export const TransactionTypeCell = memo(_TransactionTypeCell)

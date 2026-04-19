@@ -1,4 +1,4 @@
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 
 const test = getTest()
@@ -8,7 +8,7 @@ test.describe('/preview passphrase gate', () => {
   test('shows passphrase modal on /preview', async ({ page }) => {
     await page.goto('/preview')
     await expect(page.getByTestId(TestID.PreviewPassphraseInput)).toBeVisible()
-    await expect(page.getByText('Uniswap Preview')).toBeVisible()
+    await expect(page.getByText('Lx Preview')).toBeVisible()
     await expect(page.getByTestId(TestID.PreviewPassphraseSubmit)).toBeDisabled()
   })
 

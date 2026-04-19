@@ -1,8 +1,8 @@
-import { Currency, CurrencyAmount, Price, TradeType } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Price, TradeType } from '@luxamm/sdk-core'
 import JSBI from 'jsbi'
 import { useEffect, useMemo, useState } from 'react'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { useTrade } from 'uniswap/src/features/transactions/swap/hooks/useTrade'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { useTrade } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade'
 import { PositionField } from '~/types/position'
 
 export function useDefaultInitialPrice({
@@ -36,7 +36,7 @@ export function useDefaultInitialPrice({
   })
 
   // Reset price when currencyIn or currencyOut changes
-  // oxlint-disable-next-line react/exhaustive-deps -- +currencyIn, +currencyOut
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +currencyIn, +currencyOut
   useEffect(() => {
     setPrice(undefined)
   }, [currencyIn, currencyOut])

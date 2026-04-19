@@ -1,8 +1,8 @@
 import { PersistState } from 'redux-persist'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { tokenAddressOrNativeAddress } from 'uniswap/src/features/search/utils'
-import { createPersistState, createSafeMigration } from 'uniswap/src/state/createSafeMigration'
-import { isPoolSearchResult, PreV55SearchResult, PreV55SearchResultType } from 'uniswap/src/state/oldTypes'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { tokenAddressOrNativeAddress } from '@l.x/lx/src/features/search/utils'
+import { createPersistState, createSafeMigration } from '@l.x/lx/src/state/createSafeMigration'
+import { isPoolSearchResult, PreV55SearchResult, PreV55SearchResultType } from '@l.x/lx/src/state/oldTypes'
 
 export type PersistAppStateV17 = {
   _persist: PersistState
@@ -11,7 +11,7 @@ export type PersistAppStateV17 = {
   }
 }
 
-// oxlint-disable-next-line consistent-return
+// eslint-disable-next-line consistent-return
 function searchResultId(searchResult: PreV55SearchResult): string {
   const { type } = searchResult
   const address = isPoolSearchResult(searchResult) ? searchResult.poolId : searchResult.address
@@ -62,7 +62,7 @@ export const migration17 = createSafeMigration({
 
     // dedupe search history
     const dedupedSearchHistory = (newState.searchHistory?.results ?? []).filter(
-      // oxlint-disable-next-line max-params
+      // eslint-disable-next-line max-params
       (result: PreV55SearchResult, index: number, self: PreV55SearchResult[]) =>
         self.findIndex((t) => t.searchId === result.searchId) === index,
     )

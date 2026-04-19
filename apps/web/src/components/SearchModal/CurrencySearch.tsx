@@ -1,16 +1,16 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { useCallback, useEffect } from 'react'
-import { Flex } from 'ui/src'
-import { TokenSelectorContent } from 'uniswap/src/components/TokenSelector/TokenSelector'
-import { TokenSelectorFlow, TokenSelectorVariation } from 'uniswap/src/components/TokenSelector/types'
-import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
-import { usePrevious } from 'utilities/src/react/hooks'
+import { Flex } from '@l.x/ui/src'
+import { TokenSelectorContent } from 'lx/src/components/TokenSelector/TokenSelector'
+import { TokenSelectorFlow, TokenSelectorVariation } from 'lx/src/components/TokenSelector/types'
+import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { InterfaceEventName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { CurrencyField } from 'lx/src/types/currency'
+import { SwapTab } from 'lx/src/types/screens/interface'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 import { SwitchNetworkAction } from '~/components/Popups/types'
 import useSelectChain from '~/hooks/useSelectChain'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
@@ -71,7 +71,13 @@ export function CurrencySearch({
     showSwitchNetworkNotification({ chainId, prevChainId, action: switchNetworkAction })
   }, [currentTab, chainId, prevChainId, isMultichainContext, switchNetworkAction])
 
-          chainId={resolvedChainId}
+  return (
+    <Trace logImpression eventOnTrigger={InterfaceEventName.TokenSelectorOpened} modal={ModalName.TokenSelectorWeb}>
+      <Flex width="100%" flexGrow={1} flexShrink={1} flexBasis="auto">
+        <TokenSelectorContent
+          renderedInModal={false}
+          addresses={addresses}
+          chainId={!isMultichainContext || isUserSelectedToken ? chainId : undefined}
           chainIds={chainIds ?? chains}
           currencyField={currencyField}
           flow={currentTab === SwapTab.Limit ? TokenSelectorFlow.Limit : flow}

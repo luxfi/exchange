@@ -1,5 +1,5 @@
 import { queryOptions, useQuery } from '@tanstack/react-query'
-import { PlatformType } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { PlatformType } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
 import {
   createFetchClient,
   createNotificationsApiClient,
@@ -21,18 +21,18 @@ import {
 import ms from 'ms'
 import { useEffect, useMemo, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router'
-import { useIsDarkMode } from 'ui/src'
-import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { mapLocaleToBackendLocale } from 'uniswap/src/features/language/constants'
-import { getLocale } from 'uniswap/src/features/language/navigatorLocale'
-import { selectCurrentLanguage } from 'uniswap/src/features/settings/selectors'
-import { AVERAGE_L1_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
-import { isPlaywrightEnv } from 'utilities/src/environment/env'
-import { getLogger } from 'utilities/src/logger/logger'
-import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { type QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { useIsDarkMode } from '@l.x/ui/src'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { mapLocaleToBackendLocale } from '@l.x/lx/src/features/language/constants'
+import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
+import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
+import { AVERAGE_L1_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
+import { isPlaywrightEnv } from '@l.x/utils/src/environment/env'
+import { getLogger } from '@l.x/utils/src/logger/logger'
+import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { type QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 import useCurrentBlockTimestamp from '~/hooks/useCurrentBlockTimestamp'
 import useMachineTimeMs from '~/hooks/useMachineTime'
 import { createLocalStorageAdapter } from '~/notification-service/createLocalStorageAdapter'
@@ -68,7 +68,7 @@ function provideWebNotificationService(ctx: {
       return {
         'Content-Type': 'application/json',
         'x-request-source': REQUEST_SOURCE,
-        'x-uniswap-locale': backendLocale,
+        'x-lx-locale': backendLocale,
         'x-app-version': process.env.REACT_APP_VERSION_TAG ?? '',
       }
     },
@@ -207,7 +207,7 @@ export function WebNotificationServiceManager(): JSX.Element | null {
   const isDarkMode = useIsDarkMode()
 
   // Hook values that need to be passed to system alerts data source
-  const { swapInputChainId } = useUniswapContext()
+  const { swapInputChainId } = useLuxContext()
   const blockTimestamp = useCurrentBlockTimestamp({ refetchInterval: ms('5min'), chainId: swapInputChainId })
   const machineTime = useMachineTimeMs(AVERAGE_L1_BLOCK_TIME_MS)
 

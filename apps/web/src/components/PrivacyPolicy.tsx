@@ -1,13 +1,14 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
+import { SharedEventName } from '@luxamm/analytics-events'
 import { ReactNode, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, ModalCloseIcon, Text } from 'ui/src'
-import { ArrowUpRight } from 'ui/src/components/icons/ArrowUpRight'
-import { InfoCircle } from 'ui/src/components/icons/InfoCircle'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { isMobileWeb } from 'utilities/src/platform'
+import { Flex, ModalCloseIcon, Text } from '@l.x/ui/src'
+import { ArrowUpRight } from '@l.x/ui/src/components/icons/ArrowUpRight'
+import { InfoCircle } from '@l.x/ui/src/components/icons/InfoCircle'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { isMobileWeb } from '@l.x/utils/src/platform'
 import Card, { DarkGrayCard } from '~/components/Card/cards'
 import { AutoColumn } from '~/components/deprecated/Column'
 import Row, { AutoRow, RowBetween } from '~/components/deprecated/Row'
@@ -83,7 +84,7 @@ function PrivacyPolicy() {
         description: (
           <>
             {t('privacy.trm')}{' '}
-            <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/8671777747597-Address-Screening-Guide">
+            <ExternalLink href={getDocsUrl('/help/address-screening')}>
               {t('common.button.learn')}
             </ExternalLink>
           </>
@@ -111,8 +112,8 @@ function PrivacyPolicy() {
     >
       <AutoColumn gap="16px">
         <AutoColumn gap="sm" style={{ width: '100%' }}>
-          <ExternalLinkCard href="https://uniswap.org/terms-of-service">{t('privacy.uniswaptos')}</ExternalLinkCard>
-          <ExternalLinkCard href="https://uniswap.org/privacy-policy/">{t('common.privacyPolicy')}</ExternalLinkCard>
+          <ExternalLinkCard href={getBrandUrl("/terms")}>{t('privacy.luxtos')}</ExternalLinkCard>
+          <ExternalLinkCard href={getBrandUrl("/privacy")}>{t('common.privacyPolicy')}</ExternalLinkCard>
         </AutoColumn>
         <Text variant="body3" color="$neutral2">
           {t('privacy.thirdPartyApis')}
@@ -135,7 +136,7 @@ function PrivacyPolicy() {
           ))}
           <Row justify="center" marginBottom="1rem">
             <ExternalLink
-              href="https://help.uniswap.org/en/articles/5675203-terms-of-service-faq"
+              href={getDocsUrl('/help/terms-of-service-faq')}
               style={{ fontSize: 12 }}
             >
               {t('common.button.learn')}

@@ -1,12 +1,12 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import JSBI from 'jsbi'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { nativeOnChain, USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { nativeOnChain, USDT } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   CreateV2PositionInfo,
   CreateV3PositionInfo,
@@ -31,7 +31,7 @@ const tickSpaceLimits = [
   nearestUsableTick(TickMath.MAX_TICK, TICK_SPACINGS[FeeAmount.MEDIUM]),
 ]
 
-// oxlint-disable-next-line max-params
+// eslint-disable-next-line max-params
 function getInitialPrice(base: Currency, quote: Currency, input: string) {
   const parsedQuoteAmount = tryParseCurrencyAmount(input, quote)
   const baseAmount = tryParseCurrencyAmount('1', base)
@@ -841,112 +841,6 @@ describe('getV4PriceRangeInfo', () => {
           mockPool,
         })
       })
-    })
-  })
-
-  describe('migration with initialPosition tick alignment', () => {
-    // Simulates migrating a V3 full-range position (0.3% fee, tick spacing 60, ticks -887220/887220)
-    // to a V4 pool with 1% fee (tick spacing 200). The V3 ticks are NOT aligned to tick spacing 200
-    // (-887220 % 200 = 20), so getV4PriceRangeInfo must call nearestUsableTick to align them.
-    const targetTickSpacing = TICK_SPACINGS[FeeAmount.HIGH] // 200
-
-    const currentTick = nearestUsableTick(-197613, targetTickSpacing)
-    const pool = new V4Pool(
-      ETH_MAINNET,
-      USDT,
-      FeeAmount.HIGH,
-      targetTickSpacing,
-      ZERO_ADDRESS,
-      TickMath.getSqrtRatioAtTick(currentTick),
-      JSBI.BigInt(0),
-      currentTick,
-    )
-
-    const positionState: PositionState = {
-      protocolVersion: ProtocolVersion.V4,
-      fee: {
-        feeAmount: FeeAmount.HIGH,
-        tickSpacing: targetTickSpacing,
-        isDynamic: false,
-      },
-      initialPosition: {
-        tickLower: -887220,
-        tickUpper: 887220,
-        isOutOfRange: false,
-        fee: {
-          feeAmount: FeeAmount.MEDIUM,
-          tickSpacing: TICK_SPACINGS[FeeAmount.MEDIUM],
-          isDynamic: false,
-        },
-      },
-    }
-
-    const derivedPositionInfo: CreateV4PositionInfo = {
-      protocolVersion: ProtocolVersion.V4,
-      currencies: {
-        display: {
-          TOKEN0: ETH_MAINNET,
-          TOKEN1: USDT,
-        },
-        sdk: {
-          TOKEN0: ETH_MAINNET,
-          TOKEN1: USDT,
-        },
-      },
-      creatingPoolOrPair: false,
-      pool,
-      refetchPoolData: () => undefined,
-    }
-
-    it('aligns initialPosition ticks to target pool tick spacing via nearestUsableTick', () => {
-      const state: PriceRangeState = {
-        priceInverted: false,
-        fullRange: true,
-        initialPrice: '',
-      }
-
-      const result = getV4PriceRangeInfo({ state, positionState, derivedPositionInfo })
-
-      // nearestUsableTick(-887220, 200) = -887200
-      // nearestUsableTick(887220, 200) = 887200
-      expect(result?.ticks).toEqual([
-        nearestUsableTick(-887220, targetTickSpacing),
-        nearestUsableTick(887220, targetTickSpacing),
-      ])
-      expect(result?.ticks).toEqual([-887200, 887200])
-    })
-
-    it('uses initialPosition ticks for out-of-range positions', () => {
-      const outOfRangePositionState: PositionState = {
-        ...positionState,
-        initialPosition: {
-          tickLower: -887220,
-          tickUpper: -800000,
-          isOutOfRange: true,
-          fee: {
-            feeAmount: FeeAmount.MEDIUM,
-            tickSpacing: TICK_SPACINGS[FeeAmount.MEDIUM],
-            isDynamic: false,
-          },
-        },
-      }
-
-      const state: PriceRangeState = {
-        priceInverted: false,
-        fullRange: false,
-        initialPrice: '',
-        minTick: 100,
-        maxTick: 200,
-      }
-
-      const result = getV4PriceRangeInfo({ state, positionState: outOfRangePositionState, derivedPositionInfo })
-
-      // For out-of-range positions, ticks should come from tickSpaceLimits (initialPosition ticks aligned to tick spacing)
-      expect(result?.ticks).toEqual([
-        nearestUsableTick(-887220, targetTickSpacing),
-        nearestUsableTick(-800000, targetTickSpacing),
-      ])
-      expect(result?.ticks).toEqual([-887200, -800000])
     })
   })
 })

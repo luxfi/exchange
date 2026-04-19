@@ -1,13 +1,14 @@
 import '~/test-utils/tokens/mocks'
+
 import userEvent from '@testing-library/user-event'
 import { GraphQLApi } from '@l.x/api'
-import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
-import { AccountsStore } from 'uniswap/src/features/accounts/store/types/AccountsState'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { dismissTokenWarning } from 'uniswap/src/features/tokens/warnings/slice/slice'
-import { TokenProtectionWarning } from 'uniswap/src/features/tokens/warnings/types'
-import * as useSwapFormStoreModule from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { AccountsStore } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { dismissTokenWarning } from '@l.x/lx/src/features/tokens/warnings/slice/slice'
+import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
+import * as useSwapFormStoreModule from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { useAccount } from '~/hooks/useAccount'
 import { PoolDetailsStatsButtons } from '~/pages/PoolDetails/components/PoolDetailsStatsButtons'
 import useMultiChainPositions from '~/pages/PoolDetails/Pools/hooks/useMultiChainPositions'
@@ -21,9 +22,9 @@ vi.mock('~/pages/PoolDetails/Pools/hooks/useMultiChainPositions')
 
 vi.mock('~/hooks/useAccount')
 
-vi.mock('uniswap/src/contexts/UniswapContext')
+vi.mock('lx/src/contexts/LuxContext')
 
-vi.mock('uniswap/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext')
+vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext')
 
 vi.mock('~/pages/Swap', () => {
   return {
@@ -46,7 +47,7 @@ describe('PoolDetailsStatsButton', () => {
     token1: validBEPoolToken0,
   }
 
-  const useUniswapContextReturnValue = {
+  const useLuxContextReturnValue = {
     navigateToFiatOnRamp: () => {},
     navigateToSwapFlow: () => {},
     navigateToSendFlow: () => {},
@@ -98,7 +99,7 @@ describe('PoolDetailsStatsButton', () => {
 
     mocked(useAccount).mockReturnValue(USE_DISCONNECTED_ACCOUNT)
     mocked(useMultiChainPositions).mockReturnValue(useMultiChainPositionsReturnValue)
-    mocked(useUniswapContext).mockReturnValue(useUniswapContextReturnValue)
+    mocked(useLuxContext).mockReturnValue(useLuxContextReturnValue)
 
     store.dispatch(
       dismissTokenWarning({

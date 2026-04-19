@@ -1,11 +1,11 @@
 import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useRef } from 'react'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain, toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import i18n from 'uniswap/src/i18n'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain, toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
+import i18n from '@l.x/lx/src/i18n'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 
 export enum TokenTransactionType {
   BUY = 'Buy',
@@ -29,8 +29,11 @@ export function useTokenTransactions({
   address,
   chainId,
   filter = [TokenTransactionType.BUY, TokenTransactionType.SELL],
-  multichain?: boolean
-}) {
+}: {
+  address: string
+  chainId: UniverseChainId
+  filter?: TokenTransactionType[]
+}): any {
   const skipV3V4Solana = isSVMChain(chainId) // Solana token txs data are surfaced via Gql Token.V2Transactions
 
   const {
@@ -43,7 +46,19 @@ export function useTokenTransactions({
       address: normalizeTokenAddressForCache(address),
       chain: toGraphQLChain(chainId),
       first: TokenTransactionDefaultQuerySize,
-      multichain,
+    },
+    skip: skipV3V4Solana,
+  })
+  const {
+    data: dataV3,
+    loading: loadingV3,
+    fetchMore: fetchMoreV3,
+    error: errorV3,
+  } = GraphQLApi.useV3TokenTransactionsQuery({
+    variables: {
+      address: normalizeTokenAddressForCache(address),
+      chain: toGraphQLChain(chainId),
+      first: TokenTransactionDefaultQuerySize,
     },
     skip: skipV3V4Solana,
   })
@@ -57,7 +72,6 @@ export function useTokenTransactions({
       address: normalizeTokenAddressForCache(address),
       first: TokenTransactionDefaultQuerySize,
       chain: toGraphQLChain(chainId),
-      multichain,
     },
   })
   const loadingMoreV4 = useRef(false)

@@ -1,12 +1,12 @@
 import { renderHook } from '@testing-library/react'
-import { VerifyWalletResponse } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/auction_pb'
+import { VerifyWalletResponse } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
 import {
   AuctionValidation,
   KycVerificationStatus,
   ValidationType,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { useAuctionKycStatus } from '~/components/Toucan/Auction/hooks/useAuctionKycStatus'
 import { mocked } from '~/test-utils/mocked'
@@ -26,8 +26,8 @@ vi.mock('@l.x/gating', () => ({
 
 const mockUseVerifyWalletQuery = vi.fn()
 
-vi.mock('uniswap/src/data/rest/auctions/useVerifyWallet', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('uniswap/src/data/rest/auctions/useVerifyWallet')>()
+vi.mock('lx/src/data/rest/auctions/useVerifyWallet', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('lx/src/data/rest/auctions/useVerifyWallet')>()
   return {
     ...actual,
     useVerifyWalletQuery: (...args: unknown[]) => mockUseVerifyWalletQuery(...args),

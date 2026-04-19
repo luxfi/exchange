@@ -1,12 +1,12 @@
 /* eslint-disable no-restricted-syntax */
 import { FeatureFlags, getFeatureFlagName } from '@l.x/gating'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 import { TEST_WALLET_ADDRESS } from '~/playwright/fixtures/wallets'
 import { Mocks } from '~/playwright/mocks/mocks'
 
-// NOTE: These tests require @uniswap/client-privy-embedded-wallet to be installed
+// NOTE: These tests require @luxamm/client-privy-embedded-wallet to be installed
 // (built with NPM_READ_ONLY_TOKEN). The Connect RPC HTTP call only fires when the
 // package loads successfully.
 
@@ -14,12 +14,12 @@ const test = getTest()
 
 const EW_ENABLED = `featureFlagOverride=${getFeatureFlagName(FeatureFlags.EmbeddedWallet)}`
 
-const LIST_AUTHENTICATORS_URL = '**/uniswap.privyembeddedwallet.v1.EmbeddedWalletService/ListAuthenticators'
-const CHALLENGE_URL = '**/uniswap.privyembeddedwallet.v1.EmbeddedWalletService/Challenge'
+const LIST_AUTHENTICATORS_URL = '**/lx.privyembeddedwallet.v1.EmbeddedWalletService/ListAuthenticators'
+const CHALLENGE_URL = '**/lx.privyembeddedwallet.v1.EmbeddedWalletService/Challenge'
 const START_AUTHENTICATED_SESSION_URL =
-  '**/uniswap.privyembeddedwallet.v1.EmbeddedWalletService/StartAuthenticatedSession'
-const ADD_AUTHENTICATOR_URL = '**/uniswap.privyembeddedwallet.v1.EmbeddedWalletService/AddAuthenticator'
-const DELETE_AUTHENTICATOR_URL = '**/uniswap.privyembeddedwallet.v1.EmbeddedWalletService/DeleteAuthenticator'
+  '**/lx.privyembeddedwallet.v1.EmbeddedWalletService/StartAuthenticatedSession'
+const ADD_AUTHENTICATOR_URL = '**/lx.privyembeddedwallet.v1.EmbeddedWalletService/AddAuthenticator'
+const DELETE_AUTHENTICATOR_URL = '**/lx.privyembeddedwallet.v1.EmbeddedWalletService/DeleteAuthenticator'
 
 const TEST_WALLET_ID = 'test-wallet-id'
 
@@ -118,7 +118,7 @@ const AUTH_CHALLENGE_RESPONSE = JSON.stringify({
 const REGISTRATION_CHALLENGE_RESPONSE = JSON.stringify({
   challengeOptions: JSON.stringify({
     challenge: 'dGVzdC1jaGFsbGVuZ2U', // base64url "test-challenge"
-    rp: { name: 'Uniswap', id: 'localhost' },
+    rp: { name: 'Lx', id: 'localhost' },
     user: { id: 'dXNlcg', name: 'testuser', displayName: 'Test User' },
     pubKeyCredParams: [{ type: 'public-key', alg: -7 }],
     timeout: 60000,
@@ -164,7 +164,7 @@ test.describe(
       await navigateToPasskeyMenu(page)
 
       // While the request is in-flight, skeleton rows should be visible
-      const skeletons = page.locator('[data-tamagui-tag="Loader.Box"]')
+      const skeletons = page.locator('[data-gui-tag="Loader.Box"]')
       await expect(skeletons.first()).toBeVisible()
     })
 
@@ -440,7 +440,7 @@ test.describe(
       })
 
       // Disconnect RPC (called after deleting last authenticator)
-      await page.route('**/uniswap.privyembeddedwallet.v1.EmbeddedWalletService/Disconnect', async (route) => {
+      await page.route('**/lx.privyembeddedwallet.v1.EmbeddedWalletService/Disconnect', async (route) => {
         await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ success: true }) })
       })
 

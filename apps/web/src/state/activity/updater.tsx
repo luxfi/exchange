@@ -1,25 +1,27 @@
 import { useCallback } from 'react'
-import { isL2ChainId } from 'uniswap/src/features/chains/utils'
+import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
 import {
   finalizeTransaction,
   interfaceApplyTransactionHashToBatch,
   interfaceConfirmBridgeDeposit,
   updateTransaction,
-} from 'uniswap/src/features/transactions/slice'
+} from '@l.x/lx/src/features/transactions/slice'
+import { isNonInstantFlashblockTransactionType } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
+import { getIsFlashblocksEnabled } from '@l.x/lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
 import {
   extractPlanFieldsFromTypeInfo,
   type InterfaceTransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from 'uniswap/src/features/transactions/types/utils'
-import { currencyIdToChain } from 'uniswap/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from '@l.x/lx/src/features/transactions/types/utils'
+import { currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { DEFAULT_TXN_DISMISS_MS, L2_TXN_DISMISS_MS } from '~/constants/misc'
-import { useHandleUniswapXActivityUpdate } from '~/hooks/useHandleUniswapXActivityUpdate'
+import { useHandleDEXActivityUpdate } from '~/hooks/useHandleDEXActivityUpdate'
 import { usePollPendingBatchTransactions } from '~/state/activity/polling/batch'
 import { usePollPendingBridgeTransactions } from '~/state/activity/polling/bridge'
 import { usePollPendingOrders } from '~/state/activity/polling/orders'
@@ -52,7 +54,7 @@ function PollingActivityStateUpdater({ onActivityUpdate }: { onActivityUpdate: O
 function useOnActivityUpdate(): OnActivityUpdate {
   const dispatch = useAppDispatch()
   const analyticsContext = useTrace()
-  const handleUniswapXActivityUpdate = useHandleUniswapXActivityUpdate()
+  const handleDEXActivityUpdate = useHandleDEXActivityUpdate()
 
   return useCallback(
     (activity: ActivityUpdate) => {
@@ -169,16 +171,24 @@ function useOnActivityUpdate(): OnActivityUpdate {
           })
         }
 
-        if (hash) {
+        // Check if this is a flashblock transaction that should skip notifications
+        const isUnichainFlashblock = getIsFlashblocksEnabled(chainId)
+        const shouldShowPopup =
+          !isUnichainFlashblock ||
+          isNonInstantFlashblockTransactionType(original) ||
+          !('isFlashblockTxWithinThreshold' in original) ||
+          !original.isFlashblockTxWithinThreshold
+
+        if (shouldShowPopup && hash) {
           popupRegistry.addPopup({ type: PopupType.Transaction, hash }, hash, popupDismissalTime)
         }
-        // TransactionType can only be UniswapXOrder here
+        // TransactionType can only be DEXOrder here
         // This check is in place in case more types get added in the future
-        // oxlint-disable-next-line typescript/no-unnecessary-condition
-      } else if (activity.type === ActivityUpdateTransactionType.UniswapXOrder) {
-        handleUniswapXActivityUpdate({ activity, popupDismissalTime })
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      } else if (activity.type === ActivityUpdateTransactionType.DEXOrder) {
+        handleDEXActivityUpdate({ activity, popupDismissalTime })
       } else if (
-        // oxlint-disable-next-line typescript/no-unnecessary-condition
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         activity.type === ActivityUpdateTransactionType.Plan
       ) {
         const { update } = activity
@@ -197,6 +207,6 @@ function useOnActivityUpdate(): OnActivityUpdate {
         }
       }
     },
-    [analyticsContext, dispatch, handleUniswapXActivityUpdate],
+    [analyticsContext, dispatch, handleDEXActivityUpdate],
   )
 }

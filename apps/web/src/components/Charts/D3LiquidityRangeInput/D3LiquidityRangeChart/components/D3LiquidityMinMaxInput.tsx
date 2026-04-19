@@ -1,8 +1,8 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Token } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { Token } from '@luxamm/sdk-core'
 import { useCallback, useMemo, useState } from 'react'
-import { Flex } from 'ui/src'
-import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
+import { Flex } from '@l.x/ui/src'
+import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
 import { D3RangeAmountInput } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/D3RangeAmountInput'
 import { useChartPriceState } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/selectors/priceSelectors'
 import {

@@ -1,5 +1,5 @@
 import { FeatureFlags, getFeatureFlagName } from '@l.x/gating'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 
@@ -25,7 +25,7 @@ test.describe(
 
       const walletModal = getVisibleDropdownElementByTestId(page, 'wallet-modal')
       await expect(walletModal).toBeVisible()
-      // EW modal shows "Connect a wallet" heading (not the UniswapWalletOptions header)
+      // EW modal shows "Connect a wallet" heading (not the LXWalletOptions header)
       await expect(walletModal.getByText('Connect a wallet')).toBeVisible()
       // EW-specific CTA buttons are rendered
       await expect(getVisibleDropdownElementByTestId(page, TestID.CreateAccount)).toBeVisible()
@@ -43,7 +43,7 @@ test.describe(
       // Connections panel should close
       await expect(getVisibleDropdownElementByTestId(page, 'wallet-modal')).not.toBeVisible()
       // GetTheApp modal should open at the GetStarted page
-      await expect(page.getByTestId(TestID.DownloadUniswapModal)).toBeVisible()
+      await expect(page.getByTestId(TestID.DownloadLxModal)).toBeVisible()
     })
 
     test('Log In button triggers the passkey sign-in flow', async ({ page }) => {

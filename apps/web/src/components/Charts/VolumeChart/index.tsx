@@ -2,10 +2,10 @@ import { GraphQLApi } from '@l.x/api'
 import { TFunction } from 'i18next'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSporeColors } from 'ui/src'
-import { BIPS_BASE } from 'uniswap/src/constants/misc'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { NumberType } from 'utilities/src/format/types'
+import { useSporeColors } from '@l.x/ui/src'
+import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { TimePeriod, toHistoryDuration } from '~/appGraphql/data/util'
 import { ChartHeader } from '~/components/Charts/ChartHeader'
 import { Chart, ChartModelParams } from '~/components/Charts/ChartModel'
@@ -48,7 +48,7 @@ class VolumeChartModel extends CustomVolumeChartModel<SingleHistogramData> {
   }
 }
 
-// oxlint-disable-next-line consistent-return
+// eslint-disable-next-line consistent-return
 function formatHistoryDuration(t: TFunction, duration: GraphQLApi.HistoryDuration): string {
   switch (duration) {
     case GraphQLApi.HistoryDuration.FiveMinute:

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { useSporeColors } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { useSporeColors } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
 import {
   PercentageAllocationChart,
   PercentageAllocationItem,
@@ -19,7 +19,7 @@ function useExtractedTokenColors(tokenData: TokenData[]): string[] {
   const gray = colors.neutral3.val
 
   const results = Array.from({ length: MAX_TOKENS_FOR_EXTRACTED_COLOR }, (_, i) =>
-    // oxlint-disable-next-line react-hooks/rules-of-hooks -- fixed-length loop, same 15 hook calls every render
+    // biome-ignore lint/correctness/useHookAtTopLevel: fixed-length loop, same 15 hook calls every render
     useSrcColor({
       src: tokenData[i]?.currencyInfo?.logoUrl ?? undefined,
       currencyName: tokenData[i]?.currencyInfo?.currency?.name,
@@ -28,7 +28,26 @@ function useExtractedTokenColors(tokenData: TokenData[]): string[] {
 
   // Snapshot with value-based deps so reference is stable when colors/loading unchanged
   // biome-ignore lint/correctness/useExhaustiveDependencies: intentionally depend on primitive key so snapshot is stable for downstream memo
-  /* oxlint-enable react/exhaustive-deps */
+  const resultsSnapshot = useMemo(
+    () => results.map((r) => ({ tokenColor: r.tokenColor, tokenColorLoading: r.tokenColorLoading })),
+    [gray, results.map((r) => `${r.tokenColor ?? ''}-${r.tokenColorLoading}`).join('|')],
+  )
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: value-based deps (length + snapshot) so returned array is stable and portfolioBreakdown memo can cache
+  return useMemo(
+    () =>
+      tokenData.map((_, i) => {
+        if (i >= MAX_TOKENS_FOR_EXTRACTED_COLOR) {
+          return gray
+        }
+        const { tokenColor, tokenColorLoading } = resultsSnapshot[i]
+        if (tokenColorLoading || tokenColor == null) {
+          return gray
+        }
+        return tokenColor
+      }),
+    [gray, tokenData.length, resultsSnapshot],
+  )
 }
 
 // Generate portfolio breakdown from tokens data

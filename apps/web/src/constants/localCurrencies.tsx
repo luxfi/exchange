@@ -1,6 +1,6 @@
 import { ReactNode, Suspense } from 'react'
-import { Loader } from 'ui/src/loading/Loader'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
+import { Loader } from '@l.x/ui/src/loading/Loader'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
 import {
   ARS_ICON,
   AUD_ICON,

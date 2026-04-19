@@ -1,14 +1,10 @@
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { useGetWalletTokensProfitLossQuery } from 'uniswap/src/data/rest/getWalletTokensProfitLoss'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Flex } from '@l.x/ui/src'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
-import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
 import { MAX_TOKENS_ROWS } from '~/pages/Portfolio/Overview/constants'
 import { TableSectionHeader } from '~/pages/Portfolio/Overview/TableSectionHeader'
 import { ViewAllButton } from '~/pages/Portfolio/Overview/ViewAllButton'
@@ -26,13 +22,10 @@ interface MiniTokensTableProps {
 export const MiniTokensTable = memo(function MiniTokensTable({ maxTokens = 8, chainId }: MiniTokensTableProps) {
   const { t } = useTranslation()
   const { externalAddress, chainId: routeChainId } = usePortfolioRoutes()
-  const { data: tokenProfitLossData, isError: isProfitLossError } = useGetWalletTokensProfitLossQuery({
-    input: {
-      evmAddress: portfolioAddresses.evmAddress,
-      svmAddress: portfolioAddresses.svmAddress,
-      chainIds: chainId ? [chainId] : enabledChains,
-    },
-    enabled: isProfitLossEnabled,
+  const viewAllHref = buildPortfolioUrl({
+    tab: PortfolioTab.Tokens,
+    chainId: routeChainId,
+    externalAddress: externalAddress?.address,
   })
 
   const {
@@ -43,10 +36,10 @@ export const MiniTokensTable = memo(function MiniTokensTable({ maxTokens = 8, ch
   } = useTransformTokenTableData({
     limit: maxTokens,
     chainIds: chainId ? [chainId] : undefined,
-  const hiddenColumns = [TokenColumns.Change1d, TokenColumns.Allocation, TokenColumns.AvgCost]
-  if (!isProfitLossEnabled) {
-    hiddenColumns.push(TokenColumns.UnrealizedPnl)
-  }
+  })
+
+  const tableData = tokenData ?? []
+  const tableLoading = loading && !tokenData
 
   return (
     <Flex grow gap="$gap12">
@@ -60,11 +53,10 @@ export const MiniTokensTable = memo(function MiniTokensTable({ maxTokens = 8, ch
           tokenData={tableData}
           loading={tableLoading}
           error={error}
-          hiddenColumns={hiddenColumns}
+          hiddenColumns={[TokenColumns.Change1d, TokenColumns.Allocation]}
           maxHeight={undefined}
           loadingRowsCount={MAX_TOKENS_ROWS}
           externalScrollSync={false}
-          showUnrealizedPnlPercent
           analyticsContext={{
             element: ElementName.PortfolioMiniTokenRow,
             section: SectionName.PortfolioOverviewTab,

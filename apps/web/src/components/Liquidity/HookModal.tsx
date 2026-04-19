@@ -1,19 +1,19 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Checkbox, Flex, HeightAnimator, Separator, Text, TouchableArea } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { ContractInteraction } from 'ui/src/components/icons/ContractInteraction'
-import { DocumentList } from 'ui/src/components/icons/DocumentList'
-import { Page } from 'ui/src/components/icons/Page'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { shortenAddress } from 'utilities/src/addresses'
+import { Button, Checkbox, Flex, HeightAnimator, Separator, Text, TouchableArea } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { ContractInteraction } from '@l.x/ui/src/components/icons/ContractInteraction'
+import { DocumentList } from '@l.x/ui/src/components/icons/DocumentList'
+import { Page } from '@l.x/ui/src/components/icons/Page'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import {
   type FlagWarning,
   getFlagsFromContractAddress,
@@ -170,7 +170,7 @@ export function HookModal({
             <LearnMoreLink
               centered
               display="flex"
-              url={uniswapUrls.helpArticleUrls.addingV4Hooks}
+              url={lxUrls.helpArticleUrls.addingV4Hooks}
               textVariant="buttonLabel3"
             />
           </Flex>

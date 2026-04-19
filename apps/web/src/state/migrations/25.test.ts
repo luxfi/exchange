@@ -1,5 +1,5 @@
-import { Language } from 'uniswap/src/features/language/constants'
-import { testRemoveTHBFromCurrency } from 'uniswap/src/state/uniswapMigrationTests'
+import { Language } from '@l.x/lx/src/features/language/constants'
+import { testRemoveTHBFromCurrency } from '@l.x/lx/src/state/luxMigrationTests'
 import { migration25 } from '~/state/migrations/25'
 
 const previousState = {
@@ -16,7 +16,7 @@ const previousState = {
 }
 
 describe('migration to v25', () => {
-  // oxlint-disable-next-line jest/expect-expect
+  // eslint-disable-next-line jest/expect-expect
   it('should set current currency to USD if it is THB', async () => {
     const thaiState = {
       ...previousState,
@@ -25,7 +25,7 @@ describe('migration to v25', () => {
     testRemoveTHBFromCurrency(migration25, thaiState)
   })
 
-  // oxlint-disable-next-line jest/expect-expect
+  // eslint-disable-next-line jest/expect-expect
   it('should preserve non-THB currency settings if user currency is not set to THB', async () => {
     const japaneseState = {
       ...previousState,

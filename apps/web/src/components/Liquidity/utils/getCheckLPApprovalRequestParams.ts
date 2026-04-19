@@ -1,14 +1,12 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { CheckApprovalLPRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { CheckApprovalLPRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import {
   Protocols,
   V2CheckApprovalLPRequest,
   V3CheckApprovalLPRequest,
   V4CheckApprovalLPRequest,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { LPApprovalRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
-import { LPAction, LPToken } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/types_pb'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { getTokenOrZeroAddress, validateCurrencyInput } from '~/components/Liquidity/utils/currency'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
 import { PositionField } from '~/types/position'
@@ -18,9 +16,12 @@ export function getCheckLPApprovalRequestParams({
   protocolVersion,
   currencyAmounts,
   canBatchTransactions,
-  action: LPAction
-  isCheckApprovalV2: boolean
-}): CheckApprovalLPRequest | LPApprovalRequest | undefined {
+}: {
+  walletAddress?: string
+  protocolVersion?: ProtocolVersion
+  currencyAmounts?: { [field in PositionField]?: Maybe<CurrencyAmount<Currency>> }
+  canBatchTransactions?: boolean
+}): CheckApprovalLPRequest | undefined {
   const protocol = getProtocols(protocolVersion)
 
   if (
@@ -38,27 +39,6 @@ export function getCheckLPApprovalRequestParams({
   const chainId = currencyAmounts.TOKEN0.currency.chainId
   const amount0 = currencyAmounts.TOKEN0.quotient.toString()
   const amount1 = currencyAmounts.TOKEN1.quotient.toString()
-
-  if (isCheckApprovalV2) {
-    return new LPApprovalRequest({
-      walletAddress,
-      chainId,
-      protocol,
-      lpTokens: [
-        new LPToken({
-          tokenAddress: getTokenOrZeroAddress(currencyAmounts.TOKEN0.currency),
-          amount: currencyAmounts.TOKEN0.quotient.toString(),
-        }),
-        new LPToken({
-          tokenAddress: getTokenOrZeroAddress(currencyAmounts.TOKEN1.currency),
-          amount: currencyAmounts.TOKEN1.quotient.toString(),
-        }),
-      ],
-      action,
-      simulateTransaction: true,
-      generatePermitAsTransaction: canBatchTransactions ?? false,
-    })
-  }
 
   switch (protocol) {
     case Protocols.V2:

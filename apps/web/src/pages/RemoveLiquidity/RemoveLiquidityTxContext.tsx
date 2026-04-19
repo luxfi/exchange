@@ -1,25 +1,24 @@
-import type { DecreasePositionResponse as V2DecreasePositionResponse } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
-import type { Currency } from '@uniswap/sdk-core'
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { CheckApprovalLPResponse } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+import type { Currency } from '@luxamm/sdk-core'
+import { CurrencyAmount } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
 import type { PropsWithChildren } from 'react'
 import { createContext, useContext, useEffect, useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import type { NormalizedApprovalData } from 'uniswap/src/data/apiClients/liquidityService/normalizeApprovalResponse'
-import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { DelegatedState } from 'uniswap/src/features/smartWallet/delegation/types'
-import type { ValidatedDecreasePositionTxAndGasInfo } from 'uniswap/src/features/transactions/liquidity/types'
-import { LiquidityTransactionType } from 'uniswap/src/features/transactions/liquidity/types'
-import { validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
-import { logContextUpdate } from 'utilities/src/logger/contextEnhancer'
+import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { DelegatedState } from '@l.x/lx/src/features/smartWallet/delegation/types'
+import type { ValidatedDecreasePositionTxAndGasInfo } from '@l.x/lx/src/features/transactions/liquidity/types'
+import { LiquidityTransactionType } from '@l.x/lx/src/features/transactions/liquidity/types'
+import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { logContextUpdate } from '@l.x/utils/src/logger/contextEnhancer'
 import { useRemoveLiquidityTxAndGasInfo } from '~/pages/RemoveLiquidity/hooks/useRemoveLiquidityTxAndGasInfo'
 import { useRemoveLiquidityModalContext } from '~/pages/RemoveLiquidity/RemoveLiquidityModalContext'
 
 export type RemoveLiquidityTxInfo = {
   gasFeeEstimateUSD?: CurrencyAmount<Currency>
-  v2LpTokenApproval?: NormalizedApprovalData
-  decreaseCalldata?: TradingApi.DecreaseLPPositionResponse | V2DecreasePositionResponse
+  v2LpTokenApproval?: TradingApi.CheckApprovalLPResponse | CheckApprovalLPResponse
+  decreaseCalldata?: TradingApi.DecreaseLPPositionResponse
   decreaseCalldataLoading: boolean
   approvalLoading: boolean
   txContext?: ValidatedDecreasePositionTxAndGasInfo
@@ -38,6 +37,7 @@ export function RemoveLiquidityTxContextProvider({ children }: PropsWithChildren
 
   const removeLiquidityTxInfo = useRemoveLiquidityTxAndGasInfo({ account: evmAddress })
   const { approvalLoading, decreaseCalldataLoading, decreaseCalldata, error, refetch } = removeLiquidityTxInfo
+  const { sqrtRatioX96 } = decreaseCalldata || {}
 
   useEffect(() => {
     logContextUpdate('RemoveLiquidityTxContext', removeLiquidityTxInfo)
@@ -84,6 +84,7 @@ export function RemoveLiquidityTxContextProvider({ children }: PropsWithChildren
       token1PermitTransaction: undefined,
       positionTokenPermitTransaction: undefined,
       permit: undefined,
+      sqrtRatioX96,
     }
   }, [
     positionInfo,
@@ -95,3 +96,24 @@ export function RemoveLiquidityTxContextProvider({ children }: PropsWithChildren
     removeLiquidityTxInfo.v2LpTokenApproval?.positionTokenApproval,
     percent,
     sqrtRatioX96,
+    delegatedAddress,
+  ])
+
+  return (
+    <RemoveLiquidityTxContext.Provider
+      value={{ ...removeLiquidityTxInfo, txContext: decreaseLiquidityTxContext, error, refetch }}
+    >
+      {children}
+    </RemoveLiquidityTxContext.Provider>
+  )
+}
+
+export const useRemoveLiquidityTxContext = (): RemoveLiquidityTxInfo => {
+  const removeContext = useContext(RemoveLiquidityTxContext)
+
+  if (removeContext === undefined) {
+    throw new Error('`useRemoveLiquidityTxContext` must be used inside of `RemoveLiquidityTxContextProvider`')
+  }
+
+  return removeContext
+}

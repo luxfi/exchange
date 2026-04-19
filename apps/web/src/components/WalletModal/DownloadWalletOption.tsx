@@ -1,13 +1,13 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useState } from 'react'
 import { Trans } from 'react-i18next'
-import { Flex, Image, Text } from 'ui/src'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { useEvent } from 'utilities/src/react/hooks'
-import UNIWALLET_ICON from '~/assets/wallets/uniswap-wallet-icon.png'
+import { Flex, Image, Text } from '@l.x/ui/src'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import UNIWALLET_ICON from '~/assets/wallets/lux-wallet-icon.png'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
-import { OptionContainer } from '~/components/WalletModal/UniswapWalletOptions'
+import { OptionContainer } from '~/components/WalletModal/LuxWalletOptions'
 import { useModalState } from '~/hooks/useModalState'
 
 interface BackgroundImageProps {
@@ -60,13 +60,13 @@ export const DownloadWalletOption = () => {
         position="relative"
         onHoverIn={() => setOptionHovered(true)}
         onHoverOut={() => setOptionHovered(false)}
-        data-testid="download-uniswap-wallet"
+        data-testid="download-lux-wallet"
       >
         <BackgroundImage backgroundImage="/images/extension_promo/background_connector.png" isHovered={optionHovered} />
         <OptionContainer onPress={onClickDownload} hideBackground>
           <Image
             src={UNIWALLET_ICON}
-            alt="uniswap-app-icon"
+            alt="lux-app-icon"
             height={isEmbeddedWalletEnabled ? 32 : 40}
             width={isEmbeddedWalletEnabled ? 32 : 40}
             borderRadius={12}
@@ -74,7 +74,7 @@ export const DownloadWalletOption = () => {
           <Flex row gap={4}>
             <Flex>
               <Text variant="buttonLabel2" color="$white" whiteSpace="nowrap">
-                <Trans i18nKey="common.getUniswapWallet" />
+                <Trans i18nKey="common.getLuxWallet" />
               </Text>
               <Text variant="body4" color="$white" whiteSpace="nowrap">
                 <Trans i18nKey="common.availableOnIOSAndroidChrome" />

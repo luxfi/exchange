@@ -1,14 +1,14 @@
-import { Token } from '@uniswap/sdk-core'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import i18n from 'uniswap/src/i18n'
+import { Token } from '@luxamm/sdk-core'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import i18n from '@l.x/lx/src/i18n'
 import { getTokenPageDescription, getTokenPageTitle } from '~/pages/TokenDetails/pageMetadata'
 
 describe('pages/TokenDetails/util', () => {
   describe('getTokenPageTitle', () => {
     it('should return the correct title when tokenName and tokenSymbol are undefined', () => {
       const result = getTokenPageTitle({ t: i18n.t, currency: new Token(1, ZERO_ADDRESS, 18) })
-      expect(result).toBe('Buy and sell on Uniswap')
+      expect(result).toBe('Buy and sell on Lux')
     })
 
     it('should return the correct title when only tokenName is defined', () => {
@@ -16,7 +16,7 @@ describe('pages/TokenDetails/util', () => {
         t: i18n.t,
         currency: new Token(1, ZERO_ADDRESS, 18, undefined, 'Baby Doge Token'),
       })
-      expect(result).toBe('Baby Doge Token: Buy and sell on Uniswap')
+      expect(result).toBe('Baby Doge Token: Buy and sell on Lux')
     })
 
     it('should return the correct title when only tokenSymbol is defined', () => {
@@ -24,7 +24,7 @@ describe('pages/TokenDetails/util', () => {
         t: i18n.t,
         currency: new Token(1, ZERO_ADDRESS, 18, 'BDT', undefined),
       })
-      expect(result).toBe('BDT: Buy and sell on Uniswap')
+      expect(result).toBe('BDT: Buy and sell on Lux')
     })
 
     it('should return the correct title when tokenName and tokenSymbol are defined', () => {
@@ -32,7 +32,7 @@ describe('pages/TokenDetails/util', () => {
         t: i18n.t,
         currency: new Token(1, ZERO_ADDRESS, 18, 'BDT', 'Baby Doge Token'),
       })
-      expect(result).toBe('Baby Doge Token (BDT): Buy and sell on Uniswap')
+      expect(result).toBe('Baby Doge Token (BDT): Buy and sell on Lux')
     })
   })
 

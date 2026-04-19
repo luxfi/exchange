@@ -1,10 +1,9 @@
-import { IncreaseLPPositionRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { useQuery } from '@tanstack/react-query'
 import {
-  IncreasePositionRequest,
-  IncreasePositionResponse,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
-import { LPAction, LPToken } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/types_pb'
-import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+  CheckApprovalLPRequest,
+  IncreaseLPPositionRequest,
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+import type { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import {
   createContext,
@@ -17,40 +16,36 @@ import {
   useState,
 } from 'react'
 import { useSelector } from 'react-redux'
-import { useUniswapContextSelector } from 'uniswap/src/contexts/UniswapContext'
-import { useCheckLPApprovalQuery } from 'uniswap/src/data/apiClients/liquidityService/useCheckLPApprovalQuery'
-import { useIncreasePositionQuery } from 'uniswap/src/data/apiClients/liquidityService/useIncreasePositionQuery'
-import { getTradeSettingsDeadline } from 'uniswap/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
-import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import type { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useTransactionGasFee, useUSDCurrencyAmountOfGasFee } from 'uniswap/src/features/gas/hooks'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { DelegatedState } from 'uniswap/src/features/smartWallet/delegation/types'
-import { InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useTransactionSettingsStore } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { useLuxContextSelector } from '@l.x/lx/src/contexts/LuxContext'
+import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
+import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import type { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useTransactionGasFee, useUSDCurrencyAmountOfGasFee } from '@l.x/lx/src/features/gas/hooks'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { DelegatedState } from '@l.x/lx/src/features/smartWallet/delegation/types'
+import { InterfaceEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { useTransactionSettingsStore } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 import {
   type IncreasePositionTxAndGasInfo,
   LiquidityTransactionType,
-} from 'uniswap/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay, parseErrorMessageTitle } from 'uniswap/src/features/transactions/liquidity/utils'
-import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
-import { PermitMethod } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { validatePermit, validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
-import { currencyId } from 'uniswap/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/liquidity/types'
+import { getErrorMessageToDisplay, parseErrorMessageTitle } from '@l.x/lx/src/features/transactions/liquidity/utils'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { PermitMethod } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { validatePermit, validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { useIncreasePositionDependentAmountFallback } from '~/components/Liquidity/hooks/useDependentAmountFallback'
-import { getTokenOrZeroAddress } from '~/components/Liquidity/utils/currency'
 import { generateLiquidityServiceIncreaseCalldataParams } from '~/components/Liquidity/utils/generateLiquidityServiceIncreaseCalldata.ts'
 import { getCheckLPApprovalRequestParams } from '~/components/Liquidity/utils/getCheckLPApprovalRequestParams'
 import { hasLPFoTTransferError } from '~/components/Liquidity/utils/hasLPFoTTransferError'
-import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
 import { useModalInitialState } from '~/hooks/useModalInitialState'
 import { useIncreaseLiquidityContext } from '~/pages/IncreaseLiquidity/IncreaseLiquidityContext'
-import { PositionField } from '~/types/position'
 
 interface IncreasePositionContextType {
   txInfo?: IncreasePositionTxAndGasInfo
@@ -78,11 +73,9 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
   const { exactField } = increaseLiquidityState
 
   const accountAddress = useActiveAddress(Platform.EVM)
-  const isIncreasePositionV2 = useFeatureFlag(FeatureFlags.IncreasePositionV2)
-  const isCheckApprovalV2 = useFeatureFlag(FeatureFlags.CheckApprovalV2)
   const isLiquidityBatchedTransactionsEnabled = useFeatureFlag(FeatureFlags.LiquidityBatchedTransactions)
   const canBatchTransactions =
-    useUniswapContextSelector((ctx) => ctx.getCanBatchTransactions?.(positionInfo?.chainId)) &&
+    useLuxContextSelector((ctx) => ctx.getCanBatchTransactions?.(positionInfo?.chainId)) &&
     positionInfo?.chainId !== UniverseChainId.Monad &&
     isLiquidityBatchedTransactionsEnabled
 
@@ -90,7 +83,7 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     positionInfo?.chainId ? state.delegation.delegations[String(positionInfo.chainId)] : null,
   )
 
-  const increaseLiquidityApprovalParams = useMemo(() => {
+  const increaseLiquidityApprovalParams: CheckApprovalLPRequest | undefined = useMemo(() => {
     if (!positionInfo || !accountAddress || !currencyAmounts?.TOKEN0 || !currencyAmounts.TOKEN1) {
       return undefined
     }
@@ -100,20 +93,21 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
       protocolVersion: positionInfo.version,
       currencyAmounts,
       canBatchTransactions,
-      action: LPAction.INCREASE,
-      isCheckApprovalV2,
     })
-  }, [positionInfo, accountAddress, currencyAmounts, canBatchTransactions, isCheckApprovalV2])
+  }, [positionInfo, accountAddress, currencyAmounts, canBatchTransactions])
 
   const {
-    approvalData: increaseLiquidityTokenApprovals,
-    approvalLoading,
-    approvalError,
-    approvalRefetch,
-  } = useCheckLPApprovalQuery({
-    approvalQueryParams: increaseLiquidityApprovalParams,
-    isQueryEnabled: !!increaseLiquidityApprovalParams && !error,
-  })
+    data: increaseLiquidityTokenApprovals,
+    isLoading: approvalLoading,
+    error: approvalError,
+    refetch: approvalRefetch,
+  } = useQuery(
+    liquidityQueries.checkApproval({
+      params: increaseLiquidityApprovalParams,
+      staleTime: 5 * ONE_SECOND_MS,
+      enabled: !!increaseLiquidityApprovalParams && !error,
+    }),
+  )
 
   if (approvalError) {
     const message = parseErrorMessageTitle(approvalError, { defaultTitle: 'unknown CheckLpApprovalQuery' })
@@ -129,20 +123,51 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     })
   }
 
+  const permitData = increaseLiquidityTokenApprovals?.permitData.value
   const {
     token0Approval,
     token1Approval,
     positionTokenApproval,
-    v4BatchPermitData: permitData,
+    gasFeeToken0Approval,
+    gasFeeToken1Approval,
+    gasFeePositionTokenApproval,
     token0Cancel,
     token1Cancel,
     token0PermitTransaction,
     token1PermitTransaction,
-      token0Approval ||
-      token1Approval ||
-      positionTokenApproval ||
-      token0PermitTransaction ||
-      token1PermitTransaction,
+    gasFeeToken0Permit,
+    gasFeeToken1Permit,
+  } = increaseLiquidityTokenApprovals ?? {}
+  const gasFeeToken0USD = useUSDCurrencyAmountOfGasFee(
+    positionInfo?.currency0Amount.currency.chainId,
+    gasFeeToken0Approval,
+  )
+  const gasFeeToken1USD = useUSDCurrencyAmountOfGasFee(
+    positionInfo?.currency1Amount.currency.chainId,
+    gasFeeToken1Approval,
+  )
+  const gasFeeLiquidityTokenUSD = useUSDCurrencyAmountOfGasFee(
+    positionInfo?.liquidityToken?.chainId,
+    gasFeePositionTokenApproval,
+  )
+  const gasFeeToken0PermitUSD = useUSDCurrencyAmountOfGasFee(
+    positionInfo?.currency1Amount.currency.chainId,
+    gasFeeToken0Permit,
+  )
+  const gasFeeToken1PermitUSD = useUSDCurrencyAmountOfGasFee(
+    positionInfo?.currency1Amount.currency.chainId,
+    gasFeeToken1Permit,
+  )
+
+  const approvalsNeeded =
+    !approvalLoading &&
+    Boolean(
+      permitData ||
+        token0Approval ||
+        token1Approval ||
+        positionTokenApproval ||
+        token0PermitTransaction ||
+        token1PermitTransaction,
     )
 
   const token0 = currencyAmounts?.TOKEN0?.currency
@@ -151,12 +176,34 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
   const token0Amount = currencyAmounts?.TOKEN0?.quotient.toString()
   const token1Amount = currencyAmounts?.TOKEN1?.quotient.toString()
 
-  const increaseCalldataQueryParams = useMemo((): IncreaseLPPositionRequest | IncreasePositionRequest | undefined => {
+  const increaseCalldataQueryParams = useMemo((): IncreaseLPPositionRequest | undefined => {
     if (!positionInfo || !accountAddress || !token0 || !token1 || !token0Amount || !token1Amount) {
       return undefined
     }
 
-    isIncreasePositionV2,
+    return generateLiquidityServiceIncreaseCalldataParams({
+      token0,
+      token1,
+      exactField,
+      token0Amount,
+      token1Amount,
+      approvalsNeeded,
+      positionInfo,
+      accountAddress,
+      customSlippageTolerance,
+      customDeadline,
+    })
+  }, [
+    accountAddress,
+    positionInfo,
+    token0,
+    token1,
+    token0Amount,
+    token1Amount,
+    approvalsNeeded,
+    customSlippageTolerance,
+    exactField,
+    customDeadline,
   ])
 
   const currency0Info = useCurrencyInfo(currencyId(positionInfo?.currency0Amount.currency))
@@ -177,14 +224,21 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     Boolean(increaseCalldataQueryParams) &&
     !fotErrorToken
 
-  const { increaseCalldata, isCalldataLoading, calldataError, calldataRefetch } = useIncreasePositionQuery({
-    increaseCalldataQueryParams,
-    transactionError: Boolean(transactionError),
-    isQueryEnabled: isQueryEnabled && Boolean(increaseCalldataQueryParams),
-  })
+  const {
+    data: increaseCalldata,
+    isLoading: isCalldataLoading,
+    error: calldataError,
+    refetch: calldataRefetch,
+  } = useQuery(
+    liquidityQueries.increasePosition({
+      params: increaseCalldataQueryParams,
+      refetchInterval: transactionError ? false : 5 * ONE_SECOND_MS,
+      retry: false,
+      enabled: isQueryEnabled && Boolean(increaseCalldataQueryParams),
+    }),
+  )
 
-  const increase = increaseCalldata?.increase
-  const actualGasFee = increaseCalldata?.gasFee
+  const { increase, gasFee: actualGasFee, dependentAmount, sqrtRatioX96 } = increaseCalldata || {}
 
   if (calldataError) {
     const message = parseErrorMessageTitle(calldataError, { defaultTitle: 'unknown IncreaseLpPositionCalldataQuery' })
@@ -207,22 +261,10 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     }
   }
 
-  const fallbackDependentAmount = useIncreasePositionDependentAmountFallback({
-    queryParams: increaseCalldataQueryParams,
-    isQueryEnabled: isQueryEnabled && Boolean(calldataError),
-    exactField,
-  })
-
-  const dependentAmount = useMemo(() => {
-    if (calldataError && fallbackDependentAmount) {
-      return fallbackDependentAmount
-    }
-    if (increaseCalldata instanceof IncreasePositionResponse) {
-      const dependentToken = exactField === PositionField.TOKEN0 ? increaseCalldata.token1 : increaseCalldata.token0
-      return dependentToken?.amount
-    }
-    return increaseCalldata?.dependentAmount
-  }, [increaseCalldata, calldataError, fallbackDependentAmount, exactField])
+  const fallbackDependentAmount = useIncreasePositionDependentAmountFallback(
+    increaseCalldataQueryParams,
+    isQueryEnabled && Boolean(calldataError),
+  )
 
   const { value: calculatedGasFee } = useTransactionGasFee({ tx: increase, skip: !!actualGasFee })
   const increaseGasFeeUsd = useUSDCurrencyAmountOfGasFee(
@@ -239,7 +281,7 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     )
   }, [approvalError, calldataError])
 
-  // oxlint-disable-next-line react/exhaustive-deps -- +token0Amount, +token1Amount
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +token0Amount, +token1Amount
   useEffect(() => {
     setTransactionError(false)
   }, [token0Amount, token1Amount])
@@ -261,31 +303,25 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     const approvePositionTokenRequest = validateTransactionRequest(positionTokenApproval)
     const revokeToken0Request = validateTransactionRequest(token0Cancel)
     const revokeToken1Request = validateTransactionRequest(token1Cancel)
-    const validatedPermit = validatePermit(permitData)
-    // Only treat as unsigned if permit data is present AND valid — invalid permit data
-    // should fall back to the signed (simulated) path rather than skipping simulation.
-    const unsigned = Boolean(validatedPermit)
+    const permit = validatePermit(permitData)
+    const unsigned = Boolean(permitData)
     const txRequest = validateTransactionRequest(increase)
-
     const validatedToken0PermitTx = validateTransactionRequest(token0PermitTransaction)
     const validatedToken1PermitTx = validateTransactionRequest(token1PermitTransaction)
 
-    let updatedIncreaseCalldataQueryParams: IncreaseLPPositionRequest | IncreasePositionRequest | undefined
-    if (increaseCalldataQueryParams instanceof IncreasePositionRequest) {
-      updatedIncreaseCalldataQueryParams = validatedPermit
-        ? new IncreasePositionRequest({
-            ...increaseCalldataQueryParams,
-            v4BatchPermitData: validatedPermit,
-          })
-        : increaseCalldataQueryParams
-    } else if (increaseCalldataQueryParams?.increaseLpPosition.case === 'v4IncreaseLpPosition') {
+    let updatedIncreaseCalldataQueryParams: IncreaseLPPositionRequest | undefined
+    if (increaseCalldataQueryParams?.increaseLpPosition.case === 'v4IncreaseLpPosition') {
+      const batchPermitData =
+        increaseLiquidityTokenApprovals?.permitData.case === 'permitBatchData'
+          ? increaseLiquidityTokenApprovals.permitData.value
+          : undefined
       updatedIncreaseCalldataQueryParams = new IncreaseLPPositionRequest({
         ...increaseCalldataQueryParams,
         increaseLpPosition: {
           case: 'v4IncreaseLpPosition',
           value: {
             ...increaseCalldataQueryParams.increaseLpPosition.value,
-            batchPermitData: validatedPermit,
+            batchPermitData,
           },
         },
       })
@@ -308,12 +344,13 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
       approvePositionTokenRequest,
       revokeToken0Request,
       revokeToken1Request,
-      permit: validatedPermit ? { method: PermitMethod.TypedData, typedData: validatedPermit } : undefined,
+      permit: permit ? { method: PermitMethod.TypedData, typedData: permit } : undefined, // TODO: make a PermitMethod.Transaction one if we get them from BE
       token0PermitTransaction: validatedToken0PermitTx,
       token1PermitTransaction: validatedToken1PermitTx,
       positionTokenPermitTransaction: undefined,
       increasePositionRequestArgs: updatedIncreaseCalldataQueryParams,
       txRequest,
+      sqrtRatioX96,
       unsigned,
     }
   }, [
@@ -335,3 +372,54 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     increaseCalldataQueryParams,
     increaseLiquidityTokenApprovals,
     sqrtRatioX96,
+    canBatchTransactions,
+    delegatedAddress,
+  ])
+
+  const totalGasFee = useMemo(() => {
+    const fees = [
+      gasFeeToken0USD,
+      gasFeeToken1USD,
+      gasFeeLiquidityTokenUSD,
+      increaseGasFeeUsd,
+      gasFeeToken0PermitUSD,
+      gasFeeToken1PermitUSD,
+    ]
+    return fees.reduce((total, fee) => {
+      if (fee && total) {
+        return total.add(fee)
+      }
+      return total || fee
+    })
+  }, [
+    gasFeeToken0USD,
+    gasFeeToken1USD,
+    gasFeeLiquidityTokenUSD,
+    increaseGasFeeUsd,
+    gasFeeToken0PermitUSD,
+    gasFeeToken1PermitUSD,
+  ])
+
+  const value = {
+    txInfo: increaseLiquidityTxContext,
+    gasFeeEstimateUSD: totalGasFee ?? undefined,
+    // in some cases there is an error with create but createCalldata still has a cached value
+    dependentAmount: calldataError && fallbackDependentAmount ? fallbackDependentAmount : dependentAmount,
+    error: transactionError,
+    setTransactionError,
+    refetch: approvalError ? approvalRefetch : calldataError ? calldataRefetch : undefined,
+    fotErrorToken,
+  }
+
+  return <IncreaseLiquidityTxContext.Provider value={value}>{children}</IncreaseLiquidityTxContext.Provider>
+}
+
+export const useIncreaseLiquidityTxContext = (): IncreasePositionContextType => {
+  const increaseContext = useContext(IncreaseLiquidityTxContext)
+
+  if (!increaseContext) {
+    throw new Error('`useIncreaseLiquidityTxContext` must be used inside of `IncreaseLiquidityTxContextProvider`')
+  }
+
+  return increaseContext
+}

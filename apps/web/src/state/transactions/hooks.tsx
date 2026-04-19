@@ -1,37 +1,37 @@
-/* oxlint-disable typescript/no-unnecessary-condition */
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { BigNumber } from '@ethersproject/bignumber'
 import type { TransactionResponse } from '@ethersproject/providers'
-import type { Token } from '@uniswap/sdk-core'
+import type { Token } from '@luxamm/sdk-core'
 import { useCallback, useEffect, useMemo } from 'react'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { selectTransactions } from 'uniswap/src/features/transactions/selectors'
-import { addTransaction, deleteTransaction, interfaceCancelTransaction } from 'uniswap/src/features/transactions/slice'
-import { PLAN_MAX_AGE_MS } from 'uniswap/src/features/transactions/swap/plan/planPollingUtils'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { selectTransactions } from '@l.x/lx/src/features/transactions/selectors'
+import { addTransaction, deleteTransaction, interfaceCancelTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { PLAN_MAX_AGE_MS } from '@l.x/lx/src/features/transactions/swap/plan/planPollingUtils'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import type {
   InterfaceTransactionDetails,
   PlanTransactionDetails,
   TransactionDetails,
   TransactionTypeInfo as TransactionInfo,
-  UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+  DEXOrderDetails,
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   isFinalizedTxStatus,
   isInterfaceTransaction,
   isPlanTransactionDetails,
   isPlanTransactionInfo,
-} from 'uniswap/src/features/transactions/types/utils'
-import { isUniswapXOrderPending } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
-import { usePrevious } from 'utilities/src/react/hooks'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/types/utils'
+import { isLXOrderPending } from '@l.x/lx/src/features/transactions/utils/dexUtils'
+import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 import { useAccount } from '~/hooks/useAccount'
 import { getRoutingForTransaction } from '~/state/activity/utils'
 import { useAppDispatch, useAppSelector } from '~/state/hooks'
@@ -42,7 +42,16 @@ import { isConfirmedTx, isPendingTx } from '~/state/transactions/utils'
 const MAX_PENDING_TRANSACTION_AGE_MS = 5 * ONE_MINUTE_MS
 
 // helper that can take a ethers library transaction response and add it to the list of transactions
-    // oxlint-disable-next-line max-params
+export function useTransactionAdder(): (
+  response: TransactionResponse,
+  info: TransactionInfo,
+  deadline?: number,
+) => void {
+  const account = useAccount()
+  const dispatch = useAppDispatch()
+
+  return useCallback(
+    // eslint-disable-next-line max-params
     (response: TransactionResponse, info: TransactionInfo, deadline?: number) => {
       if (account.status !== 'connected' || !account.chainId || !account.address) {
         return
@@ -319,7 +328,7 @@ function usePendingApprovalAmount(token?: Token, spender?: string): BigNumber | 
       return undefined
     }
 
-    // oxlint-disable-next-line guard-for-in
+    // eslint-disable-next-line guard-for-in
     for (const txHash in allTransactions) {
       const tx = allTransactions[txHash]
       if (!tx || isConfirmedTx(tx) || tx.typeInfo.type !== TransactionType.Approve) {
@@ -350,7 +359,7 @@ export function useHasPendingPermit2Approval(token?: Token, spender?: string): b
       return false
     }
 
-    // oxlint-disable-next-line guard-for-in
+    // eslint-disable-next-line guard-for-in
     for (const txHash in allTransactions) {
       const tx = allTransactions[txHash]
       if (!tx || isConfirmedTx(tx) || tx.typeInfo.type !== TransactionType.Permit2Approve) {
@@ -431,7 +440,7 @@ export function usePendingLPTransactionsChangeListener(callback: () => void) {
   }, [pendingLPTransactions, callback, previousPendingCount])
 }
 
-export function useUniswapXOrderByOrderHash(orderHash?: string): UniswapXOrderDetails | undefined {
+export function useDEXOrderByOrderHash(orderHash?: string): DEXOrderDetails | undefined {
   const allTransactions = useAllTransactionsByChain()
 
   return useMemo(() => {
@@ -440,18 +449,18 @@ export function useUniswapXOrderByOrderHash(orderHash?: string): UniswapXOrderDe
     }
 
     return Object.values(allTransactions).find(
-      (tx): tx is UniswapXOrderDetails => isUniswapX(tx) && 'orderHash' in tx && tx.orderHash === orderHash,
+      (tx): tx is DEXOrderDetails => isLX(tx) && 'orderHash' in tx && tx.orderHash === orderHash,
     )
   }, [allTransactions, orderHash])
 }
 
-export function usePendingUniswapXOrders(): UniswapXOrderDetails[] {
+export function usePendingDEXOrders(): DEXOrderDetails[] {
   const allTransactions = useAllTransactionsByChain()
   const account = useAccount()
 
   return useMemo(() => {
     return Object.values(allTransactions).filter(
-      (tx): tx is UniswapXOrderDetails => tx.from === account.address && isUniswapX(tx) && isUniswapXOrderPending(tx),
+      (tx): tx is DEXOrderDetails => tx.from === account.address && isLX(tx) && isLXOrderPending(tx),
     )
   }, [account.address, allTransactions])
 }

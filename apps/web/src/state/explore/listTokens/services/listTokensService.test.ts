@@ -1,11 +1,11 @@
-import { ListTokensResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import { ListTokensResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import {
   MultichainToken,
   Token,
   TokenMetadata,
   TokenStats,
   TokenType,
-} from '@uniswap/client-data-api/dist/data/v1/types_pb'
+} from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { TokensOrderBy } from '@l.x/api'
 import { describe, expect, it, vi } from 'vitest'
 import { TimePeriod } from '~/appGraphql/data/util'

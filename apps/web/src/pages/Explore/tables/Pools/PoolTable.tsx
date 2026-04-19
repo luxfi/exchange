@@ -1,34 +1,54 @@
-/* oxlint-disable typescript/no-unnecessary-condition */
-/* oxlint-disable max-lines */
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+/* eslint-disable max-lines */
 
 import { ApolloError } from '@apollo/client'
 import { createColumnHelper, Row } from '@tanstack/react-table'
-import { TokenStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { Percent, Token } from '@uniswap/sdk-core'
+import { TokenStats } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
+import { Percent, Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, ReactElement, useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, useMedia } from 'ui/src'
-import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { BIPS_BASE } from 'uniswap/src/constants/misc'
-import { UNI } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
+import { Flex, styled, Text, useMedia } from '@l.x/ui/src'
+import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
+import { UNI } from '@l.x/lx/src/constants/tokens'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
 import { PoolSortFields, TablePool } from '~/appGraphql/data/pools/useTopPools'
 import { gqlToCurrency, OrderDirection, unwrapToken } from '~/appGraphql/data/util'
+import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
 import { FeeData } from '~/components/Liquidity/Create/types'
 import LPIncentiveFeeStatTooltip from '~/components/Liquidity/LPIncentives/LPIncentiveFeeStatTooltip'
 import { isDynamicFeeTier } from '~/components/Liquidity/utils/feeTiers'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
+import { Table } from '~/components/Table'
+import { Cell } from '~/components/Table/Cell'
+import { ClickableHeaderRow, HeaderArrow, HeaderSortText } from '~/components/Table/shared/SortableHeader'
+import { EllipsisText, TableText } from '~/components/Table/shared/TableText'
+import { HeaderCell } from '~/components/Table/styled'
+import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
+import { MAX_WIDTH_MEDIA_BREAKPOINT } from '~/constants/breakpoints'
+import useSimplePagination from '~/hooks/useSimplePagination'
+import { useExploreTablesFilterStore } from '~/pages/Explore/exploreTablesFilterStore'
+import {
+  PoolTableStoreContextProvider,
+  usePoolTableStore,
+  usePoolTableStoreActions,
+} from '~/pages/Explore/tables/Pools/poolTableStore'
+import { TABLE_PAGE_SIZE } from '~/state/explore'
+import { useTopPools } from '~/state/explore/topPools/useTopPools'
+import { PoolStat } from '~/state/explore/types'
+import { isLuxChainId } from '~/state/explore/luxSubgraph'
+import { LuxPoolsTable } from '~/pages/Explore/tables/LuxPoolsTable'
 import { getChainUrlParam, useChainIdFromUrlParam } from '~/utils/chainParams'
 
 const TableWrapper = styled(Flex, {
@@ -55,12 +75,17 @@ interface PoolTableValues {
 function PoolDescription({
   token0,
   token1,
-  showMainnetNetworkLogo,
+  chainId,
 }: {
   token0?: Token | TokenStats
   token1?: Token | TokenStats
   chainId: UniverseChainId
-      <DoubleCurrencyLogo currencies={currencies} size={24} showMainnetNetworkLogo={showMainnetNetworkLogo} />
+}) {
+  const currencies = [token0 ? gqlToCurrency(token0) : undefined, token1 ? gqlToCurrency(token1) : undefined]
+
+  return (
+    <Flex row gap="$gap8" alignItems="center" maxWidth="100%">
+      <PortfolioLogo currencies={currencies} chainId={chainId} size={24} />
       <EllipsisText>
         {token0?.symbol}/{token1?.symbol}
       </EllipsisText>
@@ -90,7 +115,7 @@ function PoolTableHeader({
     [PoolSortFields.RewardApr]: (
       <>
         {t('pool.incentives.merklDocs')}
-        <LearnMoreLink textVariant="buttonLabel4" url={uniswapUrls.merklDocsUrl} />
+        <LearnMoreLink textVariant="buttonLabel4" url={lxUrls.merklDocsUrl} />
       </>
     ),
   }
@@ -128,7 +153,7 @@ interface TopPoolTableProps {
   isError: boolean
   loadMore?: ({ onComplete }: { onComplete?: () => void }) => void
 }
-function ExploreTopPoolTableContent(): JSX.Element {
+function DefaultPoolTableContent(): JSX.Element {
   const chainId = useChainIdFromUrlParam()
   const { sortMethod, sortAscending } = usePoolTableStore((s) => ({
     sortMethod: s.sortMethod,
@@ -151,6 +176,17 @@ function ExploreTopPoolTableContent(): JSX.Element {
   })
 
   return <TopPoolTable topPoolData={{ topPools, isLoading, isError, loadMore }} />
+}
+
+function ExploreTopPoolTableContent(): JSX.Element {
+  const chainId = useChainIdFromUrlParam()
+
+  // Use Lux V3 subgraph data when filtered to Lux chain
+  if (isLuxChainId(chainId as number | undefined)) {
+    return <LuxPoolsTable />
+  }
+
+  return <DefaultPoolTableContent />
 }
 
 export const ExploreTopPoolTable = memo(function ExploreTopPoolTable() {
@@ -259,3 +295,331 @@ export function PoolsTable({
               token0={unwrapToken(chainId, pool.token0) as TokenStats | Token | undefined}
               token1={unwrapToken(chainId, pool.token1) as TokenStats | Token | undefined}
               chainId={chainId}
+            />
+          ),
+          protocolVersion: pool.protocolVersion?.toLowerCase(),
+          feeTier: pool.feeTier,
+          tvl: parseVolume((isGqlPool ? pool.tvl : pool.totalLiquidity?.value) ?? 0),
+          volume24h: parseVolume((isGqlPool ? pool.volume24h : pool.volume1Day?.value) ?? 0),
+          volume30d: parseVolume((isGqlPool ? pool.volume30d : pool.volume30Day?.value) ?? 0),
+          volOverTvl: pool.volOverTvl,
+          apr: pool.apr,
+          rewardApr: pool.boostedApr,
+          link: `/explore/pools/${getChainUrlParam(chainId)}/${isGqlPool ? pool.hash : pool.id}`,
+          token0CurrencyId: currency0Id,
+          token1CurrencyId: currency1Id,
+          analytics: {
+            elementName: ElementName.PoolsTableRow,
+            properties: {
+              chain_id: chainId,
+              pool_address: isGqlPool ? pool.hash : pool.id,
+              token0_address: pool.token0?.address,
+              token0_symbol: pool.token0?.symbol,
+              token1_address: pool.token1?.address,
+              token1_symbol: pool.token1?.symbol,
+              pool_list_index: index,
+              pool_list_rank: poolSortRank,
+              pool_list_length: pools.length,
+              search_pool_input: filterString,
+            },
+          },
+        }
+      }) ?? [],
+    [convertFiatAmountFormatted, defaultChainId, filterString, pools],
+  )
+
+  const showLoadingSkeleton = loading || !!error
+  const media = useMedia()
+  const columns = useMemo(() => {
+    const columnHelper = createColumnHelper<PoolTableValues>()
+    const filteredColumns = [
+      !media.lg
+        ? columnHelper.accessor((row) => row.index, {
+            id: 'index',
+            size: 60,
+            header: () => (
+              <HeaderCell justifyContent="flex-start">
+                <Text variant="body3" color="$neutral2">
+                  #
+                </Text>
+              </HeaderCell>
+            ),
+            cell: (index) => (
+              <Cell justifyContent="flex-start" loading={showLoadingSkeleton}>
+                <TableText>{index.getValue?.()}</TableText>
+              </Cell>
+            ),
+          })
+        : null,
+      columnHelper.accessor((row) => row.poolDescription, {
+        id: 'poolDescription',
+        size: media.lg ? 170 : 180,
+        header: () => (
+          <HeaderCell justifyContent="flex-start">
+            <Text variant="body3" color="$neutral2">
+              {t('common.pool')}
+            </Text>
+          </HeaderCell>
+        ),
+        cell: (poolDescription) => (
+          <Cell justifyContent="flex-start" loading={showLoadingSkeleton}>
+            {poolDescription.getValue?.()}
+          </Cell>
+        ),
+      }),
+      columnHelper.accessor((row) => row.protocolVersion, {
+        id: 'protocolVersion',
+        size: 80,
+        header: () => (
+          <HeaderCell justifyContent="flex-end">
+            <Text variant="body3" color="$neutral2">
+              {t('common.protocol')}
+            </Text>
+          </HeaderCell>
+        ),
+        cell: (protocolVersion) => (
+          <Cell justifyContent="flex-end" loading={showLoadingSkeleton}>
+            <TableText>{protocolVersion.getValue?.() ?? '-'}</TableText>
+          </Cell>
+        ),
+      }),
+      columnHelper.accessor((row) => row.feeTier, {
+        id: 'feeTier',
+        size: 80,
+        header: () => (
+          <HeaderCell>
+            <Text variant="body3" color="$neutral2">
+              {t('fee.tier')}
+            </Text>
+          </HeaderCell>
+        ),
+        cell: (feeTier) => (
+          <Cell loading={showLoadingSkeleton}>
+            <TableText>
+              {feeTier.getValue?.()
+                ? `${isDynamicFeeTier(feeTier.getValue()!) ? t('common.dynamic') : formatPercent(feeTier.getValue()!.feeAmount / BIPS_BASE, 4)}`
+                : '-'}
+            </TableText>
+          </Cell>
+        ),
+      }),
+      !hiddenColumns?.includes(PoolSortFields.TVL)
+        ? columnHelper.accessor((row) => row.tvl, {
+            id: 'tvl',
+            size: 110,
+            header: () => (
+              <HeaderCell>
+                <PoolTableHeader
+                  category={PoolSortFields.TVL}
+                  isCurrentSortMethod={sortMethod === PoolSortFields.TVL}
+                  direction={orderDirection}
+                />
+              </HeaderCell>
+            ),
+            cell: (tvl) => (
+              <Cell loading={showLoadingSkeleton}>
+                <TableText>{tvl.getValue?.()}</TableText>
+              </Cell>
+            ),
+          })
+        : null,
+      !hiddenColumns?.includes(PoolSortFields.Apr)
+        ? columnHelper.accessor((row) => row.apr, {
+            id: 'apr',
+            size: 120,
+            header: () => (
+              <HeaderCell>
+                <PoolTableHeader
+                  category={PoolSortFields.Apr}
+                  isCurrentSortMethod={sortMethod === PoolSortFields.Apr}
+                  direction={orderDirection}
+                />
+              </HeaderCell>
+            ),
+            cell: (oneDayApr) => (
+              <Cell loading={showLoadingSkeleton}>
+                <TableText>{formatPercent(oneDayApr.getValue?.()?.toSignificant())}</TableText>
+              </Cell>
+            ),
+          })
+        : null,
+      !hiddenColumns?.includes(PoolSortFields.RewardApr) && isLPIncentivesEnabled
+        ? columnHelper.accessor((row) => row.rewardApr, {
+            id: PoolSortFields.RewardApr,
+            size: 130,
+            header: () => (
+              <HeaderCell>
+                <PoolTableHeader
+                  category={PoolSortFields.RewardApr}
+                  isCurrentSortMethod={sortMethod === PoolSortFields.RewardApr}
+                  direction={orderDirection}
+                />
+              </HeaderCell>
+            ),
+            sortingFn: 'basic',
+            cell: ({ row }: { row?: Row<PoolTableValues> }) => {
+              if (!row?.original) {
+                return null
+              }
+
+              const { apr, token0CurrencyId, token1CurrencyId, rewardApr } = row.original
+
+              return (
+                <RewardAprCell
+                  apr={apr}
+                  rewardApr={rewardApr}
+                  token0CurrencyId={token0CurrencyId}
+                  token1CurrencyId={token1CurrencyId}
+                  isLoading={showLoadingSkeleton}
+                />
+              )
+            },
+          })
+        : null,
+      !hiddenColumns?.includes(PoolSortFields.Volume24h)
+        ? columnHelper.accessor((row) => row.volume24h, {
+            id: 'volume24h',
+            size: 120,
+            header: () => (
+              <HeaderCell>
+                <PoolTableHeader
+                  category={PoolSortFields.Volume24h}
+                  isCurrentSortMethod={sortMethod === PoolSortFields.Volume24h}
+                  direction={orderDirection}
+                />
+              </HeaderCell>
+            ),
+            cell: (volume24h) => {
+              return (
+                <Cell loading={showLoadingSkeleton}>
+                  <TableText>{volume24h?.getValue?.()}</TableText>
+                </Cell>
+              )
+            },
+          })
+        : null,
+      !hiddenColumns?.includes(PoolSortFields.Volume30D)
+        ? columnHelper.accessor((row) => row.volume30d, {
+            id: 'volume30Day',
+            size: 120,
+            header: () => (
+              <HeaderCell>
+                <PoolTableHeader
+                  category={PoolSortFields.Volume30D}
+                  isCurrentSortMethod={sortMethod === PoolSortFields.Volume30D}
+                  direction={orderDirection}
+                />
+              </HeaderCell>
+            ),
+            cell: (volumeWeek) => (
+              <Cell loading={showLoadingSkeleton}>
+                <TableText>{volumeWeek.getValue?.()}</TableText>
+              </Cell>
+            ),
+          })
+        : null,
+      !hiddenColumns?.includes(PoolSortFields.VolOverTvl)
+        ? columnHelper.accessor((row) => row.volOverTvl, {
+            id: 'volOverTvl',
+            size: 120,
+            header: () => (
+              <HeaderCell>
+                <PoolTableHeader
+                  category={PoolSortFields.VolOverTvl}
+                  isCurrentSortMethod={sortMethod === PoolSortFields.VolOverTvl}
+                  direction={orderDirection}
+                />
+              </HeaderCell>
+            ),
+            cell: (volOverTvl) => (
+              <Cell loading={showLoadingSkeleton}>
+                <TableText>
+                  {formatNumberOrString({
+                    value: volOverTvl.getValue?.(),
+                    type: NumberType.TokenQuantityStats,
+                    placeholder: '-',
+                  })}
+                </TableText>
+              </Cell>
+            ),
+          })
+        : null,
+    ]
+    return filteredColumns.filter((column): column is NonNullable<(typeof filteredColumns)[number]> => Boolean(column))
+  }, [
+    media.lg,
+    hiddenColumns,
+    isLPIncentivesEnabled,
+    showLoadingSkeleton,
+    t,
+    sortMethod,
+    orderDirection,
+    formatNumberOrString,
+    formatPercent,
+  ])
+
+  return (
+    <Table
+      columns={columns}
+      data={poolTableValues}
+      loading={loading}
+      error={error}
+      v2={isMultichainTokenUx}
+      loadMore={loadMore}
+      maxWidth={maxWidth}
+      maxHeight={maxHeight}
+      defaultPinnedColumns={['index', 'poolDescription']}
+      forcePinning={forcePinning}
+    />
+  )
+}
+
+interface RewardAprCellProps {
+  apr: Percent
+  isLoading: boolean
+  rewardApr?: number
+  token0CurrencyId?: string
+  token1CurrencyId?: string
+}
+
+function RewardAprCell({ apr, isLoading, rewardApr, token0CurrencyId, token1CurrencyId }: RewardAprCellProps) {
+  const { formatPercent } = useLocalizationContext()
+  const currency0Info = useCurrencyInfo(token0CurrencyId)
+  const currency1Info = useCurrencyInfo(token1CurrencyId)
+
+  const poolApr = parseFloat(apr.toFixed(2))
+  const totalApr = poolApr + (rewardApr ?? 0)
+
+  if (!rewardApr) {
+    return (
+      <Cell loading={isLoading} gap="$spacing2">
+        <TableText color="$neutral3">-</TableText>
+      </Cell>
+    )
+  }
+
+  return (
+    <MouseoverTooltip
+      padding={0}
+      text={
+        <LPIncentiveFeeStatTooltip
+          currency0Info={currency0Info}
+          currency1Info={currency1Info}
+          poolApr={poolApr}
+          lpIncentiveRewardApr={rewardApr}
+          totalApr={totalApr}
+        />
+      }
+      size={TooltipSize.Small}
+      placement="top"
+    >
+      <Cell loading={isLoading} gap="$spacing2">
+        <TableText color="$neutral3">+</TableText>
+        <TableText color="$accent1" mr="$spacing4">
+          {formatPercent(rewardApr)}
+        </TableText>
+        <CurrencyLogo currency={UNI[UniverseChainId.Mainnet]} size={16} />
+      </Cell>
+    </MouseoverTooltip>
+  )
+}

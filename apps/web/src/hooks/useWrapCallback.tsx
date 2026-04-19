@@ -1,11 +1,11 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { useMemo, useRef, useState } from 'react'
-import { WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
-import { logger } from 'utilities/src/logger/logger'
+import { WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useAccount } from '~/hooks/useAccount'
 import { useWETHContract } from '~/hooks/useContract'
 import { formatToDecimal, getTokenAddress } from '~/lib/utils/analytics'
@@ -103,7 +103,7 @@ export default function useWrapCallback({
                   type: WrapType.Wrap,
                 })
                 const error = new Error(`Invalid WETH contract
-Please file a bug detailing how this happened - https://github.com/Uniswap/interface/issues/new?labels=bug&template=bug-report.md&title=Invalid%20WETH%20contract`)
+Please file a bug detailing how this happened - https://github.com/Lux/interface/issues/new?labels=bug&template=bug-report.md&title=Invalid%20WETH%20contract`)
                 setError(error)
                 throw error
               }

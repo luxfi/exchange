@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { Anchor, Flex, Text, TouchableArea } from 'ui/src'
-import { BookOpen } from 'ui/src/components/icons/BookOpen'
-import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
-import { GraduationCap } from 'ui/src/components/icons/GraduationCap'
-import { SpeechBubbles } from 'ui/src/components/icons/SpeechBubbles'
-import { X } from 'ui/src/components/icons/X'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Anchor, Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { BookOpen } from '@l.x/ui/src/components/icons/BookOpen'
+import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
+import { GraduationCap } from '@l.x/ui/src/components/icons/GraduationCap'
+import { SpeechBubbles } from '@l.x/ui/src/components/icons/SpeechBubbles'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 interface HelpContentProps {
   onClose?: () => void
@@ -56,17 +56,17 @@ export function HelpContent({ onClose }: HelpContentProps) {
       <HelpItem
         icon={<GraduationCap size="$icon.20" color="$neutral2" />}
         title={t('settings.action.help')}
-        href={uniswapUrls.helpUrl}
+        href={lxUrls.helpUrl}
       />
       <HelpItem
         icon={<BookOpen size="$icon.20" color="$neutral2" />}
         title={t('common.docs')}
-        href={uniswapUrls.docsUrl}
+        href={lxUrls.docsUrl}
       />
       <HelpItem
         icon={<SpeechBubbles size="$icon.20" color="$neutral2" />}
         title={t('common.contactUs.button')}
-        href={uniswapUrls.helpRequestUrl}
+        href={lxUrls.helpRequestUrl}
       />
     </Flex>
   )

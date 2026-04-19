@@ -1,22 +1,20 @@
-import { TradeType } from '@uniswap/sdk-core'
-import { memo, useMemo } from 'react'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { Plus } from 'ui/src/components/icons/Plus'
-import { useFormattedCurrencyAmountAndUSDValue } from 'uniswap/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { Flex, Text } from '@l.x/ui/src'
+import { Plus } from '@l.x/ui/src/components/icons/Plus'
+import { useFormattedCurrencyAmountAndUSDValue } from '@l.x/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import {
   useCurrencyInfo,
   useNativeCurrencyInfo,
   useWrappedNativeCurrencyInfo,
-} from 'uniswap/src/features/tokens/useCurrencyInfo'
+} from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isConfirmedSwapTypeInfo } from 'uniswap/src/features/transactions/types/utils'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ApproveAmountCell } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/ApproveAmountCell'
 import { CompactLayout } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/CompactLayout'
 import { DualTokenLayout } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/DualTokenLayout'
@@ -39,7 +37,7 @@ interface ActivityAmountCellProps {
   variant?: 'full' | 'compact'
 }
 
-function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmountCellProps) {
+function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCellProps) {
   const formatter = useLocalizationContext()
   const { t } = useTranslation()
   const { chainId } = transaction
@@ -59,7 +57,13 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
   const nativeCurrencyInfo = useNativeCurrencyInfo(chainId)
   const wrappedCurrencyInfo = useWrappedNativeCurrencyInfo(chainId)
 
-    isApproximateAmount: amount?.kind === 'pair' ? swapPairApproximateFlags.input : false,
+  // Format amounts based on kind
+  // Use slow polling (5 minutes) for historical activity data to reduce unnecessary network requests
+  const inputFormattedData = useFormattedCurrencyAmountAndUSDValue({
+    currency: inputCurrencyInfo?.currency,
+    currencyAmountRaw: amount?.kind === 'pair' ? (amount.inputAmountRaw ?? '') : '',
+    formatter,
+    isApproximateAmount: false,
     pollInterval: PollingInterval.Slow,
   })
 
@@ -67,7 +71,7 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
     currency: outputCurrencyInfo?.currency,
     currencyAmountRaw: amount?.kind === 'pair' ? (amount.outputAmountRaw ?? '') : '',
     formatter,
-    isApproximateAmount: amount?.kind === 'pair' ? swapPairApproximateFlags.output : false,
+    isApproximateAmount: false,
     pollInterval: PollingInterval.Slow,
   })
 
@@ -147,8 +151,8 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
     return <EmptyCell />
   }
 
-  // Show pair row if at least one side has currency metadata (matches modal / DualTokenLayout partial display)
-  if (amount.kind === 'pair' && !inputCurrencyInfo && !outputCurrencyInfo) {
+  // Guard against missing currency data before formatting
+  if (amount.kind === 'pair' && (!inputCurrencyInfo || !outputCurrencyInfo)) {
     return <EmptyCell />
   }
 
@@ -161,9 +165,15 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
 
   switch (amount.kind) {
     case 'pair': {
-              inputAmount: inputAmountDisplay,
+      if (variant === 'compact') {
+        return (
+          <CompactLayout
+            typeLabel={typeLabel}
+            logo={createSplitLogo({ chainId, inputCurrencyInfo, outputCurrencyInfo })}
+            amountText={formatCompactAmountText({
+              inputAmount: inputFormattedData.amount,
               inputSymbol: inputCurrencyInfo?.currency.symbol,
-              outputAmount: outputAmountDisplay,
+              outputAmount: outputFormattedData.amount,
               outputSymbol: outputCurrencyInfo?.currency.symbol,
             })}
           />
@@ -175,8 +185,11 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
         <DualTokenLayout
           inputCurrency={inputCurrencyInfo}
           outputCurrency={outputCurrencyInfo}
-          inputFormattedAmount={formatAmountWithSymbol(inputAmountDisplay, inputCurrencyInfo?.currency.symbol)}
-          outputFormattedAmount={formatAmountWithSymbol(outputAmountDisplay, outputCurrencyInfo?.currency.symbol)}
+          inputFormattedAmount={formatAmountWithSymbol(inputFormattedData.amount, inputCurrencyInfo?.currency.symbol)}
+          outputFormattedAmount={formatAmountWithSymbol(
+            outputFormattedData.amount,
+            outputCurrencyInfo?.currency.symbol,
+          )}
           inputUsdValue={getUsdValue(inputFormattedData.value)}
           outputUsdValue={getUsdValue(outputFormattedData.value)}
         />
@@ -246,6 +259,15 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
         )
       }
 
+      // Full variant: Single token layout
+      const transactionType = transaction.typeInfo.type
+      const showOnRight =
+        transactionType === TransactionType.Send ||
+        transactionType === TransactionType.OffRampSale ||
+        transactionType === TransactionType.LocalOffRamp
+
+      const showOnLeft = !showOnRight
+
       const formattedAmountWithSymbol = formatAmountWithSymbol(
         singleFormattedData.amount,
         singleCurrencyInfo?.currency.symbol,
@@ -274,3 +296,66 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
           outputFormattedAmount={formattedAmountWithSymbol}
           inputUsdValue={null}
           outputUsdValue={usdValue}
+          separator={null}
+        />
+      )
+    }
+
+    case 'liquidity-pair': {
+      if (variant === 'compact') {
+        return (
+          <CompactLayout
+            typeLabel={typeLabel}
+            logo={createSplitLogo({ chainId, inputCurrencyInfo: currency0Info, outputCurrencyInfo: currency1Info })}
+            amountText={formatCompactAmountText({
+              inputAmount: currency0FormattedData.amount,
+              inputSymbol: currency0Info?.currency.symbol,
+              outputAmount: currency1FormattedData.amount,
+              outputSymbol: currency1Info?.currency.symbol,
+              separator: '&',
+            })}
+          />
+        )
+      }
+
+      const token0Amount = formatAmountWithSymbol(currency0FormattedData.amount, currency0Info?.currency.symbol)
+      const token1Amount = formatAmountWithSymbol(currency1FormattedData.amount, currency1Info?.currency.symbol)
+
+      return (
+        <DualTokenLayout
+          inputCurrency={currency0Info}
+          outputCurrency={currency1Info}
+          inputFormattedAmount={token0Amount}
+          outputFormattedAmount={token1Amount}
+          inputUsdValue={getUsdValue(currency0FormattedData.value)}
+          outputUsdValue={getUsdValue(currency1FormattedData.value)}
+          separator={<Plus size={16} color="$neutral2" />}
+        />
+      )
+    }
+
+    case 'nft': {
+      // NFT layout with image preview
+      const purchaseAmountText =
+        nftPurchaseFormattedData.amount && nftPurchaseCurrencyInfo
+          ? formatAmountWithSymbol(nftPurchaseFormattedData.amount, nftPurchaseCurrencyInfo.currency.symbol)
+          : null
+
+      return (
+        <Flex row alignItems="center" gap="$gap8" justifyContent="flex-start" minWidth={180}>
+          <NftAmountDisplay
+            nftImageUrl={amount.nftImageUrl}
+            nftName={amount.nftName}
+            nftCollectionName={amount.nftCollectionName}
+            purchaseAmountText={purchaseAmountText}
+          />
+        </Flex>
+      )
+    }
+
+    default:
+      return <EmptyCell />
+  }
+}
+
+export const ActivityAmountCell = memo(_ActivityAmountCell)

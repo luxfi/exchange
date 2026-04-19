@@ -1,11 +1,11 @@
 import { Fragment, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Anchor, AnchorProps, Flex, Text, TouchableArea } from 'ui/src'
-import { spacing } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { isMobileWeb } from 'utilities/src/platform'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { Anchor, AnchorProps, Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { spacing } from '@l.x/ui/src/theme'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { isMobileWeb } from '@l.x/utils/src/platform'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import Expand from '~/components/Expand'
 import { PrivacyOptions } from '~/components/Icons/PrivacyOptions'
 import { useModalState } from '~/hooks/useModalState'
@@ -61,7 +61,7 @@ export function LegalAndPrivacyMenu({ closeMenu }: { closeMenu?: () => void }) {
           <PrivacyOptions /> {t('common.privacyChoices')}
         </MenuLink>
         <MenuLink onPress={handleOnMenuPress(togglePrivacyPolicy)}>{t('common.privacyPolicy')}</MenuLink>
-        <MenuLink href={uniswapUrls.termsOfServiceUrl} target="_blank">
+        <MenuLink href={lxUrls.termsOfServiceUrl} target="_blank">
           {t('common.termsOfService')}
         </MenuLink>
       </Flex>

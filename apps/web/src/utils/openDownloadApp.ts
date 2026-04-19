@@ -1,17 +1,18 @@
-import { ElementName, InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { AppDownloadPlatform } from 'uniswap/src/features/telemetry/types'
-import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
+import { ElementName, InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { AppDownloadPlatform } from '@l.x/lx/src/features/telemetry/types'
+import { isWebAndroid, isWebIOS } from '@l.x/utils/src/platform'
 
-// OneLink will direct to App/Play Store or microsite depending on user agent
+// Download links — redirect to Lux wallet download page
 const APP_DOWNLOAD_LINKS: Partial<{ [key in ElementName]: string }> = {
-  [ElementName.UniswapWalletModalDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/qfwlncf9',
-  [ElementName.UniswapWalletNavbarMenuDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/46tvu6pb',
-  [ElementName.UniswapWalletLandingPageDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/79gveilz',
-  [ElementName.UniswapWalletBannerDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/jh9orof3',
+  [ElementName.LuxWalletModalDownloadButton]: getBrandUrl('/wallet'),
+  [ElementName.LuxWalletNavbarMenuDownloadButton]: getBrandUrl('/wallet'),
+  [ElementName.LuxWalletLandingPageDownloadButton]: getBrandUrl('/wallet'),
+  [ElementName.LuxWalletBannerDownloadButton]: getBrandUrl('/wallet'),
 }
 
-export const MICROSITE_LINK = 'https://wallet.uniswap.org/'
+export const MICROSITE_LINK = getBrandUrl('/wallet')
 
 type OpenDownloadAppOptions = {
   element: ElementName
@@ -34,7 +35,7 @@ export function openDownloadApp({ element }: OpenDownloadAppOptions) {
   } else if (isWebAndroid) {
     openDownloadStore({ element, appPlatform: AppDownloadPlatform.Android })
   } else {
-    sendAnalyticsEvent(InterfaceEventName.UniswapWalletMicrositeOpened, { element })
+    sendAnalyticsEvent(InterfaceEventName.LuxWalletMicrositeOpened, { element })
     window.open(APP_DOWNLOAD_LINKS[element], '_blank', 'noopener,noreferrer')
   }
 }
@@ -45,7 +46,7 @@ type AnalyticsLinkOptions = {
 }
 
 const openDownloadStore = (options: AnalyticsLinkOptions) => {
-  sendAnalyticsEvent(InterfaceEventName.UniswapWalletAppDownloadOpened, {
+  sendAnalyticsEvent(InterfaceEventName.LuxWalletAppDownloadOpened, {
     element: options.element,
     appPlatform: options.appPlatform,
   })

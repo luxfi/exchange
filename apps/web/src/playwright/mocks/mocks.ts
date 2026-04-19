@@ -17,11 +17,11 @@ export const Mocks = {
     supported_tokens: path.resolve(__dirname, '../mocks/fiatOnRamp/supported-tokens.json'),
     quotes: path.resolve(__dirname, '../mocks/fiatOnRamp/quotes.json'),
   },
-  UniswapX: {
-    quote: path.resolve(__dirname, '../mocks/rest/uniswapX/quote.json'),
-    openOrder: path.resolve(__dirname, '../mocks/rest/uniswapX/open_order.json'),
-    filledOrders: path.resolve(__dirname, '../mocks/rest/uniswapX/filled_orders.json'),
-    expiredOrders: path.resolve(__dirname, '../mocks/rest/uniswapX/expired_orders.json'),
+  LX: {
+    quote: path.resolve(__dirname, '../mocks/rest/lxOrder/quote.json'),
+    openOrder: path.resolve(__dirname, '../mocks/rest/lxOrder/open_order.json'),
+    filledOrders: path.resolve(__dirname, '../mocks/rest/lxOrder/filled_orders.json'),
+    expiredOrders: path.resolve(__dirname, '../mocks/rest/lxOrder/expired_orders.json'),
   },
   PortfolioBalances: PortfolioBalancesMocks,
   Token: {
@@ -30,9 +30,16 @@ export const Mocks = {
     uni_token: path.resolve(__dirname, '../mocks/graphql/Token/uni_token.json'),
     uni_token_price: path.resolve(__dirname, '../mocks/graphql/Token/uni_token_price.json'),
     sepolia_yay_token: path.resolve(__dirname, '../mocks/graphql/Token/sepolia_yay_token.json'),
+    eth_token: path.resolve(__dirname, '../mocks/graphql/Token/eth_token.json'),
+    weth_token: path.resolve(__dirname, '../mocks/graphql/Token/weth_token.json'),
+  },
+  Convert: {
+    usd_convert: path.resolve(__dirname, '../mocks/graphql/Convert/usd_convert.json'),
   },
   TokenProjects: {
     token_spam: path.resolve(__dirname, '../mocks/graphql/TokenProjects/token_warning.json'),
+    common_bases: path.resolve(__dirname, '../mocks/graphql/TokenProjects/common_bases.json'),
+    common_bases_lux: path.resolve(__dirname, '../mocks/graphql/TokenProjects/common_bases_lux.json'),
   },
   TokenWeb: {
     token_warning: path.resolve(__dirname, '../mocks/graphql/TokenWeb/token_warning.json'),
@@ -61,7 +68,7 @@ export const Mocks = {
     get_rewards_empty: path.resolve(__dirname, '../mocks/dataApiService/get_rewards_empty.json'),
     list_transactions: path.resolve(__dirname, '../mocks/dataApiService/list_transactions.json'),
     list_transactions_empty: path.resolve(__dirname, '../mocks/dataApiService/list_transactions_empty.json'),
-    list_transactions_uniswapx: path.resolve(__dirname, '../mocks/dataApiService/list_transactions_uniswapx.json'),
+    list_transactions_lx: path.resolve(__dirname, '../mocks/dataApiService/list_transactions_lx.json'),
   },
   PoolPriceHistory: {
     eth_weeth: path.resolve(__dirname, '../mocks/graphql/PoolPriceHistory/eth_weeth.json'),

@@ -1,18 +1,19 @@
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AnimatableCopyIcon, Flex, FlexProps, Text } from 'ui/src'
-import { ShareArrow } from 'ui/src/components/icons/ShareArrow'
-import { XTwitter } from 'ui/src/components/icons/XTwitter'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { useEvent } from 'utilities/src/react/hooks'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { AnimatableCopyIcon, Flex, FlexProps, Text } from '@l.x/ui/src'
+import { ShareArrow } from '@l.x/ui/src/components/icons/ShareArrow'
+import { XTwitter } from '@l.x/ui/src/components/icons/XTwitter'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
+import { baseActionButtonStyles } from '~/components/Dropdowns/FilterButton'
 import { useActiveAddresses } from '~/features/accounts/store/hooks'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
@@ -112,6 +113,7 @@ export function SharePortfolioButton({
         }
         hideChevron
         buttonStyle={{
+          ...baseActionButtonStyles,
           height: size === 'small' ? 32 : 40,
           gap: size === 'small' ? '$gap6' : '$gap8',
           px: '$spacing12',

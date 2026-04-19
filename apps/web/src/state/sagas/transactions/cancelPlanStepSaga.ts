@@ -1,11 +1,11 @@
 import type { TransactionRequest } from '@ethersproject/abstract-provider'
 import { call, take } from 'typed-redux-saga'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CancelableStepInfo } from 'uniswap/src/features/transactions/hooks/useIsCancelable'
-import { cancelPlanStep } from 'uniswap/src/features/transactions/slice'
-import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { signalPlanCancellation } from 'uniswap/src/utils/saga'
-import { logger } from 'utilities/src/logger/logger'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CancelableStepInfo } from '@l.x/lx/src/features/transactions/hooks/useIsCancelable'
+import { cancelPlanStep } from '@l.x/lx/src/features/transactions/slice'
+import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { signalPlanCancellation } from '@l.x/lx/src/utils/saga'
+import { logger } from '@l.x/utils/src/logger/logger'
 import store from '~/state'
 import { handleCancelOrder } from '~/state/sagas/transactions/cancelOrderSaga'
 
@@ -22,7 +22,7 @@ interface CancelPlanStepPayload {
  * Saga to cancel a step within a plan on web.
  *
  * This saga listens for `cancelPlanStep` actions from the Redux slice and executes
- * the cancellation transaction for UniswapX orders (permit2 nonce invalidation).
+ * the cancellation transaction for DEX orders (permit2 nonce invalidation).
  *
  * For classic swaps, the plan is marked as cancelled to stop future steps, but no
  * cancellation transaction is submitted (the user must wait for the transaction to
@@ -65,7 +65,7 @@ async function handleCancelPlanStep(payload: CancelPlanStepPayload): Promise<voi
 
   try {
     if (!cancelableStepInfo.orderId) {
-      throw new Error('Cannot cancel UniswapX step without orderId')
+      throw new Error('Cannot cancel DEX step without orderId')
     }
 
     await handleCancelOrder({

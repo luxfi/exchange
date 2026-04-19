@@ -1,22 +1,25 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useCallback, useReducer, useState } from 'react'
+import { useCallback, useMemo, useReducer, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AnimatableCopyIcon, Flex, styled, Text, TouchableArea } from 'ui/src'
-import { BlockExplorer } from 'ui/src/components/icons/BlockExplorer'
-import { GlobeFilled } from 'ui/src/components/icons/GlobeFilled'
-import { Page } from 'ui/src/components/icons/Page'
-import { XTwitter } from 'ui/src/components/icons/XTwitter'
-import { iconSizes } from 'ui/src/theme'
-import { useShadowPropsMedium } from 'ui/src/theme/shadows'
-import { getBlockExplorerIcon } from 'uniswap/src/components/chains/BlockExplorerIcon'
-import { MultichainAddressList } from 'uniswap/src/components/MultichainTokenDetails/MultichainAddressList'
-import { MultichainExplorerList } from 'uniswap/src/components/MultichainTokenDetails/MultichainExplorerList'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { ExplorerDataType, getExplorerLink, openUri } from 'uniswap/src/utils/linking'
-import { shortenAddress } from 'utilities/src/addresses'
+import { AnimatableCopyIcon, Flex, styled, Text, TouchableArea } from '@l.x/ui/src'
+import { BlockExplorer } from '@l.x/ui/src/components/icons/BlockExplorer'
+import { GlobeFilled } from '@l.x/ui/src/components/icons/GlobeFilled'
+import { Page } from '@l.x/ui/src/components/icons/Page'
+import { XTwitter } from '@l.x/ui/src/components/icons/XTwitter'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { useShadowPropsMedium } from '@l.x/ui/src/theme/shadows'
+import { getBlockExplorerIcon } from 'lx/src/components/chains/BlockExplorerIcon'
+import { MultichainAddressList } from 'lx/src/components/MultichainTokenDetails/MultichainAddressList'
+import { MultichainExplorerList } from 'lx/src/components/MultichainTokenDetails/MultichainExplorerList'
+import type { MultichainTokenEntry } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { useOrderedMultichainEntries } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { ExplorerDataType, getExplorerLink, openUri } from 'lx/src/utils/linking'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { FOTTooltipContent } from '~/components/swap/SwapLineItem'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
@@ -26,9 +29,9 @@ import {
   TokenInfoButton,
   tokenPillStyles,
 } from '~/pages/TokenDetails/components/info/MultichainPillDropdown'
+import { MultiChainMap } from '~/pages/TokenDetails/context/TDPContext'
 import { useTDPStore } from '~/pages/TokenDetails/context/useTDPStore'
-import { useMultichainTokenEntries } from '~/pages/TokenDetails/hooks/useMultichainTokenEntries'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 const TRUNCATE_CHARACTER_COUNT = 300
 const MULTICHAIN_POPOVER_WIDTH = 280
@@ -50,7 +53,7 @@ const TokenDescriptionContainer = styled(Text, {
   color: '$neutral1',
   maxWidth: '100%',
   maxHeight: 'fit-content',
-  ...EllipsisTamaguiStyle,
+  ...EllipsisGuiStyle,
   whiteSpace: 'pre-wrap',
   lineHeight: 24,
 })
@@ -72,6 +75,22 @@ function TokenLinkButton({ uri, icon, name }: { uri: string; icon: JSX.Element; 
       </Text>
     </TouchableArea>
   )
+}
+
+/** Converts TDPContext's multiChainMap into a list of MultichainTokenEntry items ordered by network selector order. */
+function useMultichainTokenEntries(multiChainMap: MultiChainMap): MultichainTokenEntry[] {
+  const entries = useMemo(() => {
+    const result: MultichainTokenEntry[] = []
+    for (const [graphqlChain, data] of Object.entries(multiChainMap)) {
+      const chainId = fromGraphQLChain(graphqlChain)
+      if (chainId && data.address) {
+        result.push({ chainId, address: data.address })
+      }
+    }
+    return result
+  }, [multiChainMap])
+
+  return useOrderedMultichainEntries(entries)
 }
 
 export function TokenDescription() {

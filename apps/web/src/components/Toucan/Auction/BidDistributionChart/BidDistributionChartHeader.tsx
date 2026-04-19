@@ -1,12 +1,25 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useMedia } from 'ui/src'
+import { Flex, Text, useMedia } from '@l.x/ui/src'
 import { BidDistributionChartTab } from '~/components/Toucan/Auction/AuctionChartShared'
 
 interface BidDistributionChartHeaderProps {
   activeTab: BidDistributionChartTab
   onTabChange: (tab: BidDistributionChartTab) => void
-  combinedMode = false,
+}
+
+interface TabConfig {
+  key: BidDistributionChartTab
+  label: string
+}
+
+const preloadClearingPriceChart = () => import('~/components/Charts/ToucanChart/clearingPrice/ClearingPriceChart')
+const preloadBidDistributionChart = () =>
+  import('~/components/Toucan/Auction/BidDistributionChart/BidDistributionChart')
+
+export const BidDistributionChartHeader = ({
+  activeTab,
+  onTabChange,
 }: BidDistributionChartHeaderProps): JSX.Element => {
   const { t } = useTranslation()
   const media = useMedia()
@@ -14,33 +27,21 @@ interface BidDistributionChartHeaderProps {
   const tabVariant = media.lg ? 'subheading1' : 'heading3'
 
   const tabs: TabConfig[] = useMemo(
-    () =>
-      combinedMode
-        ? [
-            {
-              key: BidDistributionChartTab.ClearingPrice,
-              label: t('toucan.bidDistribution.tabs.clearingPriceChart'),
-            },
-            {
-              key: BidDistributionChartTab.Demand,
-              label: t('toucan.bidDistribution.tabs.demandChart'),
-            },
-          ]
-        : [
-            {
-              key: BidDistributionChartTab.ClearingPrice,
-              label: t('toucan.bidDistribution.tabs.clearingPriceChart'),
-            },
-            {
-              key: BidDistributionChartTab.Demand,
-              label: t('toucan.bidDistribution.tabs.demandChart'),
-            },
-            {
-              key: BidDistributionChartTab.Distribution,
-              label: t('toucan.bidDistribution.tabs.distributionChart'),
-            },
-          ],
-    [t, combinedMode],
+    () => [
+      {
+        key: BidDistributionChartTab.ClearingPrice,
+        label: t('toucan.bidDistribution.tabs.clearingPriceChart'),
+      },
+      {
+        key: BidDistributionChartTab.Demand,
+        label: t('toucan.bidDistribution.tabs.demandChart'),
+      },
+      {
+        key: BidDistributionChartTab.Distribution,
+        label: t('toucan.bidDistribution.tabs.distributionChart'),
+      },
+    ],
+    [t],
   )
 
   const prefetchTab = useCallback((tab: BidDistributionChartTab) => {

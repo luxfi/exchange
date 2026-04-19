@@ -1,8 +1,9 @@
 import { CSSProperties } from 'react'
-import { FlexProps } from 'ui/src/components/layout'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { isUniverseChainId } from 'uniswap/src/features/chains/utils'
+import { FlexProps } from '@l.x/ui/src/components/layout'
+
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
 
 const getDefaultBorderRadius = (size: number) => size / 2 - 4
 

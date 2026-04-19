@@ -1,4 +1,4 @@
-import { RetryOptions } from 'uniswap/src/features/chains/types'
+import { RetryOptions } from '@l.x/lx/src/features/chains/types'
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -31,11 +31,11 @@ export function retry<T>(
   const totalAttempts = n
   let completed = false
   let rejectCancelled: (error: Error) => void
-  // oxlint-disable-next-line no-async-promise-executor -- We need to use async/await in the executor
+  // biome-ignore lint/suspicious/noAsyncPromiseExecutor: We need to use async/await in the executor
   const promise = new Promise<T>(async (resolve, reject) => {
     let currentAttempt = 0
     rejectCancelled = reject
-    // oxlint-disable-next-line no-constant-condition
+    // eslint-disable-next-line no-constant-condition
     while (true) {
       currentAttempt++
       let result: T

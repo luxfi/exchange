@@ -1,10 +1,11 @@
+import { brand } from '@l.x/config'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
-import { Flex, Popover, styled, Text, useMedia } from 'ui/src'
-import { Hamburger } from 'ui/src/components/icons/Hamburger'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Flex, Popover, styled, Text, useIsTouchDevice, useMedia } from '@l.x/ui/src'
+import { Hamburger } from '@l.x/ui/src/components/icons/Hamburger'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { ArrowChangeDown } from '~/components/Icons/ArrowChangeDown'
 import { NavIcon } from '~/components/Logo/NavIcon'
 import { MenuDropdown } from '~/components/NavBar/CompanyMenu/MenuDropdown'
@@ -29,16 +30,18 @@ export function CompanyMenu() {
   const location = useLocation()
   const [isOpen, setIsOpen] = useState(false)
 
-  // oxlint-disable-next-line react/exhaustive-deps -- +popoverRef
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +popoverRef
   const closeMenu = useCallback(() => {
     popoverRef.current?.close()
   }, [popoverRef])
-  // oxlint-disable-next-line react/exhaustive-deps -- location dependency is sufficient for this effect
+  // biome-ignore lint/correctness/useExhaustiveDependencies: location dependency is sufficient for this effect
   useEffect(() => {
     // Immediately reset state to prevent flash during transitions
     setIsOpen(false)
     closeMenu()
   }, [location, closeMenu])
+
+  const isTouchDevice = useIsTouchDevice()
 
   return (
     <Popover ref={popoverRef} placement="bottom" hoverable={!media.xl} stayInFrame allowFlip onOpenChange={setIsOpen}>
@@ -59,3 +62,20 @@ export function CompanyMenu() {
                 {isLargeScreen && (
                   <Text variant="subheading1" color="$accent1" userSelect="none">
                     {brand.name.replace(/\s*exchange\s*/i, '')}
+                  </Text>
+                )}
+              </Flex>
+            </Link>
+          </Trace>
+          {(media.md || isTouchDevice) && <Hamburger size={22} color="$neutral2" cursor="pointer" ml="16px" />}
+          {!media.md && !isTouchDevice && (
+            <ArrowDownWrapper open={isOpen}>
+              <ArrowChangeDown width="12px" height="12px" />
+            </ArrowDownWrapper>
+          )}
+        </Flex>
+      </Popover.Trigger>
+      {isMobileDrawer ? <MobileMenuDrawer isOpen={isOpen} closeMenu={closeMenu} /> : <MenuDropdown close={closeMenu} />}
+    </Popover>
+  )
+}

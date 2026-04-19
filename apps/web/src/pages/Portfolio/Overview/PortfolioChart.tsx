@@ -1,4 +1,4 @@
-import { ChartPeriod, GetPortfolioChartResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import { ChartPeriod, GetPortfolioChartResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { GraphQLApi } from '@l.x/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo } from 'react'
@@ -12,21 +12,12 @@ import {
   Text,
   useMedia,
   useSporeColors,
-} from 'ui/src'
-import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import {
-  CHART_PERIOD_OPTIONS,
-  chartPeriodToElementName,
-  chartPeriodToLabel,
-  chartPeriodToTestIdSuffix,
-  chartPeriodToTimeLabel,
-} from 'uniswap/src/features/portfolio/chartPeriod'
-import { getPortfolioChartPercentChange } from 'uniswap/src/features/portfolio/portfolioChartPercentChange'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { NumberType } from 'utilities/src/format/types'
+} from '@l.x/ui/src'
+import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { ChartSkeleton } from '~/components/Charts/LoadingState'
 import { PriceChart, PriceChartData } from '~/components/Charts/PriceChart'
 import { ChartType, PriceChartType } from '~/components/Charts/utils'
@@ -77,6 +68,15 @@ function convertPortfolioChartDataToPriceChartData(
       close: value,
     }
   })
+}
+
+const periodLabelToTestIdSuffix: Record<number, string> = {
+  [ChartPeriod.HOUR]: '1h',
+  [ChartPeriod.DAY]: '1d',
+  [ChartPeriod.WEEK]: '1w',
+  [ChartPeriod.MONTH]: '1m',
+  [ChartPeriod.YEAR]: '1y',
+  [ChartPeriod.MAX]: 'all',
 }
 
 interface PortfolioChartProps {
@@ -136,3 +136,105 @@ export function PortfolioChart({
         <Flex data-testid={`${TestID.PortfolioChartPeriodPrefix}${periodLabelToTestIdSuffix[period]}`}>
           <Text variant="buttonLabel4" color={period === selectedPeriod ? undefined : '$neutral2'}>
             {label}
+          </Text>
+        </Flex>
+      ),
+    }))
+  }, [selectedPeriod, t])
+
+  const chartData = useMemo(() => {
+    if (!portfolioChartData?.points) {
+      return []
+    }
+    return convertPortfolioChartDataToPriceChartData(portfolioChartData.points)
+  }, [portfolioChartData])
+
+  // Determine color based on portfolio balance change
+  const chartColor = useMemo(() => {
+    if (chartData.length < 2) {
+      return colors.accent1.val
+    }
+    const firstValue = chartData[0].value
+    const lastValue = chartData[chartData.length - 1].value
+    if (lastValue > firstValue) {
+      return colors.statusSuccess.val
+    }
+    if (lastValue < firstValue) {
+      return colors.statusCritical.val
+    }
+    return colors.statusSuccess.val
+  }, [chartData, colors])
+
+  const isLoading = isPending || !chartData.length
+  const isDisabled = isPortfolioZero || !!error
+
+  // Custom y-axis formatter that removes decimals
+  const yAxisFormatter = useMemo(() => {
+    return (price: number): string => {
+      const rounded = Math.floor(price)
+      const formatter = new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: appFiatCurrencyInfo.code,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      })
+      return formatter.format(rounded)
+    }
+  }, [locale, appFiatCurrencyInfo.code])
+
+  return (
+    <Flex gap="$spacing16" grow shrink testID={TestID.PortfolioTotalBalance}>
+      {error ? (
+        <ChartContainer centered grow shrink>
+          <ChartSkeleton
+            type={ChartType.PRICE}
+            height={CHART_HEIGHT}
+            errorText={t('portfolio.overview.chart.errorText')}
+          />
+        </ChartContainer>
+      ) : isLoading ? (
+        <ChartContainer centered grow shrink>
+          <ChartSkeleton type={ChartType.PRICE} height={CHART_HEIGHT} />
+        </ChartContainer>
+      ) : isPortfolioZero || isChartEmpty ? (
+        <Flex
+          height={UNFUNDED_CHART_SKELETON_HEIGHT}
+          position="relative"
+          data-testid={TestID.PortfolioOverviewEmptyBalance}
+        >
+          <Text variant="heading1" color="$neutral3">
+            {convertFiatAmountFormatted(0, NumberType.PortfolioBalance)}
+          </Text>
+          <Separator borderBottomWidth={3} borderColor="$surface3" position="absolute" top="60%" left="0" right="0" />
+        </Flex>
+      ) : (
+        <Flex pointerEvents={isTotalValueMatch ? 'auto' : 'none'}>
+          <PriceChart
+            data={chartData}
+            height={CHART_HEIGHT}
+            type={PriceChartType.LINE}
+            stale={false}
+            timePeriod={chartPeriodToHistoryDuration(selectedPeriod)}
+            overrideColor={chartColor}
+            headerTotalValueOverride={portfolioTotalBalanceUSD}
+            hideYAxis={!isTotalValueMatch}
+            yAxisFormatter={yAxisFormatter}
+          />
+        </Flex>
+      )}
+      <Flex
+        $md={{ width: '100%' }}
+        opacity={isPortfolioZero ? 0.5 : 1}
+        pointerEvents={isPortfolioZero || isDemoView ? 'none' : 'auto'}
+      >
+        <SegmentedControl
+          disabled={isDisabled}
+          fullWidth={media.md}
+          options={periodOptions}
+          selectedOption={String(selectedPeriod)}
+          onSelectOption={(periodStr: string) => setSelectedPeriod(Number(periodStr) as ChartPeriod)}
+        />
+      </Flex>
+    </Flex>
+  )
+}

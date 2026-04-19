@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { Flex, Text } from '@l.x/ui/src'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { StatusIndicator } from '~/components/Toucan/Auction/Bids/BidDetailsModal/StatusIndicator'
 import { AuctionDetails } from '~/components/Toucan/Auction/store/types'
 import { type BidDisplayState } from '~/components/Toucan/Auction/utils/bidDetails'
@@ -20,7 +20,7 @@ export function BidDetailsHeader({ auctionDetails, displayState, onClose }: BidD
   const tokenName = auctionDetails.token?.currency.name ?? ''
   const logoUrl = auctionDetails.token?.logoUrl ?? null
 
-  const helpLink = uniswapUrls.helpArticleUrls.toucanBidDetailsHelp
+  const helpLink = lxUrls.helpArticleUrls.toucanBidDetailsHelp
 
   return (
     <Flex gap="$spacing16">

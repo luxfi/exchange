@@ -1,12 +1,12 @@
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import AccountDrawer, { MODAL_WIDTH } from '~/components/AccountDrawer'
-import { useIsUniswapExtensionConnected } from '~/hooks/useIsUniswapExtensionConnected'
+import { useIsLxExtensionConnected } from '~/hooks/useIsLuxExtensionConnected'
 import { mocked } from '~/test-utils/mocked'
 import mockMediaSize from '~/test-utils/mockMediaSize'
 import { render, screen } from '~/test-utils/render'
 
-vi.mock('~/hooks/useIsUniswapExtensionConnected', () => ({
-  useIsUniswapExtensionConnected: vi.fn(),
+vi.mock('~/hooks/useIsLuxExtensionConnected', () => ({
+  useIsLxExtensionConnected: vi.fn(),
 }))
 
 vi.mock('~/components/AccountDrawer/MiniPortfolio/hooks', async (importOriginal) => {
@@ -22,7 +22,7 @@ vi.mock('~/components/AccountDrawer/MiniPortfolio/hooks', async (importOriginal)
   }
 })
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(() => ({
     evmAddress: '0x0000000000000000000000000000000000000000',
     svmAddress: undefined,
@@ -45,15 +45,15 @@ vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
   }),
 }))
 
-vi.mock('tamagui', async () => {
-  const actual = await vi.importActual('tamagui')
+vi.mock('gui', async () => {
+  const actual = await vi.importActual('gui')
   return {
     ...actual,
     useMedia: vi.fn(),
   }
 })
 
-vi.mock('uniswap/src/components/AnimatedNumber/AnimatedNumber', () => {
+vi.mock('lx/src/components/AnimatedNumber/AnimatedNumber', () => {
   const mockAnimatedNumber = ({ value }: { value: number }) => {
     return <div>{value}</div>
   }
@@ -66,7 +66,7 @@ vi.mock('uniswap/src/components/AnimatedNumber/AnimatedNumber', () => {
 
 describe('AccountDrawer tests', () => {
   it('AccountDrawer default styles', () => {
-    mocked(useIsUniswapExtensionConnected).mockReturnValue(true)
+    mocked(useIsLxExtensionConnected).mockReturnValue(true)
     mockMediaSize('xxl')
 
     render(<AccountDrawer />)

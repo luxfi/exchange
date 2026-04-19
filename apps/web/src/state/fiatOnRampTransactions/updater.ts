@@ -1,12 +1,12 @@
 import { GraphQLApi } from '@l.x/api'
 import ms from 'ms'
 import { useEffect } from 'react'
-import { ForApiClient } from 'uniswap/src/data/apiClients/forApi/ForApiClient'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+import { ForApiClient } from '@l.x/lx/src/data/apiClients/forApi/ForApiClient'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import useInterval from '~/lib/hooks/useInterval'
@@ -133,7 +133,7 @@ export default function Updater(): null {
           return
         }
         const transaction = transactions[assetChange.externalSessionId]
-        // oxlint-disable-next-line typescript/no-unnecessary-condition
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (transaction) {
           dispatch(
             updateFiatOnRampTransaction({

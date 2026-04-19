@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 
 interface TokenLaunchedBannerDataPoint {
   timestamp: number

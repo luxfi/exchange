@@ -1,5 +1,5 @@
 import { getOverrideAdapter } from '@l.x/gating'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { BetaPasscodeModal } from '~/pages/Beta/BetaPasscodeModal'
 import { act, fireEvent, render, screen } from '~/test-utils/render'
 
@@ -12,6 +12,8 @@ vi.mock('ui/src/assets', async (importOriginal) => {
 })
 
 const mockGetDynamicConfigValue = vi.fn().mockReturnValue([])
+const mockNavigate = vi.fn()
+
 vi.mock('@l.x/gating', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
@@ -21,13 +23,23 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   }
 })
 
-const mockLocationReplace = vi.fn()
+vi.mock('react-router', async () => {
+  const actual = await vi.importActual('react-router')
+  return {
+    ...actual,
+    useNavigate: () => mockNavigate,
+  }
+})
 
 describe('BetaPasscodeModal', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockGetDynamicConfigValue.mockReturnValue([])
-    expect(screen.getByText('Uniswap Preview')).toBeTruthy()
+  })
+
+  it('renders default state', () => {
+    const { container } = render(<BetaPasscodeModal />)
+    expect(screen.getByText('Lx Preview')).toBeTruthy()
     expect(screen.getByTestId(TestID.PreviewPassphraseInput)).toBeTruthy()
     expect(container.firstChild).toMatchSnapshot()
   })
@@ -69,6 +81,6 @@ describe('BetaPasscodeModal', () => {
     })
 
     expect(getOverrideAdapter().overrideGate).toHaveBeenCalledWith('embedded_wallet', true)
-    expect(mockLocationReplace).toHaveBeenCalledWith('/?intro=true')
+    expect(mockNavigate).toHaveBeenCalledWith('/?intro=true', { replace: true })
   })
 })

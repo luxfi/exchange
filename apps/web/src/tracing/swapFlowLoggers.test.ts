@@ -1,20 +1,20 @@
 import { TradingApi } from '@l.x/api'
-import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { maybeLogFirstSwapAction } from 'uniswap/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
+import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { maybeLogFirstSwapAction } from '@l.x/lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { logSwapFinalized, logUniswapXSwapFinalized } from '~/tracing/swapFlowLoggers'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logSwapFinalized, logLXSwapFinalized } from '~/tracing/swapFlowLoggers'
 
-vi.mock('uniswap/src/features/telemetry/send', () => ({
+vi.mock('lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/utils/SwapEventTimestampTracker', async () => {
-  const actual = await vi.importActual('uniswap/src/features/transactions/swap/utils/SwapEventTimestampTracker')
+vi.mock('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker', async () => {
+  const actual = await vi.importActual('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker')
   return {
     ...actual,
     timestampTracker: {
@@ -70,13 +70,13 @@ describe('swapFlowLoggers', () => {
     })
   })
 
-  it('logUniswapXSwapSuccess calls sendAnalyticsEvent with correct parameters', () => {
+  it('logLXSwapSuccess calls sendAnalyticsEvent with correct parameters', () => {
     const mockHash = 'mockHash'
     const mockOrderHash = 'mockOrderHash'
     const mockChainId = 1
     const mockAnalyticsContext = { page: 'mockContext' }
 
-    logUniswapXSwapFinalized({
+    logLXSwapFinalized({
       id: 'mockId',
       hash: mockHash,
       orderHash: mockOrderHash,
@@ -88,7 +88,7 @@ describe('swapFlowLoggers', () => {
 
     expect(sendAnalyticsEvent).toHaveBeenCalledWith(SwapEventName.SwapTransactionCompleted, {
       transactionOriginType: TransactionOriginType.Internal,
-      routing: 'uniswap_x_v2',
+      routing: 'dex_v2',
       time_to_swap: 100,
       time_to_swap_since_first_input: 100,
       hash: mockHash,

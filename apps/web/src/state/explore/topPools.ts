@@ -1,8 +1,8 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ExploreStatsResponse, PoolStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { useMemo } from 'react'
-import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { ExploreStatsResponse, PoolStats } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
+import { useContext, useMemo } from 'react'
+import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from '@l.x/lx/src/constants/pools'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
 import {
   calculate1DVolOverTvl,
   calculateApr,
@@ -11,7 +11,7 @@ import {
 } from '~/appGraphql/data/pools/useTopPools'
 import { OrderDirection } from '~/appGraphql/data/util'
 import { useExploreTablesFilterStore } from '~/pages/Explore/exploreTablesFilterStore'
-import { giveExploreStatDefaultValue, useExploreStats } from '~/state/explore'
+import { ExploreContext, giveExploreStatDefaultValue } from '~/state/explore'
 import { PoolStat } from '~/state/explore/types'
 
 function useFilteredPools(pools?: PoolStat[], enabled = true) {
@@ -130,13 +130,10 @@ export function useExploreContextTopPools({
   protocol?: ProtocolVersion
   enabled?: boolean
 }) {
-  const { data, isLoading, isError } = useExploreStats()
-  return useTopPoolsLegacy({
-    topPoolData: { data, isLoading, isError },
-    sortState,
-    protocol,
-    enabled,
-  })
+  const {
+    exploreStats: { data, isLoading, error: isError },
+  } = useContext(ExploreContext)
+  return useTopPoolsLegacy({ topPoolData: { data, isLoading, isError }, sortState, protocol, enabled })
 }
 
 export function useTopPoolsLegacy({

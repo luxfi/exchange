@@ -1,5 +1,5 @@
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { AppTFunction } from 'ui/src/i18n/types'
+import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
 import { describe, expect, it } from 'vitest'
 import { getProtocolStatusLabel, getProtocolVersionLabel } from '~/components/Liquidity/utils/protocolVersion'
 

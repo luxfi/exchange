@@ -1,9 +1,9 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@uniswap/sdk-core'
-import { nearestUsableTick, TickMath } from '@uniswap/v3-sdk'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@luxamm/sdk-core'
+import { nearestUsableTick, TickMath } from '@luxamm/v3-sdk'
 import * as d3 from 'd3'
 import { useEffect, useMemo, useRef } from 'react'
-import { Flex, useSporeColors } from 'ui/src'
+import { Flex, useSporeColors } from '@l.x/ui/src'
 import { TickData } from '~/appGraphql/data/AllV3TicksQuery'
 import { LiquidityActiveTooltips } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/LiquidityActiveTooltips'
 import { CHART_DIMENSIONS } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/constants'
@@ -160,13 +160,13 @@ const D3LiquidityRangeChart = ({
   ])
 
   // Update renderers when state changes
-  // oxlint-disable-next-line react/exhaustive-deps -- minTick, maxTick, zoomLevel, panY should trigger re-renders
+  // biome-ignore lint/correctness/useExhaustiveDependencies: minTick, maxTick, zoomLevel, panY should trigger re-renders
   useEffect(() => {
     drawAll()
   }, [minTick, maxTick, zoomLevel, panY, drawAll])
 
   // Reset the chart when the price data changes (currentPrice omitted), maintaining the price range from the URL
-  // oxlint-disable-next-line react/exhaustive-deps -- priceRangeState should not trigger re-renders
+  // biome-ignore lint/correctness/useExhaustiveDependencies: priceRangeState should not trigger re-renders
   useEffect(() => {
     let minTick
     let maxTick
@@ -186,7 +186,30 @@ const D3LiquidityRangeChart = ({
       minTick,
       maxTick,
     })
-          // oxlint-disable-next-line react/self-closing-comp -- biome-parity: oxlint is stricter here
+  }, [priceData.dataHash, initialPosition, reset])
+
+  return (
+    <Flex opacity={dimensions.isInitialized ? 1 : 0} animation="fast" flexDirection="column">
+      <Flex
+        py="$spacing12"
+        borderTopWidth="$spacing1"
+        borderBottomWidth="$spacing1"
+        borderColor="surface3"
+        position="relative"
+        overflow="hidden"
+        $sm={{
+          py: '$spacing4',
+        }}
+      >
+        <svg
+          ref={svgRef}
+          width="100%"
+          height={CHART_DIMENSIONS.LIQUIDITY_CHART_HEIGHT}
+          style={{
+            touchAction: 'manipulation',
+          }}
+          onMouseEnter={() => setChartState({ isChartHovered: true })}
+          onMouseLeave={() => setChartState({ isChartHovered: false })}
         ></svg>
         <svg
           ref={timescaleSvgRef}
@@ -195,7 +218,6 @@ const D3LiquidityRangeChart = ({
           style={{
             touchAction: 'none',
           }}
-          // oxlint-disable-next-line react/self-closing-comp -- biome-parity: oxlint is stricter here
         ></svg>
         <LiquidityActiveTooltips
           quoteCurrency={quoteCurrency}

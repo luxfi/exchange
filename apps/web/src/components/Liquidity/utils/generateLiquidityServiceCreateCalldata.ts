@@ -1,33 +1,22 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { CreateLPPositionRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+import {
+  CheckApprovalLPResponse,
+  CreateLPPositionRequest,
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import {
   IndependentToken,
   Protocols,
   V2CreateLPPosition,
   V3CreateLPPosition,
   V4CreateLPPosition,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import {
-  CreateClassicPositionRequest,
-  CreatePositionRequest,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
-import {
-  CreatePoolParameters,
-  CreatePositionExistingPoolParameters,
-  CreateToken,
-  LPToken,
-  PositionTickBounds,
-  V2PoolParameters,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/types_pb'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
-import type { NormalizedApprovalData } from 'uniswap/src/data/apiClients/liquidityService/normalizeApprovalResponse'
-import { getTradeSettingsDeadline } from 'uniswap/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
+import { getTradeSettingsDeadline } from 'lx/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
 import { DYNAMIC_FEE_DATA, PositionState } from '~/components/Liquidity/Create/types'
 import { getTokenOrZeroAddress, validateCurrencyInput } from '~/components/Liquidity/utils/currency'
-import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
 import { PositionField } from '~/types/position'
 
 interface BaseValidatedInput {
@@ -42,11 +31,10 @@ interface BaseValidatedInput {
   token0Address: string
   token1Address: string
   nativeTokenBalance?: string
-  poolId?: string
 }
 
 type ValidatedCreateInput =
-  | ({ protocol: ProtocolVersion.V2; pairAddress?: string; useV2Endpoints?: boolean } & BaseValidatedInput)
+  | ({ protocol: ProtocolVersion.V2 } & BaseValidatedInput)
   | ({
       protocol: ProtocolVersion.V3
       tickLower: number
@@ -54,14 +42,22 @@ type ValidatedCreateInput =
       tickSpacing: number
       fee: number
       initialPrice: string | undefined
-      useV2Endpoints?: boolean
+    } & BaseValidatedInput)
+  | ({
+      protocol: ProtocolVersion.V4
+      tickLower: number
+      tickUpper: number
+      tickSpacing: number
+      fee: number
+      hook: string | undefined
+      initialPrice: string | undefined
     } & BaseValidatedInput)
 
 interface RawCreatePositionInput {
   protocolVersion: ProtocolVersion
   creatingPoolOrPair: boolean | undefined
   address?: string
-  approvalCalldata?: NormalizedApprovalData
+  approvalCalldata?: CheckApprovalLPResponse
   positionState: PositionState
   ticks: [Maybe<number>, Maybe<number>]
   poolOrPair: V3Pool | V4Pool | Pair | undefined
@@ -71,7 +67,15 @@ interface RawCreatePositionInput {
   slippageTolerance?: number
   customDeadline?: number
   nativeTokenBalance?: string
-  useV2Endpoints,
+}
+
+function validatePoolInput({
+  base,
+  protocolVersion,
+  positionState,
+  ticks,
+  poolOrPair,
+  creatingPoolOrPair,
 }: {
   base: BaseValidatedInput
   protocolVersion: ProtocolVersion.V3 | ProtocolVersion.V4
@@ -79,7 +83,33 @@ interface RawCreatePositionInput {
   ticks: [Maybe<number>, Maybe<number>]
   poolOrPair: V3Pool | V4Pool | Pair
   creatingPoolOrPair: boolean | undefined
-      useV2Endpoints,
+}): ValidatedCreateInput | undefined {
+  const pool = poolOrPair as V4Pool | V3Pool
+  const tickLower = ticks[0]
+  const tickUpper = ticks[1]
+
+  if (tickLower === undefined || tickUpper === undefined) {
+    return undefined
+  }
+
+  const initialPrice = creatingPoolOrPair ? pool.sqrtRatioX96.toString() : undefined
+  const tickSpacing = pool.tickSpacing
+
+  const fee = positionState.fee?.isDynamic ? DYNAMIC_FEE_DATA.feeAmount : positionState.fee?.feeAmount
+
+  if (fee === undefined) {
+    return undefined
+  }
+
+  if (protocolVersion === ProtocolVersion.V3) {
+    return {
+      ...base,
+      protocol: ProtocolVersion.V3,
+      tickLower: tickLower as number,
+      tickUpper: tickUpper as number,
+      tickSpacing,
+      fee,
+      initialPrice,
     }
   }
 
@@ -92,7 +122,46 @@ interface RawCreatePositionInput {
     fee,
     hook: positionState.hook,
     initialPrice,
-    v4BatchPermitData,
+  }
+}
+
+function validateCreatePositionInput(input: RawCreatePositionInput): ValidatedCreateInput | undefined {
+  const {
+    protocolVersion,
+    creatingPoolOrPair,
+    address,
+    approvalCalldata,
+    positionState,
+    ticks,
+    poolOrPair,
+    displayCurrencies,
+    currencyAmounts,
+    independentField,
+    slippageTolerance,
+    customDeadline,
+    nativeTokenBalance,
+  } = input
+
+  const deadline = getTradeSettingsDeadline(customDeadline)
+
+  if (
+    protocolVersion !== positionState.protocolVersion ||
+    !address ||
+    !currencyAmounts?.TOKEN0 ||
+    !currencyAmounts.TOKEN1 ||
+    !validateCurrencyInput(displayCurrencies) ||
+    !poolOrPair ||
+    !displayCurrencies.TOKEN0 ||
+    !displayCurrencies.TOKEN1
+  ) {
+    return undefined
+  }
+
+  const {
+    token0Approval,
+    token1Approval,
+    positionTokenApproval,
+    permitData,
     token0PermitTransaction,
     token1PermitTransaction,
   } = approvalCalldata ?? {}
@@ -104,7 +173,7 @@ interface RawCreatePositionInput {
   const dependentAmount = currencyAmounts[dependentField]
 
   const simulateTransaction = !(
-    v4BatchPermitData ||
+    permitData?.value ||
     token0PermitTransaction ||
     token1PermitTransaction ||
     token0Approval ||
@@ -124,7 +193,12 @@ interface RawCreatePositionInput {
     token0Address: getTokenOrZeroAddress(displayCurrencies.TOKEN0),
     token1Address: getTokenOrZeroAddress(displayCurrencies.TOKEN1),
     nativeTokenBalance,
-      useV2Endpoints: input.useV2Endpoints,
+  }
+
+  if (protocolVersion === ProtocolVersion.V2) {
+    return {
+      ...baseInput,
+      protocol: ProtocolVersion.V2,
     }
   }
 
@@ -136,7 +210,13 @@ interface RawCreatePositionInput {
       ticks,
       poolOrPair,
       creatingPoolOrPair,
-function buildV2CreateRequestDeprecated(
+    })
+  }
+
+  return undefined
+}
+
+function buildV2CreateRequest(
   input: Extract<ValidatedCreateInput, { protocol: ProtocolVersion.V2 }>,
 ): CreateLPPositionRequest {
   return new CreateLPPositionRequest({
@@ -158,34 +238,7 @@ function buildV2CreateRequestDeprecated(
   })
 }
 
-function buildClassicCreateRequest(
-  input: Extract<ValidatedCreateInput, { protocol: ProtocolVersion.V2 }>,
-): CreateClassicPositionRequest {
-  const isToken0Independent = input.independentToken === IndependentToken.TOKEN_0
-  return new CreateClassicPositionRequest({
-    walletAddress: input.address,
-    poolParameters: new V2PoolParameters({
-      token0Address: input.token0Address,
-      token1Address: input.token1Address,
-      chainId: input.chainId,
-    }),
-    independentToken: new LPToken({
-      tokenAddress: isToken0Independent ? input.token0Address : input.token1Address,
-      amount: input.independentAmount,
-    }),
-    dependentToken: input.dependentAmount
-      ? new LPToken({
-          tokenAddress: isToken0Independent ? input.token1Address : input.token0Address,
-          amount: input.dependentAmount,
-        })
-      : undefined,
-    slippageTolerance: input.slippageTolerance,
-    deadline: input.deadline,
-    simulateTransaction: input.simulateTransaction,
-  })
-}
-
-function buildV3CreateRequestDeprecated(
+function buildV3CreateRequest(
   input: Extract<ValidatedCreateInput, { protocol: ProtocolVersion.V3 }>,
 ): CreateLPPositionRequest {
   return new CreateLPPositionRequest({
@@ -218,7 +271,7 @@ function buildV3CreateRequestDeprecated(
   })
 }
 
-function buildV4CreateRequestDeprecated(
+function buildV4CreateRequest(
   input: Extract<ValidatedCreateInput, { protocol: ProtocolVersion.V4 }>,
 ): CreateLPPositionRequest {
   return new CreateLPPositionRequest({
@@ -253,9 +306,21 @@ function buildV4CreateRequestDeprecated(
   })
 }
 
-  useV2Endpoints,
-  poolId,
-}: RawCreatePositionInput): CreateLPPositionRequest | CreateClassicPositionRequest | CreatePositionRequest | undefined {
+export function generateLiquidityServiceCreateCalldataQueryParams({
+  protocolVersion,
+  creatingPoolOrPair,
+  address,
+  approvalCalldata,
+  positionState,
+  ticks,
+  poolOrPair,
+  displayCurrencies,
+  currencyAmounts,
+  independentField,
+  slippageTolerance,
+  customDeadline,
+  nativeTokenBalance,
+}: RawCreatePositionInput): CreateLPPositionRequest | undefined {
   const validated = validateCreatePositionInput({
     protocolVersion,
     creatingPoolOrPair,
@@ -270,15 +335,19 @@ function buildV4CreateRequestDeprecated(
     slippageTolerance,
     customDeadline,
     nativeTokenBalance,
-      return validated.useV2Endpoints ? buildClassicCreateRequest(validated) : buildV2CreateRequestDeprecated(validated)
+  })
+
+  if (!validated) {
+    return undefined
+  }
+
+  switch (validated.protocol) {
+    case ProtocolVersion.V2:
+      return buildV2CreateRequest(validated)
     case ProtocolVersion.V3:
-      return validated.useV2Endpoints
-        ? buildCreatePositionRequest(validated, creatingPoolOrPair)
-        : buildV3CreateRequestDeprecated(validated)
+      return buildV3CreateRequest(validated)
     case ProtocolVersion.V4:
-      return validated.useV2Endpoints
-        ? buildCreatePositionRequest(validated, creatingPoolOrPair)
-        : buildV4CreateRequestDeprecated(validated)
+      return buildV4CreateRequest(validated)
     default:
       return undefined
   }

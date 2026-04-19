@@ -11,14 +11,14 @@ import {
   PriceLineOptions,
   UTCTimestamp,
 } from 'lightweight-charts'
-import { ReactNode, useMemo } from 'react'
+import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
-import { Flex, styled, Text } from 'ui/src'
-import { opacify } from 'ui/src/theme'
-import { isLowVarianceRange } from 'uniswap/src/components/charts/utils'
-import { useFormatChartFiatDelta } from 'uniswap/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { NumberType } from 'utilities/src/format/types'
+import { Flex, styled, Text } from '@l.x/ui/src'
+import { opacify } from '@l.x/ui/src/theme'
+import { isLowVarianceRange } from '@l.x/lx/src/components/charts/utils'
+import { useFormatChartFiatDelta } from '@l.x/lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { ChartHeader } from '~/components/Charts/ChartHeader'
 import {
   Chart,
@@ -391,7 +391,51 @@ interface PriceChartProps {
   headerTotalValueOverride?: number
   hideYAxis?: boolean
   yAxisFormatter?: (price: number) => string
-  additionalHeaderContent,
+}
+
+const CandlestickTooltipRow = styled(Flex, {
+  row: true,
+  justifyContent: 'space-between',
+  gap: '$sm',
+})
+
+function CandlestickTooltip({ data }: { data: PriceChartData }) {
+  const { convertFiatAmountFormatted } = useLocalizationContext()
+  return (
+    <>
+      <Text variant="body3" color="$neutral1">
+        <CandlestickTooltipRow>
+          <Trans i18nKey="chart.price.label.open" />
+          <Flex>{convertFiatAmountFormatted(data.open, NumberType.FiatTokenPrice)}</Flex>
+        </CandlestickTooltipRow>
+        <CandlestickTooltipRow>
+          <Trans i18nKey="chart.price.label.high" />
+          <Flex>{convertFiatAmountFormatted(data.high, NumberType.FiatTokenPrice)}</Flex>
+        </CandlestickTooltipRow>
+        <CandlestickTooltipRow>
+          <Trans i18nKey="chart.price.label.low" />
+          <Flex>{convertFiatAmountFormatted(data.low, NumberType.FiatTokenPrice)}</Flex>
+        </CandlestickTooltipRow>
+        <CandlestickTooltipRow>
+          <Trans i18nKey="chart.price.label.close" />
+          <Flex>{convertFiatAmountFormatted(data.close, NumberType.FiatTokenPrice)}</Flex>
+        </CandlestickTooltipRow>
+      </Text>
+    </>
+  )
+}
+
+export function PriceChart({
+  data,
+  height,
+  type,
+  stale,
+  timePeriod,
+  pricePercentChange,
+  overrideColor,
+  headerTotalValueOverride,
+  hideYAxis,
+  yAxisFormatter,
 }: PriceChartProps) {
   const startingPrice = data[0]
   const lastPrice = data[data.length - 1]
@@ -424,17 +468,14 @@ interface PriceChartProps {
           <ChartHeader
             value={headerValue}
             additionalFields={
-              <>
-                <PriceChartDelta
-                  startingPrice={startingPrice.close}
-                  endingPrice={(crosshairData ?? lastPrice).close}
-                  shouldIncludeFiatDelta
-                  shouldTreatAsStablecoin={shouldTreatAsStablecoin}
-                  pricePercentChange={pricePercentChange}
-                  isHovering={!!crosshairData}
-                />
-                {additionalHeaderContent}
-              </>
+              <PriceChartDelta
+                startingPrice={startingPrice.close}
+                endingPrice={(crosshairData ?? lastPrice).close}
+                shouldIncludeFiatDelta
+                shouldTreatAsStablecoin={shouldTreatAsStablecoin}
+                pricePercentChange={pricePercentChange}
+                isHovering={!!crosshairData}
+              />
             }
             valueFormatterType={NumberType.FiatTokenPrice}
             time={crosshairData?.time}

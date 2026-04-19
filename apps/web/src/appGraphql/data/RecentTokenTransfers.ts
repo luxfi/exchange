@@ -1,6 +1,6 @@
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 
 export function useRecentTokenTransfers(address?: string) {
   const { gqlChains } = useEnabledChains()

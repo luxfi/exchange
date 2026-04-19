@@ -1,4 +1,4 @@
-import { doesTokenMatchSearchTerm } from 'uniswap/src/utils/search/doesTokenMatchSearchTerm'
+import { doesTokenMatchSearchTerm } from 'lx/src/utils/search/doesTokenMatchSearchTerm'
 import type { TokenData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 
 /**

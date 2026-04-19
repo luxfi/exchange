@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { Flex, FlexProps, Text, useSporeColors } from 'ui/src'
-import { ArrowDownCircleFilled } from 'ui/src/components/icons/ArrowDownCircleFilled'
-import { CoinConvert } from 'ui/src/components/icons/CoinConvert'
-import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'
-import { Plus } from 'ui/src/components/icons/Plus'
-import { iconSizes } from 'ui/src/theme'
-import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { useEvent } from 'utilities/src/react/hooks'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { Flex, FlexProps, Text, useSporeColors } from '@l.x/ui/src'
+import { ArrowDownCircleFilled } from '@l.x/ui/src/components/icons/ArrowDownCircleFilled'
+import { CoinConvert } from '@l.x/ui/src/components/icons/CoinConvert'
+import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
+import { Plus } from '@l.x/ui/src/components/icons/Plus'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { ActionTileWithIconAnimation } from '~/components/ActionTiles/ActionTileWithIconAnimation'
 import { AdaptiveDropdown } from '~/components/Dropdowns/AdaptiveDropdown'
 import { InternalMenuItem } from '~/components/Dropdowns/Dropdown'
@@ -20,7 +20,7 @@ import { Limit } from '~/components/Icons/Limit'
 export function MoreActionTile({ padding = '$spacing12' }: { padding?: FlexProps['p'] }) {
   const { t } = useTranslation()
   const colors = useSporeColors()
-  const { navigateToSwapFlow } = useUniswapContext()
+  const { navigateToSwapFlow } = useLuxContext()
   const navigate = useNavigate()
   const { value: isDropdownOpen, setFalse: closeDropdown, toggle: toggleDropdown } = useBooleanState(false)
 

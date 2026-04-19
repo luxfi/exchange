@@ -2,15 +2,15 @@ import { GraphQLApi } from '@l.x/api'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { Flex, styled, Text, TouchableArea, useSporeColors, View } from 'ui/src'
-import { CopySheets } from 'ui/src/components/icons/CopySheets'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
-import { shortenAddress } from 'utilities/src/addresses'
+import { Flex, styled, Text, TouchableArea, useSporeColors, View } from '@l.x/ui/src'
+import { CopySheets } from '@l.x/ui/src/components/icons/CopySheets'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { getTokenDetailsURL, gqlToCurrency } from '~/appGraphql/data/util'
 import { EtherscanLogo } from '~/components/Icons/Etherscan'
 import { ExplorerIcon } from '~/components/Icons/ExplorerIcon'
@@ -21,13 +21,13 @@ import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
 import { ExternalLink } from '~/theme/components/Links'
-import { ClickableTamaguiStyle, EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle, EllipsisGuiStyle } from '~/theme/components/styles'
 import { getChainUrlParam } from '~/utils/chainParams'
 
 const TokenName = styled(Text, {
   display: 'none',
   minWidth: 0,
-  ...EllipsisTamaguiStyle,
+  ...EllipsisGuiStyle,
   $xl: {
     display: 'block',
   },
@@ -45,7 +45,7 @@ const TokenTextWrapper = styled(Flex, {
   overflow: 'hidden',
   variants: {
     isClickable: {
-      true: ClickableTamaguiStyle,
+      true: ClickableGuiStyle,
     },
   },
 })
@@ -60,7 +60,7 @@ const TokenTextContent = styled(Flex, {
 
 const SymbolText = styled(Text, {
   minWidth: 0,
-  ...EllipsisTamaguiStyle,
+  ...EllipsisGuiStyle,
   $xl: {
     color: '$neutral2',
   },
@@ -86,7 +86,7 @@ const ExplorerWrapper = styled(View, {
   borderRadius: 20,
   backgroundColor: '$surface3',
   display: 'flex',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 const ButtonsRow = styled(Flex, {
@@ -134,7 +134,7 @@ export function PoolDetailsLink({ address, chainId, tokens, loading }: PoolDetai
   }, [navigate, tokens, isPool, chainUrlParam])
 
   const [truncateAddress, setTruncateAddress] = useState<false | 'start' | 'both'>(false)
-  // oxlint-disable-next-line react/exhaustive-deps -- +truncateAddress
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +truncateAddress
   const onTextRender = useCallback(
     (textRef: HTMLElement | null) => {
       if (textRef) {
@@ -146,7 +146,6 @@ export function PoolDetailsLink({ address, chainId, tokens, loading }: PoolDetai
     },
     // This callback must run after it sets truncateAddress to 'start' to see if it needs to 'both'.
     // It checks if the textRef has overflow, and sets truncateAddress accordingly to avoid it.
-    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
     [truncateAddress],
   )
 

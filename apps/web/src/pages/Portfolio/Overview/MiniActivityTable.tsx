@@ -1,23 +1,26 @@
 import { createColumnHelper, Row } from '@tanstack/react-table'
-import { SharedEventName } from '@uniswap/analytics-events'
-import { memo, useCallback, useMemo } from 'react'
+import { SharedEventName } from '@luxamm/analytics-events'
+import { memo, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { RotateRight } from 'ui/src/components/icons/RotateRight'
-import { isLoadingItem } from 'uniswap/src/components/activity/utils'
-import { ActivityRenderData } from 'uniswap/src/features/activity/hooks/useActivityData'
-import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
-import { ONE_DAY_MS } from 'utilities/src/time/time'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
+import { RotateRight } from '@l.x/ui/src/components/icons/RotateRight'
+import { TransactionDetailsModal } from '@l.x/lx/src/components/activity/details/TransactionDetailsModal'
+import { isLoadingItem } from '@l.x/lx/src/components/activity/utils'
+import { ActivityRenderData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
+import { ElementName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
+import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
+import { popupRegistry } from '~/components/Popups/registry'
+import { PopupType } from '~/components/Popups/types'
 import { Table } from '~/components/Table'
 import { Cell } from '~/components/Table/Cell'
 import { hasRow } from '~/components/Table/utils/hasRow'
-import { useOpenTransactionDetailsModal } from '~/components/TopLevelModals/TransactionDetailsModalDispatcher'
 import { ActivityAmountCell } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/ActivityAmountCell'
 import { TimeCell } from '~/pages/Portfolio/Activity/ActivityTable/TimeCell'
 import { filterTransactionDetailsFromActivityItems } from '~/pages/Portfolio/Activity/Filters/utils'
@@ -41,7 +44,7 @@ export const MiniActivityTable = memo(function MiniActivityTable({
   const { t } = useTranslation()
   const trace = useTrace()
   const { chainId, externalAddress, isExternalWallet } = usePortfolioRoutes()
-  const openTransactionDetailsModal = useOpenTransactionDetailsModal()
+  const [selectedTransaction, setSelectedTransaction] = useState<TransactionDetails | null>(null)
   const navigate = useNavigate()
   const viewAllHref = buildPortfolioUrl({
     tab: PortfolioTab.Activity,
@@ -125,9 +128,9 @@ export const MiniActivityTable = memo(function MiniActivityTable({
         section: SectionName.PortfolioOverviewTab,
         ...trace,
       })
-      openTransactionDetailsModal(transaction, { isExternalProfile: isExternalWallet })
+      setSelectedTransaction(transaction)
     },
-    [trace, openTransactionDetailsModal, isExternalWallet],
+    [trace],
   )
 
   const rowWrapper = useCallback(
@@ -141,6 +144,18 @@ export const MiniActivityTable = memo(function MiniActivityTable({
     },
     [handleTransactionClick],
   )
+
+  const handleCloseTransactionDetails = useCallback(() => {
+    setSelectedTransaction(null)
+  }, [])
+
+  const onCopySuccess = useCallback(() => {
+    popupRegistry.addPopup(
+      { type: PopupType.Success, message: t('notification.copied.transactionId') },
+      'copy-transaction-id-success',
+      POPUP_MEDIUM_DISMISS_MS,
+    )
+  }, [t])
 
   const handleSeeAllActivity = useCallback(() => {
     navigate(viewAllHref)
@@ -220,3 +235,6 @@ export const MiniActivityTable = memo(function MiniActivityTable({
           onCopySuccess={onCopySuccess}
         />
       )}
+    </Flex>
+  )
+})

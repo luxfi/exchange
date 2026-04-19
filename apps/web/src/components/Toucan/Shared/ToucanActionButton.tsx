@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from 'react'
-import { Button, ButtonEmphasis, ButtonProps, getContrastPassingTextColor, useColorsFromTokenColor } from 'ui/src'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
+import { Button, ButtonEmphasis, ButtonProps, getContrastPassingTextColor, useColorsFromTokenColor } from '@l.x/ui/src'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 import { MouseoverTooltip } from '~/components/Tooltip'
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
 
@@ -29,7 +29,6 @@ export function ToucanActionButton({
   emphasis,
   'dd-action-name': datadogActionName,
   elementName,
-  // oxlint-disable-next-line no-unused-vars -- biome-parity: oxlint is stricter here
   ...props
 }: ToucanActionButtonProps & ButtonProps): JSX.Element {
   const tokenColor = useAuctionStore((state) => state.tokenColor)

@@ -1,6 +1,6 @@
 import { PersistState } from 'redux-persist'
-import { Language, mapLocaleToLanguage } from 'uniswap/src/features/language/constants'
-import { navigatorLocale } from 'uniswap/src/features/language/navigatorLocale'
+import { Language, mapLocaleToLanguage } from '@l.x/lx/src/features/language/constants'
+import { navigatorLocale } from '@l.x/lx/src/features/language/navigatorLocale'
 
 type PersistAppStateV58 = {
   _persist: PersistState
@@ -39,7 +39,7 @@ const REMOVED_LANGUAGES: Language[] = [
 function getBrowserLanguageOrEnglish(): Language {
   try {
     const locale = navigatorLocale()
-    // oxlint-disable-next-line typescript/no-unnecessary-condition
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (locale && mapLocaleToLanguage[locale]) {
       return mapLocaleToLanguage[locale]
     }

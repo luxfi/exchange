@@ -1,30 +1,25 @@
-import { type Currency, type CurrencyAmount, Fraction } from '@uniswap/sdk-core'
-import { useCallback, useMemo } from 'react'
+import { Fraction } from '@luxamm/sdk-core'
+import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from 'ui/src'
-import { AuctionAdvancedSettings } from '~/pages/Liquidity/CreateAuction/components/AuctionAdvancedSettings'
-import { AuctionSupplySection } from '~/pages/Liquidity/CreateAuction/components/AuctionSupplySection'
-import { DurationSection } from '~/pages/Liquidity/CreateAuction/components/DurationSection'
-import { FloorPriceSection } from '~/pages/Liquidity/CreateAuction/components/FloorPriceSection'
-import { HookTile } from '~/pages/Liquidity/CreateAuction/components/HookTile'
-import { RaiseCurrencySection } from '~/pages/Liquidity/CreateAuction/components/RaiseCurrencySection'
-import { TokenSummaryCard, useTokenSummaryCardProps } from '~/pages/Liquidity/CreateAuction/components/TokenSummaryCard'
+import { Button, Flex, Text } from '@l.x/ui/src'
 import {
   useCreateAuctionStore,
   useCreateAuctionStoreActions,
 } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
-import { useCreateAuctionTokenColor } from '~/pages/Liquidity/CreateAuction/hooks/useCreateAuctionTokenColor'
-import { useIsStepValid } from '~/pages/Liquidity/CreateAuction/hooks/useIsStepValid'
-import {
-  BOOTSTRAP_POST_LIQUIDITY_PERCENT,
-  FUNDRAISE_POST_LIQUIDITY_PERCENT,
-} from '~/pages/Liquidity/CreateAuction/store/createCreateAuctionStore'
-import { AuctionType, type ConfigureAuctionFormState, CreateAuctionStep } from '~/pages/Liquidity/CreateAuction/types'
-import { percentOfAmount } from '~/pages/Liquidity/CreateAuction/utils'
+import { AdvancedSettingsRow } from '~/pages/Liquidity/CreateAuction/components/AdvancedSettingsRow'
+import { BootstrapAuctionSupplySection } from '~/pages/Liquidity/CreateAuction/components/BootstrapAuctionSupplySection'
+import { DurationSection, getMinStartTime } from '~/pages/Liquidity/CreateAuction/components/DurationSection'
+import { FloorPriceSection } from '~/pages/Liquidity/CreateAuction/components/FloorPriceSection'
+import { FundraiseAuctionSupplySection } from '~/pages/Liquidity/CreateAuction/components/FundraiseAuctionSupplySection'
+import { HookTile } from '~/pages/Liquidity/CreateAuction/components/HookTile'
+import { RaiseCurrencySection } from '~/pages/Liquidity/CreateAuction/components/RaiseCurrencySection'
+import { TokenSummaryCard, useTokenSummaryCardProps } from '~/pages/Liquidity/CreateAuction/components/TokenSummaryCard'
+import { DEFAULT_POST_AUCTION_LIQUIDITY_PERCENT } from '~/pages/Liquidity/CreateAuction/store/createCreateAuctionStore'
+import { AuctionType, type ConfigureAuctionFormState } from '~/pages/Liquidity/CreateAuction/types'
+import { amountToPercent, percentOfAmount } from '~/pages/Liquidity/CreateAuction/utils'
 
 export function ConfigureAuctionStep() {
   const { t } = useTranslation()
-  const tokenColor = useCreateAuctionTokenColor()
   const tokenSummaryCardProps = useTokenSummaryCardProps()
   const configureAuction: ConfigureAuctionFormState = useCreateAuctionStore((state) => state.configureAuction)
 
@@ -39,34 +34,7 @@ export function ConfigureAuctionStep() {
     setFloorPrice,
   } = useCreateAuctionStoreActions()
 
-  const { startTime, maxDurationDays, activeAuctionType, committed, raiseCurrency, floorPrice } = configureAuction
-  const isNextStepDisabled = !useIsStepValid(CreateAuctionStep.CONFIGURE_AUCTION)
-
-  const defaultLpPercent = useMemo(
-    () =>
-      activeAuctionType === AuctionType.BOOTSTRAP_LIQUIDITY
-        ? BOOTSTRAP_POST_LIQUIDITY_PERCENT
-        : FUNDRAISE_POST_LIQUIDITY_PERCENT,
-    [activeAuctionType],
-  )
-
-  /** Compute new LP amount that preserves the ratio to auction supply, or falls back to the default. */
-  const computeNewLiquidity = useCallback(
-    (newAuctionSupply: CurrencyAmount<Currency>): CurrencyAmount<Currency> => {
-      if (!committed || newAuctionSupply.equalTo(0)) {
-        return newAuctionSupply
-      }
-      // Previous auction supply was 0 — no meaningful ratio to preserve;
-      // initialize LP amount using the default percentage instead.
-      if (committed.auctionSupplyAmount.equalTo(0)) {
-        return newAuctionSupply.multiply(defaultLpPercent)
-      }
-      return committed.postAuctionLiquidityAmount.multiply(
-        new Fraction(newAuctionSupply.quotient, committed.auctionSupplyAmount.quotient),
-      )
-    },
-    [committed, defaultLpPercent],
-  )
+  const { startTime, maxDurationDays, committed, raiseCurrency, floorPrice } = configureAuction
 
   const handleBootstrapLiquidity = useCallback(() => setAuctionType(AuctionType.BOOTSTRAP_LIQUIDITY), [setAuctionType])
   const handleFundraise = useCallback(() => setAuctionType(AuctionType.FUNDRAISE), [setAuctionType])
@@ -80,31 +48,42 @@ export function ConfigureAuctionStep() {
     [setMaxDurationDays, maxDurationDays],
   )
 
-  const handleAuctionSupplyPercentChange = useCallback(
+  const handleBootstrapSupplyPercentChange = useCallback(
     (percent: number) => {
       if (!committed) {
         return
       }
       const newAuctionSupply = percentOfAmount(committed.totalSupply, percent)
-      setAuctionConfig({
-        auctionSupplyAmount: newAuctionSupply,
-        postAuctionLiquidityAmount: computeNewLiquidity(newAuctionSupply),
-      })
+      setAuctionConfig({ auctionType: AuctionType.BOOTSTRAP_LIQUIDITY, auctionSupplyAmount: newAuctionSupply })
     },
-    [committed, computeNewLiquidity, setAuctionConfig],
+    [committed, setAuctionConfig],
   )
 
-  const handleAuctionSupplyAmountChange = useCallback(
-    (newAuctionSupply: CurrencyAmount<Currency>) => {
+  const handleFundraiseSupplyPercentChange = useCallback(
+    (percent: number) => {
       if (!committed) {
         return
       }
+      const { totalSupply, fundraise } = committed
+      const newAuctionSupply = percentOfAmount(totalSupply, percent)
+
+      const newLiquidity = newAuctionSupply.equalTo(0)
+        ? newAuctionSupply
+        : fundraise.auctionSupplyAmount.equalTo(0)
+          ? // Previous auction supply was 0 so there's no meaningful ratio to preserve;
+            // initialize LP amount using the default percentage instead.
+            newAuctionSupply.multiply(DEFAULT_POST_AUCTION_LIQUIDITY_PERCENT)
+          : fundraise.postAuctionLiquidityAmount.multiply(
+              new Fraction(newAuctionSupply.quotient, fundraise.auctionSupplyAmount.quotient),
+            )
+
       setAuctionConfig({
+        auctionType: AuctionType.FUNDRAISE,
         auctionSupplyAmount: newAuctionSupply,
-        postAuctionLiquidityAmount: computeNewLiquidity(newAuctionSupply),
+        postAuctionLiquidityAmount: newLiquidity,
       })
     },
-    [committed, computeNewLiquidity, setAuctionConfig],
+    [committed, setAuctionConfig],
   )
 
   const handlePostAuctionLiquidityPercentChange = useCallback(
@@ -112,11 +91,24 @@ export function ConfigureAuctionStep() {
       if (!committed) {
         return
       }
-      // Auction supply is fixed — LP is always a percentage of the auction supply amount
-      setAuctionConfig({
-        auctionSupplyAmount: committed.auctionSupplyAmount,
-        postAuctionLiquidityAmount: percentOfAmount(committed.auctionSupplyAmount, percent),
-      })
+      const { totalSupply, fundraise } = committed
+      const maxAuctionPercent = 100 / (1 + percent / 100)
+      const currentAuctionPercent = amountToPercent(totalSupply, fundraise.auctionSupplyAmount)
+
+      if (currentAuctionPercent > maxAuctionPercent) {
+        const clampedAuction = percentOfAmount(totalSupply, maxAuctionPercent)
+        setAuctionConfig({
+          auctionType: AuctionType.FUNDRAISE,
+          auctionSupplyAmount: clampedAuction,
+          postAuctionLiquidityAmount: percentOfAmount(clampedAuction, percent),
+        })
+      } else {
+        setAuctionConfig({
+          auctionType: AuctionType.FUNDRAISE,
+          auctionSupplyAmount: fundraise.auctionSupplyAmount,
+          postAuctionLiquidityAmount: percentOfAmount(fundraise.auctionSupplyAmount, percent),
+        })
+      }
     },
     [committed, setAuctionConfig],
   )
@@ -125,9 +117,15 @@ export function ConfigureAuctionStep() {
     return null
   }
 
-  const { totalSupply, auctionSupplyAmount, postAuctionLiquidityAmount } = committed
+  const { totalSupply, activeAuctionType, bootstrap, fundraise } = committed
   const chainId = totalSupply.currency.chainId
   const tokenSymbol = totalSupply.currency.symbol ?? ''
+
+  const activeConfig = activeAuctionType === AuctionType.BOOTSTRAP_LIQUIDITY ? bootstrap : fundraise
+  const auctionSupplyPercent = amountToPercent(totalSupply, activeConfig.auctionSupplyAmount)
+  const minStartTime = getMinStartTime()
+  const isStartTimeValid = startTime && startTime.getTime() >= minStartTime.getTime()
+  const isNextStepDisabled = !isStartTimeValid || activeConfig.auctionSupplyAmount.equalTo(0) || !floorPrice
 
   return (
     <Flex gap="$spacing16">
@@ -185,30 +183,36 @@ export function ConfigureAuctionStep() {
             onFloorPriceChange={setFloorPrice}
           />
 
-          <AuctionSupplySection
-            auctionSupplyAmount={auctionSupplyAmount}
-            tokenTotalSupply={totalSupply}
-            tokenSymbol={tokenSymbol}
-            raiseTokenSymbol={raiseCurrency}
-            postAuctionLiquidityAmount={postAuctionLiquidityAmount}
-            onSelectAuctionSupplyPercent={handleAuctionSupplyPercentChange}
-            onAuctionSupplyAmountChange={handleAuctionSupplyAmountChange}
-            onSelectPostAuctionLiquidityPercent={handlePostAuctionLiquidityPercentChange}
-            color={tokenColor}
-          />
+          {activeAuctionType === AuctionType.BOOTSTRAP_LIQUIDITY && (
+            <BootstrapAuctionSupplySection
+              auctionSupplyPercent={auctionSupplyPercent}
+              totalTokenSupply={totalSupply}
+              tokenSymbol={tokenSymbol}
+              onSelectPercent={handleBootstrapSupplyPercentChange}
+            />
+          )}
+
+          {activeAuctionType === AuctionType.FUNDRAISE && (
+            <FundraiseAuctionSupplySection
+              auctionSupplyPercent={auctionSupplyPercent}
+              auctionSupplyAmount={fundraise.auctionSupplyAmount}
+              tokenTotalSupply={totalSupply}
+              tokenSymbol={tokenSymbol}
+              postAuctionLiquidityPercent={amountToPercent(
+                fundraise.auctionSupplyAmount,
+                fundraise.postAuctionLiquidityAmount,
+              )}
+              postAuctionLiquidityAmount={fundraise.postAuctionLiquidityAmount}
+              onSelectAuctionSupplyPercent={handleFundraiseSupplyPercentChange}
+              onSelectPostAuctionLiquidityPercent={handlePostAuctionLiquidityPercentChange}
+            />
+          )}
         </Flex>
-        <AuctionAdvancedSettings />
+        <AdvancedSettingsRow />
       </Flex>
 
       <Flex row>
-        <Button
-          size="medium"
-          emphasis="primary"
-          onPress={goToNextStep}
-          isDisabled={isNextStepDisabled}
-          fill
-          backgroundColor={tokenColor}
-        >
+        <Button size="medium" emphasis="primary" onPress={goToNextStep} isDisabled={isNextStepDisabled} fill>
           {t('common.button.continue')}
         </Button>
       </Flex>

@@ -1,11 +1,11 @@
-import { Currency, Price } from '@uniswap/sdk-core'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { USDT } from 'uniswap/src/constants/tokens'
+import { Currency, Price } from '@luxamm/sdk-core'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { USDT } from '@l.x/lx/src/constants/tokens'
 import { getPriceDifference } from '~/components/Liquidity/utils/getPriceDifference'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 import { ETH_MAINNET } from '~/test-utils/constants'
 
-// oxlint-disable-next-line max-params
+// eslint-disable-next-line max-params
 function getInitialPrice(base: Currency, quote: Currency, input: string) {
   const parsedQuoteAmount = tryParseCurrencyAmount(input, quote)
   const baseAmount = tryParseCurrencyAmount('1', base)

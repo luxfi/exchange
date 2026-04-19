@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, styled, Text, useIsDarkMode, useSporeColors } from 'ui/src'
-import { opacify, zIndexes } from 'ui/src/theme'
-import { ElementName, InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { Button, Flex, styled, Text, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
+import { opacify, zIndexes } from '@l.x/ui/src/theme'
+import { ElementName, InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { CONNECT_WALLET_FIXED_BOTTOM_SECTION_HEIGHT } from '~/pages/Portfolio/constants'
 

@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import { FeatureFlags, getFeatureFlagName } from '@l.x/gating'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 
@@ -25,7 +25,7 @@ test.describe(
       await page.getByTestId(TestID.NavConnectWalletButton).click()
       await getVisibleDropdownElementByTestId(page, TestID.CreateAccount).click()
 
-      await expect(page.getByTestId(TestID.DownloadUniswapModal)).toBeVisible()
+      await expect(page.getByTestId(TestID.DownloadLxModal)).toBeVisible()
       await expect(page.getByText('Choose a username')).toBeVisible()
     })
 

@@ -1,6 +1,6 @@
 import { memo, Suspense } from 'react'
-import { ModalName, ModalNameType } from 'uniswap/src/features/telemetry/constants'
-import { logger } from 'utilities/src/logger/logger'
+import { ModalName, ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import { ModalRegistry, ModalWrapperProps } from '~/components/TopLevelModals/types'
 import { useModalState } from '~/hooks/useModalState'
@@ -18,7 +18,11 @@ const OffchainActivityModal = createLazy(() =>
     default: module.OffchainActivityModal,
   })),
 )
-  import('uniswap/src/features/testnets/TestnetModeModal').then((module) => ({ default: module.TestnetModeModal })),
+const UkDisclaimerModal = createLazy(() =>
+  import('~/components/TopLevelModals/UkDisclaimerModal').then((module) => ({ default: module.UkDisclaimerModal })),
+)
+const TestnetModeModal = createLazy(() =>
+  import('lx/src/features/testnets/TestnetModeModal').then((module) => ({ default: module.TestnetModeModal })),
 )
 const GetTheAppModal = createLazy(() =>
   import('~/components/NavBar/DownloadApp/Modal').then((module) => ({ default: module.GetTheAppModal })),
@@ -45,7 +49,7 @@ const ClaimFeeModal = createLazy(() =>
   import('~/components/Liquidity/ClaimFeeModal').then((module) => ({ default: module.ClaimFeeModal })),
 )
 const PasskeysHelpModal = createLazy(() =>
-  import('uniswap/src/features/passkey/PasskeysHelpModal').then((module) => ({ default: module.PasskeysHelpModal })),
+  import('lx/src/features/passkey/PasskeysHelpModal').then((module) => ({ default: module.PasskeysHelpModal })),
 )
 
 const DelegationMismatchModal = createLazy(() =>
@@ -66,19 +70,19 @@ const SendModal = createLazy(() =>
 )
 
 const BridgedAssetModal = createLazy(() =>
-  import('uniswap/src/components/BridgedAsset/BridgedAssetModal').then((module) => ({
+  import('lx/src/components/BridgedAsset/BridgedAssetModal').then((module) => ({
     default: module.BridgedAssetModal,
   })),
 )
 
 const WormholeModal = createLazy(() =>
-  import('uniswap/src/components/BridgedAsset/WormholeModal').then((module) => ({
+  import('lx/src/components/BridgedAsset/WormholeModal').then((module) => ({
     default: module.WormholeModal,
   })),
 )
 
 const ReportTokenModal = createLazy(() =>
-  import('uniswap/src/components/reporting/ReportTokenIssueModal').then((module) => ({
+  import('lx/src/components/reporting/ReportTokenIssueModal').then((module) => ({
     default: module.ReportTokenIssueModal,
   })),
 )
@@ -145,10 +149,6 @@ export const modalRegistry: ModalRegistry = {
   },
   [ModalName.OffchainActivity]: {
     component: OffchainActivityModal,
-    shouldMount: () => true,
-  },
-  [ModalName.TransactionDetails]: {
-    component: TransactionDetailsModalDispatcher,
     shouldMount: () => true,
   },
   [ModalName.UkDisclaimer]: {

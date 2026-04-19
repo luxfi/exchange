@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@l.x/api'
 import { useLocation, useParams } from 'react-router'
-import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { USDC_MAINNET } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCreateTDPContext } from '~/pages/TokenDetails/context/useCreateTDPContext'
 import { mocked } from '~/test-utils/mocked'
@@ -79,8 +79,8 @@ vi.mock('~/features/accounts/store/hooks', () => ({
   })),
 }))
 
-vi.mock('uniswap/src/features/dataApi/balances/balances', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('uniswap/src/features/dataApi/balances/balances')>()
+vi.mock('lx/src/features/dataApi/balances/balances', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('lx/src/features/dataApi/balances/balances')>()
   return {
     ...actual,
     usePortfolioBalances: vi.fn(() => ({ data: undefined })),

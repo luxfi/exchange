@@ -1,9 +1,9 @@
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { formatApprovalAmount } from 'uniswap/src/components/activity/utils'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { formatApprovalAmount } from '@l.x/lx/src/components/activity/utils'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 import { CompactLayout } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/CompactLayout'
 import { DualTokenLayout } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/DualTokenLayout'
 import { createTokenLogo } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/utils'
@@ -18,7 +18,7 @@ interface ApproveAmountCellProps {
   t: ReturnType<typeof useTranslation>['t']
 }
 
-function ApproveAmountCellInner({
+function _ApproveAmountCell({
   singleCurrencyInfo,
   approvalAmount,
   variant,
@@ -65,4 +65,4 @@ function ApproveAmountCellInner({
   )
 }
 
-export const ApproveAmountCell = memo(ApproveAmountCellInner)
+export const ApproveAmountCell = memo(_ApproveAmountCell)

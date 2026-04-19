@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
-import { Flex, Popover, styled, Text } from 'ui/src'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { Flex, Popover, styled, Text } from '@l.x/ui/src'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { NavDropdown, NavDropdownTabWrapper } from '~/components/NavBar/NavDropdown/index'
 import { TabsItem, TabsSection, useTabsContent } from '~/components/NavBar/Tabs/TabsContent'
 
@@ -71,11 +71,11 @@ const Tab = ({
   const popoverRef = useRef<Popover>(null)
   const location = useLocation()
 
-  // oxlint-disable-next-line react/exhaustive-deps -- +popoverRef
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +popoverRef
   const closeMenu = useCallback(() => {
     popoverRef.current?.close()
   }, [popoverRef])
-  // oxlint-disable-next-line react/exhaustive-deps -- location dependency is sufficient for this effect
+  // biome-ignore lint/correctness/useExhaustiveDependencies: location dependency is sufficient for this effect
   useEffect(() => closeMenu(), [location, closeMenu])
 
   const Label = (

@@ -1,9 +1,9 @@
 import type { TransactionRequest } from '@ethersproject/abstract-provider'
 import { call, take } from 'typed-redux-saga'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { cancelTransaction, TransactionsState, updateTransaction } from 'uniswap/src/features/transactions/slice'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { cancelTransaction, TransactionsState, updateTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@l.x/utils/src/logger/logger'
 import store from '~/state'
 import { getSigner } from '~/state/sagas/transactions/utils'
 
@@ -18,11 +18,11 @@ interface CancelOrderPayload {
  * Saga that watches for `cancelTransaction` Redux actions on web and submits the
  * cancellation transaction on-chain.
  *
- * For UniswapX orders, this submits a permit2 nonce invalidation transaction.
+ * For DEX orders, this submits a permit2 nonce invalidation transaction.
  * For classic/bridge transactions, this submits a replacement transaction.
  *
  * This is the web equivalent of the mobile `cancelTransactionSaga` in
- * `packages/wallet/src/features/transactions/cancelTransactionSaga.ts`.
+ * `pkgs/wallet/src/features/transactions/cancelTransactionSaga.ts`.
  */
 export function* cancelOrderSaga() {
   while (true) {

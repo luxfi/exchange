@@ -1,20 +1,19 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router'
-import { Flex, ModalCloseIcon, Text } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { InterfacePageName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TransactionModal } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModal'
+import { Flex, ModalCloseIcon, Text } from '@l.x/ui/src'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { InterfacePageName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TransactionModal } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
 import {
   TransactionScreen,
   useTransactionModalContext,
-} from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
-import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
-import { noop } from 'utilities/src/react/noop'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { SwapTab } from '@l.x/lx/src/types/screens/interface'
+import { noop } from '@l.x/utils/src/react/noop'
 import { useCurrency } from '~/hooks/Tokens'
 import { SendForm, SendFormProps } from '~/pages/Swap/Send/SendForm'
 import { SendContextProvider } from '~/state/send/SendContext'
@@ -32,8 +31,7 @@ export function SendFormModal(props: SendFormModalProps) {
   const chainParam = searchParams.get('sendChain') ?? undefined
   const chainId = getChainIdFromChainUrlParam(chainParam)
   const inputCurrencyParam = searchParams.get('sendCurrency') ?? undefined
-  const rawRecipientParam = searchParams.get('sendRecipient') ?? undefined
-  const recipientParam = isEVMAddress(rawRecipientParam) ? rawRecipientParam : undefined
+  const recipientParam = searchParams.get('sendRecipient') ?? undefined
   const parsedInputCurrency = useCurrency({ address: inputCurrencyParam, chainId })
   const inputCurrency = useMemo(
     () => parsedInputCurrency ?? nativeOnChain(UniverseChainId.Mainnet),

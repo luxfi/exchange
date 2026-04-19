@@ -1,8 +1,8 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
-import { areCurrenciesEqual } from 'uniswap/src/utils/currencyId'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { SwapTab } from '@l.x/lx/src/types/screens/interface'
+import { areCurrenciesEqual } from '@l.x/lx/src/utils/currencyId'
 import { useReportTotalBalancesUsdForAnalytics } from '~/appGraphql/data/apollo/useReportTotalBalancesUsdForAnalytics'
 import usePrevious from '~/hooks/usePrevious'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
@@ -67,7 +67,7 @@ export function SwapAndLimitContextProvider({
     }
   }, [initialInputCurrency, isUserSelectedToken, prefilledState, previousInitialInputCurrency])
 
-  // oxlint-disable-next-line react/exhaustive-deps -- +prefilledState
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +prefilledState
   useEffect(() => {
     if (!isUserSelectedToken && initialChainId && previousInitialChainId !== initialChainId) {
       setSelectedChainId(initialChainId)

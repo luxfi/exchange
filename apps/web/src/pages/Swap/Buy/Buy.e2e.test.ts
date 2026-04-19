@@ -1,5 +1,5 @@
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { stubTradingApiEndpoint } from '~/playwright/fixtures/tradingApi'
 import { Mocks } from '~/playwright/mocks/mocks'
@@ -31,14 +31,14 @@ test.describe(
         })
       }
 
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
+      await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.quote })
       await page.goto('/buy')
 
       // Wait for wallet to be connected
       await page.getByTestId(TestID.Web3StatusConnected).waitFor()
 
       await page.getByTestId(TestID.ChooseInputToken).click()
-      // oxlint-disable-next-line
+      // eslint-disable-next-line
       await page.getByTestId('for-currency-list-wrapper').getByText('Ethereum').click()
     })
 
@@ -57,7 +57,7 @@ test.describe(
 
     test('change input token', async ({ page }) => {
       await page.getByTestId(TestID.ChooseInputToken).click()
-      // oxlint-disable-next-line
+      // eslint-disable-next-line
       await page.getByTestId('for-currency-list-wrapper').getByText('DAI').nth(1).click()
       await page.getByTestId(TestID.BuyFormAmountInput).fill('123')
       await page.getByRole('button', { name: 'Continue' }).click()

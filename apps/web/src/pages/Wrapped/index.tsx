@@ -1,16 +1,16 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { X } from 'ui/src/components/icons/X'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
-import { INTERFACE_NAV_HEIGHT, opacify } from 'ui/src/theme'
-import { WRAPPED_PATH } from 'uniswap/src/components/banners/shared/utils'
-import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
-import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
-import { setHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/slice'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
+import { INTERFACE_NAV_HEIGHT, opacify } from '@l.x/ui/src/theme'
+import { WRAPPED_PATH } from '@l.x/lx/src/components/banners/shared/utils'
+import { useUrlContext } from '@l.x/lx/src/contexts/UrlContext'
+import { useActiveAddresses } from '@l.x/lx/src/features/accounts/store/hooks'
+import { setHasDismissedLuxWrapped2025Banner } from '@l.x/lx/src/features/behaviorHistory/slice'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { isAddress } from 'viem'
 import { DisconnectedState } from '~/pages/Wrapped/DisconnectedState'
 import { useAppDispatch } from '~/state/hooks'
@@ -44,12 +44,12 @@ export default function Wrapped() {
 
   // no longer show promo banner after viewing wrapped page
   useEffect(() => {
-    dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+    dispatch(setHasDismissedLuxWrapped2025Banner(true))
   }, [dispatch])
 
   const hasWallet = Boolean(walletAddressRef.current || backupWalletAddress)
   const walletAddress = walletAddressRef.current || backupWalletAddress
-  const iframeUrl = `https://wrapped.uniswap.org${walletAddress ? `?address=${walletAddress}` : ''}`
+  const iframeUrl = `https://wrapped.lux.exchange${walletAddress ? `?address=${walletAddress}` : ''}`
 
   return (
     <Flex
@@ -74,7 +74,7 @@ export default function Wrapped() {
         display={hasWallet ? 'flex' : 'none'}
         maxHeight={MAX_CONTAINER_HEIGHT}
       >
-        <Trace logImpression={hasWallet} modal={ModalName.UniswapWrapped}>
+        <Trace logImpression={hasWallet} modal={ModalName.LuxWrapped}>
           <Flex
             centered
             maxHeight={MAX_CONTAINER_HEIGHT}
@@ -103,7 +103,7 @@ export default function Wrapped() {
               }}
               width="100%"
               height="100%"
-              title="Uniswap Wrapped"
+              title="Lux Wrapped"
             />
             <Trace logPress={true} element={ElementName.CloseButton}>
               <TouchableArea
@@ -116,7 +116,7 @@ export default function Wrapped() {
                 borderRadius="$roundedFull"
                 backdropFilter="blur(20px)"
                 display={hasWallet ? 'flex' : 'none'}
-                aria-label="Close Uniswap Wrapped"
+                aria-label="Close Lux Wrapped"
                 onPress={() => navigate('/swap')}
               >
                 <Text
@@ -159,7 +159,7 @@ export default function Wrapped() {
         }}
         ref={containerRef}
       >
-        <Trace logImpression={!hasWallet} modal={ModalName.UniswapWrappedDisconnected}>
+        <Trace logImpression={!hasWallet} modal={ModalName.LuxWrappedDisconnected}>
           <DisconnectedState parentRef={containerRef} />
         </Trace>
       </Flex>

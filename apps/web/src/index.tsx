@@ -1,7 +1,9 @@
 // Ordering is intentional and must be preserved: sideEffects followed by functionality.
 import '~/sideEffects'
+
 import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
+import { InsightsProvider } from '@hanzo/insights-react'
 import { datadogRum } from '@datadog/browser-rum'
 import { PrivyProvider } from '@privy-io/react-auth'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
@@ -28,34 +30,34 @@ import {
 } from '@l.x/sessions'
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import type { PropsWithChildren, ReactNode } from 'react'
-import { StrictMode, useCallback, useEffect, useMemo } from 'react'
+import { StrictMode, useEffect, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Helmet, HelmetProvider } from 'react-helmet-async/lib/index'
 import { I18nextProvider } from 'react-i18next'
-// oxlint-disable-next-line no-restricted-imports -- configures Reanimated logger to suppress dev warnings while shared packages still use Reanimated
+// eslint-disable-next-line no-restricted-imports -- configures Reanimated logger to suppress dev warnings while shared packages still use Reanimated
 import { configureReanimatedLogger } from 'react-native-reanimated'
 import { Provider } from 'react-redux'
 import { BrowserRouter, HashRouter, useLocation } from 'react-router'
-import { PortalProvider } from 'ui/src'
-import { ReactRouterUrlProvider } from 'uniswap/src/contexts/UrlContext'
-import { initializePortfolioQueryOverrides } from 'uniswap/src/data/rest/portfolioBalanceOverrides'
-import { StatsigProviderWrapper } from 'uniswap/src/features/gating/StatsigProviderWrapper'
-import { LocalizationContextProvider } from 'uniswap/src/features/language/LocalizationContext'
-import { TokenPriceProvider } from 'uniswap/src/features/prices/TokenPriceContext'
-import i18n from 'uniswap/src/i18n'
-import { initializeDatadog } from 'uniswap/src/utils/datadog'
-import { localDevDatadogEnabled } from 'utilities/src/environment/constants'
-import { isDevEnv, isTestEnv } from 'utilities/src/environment/env'
-import { getLogger } from 'utilities/src/logger/logger'
-// oxlint-disable-next-line no-restricted-imports -- custom useAccount hook requires statsig
+import { PortalProvider } from '@l.x/ui/src'
+import { ReactRouterUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
+import { initializePortfolioQueryOverrides } from '@l.x/lx/src/data/rest/portfolioBalanceOverrides'
+import { StatsigProviderWrapper } from '@l.x/lx/src/features/gating/StatsigProviderWrapper'
+import { LocalizationContextProvider } from '@l.x/lx/src/features/language/LocalizationContext'
+import { TokenPriceProvider } from '@l.x/lx/src/features/prices/TokenPriceContext'
+import i18n from '@l.x/lx/src/i18n'
+import { initializeDatadog } from '@l.x/lx/src/utils/datadog'
+import { localDevDatadogEnabled } from '@l.x/utils/src/environment/constants'
+import { isDevEnv, isTestEnv } from '@l.x/utils/src/environment/env'
+import { getLogger } from '@l.x/utils/src/logger/logger'
+// biome-ignore lint/style/noRestrictedImports: custom useAccount hook requires statsig
 import { useAccount } from 'wagmi'
 import { AssetActivityProvider } from '~/appGraphql/data/apollo/AssetActivityProvider'
 import { apolloClient } from '~/appGraphql/data/apollo/client'
 import { TokenBalancesProvider } from '~/appGraphql/data/apollo/TokenBalancesProvider'
 import { QueryClientPersistProvider } from '~/components/PersistQueryClient'
 import { createWeb3Provider, WalletCapabilitiesEffects } from '~/components/Web3Provider/createWeb3Provider'
-import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
-import { WebUniswapProvider } from '~/components/Web3Provider/WebUniswapContext'
+import { WebLuxProvider } from '~/components/Web3Provider/WebLuxContext'
+import { initWagmiConfig, wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 import { AccountsStoreDevTool } from '~/features/accounts/store/devtools'
 import { WebAccountsStoreProvider } from '~/features/accounts/store/provider'
 import { ConnectWalletMutationProvider } from '~/features/wallet/connection/hooks/useConnectWalletMutation'
@@ -69,7 +71,7 @@ import { onHashcashSolveCompleted, onTurnstileSolveCompleted, sessionInitAnalyti
 import store from '~/state'
 import { LivePricesProvider } from '~/state/livePrices/LivePricesProvider'
 import { ThemedGlobalStyle, ThemeProvider } from '~/theme'
-import { TamaguiProvider } from '~/theme/tamaguiProvider'
+import { GuiProvider } from '~/theme/guiProvider'
 import { isBrowserRouterEnabled } from '~/utils/env'
 import { unregister as unregisterServiceWorker } from '~/utils/serviceWorker'
 import { getCanonicalUrl } from '~/utils/urlRoutes'
@@ -182,10 +184,9 @@ function Updaters() {
   )
 }
 
-// Production Web3Provider – always reconnects on mount and runs capability effects.
-// Initialized with the default wagmi config; reassigned per-brand at boot
-// (see brand init below where `Web3Provider = createWeb3Provider({ wagmiConfig: brandWagmiConfig })`).
-let Web3Provider = createWeb3Provider({ wagmiConfig })
+// Web3Provider is created lazily after brand config loads (see loadBrandConfig below).
+// This ensures wagmi sees the correct default chain from config.json.
+let Web3Provider: ReturnType<typeof createWeb3Provider>
 
 function GraphqlProviders({ children }: { children: React.ReactNode }) {
   return (
@@ -207,12 +208,22 @@ function StatsigProvider({ children }: PropsWithChildren) {
     [account.address],
   )
 
-  const onStatsigInit = useCallback(() => {
-    // oxlint-disable-next-line typescript/no-unnecessary-condition
+  useEffect(() => {
+    datadogRum.setUserProperty('connection', {
+      type: account.connector?.type,
+      name: account.connector?.name,
+      rdns: account.connector?.id,
+      address: account.address,
+      status: account.status,
+    })
+  }, [account])
+
+  const onStatsigInit = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!isDevEnv() || localDevDatadogEnabled) {
       initializeDatadog('web').catch(() => undefined)
     }
-  }, [])
+  }
 
   return (
     <StatsigProviderWrapper user={statsigUser} onInit={onStatsigInit}>
@@ -241,6 +252,20 @@ const Router = isBrowserRouterEnabled() ? BrowserRouter : HashRouter
 const RootApp = (): JSX.Element => {
   return (
     <StrictMode>
+      <InsightsProvider
+        apiKey={process.env.REACT_APP_INSIGHTS_API_KEY || 'hi_a5316882b930d11c9183007d70c3955b'}
+        options={{
+          api_host: process.env.REACT_APP_INSIGHTS_HOST || 'https://insights.hanzo.ai',
+          capture_pageview: true,
+          capture_pageleave: true,
+          autocapture: true,
+          loaded: (hi: any) => {
+            const slug = brand.appDomain?.replace(/\./g, '-') || 'lux-exchange'
+            const org = brand.name?.split(' ')[0]?.toLowerCase() || 'lux'
+            hi.register({ app: slug, org })
+          },
+        }}
+      >
       <HelmetProvider>
         <ReactRouterUrlProvider>
           <Provider store={store}>
@@ -256,7 +281,7 @@ const RootApp = (): JSX.Element => {
                             <ExternalWalletProvider>
                               <ConnectWalletMutationProvider>
                                 <WebAccountsStoreProvider>
-                                  <WebUniswapProvider>
+                                  <WebLuxProvider>
                                     <TokenPriceProvider>
                                       <GraphqlProviders>
                                         <LivePricesProvider>
@@ -264,20 +289,20 @@ const RootApp = (): JSX.Element => {
                                             <BlockNumberProvider>
                                               <Updaters />
                                               <ThemeProvider>
-                                                <TamaguiProvider>
+                                                <GuiProvider>
                                                   <PortalProvider>
                                                     <WebNotificationServiceManager />
                                                     <ThemedGlobalStyle />
                                                     <App />
                                                   </PortalProvider>
-                                                </TamaguiProvider>
+                                                </GuiProvider>
                                               </ThemeProvider>
                                             </BlockNumberProvider>
                                           </LocalizationContextProvider>
                                         </LivePricesProvider>
                                       </GraphqlProviders>
                                     </TokenPriceProvider>
-                                  </WebUniswapProvider>
+                                  </WebLuxProvider>
                                 </WebAccountsStoreProvider>
                               </ConnectWalletMutationProvider>
                             </ExternalWalletProvider>
@@ -292,6 +317,7 @@ const RootApp = (): JSX.Element => {
           </Provider>
         </ReactRouterUrlProvider>
       </HelmetProvider>
+      </InsightsProvider>
     </StrictMode>
   )
 }
@@ -328,3 +354,7 @@ loadBrandConfig().then(() => {
 
   createRoot(container).render(<RootApp />)
 })
+
+// We once had a ServiceWorker, and users who have not visited since then may still have it registered.
+// This ensures it is truly gone.
+unregisterServiceWorker()

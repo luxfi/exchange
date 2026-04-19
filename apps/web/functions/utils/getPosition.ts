@@ -1,10 +1,11 @@
+import { brand, getGatewayUrl } from '@l.x/config'
 import { GraphQLApi } from '@l.x/api'
 import client from 'functions/client'
 import { Data, PositionStatus } from 'functions/utils/cache'
 import getPool from 'functions/utils/getPool'
-import { URL_PARAM_TO_CHAIN_ID } from 'uniswap/src/features/chains/chainUrlParam'
+import { URL_PARAM_TO_CHAIN_ID } from 'lx/src/features/chains/chainUrlParam'
 
-const UNISWAP_DATA_API_URL = 'https://interface.gateway.uniswap.org/v2/data.v1.DataApiService/GetPosition'
+const LX_DATA_API_URL = getGatewayUrl('/gateway/v2/data.v1.DataApiService/GetPosition')
 
 // connect-rpc protocol version enum values
 const protocolVersionMap: Record<string, number> = {
@@ -38,11 +39,11 @@ export default async function getPosition({
   }
 
   try {
-    const response = await fetch(UNISWAP_DATA_API_URL, {
+    const response = await fetch(LX_DATA_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Origin: 'https://app.uniswap.com',
+        Origin: `https://${brand.appDomain || 'lux.exchange'}`,
       },
       body: JSON.stringify({
         chainId,
@@ -77,7 +78,7 @@ export default async function getPosition({
     const token0Address = token0.address as string | undefined
     const token1Address = token1.address as string | undefined
     const name = `${token0Symbol}/${token1Symbol}`
-    const title = `${name} on Uniswap`
+    const title = `${name} on ${brand.shortName || 'Exchange'}`
     const rawFeeTier = positionData.feeTier != null ? Number(positionData.feeTier) : undefined
     const feeTier = rawFeeTier != null ? `${rawFeeTier / 10_000}%` : undefined
 

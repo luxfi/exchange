@@ -4,8 +4,8 @@ import {
   deleteAuthenticator,
   disconnectWallet,
   getPrivyEnums,
-} from 'uniswap/src/features/passkey/embeddedWallet'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+} from 'lx/src/features/passkey/embeddedWallet'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { RemovePasskeyModal } from '~/components/Passkey/RemovePasskeyModal'
 import { useDisconnect } from '~/hooks/useDisconnect'
@@ -15,7 +15,7 @@ import { useEmbeddedWalletState } from '~/state/embeddedWallet/store'
 import { useAppSelector } from '~/state/hooks'
 import { render, screen } from '~/test-utils/render'
 
-vi.mock('uniswap/src/features/passkey/embeddedWallet', () => ({
+vi.mock('lx/src/features/passkey/embeddedWallet', () => ({
   authenticateWithPasskey: vi.fn(),
   deleteAuthenticator: vi.fn(),
   disconnectWallet: vi.fn(),
@@ -48,15 +48,15 @@ vi.mock('~/components/AccountDrawer/MiniPortfolio/hooks', () => ({
   useAccountDrawer: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useActiveAddress: vi.fn(() => '0xabc'),
 }))
 
-vi.mock('uniswap/src/features/dataApi/balances/balancesRest', () => ({
+vi.mock('lx/src/features/dataApi/balances/balancesRest', () => ({
   usePortfolioTotalValue: vi.fn(() => ({ data: { balanceUSD: 100 } })),
 }))
 
-vi.mock('uniswap/src/features/language/LocalizationContext', () => ({
+vi.mock('lx/src/features/language/LocalizationContext', () => ({
   useLocalizationContext: vi.fn(() => ({
     convertFiatAmountFormatted: vi.fn((value: unknown) => String(value)),
   })),

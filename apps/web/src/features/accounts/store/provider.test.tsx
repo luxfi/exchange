@@ -1,10 +1,10 @@
 import { WalletReadyState as SolanaWalletReadyState } from '@solana/wallet-adapter-base'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import { ConnectorStatus } from 'uniswap/src/features/accounts/store/types/Connector'
-import { ChainScopeType } from 'uniswap/src/features/accounts/store/types/Session'
-import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
+import { ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
+import { ChainScopeType } from '@l.x/lx/src/features/accounts/store/types/Session'
+import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useAccountsStoreContext } from '~/features/accounts/store/provider'
 import { mocked } from '~/test-utils/mocked'
 import { renderHook } from '~/test-utils/render'
@@ -231,7 +231,7 @@ describe('Web Accounts Store Provider', () => {
 
       // Should have only one wallet (deduplicated)
       const walletIds = Object.keys(state.wallets)
-      expect(walletIds).toHaveLength(2) // Uniswap wallet connect connector is added manually to store, so its always defined, hence length is 2
+      expect(walletIds).toHaveLength(2) // Lux wallet connect connector is added manually to store, so its always defined, hence length is 2
       expect(walletIds[0]).toBe('metamask') // EVM library ID takes precedence
 
       const wallet = state.wallets.metamask

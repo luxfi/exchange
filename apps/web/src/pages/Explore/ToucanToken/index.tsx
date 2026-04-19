@@ -1,27 +1,27 @@
-//! tamagui-ignore
-// tamagui-ignore
+//! gui-ignore
+// gui-ignore
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router'
-import { Flex, useMedia } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
+import { Flex, useMedia } from '@l.x/ui/src'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
 import {
   selectHasSeenToucanIntroModal,
   selectHasSeenToucanIntroModalForWallet,
-} from 'uniswap/src/features/behaviorHistory/selectors'
-import { setHasSeenToucanIntroModal, setToucanIntroModalSeenByWallet } from 'uniswap/src/features/behaviorHistory/slice'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants/trace/page'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
-import { ActivitySection } from '~/components/Toucan/Auction/ActivityTimeline/ActivitySection'
+} from '@l.x/lx/src/features/behaviorHistory/selectors'
+import { setHasSeenToucanIntroModal, setToucanIntroModalSeenByWallet } from '@l.x/lx/src/features/behaviorHistory/slice'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants/trace/page'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 import { BidDistributionChartTab } from '~/components/Toucan/Auction/AuctionChartShared'
 import { AuctionHeader } from '~/components/Toucan/Auction/AuctionHeader'
 import { AuctionStats } from '~/components/Toucan/Auction/AuctionStats/AuctionStats'
 import { AuctionIntroBanner } from '~/components/Toucan/Auction/Banners/AuctionIntro/AuctionIntroBanner'
 import { AuctionStatsBanner } from '~/components/Toucan/Auction/Banners/AuctionStatsBanner/AuctionStatsBanner'
 import { TokenLaunchedBanner } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBanner'
+import { BidActivities } from '~/components/Toucan/Auction/BidActivities/BidActivities'
 import { AuctionChartContainer } from '~/components/Toucan/Auction/BidDistributionChart/AuctionChartContainer'
 import { BidForm } from '~/components/Toucan/Auction/BidForm/BidForm'
 import { AuctionGraduated } from '~/components/Toucan/Auction/Bids/AuctionGraduated'
@@ -158,3 +158,136 @@ function ToucanTokenContent({
             />
             <AuctionStats />
             <BidActivities />
+          </LeftPanel>
+
+          <RightPanel
+            width={390}
+            display="flex"
+            gap="$spacing24"
+            alignSelf="flex-start"
+            $lg={{
+              display: mobileScreenConfig.screen === MobileScreen.BID_FORM ? 'flex' : 'none',
+            }}
+          >
+            {showAuctionGraduated ? <AuctionGraduated /> : <BidForm onInputChange={handleBidFormInputChange} />}
+            {hasUserBids && <Bids />}
+          </RightPanel>
+        </TokenDetailsLayout>
+      </ToucanContainer>
+      {/* Fixed bottom button - $sm only - show Place Bid OR Withdraw */}
+      {(canPlaceBid || showMobileWithdrawButton) && (
+        <Flex
+          display="none"
+          $sm={{
+            '$platform-web': {
+              position: 'fixed',
+            },
+            flex: 1,
+            display: 'flex',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            p: '$spacing16',
+            pb: '$spacing24',
+            zIndex: '$fixed',
+          }}
+        >
+          {canPlaceBid ? (
+            <ToucanActionButton
+              label={t('toucan.bidForm.placeABid')}
+              onPress={() => setMobileScreenConfig((prev) => ({ ...prev, showBidFormModal: true }))}
+            />
+          ) : (
+            <ToucanActionButton
+              elementName={ElementName.AuctionWithdrawTokensButton}
+              label={withdrawLabel}
+              onPress={() => setIsWithdrawModalOpen(true)}
+              isDisabled={isWithdrawDisabled}
+              disabledTooltip={isWithdrawDisabled ? withdrawDisabledTooltip : undefined}
+            />
+          )}
+        </Flex>
+      )}
+      {/* BidForm modal - $sm only */}
+      <Modal
+        name={ModalName.BidForm}
+        isModalOpen={mobileScreenConfig.showBidFormModal ?? false}
+        onClose={() => setMobileScreenConfig((prev) => ({ ...prev, showBidFormModal: false }))}
+        maxWidth={420}
+        padding="$spacing16"
+      >
+        <BidForm onInputChange={handleBidFormInputChange} setMobileScreenConfig={setMobileScreenConfig} />
+      </Modal>
+      {/* Withdraw modal - $sm only */}
+      <WithdrawModal isOpen={isWithdrawModalOpen} onClose={() => setIsWithdrawModalOpen(false)} />
+    </Trace>
+  )
+}
+
+export default function ToucanToken() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const walletAddress = useActiveAddress(Platform.EVM)
+  const dispatch = useAppDispatch()
+
+  // Redux selectors for persisted state
+  const hasSeenDisconnected = useAppSelector(selectHasSeenToucanIntroModal)
+  const hasWalletSeen = useAppSelector((state: InterfaceState) =>
+    walletAddress ? selectHasSeenToucanIntroModalForWallet(state, walletAddress) : false,
+  )
+
+  // Three-layer check for showing intro modal
+  useEffect(() => {
+    // Layer 1: Session check - blocks everything in same session
+    try {
+      const seenThisSession = sessionStorage.getItem(TOUCAN_INTRO_MODAL_SESSION_KEY)
+      if (seenThisSession) {
+        return
+      }
+    } catch {
+      // sessionStorage not available, continue with other checks
+    }
+
+    // Layer 2 & 3: Persisted checks
+    if (walletAddress) {
+      // Connected: check per-wallet flag
+      if (hasWalletSeen) {
+        return
+      }
+    } else {
+      // Disconnected: check global flag
+      if (hasSeenDisconnected) {
+        return
+      }
+    }
+
+    setIsModalOpen(true)
+  }, [walletAddress, hasSeenDisconnected, hasWalletSeen])
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+
+    // Always set session flag
+    try {
+      sessionStorage.setItem(TOUCAN_INTRO_MODAL_SESSION_KEY, 'true')
+    } catch {
+      // sessionStorage not available, silently fail
+    }
+
+    // Set appropriate persisted flag
+    if (walletAddress) {
+      dispatch(setToucanIntroModalSeenByWallet({ walletAddress }))
+    } else {
+      dispatch(setHasSeenToucanIntroModal(true))
+    }
+  }
+
+  return (
+    <AuctionStoreProvider>
+      <ToucanTokenContent isModalOpen={isModalOpen} onOpenModal={handleOpenModal} onCloseModal={handleCloseModal} />
+    </AuctionStoreProvider>
+  )
+}

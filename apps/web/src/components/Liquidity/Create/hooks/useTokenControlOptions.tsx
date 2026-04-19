@@ -1,7 +1,7 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { Flex, Text } from 'ui/src'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Flex, Text } from '@l.x/ui/src'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
 
 export function useTokenControlOptions(currencies: [Maybe<Currency>, Maybe<Currency>], size: 'small' | 'large') {

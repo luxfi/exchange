@@ -6,15 +6,17 @@ import {
 } from '@l.x/gating'
 import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Image, Input, Text } from 'ui/src'
-import { BETA_LOGO } from 'ui/src/assets'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { useTimeout } from 'utilities/src/time/timing'
+import { useNavigate } from 'react-router'
+import { Button, Flex, Image, Input, Text } from '@l.x/ui/src'
+import { BETA_LOGO } from '@l.x/ui/src/assets'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 
 export function BetaPasscodeModal(): JSX.Element {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const [passphrase, setPassphrase] = useState('')
   const [hasError, setHasError] = useState(false)
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -33,8 +35,7 @@ export function BetaPasscodeModal(): JSX.Element {
     })
     if (validCodes.includes(passphrase)) {
       getOverrideAdapter().overrideGate('embedded_wallet', true)
-      // Full reload so modal registrations (add passkey, recovery) mount fresh
-      window.location.replace('/?intro=true')
+      navigate('/?intro=true', { replace: true })
     } else {
       setHasError(true)
     }

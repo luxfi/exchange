@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, GeneratedIcon, IconButton, Separator, Text, TouchableArea } from 'ui/src'
-import { CopySheets } from 'ui/src/components/icons/CopySheets'
-import { QrCode } from 'ui/src/components/icons/QrCode'
-import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useENSName } from 'uniswap/src/features/ens/api'
-import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
-import { useCexTransferProviders } from 'uniswap/src/features/fiatOnRamp/useCexTransferProviders'
+import { Flex, GeneratedIcon, IconButton, Separator, Text, TouchableArea } from '@l.x/ui/src'
+import { CopySheets } from '@l.x/ui/src/components/icons/CopySheets'
+import { QrCode } from '@l.x/ui/src/components/icons/QrCode'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useENSName } from '@l.x/lx/src/features/ens/api'
+import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { useCexTransferProviders } from '@l.x/lx/src/features/fiatOnRamp/useCexTransferProviders'
 import { AccountOption } from '~/components/ReceiveCryptoModal/AccountOption'
 import { ProviderOption } from '~/components/ReceiveCryptoModal/ProviderOption'
 import { ReceiveModalState } from '~/components/ReceiveCryptoModal/types'
@@ -42,7 +42,7 @@ function AccountCardItem({ address }: { address: Address }): JSX.Element {
         p="$spacing12"
       >
         <Flex fill>
-          <AccountOption account={address} ensUsername={ENSName} uniswapUsername={unitag?.username} />
+          <AccountOption account={address} ensUsername={ENSName} luxUsername={unitag?.username} />
         </Flex>
         <Flex centered row gap="$spacing12" px="$spacing8">
           <CopyToClipboard toCopy={address}>

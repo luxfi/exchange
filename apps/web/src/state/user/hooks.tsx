@@ -1,11 +1,11 @@
-/* oxlint-disable typescript/no-unnecessary-condition */
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 
-import { Percent } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
+import { Percent } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
 import JSBI from 'jsbi'
 import { useCallback, useMemo } from 'react'
-import { useGetPositionsForPairs } from 'uniswap/src/data/rest/getPositions'
-import { serializeToken } from 'uniswap/src/utils/currency'
+import { useGetPositionsForPairs } from '@l.x/lx/src/data/rest/getPositions'
+import { serializeToken } from '@l.x/lx/src/utils/currency'
 import { useAccount } from '~/hooks/useAccount'
 import { useAppDispatch, useAppSelector } from '~/state/hooks'
 import { RouterPreference } from '~/state/routing/types'

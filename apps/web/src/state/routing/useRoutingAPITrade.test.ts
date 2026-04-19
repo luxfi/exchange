@@ -1,11 +1,11 @@
 import { skipToken } from '@reduxjs/toolkit/query/react'
 import { renderHook } from '@testing-library/react'
-import { CurrencyAmount, TradeType } from '@uniswap/sdk-core'
+import { CurrencyAmount, TradeType } from '@luxamm/sdk-core'
 import ms from 'ms'
-import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { useIsMismatchAccountQuery } from 'uniswap/src/features/smartWallet/mismatch/hooks'
-import { AVERAGE_L1_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
-import { useIsWindowVisible } from 'utilities/src/react/useIsWindowVisible'
+import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { useIsMismatchAccountQuery } from '@l.x/lx/src/features/smartWallet/mismatch/hooks'
+import { AVERAGE_L1_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
+import { useIsWindowVisible } from '@l.x/utils/src/react/useIsWindowVisible'
 import { useGetQuoteQuery, useGetQuoteQueryState } from '~/state/routing/slice'
 import { GetQuoteArgs, INTERNAL_ROUTER_PREFERENCE_PRICE, RouterPreference, URAQuoteType } from '~/state/routing/types'
 import { useRoutingAPITrade } from '~/state/routing/useRoutingAPITrade'
@@ -32,7 +32,7 @@ vi.mock('@l.x/gating', async (importOriginal) => {
     getFeatureFlag: vi.fn(),
   }
 })
-vi.mock('uniswap/src/features/smartWallet/mismatch/hooks', () => ({
+vi.mock('lx/src/features/smartWallet/mismatch/hooks', () => ({
   useIsMismatchAccountQuery: vi.fn(),
 }))
 
@@ -69,7 +69,7 @@ const MOCK_ARGS: GetQuoteArgs = {
   tokenOutSymbol: ETH_MAINNET.wrapped.symbol,
   routerPreference: RouterPreference.API,
   tradeType: TradeType.EXACT_INPUT,
-  uniswapXForceSyntheticQuotes: false,
+  dexForceSyntheticQuotes: false,
   sendPortionEnabled: true,
   protocolPreferences: undefined,
   routingType: URAQuoteType.DUTCH_V2,

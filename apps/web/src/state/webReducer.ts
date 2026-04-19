@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { uniswapPersistedStateList, uniswapReducers } from 'uniswap/src/state/uniswapReducer'
+import { lxPersistedStateList, lxReducers } from '@l.x/lx/src/state/luxReducer'
 import application from '~/state/application/reducer'
 import fiatOnRampTransactions from '~/state/fiatOnRampTransactions/reducer'
 import lists from '~/state/lists/reducer'
@@ -10,7 +10,7 @@ import user from '~/state/user/reducer'
 import walletCapabilities from '~/state/walletCapabilities/reducer'
 
 const interfaceReducers = {
-  ...uniswapReducers,
+  ...lxReducers,
   user,
   lists,
   fiatOnRampTransactions,
@@ -24,7 +24,7 @@ const interfaceReducers = {
 export const interfaceReducer = combineReducers(interfaceReducers)
 
 export const interfacePersistedStateList: Array<keyof typeof interfaceReducers> = [
-  ...uniswapPersistedStateList,
+  ...lxPersistedStateList,
   'user',
   'lists',
   'fiatOnRampTransactions',
