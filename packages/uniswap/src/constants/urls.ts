@@ -7,8 +7,8 @@ import {
   PROD_ENTRY_GATEWAY_API_BASE_URL,
   STAGING_ENTRY_GATEWAY_API_BASE_URL,
   TrafficFlows,
-} from '@universe/api'
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+} from '@l.x/api'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { config } from 'uniswap/src/config'
 import { isBetaEnv, isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
 import { isWebApp } from 'utilities/src/platform'

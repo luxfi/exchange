@@ -3,7 +3,6 @@ import '~/sideEffects'
 
 import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
-import { InsightsProvider } from '@hanzo/insights-react'
 import { datadogRum } from '@datadog/browser-rum'
 import { PrivyProvider } from '@privy-io/react-auth'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
@@ -252,20 +251,6 @@ const Router = isBrowserRouterEnabled() ? BrowserRouter : HashRouter
 const RootApp = (): JSX.Element => {
   return (
     <StrictMode>
-      <InsightsProvider
-        apiKey={process.env.REACT_APP_INSIGHTS_API_KEY || 'hi_a5316882b930d11c9183007d70c3955b'}
-        options={{
-          api_host: process.env.REACT_APP_INSIGHTS_HOST || 'https://insights.hanzo.ai',
-          capture_pageview: true,
-          capture_pageleave: true,
-          autocapture: true,
-          loaded: (hi: any) => {
-            const slug = brand.appDomain?.replace(/\./g, '-') || 'lux-exchange'
-            const org = brand.name?.split(' ')[0]?.toLowerCase() || 'lux'
-            hi.register({ app: slug, org })
-          },
-        }}
-      >
       <HelmetProvider>
         <ReactRouterUrlProvider>
           <Provider store={store}>
@@ -317,7 +302,6 @@ const RootApp = (): JSX.Element => {
           </Provider>
         </ReactRouterUrlProvider>
       </HelmetProvider>
-      </InsightsProvider>
     </StrictMode>
   )
 }

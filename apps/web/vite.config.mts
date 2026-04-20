@@ -221,6 +221,12 @@ export default defineConfig(({ mode }) => {
     'ui/src': path.resolve(__dirname, '../../pkgs/ui/src'),
     'expo-clipboard': path.resolve(__dirname, 'src/lib/expo-clipboard.jsx'),
     // Workspace package aliases (upstream uses @universe/pkg/src/* paths)
+    // Upstream @universe/* -> Lux @l.x/* package aliases (packages/uniswap still has old names)
+    '@universe/api': path.resolve(__dirname, '../../pkgs/api'),
+    '@universe/config': path.resolve(__dirname, '../../pkgs/config'),
+    '@universe/gating': path.resolve(__dirname, '../../pkgs/gating'),
+    '@universe/notifications': path.resolve(__dirname, '../../pkgs/notifications'),
+    '@universe/prices': path.resolve(__dirname, '../../pkgs/prices'),
     '@l.x/sessions/src': path.resolve(__dirname, '../../pkgs/sessions/src'),
     '@l.x/sessions': path.resolve(__dirname, '../../pkgs/sessions'),
     '@l.x/api/src': path.resolve(__dirname, '../../pkgs/api/src'),
@@ -275,6 +281,7 @@ export default defineConfig(({ mode }) => {
     // @luxamm package aliases — these are `export * from '@uniswap/*'` re-exports.
     // Vite's optimizer can't handle the CJS→ESM conversion for conditional require() entries,
     // so we point directly to the upstream ESM dist files.
+    '@luxamm/sdk': path.resolve(__dirname, '../../node_modules/@uniswap/uniswapx-sdk'),
     '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@uniswap/sdk-core/dist/sdk-core.esm.js'),
     '@luxamm/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk/dist/router-sdk.esm.js'),
     '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk/dist/v2-sdk.esm.js'),
@@ -282,12 +289,26 @@ export default defineConfig(({ mode }) => {
     '@uniswap/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk/dist/router-sdk.esm.js'),
     '@uniswap/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk/dist/v2-sdk.esm.js'),
     '@luxamm/luxswap-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/uniswapx-sdk'),
+    '@luxamm/merkle-distributor': path.resolve(__dirname, '../../node_modules/@uniswap/merkle-distributor'),
+    // Upstream @uniswap/client-* -> @luxamm/client-* (packages/uniswap uses @uniswap names)
+    '@uniswap/client-data-api': path.resolve(__dirname, '../../node_modules/@luxamm/client-data-api'),
+    '@uniswap/client-explore': path.resolve(__dirname, '../../node_modules/@luxamm/client-explore'),
+    '@uniswap/client-liquidity': path.resolve(__dirname, '../../node_modules/@luxamm/client-liquidity'),
+    '@uniswap/client-notification-service': path.resolve(__dirname, '../../node_modules/@luxamm/client-notification-service'),
+    '@uniswap/client-search': path.resolve(__dirname, '../../node_modules/@luxamm/client-search'),
+    '@uniswap/client-unirpc-v2': path.resolve(__dirname, '../../node_modules/@luxamm/client-unirpc-v2'),
+    '@uniswap/client-privy-embedded-wallet': path.resolve(__dirname, '../../node_modules/@luxamm/client-privy-embedded-wallet'),
     // Stub out private privy-embedded-wallet package when not installed
     ...(!privyPackageInstalled ? {
       '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb':
         path.resolve(__dirname, '../../pkgs/api/stubs/privy-service-pb.js'),
       '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_connect':
         path.resolve(__dirname, '../../pkgs/api/stubs/privy-service-connect.js'),
+      // Upstream @uniswap/client-embeddedwallet → same stubs
+      '@uniswap/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_connect':
+        path.resolve(__dirname, '../../pkgs/api/stubs/privy-service-connect.js'),
+      '@uniswap/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb':
+        path.resolve(__dirname, '../../pkgs/api/stubs/privy-service-pb.js'),
     } : {}),
     // tsconfig path alias ~ → src/
     '~': path.resolve(__dirname, 'src'),

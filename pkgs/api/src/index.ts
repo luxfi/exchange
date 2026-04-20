@@ -344,3 +344,9 @@ export { getWebSocketUrl } from '@l.x/api/src/getWebSocketUrl'
 
 export { provideLXIdentifierService } from '@l.x/api/src/provideLXIdentifierService'
 
+// Upstream compat stubs (packages/uniswap references these via @universe/api)
+export const createUniswapApiClient = (...args: any[]) => ({})
+export const createV1LiquidityServiceClient = (...args: any[]) => ({})
+export const createV2LiquidityServiceClient = (...args: any[]) => ({})
+export const useTokenProjectTokensTvlPartsFragment = () => ({})
+

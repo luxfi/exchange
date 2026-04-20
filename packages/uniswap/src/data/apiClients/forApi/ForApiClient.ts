@@ -1,7 +1,7 @@
-import { createFetchClient, createForApiClient, provideSessionService } from '@universe/api'
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
-import { getForApiUrl } from 'uniswap/src/constants/urls'
-import { getForApiHeaders } from 'uniswap/src/features/fiatOnRamp/constants'
+import { createFetchClient, createForApiClient, provideSessionService } from '@l.x/api'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
+import { getForApiUrl } from '../../../constants/urls'
+import { getForApiHeaders } from '../../../features/fiatOnRamp/constants'
 
 /**
  * Singleton FetchClient for FOR API.

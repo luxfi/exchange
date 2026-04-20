@@ -2,7 +2,7 @@ import { createListenerMiddleware, createSlice, type PayloadAction } from '@redu
 import {
   getHandleOnSetActiveChainId,
   getHandleOnUpdateDelegatedState,
-} from 'uniswap/src/features/smartWallet/delegation/effects'
+} from './effects'
 import type { DelegatedState } from 'uniswap/src/features/smartWallet/delegation/types'
 import { UniswapEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'

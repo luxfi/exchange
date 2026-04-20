@@ -152,6 +152,7 @@ export * from './utils/colors'
 export { EM_DASH } from './utils/constants'
 export * from './utils/gui'
 export { DEXText } from './components/text/DEXText'
+export { DEXText as UniswapXText } from './components/text/DEXText'
 export { DEXGeneric } from './components/icons/DEXGeneric'
 
 export { assertWebElement } from '@l.x/ui/src/utils/gui'

@@ -21,7 +21,9 @@ export const UNICHAIN_LOGO = require('./logos/png/unichain-logo.png')
 export const UNICHAIN_SEPOLIA_LOGO = require('./logos/png/unichain-sepolia-logo.png')
 export const LUX_LOGO = require('./logos/png/lux-logo.png')
 export { LUX_LOGO as LX_LOGO }
+export { LUX_LOGO as UNISWAP_LOGO }
 export const LUX_LOGO_LARGE = require('./logos/png/lux-logo-large.png')
+export { LUX_LOGO_LARGE as UNISWAP_LOGO_LARGE }
 export const LUX_MONO_LOGO_LARGE = require('./logos/png/lux-mono-logo-large.png')
 export const LUX_APP_ICON = require('./logos/png/lux-app-icon.png')
 export const LUX_NETWORK_LOGO = require('./logos/png/lux-network-logo.png')
@@ -30,6 +32,8 @@ export const HANZO_LOGO = require('./logos/png/lux-network-logo.png')
 export const SPC_LOGO = require('./logos/png/lux-network-logo.png')
 export const PARS_LOGO = require('./logos/png/lux-network-logo.png')
 export const LIQUIDITY_LOGO = require('./logos/png/lux-network-logo.png')
+// Upstream compat stubs (packages/uniswap references these)
+export { ETHEREUM_LOGO as LINEA_LOGO }
 export const BINANCE_WALLET_ICON = require('./logos/png/binance-icon.png')
 export const BETA_LOGO = require('./logos/png/beta-logo.png')
 

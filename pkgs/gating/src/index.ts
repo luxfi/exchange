@@ -37,6 +37,7 @@ export { StatsigCustomAppValue } from '@l.x/gating/src/constants'
 export type { ExperimentProperties } from '@l.x/gating/src/experiments'
 export {
   EthAsErc20DEXProperties,
+  EthAsErc20DEXProperties as EthAsErc20UniswapXProperties,
   Experiments,
   ExploreBackendSortingProperties,
   LayerProperties,
@@ -97,3 +98,5 @@ export {
   useLayer,
 } from '@l.x/gating/src/sdk/statsig'
 export { getOverrides } from '@l.x/gating/src/utils'
+// Upstream compat stub (packages/uniswap references this via @universe/gating)
+export async function waitForStatsigReady(): Promise<void> { /* no-op */ }
