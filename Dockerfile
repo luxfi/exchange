@@ -11,7 +11,6 @@ RUN corepack enable && corepack prepare pnpm@9.15.9 --activate
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY apps/web/package.json apps/web/
 COPY apps/mobile/package.json apps/mobile/
-COPY apps/extension/package.json apps/extension/
 COPY pkgs/api/package.json pkgs/api/
 COPY pkgs/lx/package.json pkgs/lx/
 COPY pkgs/ui/package.json pkgs/ui/
