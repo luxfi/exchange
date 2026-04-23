@@ -13,6 +13,7 @@ import { useIsSearchBarVisible } from '~/components/NavBar/SearchBar/useIsSearch
 import { Tabs } from '~/components/NavBar/Tabs/Tabs'
 import TestnetModeTooltip from '~/components/NavBar/TestnetMode/TestnetModeTooltip'
 import { LXWrappedEntry } from '~/components/NavBar/LuxWrappedEntry'
+import { OnboardingGate } from '~/components/OnboardingGate'
 import Web3Status from '~/components/Web3Status'
 import { PageType, useIsPage } from '~/hooks/useIsPage'
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'
@@ -73,6 +74,7 @@ export default function Navbar() {
           <LXWrappedEntry />
           {!isSearchBarVisible && <SearchBar />}
           {!isEmbeddedWalletEnabled && isLandingPage && !isSmallScreen && <NewUserCTAButton />}
+          <OnboardingGate />
           {!isConnected && <PreferenceMenu />}
           {isTestnetModeEnabled && <TestnetModeTooltip />}
           <Web3Status />

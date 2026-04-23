@@ -306,10 +306,13 @@ const RootApp = (): JSX.Element => {
   )
 }
 
-// Load runtime brand config before rendering (fetches /config.json)
-import { brand, loadBrandConfig } from '@l.x/config'
+// Load runtime brand + deployment config before rendering.
+// loadBrandConfig fetches /brand.json (static, per-brand).
+// loadRuntimeConfig fetches /config.json (per-deployment, templated by
+// hanzoai/spa from SPA_* env vars at pod startup).
+import { brand, loadBrandConfig, loadRuntimeConfig } from '@l.x/config'
 
-loadBrandConfig().then(() => {
+Promise.all([loadBrandConfig(), loadRuntimeConfig()]).then(() => {
   // Inject brand values as i18n interpolation defaults so {{brandName}} etc. work in translations
   const brandVars = {
     brandName: brand.name,

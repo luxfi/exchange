@@ -63,6 +63,23 @@ bun web i18n:download
 
 Which will download the translations to `./apps/web/src/i18n/locales/translations`.
 
+## White-label onboarding gate
+
+Deployments that ship an identity stack (e.g. Hanzo IAM, Casdoor, a custom
+signup flow) can enable a Sign Up button in the NavBar without patching the
+upstream SPA. Set either env var at pod startup — `ghcr.io/hanzoai/spa`
+templates `/config.json` from any `SPA_*` variable it sees:
+
+| Env var              | Behaviour                                                                |
+|----------------------|--------------------------------------------------------------------------|
+| `SPA_ID_HOST`        | Button redirects to `${idHost}/signup?return=<encoded current URL>`.     |
+| `SPA_ONBOARDING_URL` | Button redirects to the exact URL. Wins over `SPA_ID_HOST` when both set.|
+
+If neither is set, the NavBar renders no Sign Up button (zero behaviour
+change for flat-deploy brands). See `src/components/OnboardingGate/` for
+the component and `pkgs/config/src/runtime.ts` for the runtime config
+loader.
+
 ## Further Documentation
 
 See [CLAUDE.md](./CLAUDE.md) for detailed development guidance, architecture patterns, and workflows.
