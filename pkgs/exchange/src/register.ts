@@ -1,246 +1,217 @@
-// One register() API. Orthogonal payloads. Composable.
+// One component. One config object. Zero imperative API.
 //
-// Every extension point the Exchange shell exposes — chains, markets,
-// tokens, features, auth, i18n, DEX backend, regulated-provider gating,
-// routes, widgets — flows through this single function.
+//   import Exchange from '@luxfi/exchange'
+//   import brand from '@zooai/brand'          // brand package IS the config
 //
-// Payload key selects the extension point; each is idempotent (same key
-// replaces) and callable any time before mount (or after, for hot reg).
+//   <Exchange {...brand} />
 //
-// @luxfi/exchange keeps the 1.x version line — no 2.0.0 jump. The App +
-// runtime ship as 1.1.0 when the SPA root moves into pkgs/exchange/src/
-// web/App.tsx.
+// Override any field locally:
+//
+//   <Exchange {...brand} features={{ nft: false }} routes={[...myRoutes]} />
+//
+// Everything composable via object spread — no register() calls, no
+// ordering, no global mutation. React props = React idioms.
 
 import type { ComponentType } from 'react'
 import type { Chain } from 'viem'
 
-// ─── Features ──────────────────────────────────────────────────────
-
-/** Toggle top-level product surfaces on/off. */
+// ─── Features ─────────────────────────────────────────────────────
 export interface Features {
-  swap?: boolean
-  pool?: boolean
+  swap?:      boolean
+  pool?:      boolean
   portfolio?: boolean
-  bridge?: boolean
-  limit?: boolean
-  send?: boolean
-  buy?: boolean
-  explore?: boolean
-  activity?: boolean
-  nft?: boolean
-  /** Custom flags — pass through to useFeatureFlag(). */
+  bridge?:    boolean
+  limit?:     boolean
+  send?:      boolean
+  buy?:       boolean
+  explore?:   boolean
+  activity?:  boolean
+  nft?:       boolean
   [custom: string]: boolean | undefined
 }
 
-// ─── Tokens ────────────────────────────────────────────────────────
-
-/** A token reference resolvable on-chain. */
+// ─── Tokens + Markets ─────────────────────────────────────────────
 export interface TokenRef {
-  chainId: number
-  /** 'native' for the chain's gas token, else an ERC-20 address. */
-  address: `0x${string}` | 'native'
-  symbol?: string
-  name?: string
+  chainId:   number
+  address:   `0x${string}` | 'native'
+  symbol?:   string
+  name?:     string
   decimals?: number
-  logoUrl?: string
-  /** Optional brand color for landing cloud / icon chips. */
-  color?: string
-  /** Tag as 'regulated' to force routing through the provider gate. */
+  logoUrl?:  string
+  color?:    string
   regulated?: boolean
 }
 
-/** A curated token list — adds/extends the default list for a chain. */
 export interface TokenList {
   chainId: number
-  name: string
-  tokens: TokenRef[]
+  name:    string
+  tokens:  TokenRef[]
 }
 
-// ─── Markets ──────────────────────────────────────────────────────
-
-/** A tradable market (pair). Optional — most markets come from the DEX
- *  adapter's getPools(). Use this to pin markets to the landing page
- *  or force a pair even if the adapter doesn't report it yet. */
 export interface Market {
-  chainId: number
-  tokenA: `0x${string}` | 'native'
-  tokenB: `0x${string}` | 'native'
-  /** Optional fee tier for V3-style pools (500/3000/10000). */
-  fee?: number
-  /** Pool / pair contract address (optional — looked up if not set). */
-  address?: `0x${string}`
-  /** Force display on the landing page. */
+  chainId:   number
+  tokenA:    `0x${string}` | 'native'
+  tokenB:    `0x${string}` | 'native'
+  fee?:      number
+  address?:  `0x${string}`
   featured?: boolean
 }
 
-// ─── Chains ────────────────────────────────────────────────────────
-
+// ─── Chain (extends viem Chain with optional per-chain overrides) ──
 export interface ChainConfig extends Chain {
-  /** Optional DEX backend override just for this chain. */
-  dex?: DexSpec
-  /** Optional gateway URL for cross-chain routing. */
+  dex?:        DexSpec
   gatewayUrl?: string
-  /** Regulated-provider config if this chain gates securities. */
-  provider?: ProviderConfig
+  provider?:   ProviderConfig
 }
 
-// ─── DEX backend ──────────────────────────────────────────────────
-
-/** Five ways to resolve swaps + liquidity. Registered via { dex }. */
+// ─── DEX backend ───────────────────────────────────────────────────
 export type DexSpec =
-  | { kind: 'precompile' }                                              // Lux DEX precompiles (LP-9010…LP-9040)
+  | { kind: 'precompile' }
   | { kind: 'v3'; factory: `0x${string}`; router: `0x${string}`; quoter: `0x${string}` }
-  | { kind: 'gateway'; url: string }                                    // lux/dex gateway
+  | { kind: 'gateway'; url: string }
   | { kind: 'hybrid'; amm: DexSpec; clob: DexSpec }
-  | DexAdapter                                                          // fully custom
+  | DexAdapter
 
-/** Custom adapter interface. Implement and register — 7 methods. */
 export interface DexAdapter {
-  name: string
-  quote(chainId: number, tokenIn: TokenRef, tokenOut: TokenRef, amount: bigint, exactIn: boolean): Promise<Quote>
-  swap(intent: SwapIntent): Promise<{ to: `0x${string}`; data: `0x${string}`; value?: bigint }>
-  pools(chainId: number): Promise<Market[]>
-  positions(chainId: number, owner: `0x${string}`): Promise<Position[]>
-  prices(chainId: number, tokens: (`0x${string}` | 'native')[]): Promise<Record<string, number>>
-  tokens(chainId: number): Promise<TokenRef[]>
-  health(): Promise<boolean>
+  name:      string
+  quote     (chainId: number, tokenIn: TokenRef, tokenOut: TokenRef, amount: bigint, exactIn: boolean): Promise<Quote>
+  swap      (intent: SwapIntent): Promise<{ to: `0x${string}`; data: `0x${string}`; value?: bigint }>
+  pools     (chainId: number): Promise<Market[]>
+  positions (chainId: number, owner: `0x${string}`): Promise<Position[]>
+  prices    (chainId: number, tokens: (`0x${string}` | 'native')[]): Promise<Record<string, number>>
+  tokens    (chainId: number): Promise<TokenRef[]>
+  health    (): Promise<boolean>
 }
 
 export interface Quote {
-  tokenIn: TokenRef
-  tokenOut: TokenRef
-  amountIn: bigint
-  amountOut: bigint
+  tokenIn:        TokenRef
+  tokenOut:       TokenRef
+  amountIn:       bigint
+  amountOut:      bigint
   priceImpactBps: number
-  route: Market[]
+  route:          Market[]
 }
 
 export interface SwapIntent {
-  chainId: number
-  tokenIn: TokenRef
-  tokenOut: TokenRef
-  amountIn: bigint
+  chainId:      number
+  tokenIn:      TokenRef
+  tokenOut:     TokenRef
+  amountIn:     bigint
   amountOutMin: bigint
-  recipient: `0x${string}`
-  slippageBps: number
-  deadline: number
-  value?: bigint
+  recipient:    `0x${string}`
+  slippageBps:  number
+  deadline:     number
+  value?:       bigint
 }
 
 export interface Position {
-  chainId: number
-  market: Market
-  liquidity: bigint
+  chainId:    number
+  market:     Market
+  liquidity:  bigint
   tickLower?: number
   tickUpper?: number
-  fees0: bigint
-  fees1: bigint
+  fees0:      bigint
+  fees1:      bigint
 }
 
-// ─── Regulated provider ────────────────────────────────────────
-
+// ─── Regulated provider ────────────────────────────────────────────
 export interface ProviderConfig {
-  name: string
-  /** IRegulatedProvider adapter contract (KYC / accreditation / offerings). */
-  adapter: `0x${string}`
-  /** Lux ProviderRouter contract. */
-  router: `0x${string}`
-  onboardingUrl: string
-  /** Assets that require the gate. All other swaps bypass. */
-  regulatedAssets?: `0x${string}`[]
+  name:               string
+  adapter:            `0x${string}`
+  router:             `0x${string}`
+  onboardingUrl:      string
+  regulatedAssets?:   `0x${string}`[]
 }
 
-// ─── Auth (IAM / OIDC) ────────────────────────────────────────
-
+// ─── Auth ──────────────────────────────────────────────────────────
 export interface AuthConfig {
-  /** 'iam' = Hanzo IAM (OIDC), 'none' = wallet-only. */
-  provider: 'iam' | 'none'
-  issuer?: string
-  clientId?: string
-  redirectUri?: string
-  /** User-facing host for login / KYC / account. */
-  idHost?: string
-  scopes?: string[]
+  provider:      'iam' | 'none'
+  issuer?:       string
+  clientId?:     string
+  redirectUri?:  string
+  idHost?:       string
+  scopes?:       string[]
 }
 
-// ─── i18n overrides ─────────────────────────────────────────
+// ─── Brand (visual identity) ──────────────────────────────────────
+export interface Brand {
+  name:            string
+  title:           string
+  description?:    string
+  shortName?:      string
+  logoUrl:         string
+  faviconUrl:      string
+  primaryColor?:   string
+  theme?: {
+    light?: Record<string, string>
+    dark?:  Record<string, string>
+  }
+  [meta: string]:  unknown
+}
 
-/** Locale → { key → override } — merged onto base translations. */
-export type I18nOverrides = Record<string, Record<string, string>>
-
-// ─── Routes ────────────────────────────────────────────────
-
+// ─── Routes + Widgets ─────────────────────────────────────────────
 export interface RouteDef {
-  path: string
-  component: ComponentType<Record<string, unknown>>
-  /** Hide from nav — useful for /xyz/confirm-style standalone screens. */
-  hidden?: boolean
-  /** Require wallet connection to render. */
+  path:         string
+  component:    ComponentType<Record<string, unknown>>
+  hidden?:      boolean
   requireAuth?: boolean
 }
 
-// ─── Widgets ───────────────────────────────────────────────
-
-/** Named mount points the shell exposes. */
 export type WidgetSlot =
-  | 'landing.hero'
-  | 'landing.below-hero'
-  | 'landing.features'
-  | 'landing.footer-cta'
-  | 'nav.left'
-  | 'nav.right'
-  | 'nav.footer'
-  | 'swap.above'
-  | 'swap.below'
-  | 'swap.footer'
-  | 'pool.header'
-  | 'pool.cta'
-  | 'portfolio.hero'
-  | 'portfolio.aside'
-  | 'portfolio.footer'
+  | 'landing.hero' | 'landing.below-hero' | 'landing.features' | 'landing.footer-cta'
+  | 'nav.left'     | 'nav.right'          | 'nav.footer'
+  | 'swap.above'   | 'swap.below'         | 'swap.footer'
+  | 'pool.header'  | 'pool.cta'
+  | 'portfolio.hero' | 'portfolio.aside'  | 'portfolio.footer'
   | 'activity.item-extra'
   | 'settings.section'
-  | 'footer.left'
-  | 'footer.right'
+  | 'footer.left'  | 'footer.right'
 
 export interface WidgetDef {
-  slot: WidgetSlot
+  slot:      WidgetSlot
   component: ComponentType<Record<string, unknown>>
 }
 
-// ─── One entrypoint ────────────────────────────────────────
+// ─── THE ENTIRE CONFIG ────────────────────────────────────────────
+//
+// `@zooai/brand` / `@luxfi/brand` / `@liquidityio/brand` ship a JSON
+// with these fields. Import + spread:
+//
+//   <Exchange {...brand} />
+//
+// Override any slice locally:
+//
+//   <Exchange {...brand} features={{ nft: false }} routes={[...]} />
+
+export interface ExchangeConfig extends Brand {
+  // Topology
+  chains?:        ChainConfig[]
+  defaultChain?:  ChainConfig
+  dex?:           DexSpec
+
+  // Catalog
+  tokens?:        TokenRef[]
+  tokenLists?:    TokenList[]
+  featured?:      TokenRef[]
+  markets?:       Market[]
+
+  // Access control
+  provider?:      ProviderConfig
+  auth?:          AuthConfig
+
+  // Product
+  features?:      Features
+  i18n?:          Record<string, Record<string, string>>
+
+  // Composition
+  routes?:        RouteDef[]
+  widgets?:       WidgetDef[]
+}
 
 /**
- * Discriminated union — payload key selects the extension point.
+ * The Exchange — one component, one config.
  *
- * @example
- *   Exchange.register({ features:     { bridge: false, nft: false } })
- *   Exchange.register({ chains:       [zooMainnet, zooTestnet] })
- *   Exchange.register({ defaultChain: zooMainnet })
- *   Exchange.register({ tokens:       [{ chainId, address, symbol, logoUrl }] })
- *   Exchange.register({ tokenList:    { chainId, name, tokens: [...] } })
- *   Exchange.register({ featured:     [ZOO, WZOO, AAPL] })
- *   Exchange.register({ markets:      [{ chainId, tokenA, tokenB, fee, featured: true }] })
- *   Exchange.register({ dex:          { kind: 'precompile' } })
- *   Exchange.register({ provider:     { name, adapter, router, onboardingUrl } })
- *   Exchange.register({ auth:         { provider: 'iam', clientId, issuer, idHost } })
- *   Exchange.register({ i18n:         { 'en-US': { 'swap.title': 'Trade on Zoo' } } })
- *   Exchange.register({ route:        { path: '/stake', component: ZooStake } })
- *   Exchange.register({ widget:       { slot: 'landing.hero', component: ZooHero } })
+ * Runtime `/config.json` (K8s ConfigMap) overrides via deep-merge on
+ * top of props. Brand → build-time override → runtime override.
  */
-export type RegisterPayload =
-  | { features:     Features }
-  | { chains:       ChainConfig[] }
-  | { defaultChain: ChainConfig }
-  | { tokens:       TokenRef[] }
-  | { tokenList:    TokenList }
-  | { featured:     TokenRef[] }
-  | { markets:      Market[] }
-  | { dex:          DexSpec }
-  | { provider:     ProviderConfig }
-  | { auth:         AuthConfig }
-  | { i18n:         I18nOverrides }
-  | { route:        RouteDef }
-  | { widget:       WidgetDef }
-
-export type RegisterFn = (payload: RegisterPayload) => void
+export type Exchange = ComponentType<ExchangeConfig>
