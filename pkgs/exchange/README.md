@@ -46,9 +46,9 @@ Exchange.register({ featured: [
   { chainId: 200200, address: '0xAA3AE95...', symbol: 'LETH' },
 ]})
 
-// Regulated-provider gate (Alpaca / OmniSub / etc.)
+// Regulated-provider gate (Liquidity)
 Exchange.register({ provider: {
-  name: 'Alpaca',
+  name: 'Liquidity',
   adapter: '0x...',
   router:  '0x...',
   onboardingUrl: 'https://kyc.zoo.ngo',

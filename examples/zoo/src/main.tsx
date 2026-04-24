@@ -4,7 +4,7 @@ import brand from '@zooai/brand'
 
 // Native Zoo Network deployment — 50% ZOO-native assets, 25% public stocks,
 // 25% private securities. Trading routes through the Lux gateway; regulated
-// assets gate through the Alpaca provider; login via Hanzo IAM at zoolabs.id.
+// assets gate through the Liquidity provider; login via Hanzo IAM at zoolabs.id.
 
 Exchange.register({ chains: [zooMainnet, zooTestnet] })
 Exchange.register({ defaultChain: zooMainnet })

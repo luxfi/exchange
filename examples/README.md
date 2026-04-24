@@ -7,7 +7,7 @@ Five starting points. Copy any directory to your own repo, swap the
 | --- | --- | --- | --- | --- |
 | [`minimal/`](minimal) | The smallest possible exchange — just mount `<Exchange>` | defaults (lux mainnet) | lux gateway | wallet only |
 | [`zoo/`](zoo) | Zoo Network white-label | Zoo EVM (200200) | lux gateway via DEX precompiles | Hanzo IAM (iam.zoo.network) |
-| [`liquidity/`](liquidity) | Regulated securities exchange | Liquid EVM (8675311/8675310/8675309) | dex.lux.network + Alpaca provider | Hanzo IAM (iam.dev.satschel.com) |
+| [`liquidity/`](liquidity) | Regulated securities exchange | Liquid EVM (8675311/8675310/8675309) | dex.lux.network + Liquidity provider | Hanzo IAM (iam.dev.satschel.com) |
 | [`custom-dex/`](custom-dex) | Bring your own DEX / AMM | any EVM | custom `DexAdapter` | wallet only |
 | [`custom-l1/`](custom-l1) | Brand new L1 — not Lux-based | your chain | your DEX or gateway | your IAM or wallet only |
 
@@ -37,7 +37,7 @@ See [pkgs/exchange/README.md](../pkgs/exchange/README.md) for the full
 | `{ features }`   | toggle top-level surfaces (swap, pool, portfolio, bridge, limit, nft) |
 | `{ chains, defaultChain }` | add chains, pick default |
 | `{ featured }`   | landing-page token cloud |
-| `{ provider }`   | regulated-asset gate (Alpaca / OmniSub / in-house KYC adapter) |
+| `{ provider }`   | regulated-asset gate (Liquidity / in-house KYC adapter) |
 | `{ auth }`       | OIDC issuer + clientId + idHost (Hanzo IAM or your own) |
 | `{ i18n }`       | text overrides per locale |
 | `{ route }`      | custom pages |

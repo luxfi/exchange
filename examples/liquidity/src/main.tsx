@@ -3,7 +3,7 @@ import Exchange, { liquidMainnet, liquidTestnet, liquidDevnet } from '@luxfi/exc
 import brand from '@liquidityio/brand'
 
 // Regulated digital securities exchange on Liquid EVM. Every security
-// token trade routes through the regulated provider (Alpaca OmniSub) —
+// token trade routes through the regulated provider (Liquidity) —
 // KYC, accreditation, and offering-type gating enforced.
 
 Exchange.register({ chains: [liquidMainnet, liquidTestnet, liquidDevnet] })
@@ -15,9 +15,9 @@ Exchange.register({ features: {
   nft: false,
 }})
 
-// Regulated-asset gate — Alpaca SecurityToken adapter + LQDTY router.
+// Regulated-asset gate — Liquidity SecurityToken adapter + LQDTY router.
 Exchange.register({ provider: {
-  name: 'Alpaca OmniSub',
+  name: 'Liquidity',
   adapter: '0x...',  // IRegulatedProvider adapter deployed on Liquid EVM
   router:  '0x...',  // Lux ProviderRouter
   onboardingUrl: 'https://id.dev.satschel.com/onboarding',
