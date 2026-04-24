@@ -9,7 +9,7 @@ on:
 jobs:
   publish:
     name: Publish to NPM
-    runs-on: lux-build-linux-amd64
+    runs-on: hanzo-build-linux-amd64
     permissions:
       contents: write
       id-token: write
