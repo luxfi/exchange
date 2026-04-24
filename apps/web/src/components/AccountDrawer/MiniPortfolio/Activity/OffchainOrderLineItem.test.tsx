@@ -1,4 +1,4 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { CurrencyAmount, WETH9 } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
 import { DAI, USDC_MAINNET } from '@l.x/lx/src/constants/tokens'

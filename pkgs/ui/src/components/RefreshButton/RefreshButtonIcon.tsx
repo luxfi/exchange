@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { TouchableArea } from '@l.x/ui/src/components/touchable'
 import { RefreshIcon } from '@l.x/ui/src/loading/RefreshIcon'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 /**
  * Refresh icon with 360-degree rotation animation.

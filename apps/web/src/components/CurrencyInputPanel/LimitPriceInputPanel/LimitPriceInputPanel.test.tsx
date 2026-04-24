@@ -1,6 +1,6 @@
 import '~/test-utils/tokens/mocks'
 
-vi.mock('lx/src/features/accounts/store/hooks', () => ({
+vi.mock('@l.x/lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(),
 }))
 

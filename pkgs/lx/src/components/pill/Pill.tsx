@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { Flex, FlexProps, Text } from 'ui/src'
-import { TextVariantTokens } from 'ui/src/theme'
+import { Flex, FlexProps, Text } from '@l.x/ui/src'
+import { TextVariantTokens } from '@l.x/ui/src/theme'
 
 export type PillProps = {
   customBackgroundColor?: string

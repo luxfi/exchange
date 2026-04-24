@@ -1,9 +1,9 @@
 import { Percent } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { formatPriceImpact } from 'lx/src/features/transactions/swap/utils/formatPriceImpact'
-import { getPriceImpact } from 'lx/src/features/transactions/swap/utils/getPriceImpact'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { formatPriceImpact } from '@l.x/lx/src/features/transactions/swap/utils/formatPriceImpact'
+import { getPriceImpact } from '@l.x/lx/src/features/transactions/swap/utils/getPriceImpact'
 
 /** Returns the price impact of the current trade, including LX trades. LX trades do not have typical pool-based price impact; we use a frontend-calculated metric. */
 export function usePriceImpact({ derivedSwapInfo }: { derivedSwapInfo: DerivedSwapInfo }): {

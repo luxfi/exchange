@@ -7,18 +7,18 @@ import {
   V3CreateLPPosition,
   V4CreateLPPosition,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { LiquidityServiceClient } from 'lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
-import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { parseErrorMessageTitle } from 'lx/src/features/transactions/liquidity/utils'
+import { LiquidityServiceClient } from '@l.x/lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { parseErrorMessageTitle } from '@l.x/lx/src/features/transactions/liquidity/utils'
 import {
   OnChainTransactionFields,
   OnChainTransactionFieldsBatched,
   TransactionStepType,
-} from 'lx/src/features/transactions/steps/types'
-import { validateTransactionRequest } from 'lx/src/features/transactions/swap/utils/trade'
-import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/steps/types'
+import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export interface IncreasePositionTransactionStep extends OnChainTransactionFields {
   // Doesn't require permit

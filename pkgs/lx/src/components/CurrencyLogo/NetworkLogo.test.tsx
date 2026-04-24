@@ -1,9 +1,9 @@
-import { NetworkLogo, TransactionSummaryNetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { render } from 'lx/src/test/test-utils'
+import { NetworkLogo, TransactionSummaryNetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { render } from '@l.x/lx/src/test/test-utils'
 
-vi.mock('lx/src/features/chains/chainInfo', async (importOriginal) => {
-  const actualChains = await importOriginal<typeof import('lx/src/features/chains/chainInfo')>()
+vi.mock('@l.x/lx/src/features/chains/chainInfo', async (importOriginal) => {
+  const actualChains = await importOriginal<typeof import('@l.x/lx/src/features/chains/chainInfo')>()
 
   return {
     ...actualChains,
@@ -20,7 +20,7 @@ vi.mock('lx/src/features/chains/chainInfo', async (importOriginal) => {
 })
 
 const ACTUAL_CHAIN_INFO = (
-  await vi.importActual<typeof import('lx/src/features/chains/chainInfo')>('lx/src/features/chains/chainInfo')
+  await vi.importActual<typeof import('@l.x/lx/src/features/chains/chainInfo')>('@l.x/lx/src/features/chains/chainInfo')
 ).UNIVERSE_CHAIN_INFO
 
 describe('NetworkLogo', () => {

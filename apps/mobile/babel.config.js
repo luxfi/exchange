@@ -18,7 +18,7 @@ module.exports = function (api) {
     //       {
     //         components: ['ui'],
     //         // experimentalFlattenThemesOnNative: true,
-    //         config: '../../packages/ui/src/tamagui.config.ts',
+    //         config: '../../pkgs/ui/src/tamagui.config.ts',
     //       },
     //     ],
 

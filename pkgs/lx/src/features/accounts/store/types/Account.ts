@@ -1,5 +1,5 @@
-import type { Platform } from 'lx/src/features/platforms/types/Platform'
-import type { PlatformSpecificAddress } from 'lx/src/features/platforms/types/PlatformSpecificAddress'
+import type { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import type { PlatformSpecificAddress } from '@l.x/lx/src/features/platforms/types/PlatformSpecificAddress'
 
 /**
  * Represents a platform-specific address paired with metadata about its originating wallet.

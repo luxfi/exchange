@@ -2,7 +2,7 @@ import { getContrastPassingTextColor } from '@l.x/ui/src/utils/colors/getContras
 import { describe, expect, it, vi } from 'vitest'
 
 // Mocking the colorsLight object
-vi.mock('ui/src/theme', () => ({
+vi.mock('@l.x/ui/src/theme', () => ({
   colorsLight: {
     white: '#FFFFFF',
   },

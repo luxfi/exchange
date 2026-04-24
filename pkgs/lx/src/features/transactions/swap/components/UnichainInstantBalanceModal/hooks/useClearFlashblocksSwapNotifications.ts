@@ -1,12 +1,12 @@
 import { useEffect, useMemo } from 'react'
 import { useDispatch } from 'react-redux'
-import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useSelectAddressNotifications } from 'lx/src/features/notifications/slice/hooks'
-import { clearNotificationQueue } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useSelectAddressNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
+import { clearNotificationQueue } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Clears the notification queue when the provided `trigger` flag is true **and**

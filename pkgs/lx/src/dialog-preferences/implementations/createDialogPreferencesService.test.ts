@@ -1,6 +1,6 @@
-import type { StorageDriver } from 'lx/src/dialog-preferences'
-import { createDialogPreferencesService } from 'lx/src/dialog-preferences'
-import { DialogVisibilityId } from 'lx/src/dialog-preferences/types'
+import type { StorageDriver } from '@l.x/lx/src/dialog-preferences'
+import { createDialogPreferencesService } from '@l.x/lx/src/dialog-preferences'
+import { DialogVisibilityId } from '@l.x/lx/src/dialog-preferences/types'
 import type { Mocked } from 'vitest'
 
 const { mockLogger } = vi.hoisted(() => ({
@@ -13,7 +13,7 @@ const { mockLogger } = vi.hoisted(() => ({
   },
 }))
 
-vi.mock('utilities/src/logger/logger', () => ({
+vi.mock('@l.x/utils/src/logger/logger', () => ({
   logger: mockLogger,
 }))
 

@@ -1,7 +1,7 @@
-import { SwapEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { SwapEventType, timestampTracker } from 'lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
-import { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
+import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { SwapEventType, timestampTracker } from '@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
+import { ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 // We only log the time-to-first-swap-input metric for the first swap input of a session.
 export function maybeLogFirstSwapAction(analyticsContext: ITraceContext): void {

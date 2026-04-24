@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { useCurrentFlashblocksTransaction } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/useCurrentFlashblocksTransaction'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useCurrentFlashblocksTransaction } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/useCurrentFlashblocksTransaction'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 
 export function useActualCompletionTime(): number | undefined {
   // Get instant receipt fetch time from swap state

@@ -1,8 +1,8 @@
 import { createStore, Store } from '@reduxjs/toolkit'
 import { closeModal, initialModalsState, modalsReducer, openModal } from 'src/features/modals/modalSlice'
 import { ModalsState } from 'src/features/modals/ModalsState'
-import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 const initialState = { ...initialModalsState }
 const modalName = ModalName.WalletConnectScan

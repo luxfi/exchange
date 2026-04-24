@@ -1,17 +1,17 @@
 import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-import { EM_DASH, Flex, flexStyles, Text, TouchableArea } from 'ui/src'
-import { CopyAlt } from 'ui/src/components/icons'
-import { iconSizes } from 'ui/src/theme'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { EM_DASH, Flex, flexStyles, Text, TouchableArea } from '@l.x/ui/src'
+import { CopyAlt } from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
-import { selectHasViewedContractAddressExplainer } from 'uniswap/src/features/behaviorHistory/selectors'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from '@l.x/lx/src/data/graphql/uniswap-data-api/fragments'
+import { selectHasViewedContractAddressExplainer } from '@l.x/lx/src/features/behaviorHistory/selectors'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 export const TokenDetailsHeader = memo(function TokenDetailsHeaderInner(): JSX.Element {
   const { currencyId, openContractAddressExplainerModal, copyAddressToClipboard } = useTokenDetailsContext()

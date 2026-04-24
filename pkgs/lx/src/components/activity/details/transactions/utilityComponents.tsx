@@ -1,6 +1,6 @@
 import { Currency } from '@luxamm/sdk-core'
-import { Flex, Loader, Text, TouchableArea } from 'ui/src'
-import { fonts, iconSizes, validColor } from 'ui/src/theme'
+import { Flex, Loader, Text, TouchableArea } from '@l.x/ui/src'
+import { fonts, iconSizes, validColor } from '@l.x/ui/src/theme'
 import { useFormattedCurrencyAmountAndUSDValue } from '@l.x/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
 import { useTokenDetailsNavigation } from '@l.x/lx/src/components/activity/hooks/useTokenDetailsNavigation'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'

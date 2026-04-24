@@ -1,11 +1,11 @@
-import { Flex, TouchableArea, UniversalImage } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { iconSizes } from 'ui/src/theme'
-import { getCountryFlagSvgUrl } from 'lx/src/features/fiatOnRamp/utils'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Flex, TouchableArea, UniversalImage } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { getCountryFlagSvgUrl } from '@l.x/lx/src/features/fiatOnRamp/utils'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 const ICON_SIZE = iconSizes.icon16
 

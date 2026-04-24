@@ -5,10 +5,10 @@ import { BackHandler } from 'react-native'
 import { navigate as rootNavigate } from 'src/app/navigation/rootNavigation'
 import { useExploreStackNavigation } from 'src/app/navigation/types'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
-import { getListTransactionsQuery } from 'uniswap/src/data/rest/listTransactions'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { useEvent } from 'utilities/src/react/hooks'
+import { getListTransactionsQuery } from '@l.x/lx/src/data/rest/listTransactions'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 interface EagerExternalProfileNavigationResult {
   preload: (address: string) => Promise<void>

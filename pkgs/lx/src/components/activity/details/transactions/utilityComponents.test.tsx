@@ -1,5 +1,5 @@
-import { ValueText } from 'lx/src/components/activity/details/transactions/utilityComponents'
-import { render } from 'lx/src/test/test-utils'
+import { ValueText } from '@l.x/lx/src/components/activity/details/transactions/utilityComponents'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 describe('ValueText', () => {
   it('renders formatted USD value as text', () => {

@@ -1,7 +1,7 @@
 import { type Currency, type CurrencyAmount } from '@luxamm/sdk-core'
-import { nativeOnChain, PATHUSD_TEMPO } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useOnChainCurrencyBalance } from 'lx/src/features/portfolio/api'
+import { nativeOnChain, PATHUSD_TEMPO } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useOnChainCurrencyBalance } from '@l.x/lx/src/features/portfolio/api'
 
 /**
  * Returns the gas token for a given chain (pure function, no hooks).

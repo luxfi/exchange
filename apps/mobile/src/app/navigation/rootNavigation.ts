@@ -1,7 +1,7 @@
 import { NavigationAction, NavigationState } from '@react-navigation/core'
 import { navigationRef } from 'src/app/navigation/navigationRef'
 import { RootParamList } from 'src/app/navigation/types'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 type RootNavigationArgs<RouteName extends keyof RootParamList> = undefined extends RootParamList[RouteName]
   ? [RouteName] | [RouteName, RootParamList[RouteName]]

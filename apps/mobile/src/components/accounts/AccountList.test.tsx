@@ -1,13 +1,13 @@
 import { AccountList } from 'src/components/accounts/AccountList'
 import { cleanup, fireEvent, render, screen } from 'src/test/test-utils'
-import { Locale } from 'uniswap/src/features/language/constants'
-import { amounts, ON_PRESS_EVENT_PAYLOAD, portfolio } from 'uniswap/src/test/fixtures'
-import { mockLocalizedFormatter } from 'uniswap/src/test/mocks'
-import { createArray, queryResolvers } from 'uniswap/src/test/utils'
-import { sanitizeAddressText } from 'uniswap/src/utils/addresses'
-import { shortenAddress } from 'utilities/src/addresses'
-import { NumberType } from 'utilities/src/format/types'
-import { ACCOUNT, readOnlyAccount, signerMnemonicAccount } from 'wallet/src/test/fixtures'
+import { Locale } from '@l.x/lx/src/features/language/constants'
+import { amounts, ON_PRESS_EVENT_PAYLOAD, portfolio } from '@l.x/lx/src/test/fixtures'
+import { mockLocalizedFormatter } from '@l.x/lx/src/test/mocks'
+import { createArray, queryResolvers } from '@l.x/lx/src/test/utils'
+import { sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { ACCOUNT, readOnlyAccount, signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
 const tokensTotalDenominatedValue = amounts.md()
 const { resolvers } = queryResolvers({

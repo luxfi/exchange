@@ -1,16 +1,16 @@
-import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
-import { SwapSummaryCallbacks } from 'lx/src/components/activity/types'
-import { isLoadingItem, isSectionHeader } from 'lx/src/components/activity/utils'
-import { type UseActivityDataProps, useActivityData } from 'lx/src/features/activity/hooks/useActivityData'
-import { useFormattedTransactionDataForActivity } from 'lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
-import { useHideSpamTokensSetting } from 'lx/src/features/settings/hooks'
-import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { renderHookWithProviders } from 'lx/src/test/render'
+import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
+import { SwapSummaryCallbacks } from '@l.x/lx/src/components/activity/types'
+import { isLoadingItem, isSectionHeader } from '@l.x/lx/src/components/activity/utils'
+import { type UseActivityDataProps, useActivityData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
+import { useFormattedTransactionDataForActivity } from '@l.x/lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
+import { useHideSpamTokensSetting } from '@l.x/lx/src/features/settings/hooks'
+import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { renderHookWithProviders } from '@l.x/lx/src/test/render'
 import type { MockedFunction } from 'vitest'
 
 // Mock dependencies
 vi.mock('./useFormattedTransactionDataForActivity')
-vi.mock('lx/src/features/settings/hooks')
+vi.mock('@l.x/lx/src/features/settings/hooks')
 
 const mockUseFormattedTransactionDataForActivity = useFormattedTransactionDataForActivity as MockedFunction<
   typeof useFormattedTransactionDataForActivity

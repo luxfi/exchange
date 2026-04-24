@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next'
-import { ClickableWithinGesture, Flex, Text } from 'ui/src'
-import { ArrowRight, WifiError } from 'ui/src/components/icons'
+import { ClickableWithinGesture, Flex, Text } from '@l.x/ui/src'
+import { ArrowRight, WifiError } from '@l.x/ui/src/components/icons'
 
 export function NoResultsFound({
   searchFilter,

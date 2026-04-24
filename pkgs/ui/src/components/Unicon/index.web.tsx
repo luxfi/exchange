@@ -3,8 +3,8 @@ import { Flex } from '@l.x/ui/src/components/layout/Flex'
 import { UniconProps } from '@l.x/ui/src/components/Unicon/types'
 import { getUniconColors, getUniconsDeterministicHash } from '@l.x/ui/src/components/Unicon/utils'
 import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
-import { isEVMAddressWithChecksum } from 'utilities/src/addresses/evm/evm'
-import { isSVMAddress } from 'utilities/src/addresses/svm/svm'
+import { isEVMAddressWithChecksum } from '@l.x/utils/src/addresses/evm/evm'
+import { isSVMAddress } from '@l.x/utils/src/addresses/svm/svm'
 
 // In test environments, we use an empty Icons object since tests don't render
 // the actual Unicon SVGs. In production, Icons is loaded lazily via dynamic import.
@@ -53,7 +53,7 @@ const UniconSVGBase = (props: UniconProps): React.ReactElement | null => UniconS
 const UniconSVGComponent = isTestEnv
   ? UniconSVGBase
   : lazy(async () => {
-      const { Icons: LazyIcons } = await import('ui/src/components/Unicon/UniconSVGs')
+      const { Icons: LazyIcons } = await import('@l.x/ui/src/components/Unicon/UniconSVGs')
       return {
         default: (props: UniconProps): React.ReactElement | null => UniconSVGInner({ ...props, icons: LazyIcons }),
       }

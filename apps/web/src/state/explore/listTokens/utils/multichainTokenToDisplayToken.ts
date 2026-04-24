@@ -1,7 +1,7 @@
 import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { Amount, Image, TokenProject } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { getRestTokenSafetyInfo } from 'uniswap/src/features/dataApi/utils/getCurrencySafetyInfo'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { getRestTokenSafetyInfo } from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
 import { TimePeriod } from '~/appGraphql/data/util'
 import type { TokenStat } from '~/state/explore/types'
 

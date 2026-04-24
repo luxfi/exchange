@@ -3,18 +3,18 @@ import {
   DappLogoWithWCBadge,
   LogoWithTxStatus,
   LogoWithTxStatusProps,
-} from 'lx/src/components/CurrencyLogo/LogoWithTxStatus'
-import { AssetType } from 'lx/src/entities/assets'
-import { ALL_EVM_CHAIN_IDS } from 'lx/src/features/chains/chainInfo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TransactionStatus, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { ETH_CURRENCY_INFO, ethCurrencyInfo } from 'lx/src/test/fixtures/wallet/currencies'
-import { render } from 'lx/src/test/test-utils'
-import { createFixture, randomChoice, randomEnumValue } from 'lx/src/test/utils'
-import { WalletConnectEvent } from 'lx/src/types/walletConnect'
+} from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { ALL_EVM_CHAIN_IDS } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { ETH_CURRENCY_INFO, ethCurrencyInfo } from '@l.x/lx/src/test/fixtures/wallet/currencies'
+import { render } from '@l.x/lx/src/test/test-utils'
+import { createFixture, randomChoice, randomEnumValue } from '@l.x/lx/src/test/utils'
+import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
 
-vi.mock('ui/src/components/UniversalImage/internal/PlainImage', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('ui/src/components/UniversalImage/internal/PlainImage.web')>()
+vi.mock('@l.x/ui/src/components/UniversalImage/internal/PlainImage', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/ui/src/components/UniversalImage/internal/PlainImage.web')>()
   return { ...actual }
 })
 
@@ -169,8 +169,8 @@ describe(LogoWithTxStatus, () => {
 })
 
 vi.mock(
-  'ui/src/components/UniversalImage/UniversalImage',
-  () => import('ui/src/components/UniversalImage/UniversalImage.mock'),
+  '@l.x/ui/src/components/UniversalImage/UniversalImage',
+  () => import('@l.x/ui/src/components/UniversalImage/UniversalImage.mock'),
 )
 
 describe(DappLogoWithTxStatus, () => {

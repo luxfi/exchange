@@ -6,10 +6,10 @@ import {
   type UnitagAddressResponse,
   type UseQueryApiHelperHookArgs,
 } from '@l.x/api'
-import { UnitagsApiClient } from 'lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
-import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { MAX_REACT_QUERY_CACHE_TIME_MS, ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { UnitagsApiClient } from '@l.x/lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
+import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { MAX_REACT_QUERY_CACHE_TIME_MS, ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 
 export function useUnitagsAddressQuery({
   params,

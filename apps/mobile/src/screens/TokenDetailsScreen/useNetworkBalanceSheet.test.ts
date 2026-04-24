@@ -1,13 +1,13 @@
 import { act, renderHook } from '@testing-library/react'
 import { useNetworkBalanceSheet } from 'src/screens/TokenDetailsScreen/useNetworkBalanceSheet'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 const mockNavigateToSwapFlow = jest.fn()
 const mockNavigateToSend = jest.fn()
 
-jest.mock('wallet/src/contexts/WalletNavigationContext', () => ({
+jest.mock('@luxfi/wallet/src/contexts/WalletNavigationContext', () => ({
   // oxlint-disable-next-line typescript/explicit-function-return-type
   useWalletNavigation: () => ({
     navigateToSwapFlow: mockNavigateToSwapFlow,
@@ -15,7 +15,7 @@ jest.mock('wallet/src/contexts/WalletNavigationContext', () => ({
   }),
 }))
 
-jest.mock('wallet/src/features/wallet/hooks', () => ({
+jest.mock('@luxfi/wallet/src/features/wallet/hooks', () => ({
   // oxlint-disable-next-line typescript/explicit-function-return-type
   useActiveAccountAddressWithThrow: () => '0xTestAddress',
 }))
@@ -75,12 +75,12 @@ let mockCrossChainResult = {
   otherChainBalances: null as PortfolioBalance[] | null,
 }
 
-jest.mock('uniswap/src/data/balances/hooks/useCrossChainBalances', () => ({
+jest.mock('@l.x/lx/src/data/balances/hooks/useCrossChainBalances', () => ({
   // oxlint-disable-next-line typescript/explicit-function-return-type
   useCrossChainBalances: () => mockCrossChainResult,
 }))
 
-jest.mock('uniswap/src/data/graphql/uniswap-data-api/fragments', () => ({
+jest.mock('@l.x/lx/src/data/graphql/uniswap-data-api/fragments', () => ({
   // oxlint-disable-next-line typescript/explicit-function-return-type
   useTokenBasicProjectPartsFragment: () => ({
     data: { project: { tokens: [] } },

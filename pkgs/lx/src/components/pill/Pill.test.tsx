@@ -1,6 +1,6 @@
-import { Text } from 'ui/src'
-import { Pill } from 'lx/src/components/pill/Pill'
-import { render } from 'lx/src/test/test-utils'
+import { Text } from '@l.x/ui/src'
+import { Pill } from '@l.x/lx/src/components/pill/Pill'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 it('renders a Pill without image', () => {
   const tree = render(<Pill backgroundColor="$surface2" foregroundColor="#000" label="My Pill Label" />)

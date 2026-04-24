@@ -1,5 +1,5 @@
 import { UnitagAvatarUploadCredentials } from '@l.x/api'
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export function isLocalFileUri(_imageUri: string): boolean {
   throw new PlatformSplitStubError('isLocalFileUri')

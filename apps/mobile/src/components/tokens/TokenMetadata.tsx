@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { FlexAlignType } from 'react-native'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 
 type TokenMetadataProps = PropsWithChildren<{
   align?: FlexAlignType

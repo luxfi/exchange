@@ -9,7 +9,7 @@ vi.mock('@ethersproject/contracts', () => ({
   Contract: vi.fn(),
 }))
 
-vi.mock('utilities/src/addresses/evm/evm', () => ({
+vi.mock('@l.x/utils/src/addresses/evm/evm', () => ({
   isEVMAddressWithChecksum: vi.fn(),
 }))
 const addressMock = isEVMAddressWithChecksum as unknown as Mock

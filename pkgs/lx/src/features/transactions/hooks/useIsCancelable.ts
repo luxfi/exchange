@@ -1,23 +1,23 @@
 import { TradingApi } from '@l.x/api'
 import { useEffect, useState } from 'react'
-import { useActiveConnector } from 'lx/src/features/accounts/store/hooks'
-import { AccessPattern } from 'lx/src/features/accounts/store/types/Connector'
-import { isL2ChainId } from 'lx/src/features/chains/utils'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { useActiveConnector } from '@l.x/lx/src/features/accounts/store/hooks'
+import { AccessPattern } from '@l.x/lx/src/features/accounts/store/types/Connector'
+import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import {
   isBridge,
   isChained,
   isClassic,
   isLX,
   isWrap,
-} from 'lx/src/features/transactions/swap/utils/routing'
+} from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   PlanTransactionInfo,
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 // For L2 chains, delay showing cancel option by 2 seconds
 const L2_CANCEL_DELAY_MS = 2 * ONE_SECOND_MS

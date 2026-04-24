@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Checkbox, Flex, GeneratedIcon, Text, TouchableArea } from 'ui/src'
-import { X } from 'ui/src/components/icons/X'
+import { Button, Checkbox, Flex, GeneratedIcon, Text, TouchableArea } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons/X'
 import { BaseModalProps } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { useBottomSheetSafeKeyboard } from '@l.x/lx/src/components/modals/useBottomSheetSafeKeyboard'
 import { ReportInput } from '@l.x/lx/src/components/reporting/input'
 import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
-import { isMobileApp, isMobileWeb, isWebPlatform } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+import { isMobileApp, isMobileWeb, isWebPlatform } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type ReportOption<T extends string> = {
   title: string

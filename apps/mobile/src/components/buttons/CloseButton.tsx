@@ -1,6 +1,6 @@
 import React from 'react'
-import { ColorTokens, IconProps, TouchableArea, TouchableAreaProps } from 'ui/src'
-import { X } from 'ui/src/components/icons'
+import { ColorTokens, IconProps, TouchableArea, TouchableAreaProps } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons'
 
 type Props = {
   onPress: () => void

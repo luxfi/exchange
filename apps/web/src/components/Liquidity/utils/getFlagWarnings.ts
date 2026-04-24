@@ -1,8 +1,8 @@
-import { GeneratedIcon } from 'ui/src'
-import { Flag } from 'ui/src/components/icons/Flag'
-import { Pools } from 'ui/src/components/icons/Pools'
-import { SwapDotted } from 'ui/src/components/icons/SwapDotted'
-import { AppTFunction } from 'ui/src/i18n/types'
+import { GeneratedIcon } from '@l.x/ui/src'
+import { Flag } from '@l.x/ui/src/components/icons/Flag'
+import { Pools } from '@l.x/ui/src/components/icons/Pools'
+import { SwapDotted } from '@l.x/ui/src/components/icons/SwapDotted'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
 
 export enum HookFlag {
   BeforeAddLiquidity = 'before-add-liquidity',

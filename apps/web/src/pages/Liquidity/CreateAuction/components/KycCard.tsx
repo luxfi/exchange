@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from 'ui/src'
+import { Button, Flex, Text } from '@l.x/ui/src'
 import { ExternalLink } from '~/theme/components/Links'
 
 export function KycCard() {

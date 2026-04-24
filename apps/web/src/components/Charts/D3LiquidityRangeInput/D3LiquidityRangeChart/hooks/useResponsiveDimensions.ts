@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions/useDeviceDimensions'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions/useDeviceDimensions'
 import { CHART_DIMENSIONS } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/constants'
 
 export function useResponsiveDimensions() {

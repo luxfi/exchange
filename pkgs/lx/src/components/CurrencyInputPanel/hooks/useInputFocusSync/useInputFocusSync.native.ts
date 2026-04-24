@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { UseInputFocusSyncProps } from 'lx/src/components/CurrencyInputPanel/hooks/useInputFocusSync/types'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { UseInputFocusSyncProps } from '@l.x/lx/src/components/CurrencyInputPanel/hooks/useInputFocusSync/types'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 // For native mobile, given that we're using a custom `DecimalPad`,
 // the input's focus state can sometimes be out of sync with the controlled `focus` prop.

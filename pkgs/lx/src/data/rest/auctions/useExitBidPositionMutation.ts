@@ -4,7 +4,7 @@ import type {
   ExitBidPositionRequest,
   ExitBidPositionResponse,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
-import { AuctionMutationClient } from 'lx/src/data/apiClients/liquidityService/AuctionMutationClient'
+import { AuctionMutationClient } from '@l.x/lx/src/data/apiClients/liquidityService/AuctionMutationClient'
 
 /**
  * Hook to exit a single bid position (refund) without claiming tokens.

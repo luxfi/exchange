@@ -2,8 +2,8 @@ import { cloneElement, useState } from 'react'
 import { AnimatePresence, ColorTokens, SpaceTokens, styled, TabLayout, Tabs, TabsTabProps } from '@hanzo/gui'
 import { Flex } from '@l.x/ui/src/components/layout/Flex'
 import { Text } from '@l.x/ui/src/components/text/Text'
-import { assert } from 'utilities/src/errors'
-import { isMobileApp, isWebPlatform } from 'utilities/src/platform'
+import { assert } from '@l.x/utils/src/errors'
+import { isMobileApp, isWebPlatform } from '@l.x/utils/src/platform'
 
 const TOGGLE_PADDING = 4
 

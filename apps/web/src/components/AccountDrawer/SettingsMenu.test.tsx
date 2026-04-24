@@ -1,4 +1,4 @@
-import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 import SettingsMenu from '~/components/AccountDrawer/SettingsMenu'
 import { useAccount } from '~/hooks/useAccount'
 import { mocked } from '~/test-utils/mocked'

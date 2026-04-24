@@ -2,12 +2,12 @@ import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { Shuffle } from 'ui/src/components/icons/Shuffle'
-import { X } from 'ui/src/components/icons/X'
-import { iconSizes, spacing } from 'ui/src/theme'
-import { selectHasDismissedCrosschainSwapsPromoBanner } from 'lx/src/features/behaviorHistory/selectors'
-import { setHasDismissedCrosschainSwapsPromoBanner } from 'lx/src/features/behaviorHistory/slice'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Shuffle } from '@l.x/ui/src/components/icons/Shuffle'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { iconSizes, spacing } from '@l.x/ui/src/theme'
+import { selectHasDismissedCrosschainSwapsPromoBanner } from '@l.x/lx/src/features/behaviorHistory/selectors'
+import { setHasDismissedCrosschainSwapsPromoBanner } from '@l.x/lx/src/features/behaviorHistory/slice'
 
 export function CrosschainSwapsPromoBanner(): JSX.Element | null {
   const { t } = useTranslation()

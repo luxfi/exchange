@@ -7,16 +7,16 @@ import {
   useAddressNotificationToggle,
   useSettingNotificationToggle,
 } from 'src/features/notifications/hooks/useNotificationsToggle'
-import { Flex, Switch, Text } from 'ui/src'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { iconSizes, spacing } from 'ui/src/theme'
-import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { MobileEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { NotificationToggleLoggingType } from 'uniswap/src/features/telemetry/types'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
-import { useAccountsList } from 'wallet/src/features/wallet/hooks'
+import { Flex, Switch, Text } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { iconSizes, spacing } from '@l.x/ui/src/theme'
+import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { NotificationToggleLoggingType } from '@l.x/lx/src/features/telemetry/types'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+import { useAccountsList } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const ROW_ITEM_HEIGHT = 40
 

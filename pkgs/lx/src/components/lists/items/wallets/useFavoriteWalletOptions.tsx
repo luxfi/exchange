@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { OnchainItemListOptionType, WalletOption } from 'lx/src/components/lists/items/types'
-import { selectWatchedAddressSet } from 'lx/src/features/favorites/selectors'
+import { OnchainItemListOptionType, WalletOption } from '@l.x/lx/src/components/lists/items/types'
+import { selectWatchedAddressSet } from '@l.x/lx/src/features/favorites/selectors'
 
 export function useFavoriteWalletOptions({ skip }: { skip?: boolean }): WalletOption[] | undefined {
   const favoriteWalletsSet = useSelector(selectWatchedAddressSet)

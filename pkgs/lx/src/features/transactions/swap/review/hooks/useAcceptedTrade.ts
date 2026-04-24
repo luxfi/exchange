@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
-import { interruptTransactionFlow } from 'lx/src/utils/saga'
-import { isWebApp } from 'utilities/src/platform'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { requireAcceptNewTrade } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { interruptTransactionFlow } from '@l.x/lx/src/utils/saga'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export function useAcceptedTrade({
   derivedSwapInfo,

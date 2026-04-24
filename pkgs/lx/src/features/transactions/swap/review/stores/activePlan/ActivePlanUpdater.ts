@@ -13,9 +13,9 @@ import { transformPlanResponse } from '@l.x/lx/src/features/transactions/swap/pl
 import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { tradingApiToUniverseChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
-import { useEvent, usePrevious } from 'utilities/src/react/hooks'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { queryWithoutCache } from 'utilities/src/reactQuery/queryOptions'
+import { useEvent, usePrevious } from '@l.x/utils/src/react/hooks'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { queryWithoutCache } from '@l.x/utils/src/reactQuery/queryOptions'
 import { useStore } from 'zustand'
 
 function useActivePlanQuery(params: {

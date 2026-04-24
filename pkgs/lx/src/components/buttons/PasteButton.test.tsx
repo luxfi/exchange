@@ -1,6 +1,6 @@
-import PasteButton from 'lx/src/components/buttons/PasteButton'
-import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
-import { render } from 'lx/src/test/test-utils'
+import PasteButton from '@l.x/lx/src/components/buttons/PasteButton'
+import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 describe(SplitLogo, () => {
   it('renders without error', () => {

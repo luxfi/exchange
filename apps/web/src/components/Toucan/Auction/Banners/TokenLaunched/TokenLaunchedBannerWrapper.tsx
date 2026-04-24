@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from 'react'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 
 interface TokenLaunchedBannerWrapperProps {
   bannerGradient: CSSProperties

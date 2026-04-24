@@ -1,7 +1,7 @@
 import { DynamicConfigs, FeatureFlags, SwapConfigKey, useDynamicConfigValue, useFeatureFlag } from '@l.x/gating'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isMainnetChainId } from 'lx/src/features/chains/utils'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isMainnetChainId } from '@l.x/lx/src/features/chains/utils'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 export const AVERAGE_L1_BLOCK_TIME_MS = 12 * ONE_SECOND_MS
 export const AVERAGE_L2_BLOCK_TIME_MS = 3 * ONE_SECOND_MS

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
-import { type UniverseChainId } from 'lx/src/features/chains/types'
-import { setActiveChainId } from 'lx/src/features/smartWallet/delegation/slice'
-import { useEvent } from 'utilities/src/react/hooks'
+import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { setActiveChainId } from '@l.x/lx/src/features/smartWallet/delegation/slice'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function useSetActiveChainId(): (chainId?: UniverseChainId) => void {
   const dispatch = useDispatch()

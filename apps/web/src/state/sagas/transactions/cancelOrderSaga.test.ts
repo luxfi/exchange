@@ -26,11 +26,11 @@ vi.mock('~/state', () => ({
   default: mockAppStore,
 }))
 
-vi.mock('utilities/src/logger/logger', () => ({
+vi.mock('@l.x/utils/src/logger/logger', () => ({
   logger: mockLogger,
 }))
 
-vi.mock('lx/src/features/transactions/slice', () => ({
+vi.mock('@l.x/lx/src/features/transactions/slice', () => ({
   cancelTransaction: Object.assign((payload: unknown) => ({ type: 'transactions/cancelTransaction', payload }), {
     type: 'transactions/cancelTransaction',
   }),

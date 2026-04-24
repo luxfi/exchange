@@ -1,13 +1,13 @@
 import { TradingApi } from '@l.x/api'
 import { ContractTransaction, providers } from 'ethers/lib/ethers'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { buildBatchCancellation } from 'lx/src/features/transactions/cancel/cancelOrderFactory'
-import { hasValidCancellationData } from 'lx/src/features/transactions/cancel/validation'
-import { LXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { hasEncodedOrder } from 'lx/src/features/transactions/utils/lx.utils'
-import { logger } from 'utilities/src/logger/logger'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { buildBatchCancellation } from '@l.x/lx/src/features/transactions/cancel/cancelOrderFactory'
+import { hasValidCancellationData } from '@l.x/lx/src/features/transactions/cancel/validation'
+import { LXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { hasEncodedOrder } from '@l.x/lx/src/features/transactions/utils/lx.utils'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface OrderWithEncodedData {
   orderHash: string

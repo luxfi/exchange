@@ -1,5 +1,5 @@
-import type { DialogProps } from 'lx/src/components/dialog/DialogProps'
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import type { DialogProps } from '@l.x/lx/src/components/dialog/DialogProps'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 /**
  * A dialog component that renders platform-specific implementations.

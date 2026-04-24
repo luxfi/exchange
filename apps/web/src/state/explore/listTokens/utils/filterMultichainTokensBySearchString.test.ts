@@ -1,9 +1,9 @@
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { createDataApiMultichainToken } from 'uniswap/src/test/fixtures/dataApi/multichainToken'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { createDataApiMultichainToken } from '@l.x/lx/src/test/fixtures/dataApi/multichainToken'
 import { describe, expect, it, vi } from 'vitest'
 import { filterMultichainTokensBySearchString } from '~/state/explore/listTokens/utils/filterMultichainTokensBySearchString'
 
-vi.mock('uniswap/src/data/cache', () => ({
+vi.mock('@l.x/lx/src/data/cache', () => ({
   normalizeTokenAddressForCache: vi.fn((addr: string | null) => (addr === null ? null : addr.toLowerCase())),
 }))
 

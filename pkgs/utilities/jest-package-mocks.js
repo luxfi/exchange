@@ -31,7 +31,7 @@ jest.mock('expo-localization', () => ({
   ],
 }))
 
-jest.mock('utilities/src/environment/env', () => ({
+jest.mock('@l.x/utils/src/environment/env', () => ({
   isTestEnv: jest.fn(() => true),
   isDevEnv: jest.fn(() => false),
   isBetaEnv: jest.fn(() => false),

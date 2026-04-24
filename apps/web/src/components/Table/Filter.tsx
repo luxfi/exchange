@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useRef } from 'react'
-import { Checkbox, Flex, styled, Text, useMedia } from 'ui/src'
-import { ChevronsOut } from 'ui/src/components/icons/ChevronsOut'
+import { Checkbox, Flex, styled, Text, useMedia } from '@l.x/ui/src'
+import { ChevronsOut } from '@l.x/ui/src/components/icons/ChevronsOut'
 import { Portal } from '~/components/Popups/Portal'
 import { useOnClickOutside } from '~/hooks/useOnClickOutside'
 

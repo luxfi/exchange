@@ -7,8 +7,8 @@ import {
   type ModalFeatureItem,
   ModalTemplate,
   type ModalTemplateButton,
-} from 'lx/src/components/notifications/ModalTemplate'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@l.x/lx/src/components/notifications/ModalTemplate'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 interface ModalNotificationProps {
   notification: InAppNotification

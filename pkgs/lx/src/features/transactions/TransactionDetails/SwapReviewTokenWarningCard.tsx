@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { TokenWarningCard } from 'lx/src/features/tokens/warnings/TokenWarningCard'
-import TokenWarningModal from 'lx/src/features/tokens/warnings/TokenWarningModal'
+import { TokenWarningCard } from '@l.x/lx/src/features/tokens/warnings/TokenWarningCard'
+import TokenWarningModal from '@l.x/lx/src/features/tokens/warnings/TokenWarningModal'
 import {
   FeeOnTransferFeeGroupProps,
   TokenWarningProps,
-} from 'lx/src/features/transactions/TransactionDetails/types'
-import { getShouldDisplayTokenWarningCard } from 'lx/src/features/transactions/TransactionDetails/utils/getShouldDisplayTokenWarningCard'
+} from '@l.x/lx/src/features/transactions/TransactionDetails/types'
+import { getShouldDisplayTokenWarningCard } from '@l.x/lx/src/features/transactions/TransactionDetails/utils/getShouldDisplayTokenWarningCard'
 
 type SwapReviewTokenWarningCardProps = {
   checked: boolean

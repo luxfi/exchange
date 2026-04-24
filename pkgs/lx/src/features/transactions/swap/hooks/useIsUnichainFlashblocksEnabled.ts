@@ -9,9 +9,9 @@ import {
   useExperimentValueFromLayer,
   useFeatureFlag,
 } from '@l.x/gating'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { shouldShowFlashblocksUI } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
-import { isWebApp } from 'utilities/src/platform'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { shouldShowFlashblocksUI } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 /**
  * Core logic to determine if Flashblocks modal should be enabled.

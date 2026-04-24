@@ -1,17 +1,17 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { Log, TransactionReceipt } from '@ethersproject/providers'
 import { TradingApi } from '@l.x/api'
-import { getWrappedNativeAddress } from 'lx/src/constants/addresses'
-import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
-import { isUniverseChainId } from 'lx/src/features/chains/utils'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { getWrappedNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import {
   CHAIN_TO_UNIVERSAL_ROUTER_ADDRESS,
   ERC20_TRANSFER_SIGNATURE,
   FLASHBLOCKS_UI_SKIP_ROUTES,
   NATIVE_WITHDRAWAL_SIGNATURE,
-} from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/constants'
-import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/constants'
+import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Works well for ERC20 tokens. Flaky for native tokens; sometimes not logged for swaps

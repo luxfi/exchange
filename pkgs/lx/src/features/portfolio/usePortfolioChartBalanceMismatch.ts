@@ -1,4 +1,4 @@
-import { checkBalanceDiffWithinRange } from 'lx/src/features/portfolio/checkBalanceDiffWithinRange'
+import { checkBalanceDiffWithinRange } from '@l.x/lx/src/features/portfolio/checkBalanceDiffWithinRange'
 
 export function usePortfolioChartBalanceMismatch({
   lastChartValue,

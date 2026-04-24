@@ -3,7 +3,7 @@ import {
   Locale,
   mapLanguageToLocale,
   PLATFORM_SUPPORTED_LANGUAGES,
-} from 'lx/src/features/language/constants'
+} from '@l.x/lx/src/features/language/constants'
 
 /**
  * Helper function used get the locale from the language. They're strongly associated,

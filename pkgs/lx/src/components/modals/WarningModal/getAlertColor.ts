@@ -1,4 +1,4 @@
-import { WarningColor, WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { WarningColor, WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 
 export function getAlertColor(severity?: WarningSeverity): WarningColor {
   switch (severity) {

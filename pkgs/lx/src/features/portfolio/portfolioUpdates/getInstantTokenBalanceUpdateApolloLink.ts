@@ -3,19 +3,19 @@ import { asyncMap, type Reference } from '@apollo/client/utilities'
 import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { GQLQueries, GraphQLApi } from '@l.x/api'
 import { Buffer } from 'buffer'
-import { getNativeAddress } from 'lx/src/constants/addresses'
-import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { fetchOnChainBalances } from 'lx/src/features/portfolio/portfolioUpdates/fetchOnChainBalances'
-import { makeSelectTokenBalanceOverridesForWalletAddress } from 'lx/src/features/portfolio/slice/selectors'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { normalizeCurrencyIdForMapLookup } from '@l.x/lx/src/data/cache'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { fetchOnChainBalances } from '@l.x/lx/src/features/portfolio/portfolioUpdates/fetchOnChainBalances'
+import { makeSelectTokenBalanceOverridesForWalletAddress } from '@l.x/lx/src/features/portfolio/slice/selectors'
 import {
   removeExpiredBalanceOverrides,
   removeTokenFromBalanceOverride,
-} from 'lx/src/features/portfolio/slice/slice'
-import { type CurrencyId } from 'lx/src/types/currency'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/portfolio/slice/slice'
+import { type CurrencyId } from '@l.x/lx/src/types/currency'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const APPROXIMATE_EQUALITY_THRESHOLD_PERCENT = 0.02 // 2%
 

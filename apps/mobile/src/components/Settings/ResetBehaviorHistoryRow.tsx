@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux'
-import { Flex, IconProps, Text, TouchableArea } from 'ui/src'
-import { UniswapLogo } from 'ui/src/components/icons'
-import { resetUniswapBehaviorHistory } from 'uniswap/src/features/behaviorHistory/slice'
-import { resetWalletBehaviorHistory } from 'wallet/src/features/behaviorHistory/slice'
+import { Flex, IconProps, Text, TouchableArea } from '@l.x/ui/src'
+import { UniswapLogo } from '@l.x/ui/src/components/icons'
+import { resetUniswapBehaviorHistory } from '@l.x/lx/src/features/behaviorHistory/slice'
+import { resetWalletBehaviorHistory } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 
 export function ResetBehaviorHistoryRow({ iconProps }: { iconProps: IconProps }): JSX.Element {
   const dispatch = useDispatch()

@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { Contract } from 'ui/src/components/icons/Contract'
-import { Sign } from 'ui/src/components/icons/Sign'
-import { StepRowProps, StepRowSkeleton } from 'lx/src/components/ConfirmSwapModal/steps/StepRowSkeleton'
-import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
-import { lxUrls } from 'lx/src/constants/urls'
-import { Permit2SignatureStep } from 'lx/src/features/transactions/steps/permit2Signature'
-import { Permit2TransactionStep } from 'lx/src/features/transactions/steps/permit2Transaction'
+import { Flex } from '@l.x/ui/src'
+import { Contract } from '@l.x/ui/src/components/icons/Contract'
+import { Sign } from '@l.x/ui/src/components/icons/Sign'
+import { StepRowProps, StepRowSkeleton } from '@l.x/lx/src/components/ConfirmSwapModal/steps/StepRowSkeleton'
+import { StepStatus } from '@l.x/lx/src/components/ConfirmSwapModal/types'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { Permit2SignatureStep } from '@l.x/lx/src/features/transactions/steps/permit2Signature'
+import { Permit2TransactionStep } from '@l.x/lx/src/features/transactions/steps/permit2Transaction'
 
 const SignIcon = (): JSX.Element => (
   <Flex centered width="$spacing24" height="$spacing24" borderRadius="$roundedFull" backgroundColor="$accent1">

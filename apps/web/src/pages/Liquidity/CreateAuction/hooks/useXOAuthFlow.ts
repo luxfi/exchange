@@ -1,8 +1,8 @@
 import { GetXAuthUrlRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/x_verification_pb'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { XVerificationClient } from 'lx/src/data/apiClients/liquidityService/XVerificationClient'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { XVerificationClient } from '@l.x/lx/src/data/apiClients/liquidityService/XVerificationClient'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useActiveAddress } from '~/features/accounts/store/hooks'
 import { useCreateAuctionStoreActions } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
 

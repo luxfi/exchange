@@ -1,15 +1,15 @@
 import { fireEvent, waitFor } from '@testing-library/react-native'
 import { SharedQueryClient } from '@l.x/api'
-import { Flex, Text } from 'ui/src'
-import { Dialog } from 'lx/src/components/dialog/Dialog.web'
-import type { DialogPreferencesService } from 'lx/src/dialog-preferences'
-import { DialogVisibilityId } from 'lx/src/dialog-preferences/types'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { renderWithProviders } from 'lx/src/test/render'
+import { Flex, Text } from '@l.x/ui/src'
+import { Dialog } from '@l.x/lx/src/components/dialog/Dialog.web'
+import type { DialogPreferencesService } from '@l.x/lx/src/dialog-preferences'
+import { DialogVisibilityId } from '@l.x/lx/src/dialog-preferences/types'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { renderWithProviders } from '@l.x/lx/src/test/render'
 import type { Mocked } from 'vitest'
 
 // Mock the Modal component to avoid BottomSheetModal context issues
-vi.mock('lx/src/components/modals/Modal', () => ({
+vi.mock('@l.x/lx/src/components/modals/Modal', () => ({
   Modal: ({ children, isModalOpen }: { children: React.ReactNode; isModalOpen: boolean }): JSX.Element | null => {
     return isModalOpen ? <>{children}</> : null
   },

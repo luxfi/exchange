@@ -1,18 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
 import { providers } from 'ethers/lib/ethers'
 import { useMemo } from 'react'
-import { CancellationGasFeeDetails, useTransactionGasFee } from 'lx/src/features/gas/hooks'
+import { CancellationGasFeeDetails, useTransactionGasFee } from '@l.x/lx/src/features/gas/hooks'
 import {
   calculateClassicCancellationGas,
   calculateLXCancellationGas,
   createClassicCancelRequest,
-} from 'lx/src/features/gas/utils/cancel'
-import { buildSingleCancellation } from 'lx/src/features/transactions/cancel/cancelOrderFactory'
-import { CancelableStepInfo, findCancelableStepInPlan } from 'lx/src/features/transactions/hooks/useIsCancelable'
-import { getOrders } from 'lx/src/features/transactions/swap/orders'
-import { PlanTransactionDetails, PlanTransactionInfo } from 'lx/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+} from '@l.x/lx/src/features/gas/utils/cancel'
+import { buildSingleCancellation } from '@l.x/lx/src/features/transactions/cancel/cancelOrderFactory'
+import { CancelableStepInfo, findCancelableStepInPlan } from '@l.x/lx/src/features/transactions/hooks/useIsCancelable'
+import { getOrders } from '@l.x/lx/src/features/transactions/swap/orders'
+import { PlanTransactionDetails, PlanTransactionInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export interface PlanCancellationGasFeeDetails extends CancellationGasFeeDetails {
   cancelableStepInfo: CancelableStepInfo

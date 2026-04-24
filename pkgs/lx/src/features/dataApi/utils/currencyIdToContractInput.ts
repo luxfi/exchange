@@ -1,10 +1,10 @@
 import { GraphQLApi } from '@l.x/api'
-import { DEFAULT_NATIVE_ADDRESS } from 'lx/src/features/chains/evm/rpc'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { toGraphQLChain } from 'lx/src/features/chains/utils'
-import { RestContract } from 'lx/src/features/dataApi/types'
-import { CurrencyId } from 'lx/src/types/currency'
-import { currencyIdToChain, currencyIdToGraphQLAddress } from 'lx/src/utils/currencyId'
+import { DEFAULT_NATIVE_ADDRESS } from '@l.x/lx/src/features/chains/evm/rpc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { RestContract } from '@l.x/lx/src/features/dataApi/types'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
+import { currencyIdToChain, currencyIdToGraphQLAddress } from '@l.x/lx/src/utils/currencyId'
 
 // Converts CurrencyId to GraphQLApi.ContractInput format for GQL token queries
 export function currencyIdToContractInput(id: CurrencyId): GraphQLApi.ContractInput {

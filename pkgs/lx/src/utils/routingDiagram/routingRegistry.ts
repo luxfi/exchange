@@ -1,13 +1,13 @@
 import { TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { jupiterRoutingProvider } from 'lx/src/utils/routingDiagram/routingProviders/jupiterRoutingProvider'
+import { Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { jupiterRoutingProvider } from '@l.x/lx/src/utils/routingDiagram/routingProviders/jupiterRoutingProvider'
 import {
   lxChainedRoutingProvider,
   lxRoutingProvider,
-} from 'lx/src/utils/routingDiagram/routingProviders/luxRoutingProvider'
-import type { RoutingDiagramEntry, RoutingProvider } from 'lx/src/utils/routingDiagram/types'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/utils/routingDiagram/routingProviders/luxRoutingProvider'
+import type { RoutingDiagramEntry, RoutingProvider } from '@l.x/lx/src/utils/routingDiagram/types'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * The routing provider map tells us how to render the routing diagram for a given routing type.

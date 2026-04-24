@@ -1,7 +1,7 @@
 import { BrushBehavior, brushY, D3BrushEvent, ScaleLinear, select } from 'd3'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSporeColors } from 'ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { brushHandleAccentPath, brushHandlePath, OffScreenHandle } from '~/components/Charts/LiquidityRangeInput/svg'
 import usePrevious from '~/hooks/usePrevious'
 

@@ -1,6 +1,6 @@
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 export function useV4SwapEnabled(chainId?: number): boolean {
   const supportedChainId = useSupportedChainId(chainId)

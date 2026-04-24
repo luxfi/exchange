@@ -25,7 +25,7 @@ import { migration20 } from '~/state/migrations/20'
 import { migration21 } from '~/state/migrations/21'
 import { migration22 } from '~/state/migrations/22'
 
-vi.mock('utilities/src/platform', () => ({
+vi.mock('@l.x/utils/src/platform', () => ({
   isWebApp: true,
   isMobileApp: false,
   isExtensionApp: false,
@@ -33,13 +33,13 @@ vi.mock('utilities/src/platform', () => ({
   isAndroid: false,
 }))
 
-vi.mock('lx/src/features/language/utils', () => ({
+vi.mock('@l.x/lx/src/features/language/utils', () => ({
   getCurrentLanguageFromNavigator: vi.fn().mockReturnValue('en'),
 }))
 
 const mockGetCurrentLanguageFromNavigator = vi.mocked(languageUtils.getCurrentLanguageFromNavigator)
 
-vi.mock('lx/src/features/language/hooks', () => ({
+vi.mock('@l.x/lx/src/features/language/hooks', () => ({
   navigatorLocale: vi.fn().mockReturnValue('en-US'),
 }))
 

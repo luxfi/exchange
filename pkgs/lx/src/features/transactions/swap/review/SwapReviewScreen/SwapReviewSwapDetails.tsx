@@ -2,14 +2,14 @@ import { memo, useEffect, useState } from 'react'
 import {
   useTransactionSettingsAutoSlippageToleranceStore,
   useTransactionSettingsStore,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { SwapDetails } from 'lx/src/features/transactions/swap/review/SwapDetails/SwapDetails'
-import { useSwapReviewCallbacksStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewCallbacksStore/useSwapReviewCallbacksStore'
-import { useSwapReviewTransactionStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/useSwapReviewTransactionStore'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { SwapDetails } from '@l.x/lx/src/features/transactions/swap/review/SwapDetails/SwapDetails'
+import { useSwapReviewCallbacksStore } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewCallbacksStore/useSwapReviewCallbacksStore'
+import { useSwapReviewTransactionStore } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/useSwapReviewTransactionStore'
 import {
   useSwapReviewWarningStateActions,
   useSwapReviewWarningStore,
-} from 'lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/useSwapReviewWarningStore'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/useSwapReviewWarningStore'
 
 export const SwapReviewSwapDetails = memo(function SwapReviewSwapDetails(): JSX.Element | null {
   const {

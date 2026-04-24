@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 import type { ProcessedChartData } from '~/components/Toucan/Auction/BidDistributionChart/utils/utils'
 
 interface ConcentrationBandOverlayProps {

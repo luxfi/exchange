@@ -1,9 +1,9 @@
 import { vi } from 'vitest'
 
 export function mockUIAssets(): void {
-  vi.mock('ui/src/assets', () => {
+  vi.mock('@l.x/ui/src/assets', () => {
     const assets: Record<string, unknown> = {
-      ...vi.importActual('ui/src/assets'),
+      ...vi.importActual('@l.x/ui/src/assets'),
     }
 
     Object.keys(assets).map((key) => {

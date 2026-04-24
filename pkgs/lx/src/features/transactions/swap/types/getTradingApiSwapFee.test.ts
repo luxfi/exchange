@@ -1,7 +1,7 @@
 import { Percent } from '@luxamm/sdk-core'
 import { ClassicQuoteResponse, DiscriminatedQuoteResponse, TradingApi } from '@l.x/api'
-import { getTradingApiSwapFee } from 'lx/src/features/transactions/swap/types/getTradingApiSwapFee'
-import { CurrencyField } from 'lx/src/types/currency'
+import { getTradingApiSwapFee } from '@l.x/lx/src/features/transactions/swap/types/getTradingApiSwapFee'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 const PORTION_RECIPIENT_AGGREGATED_OUTPUTS = '0xPORTION_RECIPIENT_AGGREGATED_OUTPUTS'
 const PORTION_AMOUNT_AGGREGATED_OUTPUTS = '25000000'

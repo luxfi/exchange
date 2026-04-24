@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useSporeColors } from 'ui/src'
-import { Stopwatch } from 'ui/src/components/icons/Stopwatch'
+import { Flex, Text, useSporeColors } from '@l.x/ui/src'
+import { Stopwatch } from '@l.x/ui/src/components/icons/Stopwatch'
 
 interface EstimatedTimeProps {
   /** Whether to show icon (stopwatch) */

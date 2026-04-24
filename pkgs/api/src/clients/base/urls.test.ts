@@ -4,8 +4,8 @@ import { TrafficFlows } from '@l.x/api/src/clients/base/urls'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock the platform and environment utilities
-vi.mock('utilities/src/environment/env')
-vi.mock('utilities/src/platform')
+vi.mock('@l.x/utils/src/environment/env')
+vi.mock('@l.x/utils/src/platform')
 
 const envConfigs = {
   webProd: {
@@ -229,7 +229,7 @@ describe('urls', () => {
   )
 
   it('generates correct URL for GraphQL flow in web/Playwright', async () => {
-    vi.doMock('utilities/src/environment/env', () => ({
+    vi.doMock('@l.x/utils/src/environment/env', () => ({
       isBetaEnv: () => false,
       isDevEnv: () => false,
       isRNDev: () => false,
@@ -237,7 +237,7 @@ describe('urls', () => {
       isTestEnv: () => false,
     }))
 
-    vi.doMock('utilities/src/platform', () => ({
+    vi.doMock('@l.x/utils/src/platform', () => ({
       isAndroid: false,
       isExtensionApp: false,
       isMobileApp: false,
@@ -280,7 +280,7 @@ function mockEnvironmentAndPlatform(
     isWebApp = false,
   } = overrides
 
-  vi.doMock('utilities/src/environment/env', () => ({
+  vi.doMock('@l.x/utils/src/environment/env', () => ({
     isBetaEnv: () => isBetaEnv,
     isDevEnv: () => isDevEnv,
     isRNDev: () => isRNDev,
@@ -288,7 +288,7 @@ function mockEnvironmentAndPlatform(
     isTestEnv: () => isTestEnv,
   }))
 
-  vi.doMock('utilities/src/platform', () => ({
+  vi.doMock('@l.x/utils/src/platform', () => ({
     isAndroid,
     isExtensionApp,
     isMobileApp,

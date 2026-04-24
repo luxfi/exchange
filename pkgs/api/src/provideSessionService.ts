@@ -1,6 +1,6 @@
 import type { SessionService, LXIdentifierService } from '@l.x/sessions'
-import { PlatformSplitStubError } from 'utilities/src/errors'
-import type { Logger } from 'utilities/src/logger/logger'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 
 export function provideSessionService(_ctx: {
   getBaseUrl: () => string

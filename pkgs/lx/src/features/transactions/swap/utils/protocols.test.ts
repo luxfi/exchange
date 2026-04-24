@@ -1,14 +1,14 @@
 import { TradingApi } from '@l.x/api'
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-import { createGetSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { createGetV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
+import { createGetSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { createGetV4SwapEnabled } from '@l.x/lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
 import {
   createGetProtocolsForChain,
   createGetLXPriorityOrderFlag,
   createProtocolFilter,
   FrontendSupportedProtocol,
-} from 'lx/src/features/transactions/swap/utils/protocols'
+} from '@l.x/lx/src/features/transactions/swap/utils/protocols'
 import type { Mock } from 'vitest'
 
 vi.mock('@l.x/gating', async (importOriginal) => {
@@ -20,20 +20,20 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('lx/src/features/transactions/swap/hooks/useV4SwapEnabled', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/hooks/useV4SwapEnabled', () => ({
   useV4SwapEnabled: vi.fn(),
   createGetV4SwapEnabled: vi.fn(),
 }))
 
-vi.mock('lx/src/contexts/LuxContext', () => ({
+vi.mock('@l.x/lx/src/contexts/LuxContext', () => ({
   useLuxContextSelector: vi.fn(),
 }))
 
-vi.mock('lx/src/features/chains/hooks/useSupportedChainId', () => ({
+vi.mock('@l.x/lx/src/features/chains/hooks/useSupportedChainId', () => ({
   createGetSupportedChainId: vi.fn(),
 }))
 
-vi.mock('lx/src/features/chains/hooks/useEnabledChains', () => ({
+vi.mock('@l.x/lx/src/features/chains/hooks/useEnabledChains', () => ({
   useEnabledChains: vi.fn(),
 }))
 

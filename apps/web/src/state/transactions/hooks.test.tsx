@@ -26,7 +26,7 @@ import { renderHookWithProviders } from '~/test-utils/renderHookWithProviders'
 
 // Mock useAccount hook
 vi.mock('~/hooks/useAccount')
-vi.mock('lx/src/features/wallet/hooks/useWallet')
+vi.mock('@l.x/lx/src/features/wallet/hooks/useWallet')
 
 describe('Transactions hooks', () => {
   const address = '0x0000000000000000000000000000000000000000'

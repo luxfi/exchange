@@ -1,10 +1,10 @@
 import {
   MigratePositionTransactionStep,
   MigratePositionTransactionStepAsync,
-} from 'lx/src/features/transactions/liquidity/steps/migrate'
-import { TokenApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
-import type { Permit2SignatureStep } from 'lx/src/features/transactions/steps/permit2Signature'
-import type { Permit2TransactionStep } from 'lx/src/features/transactions/steps/permit2Transaction'
+} from '@l.x/lx/src/features/transactions/liquidity/steps/migrate'
+import { TokenApprovalTransactionStep } from '@l.x/lx/src/features/transactions/steps/approve'
+import type { Permit2SignatureStep } from '@l.x/lx/src/features/transactions/steps/permit2Signature'
+import type { Permit2TransactionStep } from '@l.x/lx/src/features/transactions/steps/permit2Transaction'
 
 export type MigrationSteps =
   | Permit2SignatureStep

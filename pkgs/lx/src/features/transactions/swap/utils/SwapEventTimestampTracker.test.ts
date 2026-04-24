@@ -1,7 +1,7 @@
 import {
   SwapEventTimestampTracker,
   SwapEventType,
-} from 'lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
+} from '@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
 
 describe('SwapEventTimestampTracker', () => {
   let swapSuccessTime: number | undefined

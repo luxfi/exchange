@@ -2,7 +2,7 @@
 // gui-ignore
 /* eslint-disable complexity */
 import { forwardRef, memo, useCallback } from 'react'
-import { Flex, TouchableArea, useIsShortMobileDevice, useShakeAnimation } from 'ui/src'
+import { Flex, TouchableArea, useIsShortMobileDevice, useShakeAnimation } from '@l.x/ui/src'
 import {
   AmountInputPresets,
   PRESET_BUTTON_PROPS,
@@ -18,7 +18,7 @@ import { useIndicativeQuoteTextDisplay } from '@l.x/lx/src/components/CurrencyIn
 import type { CurrencyInputPanelProps, CurrencyInputPanelRef } from '@l.x/lx/src/components/CurrencyInputPanel/types'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { isExtensionApp, isMobileWeb, isWebAppDesktop } from 'utilities/src/platform'
+import { isExtensionApp, isMobileWeb, isWebAppDesktop } from '@l.x/utils/src/platform'
 
 export const CurrencyInputPanel = memo(
   forwardRef<CurrencyInputPanelRef, CurrencyInputPanelProps>(

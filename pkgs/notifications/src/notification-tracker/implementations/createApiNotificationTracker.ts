@@ -5,8 +5,8 @@ import {
   NotificationTracker,
   TrackingMetadata,
 } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
-import { getLogger } from 'utilities/src/logger/logger'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { getLogger } from '@l.x/utils/src/logger/logger'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 /**
  * Context for creating an API-based notification tracker

@@ -37,8 +37,8 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { getFormattedCurrencyAmount } from '@l.x/lx/src/utils/currency'
 import { areCurrencyIdsEqual, buildCurrencyId, buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
-import { useDebounce } from 'utilities/src/time/timing'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { useDebounce } from '@l.x/utils/src/time/timing'
 
 const SHORT_DELAY = 500
 

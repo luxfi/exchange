@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { SwapFee } from 'lx/src/features/transactions/swap/types/trade'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { SwapFee } from '@l.x/lx/src/features/transactions/swap/types/trade'
 
 export function getSwapFeeUsd({
   swapFee,

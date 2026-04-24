@@ -2,8 +2,8 @@ import {
   SerializedTokenMap,
   TokenDismissInfo,
   TokenWarningDismissal,
-} from 'lx/src/features/tokens/warnings/slice/types'
-import { LXState } from 'lx/src/state/lxReducer'
+} from '@l.x/lx/src/features/tokens/warnings/slice/types'
+import { LXState } from '@l.x/lx/src/state/lxReducer'
 
 // selectors
 

@@ -1,11 +1,11 @@
 import React from 'react'
-import { OSDynamicCloudIcon, PaperStack, Passkey } from 'ui/src/components/icons'
-import { AppTFunction } from 'ui/src/i18n/types'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { TestID, TestIDType } from 'uniswap/src/test/fixtures/testIDs'
-import { ImportType } from 'uniswap/src/types/onboarding'
-import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
-import { isAndroid } from 'utilities/src/platform'
+import { OSDynamicCloudIcon, PaperStack, Passkey } from '@l.x/ui/src/components/icons'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID, TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
+import { ImportType } from '@l.x/lx/src/types/onboarding'
+import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 type ImportMethodScreens =
   | OnboardingScreens.SeedPhraseInput

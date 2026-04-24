@@ -1,19 +1,19 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { memo } from 'react'
-import { Flex, Text } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import Badge from 'lx/src/components/badge/Badge'
-import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
-import { FocusedRowControl, OptionItem } from 'lx/src/components/lists/items/OptionItem'
+import { Flex, Text } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
+import Badge from '@l.x/lx/src/components/badge/Badge'
+import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
+import { FocusedRowControl, OptionItem } from '@l.x/lx/src/components/lists/items/OptionItem'
 import {
   PoolContextMenuAction,
   PoolOptionItemContextMenu,
-} from 'lx/src/components/lists/items/pools/PoolOptionItemContextMenu'
-import { BIPS_BASE } from 'lx/src/constants/misc'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { ellipseMiddle, shortenAddress } from 'utilities/src/addresses'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+} from '@l.x/lx/src/components/lists/items/pools/PoolOptionItemContextMenu'
+import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { ellipseMiddle, shortenAddress } from '@l.x/utils/src/addresses'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 interface PoolOptionItemProps {
   token0CurrencyInfo: CurrencyInfo

@@ -156,7 +156,7 @@ vi.mock('expo-blur', () => ({
   },
 }))
 
-vi.mock('ui/src/components/touchable/TouchableArea', () => ({
+vi.mock('@l.x/ui/src/components/touchable/TouchableArea', () => ({
   TouchableArea: ({ children, ..._props }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -215,7 +215,7 @@ vi.mock('@luxamm/analytics', () => ({
   __esModule: true,
 }))
 
-vi.mock('utilities/src/telemetry/analytics/constants', () => ({
+vi.mock('@l.x/utils/src/telemetry/analytics/constants', () => ({
   ANALYTICS_FLUSH_TIMEOUT: 5000,
   ANALYTICS_REQUEST_TIMEOUT: 10000,
   ANALYTICS_BATCH_SIZE: 100,
@@ -224,8 +224,8 @@ vi.mock('utilities/src/telemetry/analytics/constants', () => ({
   __esModule: true,
 }))
 
-vi.mock('utilities/src/platform', async () => {
-  const actual = await vi.importActual('utilities/src/platform')
+vi.mock('@l.x/utils/src/platform', async () => {
+  const actual = await vi.importActual('@l.x/utils/src/platform')
   return {
     ...actual,
     isWebPlatform: true,
@@ -235,7 +235,7 @@ vi.mock('utilities/src/platform', async () => {
   }
 })
 
-vi.mock('lx/src/features/telemetry/Trace', () => ({
+vi.mock('@l.x/lx/src/features/telemetry/Trace', () => ({
   default: ({ children }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -244,7 +244,7 @@ vi.mock('lx/src/features/telemetry/Trace', () => ({
   },
 }))
 
-vi.mock('lx/src/features/accounts/store/hooks', () => ({
+vi.mock('@l.x/lx/src/features/accounts/store/hooks', () => ({
   useConnectionStatus: vi.fn(() => ({ isConnecting: false })),
 }))
 
@@ -329,7 +329,7 @@ vi.mock('@popperjs/core', async () => {
   }
 })
 
-vi.mock('lx/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
+vi.mock('@l.x/lx/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
 
 vi.mock('@web3-react/core', async () => {
   const web3React: any = await vi.importActual('@web3-react/core')
@@ -445,7 +445,7 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('lx/src/features/chains/hooks/useOrderedChainIds', () => {
+vi.mock('@l.x/lx/src/features/chains/hooks/useOrderedChainIds', () => {
   return {
     useOrderedChainIds: (chainIds: UniverseChainId[]) => chainIds,
   }

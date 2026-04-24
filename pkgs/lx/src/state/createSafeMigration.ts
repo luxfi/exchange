@@ -1,5 +1,5 @@
 import { type PersistState } from 'redux-persist'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface SafeMigrationOptions<T> {
   /** Filename used for error logging */

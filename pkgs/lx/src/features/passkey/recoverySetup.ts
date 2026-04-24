@@ -1,4 +1,4 @@
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
 import {
   blindPin,
   combineAndDeriveKey,
@@ -9,9 +9,9 @@ import {
   hashAuthMethodId,
   SALT_LENGTH,
   zeroBuffers,
-} from 'lx/src/features/passkey/pinCrypto'
-import { storeEncryptedBlob } from 'lx/src/features/passkey/privyBlobStore'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/passkey/pinCrypto'
+import { storeEncryptedBlob } from '@l.x/lx/src/features/passkey/privyBlobStore'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export type SetupProgress =
   | 'generating_keys'

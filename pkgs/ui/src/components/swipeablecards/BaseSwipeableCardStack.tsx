@@ -3,7 +3,7 @@ import { Flex } from '@l.x/ui/src/components/layout'
 import { SWIPEABLE_CARD_Y_OFFSET } from '@l.x/ui/src/components/swipeablecards/BaseCard'
 import { PickedCardProps, SwipeableCardStackProps } from '@l.x/ui/src/components/swipeablecards/props'
 import { SwipeableCard } from '@l.x/ui/src/components/swipeablecards/SwipeableCard'
-import { usePrevious } from 'utilities/src/react/hooks'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 
 // Extra padding at the bottom of the container to prevent card shadows from being clipped
 const SHADOW_OVERFLOW_PADDING = 8

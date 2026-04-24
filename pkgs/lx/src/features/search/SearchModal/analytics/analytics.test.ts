@@ -16,8 +16,8 @@ import type { Mock } from 'vitest'
 // Use vi.hoisted to create a mutable mock value that can be changed between tests
 const mockPlatformState = vi.hoisted(() => ({ isMobileApp: false }))
 
-vi.mock('lx/src/features/telemetry/send')
-vi.mock('utilities/src/platform', () => ({
+vi.mock('@l.x/lx/src/features/telemetry/send')
+vi.mock('@l.x/utils/src/platform', () => ({
   get isMobileApp(): boolean {
     return mockPlatformState.isMobileApp
   },

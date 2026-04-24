@@ -1,5 +1,5 @@
 import { argon2id } from '@noble/hashes/argon2.js'
-import { ARGON2_PARAMS } from 'lx/src/features/passkey/pinCrypto'
+import { ARGON2_PARAMS } from '@l.x/lx/src/features/passkey/pinCrypto'
 
 // biome-ignore lint/style/noRestrictedGlobals: Web Worker global is the standard API
 const workerSelf = self

@@ -1,10 +1,10 @@
-import { Bank } from 'ui/src/components/icons/Bank'
-import { Buy } from 'ui/src/components/icons/Buy'
-import { PaymentMethodFilter as MobilePaymentMethodFilter } from 'lx/src/features/fiatOnRamp/PaymentMethodFilter/PaymentMethodFilter.native'
-import { PaymentMethodFilter as WebPaymentMethodFilter } from 'lx/src/features/fiatOnRamp/PaymentMethodFilter/PaymentMethodFilter.web'
-import { PaymentMethodItem } from 'lx/src/features/fiatOnRamp/PaymentMethodFilter/utils'
-import { FORFilters } from 'lx/src/features/fiatOnRamp/types'
-import { render } from 'lx/src/test/test-utils'
+import { Bank } from '@l.x/ui/src/components/icons/Bank'
+import { Buy } from '@l.x/ui/src/components/icons/Buy'
+import { PaymentMethodFilter as MobilePaymentMethodFilter } from '@l.x/lx/src/features/fiatOnRamp/PaymentMethodFilter/PaymentMethodFilter.native'
+import { PaymentMethodFilter as WebPaymentMethodFilter } from '@l.x/lx/src/features/fiatOnRamp/PaymentMethodFilter/PaymentMethodFilter.web'
+import { PaymentMethodItem } from '@l.x/lx/src/features/fiatOnRamp/PaymentMethodFilter/utils'
+import { FORFilters } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 // Use vi.hoisted to create mock functions that can be controlled in tests
 const { mockIsAndroid, mockIsIOS, mockIsWebAndroid, mockIsWebIOS } = vi.hoisted(() => ({
@@ -14,7 +14,7 @@ const { mockIsAndroid, mockIsIOS, mockIsWebAndroid, mockIsWebIOS } = vi.hoisted(
   mockIsWebIOS: vi.fn().mockReturnValue(false),
 }))
 
-vi.mock('utilities/src/platform', () => ({
+vi.mock('@l.x/utils/src/platform', () => ({
   isAndroid: mockIsAndroid,
   isIOS: mockIsIOS,
   isWebAndroid: mockIsWebAndroid,

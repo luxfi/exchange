@@ -1,10 +1,10 @@
 import { GraphQLApi } from '@l.x/api'
-import { ColorTokens, GeneratedIcon } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { Blocked } from 'ui/src/components/icons/Blocked'
-import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { OctagonExclamation } from 'ui/src/components/icons/OctagonExclamation'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { ColorTokens, GeneratedIcon } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { Blocked } from '@l.x/ui/src/components/icons/Blocked'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
+import { OctagonExclamation } from '@l.x/ui/src/components/icons/OctagonExclamation'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 
 export function safetyLevelToWarningSeverity(safetyLevel: Maybe<GraphQLApi.SafetyLevel>): WarningSeverity {
   switch (safetyLevel) {

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { StorageSettingsContent } from 'lx/src/features/settings/storage/StorageSettingsContent'
-import { ON_PRESS_EVENT_PAYLOAD } from 'lx/src/test/fixtures'
-import { fireEvent, render, waitFor } from 'lx/src/test/test-utils'
+import { StorageSettingsContent } from '@l.x/lx/src/features/settings/storage/StorageSettingsContent'
+import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
+import { fireEvent, render, waitFor } from '@l.x/lx/src/test/test-utils'
 
 // Mock the WarningModal to avoid BottomSheet issues in tests
-vi.mock('lx/src/components/modals/WarningModal/WarningModal', async () => {
+vi.mock('@l.x/lx/src/components/modals/WarningModal/WarningModal', async () => {
   const React = await import('react')
   return {
     WarningModal: (props: { isOpen?: boolean; onAcknowledge?: () => void; acknowledgeText?: string }) => {
@@ -17,7 +17,7 @@ vi.mock('lx/src/components/modals/WarningModal/WarningModal', async () => {
 })
 
 // Mock InfoLinkModal to avoid Modal issues
-vi.mock('lx/src/components/modals/InfoLinkModal', () => ({
+vi.mock('@l.x/lx/src/components/modals/InfoLinkModal', () => ({
   InfoLinkModal: () => null,
 }))
 

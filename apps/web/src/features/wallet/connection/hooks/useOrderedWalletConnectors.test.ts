@@ -12,8 +12,8 @@ import { renderHook } from '~/test-utils/render'
 
 // biome-ignore lint/suspicious/noVar: Testing variable hoisting behavior requires var
 var mockIsMobileWeb = false
-vi.mock('utilities/src/platform', async () => {
-  const actual = await vi.importActual('utilities/src/platform')
+vi.mock('@l.x/utils/src/platform', async () => {
+  const actual = await vi.importActual('@l.x/utils/src/platform')
   return {
     ...actual,
     get isMobileWeb() {

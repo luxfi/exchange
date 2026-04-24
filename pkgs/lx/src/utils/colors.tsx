@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
-import { useExtractedColors, useSporeColors } from 'ui/src'
-import { GlobalColorNames, colors as GlobalColors, GlobalPalette, opacify } from 'ui/src/theme'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { assert } from 'utilities/src/errors'
-import { hexToRGB } from 'utilities/src/theme/colors'
+import { useExtractedColors, useSporeColors } from '@l.x/ui/src'
+import { GlobalColorNames, colors as GlobalColors, GlobalPalette, opacify } from '@l.x/ui/src/theme'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { assert } from '@l.x/utils/src/errors'
+import { hexToRGB } from '@l.x/utils/src/theme/colors'
 
 export function getNetworkColorKey(chainId: UniverseChainId): `chain_${UniverseChainId}` {
   return `chain_${chainId}`

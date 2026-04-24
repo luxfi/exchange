@@ -12,10 +12,10 @@ import {
   ValidationType,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { AuctionMutationClient } from 'lx/src/data/apiClients/liquidityService/AuctionMutationClient'
-import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from 'lx/src/data/rest/auctions/queryTypes'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { AuctionMutationClient } from '@l.x/lx/src/data/apiClients/liquidityService/AuctionMutationClient'
+import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from '@l.x/lx/src/data/rest/auctions/queryTypes'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 /**
  * Hook to verify a wallet's KYC status for an auction.

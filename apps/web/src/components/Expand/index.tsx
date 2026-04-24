@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactElement } from 'react'
-import { Flex, FlexProps, HeightAnimator } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { IconSizeTokens } from 'ui/src/theme/tokens'
+import { Flex, FlexProps, HeightAnimator } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { IconSizeTokens } from '@l.x/ui/src/theme/tokens'
 
 export default function Expand({
   header,

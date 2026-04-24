@@ -1,8 +1,8 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { SwapExecutionCallbacks } from 'lx/src/features/transactions/swap/types/swapCallback'
-import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { PresetPercentage } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { SwapExecutionCallbacks } from '@l.x/lx/src/features/transactions/swap/types/swapCallback'
+import { ValidatedSwapTxContext } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
 
 /**
  * Parameters needed for transaction preparation

@@ -19,29 +19,29 @@ import { TestnetSwitchModalState } from 'src/features/testnetMode/TestnetSwitchM
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
 import { ReceiveCryptoModalState } from 'src/screens/ReceiveCryptoModalState'
 import { ViewPrivateKeysScreenState } from 'src/screens/ViewPrivateKeys/ViewPrivateKeysScreenState'
-import { BridgedAssetModalProps } from 'uniswap/src/components/BridgedAsset/BridgedAssetModal'
-import { WormholeModalProps } from 'uniswap/src/components/BridgedAsset/WormholeModal'
-import { ReportPortfolioDataModalProps } from 'uniswap/src/components/reporting/ReportPortfolioDataModal'
-import { ReportTokenDataModalProps } from 'uniswap/src/components/reporting/ReportTokenDataModal'
-import { ReportTokenModalProps } from 'uniswap/src/components/reporting/ReportTokenIssueModal'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
-import { PasskeyManagementModalState } from 'uniswap/src/features/passkey/PasskeyManagementModal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TestnetModeModalState } from 'uniswap/src/features/testnets/TestnetModeModal'
-import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
-import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { BridgedAssetModalProps } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
+import { WormholeModalProps } from '@l.x/lx/src/components/BridgedAsset/WormholeModal'
+import { ReportPortfolioDataModalProps } from '@l.x/lx/src/components/reporting/ReportPortfolioDataModal'
+import { ReportTokenDataModalProps } from '@l.x/lx/src/components/reporting/ReportTokenDataModal'
+import { ReportTokenModalProps } from '@l.x/lx/src/components/reporting/ReportTokenIssueModal'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { PasskeyManagementModalState } from '@l.x/lx/src/features/passkey/PasskeyManagementModal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestnetModeModalState } from '@l.x/lx/src/features/testnets/TestnetModeModal'
+import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
+import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
 import {
   FiatOnRampScreens,
   MobileScreens,
   OnboardingScreens,
   SharedUnitagScreenParams,
   UnitagStackParamList,
-} from 'uniswap/src/types/screens/mobile'
-import { SmartWalletAdvancedSettingsModalState } from 'wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
-import { SmartWalletEnabledModalState } from 'wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
-import { SmartWalletNudgeState } from 'wallet/src/components/smartWallet/modals/SmartWalletNudge'
-import { ExploreOrderBy } from 'wallet/src/features/wallet/types'
+} from '@l.x/lx/src/types/screens/mobile'
+import { SmartWalletAdvancedSettingsModalState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
+import { SmartWalletEnabledModalState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
+import { SmartWalletNudgeState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletNudge'
+import { ExploreOrderBy } from '@luxfi/wallet/src/features/wallet/types'
 
 export type ExploreScreenParams = {
   showFavorites?: boolean

@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { TickMath } from '@uniswap/v3-sdk'
 import JSBI from 'jsbi'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { getAmount0, getAmount1 } from '~/components/Charts/LiquidityChart/utils/getAmounts'
 
 export function calculateTokensLocked({

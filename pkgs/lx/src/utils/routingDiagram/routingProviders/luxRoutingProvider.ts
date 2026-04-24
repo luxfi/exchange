@@ -3,12 +3,12 @@ import { Percent, TradeType } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { Pool as V3Pool } from '@luxamm/v3-sdk'
 import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import { LXLogo } from 'ui/src/components/icons/LXLogo'
-import { DYNAMIC_FEE_AMOUNT, V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
-import { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { isChained, isClassic } from 'lx/src/features/transactions/swap/utils/routing'
-import { currencyId } from 'lx/src/utils/currencyId'
-import type { RoutingDiagramEntry, RoutingHop, RoutingProvider } from 'lx/src/utils/routingDiagram/types'
+import { LXLogo } from '@l.x/ui/src/components/icons/LXLogo'
+import { DYNAMIC_FEE_AMOUNT, V2_DEFAULT_FEE_TIER } from '@l.x/lx/src/constants/pools'
+import { Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { isChained, isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
+import type { RoutingDiagramEntry, RoutingHop, RoutingProvider } from '@l.x/lx/src/utils/routingDiagram/types'
 
 type LXPool = Pair | V3Pool | V4Pool
 

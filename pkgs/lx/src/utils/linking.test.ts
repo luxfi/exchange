@@ -1,5 +1,5 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 
 describe(getExplorerLink, () => {
   it('handles different link cases', () => {

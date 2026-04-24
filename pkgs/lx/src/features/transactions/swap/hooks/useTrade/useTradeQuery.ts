@@ -1,14 +1,14 @@
 import { UseQueryResult } from '@tanstack/react-query'
 import { useQueryWithImmediateGarbageCollection } from '@l.x/api'
 import { useRef } from 'react'
-import { useTradeService } from 'lx/src/features/services'
-import { usePollingIntervalByChain } from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'
-import { parseQuoteCurrencies } from 'lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
-import { createTradeServiceQueryOptions } from 'lx/src/features/transactions/swap/hooks/useTrade/useTradeServiceQueryOptions'
-import { TradeWithGasEstimates } from 'lx/src/features/transactions/swap/services/tradeService/tradeService'
-import { UseTradeArgs } from 'lx/src/features/transactions/swap/types/trade'
-import { useEvent } from 'utilities/src/react/hooks'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useTradeService } from '@l.x/lx/src/features/services'
+import { usePollingIntervalByChain } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
+import { parseQuoteCurrencies } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
+import { createTradeServiceQueryOptions } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade/useTradeServiceQueryOptions'
+import { TradeWithGasEstimates } from '@l.x/lx/src/features/transactions/swap/services/tradeService/tradeService'
+import { UseTradeArgs } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 export function useTradeQuery(params: UseTradeArgs): UseQueryResult<TradeWithGasEstimates> {
   const quoteCurrencyData = parseQuoteCurrencies(params)

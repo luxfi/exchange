@@ -1,5 +1,5 @@
 import '~/test-utils/tokens/mocks'
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { WETH9 } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
 import { DAI } from '@l.x/lx/src/constants/tokens'
@@ -14,7 +14,7 @@ import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import { OrderContent } from '~/components/AccountDrawer/MiniPortfolio/Activity/OffchainActivityModal'
 import { render } from '~/test-utils/render'
 
-vi.mock('lx/src/features/language/localizedDayjs', () => ({
+vi.mock('@l.x/lx/src/features/language/localizedDayjs', () => ({
   useFormattedDateTime: vi.fn(() => 'Mock Date'),
   useLocalizedDayjs: vi.fn(() => (timestamp: number) => timestamp), // Returns timestamp as-is since useFormattedDateTime is mocked
   FORMAT_DATE_TIME_SHORT: 'lll',

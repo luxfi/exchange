@@ -3,16 +3,16 @@ import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import type { TradingApi, UseQueryApiHelperHookArgs } from '@l.x/api'
 import { type SwappableTokensParams } from '@l.x/api'
 import { useEffect } from 'react'
-import { lxUrls } from 'lx/src/constants/urls'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import type { TradeableAsset } from 'lx/src/entities/assets'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import type { TradeableAsset } from '@l.x/lx/src/entities/assets'
 import {
   getTokenAddressFromChainForTradingApi,
   toTradingApiSupportedChainId,
-} from 'lx/src/features/transactions/swap/utils/tradingApi'
-import { logger } from 'utilities/src/logger/logger'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { MAX_REACT_QUERY_CACHE_TIME_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { MAX_REACT_QUERY_CACHE_TIME_MS } from '@l.x/utils/src/time/time'
 
 export function useTradingApiSwappableTokensQuery({
   params,

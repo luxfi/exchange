@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { X } from 'ui/src/components/icons/X'
-import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export const SwapFormHeader = (): JSX.Element => {
   const { t } = useTranslation()

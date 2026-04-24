@@ -12,13 +12,13 @@ import {
   WALLET_FEATURE_FLAG_NAMES,
   WEB_FEATURE_FLAG_NAMES,
 } from '@l.x/gating'
-import { config } from 'lx/src/config'
-import { getUniqueId } from 'utilities/src/device/uniqueId'
-import { datadogEnabledBuild, localDevDatadogEnabled } from 'utilities/src/environment/constants'
-import { isBetaEnv } from 'utilities/src/environment/env'
-import { getDatadogEnvironment } from 'utilities/src/logger/datadog/env'
-import { logger } from 'utilities/src/logger/logger'
-import { isExtensionApp, isWebApp } from 'utilities/src/platform'
+import { config } from '@l.x/lx/src/config'
+import { getUniqueId } from '@l.x/utils/src/device/uniqueId'
+import { datadogEnabledBuild, localDevDatadogEnabled } from '@l.x/utils/src/environment/constants'
+import { isBetaEnv } from '@l.x/utils/src/environment/env'
+import { getDatadogEnvironment } from '@l.x/utils/src/logger/datadog/env'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isExtensionApp, isWebApp } from '@l.x/utils/src/platform'
 
 // In case Statsig is not available
 const EXTENSION_DEFAULT_DATADOG_SESSION_SAMPLE_RATE = 10 // percent

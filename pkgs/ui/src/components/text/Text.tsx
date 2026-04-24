@@ -5,7 +5,7 @@ import { HiddenFromScreenReaders } from '@l.x/ui/src/components/text/HiddenFromS
 import { useEnableFontScaling } from '@l.x/ui/src/components/text/useEnableFontScaling'
 import { Skeleton } from '@l.x/ui/src/loading/Skeleton'
 import { fonts } from '@l.x/ui/src/theme/fonts'
-import { isWebPlatform } from 'utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 type GuiTextProps = GetProps<typeof GuiText>
 

@@ -1,7 +1,7 @@
 import { DeepLinkAction, parseDeepLinkUrl } from 'src/features/deepLinking/deepLinkUtils'
 
 // Mock the logger
-jest.mock('utilities/src/logger/logger', () => ({
+jest.mock('@l.x/utils/src/logger/logger', () => ({
   logger: {
     error: jest.fn(),
   },

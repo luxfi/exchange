@@ -2,7 +2,7 @@ import { VerifyXCallbackRequest } from '@luxamm/client-liquidity/dist/lx/liquidi
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
-import { XVerificationClient } from 'lx/src/data/apiClients/liquidityService/XVerificationClient'
+import { XVerificationClient } from '@l.x/lx/src/data/apiClients/liquidityService/XVerificationClient'
 
 type CallbackState = 'loading' | 'success' | 'error'
 

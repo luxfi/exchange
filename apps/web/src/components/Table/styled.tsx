@@ -1,4 +1,4 @@
-import { Flex, styled } from 'ui/src'
+import { Flex, styled } from '@l.x/ui/src'
 import { Cell } from '~/components/Table/Cell'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 

@@ -1,20 +1,20 @@
 import { TradeType } from '@luxamm/sdk-core'
 import { memo, useMemo } from 'react'
-import { useOnRetrySwap } from 'lx/src/components/activity/hooks/useOnRetrySwap'
-import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
-import type { SummaryItemProps } from 'lx/src/components/activity/types'
-import { TXN_HISTORY_ICON_SIZE } from 'lx/src/components/activity/utils'
-import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { getAmountsFromTrade } from 'lx/src/features/transactions/swap/utils/getAmountsFromTrade'
+import { useOnRetrySwap } from '@l.x/lx/src/components/activity/hooks/useOnRetrySwap'
+import { TransactionSummaryLayout } from '@l.x/lx/src/components/activity/summaries/TransactionSummaryLayout'
+import type { SummaryItemProps } from '@l.x/lx/src/components/activity/types'
+import { TXN_HISTORY_ICON_SIZE } from '@l.x/lx/src/components/activity/utils'
+import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { getAmountsFromTrade } from '@l.x/lx/src/features/transactions/swap/utils/getAmountsFromTrade'
 import type {
   ExactInputSwapTransactionInfo,
   ExactOutputSwapTransactionInfo,
   TransactionDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isConfirmedSwapTypeInfo } from 'lx/src/features/transactions/types/utils'
-import { getFormattedCurrencyAmount, getSymbolDisplayText } from 'lx/src/utils/currency'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isConfirmedSwapTypeInfo } from '@l.x/lx/src/features/transactions/types/utils'
+import { getFormattedCurrencyAmount, getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 
 function _SwapSummaryItem({
   transaction,

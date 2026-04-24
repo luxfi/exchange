@@ -1,8 +1,8 @@
 import { GqlResult } from '@l.x/api'
 import { useMemo } from 'react'
-import type { AddressGroup } from 'lx/src/features/accounts/store/types/AccountsState'
-import { usePortfolioBalances } from 'lx/src/features/dataApi/balances/balances'
-import { PortfolioBalance } from 'lx/src/features/dataApi/types'
+import type { AddressGroup } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 
 export function usePortfolioBalancesForAddressById(
   addresses: AddressGroup,

@@ -5,8 +5,8 @@ import { UniconProps } from '@l.x/ui/src/components/Unicon/types'
 import { IconPaths, Icons } from '@l.x/ui/src/components/Unicon/UniconSVGs'
 import { getUniconColors, getUniconsDeterministicHash } from '@l.x/ui/src/components/Unicon/utils'
 import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
-import { isEVMAddressWithChecksum } from 'utilities/src/addresses/evm/evm'
-import { isSVMAddress } from 'utilities/src/addresses/svm/svm'
+import { isEVMAddressWithChecksum } from '@l.x/utils/src/addresses/evm/evm'
+import { isSVMAddress } from '@l.x/utils/src/addresses/svm/svm'
 
 // Notes:
 // Add 1 to effectively increase margin between svg and surrounding box, otherwise get a cropping issue

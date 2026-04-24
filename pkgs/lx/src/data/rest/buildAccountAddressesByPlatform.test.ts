@@ -1,8 +1,8 @@
 import {
   buildAccountAddressesByPlatform,
   isAccountAddressesByPlatform,
-} from 'lx/src/data/rest/buildAccountAddressesByPlatform'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+} from '@l.x/lx/src/data/rest/buildAccountAddressesByPlatform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 
 const TEST_EVM_ADDRESS = '0x1234567890123456789012345678901234567890'
 const TEST_SVM_ADDRESS = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'

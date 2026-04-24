@@ -3,9 +3,9 @@ import {
   FORMAT_DATE_MONTH_DAY,
   FORMAT_TIME_SHORT,
   useLocalizedDayjs,
-} from 'lx/src/features/language/localizedDayjs'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
-import { useInterval } from 'utilities/src/time/timing'
+} from '@l.x/lx/src/features/language/localizedDayjs'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
+import { useInterval } from '@l.x/utils/src/time/timing'
 
 function useForceUpdateEveryMinute(): number {
   const [unixTime, setUnixTime] = useState(Date.now())

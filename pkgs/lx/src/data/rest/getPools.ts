@@ -4,7 +4,7 @@ import { useQuery } from '@connectrpc/connect-query'
 import { UseQueryResult } from '@tanstack/react-query'
 import { ListPoolsRequest, ListPoolsResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { listPools } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { lxGetTransport } from 'lx/src/data/rest/base'
+import { lxGetTransport } from '@l.x/lx/src/data/rest/base'
 
 export function useGetPoolsByTokens(
   input: PartialMessage<ListPoolsRequest>,

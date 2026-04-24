@@ -4,7 +4,7 @@ import '../src/polyfills'
 import type { Preview } from '@storybook/react'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router'
-import { ReactRouterUrlProvider } from 'uniswap/src/contexts/UrlContext'
+import { ReactRouterUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
 import { TamaguiProvider } from '../src/theme/tamaguiProvider'
 import store from '~/state'
 

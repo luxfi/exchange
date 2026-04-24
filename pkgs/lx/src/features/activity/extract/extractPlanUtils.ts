@@ -4,9 +4,9 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { MaybeChainId, validateAndBuildCurrencyId } from 'lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { MaybeChainId, validateAndBuildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Constructs a TransactionDetails object from validated transaction details based on the

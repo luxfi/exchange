@@ -1,16 +1,16 @@
 import { TradingApi } from '@l.x/api'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   convertOrderStatusToTransactionStatus,
   convertOrderTypeToRouting,
   isLimitOrder,
-} from 'lx/src/features/transactions/utils/lx.utils'
+} from '@l.x/lx/src/features/transactions/utils/lx.utils'
 
 describe('LX Utils', () => {
   describe('convertOrderTypeToRouting', () => {

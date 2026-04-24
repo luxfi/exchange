@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { useSessionsDebugStore } from 'src/screens/stores/sessionsDebugStore'
-import { Flex, Text } from 'ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 
 export const CurrentOperationSection = memo(function CurrentOperationSection(): JSX.Element | null {
   const currentOperation = useSessionsDebugStore((state) => state.currentOperation)

@@ -1,6 +1,6 @@
 import { UnitagAvatarUploadCredentials } from '@l.x/api'
 import { Platform } from 'react-native'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Native-specific: React Native file URI patterns
 export function isLocalFileUri(imageUri: string): boolean {

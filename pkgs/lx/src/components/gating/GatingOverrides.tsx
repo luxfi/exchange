@@ -12,24 +12,24 @@ import {
   WALLET_FEATURE_FLAG_NAMES,
 } from '@l.x/gating'
 import React, { PropsWithChildren, useCallback } from 'react'
-import { Accordion, Flex, Separator, Switch, Text } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
+import { Accordion, Flex, Separator, Switch, Text } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
 import {
   DynamicConfigDropdown,
   DynamicConfigDropdownBoolean,
-} from 'lx/src/components/gating/DynamicConfigDropdown'
+} from '@l.x/lx/src/components/gating/DynamicConfigDropdown'
 import {
   EMBEDDED_WALLET_BASE_URL_OPTIONS,
   FORCE_UPGRADE_STATUS_OPTIONS,
   FORCE_UPGRADE_TRANSLATIONS_OPTIONS,
-} from 'lx/src/components/gating/dynamicConfigOverrides'
-import { GatingButton } from 'lx/src/components/gating/GatingButton'
-import { ExperimentRow, LayerRow } from 'lx/src/components/gating/Rows'
-import { useForceUpgradeStatus } from 'lx/src/features/forceUpgrade/hooks/useForceUpgradeStatus'
-import { useForceUpgradeTranslations } from 'lx/src/features/forceUpgrade/hooks/useForceUpgradeTranslations'
-import { useEmbeddedWalletBaseUrl } from 'lx/src/features/passkey/hooks/useEmbeddedWalletBaseUrl'
-import { isExtensionApp, isMobileApp } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@l.x/lx/src/components/gating/dynamicConfigOverrides'
+import { GatingButton } from '@l.x/lx/src/components/gating/GatingButton'
+import { ExperimentRow, LayerRow } from '@l.x/lx/src/components/gating/Rows'
+import { useForceUpgradeStatus } from '@l.x/lx/src/features/forceUpgrade/hooks/useForceUpgradeStatus'
+import { useForceUpgradeTranslations } from '@l.x/lx/src/features/forceUpgrade/hooks/useForceUpgradeTranslations'
+import { useEmbeddedWalletBaseUrl } from '@l.x/lx/src/features/passkey/hooks/useEmbeddedWalletBaseUrl'
+import { isExtensionApp, isMobileApp } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function GatingOverrides(): JSX.Element {
   const featureFlagRows: JSX.Element[] = []

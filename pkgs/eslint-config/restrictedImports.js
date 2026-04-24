@@ -11,18 +11,18 @@ const sharedRules = {
       message: "Don't use ChainId from @lux/sdk-core. Use the UniverseChainId from universe/lux.",
     },
     {
-      name: 'utilities/src/telemetry/trace/Trace',
-      message: "Please use the Trace in 'lux/src/features/telemetry/Trace' for app level usage!",
+      name: '@l.x/utils/src/telemetry/trace/Trace',
+      message: "Please use the Trace in '@l.x/lx/src/features/telemetry/Trace' for app level usage!",
     },
     {
-      name: 'utilities/src/telemetry/analytics/analytics',
+      name: '@l.x/utils/src/telemetry/analytics/analytics',
       message:
         'Please only use this for initialization, tests, flushing, and internal usage. Otherwise use `pkgs/lux/src/features/telemetry`',
     },
     {
       name: '@luxamm/analytics',
       importNames: ['sendAnalyticsEvent'],
-      message: "Please use the typed `sendAnalyticsEvent` in  'lux/src/features/telemetry/send'?",
+      message: "Please use the typed `sendAnalyticsEvent` in  '@l.x/lx/src/features/telemetry/send'?",
     },
     {
       name: 'expo-localization',
@@ -30,13 +30,13 @@ const sharedRules = {
         'Avoid using due to issue with unsupported locales. Use utilities/src/device/locales.ts getDeviceLocales instead',
     },
     {
-      name: 'lux/src/features/dataApi/balances/balances',
+      name: '@l.x/lx/src/features/dataApi/balances/balances',
       importNames: ['usePortfolioValueModifiers'],
       message:
         'Use the wrapper hooks `usePortfolioTotalValue`, `useAccountListData` or `usePortfolioBalances` instead of `usePortfolioValueModifiers` directly.',
     },
     {
-      name: 'lux/src/features/dataApi/balances/balancesRest',
+      name: '@l.x/lx/src/features/dataApi/balances/balancesRest',
       importNames: ['useRESTPortfolioTotalValue'],
       message:
         'Use the wrapper hooks `usePortfolioTotalValue`, `useAccountListData` or `usePortfolioBalances` instead of `useRESTPortfolioTotalValue` directly.',
@@ -48,26 +48,26 @@ const sharedRules = {
         'Please avoid direct imports of t, using `useTranslation` and `i18n.t` when absolutely needed outside of a React context',
     },
     {
-      name: 'utilities/src/format/localeBased',
+      name: '@l.x/utils/src/format/localeBased',
       message: 'Use via `useLocalizationContext` instead.',
     },
     {
-      name: 'lux/src/features/fiatCurrency/conversion',
+      name: '@l.x/lx/src/features/fiatCurrency/conversion',
       importNames: ['useFiatConverter'],
       message: 'Use via `useLocalizationContext` instead.',
     },
     {
-      name: 'lux/src/features/language/formatter',
+      name: '@l.x/lx/src/features/language/formatter',
       importNames: ['useLocalizedFormatter'],
       message: 'Use via `useLocalizationContext` instead.',
     },
     {
-      name: 'lux/src/features/chains/hooks/useOrderedChainIds',
+      name: '@l.x/lx/src/features/chains/hooks/useOrderedChainIds',
       importNames: ['useOrderedChainIds'],
       message: 'Use `useEnabledChains` instead, which returns the ordered chains that are currently enabled.',
     },
     {
-      name: 'ui/src/hooks/useDeviceInsets',
+      name: '@l.x/ui/src/hooks/useDeviceInsets',
       importNames: ['useDeviceInsets'],
       message: 'Use `useAppInsets` instead.',
     },
@@ -82,12 +82,12 @@ const sharedRules = {
         "Use specific imports (e.g. `import isEqual from 'lodash/isEqual'`) to avoid pulling in all of lodash to web to keep bundle size down!",
     },
     {
-      name: 'lux/src/features/chains/chainInfo',
+      name: '@l.x/lx/src/features/chains/chainInfo',
       importNames: ['UNIVERSE_CHAIN_INFO'],
       message: 'Use useChainInfo or helpers in pkgs/lux/src/features/chains/utils.ts when possible!',
     },
     {
-      name: 'lux/src/features/settings/selectors',
+      name: '@l.x/lx/src/features/settings/selectors',
       importNames: ['selectIsTestnetModeEnabled'],
       message: 'Use `useEnabledChains` instead.',
     },
@@ -102,23 +102,23 @@ const sharedRules = {
       message: 'Use `usePortfolioBalances` instead.',
     },
     {
-      name: 'wallet/src/data/apollo/usePersistedApolloClient',
+      name: '@luxfi/wallet/src/data/apollo/usePersistedApolloClient',
       importNames: ['usePersistedApolloClient'],
       message:
-        "This hook should only be used once at the top level where the React app is initialized . You can use `import { useApolloClient } from '@apollo/client'` to get the default apollo client from the provider elsewhere in React. If you need access to apollo outside of React, you can use `import { apolloClientRef } from 'wallet/src/data/apollo/usePersistedApolloClient''`.",
+        "This hook should only be used once at the top level where the React app is initialized . You can use `import { useApolloClient } from '@apollo/client'` to get the default apollo client from the provider elsewhere in React. If you need access to apollo outside of React, you can use `import { apolloClientRef } from '@luxfi/wallet/src/data/apollo/usePersistedApolloClient''`.",
     },
     {
       name: 'statsig-react',
       message: 'Import from internal module lux/src/features/gating instead',
     },
     {
-      name: 'wallet/src/components/ErrorBoundary/restart',
+      name: '@luxfi/wallet/src/components/ErrorBoundary/restart',
       message: 'Use `wallet/src/components/ErrorBoundary/restartApp` instead.',
     },
   ],
   patterns: [
     {
-      group: ['ui/src/assets/icons/*.svg'],
+      group: ['@l.x/ui/src/assets/icons/*.svg'],
       message:
         'Please do not import SVG files directly from `ui/src/assets/icons/*.svg`. Use generated icon components instead, e.g., `ui/src/components/icons/{iconName}`.',
     },
@@ -206,12 +206,12 @@ const webPlatformRules = {
       message: "Please import from '@ethersproject/module' directly to support tree-shaking.",
     },
     {
-      name: 'ui/src/components/icons',
+      name: '@l.x/ui/src/components/icons',
       message:
         'Please import icons directly from their respective files, e.g. `ui/src/components/icons/SpecificIcon`. This is to avoid importing the entire icons folder when only some icons are needed, which increases bundle size',
     },
     {
-      name: 'ui/src/components/modal/AdaptiveWebModal',
+      name: '@l.x/ui/src/components/modal/AdaptiveWebModal',
       message:
         'Please import Modal from `lux/src/components/modals/Modal` instead. Modal uses AdaptiveWebModal under the hood but has extra logic for handling animation, mounting, and dismounting.',
     },
@@ -222,7 +222,7 @@ const webPlatformRules = {
 const extensionRules = {
   paths: [
     // Allow general icon path in extension
-    ...webPlatformRules.paths.filter((p) => p.name !== 'ui/src/components/icons'),
+    ...webPlatformRules.paths.filter((p) => p.name !== '@l.x/ui/src/components/icons'),
   ],
   patterns: [
     // Remove react native rules for extension
@@ -246,7 +246,7 @@ const interfaceRules = {
     },
     {
       name: 'styled-components',
-      message: 'Styled components is deprecated, please use Flex or styled from "ui/src" instead.',
+      message: 'Styled components is deprecated, please use Flex or styled from "@l.x/ui/src" instead.',
     },
     {
       name: 'api/src/clients/graphql/__generated__/react-hooks',
@@ -274,7 +274,7 @@ const interfaceRules = {
       message: 'Default import from zustand is deprecated. Import `{ create }` instead.',
     },
     {
-      name: 'utilities/src/platform',
+      name: '@l.x/utils/src/platform',
       importNames: ['isIOS', 'isAndroid'],
       message: 'Importing isIOS and isAndroid from platform is not allowed. Use isWebIOS and isWebAndroid instead.',
     },

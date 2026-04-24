@@ -1,11 +1,11 @@
 import { Trans } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { InfoCircle } from 'ui/src/components/icons/InfoCircle'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { INSUFFICIENT_NATIVE_TOKEN_TEXT_VARIANT } from 'lx/src/features/transactions/components/InsufficientNativeTokenWarning/constants'
-import { type useInsufficientNativeTokenWarning } from 'lx/src/features/transactions/components/InsufficientNativeTokenWarning/useInsufficientNativeTokenWarning'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { InfoCircle } from '@l.x/ui/src/components/icons/InfoCircle'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { INSUFFICIENT_NATIVE_TOKEN_TEXT_VARIANT } from '@l.x/lx/src/features/transactions/components/InsufficientNativeTokenWarning/constants'
+import { type useInsufficientNativeTokenWarning } from '@l.x/lx/src/features/transactions/components/InsufficientNativeTokenWarning/useInsufficientNativeTokenWarning'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export function InsufficientNativeTokenBaseComponent({
   parsedInsufficientNativeTokenWarning,

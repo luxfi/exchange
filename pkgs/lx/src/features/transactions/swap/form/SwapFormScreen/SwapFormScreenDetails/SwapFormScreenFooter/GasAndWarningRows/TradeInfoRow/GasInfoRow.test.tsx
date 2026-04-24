@@ -1,9 +1,9 @@
 import { type GasFeeResult } from '@l.x/api'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { GasInfoRow } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/GasInfoRow'
-import { GasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { render } from 'lx/src/test/test-utils'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { GasInfoRow } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/GasInfoRow'
+import { GasInfo } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 describe('GasInfoRow', () => {
   const createGasFeeResult = (overrides: Partial<GasFeeResult> = {}): GasFeeResult => ({

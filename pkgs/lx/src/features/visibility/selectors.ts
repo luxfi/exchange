@@ -3,8 +3,8 @@ import {
   CurrencyIdToVisibility,
   NFTKeyToVisibility,
   PositionKeyToVisibility,
-} from 'lx/src/features/visibility/slice'
-import { LXRootState } from 'lx/src/state'
+} from '@l.x/lx/src/features/visibility/slice'
+import { LXRootState } from '@l.x/lx/src/state'
 
 export const selectPositionsVisibility = (state: LXRootState): PositionKeyToVisibility =>
   state.visibility.positions

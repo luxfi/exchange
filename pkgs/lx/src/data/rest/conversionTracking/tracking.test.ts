@@ -2,10 +2,10 @@ import {
   DEFAULT_HEADERS,
   GOOGLE_CONVERSION_EVENTS,
   GOOGLE_CONVERSION_URL,
-} from 'lx/src/data/rest/conversionTracking/constants'
-import { buildProxyRequest } from 'lx/src/data/rest/conversionTracking/tracking'
-import { RequestType } from 'lx/src/data/rest/conversionTracking/types'
-import { hashAddress } from 'lx/src/data/rest/conversionTracking/utils'
+} from '@l.x/lx/src/data/rest/conversionTracking/constants'
+import { buildProxyRequest } from '@l.x/lx/src/data/rest/conversionTracking/tracking'
+import { RequestType } from '@l.x/lx/src/data/rest/conversionTracking/types'
+import { hashAddress } from '@l.x/lx/src/data/rest/conversionTracking/utils'
 
 describe(buildProxyRequest, () => {
   it('properly formats event data to make a conversion proxy request', () => {

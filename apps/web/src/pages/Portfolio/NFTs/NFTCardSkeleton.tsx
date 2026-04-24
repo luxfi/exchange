@@ -1,4 +1,4 @@
-import { Flex, Skeleton } from 'ui/src'
+import { Flex, Skeleton } from '@l.x/ui/src'
 
 // Custom skeleton loader that matches Portfolio NFTCard dimensions
 export function NFTCardSkeleton(): JSX.Element {

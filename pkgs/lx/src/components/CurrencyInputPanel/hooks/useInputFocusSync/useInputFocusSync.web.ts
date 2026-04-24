@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import type { UseInputFocusSyncProps } from 'lx/src/components/CurrencyInputPanel/hooks/useInputFocusSync/types'
+import type { UseInputFocusSyncProps } from '@l.x/lx/src/components/CurrencyInputPanel/hooks/useInputFocusSync/types'
 
 export function useInputFocusSync({ inputRef, focus }: UseInputFocusSyncProps): void {
   useEffect(() => {

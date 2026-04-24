@@ -13,19 +13,19 @@ import {
   TouchableArea,
   TouchableAreaProps,
   useIsDarkMode,
-} from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { spacing, zIndexes } from 'ui/src/theme'
-import { BaseCard } from 'lx/src/components/BaseCard/BaseCard'
-import { Scrollbar } from 'lx/src/components/misc/Scrollbar'
-import { MenuItemProp } from 'lx/src/components/modals/ActionSheetModal'
-import { useAppInsets } from 'lx/src/hooks/useAppInsets'
-import { closeKeyboardBeforeCallback } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
-import { isAndroid, isTouchable, isWebApp, isWebPlatform } from 'utilities/src/platform'
-import { executeWithFrameDelay } from 'utilities/src/react/delayUtils'
-import { useEvent } from 'utilities/src/react/hooks'
-import { useTimeout } from 'utilities/src/time/timing'
+} from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { spacing, zIndexes } from '@l.x/ui/src/theme'
+import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
+import { Scrollbar } from '@l.x/lx/src/components/misc/Scrollbar'
+import { MenuItemProp } from '@l.x/lx/src/components/modals/ActionSheetModal'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+import { closeKeyboardBeforeCallback } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
+import { isAndroid, isTouchable, isWebApp, isWebPlatform } from '@l.x/utils/src/platform'
+import { executeWithFrameDelay } from '@l.x/utils/src/react/delayUtils'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 
 const DEFAULT_MIN_WIDTH = 225
 const MIN_HEIGHT = 250

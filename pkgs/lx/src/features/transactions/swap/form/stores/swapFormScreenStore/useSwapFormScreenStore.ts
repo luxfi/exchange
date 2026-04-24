@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import type {
   createSwapFormScreenStore,
   SwapFormScreenStoreState,
-} from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/createSwapFormScreenStore'
-import { SwapFormScreenStoreContext } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/SwapFormScreenStoreContext'
+} from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/createSwapFormScreenStore'
+import { SwapFormScreenStoreContext } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/SwapFormScreenStoreContext'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'
 

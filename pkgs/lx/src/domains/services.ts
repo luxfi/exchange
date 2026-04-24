@@ -1,6 +1,6 @@
-import { getDelegationRepository } from 'lx/src/domains/repositories'
-import { createDelegationService, type DelegationService } from 'lx/src/features/smartWallet/delegation/delegation'
-import { getLogger } from 'utilities/src/logger/logger'
+import { getDelegationRepository } from '@l.x/lx/src/domains/repositories'
+import { createDelegationService, type DelegationService } from '@l.x/lx/src/features/smartWallet/delegation/delegation'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Returns a delegation service instance.

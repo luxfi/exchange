@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { EVMUniverseChainId } from 'lx/src/features/chains/types'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 // biome-ignore lint/style/noRestrictedImports: Use wagmi version because it supports a chain being passed in
 import { useBlock, useBlockNumber } from 'wagmi'
 import { estimateFutureBlockTimestamp } from '~/utils/estimateFutureBlockTimestamp'

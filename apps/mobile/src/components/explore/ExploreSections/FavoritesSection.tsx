@@ -4,8 +4,8 @@ import type { AnimatedRef } from 'react-native-reanimated'
 import { useSelector } from 'react-redux'
 import { FavoriteTokensGrid } from 'src/components/explore/FavoriteTokensGrid'
 import { FavoriteWalletsGrid } from 'src/components/explore/FavoriteWalletsGrid'
-import { Flex } from 'ui/src'
-import { selectHasFavoriteTokens, selectHasWatchedWallets } from 'uniswap/src/features/favorites/selectors'
+import { Flex } from '@l.x/ui/src'
+import { selectHasFavoriteTokens, selectHasWatchedWallets } from '@l.x/lx/src/features/favorites/selectors'
 
 type FavoritesSectionProps = {
   showLoading: boolean

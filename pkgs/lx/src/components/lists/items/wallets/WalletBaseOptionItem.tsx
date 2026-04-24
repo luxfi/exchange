@@ -1,8 +1,8 @@
-import { OptionItem, OptionItemProps } from 'lx/src/components/lists/items/OptionItem'
-import { WalletOption } from 'lx/src/components/lists/items/types'
-import { WalletOptionItemContextMenu } from 'lx/src/components/lists/items/wallets/WalletOptionItemContextMenu'
-import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { OptionItem, OptionItemProps } from '@l.x/lx/src/components/lists/items/OptionItem'
+import { WalletOption } from '@l.x/lx/src/components/lists/items/types'
+import { WalletOptionItemContextMenu } from '@l.x/lx/src/components/lists/items/wallets/WalletOptionItemContextMenu'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 type WalletBaseOptionItemProps = {
   option: WalletOption

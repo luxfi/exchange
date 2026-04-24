@@ -1,8 +1,8 @@
-import { nativeOnChain } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { getWrapType } from 'lx/src/features/transactions/swap/utils/wrap'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { wrappedNativeCurrency } from 'lx/src/utils/currency'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getWrapType } from '@l.x/lx/src/features/transactions/swap/utils/wrap'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { wrappedNativeCurrency } from '@l.x/lx/src/utils/currency'
 
 describe(getWrapType, () => {
   const eth = nativeOnChain(UniverseChainId.Mainnet)

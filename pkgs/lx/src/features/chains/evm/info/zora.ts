@@ -1,9 +1,9 @@
 import { GraphQLApi } from '@luxfi/api'
-import { ETH_LOGO, ZORA_LOGO } from 'ui/src/assets'
-import { CHAIN_ID_TO_URL_PARAM } from 'lx/src/features/chains/chainUrlParam'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY, getQuicknodeEndpointUrl } from 'lx/src/features/chains/evm/rpc'
-import { buildChainTokens } from 'lx/src/features/chains/evm/tokens'
-import { GENERIC_L2_GAS_CONFIG } from 'lx/src/features/chains/gasDefaults'
+import { ETH_LOGO, ZORA_LOGO } from '@l.x/ui/src/assets'
+import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
+import { DEFAULT_NATIVE_ADDRESS_LEGACY, getQuicknodeEndpointUrl } from '@l.x/lx/src/features/chains/evm/rpc'
+import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
+import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
 import {
   GqlChainId,
   NetworkLayer,

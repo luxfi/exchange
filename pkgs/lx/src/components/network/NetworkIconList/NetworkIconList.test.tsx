@@ -1,6 +1,6 @@
-import { NetworkIconList } from 'lx/src/components/network/NetworkIconList/NetworkIconList'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { render } from 'lx/src/test/test-utils'
+import { NetworkIconList } from '@l.x/lx/src/components/network/NetworkIconList/NetworkIconList'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 describe(NetworkIconList, () => {
   it('renders empty when no chainIds provided', () => {

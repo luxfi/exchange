@@ -1,5 +1,5 @@
 import { TradingApi } from '@l.x/api'
-import { findFirstActiveStep } from 'lx/src/features/transactions/swap/plan/utils'
+import { findFirstActiveStep } from '@l.x/lx/src/features/transactions/swap/plan/utils'
 
 describe('findFirstActiveStep', () => {
   const createMockStep = (overrides: Partial<TradingApi.PlanStep> = {}): TradingApi.PlanStep =>

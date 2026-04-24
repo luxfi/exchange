@@ -1,5 +1,5 @@
 import { brand as runtimeBrand } from '@l.x/config'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 export interface BrandConfig {
   name: string

@@ -1,15 +1,15 @@
 //! gui-ignore
 // TODO(EXT-732): fix encoding error in gui optimizer on this file
 import { useState } from 'react'
-import { ElementAfterText, Flex, Text, TouchableArea, useShadowPropsShort } from 'ui/src'
+import { ElementAfterText, Flex, Text, TouchableArea, useShadowPropsShort } from '@l.x/ui/src'
 import {
   LARGE_TOAST_RADIUS,
   MAX_TEXT_LENGTH,
   NOTIFICATION_HEIGHT,
   SMALL_TOAST_RADIUS,
   TOAST_BORDER_WIDTH,
-} from 'lx/src/features/notifications/constants'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+} from '@l.x/lx/src/features/notifications/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 export interface NotificationContentProps {
   title: string

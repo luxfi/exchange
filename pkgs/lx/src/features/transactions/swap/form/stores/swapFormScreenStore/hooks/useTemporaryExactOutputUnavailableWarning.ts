@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
-import { useEvent } from 'utilities/src/react/hooks'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 const WARNING_TIMEOUT_MS = ONE_SECOND_MS * 3
 

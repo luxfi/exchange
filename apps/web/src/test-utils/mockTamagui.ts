@@ -184,8 +184,8 @@ vi.mock('gui', async () => {
 })
 
 // Mock HeightAnimator to avoid useEvent issues
-vi.mock('ui/src', async () => {
-  const actual = await vi.importActual('ui/src')
+vi.mock('@l.x/ui/src', async () => {
+  const actual = await vi.importActual('@l.x/ui/src')
   return {
     ...actual,
     HeightAnimator: ({ children, open }: { children: React.ReactNode; open: boolean }) => {

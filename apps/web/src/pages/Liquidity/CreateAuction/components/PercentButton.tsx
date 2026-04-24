@@ -1,4 +1,4 @@
-import { Text, TouchableArea } from 'ui/src'
+import { Text, TouchableArea } from '@l.x/ui/src'
 
 interface PercentButtonProps {
   label: string

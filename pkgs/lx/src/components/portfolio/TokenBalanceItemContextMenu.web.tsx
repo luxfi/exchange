@@ -1,13 +1,13 @@
 import { memo, PropsWithChildren, useCallback, useMemo } from 'react'
-import { TouchableArea } from 'ui/src'
-import { ContextMenu } from 'lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { TokenBalanceItemContextMenuProps } from 'lx/src/components/portfolio/TokenBalanceItemContextMenu'
-import { TokenList } from 'lx/src/features/dataApi/types'
-import { useTokenContextMenuOptions } from 'lx/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
-import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
-import { isExtensionApp } from 'utilities/src/platform'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { TouchableArea } from '@l.x/ui/src'
+import { ContextMenu } from '@l.x/lx/src/components/menus/ContextMenu'
+import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
+import { TokenBalanceItemContextMenuProps } from '@l.x/lx/src/components/portfolio/TokenBalanceItemContextMenu'
+import { TokenList } from '@l.x/lx/src/features/dataApi/types'
+import { useTokenContextMenuOptions } from '@l.x/lx/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
+import { ElementName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import { isExtensionApp } from '@l.x/utils/src/platform'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 export const TokenBalanceItemContextMenu = memo(function TokenBalanceItemContextMenu({
   children,

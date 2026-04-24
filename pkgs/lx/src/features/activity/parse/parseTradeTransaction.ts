@@ -3,14 +3,14 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { GraphQLApi } from '@l.x/api'
-import { AssetType } from 'lx/src/entities/assets'
-import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { extractDappInfo } from '@l.x/lx/src/features/activity/utils/extractDappInfo'
 import {
   AssetCase,
   deriveCurrencyAmountFromAssetResponse,
   parseUSDValueFromAssetChange,
-} from 'lx/src/features/activity/utils/remote'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+} from '@l.x/lx/src/features/activity/utils/remote'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import {
   ConfirmedSwapTransactionInfo,
   NFTTradeTransactionInfo,
@@ -20,9 +20,9 @@ import {
   TransactionType,
   WithdrawTransactionInfo,
   WrapTransactionInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
-import { buildCurrencyId, buildNativeCurrencyId, buildWrappedNativeCurrencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { buildCurrencyId, buildNativeCurrencyId, buildWrappedNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 type TransferAssetChange = Extract<
   NonNullable<

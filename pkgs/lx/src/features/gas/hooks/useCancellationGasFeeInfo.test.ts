@@ -1,19 +1,19 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { useQuery } from '@tanstack/react-query'
 import { renderHook } from '@testing-library/react'
 import { providers } from 'ethers'
-import { useTransactionGasFee } from 'lx/src/features/gas/hooks'
-import { useCancellationGasFeeInfo } from 'lx/src/features/gas/hooks/useCancellationGasFeeInfo'
-import { usePlanCancellationGasFeeInfo } from 'lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
-import * as CancelUtils from 'lx/src/features/gas/utils/cancel'
-import * as CancelMultipleOrders from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
-import { getCancelOrderTxRequest } from 'lx/src/features/transactions/cancel/getCancelOrderTxRequest'
-import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
+import { useTransactionGasFee } from '@l.x/lx/src/features/gas/hooks'
+import { useCancellationGasFeeInfo } from '@l.x/lx/src/features/gas/hooks/useCancellationGasFeeInfo'
+import { usePlanCancellationGasFeeInfo } from '@l.x/lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
+import * as CancelUtils from '@l.x/lx/src/features/gas/utils/cancel'
+import * as CancelMultipleOrders from '@l.x/lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { getCancelOrderTxRequest } from '@l.x/lx/src/features/transactions/cancel/getCancelOrderTxRequest'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionType,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import type { Mock } from 'vitest'
 
 // Mock QueryClient before any imports that might use it
@@ -24,15 +24,15 @@ vi.mock('@tanstack/react-query', () => ({
   useQuery: vi.fn(),
 }))
 
-vi.mock('ui/src/assets/logos/png/all-networks-icon.png', () => ({ default: 'mocked-image' }))
+vi.mock('@l.x/ui/src/assets/logos/png/all-networks-icon.png', () => ({ default: 'mocked-image' }))
 
-vi.mock('lx/src/features/gas/hooks', () => ({
+vi.mock('@l.x/lx/src/features/gas/hooks', () => ({
   useTransactionGasFee: vi.fn(),
 }))
-vi.mock('lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo', () => ({
+vi.mock('@l.x/lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo', () => ({
   usePlanCancellationGasFeeInfo: vi.fn(),
 }))
-vi.mock('lx/src/features/gas/utils/cancel', () => ({
+vi.mock('@l.x/lx/src/features/gas/utils/cancel', () => ({
   CancellationType: {
     Classic: 'classic',
     LX: 'lx',
@@ -41,12 +41,12 @@ vi.mock('lx/src/features/gas/utils/cancel', () => ({
   createClassicCancelRequest: vi.fn(),
   calculateCancellationGasFee: vi.fn(),
 }))
-vi.mock('lx/src/features/transactions/cancel/getCancelOrderTxRequest')
-vi.mock('lx/src/features/transactions/cancel/cancelMultipleOrders', () => ({
+vi.mock('@l.x/lx/src/features/transactions/cancel/getCancelOrderTxRequest')
+vi.mock('@l.x/lx/src/features/transactions/cancel/cancelMultipleOrders', () => ({
   extractCancellationData: vi.fn(),
   getCancelMultipleLXOrdersTransaction: vi.fn(),
 }))
-vi.mock('lx/src/features/transactions/swap/utils/routing')
+vi.mock('@l.x/lx/src/features/transactions/swap/utils/routing')
 
 describe('useCancellationGasFeeInfo', () => {
   let mockUseTransactionGasFee: Mock

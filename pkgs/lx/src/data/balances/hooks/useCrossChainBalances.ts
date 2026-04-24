@@ -1,10 +1,10 @@
 import { WatchQueryFetchPolicy } from '@apollo/client'
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { useBalances } from 'lx/src/data/balances/hooks/useBalances'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { PortfolioBalance } from 'lx/src/features/dataApi/types'
-import { buildCurrencyId, buildNativeCurrencyId, currencyIdToChain } from 'lx/src/utils/currencyId'
+import { useBalances } from '@l.x/lx/src/data/balances/hooks/useBalances'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { buildCurrencyId, buildNativeCurrencyId, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
 
 export function useCrossChainBalances({
   evmAddress,

@@ -1,6 +1,6 @@
 // biome-ignore lint/style/noRestrictedImports: Trading API fixtures need direct Playwright imports
 import { test as base, type Page, type Route } from '@playwright/test'
-import { lxUrls } from 'lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { Mocks } from '~/playwright/mocks/mocks'
 
 const DEFAULT_TEST_GAS_LIMIT = '20000000'

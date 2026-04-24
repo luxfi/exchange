@@ -1,19 +1,19 @@
 import { useMemo } from 'react'
-import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isL2ChainId } from 'lx/src/features/chains/utils'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { getEVMTradeRepository } from 'lx/src/features/repositories'
-import { useWithQuoteLogging } from 'lx/src/features/transactions/swap/hooks/useTrade/logging'
-import { createEVMTradeService } from 'lx/src/features/transactions/swap/services/tradeService/evmTradeService'
-import { createSolanaTradeService } from 'lx/src/features/transactions/swap/services/tradeService/svmTradeService'
+import { useLuxContextSelector } from '@l.x/lx/src/contexts/LuxContext'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getEVMTradeRepository } from '@l.x/lx/src/features/repositories'
+import { useWithQuoteLogging } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade/logging'
+import { createEVMTradeService } from '@l.x/lx/src/features/transactions/swap/services/tradeService/evmTradeService'
+import { createSolanaTradeService } from '@l.x/lx/src/features/transactions/swap/services/tradeService/svmTradeService'
 import {
   createTradeService,
   TradeService,
-} from 'lx/src/features/transactions/swap/services/tradeService/tradeService'
-import { getMinAutoSlippageToleranceL2 } from 'lx/src/features/transactions/swap/utils/tradingApi'
-import { getLogger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/swap/services/tradeService/tradeService'
+import { getMinAutoSlippageToleranceL2 } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Services

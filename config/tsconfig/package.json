@@ -1,12 +1,23 @@
 {
-  "name": "tsconfig",
-  "version": "0.0.0",
+  "name": "@l.x/tsconfig",
+  "version": "1.0.0",
+  "description": "Shared TypeScript configurations for Lux Exchange apps and packages.",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxfi/exchange.git",
+    "directory": "config/tsconfig"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "app.json",
     "expo.json",
     "nextjs.json",
     "storybook.json",
-    "ui.json"
-  ],
-  "private": true
+    "tests.json",
+    "ui.json",
+    "README.md"
+  ]
 }

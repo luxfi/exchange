@@ -1,18 +1,18 @@
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName, SectionName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import type { TransactionSettingConfig } from '@l.x/lx/src/features/transactions/components/settings/types'
 import {
   TransactionScreen,
   useTransactionModalContext,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { UnichainInstantBalanceModal } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/UnichainInstantBalanceModal'
-import { SwapFormScreen } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreen'
-import { useIsUnichainFlashblocksEnabled } from 'lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
-import { useSwapOnPrevious } from 'lx/src/features/transactions/swap/review/hooks/useSwapOnPrevious'
-import { SwapReviewScreen } from 'lx/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewScreen'
-import { useSwapDependenciesStore } from 'lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
-import { isWebApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { UnichainInstantBalanceModal } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/UnichainInstantBalanceModal'
+import { SwapFormScreen } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreen'
+import { useIsUnichainFlashblocksEnabled } from '@l.x/lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
+import { useSwapOnPrevious } from '@l.x/lx/src/features/transactions/swap/review/hooks/useSwapOnPrevious'
+import { SwapReviewScreen } from '@l.x/lx/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewScreen'
+import { useSwapDependenciesStore } from '@l.x/lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export function CurrentScreen({
   settings,
