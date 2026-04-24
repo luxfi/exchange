@@ -79,8 +79,57 @@ Five drop-in modes:
 - **Your own L1** — fully independent EVM; register with RPC + wagmi config + contract addresses
 - **Any external EVM** — Ethereum, Base, Arbitrum, etc. — already supported
 
-All chain config is runtime — `/config.json` (K8s ConfigMap) picks
-defaults per deployment. One image, any chain.
+All chain config is runtime — see **Config & secrets** below. One
+image, any chain.
+
+## Config & secrets
+
+Canonical source: **[luxfi/kms](https://github.com/luxfi/kms)**. Every
+deployment mounts a KMS instance and pulls config + secrets at pod
+startup. `ghcr.io/hanzoai/spa:1.2.0` templates `/config.json` from
+`SPA_*` env vars injected by the KMS client — the SPA itself stays
+untouched.
+
+```
+KMS (native ZAP client)  →  SPA_* env  →  /config.json  →  loadBrandConfig()
+                                                             │
+                                                             └─ wagmi chain, RPC,
+                                                                gateway URL,
+                                                                IAM issuer,
+                                                                featureFlags, …
+```
+
+Each brand runs its **own white-label KMS**:
+
+| deployment | KMS endpoint | scope |
+| --- | --- | --- |
+| lux.exchange | `kms.lux.network` | Lux secrets |
+| zoo.exchange | `kms.zoo.network` | Zoo secrets (WL of luxfi/kms) |
+| pars.market | `kms.pars.network` | Pars secrets |
+
+Not runtime-sensitive values (static chain IDs, public token lists,
+IAM issuer URLs) can also be set via plain `SPA_*` env vars — no KMS
+roundtrip. Actual secrets (WalletConnect project IDs, private RPC
+URLs, Insights API keys, gateway signing keys) always go through KMS.
+
+### Run your own KMS
+
+```bash
+git clone git@github.com:luxfi/kms.git
+# deploy via hanzoai/platform or your own K8s
+# expose at kms.<your-domain>
+# create a machine identity for the exchange pod
+# populate secrets via the KMS CLI or UI
+```
+
+The exchange pod consumes it via native ZAP (binary protocol,
+sub-millisecond fetches — the spa image ships the client). Set
+`KMS_URL=https://kms.acme.network` and the machine-identity
+credentials; the SPA image hydrates `/config.json` on startup.
+
+**Or** skip KMS and set `SPA_*` env vars directly in the Deployment /
+Secret — supported for simple setups and local dev. Mix freely: KMS
+for secrets, env for non-sensitive config.
 
 ## White-label approach
 
