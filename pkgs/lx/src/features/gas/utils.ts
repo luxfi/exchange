@@ -16,17 +16,17 @@ import {
   getStatsigClient,
 } from '@l.x/gating'
 import JSBI from 'jsbi'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   CHAIN_GAS_STRATEGY_OVERRIDES,
   DEFAULT_GAS_STRATEGY,
   FAST_GAS_STRATEGY,
   NORMAL_GAS_STRATEGY,
   URGENT_GAS_STRATEGY,
-} from 'lx/src/features/gas/consts'
-import { hasSufficientFundsIncludingTempoGas } from 'lx/src/features/gas/tempo'
-import { createEthersProvider } from 'lx/src/features/providers/createEthersProvider'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+} from '@l.x/lx/src/features/gas/consts'
+import { hasSufficientFundsIncludingTempoGas } from '@l.x/lx/src/features/gas/tempo'
+import { createEthersProvider } from '@l.x/lx/src/features/providers/createEthersProvider'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import { type Prettify } from 'viem'
 
 export enum GasSpeed {

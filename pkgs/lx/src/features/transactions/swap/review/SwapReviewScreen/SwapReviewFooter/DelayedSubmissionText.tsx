@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AnimatePresence, Button, ColorTokens, Flex } from 'ui/src'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { AnimatePresence, Button, ColorTokens, Flex } from '@l.x/ui/src'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 const KEEP_OPEN_MSG_DELAY = 3 * ONE_SECOND_MS
 

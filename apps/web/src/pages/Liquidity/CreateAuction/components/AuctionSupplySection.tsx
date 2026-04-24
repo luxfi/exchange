@@ -1,6 +1,6 @@
 import { type Currency, type CurrencyAmount } from '@uniswap/sdk-core'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { AuctionSupplySelector } from '~/pages/Liquidity/CreateAuction/components/AuctionSupplySelector'
 import { PostAuctionLiquiditySelector } from '~/pages/Liquidity/CreateAuction/components/PostAuctionLiquiditySelector'
 import { TokenDistributionBar } from '~/pages/Liquidity/CreateAuction/components/TokenDistributionBar'

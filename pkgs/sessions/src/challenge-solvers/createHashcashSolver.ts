@@ -2,7 +2,7 @@ import { findProof, type HashcashChallenge } from '@l.x/sessions/src/challenge-s
 import type { HashcashWorkerChannelFactory } from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
 import type { ChallengeData, ChallengeSolver } from '@l.x/sessions/src/challenge-solvers/types'
 import type { PerformanceTracker } from '@l.x/sessions/src/performance/types'
-import type { Logger } from 'utilities/src/logger/logger'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 import { z } from 'zod'
 
 /** Error type for analytics classification */

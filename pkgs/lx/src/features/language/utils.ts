@@ -1,5 +1,5 @@
-import { Language, mapLocaleToLanguage } from 'lx/src/features/language/constants'
-import { navigatorLocale } from 'lx/src/features/language/navigatorLocale'
+import { Language, mapLocaleToLanguage } from '@l.x/lx/src/features/language/constants'
+import { navigatorLocale } from '@l.x/lx/src/features/language/navigatorLocale'
 
 // Determines the current language based on the user's locale settings, falling back to English if no mapping exists.
 export function getCurrentLanguageFromNavigator(): Language {

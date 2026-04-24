@@ -9,7 +9,7 @@ import {
   useQueryClient,
 } from '@tanstack/react-query'
 import { useEffect } from 'react'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * This is a wrapper around react-query's `useQuery` that immediately clears the cache if the data is older than `gcTime`,

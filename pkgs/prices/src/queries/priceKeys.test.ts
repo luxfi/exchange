@@ -1,5 +1,5 @@
 import { priceKeys } from '@l.x/prices/src/queries/priceKeys'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { describe, expect, it } from 'vitest'
 
 describe('priceKeys', () => {

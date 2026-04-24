@@ -6,7 +6,7 @@ import { RefreshButtonIcon } from '@l.x/ui/src/components/RefreshButton/RefreshB
 import { Text } from '@l.x/ui/src/components/text'
 import { Tooltip } from '@l.x/ui/src/components/tooltip/Tooltip'
 import { zIndexes } from '@l.x/ui/src/theme'
-import { isWebPlatform } from 'utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 /**
  * A button component that allows users to refresh their balance with a visual indicator

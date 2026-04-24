@@ -1,7 +1,7 @@
 import { queryOptions } from '@tanstack/react-query'
 import type { LXIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import type { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import type { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 
 type LXIdentifierQueryOptions = QueryOptionsResult<
   string | null,

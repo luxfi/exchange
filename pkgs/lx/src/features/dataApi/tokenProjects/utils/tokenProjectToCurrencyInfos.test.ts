@@ -1,10 +1,10 @@
 import type { GraphQLApi } from '@l.x/api'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { tokenProjectToCurrencyInfos } from 'lx/src/features/dataApi/tokenProjects/utils/tokenProjectToCurrencyInfos'
-import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { buildCurrency } from 'lx/src/features/dataApi/utils/buildCurrency'
-import { removeSafetyInfo, usdcTokenProject } from 'lx/src/test/fixtures'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { tokenProjectToCurrencyInfos } from '@l.x/lx/src/features/dataApi/tokenProjects/utils/tokenProjectToCurrencyInfos'
+import type { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { buildCurrency } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
+import { removeSafetyInfo, usdcTokenProject } from '@l.x/lx/src/test/fixtures'
 
 describe(tokenProjectToCurrencyInfos, () => {
   const project = usdcTokenProject()

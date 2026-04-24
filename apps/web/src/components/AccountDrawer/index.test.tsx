@@ -22,7 +22,7 @@ vi.mock('~/components/AccountDrawer/MiniPortfolio/hooks', async (importOriginal)
   }
 })
 
-vi.mock('lx/src/features/accounts/store/hooks', () => ({
+vi.mock('@l.x/lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(() => ({
     evmAddress: '0x0000000000000000000000000000000000000000',
     svmAddress: undefined,
@@ -53,7 +53,7 @@ vi.mock('gui', async () => {
   }
 })
 
-vi.mock('lx/src/components/AnimatedNumber/AnimatedNumber', () => {
+vi.mock('@l.x/lx/src/components/AnimatedNumber/AnimatedNumber', () => {
   const mockAnimatedNumber = ({ value }: { value: number }) => {
     return <div>{value}</div>
   }

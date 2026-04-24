@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { useTokenProjectTokensTvlPartsFragment } from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { useTokenProjectTokensTvlPartsFragment } from '@l.x/lx/src/data/graphql/uniswap-data-api/fragments'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 
 interface HighestTvlChainResult {
   chainId: UniverseChainId | null

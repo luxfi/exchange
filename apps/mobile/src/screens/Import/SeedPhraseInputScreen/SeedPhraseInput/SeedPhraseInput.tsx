@@ -9,9 +9,9 @@ import {
   NativeSeedPhraseInputProps,
   NativeSeedPhraseInputRef,
 } from 'src/screens/Import/SeedPhraseInputScreen/SeedPhraseInput/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
-import { isAndroid } from 'utilities/src/platform'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 const styles = StyleSheet.create({
   input: {

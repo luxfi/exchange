@@ -1,4 +1,4 @@
-import { createSafeMigration, createSafeMigrationFactory } from 'lx/src/state/createSafeMigration'
+import { createSafeMigration, createSafeMigrationFactory } from '@l.x/lx/src/state/createSafeMigration'
 import { vi } from 'vitest'
 
 type TestState = {

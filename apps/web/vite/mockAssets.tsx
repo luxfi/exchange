@@ -22,26 +22,26 @@ const createAssetModuleMock = (filename: string) => {
   return { default: staticPath }
 }
 
-vi.mock('ui/src/assets/backgrounds/for-connecting-v2.svg', () => createAssetModuleMock('svg'))
-vi.mock('ui/src/assets/logos/png/polygon-logo.png', () => createAssetModuleMock('png'))
-vi.mock('ui/src/assets/logos/png/uniswap-logo.png', () => createAssetModuleMock('png'))
-vi.mock('ui/src/assets/logos/png/arbitrum-logo.png', () => createAssetModuleMock('png'))
-vi.mock('ui/src/assets/logos/png/eth-logo.png', () => createAssetModuleMock('png'))
-vi.mock('ui/src/assets/logos/png/ethereum-logo.png', () => createAssetModuleMock('png'))
-vi.mock('ui/src/assets/graphics/unitag-light-small.png', () => createAssetModuleMock('png'))
-vi.mock('ui/src/assets/logos/png/uniswap-logo-large.png', () => createAssetModuleMock('png'))
+vi.mock('@l.x/ui/src/assets/backgrounds/for-connecting-v2.svg', () => createAssetModuleMock('svg'))
+vi.mock('@l.x/ui/src/assets/logos/png/polygon-logo.png', () => createAssetModuleMock('png'))
+vi.mock('@l.x/ui/src/assets/logos/png/uniswap-logo.png', () => createAssetModuleMock('png'))
+vi.mock('@l.x/ui/src/assets/logos/png/arbitrum-logo.png', () => createAssetModuleMock('png'))
+vi.mock('@l.x/ui/src/assets/logos/png/eth-logo.png', () => createAssetModuleMock('png'))
+vi.mock('@l.x/ui/src/assets/logos/png/ethereum-logo.png', () => createAssetModuleMock('png'))
+vi.mock('@l.x/ui/src/assets/graphics/unitag-light-small.png', () => createAssetModuleMock('png'))
+vi.mock('@l.x/ui/src/assets/logos/png/uniswap-logo-large.png', () => createAssetModuleMock('png'))
 vi.mock('~/assets/images/dropdown.svg', () => createAssetModuleMock('svg'))
 vi.mock('~/assets/svg/search.svg', () => createAssetModuleMock('svg'))
 vi.mock('~/assets/svg/expando-icon-closed.svg', () => createAssetModuleMock('svg'))
 vi.mock('~/assets/svg/expando-icon-opened.svg', () => createAssetModuleMock('svg'))
 
-vi.mock('ui/src/components/Unicon', () => ({
+vi.mock('@l.x/ui/src/components/Unicon', () => ({
   Unicon: ({ ..._props }: any) => {
     return React.createElement('span', { 'data-testid': 'unicon' }, '🔵')
   },
 }))
 
-vi.mock('ui/src/assets', () => ({
+vi.mock('@l.x/ui/src/assets', () => ({
   ALL_NETWORKS_LOGO: 'all-networks-logo.png',
   ETHEREUM_LOGO: 'ethereum-logo.png',
   OPTIMISM_LOGO: 'optimism-logo.png',

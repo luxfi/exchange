@@ -1,5 +1,5 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { getPossibleChainMatchFromSearchWord } from 'lx/src/utils/search/getPossibleChainMatchFromSearchWord'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getPossibleChainMatchFromSearchWord } from '@l.x/lx/src/utils/search/getPossibleChainMatchFromSearchWord'
 
 /**
  * Parses a search query to extract chain filter and search term.

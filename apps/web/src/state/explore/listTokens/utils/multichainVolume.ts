@@ -1,6 +1,6 @@
 import type { PlainMessage } from '@bufbuild/protobuf'
 import { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TimePeriod } from '~/appGraphql/data/util'
 
 type VolumeKey = 'volume1h' | 'volume1d' | 'volume7d' | 'volume30d' | 'volume1y'

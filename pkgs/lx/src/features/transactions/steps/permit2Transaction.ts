@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { OnChainTransactionFields, TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
-import { parseERC20ApproveCalldata } from 'lx/src/utils/approvals'
+import { OnChainTransactionFields, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
+import { parseERC20ApproveCalldata } from '@l.x/lx/src/utils/approvals'
 
 export interface Permit2TransactionStep extends OnChainTransactionFields {
   type: TransactionStepType.Permit2Transaction

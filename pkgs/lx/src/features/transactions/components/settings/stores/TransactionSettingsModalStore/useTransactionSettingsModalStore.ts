@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import type {
   ModalId,
   TransactionSettingsModalId,
-} from 'lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
-import { TransactionSettingsModalStoreContext } from 'lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/TransactionSettingsModalStoreContext'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
+import { TransactionSettingsModalStoreContext } from '@l.x/lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/TransactionSettingsModalStoreContext'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'
 

@@ -1,6 +1,6 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { getCapabilities as wagmi_getCapabilities } from '@wagmi/core/experimental'
-import { getLogger } from 'utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 import type { Mock } from 'vitest'
 import {
   handleGetCapabilities,

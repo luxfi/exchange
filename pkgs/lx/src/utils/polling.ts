@@ -1,4 +1,4 @@
-import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 const MS = 1000
 const ONE_MINUTE_MS = 60 * MS

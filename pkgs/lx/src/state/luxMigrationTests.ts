@@ -7,9 +7,9 @@
  * For unit tests of individual migrations, see lxMigrations.test.ts.
  */
 /* biome-ignore-all lint/suspicious/noExplicitAny: legacy code needs review */
-import { SearchHistoryResultType } from 'lx/src/features/search/SearchHistoryResult'
-import { TokenProtectionWarning } from 'lx/src/features/tokens/warnings/types'
-import { PreV55SearchResultType } from 'lx/src/state/oldTypes'
+import { SearchHistoryResultType } from '@l.x/lx/src/features/search/SearchHistoryResult'
+import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
+import { PreV55SearchResultType } from '@l.x/lx/src/state/oldTypes'
 
 // Mobile: 89
 // Extension: 25

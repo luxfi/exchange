@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { SearchTextInput } from 'lx/src/features/search/SearchTextInput'
+import { Flex } from '@l.x/ui/src'
+import { SearchTextInput } from '@l.x/lx/src/features/search/SearchTextInput'
 
 export function NetworkSearchBar({
   value,

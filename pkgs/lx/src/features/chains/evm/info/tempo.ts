@@ -1,17 +1,17 @@
 import { Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
-import { TEMPO_LOGO } from 'ui/src/assets'
+import { TEMPO_LOGO } from '@l.x/ui/src/assets'
 import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS,
   getQuicknodeEndpointUrl,
-} from 'lx/src/features/chains/evm/rpc'
-import { buildChainTokens } from 'lx/src/features/chains/evm/tokens'
-import { GENERIC_L2_GAS_CONFIG } from 'lx/src/features/chains/gasDefaults'
-import { NetworkLayer, RPCType, UniverseChainId, UniverseChainInfo } from 'lx/src/features/chains/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/chains/evm/rpc'
+import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
+import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
+import { NetworkLayer, RPCType, UniverseChainId, UniverseChainInfo } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 const PATHUSD_ADDRESS = '0x20c0000000000000000000000000000000000000'
 const USDC_E_ADDRESS = '0x20c000000000000000000000b9537d11c60e8b50'

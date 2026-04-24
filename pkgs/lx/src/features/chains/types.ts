@@ -9,7 +9,7 @@ import type { ImageSourcePropType } from 'react-native'
 import { type UNIVERSE_CHAIN_INFO } from '@l.x/lx/src/features/chains/chainInfo'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { NonEmptyArray } from 'utilities/src/primitives/array'
+import { NonEmptyArray } from '@l.x/utils/src/primitives/array'
 import { Chain as WagmiChain } from 'wagmi/chains'
 
 export enum UniverseChainId {

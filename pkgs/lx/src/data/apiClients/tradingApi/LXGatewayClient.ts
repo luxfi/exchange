@@ -13,7 +13,7 @@ import type { ClassicQuoteResponse, DiscriminatedQuoteResponse } from '@l.x/api/
 import type { QuoteRequest } from '@l.x/api/src/clients/trading/__generated__/models/QuoteRequest'
 import { Routing } from '@l.x/api/src/clients/trading/__generated__/models/Routing'
 import { brand } from '@l.x/config'
-import { isDevEnv } from 'utilities/src/environment/env'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
 
 // ---------------------------------------------------------------------------
 // Chain detection

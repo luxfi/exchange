@@ -1,5 +1,5 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import type { PortfolioChainBalance, PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import type { PortfolioChainBalance, PortfolioMultichainBalance } from '@l.x/lx/src/features/dataApi/types'
 
 /**
  * Creates helpers to filter multichain portfolio balances by chain ID.

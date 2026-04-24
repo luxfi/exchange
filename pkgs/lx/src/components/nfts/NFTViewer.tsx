@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, UniversalImage, type UniversalImageStyleDimensionValue } from 'ui/src'
-import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
-import { shortenAddress } from 'utilities/src/addresses'
-import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
-import { isGifUri, isSVGUri, uriToHttpUrls } from 'utilities/src/format/urls'
+import { Flex, Text, UniversalImage, type UniversalImageStyleDimensionValue } from '@l.x/ui/src'
+import { UniversalImageResizeMode } from '@l.x/ui/src/components/UniversalImage/types'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
+import { isGifUri, isSVGUri, uriToHttpUrls } from '@l.x/utils/src/format/urls'
 
 type Props = {
   uri: string | undefined

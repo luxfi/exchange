@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import type { SlippageControlProps } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageControl/types'
-import { useSlippageSettings } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
+import { Flex, Text } from '@l.x/ui/src'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import type { SlippageControlProps } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageControl/types'
+import { useSlippageSettings } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
 
 export function SlippageControl(props: SlippageControlProps): JSX.Element {
   const { t } = useTranslation()

@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@luxfi/api'
-import { BASE_LOGO, ETH_LOGO } from 'ui/src/assets'
-import { config } from 'lx/src/config'
-import { CHAIN_ID_TO_URL_PARAM } from 'lx/src/features/chains/chainUrlParam'
+import { BASE_LOGO, ETH_LOGO } from '@l.x/ui/src/assets'
+import { config } from '@l.x/lx/src/config'
+import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
 import {
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   DEFAULT_RETRY_OPTIONS,
@@ -20,8 +20,8 @@ import {
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { buildUSDC } from '@l.x/lx/src/features/tokens/stablecoin'
-import { isPlaywrightEnv } from 'utilities/src/environment/env'
-import { isWebApp } from 'utilities/src/platform'
+import { isPlaywrightEnv } from '@l.x/utils/src/environment/env'
+import { isWebApp } from '@l.x/utils/src/platform'
 import { base } from 'wagmi/chains'
 
 const tokens = buildChainTokens({

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { useSporeColors } from 'ui/src'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useSporeColors } from '@l.x/ui/src'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useSrcColor } from '~/hooks/useColor'
 import { getChainLogoUrl } from '~/pages/Explore/tables/Tokens/VolumeByNetworkPopover/utils'
 

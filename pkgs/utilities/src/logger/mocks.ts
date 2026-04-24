@@ -40,7 +40,7 @@ export const mockLogger = createMockLogger()
  *
  * 1. To simply silence the logger (no spy assertions needed):
  *    ```ts
- *    import 'utilities/src/logger/mocks'
+ *    import '@l.x/utils/src/logger/mocks'
  *    ```
  *
  * 2. To spy on logger calls (e.g., expect(mockLogger.error).toHaveBeenCalled()):
@@ -56,21 +56,21 @@ export const mockLogger = createMockLogger()
  *      },
  *    }))
  *
- *    vi.mock('utilities/src/logger/logger', () => ({
+ *    vi.mock('@l.x/utils/src/logger/logger', () => ({
  *      logger: mockLogger,
  *    }))
  *    ```
  *
  * 3. To customize mocked functions like getLogger:
  *    ```ts
- *    import 'utilities/src/logger/mocks'
+ *    import '@l.x/utils/src/logger/mocks'
  *    import { getLogger } from '@l.x/utils/src/logger/logger'
  *
  *    // In test:
  *    vi.mocked(getLogger).mockReturnValue({ warn: mockWarn } as unknown as ReturnType<typeof getLogger>)
  *    ```
  */
-vi.mock('utilities/src/logger/logger', () => ({
+vi.mock('@l.x/utils/src/logger/logger', () => ({
   logger: mockLogger,
   getLogger: vi.fn(() => createMockLogger()),
   getDevLogger: vi.fn(() => createMockLogger()),

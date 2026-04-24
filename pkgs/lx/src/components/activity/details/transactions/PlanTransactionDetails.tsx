@@ -1,18 +1,18 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text } from 'ui/src'
-import { AlertTriangleFilled, ArrowDown, InfoCircle } from 'ui/src/components/icons'
-import { iconSizes } from 'ui/src/theme'
+import { Flex, styled, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled, ArrowDown, InfoCircle } from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
 import {
   TwoTokenDetails,
   useTokenAmountInfo,
-} from 'lx/src/components/activity/details/transactions/utilityComponents'
-import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { useIntermediaryPlanState } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
-import { useIntermediaryPlanStateDescriptor } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanStateDescriptor'
-import { useIsPriceChangeInterrupted } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIsPriceChangeInterrupted'
-import { PlanTransactionInfo, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/components/activity/details/transactions/utilityComponents'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { useIntermediaryPlanState } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
+import { useIntermediaryPlanStateDescriptor } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanStateDescriptor'
+import { useIsPriceChangeInterrupted } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useIsPriceChangeInterrupted'
+import { PlanTransactionInfo, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 
 /**
  * This component displays the details of a plan transaction. If partially executed,

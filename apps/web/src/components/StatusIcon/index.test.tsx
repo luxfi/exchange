@@ -6,7 +6,7 @@ import { render } from '~/test-utils/render'
 
 const ACCOUNT = '0x0'
 
-vi.mock('uniswap/src/features/unitags/hooks', () => ({
+vi.mock('@l.x/lx/src/features/unitags/hooks', () => ({
   useUnitagByAddress: () => ({ unitag: undefined, loading: false }),
 }))
 

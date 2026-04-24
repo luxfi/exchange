@@ -5,7 +5,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from 'react-native-reanimated'
-import { Flex, FlexProps } from 'ui/src'
+import { Flex, FlexProps } from '@l.x/ui/src'
 
 type ScrollbarProps = FlexProps & {
   visibleHeight: number

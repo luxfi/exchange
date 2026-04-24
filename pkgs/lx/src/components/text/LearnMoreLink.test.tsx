@@ -1,7 +1,7 @@
-import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { renderWithProviders } from 'lx/src/test/render'
+import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
+import { renderWithProviders } from '@l.x/lx/src/test/render'
 
-vi.mock('lx/src/utils/linking', () => ({
+vi.mock('@l.x/lx/src/utils/linking', () => ({
   openUri: vi.fn(),
 }))
 

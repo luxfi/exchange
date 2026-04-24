@@ -27,7 +27,7 @@ import { TransactionSigner } from '@luxfi/wallet/src/features/transactions/execu
 import { TransactionConfigService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/transactionConfigService'
 
 // Mock external utilities
-jest.mock('wallet/src/features/providers/utils', () => ({
+jest.mock('@luxfi/wallet/src/features/providers/utils', () => ({
   isPrivateRpcSupportedOnChain: jest.fn(),
 }))
 

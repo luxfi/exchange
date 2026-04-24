@@ -3,7 +3,7 @@ import { GraphQLApi } from '@l.x/api'
 import client from 'functions/client'
 import { Data, PositionStatus } from 'functions/utils/cache'
 import getPool from 'functions/utils/getPool'
-import { URL_PARAM_TO_CHAIN_ID } from 'lx/src/features/chains/chainUrlParam'
+import { URL_PARAM_TO_CHAIN_ID } from '@l.x/lx/src/features/chains/chainUrlParam'
 
 const LX_DATA_API_URL = getGatewayUrl('/gateway/v2/data.v1.DataApiService/GetPosition')
 

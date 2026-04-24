@@ -6,9 +6,9 @@ import {
   useClientAsyncInit,
 } from '@l.x/gating'
 import { type ReactNode, useEffect, useMemo } from 'react'
-import { config } from 'lx/src/config'
-import { statsigBaseConfig } from 'lx/src/features/gating/statsigBaseConfig'
-import { logger } from 'utilities/src/logger/logger'
+import { config } from '@l.x/lx/src/config'
+import { statsigBaseConfig } from '@l.x/lx/src/features/gating/statsigBaseConfig'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 type StatsigProviderWrapperProps = {
   user: StatsigUser

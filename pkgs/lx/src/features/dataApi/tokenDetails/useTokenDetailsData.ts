@@ -10,16 +10,16 @@ import { useMemo } from 'react'
 import {
   useTokenMarketPartsFragment,
   useTokenProjectMarketsPartsFragment,
-} from 'lx/src/data/graphql/lux-data-api/fragments'
+} from '@l.x/lx/src/data/graphql/lux-data-api/fragments'
 import type {
   MarketDataInput,
   ProjectMarketDataInput,
   TokenMarketStats,
-} from 'lx/src/features/dataApi/tokenDetails/tokenMarketStatsUtils'
-import { computeTokenMarketStats } from 'lx/src/features/dataApi/tokenDetails/tokenMarketStatsUtils'
-import type { CurrencyId } from 'lx/src/types/currency'
+} from '@l.x/lx/src/features/dataApi/tokenDetails/tokenMarketStatsUtils'
+import { computeTokenMarketStats } from '@l.x/lx/src/features/dataApi/tokenDetails/tokenMarketStatsUtils'
+import type { CurrencyId } from '@l.x/lx/src/types/currency'
 
-export type { TokenMarketStats } from 'lx/src/features/dataApi/tokenDetails/tokenMarketStatsUtils'
+export type { TokenMarketStats } from '@l.x/lx/src/features/dataApi/tokenDetails/tokenMarketStatsUtils'
 
 /**
  * Returns the current spot price for a token

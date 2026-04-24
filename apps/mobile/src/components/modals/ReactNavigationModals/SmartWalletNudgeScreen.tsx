@@ -2,8 +2,8 @@ import { useMemo } from 'react'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { ReactNavigationModal } from 'src/components/modals/ReactNavigationModals/ReactNavigationModal'
 import { useOnEnableSmartWallet } from 'src/features/smartWallet/hooks/useOnEnableSmartWallet'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { SmartWalletNudge, SmartWalletNudgeProps } from 'wallet/src/components/smartWallet/modals/SmartWalletNudge'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { SmartWalletNudge, SmartWalletNudgeProps } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletNudge'
 
 export const SmartWalletNudgeScreen = (props: AppStackScreenProp<typeof ModalName.SmartWalletNudge>): JSX.Element => {
   const onEnableSmartWallet = useOnEnableSmartWallet()

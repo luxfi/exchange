@@ -1,4 +1,4 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 /**
  * Generates a unique position ID for visibility tracking

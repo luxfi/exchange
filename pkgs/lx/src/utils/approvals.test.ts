@@ -1,5 +1,5 @@
 import { MaxUint256 } from '@luxamm/sdk-core'
-import { parseERC20ApproveCalldata } from 'lx/src/utils/approvals'
+import { parseERC20ApproveCalldata } from '@l.x/lx/src/utils/approvals'
 
 describe(parseERC20ApproveCalldata, () => {
   it('Returns proper address and amount for max spend', () => {

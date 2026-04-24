@@ -1,6 +1,6 @@
 import React, { HTMLProps, useCallback } from 'react'
-import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'
 import { ClickableStyle } from '~/theme/components/styles'
 import { anonymizeLink } from '~/utils/anonymizeLink'

@@ -38,11 +38,11 @@ vi.mock('wagmi', async (importOriginal) => {
   }
 })
 
-vi.mock('lx/src/features/telemetry/send', () => ({
+vi.mock('@l.x/lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: vi.fn(),
 }))
 
-vi.mock('lx/src/features/telemetry/user', async (importOriginal) => {
+vi.mock('@l.x/lx/src/features/telemetry/user', async (importOriginal) => {
   const original = (await importOriginal()) as any
   return {
     ...original,

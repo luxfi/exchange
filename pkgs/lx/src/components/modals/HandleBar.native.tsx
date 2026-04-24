@@ -1,7 +1,7 @@
-import { Flex, useSporeColors } from 'ui/src'
-import { spacing } from 'ui/src/theme'
-import { HandleBarProps } from 'lx/src/components/modals/HandleBar'
-import { isAndroid } from 'utilities/src/platform'
+import { Flex, useSporeColors } from '@l.x/ui/src'
+import { spacing } from '@l.x/ui/src/theme'
+import { HandleBarProps } from '@l.x/lx/src/components/modals/HandleBar'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 const HANDLEBAR_HEIGHT = spacing.spacing4
 const HANDLEBAR_WIDTH = spacing.spacing36

@@ -1,20 +1,20 @@
 import { CurrencyAmount, Percent, Token } from '@luxamm/sdk-core'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { Trade, TradeWithStatus } from 'lx/src/features/transactions/swap/types/trade'
-import { getPriceImpact } from 'lx/src/features/transactions/swap/utils/getPriceImpact'
-import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { CurrencyField } from 'lx/src/types/currency'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import type { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import type { Trade, TradeWithStatus } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { getPriceImpact } from '@l.x/lx/src/features/transactions/swap/utils/getPriceImpact'
+import { getSwapFeeUsdFromDerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/utils/getSwapFeeUsd'
+import { isClassic, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 import type { Mock } from 'vitest'
 
 // Mocks for routing and getSwapFeeUsd
-vi.mock('lx/src/features/transactions/swap/utils/routing', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/utils/routing', () => ({
   isClassic: vi.fn(),
   isLX: vi.fn(),
 }))
-vi.mock('lx/src/features/transactions/swap/utils/getSwapFeeUsd', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/utils/getSwapFeeUsd', () => ({
   getSwapFeeUsdFromDerivedSwapInfo: vi.fn(),
 }))
 

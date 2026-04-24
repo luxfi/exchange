@@ -5,10 +5,10 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { ExploreStackParamList } from 'src/app/navigation/types'
 import { handleTopTokensDeepLink } from 'src/features/deepLinking/handleTopTokensDeepLink'
 import { dismissAllModalsBeforeNavigation } from 'src/features/deepLinking/utils'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { logger } from 'utilities/src/logger/logger'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Mock the navigation ref
 jest.mock('src/app/navigation/navigationRef', () => ({
@@ -18,7 +18,7 @@ jest.mock('src/app/navigation/navigationRef', () => ({
 }))
 
 // Mock the logger
-jest.mock('utilities/src/logger/logger', () => ({
+jest.mock('@l.x/utils/src/logger/logger', () => ({
   logger: {
     error: jest.fn(),
   },

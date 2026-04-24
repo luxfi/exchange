@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { usePrevious } from 'utilities/src/react/hooks'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 
 /** Saves value when submission starts. Returns that value while submitting, otherwise returns the latest value. */
 export function useFreezeWhileSubmitting<T>(latestValue: T, isSubmitting: boolean): T {

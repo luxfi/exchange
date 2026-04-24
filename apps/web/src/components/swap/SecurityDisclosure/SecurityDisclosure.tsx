@@ -12,7 +12,7 @@
 // text-escaping prevents HTML/JS injection even if /config.json is
 // compromised. Never use dangerouslySetInnerHTML here.
 
-import { Flex, styled, Text } from 'ui/src'
+import { Flex, styled, Text } from '@l.x/ui/src'
 import type { SecurityDisclosureConfig } from '@l.x/config'
 
 const DisclaimerText = styled(Text, {

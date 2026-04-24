@@ -1,4 +1,4 @@
-import { SwapBlockedCategory } from 'lx/src/features/telemetry/constants/features'
+import { SwapBlockedCategory } from '@l.x/lx/src/features/telemetry/constants/features'
 
 /** An error that exists when a trade can be displayed but not executed. */
 export class BlockingTradeError extends Error {

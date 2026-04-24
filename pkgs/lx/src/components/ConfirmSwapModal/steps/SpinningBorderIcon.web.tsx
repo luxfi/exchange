@@ -1,5 +1,5 @@
 import { PropsWithChildren, useEffect } from 'react'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 
 // Inject CSS keyframes for spinning animation once
 const SPINNER_KEYFRAMES_ID = 'lx-spinner-keyframes'

@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react'
 import type { Insets, LayoutChangeEvent } from 'react-native'
-import { isIOS } from 'utilities/src/platform'
+import { isIOS } from '@l.x/utils/src/platform'
 
 type FrameSize = { width: number; height: number }
 

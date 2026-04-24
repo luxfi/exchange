@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { Flex, Shine } from 'ui/src'
+import { Flex, Shine } from '@l.x/ui/src'
 
 export function IndicativeLoadingWrapper({ children, loading }: PropsWithChildren<{ loading?: boolean }>): JSX.Element {
   if (loading) {

@@ -15,7 +15,7 @@ import { searchTokens } from '@luxamm/client-search/dist/search/v1/api-searchSer
 import { parseProtectionInfo, parseRestProtocolVersion, parseSafetyLevel, SharedQueryClient } from '@luxfi/api'
 import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
 import { lxPostTransport } from '@l.x/lx/src/data/rest/base'
-import { createLogger } from 'utilities/src/logger/logger'
+import { createLogger } from '@l.x/utils/src/logger/logger'
 
 const FILE_NAME = 'searchTokensAndPools.ts'
 
@@ -25,7 +25,7 @@ import { buildCurrency, buildCurrencyInfo } from '@l.x/lx/src/features/dataApi/u
 import { getCurrencySafetyInfo } from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
 import { PoolSearchHistoryResult, SearchHistoryResultType } from '@l.x/lx/src/features/search/SearchHistoryResult'
 import { buildCurrencyId, currencyId, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
-import { ONE_DAY_MS, ONE_HOUR_MS } from 'utilities/src/time/time'
+import { ONE_DAY_MS, ONE_HOUR_MS } from '@l.x/utils/src/time/time'
 
 /**
  * Wrapper around Tanstack useQuery for the Lux REST BE service SearchTokens

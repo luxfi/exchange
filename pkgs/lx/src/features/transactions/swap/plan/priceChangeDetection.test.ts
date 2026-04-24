@@ -1,10 +1,10 @@
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
-import { UNI, WBTC } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { buildTradeFromPlanResponse } from 'lx/src/features/transactions/swap/plan/planSagaUtils'
-import { ChainedActionTrade } from 'lx/src/features/transactions/swap/types/trade'
-import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
+import { UNI, WBTC } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { buildTradeFromPlanResponse } from '@l.x/lx/src/features/transactions/swap/plan/planSagaUtils'
+import { ChainedActionTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { requireAcceptNewTrade } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 
 const INPUT_TOKEN = UNI[UniverseChainId.Mainnet]
 const OUTPUT_TOKEN = WBTC

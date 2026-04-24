@@ -1,8 +1,8 @@
-import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
-import { getFiatCurrencyCode } from 'lx/src/features/fiatCurrency/hooks'
-import { TrimTrailingZerosParams } from 'lx/src/features/fiatCurrency/priceChart/formatters/shared/types'
-import { FormatNumberOrStringInput } from 'lx/src/features/language/formatter'
-import { NumberType } from 'utilities/src/format/types'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { getFiatCurrencyCode } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { TrimTrailingZerosParams } from '@l.x/lx/src/features/fiatCurrency/priceChart/formatters/shared/types'
+import { FormatNumberOrStringInput } from '@l.x/lx/src/features/language/formatter'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export const FIAT_DELTA_THRESHOLD = 0.000001
 const FORMATTED_NUMBER_PATTERN = /^([^0-9]*)([0-9,.\s]+)(.*)$/

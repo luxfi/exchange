@@ -1,10 +1,10 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEffect, useRef } from 'react'
-import { getNativeAddress } from 'lx/src/constants/addresses'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { LXEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { getTokenProtectionFeeOnTransfer } from 'lx/src/features/tokens/warnings/safetyUtils'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { getTokenProtectionFeeOnTransfer } from '@l.x/lx/src/features/tokens/warnings/safetyUtils'
 
 /**
  * Logs an analytics event when there are discrepancies between our backend's and Blockaid's fee-on-transfer (FOT) detection.

@@ -1,7 +1,7 @@
 import {
   clamp52wWithCurrentPrice,
   computeTokenMarketStats,
-} from 'lx/src/features/dataApi/tokenDetails/tokenMarketStatsUtils'
+} from '@l.x/lx/src/features/dataApi/tokenDetails/tokenMarketStatsUtils'
 import { describe, expect, it } from 'vitest'
 
 describe('clamp52wWithCurrentPrice', () => {

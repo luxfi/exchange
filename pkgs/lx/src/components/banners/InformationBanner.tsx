@@ -1,5 +1,5 @@
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { QuestionInCircleFilled } from 'ui/src/components/icons/QuestionInCircleFilled'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { QuestionInCircleFilled } from '@l.x/ui/src/components/icons/QuestionInCircleFilled'
 
 type InformationBannerProps = {
   infoText: string

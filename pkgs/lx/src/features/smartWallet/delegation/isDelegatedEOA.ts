@@ -1,4 +1,4 @@
-import { ensure0xHex, HexString } from 'utilities/src/addresses/hex'
+import { ensure0xHex, HexString } from '@l.x/utils/src/addresses/hex'
 
 const DELEGATE_PREFIX = 'ef0100'
 const DELEGATE_LENGTH = 46 // 23 bytes

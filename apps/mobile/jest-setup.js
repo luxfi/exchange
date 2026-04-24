@@ -6,7 +6,7 @@ import 'utilities/jest-package-mocks'
 import 'uniswap/jest-package-mocks'
 import 'wallet/jest-package-mocks'
 import 'config/jest-presets/ui/ui-package-mocks'
-import 'uniswap/src/i18n' // Uses real translations for tests
+import '@l.x/lx/src/i18n' // Uses real translations for tests
 import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock.js'
 import { setUpTests } from 'react-native-reanimated'
 

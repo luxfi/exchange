@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export interface KeyboardInfo {
   keyboardHeight: number

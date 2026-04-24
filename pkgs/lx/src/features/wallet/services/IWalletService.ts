@@ -1,5 +1,5 @@
-import { Wallet } from 'lx/src/features/wallet/types/Wallet'
-import { HexString } from 'utilities/src/addresses/hex'
+import { Wallet } from '@l.x/lx/src/features/wallet/types/Wallet'
+import { HexString } from '@l.x/utils/src/addresses/hex'
 
 export interface WalletService {
   getWallet(params: { evmAddress?: HexString; svmAddress?: string }): Wallet

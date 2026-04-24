@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Flex } from 'ui/src'
+import { Button, Flex } from '@l.x/ui/src'
 
 type ButtonProps = React.ComponentProps<typeof Button>
 export const GatingButton = (props: Omit<ButtonProps, 'size' | 'emphasis'>): JSX.Element => {

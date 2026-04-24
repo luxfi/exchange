@@ -12,19 +12,19 @@ import {
   removeSession,
   WalletConnectSession,
 } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { Scan } from 'ui/src/components/icons'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { spacing } from 'ui/src/theme'
-import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { WalletConnectEvent } from 'uniswap/src/types/walletConnect'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
-import { DappEllipsisDropdown } from 'wallet/src/components/settings/DappEllipsisDropdown/DappEllipsisDropdown'
-import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Scan } from '@l.x/ui/src/components/icons'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { spacing } from '@l.x/ui/src/theme'
+import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { DappEllipsisDropdown } from '@luxfi/wallet/src/components/settings/DappEllipsisDropdown/DappEllipsisDropdown'
+import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 type ConnectedDappsProps = {
   sessions: WalletConnectSession[]

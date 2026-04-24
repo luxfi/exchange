@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, LXText } from 'ui/src'
-import { AnimatedLX } from 'ui/src/components/icons/LX'
-import { AcrossLogo } from 'ui/src/components/logos/AcrossLogo'
-import { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { isBridge, isLX } from 'lx/src/features/transactions/swap/utils/routing'
-import { useRoutingProvider } from 'lx/src/utils/routingDiagram/routingRegistry'
+import { Flex, Text, LXText } from '@l.x/ui/src'
+import { AnimatedLX } from '@l.x/ui/src/components/icons/LX'
+import { AcrossLogo } from '@l.x/ui/src/components/logos/AcrossLogo'
+import { Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { isBridge, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { useRoutingProvider } from '@l.x/lx/src/utils/routingDiagram/routingRegistry'
 
 export function RoutingLabel({ trade }: { trade: Trade }): JSX.Element {
   const { t } = useTranslation()

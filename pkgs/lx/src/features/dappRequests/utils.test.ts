@@ -1,5 +1,5 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isSelfCallWithData } from 'lx/src/features/dappRequests/utils'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isSelfCallWithData } from '@l.x/lx/src/features/dappRequests/utils'
 
 describe('isSelfCallWithData', () => {
   const ADDRESS_A = '0x1A34567890123456789012345678901234567890'

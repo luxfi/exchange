@@ -2,12 +2,12 @@ import { createListenerMiddleware, createSlice, type PayloadAction } from '@redu
 import {
   getHandleOnSetActiveChainId,
   getHandleOnUpdateDelegatedState,
-} from 'lx/src/features/smartWallet/delegation/effects'
-import type { DelegatedState } from 'lx/src/features/smartWallet/delegation/types'
-import { LXEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { setUserProperty, LXUserPropertyName } from 'lx/src/features/telemetry/user'
-import { getDevLogger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/smartWallet/delegation/effects'
+import type { DelegatedState } from '@l.x/lx/src/features/smartWallet/delegation/types'
+import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { setUserProperty, LXUserPropertyName } from '@l.x/lx/src/features/telemetry/user'
+import { getDevLogger } from '@l.x/utils/src/logger/logger'
 
 const initialState: DelegatedState = {
   delegations: {},

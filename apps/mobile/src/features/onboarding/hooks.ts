@@ -5,14 +5,14 @@ import { OnboardingStackBaseParams, useOnboardingStackNavigation } from 'src/app
 import { setOnboardingTimestamp } from 'src/features/analytics/onboardingTimestamp'
 import { OneSignalUserTagField } from 'src/features/notifications/constants'
 import { initNotifsForNewUser } from 'src/features/notifications/slice'
-import { MobileAppsFlyerEvents } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent, sendAppsFlyerEvent } from 'uniswap/src/features/telemetry/send'
-import { OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
-import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
-import { setAndroidCloudBackupEmail, setFinishedOnboarding } from 'wallet/src/features/wallet/slice'
+import { MobileAppsFlyerEvents } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent, sendAppsFlyerEvent } from '@l.x/lx/src/features/telemetry/send'
+import { OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
+import { setAndroidCloudBackupEmail, setFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/slice'
 
 /**
  * Bundles various actions that should be performed to complete onboarding.

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { EstimatedTime } from 'lx/src/features/transactions/TransactionDetails/EstimatedTime'
-import { ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
+import { EstimatedTime } from '@l.x/lx/src/features/transactions/TransactionDetails/EstimatedTime'
+import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 interface EstimatedTimeProps {
   /** The estimated swap time in milliseconds */

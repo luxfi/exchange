@@ -1,7 +1,7 @@
-import { Flex } from 'ui/src'
-import { BaseCard } from 'lx/src/components/BaseCard/BaseCard'
-import { ON_PRESS_EVENT_PAYLOAD } from 'lx/src/test/fixtures'
-import { fireEvent, render } from 'lx/src/test/test-utils'
+import { Flex } from '@l.x/ui/src'
+import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
+import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
+import { fireEvent, render } from '@l.x/lx/src/test/test-utils'
 
 describe(BaseCard.Shadow, () => {
   it('renders without error', () => {

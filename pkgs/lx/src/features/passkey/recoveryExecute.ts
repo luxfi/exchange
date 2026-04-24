@@ -1,7 +1,7 @@
 import { hkdf } from '@noble/hashes/hkdf.js'
 import { sha256 } from '@noble/hashes/sha2.js'
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
-import { base64urlToBase64 } from 'lx/src/features/passkey/deviceSession'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
+import { base64urlToBase64 } from '@l.x/lx/src/features/passkey/deviceSession'
 import {
   AES_KEY_LENGTH,
   blindPin,
@@ -13,9 +13,9 @@ import {
   parseBlob,
   signWithAuthKey,
   zeroBuffers,
-} from 'lx/src/features/passkey/pinCrypto'
-import { fetchEncryptedBlob } from 'lx/src/features/passkey/privyBlobStore'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/passkey/pinCrypto'
+import { fetchEncryptedBlob } from '@l.x/lx/src/features/passkey/privyBlobStore'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export async function attemptPinDecryption({
   pin,

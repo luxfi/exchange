@@ -5,21 +5,21 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { wcWeb3Wallet } from 'src/features/walletConnect/walletConnectClient'
 import { addRequest, WalletSendCallsRequest } from 'src/features/walletConnect/walletConnectSlice'
 import { call, put, select } from 'typed-redux-saga'
-import { UNISWAP_DELEGATION_ADDRESS } from 'uniswap/src/constants/addresses'
-import { checkWalletDelegation, TradingApiClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiClient'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { logger } from 'utilities/src/logger/logger'
-import { getCallsStatusHelper } from 'wallet/src/features/batchedTransactions/eip5792Utils'
+import { UNISWAP_DELEGATION_ADDRESS } from '@l.x/lx/src/constants/addresses'
+import { checkWalletDelegation, TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { getCallsStatusHelper } from '@luxfi/wallet/src/features/batchedTransactions/eip5792Utils'
 import {
   getCapabilitiesForDelegationStatus,
   transformCallsToTransactionRequests,
-} from 'wallet/src/features/batchedTransactions/utils'
-import { selectHasShownEip5792Nudge } from 'wallet/src/features/behaviorHistory/selectors'
-import { setHasShown5792Nudge } from 'wallet/src/features/behaviorHistory/slice'
-import { selectHasSmartWalletConsent } from 'wallet/src/features/wallet/selectors'
+} from '@luxfi/wallet/src/features/batchedTransactions/utils'
+import { selectHasShownEip5792Nudge } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
+import { setHasShown5792Nudge } from '@luxfi/wallet/src/features/behaviorHistory/slice'
+import { selectHasSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/selectors'
 
 /**
  * Checks if EIP-5792 methods are enabled via feature flag

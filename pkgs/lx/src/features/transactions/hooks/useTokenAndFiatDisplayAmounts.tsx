@@ -1,10 +1,10 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
-import { NumberType } from 'utilities/src/format/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 interface FormattedDisplayAmountsProps {
   value: Maybe<string>

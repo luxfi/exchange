@@ -1,6 +1,6 @@
 import type { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer'
-import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { ValidatedPermit } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 
 export interface SignTypedDataStepFields {
   domain: TypedDataDomain

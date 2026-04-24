@@ -7,7 +7,7 @@
  * @see packages/hashcash-native for the native implementation
  */
 
-import { NotImplementedError } from 'utilities/src/errors'
+import { NotImplementedError } from '@l.x/utils/src/errors'
 
 export type { HashcashChallenge, ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
 // Re-export shared types and platform-agnostic functions

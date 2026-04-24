@@ -1,24 +1,24 @@
 import { TradingApi } from '@l.x/api'
-import { USDC, WBTC } from 'lx/src/constants/tokens'
-import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
+import { USDC, WBTC } from '@l.x/lx/src/constants/tokens'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
 import {
   SwapTxAndGasInfo,
   LXSwapTxAndGasInfo,
-} from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { ClassicTrade } from 'lx/src/features/transactions/swap/types/trade'
-import { generateSwapTransactionSteps } from 'lx/src/features/transactions/swap/utils/generateSwapTransactionSteps'
-import { mockPermit } from 'lx/src/test/fixtures/permit'
+} from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { ClassicTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { generateSwapTransactionSteps } from '@l.x/lx/src/features/transactions/swap/utils/generateSwapTransactionSteps'
+import { mockPermit } from '@l.x/lx/src/test/fixtures/permit'
 import {
   createMockCurrencyAmount,
   createMockTradeWithStatus,
   createMockLXTrade,
-} from 'lx/src/test/fixtures/transactions/swap'
+} from '@l.x/lx/src/test/fixtures/transactions/swap'
 
 // Use vi.hoisted to create a mutable mock state that can be changed between tests
 const mockPlatformState = vi.hoisted(() => ({ isWebApp: false }))
 
-vi.mock('utilities/src/platform', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('utilities/src/platform')>()
+vi.mock('@l.x/utils/src/platform', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/utils/src/platform')>()
   return {
     ...actual,
     get isWebApp(): boolean {

@@ -1,10 +1,10 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { InformationBanner } from 'lx/src/components/banners/InformationBanner'
-import { ExpandoRow } from 'lx/src/components/ExpandoRow/ExpandoRow'
-import { useTokenBalanceListContext } from 'lx/src/features/portfolio/TokenBalanceListContext'
-import { isMobileApp } from 'utilities/src/platform'
+import { Flex } from '@l.x/ui/src'
+import { InformationBanner } from '@l.x/lx/src/components/banners/InformationBanner'
+import { ExpandoRow } from '@l.x/lx/src/components/ExpandoRow/ExpandoRow'
+import { useTokenBalanceListContext } from '@l.x/lx/src/features/portfolio/TokenBalanceListContext'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 function _HiddenTokensRow({ onPressLearnMore }: { onPressLearnMore: () => void }): JSX.Element {
   const { t } = useTranslation()

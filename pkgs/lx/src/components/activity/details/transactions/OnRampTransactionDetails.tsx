@@ -9,10 +9,10 @@ import {
   OnRampPurchaseInfo,
   OnRampTransferInfo,
   TransactionDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export function OnRampTransactionDetails({
   transactionDetails,

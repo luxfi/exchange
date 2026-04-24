@@ -1,13 +1,13 @@
 import { PropsWithChildren, ReactNode, useCallback, useRef, useState } from 'react'
-import { Flex, TouchableArea } from 'ui/src'
-import { InfoCircle } from 'ui/src/components/icons/InfoCircle'
-import { WarningModal, WarningModalProps } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { InfoTooltip } from 'lx/src/components/tooltip/InfoTooltip'
-import { InfoTooltipProps } from 'lx/src/components/tooltip/InfoTooltipProps'
-import { LXEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { isWebPlatform } from 'utilities/src/platform'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { Flex, TouchableArea } from '@l.x/ui/src'
+import { InfoCircle } from '@l.x/ui/src/components/icons/InfoCircle'
+import { WarningModal, WarningModalProps } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
+import { InfoTooltip } from '@l.x/lx/src/components/tooltip/InfoTooltip'
+import { InfoTooltipProps } from '@l.x/lx/src/components/tooltip/InfoTooltipProps'
+import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { isWebPlatform } from '@l.x/utils/src/platform'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 type WarningInfoProps = {
   tooltipProps: Omit<InfoTooltipProps, 'button' | 'trigger'>

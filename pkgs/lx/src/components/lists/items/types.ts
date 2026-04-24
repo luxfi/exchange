@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo, MultichainSearchResult } from 'lx/src/features/dataApi/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo, MultichainSearchResult } from '@l.x/lx/src/features/dataApi/types'
 
 /* Types of list item options */
 export enum OnchainItemListOptionType {

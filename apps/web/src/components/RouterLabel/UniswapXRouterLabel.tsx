@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Flex, FlexProps } from 'ui/src'
+import { Flex, FlexProps } from '@l.x/ui/src'
 import { v4 as uuid } from 'uuid'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 

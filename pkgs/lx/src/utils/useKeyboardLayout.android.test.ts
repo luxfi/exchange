@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react'
 import { DeviceEventEmitter, Dimensions } from 'react-native'
 import { act } from 'react-test-renderer'
-import { useKeyboardLayout } from 'lx/src/utils/useKeyboardLayout'
+import { useKeyboardLayout } from '@l.x/lx/src/utils/useKeyboardLayout'
 
 const KEYBOARD_HEIGHT = 300
 const HIDDEN_KEYBOARD_Y = Dimensions.get('window').height
@@ -28,8 +28,8 @@ const hideKeyboard = async (): Promise<void> => {
 }
 
 // Use native useKeyboardLayout implementation
-vi.mock('lx/src/utils/useKeyboardLayout', async (importOriginal) => {
-  return await vi.importActual('lx/src/utils/useKeyboardLayout.native.ts')
+vi.mock('@l.x/lx/src/utils/useKeyboardLayout', async (importOriginal) => {
+  return await vi.importActual('@l.x/lx/src/utils/useKeyboardLayout.native.ts')
 })
 
 vi.mock('react-native/Libraries/Utilities/Platform', () => ({

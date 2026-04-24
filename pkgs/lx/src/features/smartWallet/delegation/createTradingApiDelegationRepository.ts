@@ -1,9 +1,9 @@
-import type { CheckWalletDelegation } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
+import type { CheckWalletDelegation } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
 import type {
   ChainDelegationDetails,
   DelegationRepository,
-} from 'lx/src/features/smartWallet/delegation/delegationRepository'
-import type { Logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/smartWallet/delegation/delegationRepository'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 
 interface TradingApiClient {
   checkWalletDelegation: CheckWalletDelegation

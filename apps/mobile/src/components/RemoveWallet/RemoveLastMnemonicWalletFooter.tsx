@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, LabeledCheckbox, SpinningLoader, Text } from 'ui/src'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Button, Flex, LabeledCheckbox, SpinningLoader, Text } from '@l.x/ui/src'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 export function RemoveLastMnemonicWalletFooter({
   onPress,

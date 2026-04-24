@@ -1,6 +1,6 @@
 import { GraphQLApi } from '@l.x/api'
 import { GraphQLJSON } from 'graphql-scalars'
-import { priceHistory, tokenProject } from 'lx/src/test/fixtures'
+import { priceHistory, tokenProject } from '@l.x/lx/src/test/fixtures'
 
 export const defaultResolvers: GraphQLApi.Resolvers = {
   Query: {

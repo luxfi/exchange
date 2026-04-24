@@ -7,7 +7,7 @@ import {
   hashAuthMethodId,
   parseBlob,
   signWithAuthKey,
-} from 'lx/src/features/passkey/pinCrypto'
+} from '@l.x/lx/src/features/passkey/pinCrypto'
 import { describe, expect, it } from 'vitest'
 
 describe('pinCrypto', () => {

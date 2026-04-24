@@ -1,8 +1,8 @@
 import { FeeType, TradingApi } from '@l.x/api'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/consts'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { ExecuteSwapParams } from 'lx/src/features/transactions/swap/types/swapHandlers'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { DEFAULT_GAS_STRATEGY } from '@l.x/lx/src/features/gas/consts'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ExecuteSwapParams } from '@l.x/lx/src/features/transactions/swap/types/swapHandlers'
 import {
   ValidatedClassicSwapTxAndGasInfo,
   ValidatedSwapTxContext,
@@ -41,7 +41,7 @@ vi.mock('~/state/sagas/transactions/wrapSaga', () => ({
   },
 }))
 
-vi.mock('lx/src/features/transactions/swap/utils/routing', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/utils/routing', () => ({
   isWrap: vi.fn(),
 }))
 

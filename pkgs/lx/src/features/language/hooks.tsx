@@ -2,12 +2,12 @@ import { ForceUpgradeTranslations } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { AppTFunction } from 'ui/src/i18n/types'
-import { useUrlContext } from 'lx/src/contexts/UrlContext'
-import { Language, Locale } from 'lx/src/features/language/constants'
-import { getLocale, parseLocale } from 'lx/src/features/language/navigatorLocale'
-import { selectCurrentLanguage } from 'lx/src/features/settings/selectors'
-import { isWebApp } from 'utilities/src/platform'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
+import { useUrlContext } from '@l.x/lx/src/contexts/UrlContext'
+import { Language, Locale } from '@l.x/lx/src/features/language/constants'
+import { getLocale, parseLocale } from '@l.x/lx/src/features/language/navigatorLocale'
+import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export type LanguageInfo = {
   displayName: string

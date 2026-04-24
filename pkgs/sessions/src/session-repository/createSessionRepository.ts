@@ -6,7 +6,7 @@ import type { SessionServiceClient } from '@l.x/sessions/src/session-repository/
 import { ChallengeRejectedError } from '@l.x/sessions/src/session-repository/errors'
 import type { SessionRepository, TypedChallengeData } from '@l.x/sessions/src/session-repository/types'
 import { ChallengeFailureReason, VerifyFailureReason } from '@l.x/sessions/src/session-repository/types'
-import type { Logger } from 'utilities/src/logger/logger'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Creates a session repository that handles communication with the session service.

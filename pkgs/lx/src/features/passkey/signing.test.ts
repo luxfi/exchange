@@ -1,15 +1,15 @@
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
-import { clearDeviceSession, generateDeviceKeyPair, setDeviceSession } from 'lx/src/features/passkey/deviceSession'
-import { authenticateWithPasskey, loadPrivyPbModule } from 'lx/src/features/passkey/embeddedWallet'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
+import { clearDeviceSession, generateDeviceKeyPair, setDeviceSession } from '@l.x/lx/src/features/passkey/deviceSession'
+import { authenticateWithPasskey, loadPrivyPbModule } from '@l.x/lx/src/features/passkey/embeddedWallet'
 import {
   exportEncryptedSeedPhrase,
   signMessageWithPasskey,
   signTransactionWithPasskey,
   signTypedDataWithPasskey,
-} from 'lx/src/features/passkey/signing'
+} from '@l.x/lx/src/features/passkey/signing'
 import { type MockedFunction, vi } from 'vitest'
 
-vi.mock('lx/src/data/rest/embeddedWallet/requests', () => ({
+vi.mock('@l.x/lx/src/data/rest/embeddedWallet/requests', () => ({
   EmbeddedWalletApiClient: {
     fetchChallengeRequest: vi.fn(),
     fetchSignMessagesRequest: vi.fn(),
@@ -19,7 +19,7 @@ vi.mock('lx/src/data/rest/embeddedWallet/requests', () => ({
   },
 }))
 
-vi.mock('lx/src/features/passkey/embeddedWallet', () => ({
+vi.mock('@l.x/lx/src/features/passkey/embeddedWallet', () => ({
   loadPrivyPbModule: vi.fn(),
   authenticateWithPasskey: vi.fn(),
 }))

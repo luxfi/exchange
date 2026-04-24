@@ -1,19 +1,19 @@
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
-import { storeEncryptedBlob } from 'lx/src/features/passkey/privyBlobStore'
-import { encryptAndStoreRecovery } from 'lx/src/features/passkey/recoverySetup'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
+import { storeEncryptedBlob } from '@l.x/lx/src/features/passkey/privyBlobStore'
+import { encryptAndStoreRecovery } from '@l.x/lx/src/features/passkey/recoverySetup'
 
-vi.mock('lx/src/data/rest/embeddedWallet/requests', () => ({
+vi.mock('@l.x/lx/src/data/rest/embeddedWallet/requests', () => ({
   EmbeddedWalletApiClient: {
     fetchOprfEvaluate: vi.fn(),
   },
 }))
 
-vi.mock('lx/src/features/passkey/privyBlobStore', () => ({
+vi.mock('@l.x/lx/src/features/passkey/privyBlobStore', () => ({
   storeEncryptedBlob: vi.fn(),
 }))
 
-vi.mock('lx/src/features/passkey/pinCrypto', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/features/passkey/pinCrypto')>()
+vi.mock('@l.x/lx/src/features/passkey/pinCrypto', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/lx/src/features/passkey/pinCrypto')>()
   return {
     ...actual,
     blindPin: vi.fn(),
@@ -22,7 +22,7 @@ vi.mock('lx/src/features/passkey/pinCrypto', async (importOriginal) => {
   }
 })
 
-const { blindPin, finalizeOprf, deriveArgon2InWorker } = await import('lx/src/features/passkey/pinCrypto')
+const { blindPin, finalizeOprf, deriveArgon2InWorker } = await import('@l.x/lx/src/features/passkey/pinCrypto')
 
 describe('encryptAndStoreRecovery', () => {
   const params = {

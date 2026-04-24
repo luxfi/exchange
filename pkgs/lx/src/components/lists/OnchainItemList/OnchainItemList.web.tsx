@@ -5,18 +5,18 @@ import React, { CSSProperties, Fragment, Key, useCallback, useEffect, useMemo, u
 import { LayoutChangeEvent } from 'react-native'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import { VariableSizeList as List } from 'react-window'
-import { Flex, useWindowDimensions } from 'ui/src'
-import { zIndexes } from 'ui/src/theme'
-import { OnchainItemListOption } from 'lx/src/components/lists/items/types'
+import { Flex, useWindowDimensions } from '@l.x/ui/src'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { OnchainItemListOption } from '@l.x/lx/src/components/lists/items/types'
 import {
   ItemRowInfo,
   OnchainItemListProps,
   SectionRowInfo,
-} from 'lx/src/components/lists/OnchainItemList/OnchainItemList'
-import { OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
-import { ITEM_SECTION_HEADER_ROW_HEIGHT } from 'lx/src/components/TokenSelector/constants'
-import { KeyAction } from 'utilities/src/device/keyboard/types'
-import { useKeyDown } from 'utilities/src/device/keyboard/useKeyDown'
+} from '@l.x/lx/src/components/lists/OnchainItemList/OnchainItemList'
+import { OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { ITEM_SECTION_HEADER_ROW_HEIGHT } from '@l.x/lx/src/components/TokenSelector/constants'
+import { KeyAction } from '@l.x/utils/src/device/keyboard/types'
+import { useKeyDown } from '@l.x/utils/src/device/keyboard/useKeyDown'
 
 const ITEM_ROW_HEIGHT = 64
 

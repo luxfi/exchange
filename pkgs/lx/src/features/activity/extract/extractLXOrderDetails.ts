@@ -1,8 +1,8 @@
 import { GraphQLApi, TradingApi } from '@l.x/api'
 
-import { deriveCurrencyAmountFromAssetResponse } from 'lx/src/features/activity/utils/remote'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { deriveCurrencyAmountFromAssetResponse } from '@l.x/lx/src/features/activity/utils/remote'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import {
   ConfirmedSwapTransactionInfo,
   TransactionDetails,
@@ -10,9 +10,9 @@ import {
   TransactionListQueryResponse,
   TransactionOriginType,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { remoteOrderStatusToLocalTxStatus } from 'lx/src/features/transactions/utils/lx.utils'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { remoteOrderStatusToLocalTxStatus } from '@l.x/lx/src/features/transactions/utils/lx.utils'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 export function extractLXOrderDetails(transaction: TransactionListQueryResponse): TransactionDetails | null {
   if (transaction?.details.__typename !== TransactionDetailsType.LXOrder) {

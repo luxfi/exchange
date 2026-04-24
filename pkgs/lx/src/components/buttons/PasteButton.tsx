@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TextProps, TouchableArea } from 'ui/src'
-import { ClipboardPaste } from 'ui/src/components/icons/ClipboardPaste'
-import { StickyNoteSquare } from 'ui/src/components/icons/StickyNoteSquare'
-import { getClipboard } from 'utilities/src/clipboard/clipboard'
+import { Flex, Text, TextProps, TouchableArea } from '@l.x/ui/src'
+import { ClipboardPaste } from '@l.x/ui/src/components/icons/ClipboardPaste'
+import { StickyNoteSquare } from '@l.x/ui/src/components/icons/StickyNoteSquare'
+import { getClipboard } from '@l.x/utils/src/clipboard/clipboard'
 
 export default function PasteButton({
   inline,

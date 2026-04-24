@@ -1,6 +1,6 @@
-import { Flex, FlexProps, Text, TouchableArea, useShadowPropsShort } from 'ui/src'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
+import { Flex, FlexProps, Text, TouchableArea, useShadowPropsShort } from '@l.x/ui/src'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 
 export interface ActionCardItem {
   title: string

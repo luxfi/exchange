@@ -1,8 +1,8 @@
 import { GraphQLApi } from '@l.x/api'
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import { GQL_CHAINS } from 'lx/src/test/fixtures'
-import { faker, MAX_FIXTURE_TIMESTAMP } from 'lx/src/test/shared'
-import { randomChoice, randomEnumValue } from 'lx/src/test/utils'
+import { GQL_CHAINS } from '@l.x/lx/src/test/fixtures'
+import { faker, MAX_FIXTURE_TIMESTAMP } from '@l.x/lx/src/test/shared'
+import { randomChoice, randomEnumValue } from '@l.x/lx/src/test/utils'
 
 export const mocks = {
   TokenProject: {

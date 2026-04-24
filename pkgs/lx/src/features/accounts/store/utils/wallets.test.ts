@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react'
-import { SigningCapability, Wallet } from 'lx/src/features/accounts/store/types/Wallet'
-import { useShallowWalletComparison } from 'lx/src/features/accounts/store/utils/wallets'
+import { SigningCapability, Wallet } from '@l.x/lx/src/features/accounts/store/types/Wallet'
+import { useShallowWalletComparison } from '@l.x/lx/src/features/accounts/store/utils/wallets'
 
 describe('Wallet Shallow Comparison', () => {
   const createTestWallet = (overrides: Partial<Wallet> = {}): Wallet => ({

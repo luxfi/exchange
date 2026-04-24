@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
-import { useMismatchContext } from 'lx/src/features/smartWallet/mismatch/MismatchContext'
+import { useMismatchContext } from '@l.x/lx/src/features/smartWallet/mismatch/MismatchContext'
 import {
   getIsMismatchAccountQueryOptions,
   type MisMatchQueryOptions,
-} from 'lx/src/features/smartWallet/mismatch/queryOptions'
+} from '@l.x/lx/src/features/smartWallet/mismatch/queryOptions'
 /**
  * [public] useMakeAccountMismatchQueryOptions -- gets the query options for the mismatch account status for the current account
  * @returns a function that returns the query options for the mismatch account status for the passed in address

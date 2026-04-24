@@ -57,7 +57,7 @@ vi.mock('react-native-safe-area-context', () => ({
 
 // Mock UniconSVGs - this is required because the Unicon component uses require() in test environment
 // and Node's require() can't resolve TypeScript files
-vi.mock('ui/src/components/Unicon/UniconSVGs', () => ({
+vi.mock('@l.x/ui/src/components/Unicon/UniconSVGs', () => ({
   Icons: {
     icon1: ['M0 0 L10 10'],
     icon2: ['M5 5 L15 15'],
@@ -65,7 +65,7 @@ vi.mock('ui/src/components/Unicon/UniconSVGs', () => ({
 }))
 
 // Mock ui/src/assets
-vi.mock('ui/src/assets', async (importOriginal) => {
+vi.mock('@l.x/ui/src/assets', async (importOriginal) => {
   const assets = (await importOriginal()) as Record<string, unknown>
   const mockedAssets: Record<string, string> = {}
 
@@ -84,7 +84,7 @@ vi.mock('react-native-webview', () => ({
 }))
 
 // Mock useDeviceInsets to use web version
-vi.mock('ui/src/hooks/useDeviceInsets', () => ({
+vi.mock('@l.x/ui/src/hooks/useDeviceInsets', () => ({
   useDeviceInsets: () => ({
     top: 0,
     bottom: 0,

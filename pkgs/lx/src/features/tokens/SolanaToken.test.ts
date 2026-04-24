@@ -1,4 +1,4 @@
-import { SolanaToken } from 'lx/src/features/tokens/SolanaToken'
+import { SolanaToken } from '@l.x/lx/src/features/tokens/SolanaToken'
 
 describe('SolanaToken', () => {
   const validSolanaAddress = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v' // USDC on Solana

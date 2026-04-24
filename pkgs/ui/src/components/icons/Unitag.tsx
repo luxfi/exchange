@@ -5,7 +5,7 @@ import { UniversalImageStyleProps } from '@l.x/ui/src/components/UniversalImage/
 import { UniversalImage } from '@l.x/ui/src/components/UniversalImage/UniversalImage'
 import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
 import { IconSizeTokens } from '@l.x/ui/src/theme'
-import { isMobileApp, isWebApp } from 'utilities/src/platform'
+import { isMobileApp, isWebApp } from '@l.x/utils/src/platform'
 
 const style: UniversalImageStyleProps = {
   image: {

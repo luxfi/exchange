@@ -1,12 +1,29 @@
 {
-  "name": "vitest-presets",
-  "version": "0.0.0",
+  "name": "@l.x/vitest-preset",
+  "version": "1.0.0",
+  "description": "Shared Vitest preset for Lux Exchange apps and packages.",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxfi/exchange.git",
+    "directory": "config/vitest-presets"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "vitest",
+    "vitest.config.js",
+    "tsconfig.json",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -b",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
     "typecheck": "tsc -b"
+  },
+  "peerDependencies": {
+    "vitest": ">=3"
   },
   "devDependencies": {
     "@vitest/browser": "3.2.1",
@@ -15,7 +32,5 @@
     "mem-storage-area": "1.0.3",
     "typescript": "5.9.3",
     "vitest": "3.2.1"
-  },
-  "license": "MIT",
-  "private": true
+  }
 }

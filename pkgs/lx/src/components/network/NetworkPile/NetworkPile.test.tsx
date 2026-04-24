@@ -1,6 +1,6 @@
-import { NetworkPile } from 'lx/src/components/network/NetworkPile/NetworkPile'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { render } from 'lx/src/test/test-utils'
+import { NetworkPile } from '@l.x/lx/src/components/network/NetworkPile/NetworkPile'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 describe(NetworkPile, () => {
   describe('default size', () => {

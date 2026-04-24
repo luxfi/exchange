@@ -1,14 +1,14 @@
-import { useActiveAddress, useActiveWallet } from 'lx/src/features/accounts/store/hooks'
-import { SigningCapability } from 'lx/src/features/accounts/store/types/Wallet'
-import { useIsShowingWebFORNudge, useIsWebFORNudgeEnabled } from 'lx/src/features/providers/webForNudgeProvider'
-import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { useIsMissingPlatformWallet } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet'
-import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
+import { useActiveAddress, useActiveWallet } from '@l.x/lx/src/features/accounts/store/hooks'
+import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
+import { useIsShowingWebFORNudge, useIsWebFORNudgeEnabled } from '@l.x/lx/src/features/providers/webForNudgeProvider'
+import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { useIsMissingPlatformWallet } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet'
+import { useParsedSwapWarnings } from '@l.x/lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
 import {
   useSwapFormStore,
   useSwapFormStoreDerivedSwapInfo,
-} from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useIsBlocked } from 'lx/src/features/trm/hooks'
+} from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useIsBlocked } from '@l.x/lx/src/features/trm/hooks'
 
 const useIsReviewButtonDisabled = (): boolean => {
   const isSubmitting = useSwapFormStore((s) => s.isSubmitting)

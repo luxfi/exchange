@@ -1,14 +1,14 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useCallback, useMemo } from 'react'
-import { useCurrentLocale } from 'lx/src/features/language/hooks'
+import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 import {
   addFiatSymbolToNumber,
   formatCurrencyAmount,
   formatNumberOrString,
   formatPercent,
   /** biome-ignore lint/style/noRestrictedImports: this the implementation of the wrapper we recommend to use */
-} from 'utilities/src/format/localeBased'
-import { NumberType, PercentNumberDecimals } from 'utilities/src/format/types'
+} from '@l.x/utils/src/format/localeBased'
+import { NumberType, PercentNumberDecimals } from '@l.x/utils/src/format/types'
 
 export type FormatNumberOrStringInput = {
   value: Maybe<number | string>

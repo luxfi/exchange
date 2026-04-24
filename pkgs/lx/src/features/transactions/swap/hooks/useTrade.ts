@@ -1,10 +1,10 @@
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { parseQuoteCurrencies } from 'lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
-import { useIndicativeTradeQuery } from 'lx/src/features/transactions/swap/hooks/useTrade/useIndicativeTradeQuery'
-import { useTradeQuery } from 'lx/src/features/transactions/swap/hooks/useTrade/useTradeQuery'
-import type { TradeWithGasEstimates } from 'lx/src/features/transactions/swap/services/tradeService/tradeService'
-import { TradeWithStatus, UseTradeArgs } from 'lx/src/features/transactions/swap/types/trade'
+import { parseQuoteCurrencies } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
+import { useIndicativeTradeQuery } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade/useIndicativeTradeQuery'
+import { useTradeQuery } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade/useTradeQuery'
+import type { TradeWithGasEstimates } from '@l.x/lx/src/features/transactions/swap/services/tradeService/tradeService'
+import { TradeWithStatus, UseTradeArgs } from '@l.x/lx/src/features/transactions/swap/types/trade'
 
 // error strings hardcoded in @luxamm/unified-routing-api
 // https://github.com/Lx/unified-routing-api/blob/020ea371a00d4cc25ce9f9906479b00a43c65f2c/lib/util/errors.ts#L4

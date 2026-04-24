@@ -39,7 +39,7 @@ vi.mock('~/tracing/swapFlowLoggers', () => ({
   logLXSwapFinalized: vi.fn(),
 }))
 
-vi.mock('lx/src/features/transactions/types/utils', () => ({
+vi.mock('@l.x/lx/src/features/transactions/types/utils', () => ({
   isFinalizedTx: vi.fn(),
 }))
 

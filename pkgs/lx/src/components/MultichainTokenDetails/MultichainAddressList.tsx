@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AnimatedCopyLabel } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import { MultichainOptionRow } from 'lx/src/components/MultichainTokenDetails/MultichainOptionRow'
-import { MultichainScrollableList } from 'lx/src/components/MultichainTokenDetails/MultichainScrollableList'
-import type { MultichainTokenEntry } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { shortenAddress } from 'utilities/src/addresses'
+import { AnimatedCopyLabel } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { MultichainOptionRow } from '@l.x/lx/src/components/MultichainTokenDetails/MultichainOptionRow'
+import { MultichainScrollableList } from '@l.x/lx/src/components/MultichainTokenDetails/MultichainScrollableList'
+import type { MultichainTokenEntry } from '@l.x/lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 
 export const COPY_FEEDBACK_RESET_MS = 750
 

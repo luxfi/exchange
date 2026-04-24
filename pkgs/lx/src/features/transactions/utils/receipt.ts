@@ -1,6 +1,6 @@
 // New helper for adapting ethers or viem receipts to the shared TransactionReceipt type
 import { providers } from 'ethers/lib/ethers'
-import { TransactionReceipt as SharedTransactionReceipt } from 'lx/src/features/transactions/types/transactionDetails'
+import { TransactionReceipt as SharedTransactionReceipt } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { TransactionReceipt as ViemTransactionReceipt } from 'viem'
 import { ZksyncTransactionReceipt } from 'viem/chains'
 

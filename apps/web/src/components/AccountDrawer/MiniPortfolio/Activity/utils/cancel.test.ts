@@ -1,4 +1,4 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { TradingApi } from '@l.x/api'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
@@ -23,10 +23,10 @@ vi.mock('~/hooks/useAccount')
 vi.mock('~/hooks/useEthersProvider')
 vi.mock('~/hooks/useSelectChain')
 vi.mock('~/hooks/useFetchLimitOrders')
-vi.mock('lx/src/features/transactions/cancel/validation')
-vi.mock('lx/src/features/transactions/utils/permit2')
+vi.mock('@l.x/lx/src/features/transactions/cancel/validation')
+vi.mock('@l.x/lx/src/features/transactions/utils/permit2')
 
-vi.mock('lx/src/features/transactions/cancel/cancelMultipleOrders', () => ({
+vi.mock('@l.x/lx/src/features/transactions/cancel/cancelMultipleOrders', () => ({
   cancelMultipleDEXOrders: vi.fn(),
   trackOrderCancellation: vi.fn(),
   extractCancellationData: vi.fn(),

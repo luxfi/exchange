@@ -1,8 +1,8 @@
-import { AnimatePresence, Flex, useIsShortMobileDevice } from 'ui/src'
-import { ExactOutputUnavailableWarningRow } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/ExactOutputUnavailableWarningRow'
-import { GasAndWarningRows } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/GasAndWarningRows'
-import { useSwapFormScreenStore } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
-import { isWebPlatform } from 'utilities/src/platform'
+import { AnimatePresence, Flex, useIsShortMobileDevice } from '@l.x/ui/src'
+import { ExactOutputUnavailableWarningRow } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/ExactOutputUnavailableWarningRow'
+import { GasAndWarningRows } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/GasAndWarningRows'
+import { useSwapFormScreenStore } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 /**
  * IMPORTANT: If you modify the footer layout, you must test this on a small device and verify that the `DecimalPad`

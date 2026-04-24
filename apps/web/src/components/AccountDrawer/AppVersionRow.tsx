@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
 
 export function AppVersionRow() {

@@ -1,6 +1,6 @@
-import { Flex, Text } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
+import { Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
 
 type InlineAlertBannerVariant = 'info' | 'warning'
 

@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { providers } from 'ethers/lib/ethers'
-import { receiptFromEthersReceipt, receiptFromViemReceipt } from 'lx/src/features/transactions/utils/receipt'
+import { receiptFromEthersReceipt, receiptFromViemReceipt } from '@l.x/lx/src/features/transactions/utils/receipt'
 import { TransactionReceipt as ViemTransactionReceipt } from 'viem'
 
 describe('receipt conversion helpers', () => {

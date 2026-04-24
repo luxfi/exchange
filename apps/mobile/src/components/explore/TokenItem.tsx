@@ -7,24 +7,24 @@ import { TokenItemChart } from 'src/components/explore/TokenItemChart'
 import { TokenItemData } from 'src/components/explore/TokenItemData'
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
 import { TokenMetadata } from 'src/components/tokens/TokenMetadata'
-import { Flex, FlexProps, Text, TouchableArea, useSporeColors } from 'ui/src'
-import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { spacing } from 'ui/src/theme'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { RelativeChange } from 'uniswap/src/components/RelativeChange/RelativeChange'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { MobileEventName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { Flex, FlexProps, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { spacing } from '@l.x/ui/src/theme'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { RelativeChange } from '@l.x/lx/src/components/RelativeChange/RelativeChange'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { MobileEventName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import {
   buildCurrencyId,
   buildNativeCurrencyId,
   currencyIdToAddress,
   currencyIdToChain,
-} from 'uniswap/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
-import { useEvent } from 'utilities/src/react/hooks'
-import { noop } from 'utilities/src/react/noop'
-import { TokenMetadataDisplayType } from 'wallet/src/features/wallet/types'
+} from '@l.x/lx/src/utils/currencyId'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { noop } from '@l.x/utils/src/react/noop'
+import { TokenMetadataDisplayType } from '@luxfi/wallet/src/features/wallet/types'
 
 interface TokenItemProps {
   tokenItemData: TokenItemData

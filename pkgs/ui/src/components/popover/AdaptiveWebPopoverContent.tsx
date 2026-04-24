@@ -3,7 +3,7 @@ import { GetProps, Popover, useMedia } from '@hanzo/gui'
 // biome-ignore lint/style/noRestrictedImports: needed here
 import { WebBottomSheet } from '@l.x/ui/src/components/modal/AdaptiveWebModal'
 import { zIndexes } from '@l.x/ui/src/theme'
-import { isWebApp } from 'utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 const ANIMATION_OFFSET = 10
 

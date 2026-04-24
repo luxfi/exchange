@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { LayoutChangeEvent } from 'react-native'
-import { ColorTokens, Flex, Input, type InputRef, Text } from 'ui/src'
+import { ColorTokens, Flex, Input, type InputRef, Text } from '@l.x/ui/src'
 import type { SlippageControlProps } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageControl/types'
 import { useSlippageSettings } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
 import { getSlippageWarningColor } from '@l.x/lx/src/features/transactions/swap/utils/styleHelpers'

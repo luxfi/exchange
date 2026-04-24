@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@l.x/api'
 import { useLocation, useParams } from 'react-router'
-import { USDC_MAINNET } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCreateTDPContext } from '~/pages/TokenDetails/context/useCreateTDPContext'
 import { mocked } from '~/test-utils/mocked'
@@ -57,8 +57,8 @@ vi.mock('~/pages/TokenDetails/components/chart/TDPChartState', () => ({
   useCreateTDPChartState: vi.fn(() => mockChartState),
 }))
 
-vi.mock('ui/src', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('ui/src')>()
+vi.mock('@l.x/ui/src', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/ui/src')>()
   return {
     ...actual,
     useSporeColors: vi.fn(() => ({ surface2: { val: '#000000' } })),
@@ -79,8 +79,8 @@ vi.mock('~/features/accounts/store/hooks', () => ({
   })),
 }))
 
-vi.mock('lx/src/features/dataApi/balances/balances', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/features/dataApi/balances/balances')>()
+vi.mock('@l.x/lx/src/features/dataApi/balances/balances', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/lx/src/features/dataApi/balances/balances')>()
   return {
     ...actual,
     usePortfolioBalances: vi.fn(() => ({ data: undefined })),

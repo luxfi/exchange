@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { CurrencyInputPanelProps } from 'lx/src/components/CurrencyInputPanel/types'
-import { usePrevious } from 'utilities/src/react/hooks'
+import { CurrencyInputPanelProps } from '@l.x/lx/src/components/CurrencyInputPanel/types'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 
 // CSS keyframes for pulse animation - injected once into the document
 const PULSE_KEYFRAMES_NAME = 'lx-refetch-pulse-animation'

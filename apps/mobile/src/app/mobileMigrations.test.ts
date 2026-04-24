@@ -78,18 +78,18 @@ import {
   transformNotificationCountToStatus,
   updateLanguageSettings,
 } from 'src/app/mobileMigrations'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getWalletDeviceLanguage } from 'uniswap/src/i18n/utils'
-import { DappRequestType } from 'uniswap/src/types/walletConnect'
-import { createThrowingProxy } from 'utilities/src/test/utils'
-import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getWalletDeviceLanguage } from '@l.x/lx/src/i18n/utils'
+import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
+import { createThrowingProxy } from '@l.x/utils/src/test/utils'
+import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 
-jest.mock('uniswap/src/i18n/utils', () => ({
+jest.mock('@l.x/lx/src/i18n/utils', () => ({
   getWalletDeviceLanguage: jest.fn(),
 }))
 

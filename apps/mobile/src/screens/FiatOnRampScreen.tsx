@@ -19,58 +19,58 @@ import { useFiatOnRampContext } from 'src/features/fiatOnRamp/FiatOnRampContext'
 import { FiatOnRampCountryListModal } from 'src/features/fiatOnRamp/FiatOnRampCountryListModal'
 import { FiatOnRampTokenSelectorModal } from 'src/features/fiatOnRamp/FiatOnRampTokenSelector'
 import { OffRampPopover } from 'src/features/fiatOnRamp/OffRampPopover'
-import { Flex, useIsDarkMode, useIsShortMobileDevice } from 'ui/src'
-import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { useBottomSheetContext } from 'uniswap/src/components/modals/BottomSheetContext'
-import { HandleBar } from 'uniswap/src/components/modals/HandleBar'
-import { PillMultiToggle } from 'uniswap/src/components/pill/PillMultiToggle'
-import { MAX_FIAT_INPUT_DECIMALS } from 'uniswap/src/constants/transactions'
-import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
-import { FiatOnRampCountryPicker } from 'uniswap/src/features/fiatOnRamp/FiatOnRampCountryPicker'
+import { Flex, useIsDarkMode, useIsShortMobileDevice } from '@l.x/ui/src'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { useBottomSheetContext } from '@l.x/lx/src/components/modals/BottomSheetContext'
+import { HandleBar } from '@l.x/lx/src/components/modals/HandleBar'
+import { PillMultiToggle } from '@l.x/lx/src/components/pill/PillMultiToggle'
+import { MAX_FIAT_INPUT_DECIMALS } from '@l.x/lx/src/constants/transactions'
+import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
+import { FiatOnRampCountryPicker } from '@l.x/lx/src/features/fiatOnRamp/FiatOnRampCountryPicker'
 import {
   useFiatOnRampQuotes,
   useFiatOnRampSupportedTokens,
   useIsFORLoading,
   useMeldFiatCurrencySupportInfo,
   useParseFiatOnRampError,
-} from 'uniswap/src/features/fiatOnRamp/hooks'
-import { useFiatOnRampAggregatorGetCountryQuery } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-import { TokenSelectorBalanceDisplay } from 'uniswap/src/features/fiatOnRamp/TokenSelectorBalanceDisplay'
+} from '@l.x/lx/src/features/fiatOnRamp/hooks'
+import { useFiatOnRampAggregatorGetCountryQuery } from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { TokenSelectorBalanceDisplay } from '@l.x/lx/src/features/fiatOnRamp/TokenSelectorBalanceDisplay'
 import {
   type FiatOnRampCurrency,
   type FORCurrencyOrBalance,
   type FORServiceProvider,
   RampDirection,
   RampToggle,
-} from 'uniswap/src/features/fiatOnRamp/types'
-import UnsupportedTokenModal from 'uniswap/src/features/fiatOnRamp/UnsupportedTokenModal'
+} from '@l.x/lx/src/features/fiatOnRamp/types'
+import UnsupportedTokenModal from '@l.x/lx/src/features/fiatOnRamp/UnsupportedTokenModal'
 import {
   getOptionalServiceProviderLogo,
   isSupportedFORCurrency,
   organizeQuotesIntoSections,
-} from 'uniswap/src/features/fiatOnRamp/utils'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { FiatOffRampEventName, FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { type FORAmountEnteredProperties } from 'uniswap/src/features/telemetry/types'
+} from '@l.x/lx/src/features/fiatOnRamp/utils'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { FiatOffRampEventName, FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { type FORAmountEnteredProperties } from '@l.x/lx/src/features/telemetry/types'
 import {
   DecimalPadCalculatedSpaceId,
   DecimalPadCalculateSpace,
   DecimalPadInput,
   type DecimalPadInputRef,
-} from 'uniswap/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
-import { useUSDTokenUpdater } from 'uniswap/src/features/transactions/hooks/useUSDTokenUpdater'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { FiatOnRampScreens } from 'uniswap/src/types/screens/mobile'
-import { currencyIdToAddress } from 'uniswap/src/utils/currencyId'
-import { truncateToMaxDecimals } from 'utilities/src/format/truncateToMaxDecimals'
-import { logger } from 'utilities/src/logger/logger'
-import { isIOS, isWebPlatform } from 'utilities/src/platform'
-import { usePrevious } from 'utilities/src/react/hooks'
-import { DEFAULT_DELAY, useDebounce } from 'utilities/src/time/timing'
-import { useWalletNavigation } from 'wallet/src/contexts/WalletNavigationContext'
-import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+} from '@l.x/lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
+import { useUSDTokenUpdater } from '@l.x/lx/src/features/transactions/hooks/useUSDTokenUpdater'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { FiatOnRampScreens } from '@l.x/lx/src/types/screens/mobile'
+import { currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
+import { truncateToMaxDecimals } from '@l.x/utils/src/format/truncateToMaxDecimals'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isIOS, isWebPlatform } from '@l.x/utils/src/platform'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
+import { DEFAULT_DELAY, useDebounce } from '@l.x/utils/src/time/timing'
+import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
+import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 type Props = NativeStackScreenProps<FiatOnRampStackParamList, FiatOnRampScreens.AmountInput>
 

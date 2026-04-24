@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 import {
   TransactionModalContextProvider,
   TransactionScreen,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import {
   TransactionModalFooterContainerProps,
   TransactionModalInnerContainerProps,
   TransactionModalProps,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalProps'
-import { TransactionModalUpdateLogger } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalUpdateLogger'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalProps'
+import { TransactionModalUpdateLogger } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalUpdateLogger'
 
 export function TransactionModal({
   children,

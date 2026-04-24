@@ -1,14 +1,14 @@
 import { ADDRESS_ZERO } from '@luxamm/v3-sdk'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useSporeColors } from 'ui/src'
-import { LinkHorizontalAlt } from 'ui/src/components/icons/LinkHorizontalAlt'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { Pill } from 'lx/src/components/pill/Pill'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { UNITAG_SUFFIX, UNITAG_SUFFIX_NO_LEADING_DOT } from 'lx/src/features/unitags/constants'
-import { getYourNameString } from 'lx/src/features/unitags/utils'
-import { shortenAddress } from 'utilities/src/addresses'
+import { Flex, Text, useSporeColors } from '@l.x/ui/src'
+import { LinkHorizontalAlt } from '@l.x/ui/src/components/icons/LinkHorizontalAlt'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
+import { Pill } from '@l.x/lx/src/components/pill/Pill'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { UNITAG_SUFFIX, UNITAG_SUFFIX_NO_LEADING_DOT } from '@l.x/lx/src/features/unitags/constants'
+import { getYourNameString } from '@l.x/lx/src/features/unitags/utils'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 
 const FIXED_INFO_PILL_WIDTH = 128
 

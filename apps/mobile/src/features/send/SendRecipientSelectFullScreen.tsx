@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { RecipientSelect } from 'src/components/RecipientSelect/RecipientSelect'
 import { SEND_CONTENT_RENDER_DELAY_MS } from 'src/features/send/constants'
-import { Spacer } from 'ui/src'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionModalInnerContainer } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModal'
-import { useTransactionModalContext } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { useSendContext } from 'wallet/src/features/transactions/contexts/SendContext'
+import { Spacer } from '@l.x/ui/src'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TransactionModalInnerContainer } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
+import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { useSendContext } from '@luxfi/wallet/src/features/transactions/contexts/SendContext'
 
 // We add a short hardcoded delay to allow the sheet to animate quickly both on first render and when going back from Review -> Form.
 export function SendRecipientSelectFullScreen(): JSX.Element {

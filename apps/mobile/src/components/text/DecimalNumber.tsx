@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text, TextProps } from 'ui/src'
-import { TextVariantTokens } from 'ui/src/theme'
+import { Text, TextProps } from '@l.x/ui/src'
+import { TextVariantTokens } from '@l.x/ui/src/theme'
 
 type DecimalNumberProps = TextProps & {
   number?: number

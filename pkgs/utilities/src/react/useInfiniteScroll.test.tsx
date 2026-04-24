@@ -1,4 +1,4 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { act, render, renderHook } from '@testing-library/react'
 import { useEffect } from 'react'
 import { useInfiniteScroll } from '@l.x/utils/src/react/useInfiniteScroll'

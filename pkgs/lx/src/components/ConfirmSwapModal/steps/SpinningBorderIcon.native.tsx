@@ -7,8 +7,8 @@ import {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated'
-import { Flex } from 'ui/src'
-import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { Flex } from '@l.x/ui/src'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 
 export function SpinningBorderIcon({
   children,

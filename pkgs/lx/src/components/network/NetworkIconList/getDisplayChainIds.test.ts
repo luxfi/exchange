@@ -1,5 +1,5 @@
-import { getDisplayChainIds } from 'lx/src/components/network/NetworkIconList/getDisplayChainIds'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getDisplayChainIds } from '@l.x/lx/src/components/network/NetworkIconList/getDisplayChainIds'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 describe(getDisplayChainIds, () => {
   it('returns empty array when chainIds is empty', () => {

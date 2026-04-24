@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux'
 
-import { selectHasDismissedLowNetworkTokenWarning } from 'lx/src/features/behaviorHistory/selectors'
+import { selectHasDismissedLowNetworkTokenWarning } from '@l.x/lx/src/features/behaviorHistory/selectors'
 
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { CurrencyField } from 'lx/src/types/currency'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export function useNeedsLowNativeBalanceWarning({
   derivedSwapInfo,

@@ -1,5 +1,5 @@
-import type { SwapFormState } from 'lx/src/features/transactions/swap/stores/swapFormStore/types'
-import { CurrencyField } from 'lx/src/types/currency'
+import type { SwapFormState } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/types'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export const getShouldResetExactAmountToken = (
   swapCtx: Pick<SwapFormState, 'exactCurrencyField' | 'input' | 'output'>,

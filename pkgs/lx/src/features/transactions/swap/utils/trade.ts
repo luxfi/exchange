@@ -3,10 +3,10 @@ import { NFTPermitData, PermitBatchData } from '@luxamm/client-liquidity/dist/lx
 import { ONE, Protocol } from '@luxamm/router-sdk'
 import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@luxamm/sdk-core'
 import { GasEstimate, TradingApi } from '@l.x/api'
-import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
-import { IndicativeTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { ACROSS_DAPP_INFO, isBridge, isClassic } from 'lx/src/features/transactions/swap/utils/routing'
-import { getClassicQuoteFromResponse } from 'lx/src/features/transactions/swap/utils/tradingApi'
+import { LocalizationContextState } from '@l.x/lx/src/features/language/LocalizationContext'
+import { IndicativeTrade, Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { ACROSS_DAPP_INFO, isBridge, isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { getClassicQuoteFromResponse } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 import {
   BaseSwapTransactionInfo,
   BridgeTransactionInfo,
@@ -14,14 +14,14 @@ import {
   ExactOutputSwapTransactionInfo,
   TransactionType,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   PopulatedTransactionRequestArray,
   ValidatedTransactionRequest,
-} from 'lx/src/features/transactions/types/transactionRequests'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
-import { currencyId } from 'lx/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
+} from '@l.x/lx/src/features/transactions/types/transactionRequests'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export function tradeToTransactionInfo({
   trade,

@@ -1,13 +1,13 @@
 import { useCallback } from 'react'
-import { Flex, Text } from 'ui/src'
-import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
-import { iconSizes } from 'ui/src/theme'
-import { MultichainOptionRow } from 'lx/src/components/MultichainTokenDetails/MultichainOptionRow'
-import { MultichainScrollableList } from 'lx/src/components/MultichainTokenDetails/MultichainScrollableList'
-import type { MultichainTokenEntry } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
+import { Flex, Text } from '@l.x/ui/src'
+import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { MultichainOptionRow } from '@l.x/lx/src/components/MultichainTokenDetails/MultichainOptionRow'
+import { MultichainScrollableList } from '@l.x/lx/src/components/MultichainTokenDetails/MultichainScrollableList'
+import type { MultichainTokenEntry } from '@l.x/lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 
 interface MultichainExplorerListProps {
   chains: MultichainTokenEntry[]

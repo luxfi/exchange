@@ -95,7 +95,7 @@ import './vitest-package-mocks'
 import '../ui/vitest-setup'
 
 // Mock i18n to avoid require() path resolution issues
-// The original jest setup imported 'lx/src/i18n' but that uses require() internally
+// The original jest setup imported '@l.x/lx/src/i18n' but that uses require() internally
 // Common translations map for test assertions that look for translated text
 const commonTranslations: Record<string, string> = {
   'common.button.retry': 'Retry',
@@ -152,7 +152,7 @@ vi.mock('react-i18next', () => ({
   initReactI18next: { type: '3rdParty', init: vi.fn() },
 }))
 
-vi.mock('lx/src/i18n', () => ({
+vi.mock('@l.x/lx/src/i18n', () => ({
   changeLanguage: vi.fn(),
   default: {
     t: (key: string, options?: Record<string, unknown>) => {
@@ -182,10 +182,10 @@ vi.mock('lx/src/i18n', () => ({
   },
 }))
 
-vi.mock('lx/src/i18n/i18n-setup', () => ({}))
+vi.mock('@l.x/lx/src/i18n/i18n-setup', () => ({}))
 
 vi.mock(
-  'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore',
+  '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore',
   () => {
     return {
       useTransactionSettingsStore: (
@@ -200,7 +200,7 @@ vi.mock(
 )
 
 // Mock Modal component - provide simple implementations for tests
-vi.mock('lx/src/components/modals/Modal', () => {
+vi.mock('@l.x/lx/src/components/modals/Modal', () => {
   const React = require('react')
   return {
     Modal: ({ children, isModalOpen = true }: { children?: React.ReactNode; isModalOpen?: boolean }) => {
@@ -222,7 +222,7 @@ vi.mock('lx/src/components/modals/Modal', () => {
 global.performance = require('perf_hooks').performance
 
 // Mock calculateElapsedTimeWithPerformanceMarkMs with web implementation
-vi.mock('utilities/src/telemetry/trace/utils/calculateElapsedTimeWithPerformanceMarkMs', () => ({
+vi.mock('@l.x/utils/src/telemetry/trace/utils/calculateElapsedTimeWithPerformanceMarkMs', () => ({
   calculateElapsedTimeWithPerformanceMarkMs: (markName: string, fallbackStartTime?: number): number | undefined => {
     const elapsedTime = performance.mark(markName)
     if (elapsedTime) {
@@ -236,7 +236,7 @@ vi.mock('utilities/src/telemetry/trace/utils/calculateElapsedTimeWithPerformance
 }))
 
 // Mock OverKeyboardContent with web implementation
-vi.mock('ui/src/components/OverKeyboardContent/OverKeyboardContent', () => {
+vi.mock('@l.x/ui/src/components/OverKeyboardContent/OverKeyboardContent', () => {
   const React = require('react')
   return {
     OverKeyboardContent: ({ visible, children }: { visible?: boolean; children?: React.ReactNode }) => {

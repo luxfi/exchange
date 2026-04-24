@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, TouchableArea } from 'ui/src'
-import { Text } from 'ui/src/components/text'
+import { Flex, TouchableArea } from '@l.x/ui/src'
+import { Text } from '@l.x/ui/src/components/text'
 import type { AdjustedChartItem } from '~/components/PercentageAllocationChart/types'
 
 interface LegendProps {

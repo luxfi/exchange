@@ -1,6 +1,6 @@
 import { nearestUsableTick, TickMath } from '@uniswap/v3-sdk'
 import * as d3 from 'd3'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   CHART_BEHAVIOR,
   CHART_DIMENSIONS,

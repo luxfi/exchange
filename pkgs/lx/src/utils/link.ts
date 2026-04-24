@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export async function openURL(_url: string): Promise<Window | null> {
   throw new PlatformSplitStubError('openURL')

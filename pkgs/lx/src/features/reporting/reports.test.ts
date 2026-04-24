@@ -1,4 +1,4 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   PoolDataReportOption,
   submitPoolDataReport,
@@ -6,12 +6,12 @@ import {
   submitTokenIssueReport,
   TokenDataReportOption,
   TokenReportOption,
-} from 'lx/src/features/reporting/reports'
-import { LXEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+} from '@l.x/lx/src/features/reporting/reports'
+import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import type { Mock } from 'vitest'
 
-vi.mock('lx/src/features/telemetry/send')
+vi.mock('@l.x/lx/src/features/telemetry/send')
 
 const mockSendAnalyticsEvent = sendAnalyticsEvent as Mock
 

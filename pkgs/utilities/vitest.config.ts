@@ -27,9 +27,9 @@ export default defineConfig({
     ...vitestPreset.resolve,
     extensions: ['.web.ts', '.web.tsx', '.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
-      'utilities/src': path.resolve(__dirname, './src'),
-      'ui/src': path.resolve(__dirname, '../ui/src'),
-      'lx/src': path.resolve(__dirname, '../lx/src'),
+      '@l.x/utils/src': path.resolve(__dirname, './src'),
+      '@l.x/ui/src': path.resolve(__dirname, '../ui/src'),
+      '@l.x/lx/src': path.resolve(__dirname, '../lx/src'),
 
       // React Native aliases for web testing
       'react-native': 'react-native-web',

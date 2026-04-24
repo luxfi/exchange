@@ -1,4 +1,4 @@
-import { isPlaywrightEnv } from 'utilities/src/environment/env'
+import { isPlaywrightEnv } from '@l.x/utils/src/environment/env'
 import { isAddress } from 'viem'
 import { connect } from 'wagmi/actions'
 import { PLAYWRIGHT_CONNECT_ADDRESS } from '~/components/Web3Provider/constants'

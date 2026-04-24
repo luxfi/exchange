@@ -1,9 +1,9 @@
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-import { config } from 'lx/src/config'
-import { lxUrls } from 'lx/src/constants/urls'
-import { getVersionHeader } from 'lx/src/data/getVersionHeader'
-import { isMobileApp } from 'utilities/src/platform'
-import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
+import { config } from '@l.x/lx/src/config'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { getVersionHeader } from '@l.x/lx/src/data/getVersionHeader'
+import { isMobileApp } from '@l.x/utils/src/platform'
+import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
 
 /**
  * Get FOR API headers.

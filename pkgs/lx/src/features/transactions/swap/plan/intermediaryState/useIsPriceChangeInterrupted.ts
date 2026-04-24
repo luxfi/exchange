@@ -1,7 +1,7 @@
 import {
   ActivePlanState,
   activePlanStore,
-} from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import { useStore } from 'zustand'
 
 function selectPriceChangeInterruptedPlanIds(state: ActivePlanState): Set<string> {

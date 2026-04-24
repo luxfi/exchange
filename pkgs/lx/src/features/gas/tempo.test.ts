@@ -1,6 +1,6 @@
 import { CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { convertTempoGasFeeForDisplay, hasSufficientFundsIncludingTempoGas } from 'lx/src/features/gas/tempo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { convertTempoGasFeeForDisplay, hasSufficientFundsIncludingTempoGas } from '@l.x/lx/src/features/gas/tempo'
 
 const PATH_USD = new Token(UniverseChainId.Tempo, '0x20c0000000000000000000000000000000000000', 6, 'pathUSD', 'pathUSD')
 

@@ -1,6 +1,6 @@
 import { FeatureFlags, getFeatureFlag, getStatsigClient } from '@l.x/gating'
 import { call, delay, fork, select } from 'typed-redux-saga'
-import { makeSelectPlanTransaction } from 'lx/src/features/transactions/selectors'
+import { makeSelectPlanTransaction } from '@l.x/lx/src/features/transactions/selectors'
 import {
   logPlanPollDebug,
   PLAN_MAX_AGE_MS,
@@ -8,10 +8,10 @@ import {
   PLAN_POLLING_INTERVAL_MS,
   pollPlanStatus,
   shouldPollPlan,
-} from 'lx/src/features/transactions/swap/plan/planPollingUtils'
-import { PlanTransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/swap/plan/planPollingUtils'
+import { PlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 interface PlanListener {
   updatePlanStatus: (updatedPlan: PlanTransactionDetails) => void

@@ -18,7 +18,7 @@ import {
 } from '@l.x/lx/src/features/search/SearchModal/constants'
 import { useRecentlySearchedOptions } from '@l.x/lx/src/features/search/SearchModal/hooks/useRecentlySearchedOptions'
 import { SearchTab } from '@l.x/lx/src/features/search/SearchModal/types'
-import { isMobileApp, isWebApp, isWebPlatform } from 'utilities/src/platform'
+import { isMobileApp, isWebApp, isWebPlatform } from '@l.x/utils/src/platform'
 
 export function useSectionsForNoQuerySearch({
   chainFilter,

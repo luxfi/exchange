@@ -1,10 +1,10 @@
 import { getOverrideAdapter } from '@l.x/gating'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { BetaPasscodeModal } from '~/pages/Beta/BetaPasscodeModal'
 import { act, fireEvent, render, screen } from '~/test-utils/render'
 
-vi.mock('ui/src/assets', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('ui/src/assets')>()
+vi.mock('@l.x/ui/src/assets', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/ui/src/assets')>()
   return {
     ...actual,
     BETA_LOGO: 'beta-logo-mock',

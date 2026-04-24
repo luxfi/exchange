@@ -1,4 +1,4 @@
-import { HOURS_IN_DAY, MINUTES_IN_HOUR } from 'utilities/src/time/time'
+import { HOURS_IN_DAY, MINUTES_IN_HOUR } from '@l.x/utils/src/time/time'
 
 export enum DeviceAccessTimeout {
   FiveMinutes = '5_MIN',

@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { IndicativeTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { getTradeAmounts } from 'lx/src/features/transactions/swap/utils/getTradeAmounts'
-import { calculateRateLine, getRateToDisplay } from 'lx/src/features/transactions/swap/utils/trade'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import type { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import type { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import type { IndicativeTrade, Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { getTradeAmounts } from '@l.x/lx/src/features/transactions/swap/utils/getTradeAmounts'
+import { calculateRateLine, getRateToDisplay } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 
 type SwapRateRatioProps = {
   trade: Trade | IndicativeTrade | undefined | null

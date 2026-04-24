@@ -1,5 +1,5 @@
 import { namehash } from '@ethersproject/hash'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function safeNamehash(name?: string): string | undefined {
   if (name === undefined) {

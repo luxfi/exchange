@@ -20,7 +20,7 @@ async function removeDtsFiles(dir: string): Promise<void> {
   }
 }
 
-const targetDir = path.join(__dirname, '../', '../', '../', 'utilities/src')
+const targetDir = path.join(__dirname, '../', '../', '../', '@l.x/utils/src')
 
 removeDtsFiles(targetDir)
   .then(() => {

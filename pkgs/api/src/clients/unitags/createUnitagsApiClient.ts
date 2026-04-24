@@ -23,7 +23,7 @@ import {
   type UnitagUsernameRequest,
   type UnitagUsernameResponse,
 } from '@l.x/api/src/clients/unitags/types'
-import { sanitizeAvatarUrl } from 'utilities/src/format/urls'
+import { sanitizeAvatarUrl } from '@l.x/utils/src/format/urls'
 
 const UNI_SIG_HEADER_KEY = 'x-uni-sig'
 

@@ -1,12 +1,12 @@
 // This test expects the invalid image URLs to fail to load, so
 // we silence the error logs to keep the test output clean.
-import 'utilities/src/logger/mocks'
-import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { render } from 'lx/src/test/test-utils'
+import '@l.x/utils/src/logger/mocks'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { render } from '@l.x/lx/src/test/test-utils'
 
-vi.mock('ui/src/components/UniversalImage/internal/PlainImage', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('ui/src/components/UniversalImage/internal/PlainImage.web')>()
+vi.mock('@l.x/ui/src/components/UniversalImage/internal/PlainImage', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/ui/src/components/UniversalImage/internal/PlainImage.web')>()
   return { ...actual }
 })
 

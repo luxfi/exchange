@@ -11,9 +11,9 @@ import type { TouchableAreaProps } from '@l.x/ui/src/components/touchable/Toucha
 import { useAutoDimensions } from '@l.x/ui/src/components/touchable/TouchableArea/useAutoDimensions'
 import { useAutoHitSlop } from '@l.x/ui/src/components/touchable/TouchableArea/useAutoHitSlop'
 import { getMaybeHoverColor, zIndexes } from '@l.x/ui/src/theme'
-import { isTestEnv } from 'utilities/src/environment/env'
-import { isIOS, isMobileApp, isWebPlatform } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+import { isTestEnv } from '@l.x/utils/src/environment/env'
+import { isIOS, isMobileApp, isWebPlatform } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type TouchableAreaEvent = GestureResponderEvent
 

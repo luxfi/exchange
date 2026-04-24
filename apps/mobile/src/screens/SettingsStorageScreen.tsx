@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { ScreenWithHeader } from 'src/components/layout/screens/ScreenWithHeader'
 import { useAppStateResetter } from 'src/features/appState/appStateResetter'
-import { Flex, Text } from 'ui/src'
-import { StorageHelpIcon, StorageSettingsContent } from 'uniswap/src/features/settings/storage/StorageSettingsContent'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Flex, Text } from '@l.x/ui/src'
+import { StorageHelpIcon, StorageSettingsContent } from '@l.x/lx/src/features/settings/storage/StorageSettingsContent'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function SettingsStorageScreen(): JSX.Element {
   const { t } = useTranslation()

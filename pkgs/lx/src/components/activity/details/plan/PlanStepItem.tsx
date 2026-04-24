@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { getTokenValue, SpinningLoader, Text, TouchableArea } from 'ui/src'
-import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
-import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
-import { RoundExclamation } from 'ui/src/components/icons/RoundExclamation'
-import { Flex } from 'ui/src/components/layout/Flex'
+import { getTokenValue, SpinningLoader, Text, TouchableArea } from '@l.x/ui/src'
+import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
+import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
+import { RoundExclamation } from '@l.x/ui/src/components/icons/RoundExclamation'
+import { Flex } from '@l.x/ui/src/components/layout/Flex'
 import { SwapTypeTransactionInfo } from '@l.x/lx/src/components/activity/details/types'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -28,7 +28,7 @@ import {
   currencyIdToChain,
 } from '@l.x/lx/src/utils/currencyId'
 import { openTransactionLink } from '@l.x/lx/src/utils/linking'
-import { NumberType } from 'utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export const PLAN_STEP_ITEM_WIDTH = '$icon.20'
 

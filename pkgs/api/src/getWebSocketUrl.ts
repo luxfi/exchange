@@ -1,6 +1,6 @@
 import { PROD_WEBSOCKET_BASE_URL, STAGING_WEBSOCKET_BASE_URL } from '@l.x/api/src/clients/base/urls'
 import { getConfig } from '@l.x/config'
-import { Environment, getCurrentEnv } from 'utilities/src/environment/getCurrentEnv'
+import { Environment, getCurrentEnv } from '@l.x/utils/src/environment/getCurrentEnv'
 
 /**
  * Returns the appropriate WebSocket URL based on the current environment.

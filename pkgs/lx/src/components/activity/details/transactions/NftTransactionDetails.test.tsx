@@ -4,7 +4,7 @@ import { SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures'
 import { render } from '@l.x/lx/src/test/test-utils'
 
 const mockWalletAddress = (): Address => SAMPLE_SEED_ADDRESS_1
-vi.mock('lx/src/features/wallet/hooks/useWallet', () => ({
+vi.mock('@l.x/lx/src/features/wallet/hooks/useWallet', () => ({
   useWallet: vi.fn().mockReturnValue({
     evmAccount: { address: mockWalletAddress },
   }),
@@ -41,7 +41,7 @@ const mockTransaction = {
 } as TransactionDetails
 
 // Mock the UniversalImage component
-vi.mock('ui/src/components/UniversalImage/UniversalImage', () => ({
+vi.mock('@l.x/ui/src/components/UniversalImage/UniversalImage', () => ({
   UniversalImage: vi.fn(() => null),
 }))
 

@@ -4,7 +4,7 @@ import {
   FavoritesState,
   favoritesReducer,
   removeFavoriteToken,
-} from 'lx/src/features/favorites/slice'
+} from '@l.x/lx/src/features/favorites/slice'
 
 describe(favoritesReducer, () => {
   let store: Store<FavoritesState>

@@ -1,8 +1,8 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { parseUnits } from '@ethersproject/units'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { convertScientificNotationToNumber } from 'utilities/src/format/convertScientificNotation'
-import { logger } from 'utilities/src/logger/logger'
+import { convertScientificNotationToNumber } from '@l.x/utils/src/format/convertScientificNotation'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Allow for digits and one of either period or comma
 const ALL_NUMBERS_OR_SEPARATOR_REGEX = /^\d*\.?,?\d*$/

@@ -10,9 +10,9 @@ import { usePromptPushPermission } from 'src/features/notifications/hooks/usePro
 import { selectAllPushNotificationSettings } from 'src/features/notifications/selectors'
 import { showNotificationSettingsAlert } from 'src/features/notifications/showNotificationSettingsAlert'
 import { updateNotifSettings } from 'src/features/notifications/slice'
-import { waitFrame } from 'utilities/src/react/delayUtils'
-import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
-import { useSelectAccountNotificationSetting } from 'wallet/src/features/wallet/hooks'
+import { waitFrame } from '@l.x/utils/src/react/delayUtils'
+import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
+import { useSelectAccountNotificationSetting } from '@luxfi/wallet/src/features/wallet/hooks'
 
 enum NotificationError {
   OsPermissionDenied = 'OS_PERMISSION_DENIED',

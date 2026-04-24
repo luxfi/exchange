@@ -1,10 +1,10 @@
 import { Fragment, useCallback } from 'react'
-import { DropdownMenuSheetItem, DropdownMenuSheetItemProps, Flex, FlexProps, getMenuItemColor, Separator } from 'ui/src'
+import { DropdownMenuSheetItem, DropdownMenuSheetItemProps, Flex, FlexProps, getMenuItemColor, Separator } from '@l.x/ui/src'
 import { MenuOptionItem } from '@l.x/lx/src/components/menus/ContextMenu'
 import { ElementName, SectionName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { isWebPlatform } from 'utilities/src/platform'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { isWebPlatform } from '@l.x/utils/src/platform'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 const MENU_MIN_WIDTH = 200
 const MENU_MAX_WIDTH = 250

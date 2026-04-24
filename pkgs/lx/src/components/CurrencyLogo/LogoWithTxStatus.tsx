@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
-import type { IconProps } from 'ui/src'
-import { Flex, UniversalImage, UniversalImageResizeMode, useSporeColors } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { Approve } from 'ui/src/components/icons/Approve'
-import { ArrowDownInCircle } from 'ui/src/components/icons/ArrowDownInCircle'
-import { ArrowUpInCircle } from 'ui/src/components/icons/ArrowUpInCircle'
-import { QuestionInCircle } from 'ui/src/components/icons/QuestionInCircle'
-import { Walletconnect } from 'ui/src/components/icons/Walletconnect'
-import { borderRadii, zIndexes } from 'ui/src/theme'
+import type { IconProps } from '@l.x/ui/src'
+import { Flex, UniversalImage, UniversalImageResizeMode, useSporeColors } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { Approve } from '@l.x/ui/src/components/icons/Approve'
+import { ArrowDownInCircle } from '@l.x/ui/src/components/icons/ArrowDownInCircle'
+import { ArrowUpInCircle } from '@l.x/ui/src/components/icons/ArrowUpInCircle'
+import { QuestionInCircle } from '@l.x/ui/src/components/icons/QuestionInCircle'
+import { Walletconnect } from '@l.x/ui/src/components/icons/Walletconnect'
+import { borderRadii, zIndexes } from '@l.x/ui/src/theme'
 import { CurrencyLogo, STATUS_RATIO } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { TransactionSummaryNetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import { DappIconPlaceholder } from '@l.x/lx/src/components/dapps/DappIconPlaceholder'
@@ -21,7 +21,7 @@ import {
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface LogoWithTxStatusBaseProps {
   assetType: AssetType

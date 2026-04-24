@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Flex } from 'ui/src'
-import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { Flex } from '@l.x/ui/src'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 
 // Inject CSS keyframes for flip animation once
 const FLIP_KEYFRAMES_ID = 'lx-token-flip-keyframes'

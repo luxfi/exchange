@@ -28,18 +28,18 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('lx/src/contexts/LuxContext')
+vi.mock('@l.x/lx/src/contexts/LuxContext')
 
-vi.mock('lx/src/features/chains/hooks/useEnabledChains', async () => {
-  const actual = await vi.importActual('lx/src/features/chains/hooks/useEnabledChains')
+vi.mock('@l.x/lx/src/features/chains/hooks/useEnabledChains', async () => {
+  const actual = await vi.importActual('@l.x/lx/src/features/chains/hooks/useEnabledChains')
   return {
     ...actual,
     useEnabledChains: vi.fn(),
   }
 })
 
-vi.mock('lx/src/contexts/UrlContext', async () => {
-  const actual = await vi.importActual('lx/src/contexts/UrlContext')
+vi.mock('@l.x/lx/src/contexts/UrlContext', async () => {
+  const actual = await vi.importActual('@l.x/lx/src/contexts/UrlContext')
   return {
     ...actual,
     useUrlContext: vi.fn(),

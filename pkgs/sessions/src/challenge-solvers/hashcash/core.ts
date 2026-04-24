@@ -8,7 +8,7 @@
  * Shared types and platform-agnostic functions live in shared.ts.
  */
 
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export type { HashcashChallenge, ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
 // Re-export everything from shared — types, checkDifficulty, formatHashcashString

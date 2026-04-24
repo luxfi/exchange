@@ -1,15 +1,15 @@
-import { useSporeColors } from 'ui/src'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useSporeColors } from '@l.x/ui/src'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import {
   TransactionSettingsStoreContext,
   useGetTransactionSettingsContextValue,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/TransactionSettingsStoreContext'
-import { TransactionSettingsModalContent } from 'lx/src/features/transactions/components/settings/TransactionSettingsModal/TransactionSettingsModalContent/TransactionSettingsModalContent'
-import type { TransactionSettingsModalProps } from 'lx/src/features/transactions/components/settings/TransactionSettingsModal/types'
-import { SwapFormStoreContext } from 'lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext'
-import { useSwapFormStoreBase } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { isExtensionApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/TransactionSettingsStoreContext'
+import { TransactionSettingsModalContent } from '@l.x/lx/src/features/transactions/components/settings/TransactionSettingsModal/TransactionSettingsModalContent/TransactionSettingsModalContent'
+import type { TransactionSettingsModalProps } from '@l.x/lx/src/features/transactions/components/settings/TransactionSettingsModal/types'
+import { SwapFormStoreContext } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext'
+import { useSwapFormStoreBase } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 export function TransactionSettingsModalWallet({
   settings,

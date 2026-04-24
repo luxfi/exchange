@@ -1,5 +1,5 @@
 import { ChainToken, MultichainToken, SpamCode } from '@luxamm/client-search/dist/search/v1/api_pb'
-import { toMultichainSearchResult } from 'lx/src/data/rest/toMultichainSearchResult'
+import { toMultichainSearchResult } from '@l.x/lx/src/data/rest/toMultichainSearchResult'
 
 function createMultichainToken(
   overrides: Partial<{
