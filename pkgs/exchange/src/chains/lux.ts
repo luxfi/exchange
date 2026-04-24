@@ -98,6 +98,132 @@ export const zooTestnet = defineChain({
 })
 
 /**
+ * Zoo Devnet Chain Definition
+ */
+export const zooDevnet = defineChain({
+  id: 200202,
+  name: 'Zoo Devnet',
+  nativeCurrency: { name: 'ZOO', symbol: 'ZOO', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.zoo-dev.network/rpc'] },
+    public:  { http: ['https://api.zoo-dev.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Zoo Devnet Explorer', url: 'https://explore.zoo-dev.network' },
+  },
+  testnet: true,
+})
+
+/**
+ * Hanzo Mainnet Chain Definition (AI chain — $AI token)
+ */
+export const hanzoMainnet = defineChain({
+  id: 36963,
+  name: 'Hanzo Mainnet',
+  nativeCurrency: { name: 'AI', symbol: 'AI', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.hanzo.network/rpc'] },
+    public:  { http: ['https://api.hanzo.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Hanzo Explorer', url: 'https://explore.hanzo.network' },
+  },
+})
+
+/**
+ * Hanzo Testnet Chain Definition
+ */
+export const hanzoTestnet = defineChain({
+  id: 36964,
+  name: 'Hanzo Testnet',
+  nativeCurrency: { name: 'AI', symbol: 'AI', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.hanzo-test.network/rpc'] },
+    public:  { http: ['https://api.hanzo-test.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Hanzo Testnet Explorer', url: 'https://explore.hanzo-test.network' },
+  },
+  testnet: true,
+})
+
+/**
+ * Pars Mainnet Chain Definition
+ */
+export const parsMainnet = defineChain({
+  id: 494949,
+  name: 'Pars Mainnet',
+  nativeCurrency: { name: 'PARS', symbol: 'PARS', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.pars.network/rpc'] },
+    public:  { http: ['https://api.pars.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Pars Explorer', url: 'https://explore.pars.network' },
+  },
+})
+
+/**
+ * SPC Mainnet Chain Definition
+ */
+export const spcMainnet = defineChain({
+  id: 36911,
+  name: 'SPC Mainnet',
+  nativeCurrency: { name: 'SPC', symbol: 'SPC', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.spc.network/rpc'] },
+    public:  { http: ['https://api.spc.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'SPC Explorer', url: 'https://explore.spc.network' },
+  },
+})
+
+/**
+ * Liquid EVM — regulated digital securities (Liquidity.io ATS)
+ */
+export const liquidMainnet = defineChain({
+  id: 8675309,
+  name: 'Liquid EVM Mainnet',
+  nativeCurrency: { name: 'LQDTY', symbol: 'LQDTY', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://rpc.satschel.com'] },
+    public:  { http: ['https://rpc.satschel.com'] },
+  },
+  blockExplorers: {
+    default: { name: 'Liquid Explorer', url: 'https://explorer.satschel.com' },
+  },
+})
+
+export const liquidTestnet = defineChain({
+  id: 8675310,
+  name: 'Liquid EVM Testnet',
+  nativeCurrency: { name: 'LQDTY', symbol: 'LQDTY', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://rpc.test.satschel.com'] },
+    public:  { http: ['https://rpc.test.satschel.com'] },
+  },
+  blockExplorers: {
+    default: { name: 'Liquid Testnet Explorer', url: 'https://explorer.test.satschel.com' },
+  },
+  testnet: true,
+})
+
+export const liquidDevnet = defineChain({
+  id: 8675311,
+  name: 'Liquid EVM Devnet',
+  nativeCurrency: { name: 'LQDTY', symbol: 'LQDTY', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://rpc.dev.satschel.com'] },
+    public:  { http: ['https://rpc.dev.satschel.com'] },
+  },
+  blockExplorers: {
+    default: { name: 'Liquid Devnet Explorer', url: 'https://explorer.dev.satschel.com' },
+  },
+  testnet: true,
+})
+
+/**
  * Dev Chain Definition (for running local node with --dev)
  */
 export const luxDev = defineChain({
@@ -126,15 +252,25 @@ export const LUX_TESTNET_ID = 96368
 export const ZOO_MAINNET_ID = 200200
 export const ZOO_TESTNET_ID = 200201
 export const LUX_DEV_ID = 1337
+export const ZOO_DEVNET_ID      = 200202
+export const HANZO_MAINNET_ID   = 36963
+export const HANZO_TESTNET_ID   = 36964
+export const PARS_MAINNET_ID    = 494949
+export const SPC_MAINNET_ID     = 36911
+export const LIQUID_MAINNET_ID  = 8675309
+export const LIQUID_TESTNET_ID  = 8675310
+export const LIQUID_DEVNET_ID   = 8675311
 
 /**
  * All supported chains
  */
 export const supportedChains = [
-  luxMainnet,
-  luxTestnet,
-  zooMainnet,
-  zooTestnet,
+  luxMainnet,    luxTestnet,
+  zooMainnet,    zooTestnet,    zooDevnet,
+  hanzoMainnet,  hanzoTestnet,
+  parsMainnet,
+  spcMainnet,
+  liquidMainnet, liquidTestnet, liquidDevnet,
   luxDev,
 ] as const
 
