@@ -1,11 +1,11 @@
 import { providers as ethersProviders } from 'ethers/lib/ethers'
-import { RPCType, UniverseChainId } from 'lx/src/features/chains/types'
-import { SignerInfo } from 'lx/src/features/providers/FlashbotsCommon'
-import { FlashbotsRpcProvider } from 'lx/src/features/providers/FlashbotsRpcProvider'
-import { InstrumentedJsonRpcProvider } from 'lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
-import { getRpcObserver } from 'lx/src/features/providers/observability/rpcObserver'
-import { selectRpcUrl } from 'lx/src/features/providers/rpcUrlSelector'
-import { logger } from 'utilities/src/logger/logger'
+import { RPCType, UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { SignerInfo } from '@l.x/lx/src/features/providers/FlashbotsCommon'
+import { FlashbotsRpcProvider } from '@l.x/lx/src/features/providers/FlashbotsRpcProvider'
+import { InstrumentedJsonRpcProvider } from '@l.x/lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
+import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpcObserver'
+import { selectRpcUrl } from '@l.x/lx/src/features/providers/rpcUrlSelector'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Should use ProviderManager for provider access unless being accessed outside of ProviderManagerContext (e.g., Apollo initialization)
 export function createEthersProvider({

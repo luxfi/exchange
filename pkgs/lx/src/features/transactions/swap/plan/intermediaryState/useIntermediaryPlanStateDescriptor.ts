@@ -2,10 +2,10 @@ import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { TFunction } from 'i18next'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { getChainLabel } from 'lx/src/features/chains/utils'
-import { LocalizationContextState, useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { IntermediaryPlanState } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
-import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { LocalizationContextState, useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { IntermediaryPlanState } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 interface IntermediaryStateDescriptorParams {
   intermediaryState: IntermediaryPlanState

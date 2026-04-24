@@ -1,6 +1,6 @@
 import { brand, getGatewayUrl, getWsUrl } from '@l.x/config'
-import { isBetaEnv, isDevEnv, isPlaywrightEnv, isTestEnv } from 'utilities/src/environment/env'
-import { isAndroid, isExtensionApp, isMobileApp, isWebApp } from 'utilities/src/platform'
+import { isBetaEnv, isDevEnv, isPlaywrightEnv, isTestEnv } from '@l.x/utils/src/environment/env'
+import { isAndroid, isExtensionApp, isMobileApp, isWebApp } from '@l.x/utils/src/platform'
 
 export enum TrafficFlows {
   GraphQL = 'graphql',

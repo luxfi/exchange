@@ -14,7 +14,7 @@ import { useConversionProxy } from '@l.x/lx/src/data/rest/conversionTracking/use
 import { getExternalConversionLeadsCookie } from '@l.x/lx/src/data/rest/conversionTracking/utils'
 import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { HexString } from 'utilities/src/addresses/hex'
+import { HexString } from '@l.x/utils/src/addresses/hex'
 
 const conversionLeadsAtom = atomWithStorage<ConversionLead[]>(CONVERSION_LEADS_STORAGE_KEY, [])
 

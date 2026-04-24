@@ -7,7 +7,7 @@ import type {
   NotificationTracker,
   TrackingMetadata,
 } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
-import { sleep } from 'utilities/src/time/timing'
+import { sleep } from '@l.x/utils/src/time/timing'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('createNotificationService', () => {

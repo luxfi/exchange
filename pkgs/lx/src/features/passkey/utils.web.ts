@@ -1,5 +1,5 @@
 import { Buffer } from 'buffer'
-import { exportEncryptedSeedPhrase } from 'lx/src/features/passkey/embeddedWallet'
+import { exportEncryptedSeedPhrase } from '@l.x/lx/src/features/passkey/embeddedWallet'
 
 export async function exportSeedPhrase(walletId?: string): Promise<string | undefined> {
   const keyPair = await window.crypto.subtle.generateKey(

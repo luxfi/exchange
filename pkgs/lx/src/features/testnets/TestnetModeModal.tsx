@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { Wrench } from 'ui/src/components/icons/Wrench'
-import { InfoLinkModal } from 'lx/src/components/modals/InfoLinkModal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { Flex } from '@l.x/ui/src'
+import { Wrench } from '@l.x/ui/src/components/icons/Wrench'
+import { InfoLinkModal } from '@l.x/lx/src/components/modals/InfoLinkModal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 type TestnetModeModalProps = {
   isOpen: boolean

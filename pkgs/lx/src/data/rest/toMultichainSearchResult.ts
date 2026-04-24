@@ -1,8 +1,8 @@
 import { type MultichainToken } from '@luxamm/client-search/dist/search/v1/api_pb'
 import { parseProtectionInfo, parseSafetyLevel } from '@l.x/api'
-import { chainTokenToCurrencyInfo } from 'lx/src/data/rest/searchTokensAndPools'
-import { type CurrencyInfo, type MultichainSearchResult } from 'lx/src/features/dataApi/types'
-import { getCurrencySafetyInfo } from 'lx/src/features/dataApi/utils/getCurrencySafetyInfo'
+import { chainTokenToCurrencyInfo } from '@l.x/lx/src/data/rest/searchTokensAndPools'
+import { type CurrencyInfo, type MultichainSearchResult } from '@l.x/lx/src/features/dataApi/types'
+import { getCurrencySafetyInfo } from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
 
 /**
  * Converts an API MultichainToken (with chainTokens[]) to an app-layer MultichainSearchResult.

@@ -16,27 +16,27 @@ import {
   setDidOpenFromDeepLink,
   WalletConnectPendingSession,
 } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex } from 'ui/src'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { MobileEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { DappRequestType, WalletConnectEvent, WCEventType, WCRequestOutcome } from 'uniswap/src/types/walletConnect'
-import { useEvent } from 'utilities/src/react/hooks'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
-import { DappConnectionContent } from 'wallet/src/components/dappRequests/DappConnectionContent'
-import { DappRequestHeader } from 'wallet/src/components/dappRequests/DappRequestHeader'
-import { getCapabilitiesCore } from 'wallet/src/features/batchedTransactions/utils'
-import { useBlockaidVerification } from 'wallet/src/features/dappRequests/hooks/useBlockaidVerification'
-import { useDappConnectionConfirmation } from 'wallet/src/features/dappRequests/hooks/useDappConnectionConfirmation'
-import { DappConnectionInfo, DappVerificationStatus } from 'wallet/src/features/dappRequests/types'
-import { mergeVerificationStatuses } from 'wallet/src/features/dappRequests/verification'
+import { Flex } from '@l.x/ui/src'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { MobileEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { DappRequestType, WalletConnectEvent, WCEventType, WCRequestOutcome } from '@l.x/lx/src/types/walletConnect'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { DappConnectionContent } from '@luxfi/wallet/src/components/dappRequests/DappConnectionContent'
+import { DappRequestHeader } from '@luxfi/wallet/src/components/dappRequests/DappRequestHeader'
+import { getCapabilitiesCore } from '@luxfi/wallet/src/features/batchedTransactions/utils'
+import { useBlockaidVerification } from '@luxfi/wallet/src/features/dappRequests/hooks/useBlockaidVerification'
+import { useDappConnectionConfirmation } from '@luxfi/wallet/src/features/dappRequests/hooks/useDappConnectionConfirmation'
+import { DappConnectionInfo, DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'
+import { mergeVerificationStatuses } from '@luxfi/wallet/src/features/dappRequests/verification'
 import {
   useActiveAccountWithThrow,
   useHasSmartWalletConsent,
   useSignerAccounts,
-} from 'wallet/src/features/wallet/hooks'
+} from '@luxfi/wallet/src/features/wallet/hooks'
 
 type Props = {
   pendingSession: WalletConnectPendingSession

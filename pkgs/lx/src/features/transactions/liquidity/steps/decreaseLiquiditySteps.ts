@@ -1,5 +1,5 @@
-import { DecreasePositionTransactionStep } from 'lx/src/features/transactions/liquidity/steps/decreasePosition'
-import { TokenApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
+import { DecreasePositionTransactionStep } from '@l.x/lx/src/features/transactions/liquidity/steps/decreasePosition'
+import { TokenApprovalTransactionStep } from '@l.x/lx/src/features/transactions/steps/approve'
 
 export type DecreaseLiquiditySteps = TokenApprovalTransactionStep | DecreasePositionTransactionStep
 

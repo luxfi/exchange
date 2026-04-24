@@ -3,12 +3,12 @@ import maxBy from 'lodash/maxBy'
 import { type Dispatch, type SetStateAction, useCallback, useMemo, useRef, useState } from 'react'
 import { type SharedValue, useDerivedValue } from 'react-native-reanimated'
 import { type TLineChartData } from 'react-native-wagmi-charts'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { currencyIdToChain } from 'uniswap/src/utils/currencyId'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
 
 export type TokenSpotData = {
   value: SharedValue<number>

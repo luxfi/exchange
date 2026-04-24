@@ -30,9 +30,9 @@
     "useUnknownInCatchVariables": false,
     "paths": {
       "~/*": ["./src/*"],
-      "ui/src/*": ["../../packages/ui/src/*"],
-      "utilities/src/*": ["../../packages/utilities/src/*"],
-      "uniswap/src/*": ["../../packages/uniswap/src/*"]
+      "ui/src/*": ["../../pkgs/ui/src/*"],
+      "utilities/src/*": ["../../pkgs/utilities/src/*"],
+      "uniswap/src/*": ["../../pkgs/lx/src/*"]
     }
   },
   "include": [
@@ -47,31 +47,31 @@
   "exclude": ["scripts/build-vercel.ts"],
   "references": [
     {
-      "path": "../../packages/utilities"
+      "path": "../../pkgs/utilities"
     },
     {
-      "path": "../../packages/websocket"
+      "path": "../../pkgs/websocket"
     },
     {
-      "path": "../../packages/prices"
+      "path": "../../pkgs/prices"
     },
     {
-      "path": "../../packages/sessions"
+      "path": "../../pkgs/sessions"
     },
     {
-      "path": "../../packages/notifications"
+      "path": "../../pkgs/notifications"
     },
     {
-      "path": "../../packages/gating"
+      "path": "../../pkgs/gating"
     },
     {
-      "path": "../../packages/ui"
+      "path": "../../pkgs/ui"
     },
     {
-      "path": "../../packages/api"
+      "path": "../../pkgs/api"
     },
     {
-      "path": "../../packages/uniswap"
+      "path": "../../pkgs/lx"
     }
   ]
 }

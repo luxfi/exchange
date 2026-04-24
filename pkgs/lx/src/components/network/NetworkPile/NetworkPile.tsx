@@ -1,14 +1,14 @@
 import { memo } from 'react'
-import { Flex } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
+import { Flex } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import {
   DoubleLogo,
   QuadLogo,
   SingleLogo,
   TripleLogo,
-} from 'lx/src/components/network/NetworkPile/NetworkPileLayouts'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+} from '@l.x/lx/src/components/network/NetworkPile/NetworkPileLayouts'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 export type NetworkPileSize = 'default' | 'small'
 

@@ -1,5 +1,5 @@
-import { Flex, Text } from 'ui/src'
-import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
+import { Flex, Text } from '@l.x/ui/src'
+import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
 
 type PillButtonProps = {
   label: string

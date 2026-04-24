@@ -1,22 +1,22 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
-import { SummaryItemProps } from 'lx/src/components/activity/types'
-import { TXN_HISTORY_ICON_SIZE } from 'lx/src/components/activity/utils'
-import { LogoWithTxStatus } from 'lx/src/components/CurrencyLogo/LogoWithTxStatus'
-import { AssetType } from 'lx/src/entities/assets'
-import { isValidIsoCurrencyCode } from 'lx/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { TransactionSummaryLayout } from '@l.x/lx/src/components/activity/summaries/TransactionSummaryLayout'
+import { SummaryItemProps } from '@l.x/lx/src/components/activity/types'
+import { TXN_HISTORY_ICON_SIZE } from '@l.x/lx/src/components/activity/utils'
+import { LogoWithTxStatus } from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { isValidIsoCurrencyCode } from '@l.x/lx/src/features/fiatOnRamp/utils'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import {
   OnRampPurchaseInfo,
   OnRampTransferInfo,
   TransactionDetails,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { NumberType } from 'utilities/src/format/types'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function OnRampTransferSummaryItem({
   transaction,

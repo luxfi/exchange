@@ -1,19 +1,19 @@
 import { GraphQLApi } from '@l.x/api'
 import { useEffect, useMemo, useState } from 'react'
-import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 // oxlint-disable-next-line no-restricted-imports -- Direct access needed for custom portfolio query with multiple addresses
-import { usePortfolioValueModifiers } from 'uniswap/src/features/dataApi/balances/balances'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
-import { logger } from 'utilities/src/logger/logger'
+import { usePortfolioValueModifiers } from '@l.x/lx/src/features/dataApi/balances/balances'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   AddressWithBalanceAndName,
   hasBalanceOrName,
   useAddressesEnsNames,
-} from 'wallet/src/features/onboarding/hooks/useImportableAccounts'
-import { NUMBER_OF_WALLETS_TO_GENERATE } from 'wallet/src/features/onboarding/OnboardingContext'
-import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+} from '@luxfi/wallet/src/features/onboarding/hooks/useImportableAccounts'
+import { NUMBER_OF_WALLETS_TO_GENERATE } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
+import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 
 export interface RecoveryWalletInfo extends AddressWithBalanceAndName {
   derivationIndex: number

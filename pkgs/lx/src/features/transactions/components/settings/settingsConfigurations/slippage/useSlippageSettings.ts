@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { StyleProp, ViewStyle } from 'react-native'
-import { useShakeAnimation } from 'ui/src/animations'
-import { PlusMinusButtonType } from 'ui/src/components/buttons/PlusMinusButton'
+import { useShakeAnimation } from '@l.x/ui/src/animations'
+import { PlusMinusButtonType } from '@l.x/ui/src/components/buttons/PlusMinusButton'
 import {
   MAX_AUTO_SLIPPAGE_TOLERANCE,
   MAX_CUSTOM_SLIPPAGE_TOLERANCE,

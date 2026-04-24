@@ -1,12 +1,12 @@
 import { formatUnits } from 'ethers/lib/utils'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, SpinningLoader } from 'ui/src'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { useIsPriceChangeInterrupted } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIsPriceChangeInterrupted'
-import { useResumePlanMutation } from 'lx/src/features/transactions/swap/plan/intermediaryState/useResumePlanMutation'
-import { PlanTransactionInfo } from 'lx/src/features/transactions/types/transactionDetails'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Button, SpinningLoader } from '@l.x/ui/src'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { useIsPriceChangeInterrupted } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useIsPriceChangeInterrupted'
+import { useResumePlanMutation } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useResumePlanMutation'
+import { PlanTransactionInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function ResumePlanButton({
   typeInfo,

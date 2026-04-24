@@ -1,18 +1,18 @@
 import { memo, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { ActionSheetDropdown } from 'uniswap/src/components/dropdowns/ActionSheetDropdown'
-import { MenuItemProp } from 'uniswap/src/components/modals/ActionSheetModal'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { ActionSheetDropdown } from '@l.x/lx/src/components/dropdowns/ActionSheetDropdown'
+import { MenuItemProp } from '@l.x/lx/src/components/modals/ActionSheetModal'
 import {
   getProfitLossPeriodLabel,
   getProfitLossSince,
   PROFIT_LOSS_PERIODS,
   ProfitLossPeriod,
-} from 'uniswap/src/components/WalletProfitLoss/utils'
-import { WalletProfitLoss } from 'uniswap/src/components/WalletProfitLoss/WalletProfitLoss'
-import { useGetWalletProfitLossQuery } from 'uniswap/src/data/rest/getWalletProfitLoss'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from '@l.x/lx/src/components/WalletProfitLoss/utils'
+import { WalletProfitLoss } from '@l.x/lx/src/components/WalletProfitLoss/WalletProfitLoss'
+import { useGetWalletProfitLossQuery } from '@l.x/lx/src/data/rest/getWalletProfitLoss'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 interface PortfolioPerformanceProps {
   evmAddress: string

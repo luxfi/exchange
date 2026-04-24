@@ -1,14 +1,14 @@
 import { TradeType } from '@luxamm/sdk-core'
-import { AssetType } from 'lx/src/entities/assets'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import {
   FinalizedTransactionStatus,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { WalletConnectEvent } from 'lx/src/types/walletConnect'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
 
 export enum AppNotificationType {
   Default = 0,

@@ -1,7 +1,7 @@
 import { type ConnectTransportOptions, createConnectTransport } from '@connectrpc/connect-web'
 import { provideDeviceIdService } from '@l.x/api/src/provideDeviceIdService'
 import { provideSessionStorage } from '@l.x/api/src/provideSessionStorage'
-import { isWebApp } from 'utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 interface SessionTransportOptions {
   getSessionId?: () => Promise<string | null>

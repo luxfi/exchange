@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { CurrencyInputPanel } from 'lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
-import { SectionName } from 'lx/src/features/telemetry/constants'
-import { Trace } from 'lx/src/features/telemetry/Trace'
-import { useCurrencyInputFocusedStyle } from 'lx/src/features/transactions/swap/form/SwapFormScreen/hooks/useCurrencyInputFocusedStyle'
-import { useSwapFormScreenStore } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
-import { CurrencyField } from 'lx/src/types/currency'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Flex } from '@l.x/ui/src'
+import { CurrencyInputPanel } from '@l.x/lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
+import { SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
+import { useCurrencyInputFocusedStyle } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/hooks/useCurrencyInputFocusedStyle'
+import { useSwapFormScreenStore } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export function SwapFormCurrencyInputPanel(): JSX.Element {
   const { t } = useTranslation()

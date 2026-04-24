@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ViewProps } from 'react-native'
 import { RecoveryWalletInfo, useOnDeviceRecoveryData } from 'src/screens/Import/useOnDeviceRecoveryData'
-import { Button, Flex, FlexProps, Loader, Text, TouchableArea } from 'ui/src'
-import { fonts, iconSizes } from 'ui/src/theme'
-import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { NumberType } from 'utilities/src/format/types'
+import { Button, Flex, FlexProps, Loader, Text, TouchableArea } from '@l.x/ui/src'
+import { fonts, iconSizes } from '@l.x/ui/src/theme'
+import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
+import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 const cardProps: FlexProps & ViewProps = {
   borderRadius: '$rounded20',

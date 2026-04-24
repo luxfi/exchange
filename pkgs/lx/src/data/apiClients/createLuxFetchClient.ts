@@ -1,9 +1,9 @@
 import { createFetchClient, type FetchClient, provideSessionService } from '@l.x/api'
 import { getIsSessionServiceEnabled } from '@l.x/gating'
-import { lxUrls } from 'lx/src/constants/urls'
-import { getVersionHeader } from 'lx/src/data/getVersionHeader'
-import { isMobileApp, isWebApp } from 'utilities/src/platform'
-import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { getVersionHeader } from '@l.x/lx/src/data/getVersionHeader'
+import { isMobileApp, isWebApp } from '@l.x/utils/src/platform'
+import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
 
 export const BASE_LX_HEADERS = {
   'x-request-source': REQUEST_SOURCE,

@@ -51,14 +51,14 @@ vi.mock('~/lib/hooks/useCurrencyBalance', () => ({
 vi.mock('~/utils/transfer', () => ({
   useCreateTransferTransaction: () => undefined,
 }))
-vi.mock('lx/src/features/ens/api', () => ({
+vi.mock('@l.x/lx/src/features/ens/api', () => ({
   useENSName: vi.fn(),
   useAddressFromEns: vi.fn(),
 }))
-vi.mock('lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
+vi.mock('@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
   useUnitagsAddressQuery: vi.fn(),
 }))
-vi.mock('lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery', () => ({
+vi.mock('@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery', () => ({
   useUnitagsUsernameQuery: vi.fn(),
 }))
 

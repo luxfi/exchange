@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useShowMoonpayText } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import ConnectionErrorView from '~/components/WalletModal/ConnectionErrorView'
 import PrivacyPolicyNotice from '~/components/WalletModal/PrivacyPolicyNotice'

@@ -1,10 +1,10 @@
 import { queryOptions, type UseQueryOptions } from '@tanstack/react-query'
 import { type DiscriminatedQuoteResponse, type TradingApi } from '@l.x/api'
-import { lxUrls } from 'lx/src/constants/urls'
-import { type TradeRepository } from 'lx/src/features/transactions/swap/services/tradeService/tradeRepository'
-import { type QuoteWithTradeAndGasEstimate } from 'lx/src/features/transactions/swap/services/tradeService/transformations/transformQuoteToTrade'
-import { type Logger } from 'utilities/src/logger/logger'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { type TradeRepository } from '@l.x/lx/src/features/transactions/swap/services/tradeService/tradeRepository'
+import { type QuoteWithTradeAndGasEstimate } from '@l.x/lx/src/features/transactions/swap/services/tradeService/transformations/transformQuoteToTrade'
+import { type Logger } from '@l.x/utils/src/logger/logger'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 type QueryFnData = DiscriminatedQuoteResponse | null
 

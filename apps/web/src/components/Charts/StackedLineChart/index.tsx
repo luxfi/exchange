@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@l.x/api'
 import { CustomStyleOptions, DeepPartial, ISeriesApi, Logical, UTCTimestamp, WhitespaceData } from 'lightweight-charts'
 import { useMemo } from 'react'
-import { ColorTokens, useSporeColors } from 'ui/src'
+import { ColorTokens, useSporeColors } from '@l.x/ui/src'
 import { getProtocolColor } from '~/appGraphql/data/util'
 import { ChartHeader } from '~/components/Charts/ChartHeader'
 import { Chart, ChartModel, ChartModelParams } from '~/components/Charts/ChartModel'

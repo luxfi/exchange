@@ -2,11 +2,11 @@ import { fireEvent as rtlFireEvent } from '@testing-library/react'
 import { act } from '@testing-library/react-native'
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { View } from 'react-native'
-import { Flex } from 'ui/src'
-import { MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
-import { ContextMenu } from 'lx/src/components/menus/ContextMenu.web'
-import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { renderWithProviders } from 'lx/src/test/render'
+import { Flex } from '@l.x/ui/src'
+import { MenuOptionItem } from '@l.x/lx/src/components/menus/ContextMenu'
+import { ContextMenu } from '@l.x/lx/src/components/menus/ContextMenu.web'
+import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
+import { renderWithProviders } from '@l.x/lx/src/test/render'
 
 describe('ContextMenu', () => {
   const mockMenuItems: MenuOptionItem[] = [

@@ -1,7 +1,7 @@
 vi.mock('~/hooks/Tokens')
 
 // Mock only what's needed for tests to pass
-vi.mock('lx/src/features/accounts/store/hooks', () => {
+vi.mock('@l.x/lx/src/features/accounts/store/hooks', () => {
   return {
     useActiveAddresses: () => ({
       evmAddress: undefined,

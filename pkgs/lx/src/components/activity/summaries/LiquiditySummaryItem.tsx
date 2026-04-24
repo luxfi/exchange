@@ -1,16 +1,16 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSporeColors } from 'ui/src'
-import { ContractInteraction } from 'ui/src/components/icons/ContractInteraction'
-import { iconSizes } from 'ui/src/theme'
-import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
-import { SummaryItemProps } from 'lx/src/components/activity/types'
-import { TXN_HISTORY_ICON_SIZE } from 'lx/src/components/activity/utils'
-import { DappLogoWithWCBadge, LogoWithTxStatus } from 'lx/src/components/CurrencyLogo/LogoWithTxStatus'
-import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
-import { AssetType } from 'lx/src/entities/assets'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useSporeColors } from '@l.x/ui/src'
+import { ContractInteraction } from '@l.x/ui/src/components/icons/ContractInteraction'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { TransactionSummaryLayout } from '@l.x/lx/src/components/activity/summaries/TransactionSummaryLayout'
+import { SummaryItemProps } from '@l.x/lx/src/components/activity/types'
+import { TXN_HISTORY_ICON_SIZE } from '@l.x/lx/src/components/activity/utils'
+import { DappLogoWithWCBadge, LogoWithTxStatus } from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
+import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import {
   CollectFeesTransactionInfo,
   CreatePairTransactionInfo,
@@ -18,8 +18,8 @@ import {
   LiquidityDecreaseTransactionInfo,
   LiquidityIncreaseTransactionInfo,
   TransactionDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { getFormattedCurrencyAmount, getSymbolDisplayText } from 'lx/src/utils/currency'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getFormattedCurrencyAmount, getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 
 export function LiquiditySummaryItem({
   transaction,

@@ -23,8 +23,8 @@ import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
 // Mock dependencies
 jest.mock('@l.x/utils/src/logger/logger')
-jest.mock('wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService')
-jest.mock('wallet/src/features/transactions/swap/confirmation')
+jest.mock('@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService')
+jest.mock('@luxfi/wallet/src/features/transactions/swap/confirmation')
 
 const mockTransactionService = {
   submitTransaction: jest.fn(),

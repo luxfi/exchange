@@ -1,10 +1,10 @@
 import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo } from 'react'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
-import { getFiatCurrencyCode, useAppFiatCurrency } from 'lx/src/features/fiatCurrency/hooks'
-import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
-import { FiatNumberType } from 'utilities/src/format/types'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { getFiatCurrencyCode, useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { LocalizationContextState } from '@l.x/lx/src/features/language/LocalizationContext'
+import { FiatNumberType } from '@l.x/utils/src/format/types'
 
 type SupportedServerCurrency = Extract<
   GraphQLApi.Currency,

@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import { OverKeyboardView } from 'react-native-keyboard-controller'
 import { OverKeyboardContentProps } from '@l.x/ui/src/components/OverKeyboardContent/OverKeyboardContent'
-import { isTestEnv } from 'utilities/src/environment/env'
+import { isTestEnv } from '@l.x/utils/src/environment/env'
 
 export function OverKeyboardContent({
   visible,

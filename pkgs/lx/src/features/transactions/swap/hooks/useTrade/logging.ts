@@ -1,18 +1,18 @@
 import { TradeType } from '@luxamm/sdk-core'
 import { FetchError } from '@l.x/api'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { SwapEventName } from 'lx/src/features/telemetry/constants/features'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { UniverseEventProperties } from 'lx/src/features/telemetry/types'
-import { TradeService } from 'lx/src/features/transactions/swap/services/tradeService/tradeService'
-import { BlockingTradeError } from 'lx/src/features/transactions/swap/types/BlockingTradeError'
-import { Trade, UseTradeArgs } from 'lx/src/features/transactions/swap/types/trade'
-import { TransactionOriginType } from 'lx/src/features/transactions/types/transactionDetails'
-import { getCurrencyAddressForAnalytics } from 'lx/src/utils/currencyId'
-import { tryCatch } from 'utilities/src/errors'
-import { getLogger } from 'utilities/src/logger/logger'
-import { useEvent } from 'utilities/src/react/hooks'
-import { ITraceContext, useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants/features'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { UniverseEventProperties } from '@l.x/lx/src/features/telemetry/types'
+import { TradeService } from '@l.x/lx/src/features/transactions/swap/services/tradeService/tradeService'
+import { BlockingTradeError } from '@l.x/lx/src/features/transactions/swap/types/BlockingTradeError'
+import { Trade, UseTradeArgs } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { TransactionOriginType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getCurrencyAddressForAnalytics } from '@l.x/lx/src/utils/currencyId'
+import { tryCatch } from '@l.x/utils/src/errors'
+import { getLogger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { ITraceContext, useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 function getSwapQuoteFailedAnalyticsProperties(params: {
   error: Error
@@ -97,7 +97,7 @@ function logSwapQuoteFailure(params: { error: Error; input: UseTradeArgs }): voi
 
   getLogger().error(error, {
     tags: {
-      file: 'packages/lx/src/features/transactions/swap/hooks/useTrade/logging.ts',
+      file: 'pkgs/lx/src/features/transactions/swap/hooks/useTrade/logging.ts',
       function: 'logSwapQuoteFailure',
     },
     extra: { ...input },
@@ -107,7 +107,7 @@ function logSwapQuoteFailure(params: { error: Error; input: UseTradeArgs }): voi
 function logBlockingTradeError(params: { blockingError: BlockingTradeError }): void {
   getLogger().error(params.blockingError, {
     tags: {
-      file: 'packages/lx/src/features/transactions/swap/hooks/useTrade/logging.ts',
+      file: 'pkgs/lx/src/features/transactions/swap/hooks/useTrade/logging.ts',
       function: 'logBlockingTradeError',
     },
     extra: { ...params.blockingError },

@@ -1,19 +1,19 @@
 import type { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useCallback } from 'react'
-import { Flex, Text } from 'ui/src'
-import { spacing } from 'ui/src/theme/spacing'
+import { Flex, Text } from '@l.x/ui/src'
+import { spacing } from '@l.x/ui/src/theme/spacing'
 import {
   AmountInputPresets,
   PRESET_BUTTON_PROPS,
-} from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/AmountInputPresets'
-import { PresetAmountButton } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/PresetAmountButton'
-import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { PRESET_PERCENTAGES } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/utils'
-import { DefaultTokenOptions } from 'lx/src/components/CurrencyInputPanel/DefaultTokenOptions/DefaultTokenOptions'
-import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import { CurrencyField } from 'lx/src/types/currency'
-import { isExtensionApp, isWebAppDesktop, isWebPlatform } from 'utilities/src/platform'
+} from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/AmountInputPresets'
+import { PresetAmountButton } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/PresetAmountButton'
+import type { PresetPercentage } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { PRESET_PERCENTAGES } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/utils'
+import { DefaultTokenOptions } from '@l.x/lx/src/components/CurrencyInputPanel/DefaultTokenOptions/DefaultTokenOptions'
+import type { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { isExtensionApp, isWebAppDesktop, isWebPlatform } from '@l.x/utils/src/platform'
 
 interface CurrencyInputPanelHeaderProps {
   headerLabel?: string

@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { Flex, FlexProps } from 'ui/src'
+import { Flex, FlexProps } from '@l.x/ui/src'
 
 const Card = ({ children, ...rest }: PropsWithChildren<FlexProps>) => {
   return (

@@ -1,8 +1,8 @@
 import { useCallback, useRef, useState, type ComponentRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Input, Text, Tooltip, TouchableArea } from 'ui/src'
-import { fonts } from 'ui/src/theme'
-import { zIndexes } from 'ui/src/theme/zIndexes'
+import { Flex, Input, Text, Tooltip, TouchableArea } from '@l.x/ui/src'
+import { fonts } from '@l.x/ui/src/theme'
+import { zIndexes } from '@l.x/ui/src/theme/zIndexes'
 import { PercentButton } from '~/pages/Liquidity/CreateAuction/components/PercentButton'
 
 type InputRef = ComponentRef<typeof Input>

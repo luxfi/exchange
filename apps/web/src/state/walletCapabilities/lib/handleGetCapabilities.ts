@@ -1,6 +1,6 @@
 import { getCapabilities as wagmi_getCapabilities } from '@wagmi/core/experimental'
-import { ensure0xHex, numberToHex } from 'utilities/src/addresses/hex'
-import { getLogger } from 'utilities/src/logger/logger'
+import { ensure0xHex, numberToHex } from '@l.x/utils/src/addresses/hex'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 import { ensureValidatedCapabilities } from '~/state/walletCapabilities/lib/ensureValidatedCapabilities'
 import { ChainCapabilities, GetCapabilitiesResult } from '~/state/walletCapabilities/lib/types'

@@ -16,18 +16,18 @@ import { handleUniswapAppDeepLink } from 'src/features/deepLinking/handleUniswap
 import { LinkSource } from 'src/features/deepLinking/types'
 import { openModal } from 'src/features/modals/modalSlice'
 import { waitForWcWeb3WalletIsReady } from 'src/features/walletConnect/walletConnectClient'
-import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
-import { MobileEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { UNISWAP_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { MobileEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import {
   SAMPLE_CURRENCY_ID_1,
   SAMPLE_CURRENCY_ID_2,
   SAMPLE_SEED_ADDRESS_1,
   SAMPLE_SEED_ADDRESS_2,
-} from 'uniswap/src/test/fixtures'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { setAccountAsActive } from 'wallet/src/features/wallet/slice'
-import { signerMnemonicAccount } from 'wallet/src/test/fixtures'
+} from '@l.x/lx/src/test/fixtures'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
+import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
 jest.mock('@walletconnect/utils', () => ({
   parseUri: jest.fn(() => ({

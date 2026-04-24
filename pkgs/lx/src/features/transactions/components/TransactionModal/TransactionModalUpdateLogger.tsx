@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import type { ModalNameType } from 'lx/src/features/telemetry/constants'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { logContextUpdate } from 'utilities/src/logger/contextEnhancer'
+import type { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { logContextUpdate } from '@l.x/utils/src/logger/contextEnhancer'
 
 export function TransactionModalUpdateLogger({ modalName }: { modalName: ModalNameType }): null {
   const { screen } = useTransactionModalContext()

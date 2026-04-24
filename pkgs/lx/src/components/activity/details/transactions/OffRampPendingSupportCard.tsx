@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { InlineCard, Text, TouchableArea } from 'ui/src'
-import { ArrowUpRight } from 'ui/src/components/icons/ArrowUpRight'
-import { MessageQuestion } from 'ui/src/components/icons/MessageQuestion'
-import { openOfframpPendingSupportLink } from 'lx/src/utils/linking'
+import { InlineCard, Text, TouchableArea } from '@l.x/ui/src'
+import { ArrowUpRight } from '@l.x/ui/src/components/icons/ArrowUpRight'
+import { MessageQuestion } from '@l.x/ui/src/components/icons/MessageQuestion'
+import { openOfframpPendingSupportLink } from '@l.x/lx/src/utils/linking'
 
 export function OffRampPendingSupportCard(): JSX.Element {
   const { t } = useTranslation()

@@ -5,17 +5,17 @@ import { useMemo } from 'react'
 import {
   multichainTokenToCurrencyInfos,
   useSearchTokensAndPoolsQuery,
-} from 'lx/src/data/rest/searchTokensAndPools'
-import { toMultichainSearchResult } from 'lx/src/data/rest/toMultichainSearchResult'
-import { transformSearchToMultichain } from 'lx/src/data/rest/transformSearchToMultichain'
-import { useConnectionStatus } from 'lx/src/features/accounts/store/hooks'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo, MultichainSearchResult } from 'lx/src/features/dataApi/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { NUMBER_OF_RESULTS_LONG } from 'lx/src/features/search/SearchModal/constants'
-import { isWSOL } from 'lx/src/utils/isWSOL'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@l.x/lx/src/data/rest/searchTokensAndPools'
+import { toMultichainSearchResult } from '@l.x/lx/src/data/rest/toMultichainSearchResult'
+import { transformSearchToMultichain } from '@l.x/lx/src/data/rest/transformSearchToMultichain'
+import { useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo, MultichainSearchResult } from '@l.x/lx/src/features/dataApi/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { NUMBER_OF_RESULTS_LONG } from '@l.x/lx/src/features/search/SearchModal/constants'
+import { isWSOL } from '@l.x/lx/src/utils/isWSOL'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 function useSearchTokensQuery<T>({
   searchQuery,

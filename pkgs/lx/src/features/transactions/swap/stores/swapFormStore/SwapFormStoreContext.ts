@@ -1,4 +1,4 @@
 import { createContext } from 'react'
-import type { SwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/createSwapFormStore'
+import type { SwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/createSwapFormStore'
 
 export const SwapFormStoreContext = createContext<SwapFormStore | null>(null)

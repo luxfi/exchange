@@ -1,7 +1,7 @@
 import type { Filter } from '@ethersproject/providers'
 import { useWeb3React } from '@web3-react/core'
 import { useEffect, useMemo } from 'react'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useAccount } from '~/hooks/useAccount'
 import useBlockNumber from '~/lib/hooks/useBlockNumber'
 import { useAppDispatch, useAppSelector } from '~/state/hooks'

@@ -2,13 +2,13 @@ import type {
   DecimalPlaceNumber,
   FiatDeltaFormatter,
   TrimTrailingZerosParams,
-} from 'lx/src/features/fiatCurrency/priceChart/formatters/shared/types'
+} from '@l.x/lx/src/features/fiatCurrency/priceChart/formatters/shared/types'
 import {
   formatWithDecimals,
   formatZero,
   parseFormattedNumber,
   roundToDecimals,
-} from 'lx/src/features/fiatCurrency/priceChart/formatters/shared/utils'
+} from '@l.x/lx/src/features/fiatCurrency/priceChart/formatters/shared/utils'
 
 function getDecimalPlaces(absValue: number): DecimalPlaceNumber {
   if (absValue === 0) {

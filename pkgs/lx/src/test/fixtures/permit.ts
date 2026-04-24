@@ -1,4 +1,4 @@
-import { PermitMethod, PermitTypedData } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { PermitMethod, PermitTypedData } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 
 export const mockPermit = {
   method: PermitMethod.TypedData,

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Easing, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated'
-import { CurrencyInputPanelProps } from 'lx/src/components/CurrencyInputPanel/types'
-import { usePrevious } from 'utilities/src/react/hooks'
+import { CurrencyInputPanelProps } from '@l.x/lx/src/components/CurrencyInputPanel/types'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 
 /** Returns an animated opacity based on current indicative and full quote state  */
 export function useRefetchAnimationStyle({

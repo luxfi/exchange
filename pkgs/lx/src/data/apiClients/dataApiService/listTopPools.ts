@@ -4,8 +4,8 @@ import { infiniteQueryOptions } from '@tanstack/react-query'
 import { DataApiService } from '@luxamm/client-data-api/dist/data/v1/api_connect'
 import type { ListTopPoolsRequest, ListTopPoolsResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { createDataApiServiceClient } from '@l.x/api'
-import { lxGetTransport } from 'lx/src/data/rest/base'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { lxGetTransport } from '@l.x/lx/src/data/rest/base'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export type ListTopPoolsInput = {
   params?: Omit<PartialMessage<ListTopPoolsRequest>, 'pageToken'>

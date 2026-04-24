@@ -1,5 +1,5 @@
 import { Tooltip as GuiTooltip, TooltipProps, withStaticProperties } from '@hanzo/gui'
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export type { TooltipProps } from '@hanzo/gui'
 

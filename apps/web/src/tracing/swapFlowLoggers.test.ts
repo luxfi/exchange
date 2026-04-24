@@ -9,12 +9,12 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { logSwapFinalized, logLXSwapFinalized } from '~/tracing/swapFlowLoggers'
 
-vi.mock('lx/src/features/telemetry/send', () => ({
+vi.mock('@l.x/lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: vi.fn(),
 }))
 
-vi.mock('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker', async () => {
-  const actual = await vi.importActual('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker')
+vi.mock('@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker', async () => {
+  const actual = await vi.importActual('@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker')
   return {
     ...actual,
     timestampTracker: {

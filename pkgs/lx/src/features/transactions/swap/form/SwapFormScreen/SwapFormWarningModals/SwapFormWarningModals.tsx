@@ -1,17 +1,17 @@
-import { BridgedAssetModal } from 'lx/src/components/BridgedAsset/BridgedAssetModal'
-import TokenWarningModal from 'lx/src/features/tokens/warnings/TokenWarningModal'
-import { LowNativeBalanceModal } from 'lx/src/features/transactions/modals/LowNativeBalanceModal'
-import { ViewOnlyModal } from 'lx/src/features/transactions/modals/ViewOnlyModal'
-import { useBridgingModalActions } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useBridgingModalActions'
-import { useCurrenciesWithBridgingWarnings } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useCurrenciesWithBridgingWarnings'
-import { useCurrenciesWithProtectionWarnings } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useCurrenciesWithProtectionWarnings'
-import { useOnReviewPress } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useOnReviewPress'
-import { BridgingModal } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormWarningModals/BridgingModal'
+import { BridgedAssetModal } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
+import TokenWarningModal from '@l.x/lx/src/features/tokens/warnings/TokenWarningModal'
+import { LowNativeBalanceModal } from '@l.x/lx/src/features/transactions/modals/LowNativeBalanceModal'
+import { ViewOnlyModal } from '@l.x/lx/src/features/transactions/modals/ViewOnlyModal'
+import { useBridgingModalActions } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useBridgingModalActions'
+import { useCurrenciesWithBridgingWarnings } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useCurrenciesWithBridgingWarnings'
+import { useCurrenciesWithProtectionWarnings } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useCurrenciesWithProtectionWarnings'
+import { useOnReviewPress } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useOnReviewPress'
+import { BridgingModal } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormWarningModals/BridgingModal'
 import {
   useSwapFormWarningStore,
   useSwapFormWarningStoreActions,
-} from 'lx/src/features/transactions/swap/form/stores/swapFormWarningStore/useSwapFormWarningStore'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+} from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormWarningStore/useSwapFormWarningStore'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 
 const LocalLowNativeBalanceModal = (): JSX.Element => {
   const isMaxNativeTransferModalVisible = useSwapFormWarningStore((s) => s.isMaxNativeTransferModalVisible)

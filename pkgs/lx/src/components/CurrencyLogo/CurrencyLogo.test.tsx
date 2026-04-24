@@ -1,10 +1,10 @@
-import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { ARBITRUM_DAI_CURRENCY_INFO, arbitrumDaiCurrencyInfo, UNI_CURRENCY_INFO } from 'lx/src/test/fixtures'
-import { renderWithProviders } from 'lx/src/test/render'
-import { render } from 'lx/src/test/test-utils'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { ARBITRUM_DAI_CURRENCY_INFO, arbitrumDaiCurrencyInfo, UNI_CURRENCY_INFO } from '@l.x/lx/src/test/fixtures'
+import { renderWithProviders } from '@l.x/lx/src/test/render'
+import { render } from '@l.x/lx/src/test/test-utils'
 
-vi.mock('ui/src/components/UniversalImage/internal/PlainImage', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('ui/src/components/UniversalImage/internal/PlainImage.web')>()
+vi.mock('@l.x/ui/src/components/UniversalImage/internal/PlainImage', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/ui/src/components/UniversalImage/internal/PlainImage.web')>()
   return { ...actual }
 })
 

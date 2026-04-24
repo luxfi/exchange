@@ -1,10 +1,10 @@
-import { TransferTokenSummaryItem } from 'lx/src/components/activity/summaries/TransferTokenSummaryItem'
-import { SummaryItemProps } from 'lx/src/components/activity/types'
+import { TransferTokenSummaryItem } from '@l.x/lx/src/components/activity/summaries/TransferTokenSummaryItem'
+import { SummaryItemProps } from '@l.x/lx/src/components/activity/types'
 import {
   ReceiveTokenTransactionInfo,
   TransactionDetails,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 export function ReceiveSummaryItem({
   transaction,

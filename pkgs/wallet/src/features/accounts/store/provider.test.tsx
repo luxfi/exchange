@@ -20,12 +20,12 @@ import { RenderHookResult, renderHook } from '@luxfi/wallet/src/test/test-utils'
 // Don't mock the getters - use the real implementation
 
 // Mock the active account hook
-jest.mock('wallet/src/features/wallet/hooks', () => ({
+jest.mock('@luxfi/wallet/src/features/wallet/hooks', () => ({
   useActiveAccount: jest.fn(),
 }))
 
 // Mock the onboarding selector
-jest.mock('wallet/src/features/wallet/selectors', () => ({
+jest.mock('@luxfi/wallet/src/features/wallet/selectors', () => ({
   selectFinishedOnboarding: jest.fn(),
 }))
 
@@ -37,7 +37,7 @@ jest.mock('@l.x/lx/src/features/chains/hooks/useEnabledChains', () => ({
 }))
 
 // Mock the swap delegation provider
-jest.mock('wallet/src/features/smartWallet/WalletDelegationProvider', () => ({
+jest.mock('@luxfi/wallet/src/features/smartWallet/WalletDelegationProvider', () => ({
   useGetSwapDelegationInfoForActiveAccount: jest.fn(
     () => (): { delegationInclusion: boolean; delegationAddress: undefined } => ({
       delegationInclusion: false,

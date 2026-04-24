@@ -11,26 +11,26 @@ import {
   transformInput,
   type WithoutWalletAccount,
 } from '@l.x/api'
-import { lxGetTransport } from 'lx/src/data/rest/base'
-import { buildAccountAddressesByPlatform } from 'lx/src/data/rest/buildAccountAddressesByPlatform'
+import { lxGetTransport } from '@l.x/lx/src/data/rest/base'
+import { buildAccountAddressesByPlatform } from '@l.x/lx/src/data/rest/buildAccountAddressesByPlatform'
 import {
   cleanupCaughtUpOverrides,
   getOverridesForAddress,
   getOverridesForQuery,
   getPortfolioQueryReduxStore,
-} from 'lx/src/data/rest/portfolioBalanceOverrides'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { useRestPortfolioValueModifier } from 'lx/src/features/dataApi/balances/balancesRest'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { fetchAndMergeOnchainBalances } from 'lx/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
-import { removeExpiredBalanceOverrides } from 'lx/src/features/portfolio/slice/slice'
-import { type CurrencyId } from 'lx/src/types/currency'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
-import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
-import { createLogger } from 'utilities/src/logger/logger'
-import { useEvent } from 'utilities/src/react/hooks'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { type QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+} from '@l.x/lx/src/data/rest/portfolioBalanceOverrides'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { useRestPortfolioValueModifier } from '@l.x/lx/src/features/dataApi/balances/balancesRest'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { fetchAndMergeOnchainBalances } from '@l.x/lx/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
+import { removeExpiredBalanceOverrides } from '@l.x/lx/src/features/portfolio/slice/slice'
+import { type CurrencyId } from '@l.x/lx/src/types/currency'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
+import { createLogger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { type QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 
 export type GetPortfolioInput<TSelectData = GetPortfolioResponse> = {
   input?: WithoutWalletAccount<PartialMessage<GetPortfolioRequest>> & {

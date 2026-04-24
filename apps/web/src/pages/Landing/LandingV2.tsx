@@ -1,6 +1,6 @@
 import { lazy, memo, Suspense, useRef } from 'react'
-import { Flex, styled } from 'ui/src'
-import { INTERFACE_NAV_HEIGHT } from 'ui/src/theme'
+import { Flex, styled } from '@l.x/ui/src'
+import { INTERFACE_NAV_HEIGHT } from '@l.x/ui/src/theme'
 import { Hero } from '~/pages/Landing/sections/Hero'
 
 // The Fold is always loaded, but is lazy-loaded because it is not seen without user interaction.

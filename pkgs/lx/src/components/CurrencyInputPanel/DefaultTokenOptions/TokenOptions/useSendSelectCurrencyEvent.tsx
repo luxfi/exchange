@@ -1,10 +1,10 @@
 import { useCallback } from 'react'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY } from 'lx/src/features/chains/evm/rpc'
-import { type CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { LXEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { type CurrencyField } from 'lx/src/types/currency'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { DEFAULT_NATIVE_ADDRESS_LEGACY } from '@l.x/lx/src/features/chains/evm/rpc'
+import { type CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { type CurrencyField } from '@l.x/lx/src/types/currency'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 type SelectCurrencyEventProperties = {
   position: number

@@ -43,9 +43,9 @@ import {
 import { DelegationType } from '@luxfi/wallet/src/features/transactions/types/transactionSagaDependencies'
 
 // Mock dependencies
-jest.mock('wallet/src/features/transactions/factories/createTransactionServices')
-jest.mock('wallet/src/features/transactions/swap/confirmation')
-jest.mock('wallet/src/features/transactions/swap/submitOrderSaga')
+jest.mock('@luxfi/wallet/src/features/transactions/factories/createTransactionServices')
+jest.mock('@luxfi/wallet/src/features/transactions/swap/confirmation')
+jest.mock('@luxfi/wallet/src/features/transactions/swap/submitOrderSaga')
 
 const MOCK_TIMESTAMP = 1487076708000
 const CHAIN_ID = UniverseChainId.Mainnet

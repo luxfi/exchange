@@ -1,6 +1,6 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useUniswapXPriorityOrderFlag } from 'uniswap/src/features/transactions/swap/utils/protocols'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useUniswapXPriorityOrderFlag } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
 
 /**
  * Returns true if the chain is supported by UniswapX. Does not differentiate between UniswapX v1 and v2.

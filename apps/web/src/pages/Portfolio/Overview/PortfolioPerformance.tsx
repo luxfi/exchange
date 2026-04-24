@@ -1,16 +1,16 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import {
   getProfitLossPeriodLabel,
   getProfitLossSince,
   PROFIT_LOSS_PERIODS,
   ProfitLossPeriod,
-} from 'uniswap/src/components/WalletProfitLoss/utils'
-import { WalletProfitLoss } from 'uniswap/src/components/WalletProfitLoss/WalletProfitLoss'
-import { useGetWalletProfitLossQuery } from 'uniswap/src/data/rest/getWalletProfitLoss'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+} from '@l.x/lx/src/components/WalletProfitLoss/utils'
+import { WalletProfitLoss } from '@l.x/lx/src/components/WalletProfitLoss/WalletProfitLoss'
+import { useGetWalletProfitLossQuery } from '@l.x/lx/src/data/rest/getWalletProfitLoss'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'

@@ -1,14 +1,14 @@
-import { type ButtonProps, type ColorTokens, useColorsFromTokenColor } from 'ui/src'
-import { useActiveAccount } from 'lx/src/features/accounts/store/hooks'
-import { chainIdToPlatform } from 'lx/src/features/platforms/utils/chains'
-import { useIsShowingWebFORNudge, useIsWebFORNudgeEnabled } from 'lx/src/features/providers/webForNudgeProvider'
-import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { useIsBlockingWithCustomMessage } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsBlockingWithCustomMessage'
-import { useIsSwapButtonDisabled } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsSwapButtonDisabled'
+import { type ButtonProps, type ColorTokens, useColorsFromTokenColor } from '@l.x/ui/src'
+import { useActiveAccount } from '@l.x/lx/src/features/accounts/store/hooks'
+import { chainIdToPlatform } from '@l.x/lx/src/features/platforms/utils/chains'
+import { useIsShowingWebFORNudge, useIsWebFORNudgeEnabled } from '@l.x/lx/src/features/providers/webForNudgeProvider'
+import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { useIsBlockingWithCustomMessage } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsBlockingWithCustomMessage'
+import { useIsSwapButtonDisabled } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsSwapButtonDisabled'
 import {
   useSwapFormStore,
   useSwapFormStoreDerivedSwapInfo,
-} from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+} from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 
 type ButtonColors = Pick<ButtonProps, 'backgroundColor' | 'variant' | 'emphasis'> & {
   buttonTextColor?: ColorTokens

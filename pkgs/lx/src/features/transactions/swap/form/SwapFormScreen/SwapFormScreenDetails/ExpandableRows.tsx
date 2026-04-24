@@ -1,21 +1,21 @@
 import { TradingApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import { Accordion, Flex, Text } from 'ui/src'
+import { Accordion, Flex, Text } from '@l.x/ui/src'
 import {
   useTransactionSettingsAutoSlippageToleranceStore,
   useTransactionSettingsStore,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { MaxSlippageRow } from 'lx/src/features/transactions/swap/components/MaxSlippageRow/MaxSlippageRow'
-import { RoutingInfo } from 'lx/src/features/transactions/swap/components/RoutingInfo/RoutingInfo'
-import { SwapRateRatio } from 'lx/src/features/transactions/swap/components/SwapRateRatio'
-import { useFeeOnTransferAmounts } from 'lx/src/features/transactions/swap/hooks/useFeeOnTransferAmount'
-import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useSwapTxStore } from 'lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
-import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isMultiChainGasQuote, isLX, isWrap } from 'lx/src/features/transactions/swap/utils/routing'
-import { TransactionDetails } from 'lx/src/features/transactions/TransactionDetails/TransactionDetails'
-import { CurrencyField } from 'lx/src/types/currency'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { MaxSlippageRow } from '@l.x/lx/src/features/transactions/swap/components/MaxSlippageRow/MaxSlippageRow'
+import { RoutingInfo } from '@l.x/lx/src/features/transactions/swap/components/RoutingInfo/RoutingInfo'
+import { SwapRateRatio } from '@l.x/lx/src/features/transactions/swap/components/SwapRateRatio'
+import { useFeeOnTransferAmounts } from '@l.x/lx/src/features/transactions/swap/hooks/useFeeOnTransferAmount'
+import { useParsedSwapWarnings } from '@l.x/lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useSwapTxStore } from '@l.x/lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
+import { getSwapFeeUsdFromDerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/utils/getSwapFeeUsd'
+import { isMultiChainGasQuote, isLX, isWrap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/TransactionDetails/TransactionDetails'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export function ExpandableRows(): JSX.Element | null {
   const { t } = useTranslation()

@@ -1,12 +1,12 @@
-import { getNativeAddress } from 'lx/src/constants/addresses'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   convertRestBalanceToPortfolioBalance,
   createPortfolioCacheUpdater,
   formatPortfolioResponseToMap,
-} from 'lx/src/features/dataApi/balances/balancesRest'
-import type { PortfolioBalance } from 'lx/src/features/dataApi/types'
-import { DAI_CURRENCY_INFO, UNI_CURRENCY_INFO } from 'lx/src/test/fixtures'
+} from '@l.x/lx/src/features/dataApi/balances/balancesRest'
+import type { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { DAI_CURRENCY_INFO, UNI_CURRENCY_INFO } from '@l.x/lx/src/test/fixtures'
 
 const mainnetNativeAddress = getNativeAddress(UniverseChainId.Mainnet)
 

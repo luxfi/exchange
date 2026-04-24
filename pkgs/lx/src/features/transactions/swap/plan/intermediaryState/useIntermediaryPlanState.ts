@@ -1,14 +1,14 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { useCanResumePlan } from 'lx/src/features/transactions/swap/plan/intermediaryState/useCanResumePlan'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { useCanResumePlan } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useCanResumePlan'
 import {
   extractTransactionTypeInfoAttribute,
   PlanTransactionInfo,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 export interface IntermediaryPlanState {
   inputCurrency?: Currency

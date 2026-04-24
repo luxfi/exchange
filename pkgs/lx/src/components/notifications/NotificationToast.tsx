@@ -1,5 +1,5 @@
-import { NotificationContentProps } from 'lx/src/components/notifications/NotificationToastContent'
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { NotificationContentProps } from '@l.x/lx/src/components/notifications/NotificationToastContent'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export interface NotificationToastProps
   extends Omit<NotificationContentProps, 'onNotificationPress' | 'onActionButtonPress'> {

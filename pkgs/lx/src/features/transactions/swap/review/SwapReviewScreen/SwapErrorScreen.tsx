@@ -1,23 +1,23 @@
 import { TradingApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, IconButton, Text } from 'ui/src'
-import { HelpCenter } from 'ui/src/components/icons/HelpCenter'
-import { X } from 'ui/src/components/icons/X'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { WarningModalContent } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { lxUrls } from 'lx/src/constants/urls'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { Button, Flex, IconButton, Text } from '@l.x/ui/src'
+import { HelpCenter } from '@l.x/ui/src/components/icons/HelpCenter'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { WarningModalContent } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
+import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import {
   useTransactionSettingsActions,
   useTransactionSettingsStore,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { TransactionModalInnerContainer } from 'lx/src/features/transactions/components/TransactionModal/TransactionModal'
-import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { getErrorContent, TransactionStepFailedError } from 'lx/src/features/transactions/errors'
-import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { openUri } from 'lx/src/utils/linking'
-import { isWebPlatform } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { TransactionModalInnerContainer } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
+import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { getErrorContent, TransactionStepFailedError } from '@l.x/lx/src/features/transactions/errors'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { openUri } from '@l.x/lx/src/utils/linking'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export function SwapErrorScreen({
   submissionError,

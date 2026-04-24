@@ -1,12 +1,12 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
-import { SearchableRecipient } from 'lx/src/features/address/types'
-import { uniqueAddressesOnly } from 'lx/src/features/address/utils'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TransactionsState } from 'lx/src/features/transactions/slice'
-import { isBridge, isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
+import { normalizeCurrencyIdForMapLookup } from '@l.x/lx/src/data/cache'
+import { SearchableRecipient } from '@l.x/lx/src/features/address/types'
+import { uniqueAddressesOnly } from '@l.x/lx/src/features/address/utils'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TransactionsState } from '@l.x/lx/src/features/transactions/slice'
+import { isBridge, isClassic, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   InterfaceTransactionDetails,
   PlanTransactionDetails,
@@ -14,15 +14,15 @@ import {
   TransactionDetails,
   TransactionType,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx, isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
-import { isLimitOrder } from 'lx/src/features/transactions/utils/lx.utils'
-import { selectTokensVisibility } from 'lx/src/features/visibility/selectors'
-import { CurrencyIdToVisibility } from 'lx/src/features/visibility/slice'
-import { LXState } from 'lx/src/state/lxReducer'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { unique } from 'utilities/src/primitives/array'
-import { flattenObjectOfObjects } from 'utilities/src/primitives/objects'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx, isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
+import { isLimitOrder } from '@l.x/lx/src/features/transactions/utils/lx.utils'
+import { selectTokensVisibility } from '@l.x/lx/src/features/visibility/selectors'
+import { CurrencyIdToVisibility } from '@l.x/lx/src/features/visibility/slice'
+import { LXState } from '@l.x/lx/src/state/lxReducer'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { unique } from '@l.x/utils/src/primitives/array'
+import { flattenObjectOfObjects } from '@l.x/utils/src/primitives/objects'
 
 export const selectTransactions = (state: LXState): TransactionsState => state.transactions
 

@@ -8,7 +8,7 @@ vi.mock('@solana/wallet-adapter-react', () => ({
   useWallet: vi.fn(),
 }))
 
-vi.mock('utilities/src/time/timing', () => ({
+vi.mock('@l.x/utils/src/time/timing', () => ({
   sleep: vi.fn().mockResolvedValue(true),
 }))
 

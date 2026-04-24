@@ -2,7 +2,7 @@ import { AppState, AppStateStatus } from 'react-native'
 import { EventChannel, eventChannel, SagaIterator } from 'redux-saga'
 import { transitionAppState } from 'src/features/appState/appStateSlice'
 import { cancelled, put, take } from 'typed-redux-saga'
-import { isAndroid } from 'utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 //------------------------------
 // appStateSaga

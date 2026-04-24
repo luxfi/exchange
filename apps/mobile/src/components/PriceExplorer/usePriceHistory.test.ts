@@ -3,7 +3,7 @@ import { GraphQLApi } from '@l.x/api'
 import { act } from 'react-test-renderer'
 import { useTokenPriceHistory } from 'src/components/PriceExplorer/usePriceHistory'
 import { renderHookWithProviders } from 'src/test/render'
-import { USDC, USDC_ARBITRUM, USDC_BASE, USDC_OPTIMISM, USDC_POLYGON } from 'uniswap/src/constants/tokens'
+import { USDC, USDC_ARBITRUM, USDC_BASE, USDC_OPTIMISM, USDC_POLYGON } from '@l.x/lx/src/constants/tokens'
 import {
   getLatestPrice,
   priceHistory,
@@ -14,8 +14,8 @@ import {
   tokenProject,
   tokenProjectMarket,
   usdcTokenProject,
-} from 'uniswap/src/test/fixtures'
-import { queryResolvers } from 'uniswap/src/test/utils'
+} from '@l.x/lx/src/test/fixtures'
+import { queryResolvers } from '@l.x/lx/src/test/utils'
 
 const mockTokenProjectsQuery = (historyPrices: number[]) => (): GraphQLApi.TokenProject[] => {
   const history = historyPrices.map((value) => timestampedAmount({ value }))

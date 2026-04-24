@@ -1,7 +1,7 @@
-import { ColorTokens, Flex, FlexProps, Unicon, UniversalImage, UniversalImageResizeMode } from 'ui/src'
-import { Eye } from 'ui/src/components/icons/Eye'
-import { useAvatar } from 'lx/src/features/address/avatar'
-import { isWebPlatform } from 'utilities/src/platform'
+import { ColorTokens, Flex, FlexProps, Unicon, UniversalImage, UniversalImageResizeMode } from '@l.x/ui/src'
+import { Eye } from '@l.x/ui/src/components/icons/Eye'
+import { useAvatar } from '@l.x/lx/src/features/address/avatar'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 // Determines view only icon size in relation to Account Icon size
 const EYE_ICON_SCALING_FACTOR = 0.4

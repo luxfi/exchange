@@ -5,24 +5,24 @@
 /* oxlint-disable max-lines */
 
 import dayjs from 'dayjs'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
-import { getNFTAssetKey } from 'uniswap/src/features/nfts/utils'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { type TransactionsState } from 'uniswap/src/features/transactions/slice'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
+import { getNFTAssetKey } from '@l.x/lx/src/features/nfts/utils'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { type TransactionsState } from '@l.x/lx/src/features/transactions/slice'
 import {
   type ChainIdToTxIdToDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getWalletDeviceLanguage } from 'uniswap/src/i18n/utils'
-import { createSafeMigrationFactory } from 'uniswap/src/state/createSafeMigration'
-import { DappRequestType } from 'uniswap/src/types/walletConnect'
-import { type Account } from 'wallet/src/features/wallet/accounts/types'
-import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getWalletDeviceLanguage } from '@l.x/lx/src/i18n/utils'
+import { createSafeMigrationFactory } from '@l.x/lx/src/state/createSafeMigration'
+import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
+import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
+import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 
 const createSafeMigration = createSafeMigrationFactory('mobileMigrations')
 

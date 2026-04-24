@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { useDeviceInsets } from 'ui/src/hooks/useDeviceInsets'
-import { useTestnetModeBannerHeight } from 'lx/src/features/settings/hooks'
+import { useDeviceInsets } from '@l.x/ui/src/hooks/useDeviceInsets'
+import { useTestnetModeBannerHeight } from '@l.x/lx/src/features/settings/hooks'
 
 export const useAppInsets = (): {
   top: number

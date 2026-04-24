@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, type Mock, vi } from 'vitest'
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 
 vi.mock('@l.x/config', () => ({
   getConfig: vi.fn(() => ({

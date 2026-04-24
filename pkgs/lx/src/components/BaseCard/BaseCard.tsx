@@ -1,9 +1,9 @@
 import { ComponentProps, ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ColorTokens, Flex, FlexProps, Text, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { opacify } from 'ui/src/theme'
+import { ColorTokens, Flex, FlexProps, Text, TouchableArea, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { opacify } from '@l.x/ui/src/theme'
 
 export const SHADOW_OFFSET_SMALL = { width: 0, height: 2 } as const
 

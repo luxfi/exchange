@@ -11,10 +11,10 @@ import { SwapFormState } from '@l.x/lx/src/features/transactions/swap/stores/swa
 import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { maybeLogFirstSwapAction } from '@l.x/lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { isWebPlatform } from 'utilities/src/platform'
-import { isSafeNumber } from 'utilities/src/primitives/integer'
-import { useEvent } from 'utilities/src/react/hooks'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { isWebPlatform } from '@l.x/utils/src/platform'
+import { isSafeNumber } from '@l.x/utils/src/primitives/integer'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 const ON_SELECTION_CHANGE_WAIT_TIME_MS = 500
 

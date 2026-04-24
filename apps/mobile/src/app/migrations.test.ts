@@ -98,39 +98,39 @@ import {
   v92Schema,
   v93Schema,
   v95Schema,
-import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
-import { USDC } from 'uniswap/src/constants/tokens'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { initialAppearanceSettingsState } from 'uniswap/src/features/appearance/slice'
-import { initialUniswapBehaviorHistoryState } from 'uniswap/src/features/behaviorHistory/slice'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { initialFavoritesState } from 'uniswap/src/features/favorites/slice'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { initialNotificationsState } from 'uniswap/src/features/notifications/slice/slice'
-import { initialSearchHistoryState } from 'uniswap/src/features/search/searchHistorySlice'
-import { initialUserSettingsState } from 'uniswap/src/features/settings/slice'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { initialTokensState } from 'uniswap/src/features/tokens/warnings/slice/slice'
-import { initialTransactionsState } from 'uniswap/src/features/transactions/slice'
-import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { initialVisibilityState } from 'uniswap/src/features/visibility/slice'
-import { getWalletDeviceLanguage } from 'uniswap/src/i18n/utils'
+import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
+import { USDC } from '@l.x/lx/src/constants/tokens'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { initialAppearanceSettingsState } from '@l.x/lx/src/features/appearance/slice'
+import { initialUniswapBehaviorHistoryState } from '@l.x/lx/src/features/behaviorHistory/slice'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { initialFavoritesState } from '@l.x/lx/src/features/favorites/slice'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { initialNotificationsState } from '@l.x/lx/src/features/notifications/slice/slice'
+import { initialSearchHistoryState } from '@l.x/lx/src/features/search/searchHistorySlice'
+import { initialUserSettingsState } from '@l.x/lx/src/features/settings/slice'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { initialTokensState } from '@l.x/lx/src/features/tokens/warnings/slice/slice'
+import { initialTransactionsState } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { initialVisibilityState } from '@l.x/lx/src/features/visibility/slice'
+import { getWalletDeviceLanguage } from '@l.x/lx/src/i18n/utils'
 import {
   testAddActivityVisibility,
   testMigrateDismissedTokenWarnings,
   testMigrateSearchHistory,
   testRemoveTHBFromCurrency,
-} from 'uniswap/src/state/uniswapMigrationTests'
-import { transactionDetails } from 'uniswap/src/test/fixtures'
-import { DappRequestType } from 'uniswap/src/types/walletConnect'
-import { getAllKeysOfNestedObject } from 'utilities/src/primitives/objects'
-import { initialBatchedTransactionsState } from 'wallet/src/features/batchedTransactions/slice'
-import { initialBehaviorHistoryState } from 'wallet/src/features/behaviorHistory/slice'
-import { initialTelemetryState } from 'wallet/src/features/telemetry/slice'
-import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
-import { initialWalletState, SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
-import { createMigrate } from 'wallet/src/state/createMigrate'
-import { HAYDEN_ETH_ADDRESS } from 'wallet/src/state/walletMigrations'
+} from '@l.x/lx/src/state/uniswapMigrationTests'
+import { transactionDetails } from '@l.x/lx/src/test/fixtures'
+import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
+import { getAllKeysOfNestedObject } from '@l.x/utils/src/primitives/objects'
+import { initialBatchedTransactionsState } from '@luxfi/wallet/src/features/batchedTransactions/slice'
+import { initialBehaviorHistoryState } from '@luxfi/wallet/src/features/behaviorHistory/slice'
+import { initialTelemetryState } from '@luxfi/wallet/src/features/telemetry/slice'
+import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
+import { initialWalletState, SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
+import { createMigrate } from '@luxfi/wallet/src/state/createMigrate'
+import { HAYDEN_ETH_ADDRESS } from '@luxfi/wallet/src/state/walletMigrations'
 import {
   testActivatePendingAccounts,
   testAddBatchedTransactions,
@@ -156,13 +156,13 @@ import {
   testRemoveWalletIsUnlockedState,
   testUnchecksumDismissedTokenWarningKeys,
   testUpdateExploreOrderByType,
-} from 'wallet/src/state/walletMigrationsTests'
-import { signerMnemonicAccount } from 'wallet/src/test/fixtures'
+} from '@luxfi/wallet/src/state/walletMigrationsTests'
+import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
-jest.mock('uniswap/src/i18n/utils', () => {
-  const actual = jest.requireActual<typeof import('uniswap/src/i18n/utils')>('uniswap/src/i18n/utils')
+jest.mock('@l.x/lx/src/i18n/utils', () => {
+  const actual = jest.requireActual<typeof import('@l.x/lx/src/i18n/utils')>('@l.x/lx/src/i18n/utils')
   const { Language } =
-    require('uniswap/src/features/language/constants') as typeof import('uniswap/src/features/language/constants')
+    require('@l.x/lx/src/features/language/constants') as typeof import('@l.x/lx/src/features/language/constants')
   return {
     ...actual,
     getWalletDeviceLanguage: jest.fn(() => Language.English),

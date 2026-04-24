@@ -1,7 +1,7 @@
-import { OnchainItemListOption } from 'lx/src/components/lists/items/types'
-import type { ItemRowInfo, SectionRowInfo } from 'lx/src/components/lists/OnchainItemList/OnchainItemList'
-import { type OnchainItemSection } from 'lx/src/components/lists/OnchainItemList/types'
-import type { SectionHeaderProps } from 'lx/src/components/lists/SectionHeader'
+import { OnchainItemListOption } from '@l.x/lx/src/components/lists/items/types'
+import type { ItemRowInfo, SectionRowInfo } from '@l.x/lx/src/components/lists/OnchainItemList/OnchainItemList'
+import { type OnchainItemSection } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import type { SectionHeaderProps } from '@l.x/lx/src/components/lists/SectionHeader'
 
 export enum ProcessedRowType {
   Header = 'header',

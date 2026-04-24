@@ -1,9 +1,9 @@
-import { AccountType } from 'lx/src/features/accounts/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import type { WalletService } from 'lx/src/features/wallet/services/IWalletService'
-import { WalletMeta } from 'lx/src/features/wallet/types/WalletMeta'
-import { HexString } from 'utilities/src/addresses/hex'
-import { logger } from 'utilities/src/logger/logger'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import type { WalletService } from '@l.x/lx/src/features/wallet/services/IWalletService'
+import { WalletMeta } from '@l.x/lx/src/features/wallet/types/WalletMeta'
+import { HexString } from '@l.x/utils/src/addresses/hex'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function createEVMWalletService(ctx: {
   getWalletMeta: (address: HexString) => WalletMeta

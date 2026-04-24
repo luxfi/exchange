@@ -13,8 +13,8 @@ import 'dayjs/locale/tr'
 import 'dayjs/locale/vi'
 import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/zh-tw'
-import { Locale } from 'lx/src/features/language/constants'
-import { useCurrentLanguageInfo } from 'lx/src/features/language/hooks'
+import { Locale } from '@l.x/lx/src/features/language/constants'
+import { useCurrentLanguageInfo } from '@l.x/lx/src/features/language/hooks'
 
 dayjs.extend(localizedFormat)
 

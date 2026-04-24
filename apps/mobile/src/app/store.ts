@@ -4,12 +4,12 @@ import { persistReducer, persistStore, Storage } from 'redux-persist'
 import { MOBILE_STATE_VERSION, migrations } from 'src/app/migrations'
 import { MobileState, mobilePersistedStateList, mobileReducer } from 'src/app/mobileReducer'
 import { rootMobileSaga } from 'src/app/saga'
-import { delegationListenerMiddleware } from 'uniswap/src/features/smartWallet/delegation/slice'
-import { isNonTestDev } from 'utilities/src/environment/constants'
-import { createDatadogReduxEnhancer } from 'utilities/src/logger/datadog/Datadog'
-import { createStore } from 'wallet/src/state'
-import { createMigrate } from 'wallet/src/state/createMigrate'
-import { setReduxPersistor } from 'wallet/src/state/persistor'
+import { delegationListenerMiddleware } from '@l.x/lx/src/features/smartWallet/delegation/slice'
+import { isNonTestDev } from '@l.x/utils/src/environment/constants'
+import { createDatadogReduxEnhancer } from '@l.x/utils/src/logger/datadog/Datadog'
+import { createStore } from '@luxfi/wallet/src/state'
+import { createMigrate } from '@luxfi/wallet/src/state/createMigrate'
+import { setReduxPersistor } from '@luxfi/wallet/src/state/persistor'
 
 const storage = new MMKV()
 

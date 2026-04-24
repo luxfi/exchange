@@ -1,4 +1,4 @@
-import { ScantasticParams } from 'wallet/src/features/scantastic/types'
+import { ScantasticParams } from '@luxfi/wallet/src/features/scantastic/types'
 
 export interface ScantasticModalState {
   params: ScantasticParams

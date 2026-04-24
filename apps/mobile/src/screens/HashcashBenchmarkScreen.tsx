@@ -12,8 +12,8 @@ import {
   type Implementation,
   useHashcashBenchmarkStore,
 } from 'src/screens/stores/hashcashBenchmarkStore'
-import { Button, Flex, Text, TouchableArea } from 'ui/src'
-import { logger } from 'utilities/src/logger/logger'
+import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 function formatDuration(ms: number): string {
   if (ms < 1000) {

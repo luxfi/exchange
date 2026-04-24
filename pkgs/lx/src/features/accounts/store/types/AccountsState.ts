@@ -1,9 +1,9 @@
-import type { Account } from 'lx/src/features/accounts/store/types/Account'
-import { ConnectionStatusInfo, Connector } from 'lx/src/features/accounts/store/types/Connector'
-import type { Wallet } from 'lx/src/features/accounts/store/types/Wallet'
-import { FlexiblePlatformInput } from 'lx/src/features/accounts/store/utils/flexibleInput'
-import type { Platform } from 'lx/src/features/platforms/types/Platform'
-import { PlatformSpecificAddress } from 'lx/src/features/platforms/types/PlatformSpecificAddress'
+import type { Account } from '@l.x/lx/src/features/accounts/store/types/Account'
+import { ConnectionStatusInfo, Connector } from '@l.x/lx/src/features/accounts/store/types/Connector'
+import type { Wallet } from '@l.x/lx/src/features/accounts/store/types/Wallet'
+import { FlexiblePlatformInput } from '@l.x/lx/src/features/accounts/store/utils/flexibleInput'
+import type { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { PlatformSpecificAddress } from '@l.x/lx/src/features/platforms/types/PlatformSpecificAddress'
 import type { StoreApi, UseBoundStore } from 'zustand'
 
 /**

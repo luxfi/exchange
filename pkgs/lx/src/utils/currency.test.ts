@@ -1,8 +1,8 @@
-import { DAI, USDC } from 'lx/src/constants/tokens'
-import { Locale } from 'lx/src/features/language/constants'
-import { mockLocalizedFormatter } from 'lx/src/test/mocks'
-import { getCurrencyDisplayText, getFormattedCurrencyAmount } from 'lx/src/utils/currency'
-import { noOpFunction } from 'utilities/src/test/utils'
+import { DAI, USDC } from '@l.x/lx/src/constants/tokens'
+import { Locale } from '@l.x/lx/src/features/language/constants'
+import { mockLocalizedFormatter } from '@l.x/lx/src/test/mocks'
+import { getCurrencyDisplayText, getFormattedCurrencyAmount } from '@l.x/lx/src/utils/currency'
+import { noOpFunction } from '@l.x/utils/src/test/utils'
 
 const mockFormatter = mockLocalizedFormatter(Locale.EnglishUnitedStates)
 

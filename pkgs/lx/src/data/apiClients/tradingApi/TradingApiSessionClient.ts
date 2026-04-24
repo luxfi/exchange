@@ -11,7 +11,7 @@ import { getConfig } from '@l.x/config'
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { BASE_LX_HEADERS } from '@l.x/lx/src/data/apiClients/createLXFetchClient'
 import { getFeatureFlaggedHeaders } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 function getHeaders(): HeadersInit {
   // Use API key auth instead of session auth, if the flag is enabled.

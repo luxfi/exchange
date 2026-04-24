@@ -1,4 +1,4 @@
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Without this, we'll get errors when serializing the store state because of circular references and properties with the value of BigInt
 export const stateReplacerSerializer = (_key: string, value: unknown): unknown => {

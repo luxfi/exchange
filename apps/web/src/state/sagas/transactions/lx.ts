@@ -1,23 +1,23 @@
 import { call, put, SagaGenerator } from 'typed-redux-saga'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { InterfaceEventName, SwapEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
-import { HandledTransactionInterrupt } from 'lx/src/features/transactions/errors'
-import { addTransaction } from 'lx/src/features/transactions/slice'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { InterfaceEventName, SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
+import { HandledTransactionInterrupt } from '@l.x/lx/src/features/transactions/errors'
+import { addTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   HandleSignatureStepParams,
   HandleLXPlanSignatureStepParams,
-} from 'lx/src/features/transactions/steps/types'
-import { LXSignatureStep } from 'lx/src/features/transactions/swap/steps/signOrder'
-import { LXTrade } from 'lx/src/features/transactions/swap/types/trade'
-import { slippageToleranceToPercent } from 'lx/src/features/transactions/swap/utils/format'
+} from '@l.x/lx/src/features/transactions/steps/types'
+import { LXSignatureStep } from '@l.x/lx/src/features/transactions/swap/steps/signOrder'
+import { LXTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { slippageToleranceToPercent } from '@l.x/lx/src/features/transactions/swap/utils/format'
 import {
   QueuedOrderStatus,
   TransactionOriginType,
   TransactionStatus,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { formatSwapSignedAnalyticsEventProperties } from '~/lib/utils/analytics'

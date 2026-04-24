@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, FlexProps } from 'ui/src'
-import { EnvelopeHeart } from 'ui/src/components/icons/EnvelopeHeart'
-import { Text } from 'ui/src/components/text/Text'
+import { Flex, FlexProps } from '@l.x/ui/src'
+import { EnvelopeHeart } from '@l.x/ui/src/components/icons/EnvelopeHeart'
+import { Text } from '@l.x/ui/src/components/text/Text'
 
 /**
  * Shared UI for the GetHelpButton used by both web and native implementations.

@@ -1,6 +1,6 @@
-import { TouchableArea } from 'ui/src'
-import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'
-import { iconSizes } from 'ui/src/theme'
+import { TouchableArea } from '@l.x/ui/src'
+import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
+import { iconSizes } from '@l.x/ui/src/theme'
 
 /**
  * Standard icon button used as the trigger for context menus.

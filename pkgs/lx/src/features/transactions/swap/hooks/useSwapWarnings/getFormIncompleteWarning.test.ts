@@ -1,11 +1,11 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { WarningAction, WarningLabel, WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { nativeOnChain, USDC } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { getFormIncompleteWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/getFormIncompleteWarning'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { CurrencyField } from 'lx/src/types/currency'
+import { WarningAction, WarningLabel, WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { nativeOnChain, USDC } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { getFormIncompleteWarning } from '@l.x/lx/src/features/transactions/swap/hooks/useSwapWarnings/getFormIncompleteWarning'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 const ETH = nativeOnChain(UniverseChainId.Mainnet)
 

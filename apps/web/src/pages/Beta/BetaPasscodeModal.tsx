@@ -9,9 +9,9 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import { Button, Flex, Image, Input, Text } from '@l.x/ui/src'
 import { BETA_LOGO } from '@l.x/ui/src/assets'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { useTimeout } from '@l.x/utils/src/time/timing'
 
 export function BetaPasscodeModal(): JSX.Element {

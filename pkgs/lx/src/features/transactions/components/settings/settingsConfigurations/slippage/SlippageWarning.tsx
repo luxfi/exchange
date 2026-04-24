@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { WarningMessage } from 'lx/src/components/WarningMessage/WarningMessage'
-import { SLIPPAGE_CRITICAL_TOLERANCE } from 'lx/src/constants/transactions'
-import { useSlippageSettings } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
+import { WarningMessage } from '@l.x/lx/src/components/WarningMessage/WarningMessage'
+import { SLIPPAGE_CRITICAL_TOLERANCE } from '@l.x/lx/src/constants/transactions'
+import { useSlippageSettings } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
 import {
   useTransactionSettingsAutoSlippageToleranceStore,
   useTransactionSettingsStore,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { isMobileWeb, isWebPlatform } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { isMobileWeb, isWebPlatform } from '@l.x/utils/src/platform'
 
 export function SlippageWarning(): JSX.Element | null {
   const { t } = useTranslation()

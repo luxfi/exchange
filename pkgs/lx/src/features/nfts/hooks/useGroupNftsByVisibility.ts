@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { NFTItem } from 'lx/src/features/nfts/types'
-import { buildNftsArray, getIsNftHidden } from 'lx/src/features/nfts/utils'
-import { selectNftsVisibility } from 'lx/src/features/visibility/selectors'
+import { NFTItem } from '@l.x/lx/src/features/nfts/types'
+import { buildNftsArray, getIsNftHidden } from '@l.x/lx/src/features/nfts/utils'
+import { selectNftsVisibility } from '@l.x/lx/src/features/visibility/selectors'
 
 // Apply to NFTs fetched from API hidden filter, which is stored in Redux
 export function useGroupNftsByVisibility({

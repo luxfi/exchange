@@ -11,13 +11,13 @@ import { DataApiService } from '@luxamm/client-data-api/dist/data/v1/api_connect
 import { ListTransactionsRequest, ListTransactionsResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { transformInput, WithoutWalletAccount } from '@l.x/api'
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-import { dataApiGetTransport } from 'lx/src/data/rest/base'
+import { dataApiGetTransport } from '@l.x/lx/src/data/rest/base'
 import {
   AccountAddressesByPlatform,
   buildAccountAddressesByPlatform,
-} from 'lx/src/data/rest/buildAccountAddressesByPlatform'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import type { InfiniteQueryOptionsResult, QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+} from '@l.x/lx/src/data/rest/buildAccountAddressesByPlatform'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import type { InfiniteQueryOptionsResult, QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 
 type GetListTransactionsInput<TSelectData = ListTransactionsResponse> = {
   input?: WithoutWalletAccount<PartialMessage<ListTransactionsRequest>> & {

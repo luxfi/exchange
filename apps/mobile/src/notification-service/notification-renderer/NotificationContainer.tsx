@@ -16,16 +16,16 @@ import { BackupReminderModalRenderer } from 'src/notification-service/renderers/
 import { OfflineBannerRenderer } from 'src/notification-service/renderers/OfflineBannerRenderer'
 import { isBackupReminderNotification } from 'src/notification-service/triggers/backupReminderTrigger'
 import { isLocalTriggerNotification } from 'src/notification-service/triggers/createMobileLocalTriggerDataSource'
-import { Flex } from 'ui/src'
-import { ModalNotification } from 'uniswap/src/components/notifications/ModalNotification'
-import { getLogger } from 'utilities/src/logger/logger'
-import { useEvent } from 'utilities/src/react/hooks'
-import { type IntroCardProps } from 'wallet/src/components/introCards/IntroCard'
-import { IntroCardStack } from 'wallet/src/components/introCards/IntroCardStack'
+import { Flex } from '@l.x/ui/src'
+import { ModalNotification } from '@l.x/lx/src/components/notifications/ModalNotification'
+import { getLogger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { type IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
+import { IntroCardStack } from '@luxfi/wallet/src/components/introCards/IntroCardStack'
 import {
   convertNotificationToIntroCard,
   shouldRenderAsIntroCard,
-} from 'wallet/src/features/notifications/convertNotificationToIntroCard'
+} from '@luxfi/wallet/src/features/notifications/convertNotificationToIntroCard'
 import { type StoreApi, type UseBoundStore } from 'zustand'
 
 /**

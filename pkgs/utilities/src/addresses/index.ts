@@ -10,7 +10,7 @@ function getShortenParams(chars: number, charsEnd?: number): { start: number; en
   }
 
   if (chars <= 0 && charsEnd <= 0) {
-    logger.warn('utilities/src/addresses/index.ts', 'getShortenParams', 'chars and charsEnd must be positive integers')
+    logger.warn('@l.x/utils/src/addresses/index.ts', 'getShortenParams', 'chars and charsEnd must be positive integers')
     chars = 4
     charsEnd = 4
   }

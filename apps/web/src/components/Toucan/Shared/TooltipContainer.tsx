@@ -1,5 +1,5 @@
 import { ComponentProps, forwardRef, PropsWithChildren } from 'react'
-import { Flex, useShadowPropsShort } from 'ui/src'
+import { Flex, useShadowPropsShort } from '@l.x/ui/src'
 
 type TooltipContainerProps = PropsWithChildren<ComponentProps<typeof Flex>>
 

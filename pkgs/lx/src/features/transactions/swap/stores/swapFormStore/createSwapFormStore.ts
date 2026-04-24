@@ -1,16 +1,16 @@
 import type { MutableRefObject } from 'react'
 import { createRef } from 'react'
 import type { Dispatch } from 'redux'
-import { updateFilteredChainIds } from 'lx/src/features/transactions/swap/state/slice'
+import { updateFilteredChainIds } from '@l.x/lx/src/features/transactions/swap/state/slice'
 import type {
   SwapFormState,
   SwapFormStateForConsumers,
   SwapFormStoreState,
-} from 'lx/src/features/transactions/swap/stores/swapFormStore/types'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { CurrencyField } from 'lx/src/types/currency'
-import { isDevEnv } from 'utilities/src/environment/env'
-import { logContextUpdate } from 'utilities/src/logger/contextEnhancer'
+} from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/types'
+import type { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
+import { logContextUpdate } from '@l.x/utils/src/logger/contextEnhancer'
 import type { StoreApi, UseBoundStore } from 'zustand'
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'

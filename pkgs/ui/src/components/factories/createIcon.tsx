@@ -5,7 +5,7 @@ import { ColorTokens, SpecificTokens, View as Stack, styled, ThemeKeys, useProps
 import { withAnimated } from '@l.x/ui/src/components/factories/animated'
 import { DynamicColor } from '@l.x/ui/src/hooks/useSporeColors'
 import { IconSizeTokens } from '@l.x/ui/src/theme'
-import { isWebPlatform } from 'utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 type SvgPropsWithRef = SvgProps & { ref: React.ForwardedRef<Svg>; style?: { color?: string } }
 

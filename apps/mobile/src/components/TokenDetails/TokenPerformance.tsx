@@ -1,13 +1,13 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo } from 'react'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-import { Flex, Separator } from 'ui/src'
-import { TokenProfitLoss } from 'uniswap/src/components/TokenProfitLoss/TokenProfitLoss'
-import { useGetWalletTokenProfitLossQuery } from 'uniswap/src/data/rest/getWalletTokenProfitLoss'
-import { DEFAULT_NATIVE_ADDRESS } from 'uniswap/src/features/chains/evm/rpc'
-import { isStablecoinAddress } from 'uniswap/src/features/chains/utils'
-import { isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
-import { useActiveAddresses } from 'wallet/src/features/accounts/store/hooks'
+import { Flex, Separator } from '@l.x/ui/src'
+import { TokenProfitLoss } from '@l.x/lx/src/components/TokenProfitLoss/TokenProfitLoss'
+import { useGetWalletTokenProfitLossQuery } from '@l.x/lx/src/data/rest/getWalletTokenProfitLoss'
+import { DEFAULT_NATIVE_ADDRESS } from '@l.x/lx/src/features/chains/evm/rpc'
+import { isStablecoinAddress } from '@l.x/lx/src/features/chains/utils'
+import { isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
+import { useActiveAddresses } from '@luxfi/wallet/src/features/accounts/store/hooks'
 
 export const TokenPerformance = memo(function TokenPerformance(): JSX.Element | null {
   const isProfitLossEnabled = useFeatureFlag(FeatureFlags.ProfitLoss)

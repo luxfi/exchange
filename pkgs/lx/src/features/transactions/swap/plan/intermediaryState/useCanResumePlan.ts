@@ -2,13 +2,13 @@ import { useMemo } from 'react'
 import {
   ActivePlanState,
   activePlanStore,
-} from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import {
   PlanTransactionInfo,
   TransactionStatus,
   TransactionType,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { useStore } from 'zustand'
 
 function planIsNotExecuting(typeInfo: TransactionTypeInfo, status: TransactionStatus): boolean {

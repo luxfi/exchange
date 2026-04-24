@@ -6,8 +6,8 @@ import { SearchContext, SearchFilterContext } from '@l.x/lx/src/features/search/
 import { InterfaceEventName, MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { NavBarSearchTypes } from '@l.x/lx/src/features/telemetry/types'
-import { logger } from 'utilities/src/logger/logger'
-import { isMobileApp } from 'utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 // eslint-disable-next-line complexity
 export function sendSearchOptionItemClickedAnalytics({

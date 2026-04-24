@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import type { To } from 'react-router'
 import { Link } from 'react-router'
-import { Flex, styled, Text } from 'ui/src'
-import { Check } from 'ui/src/components/icons/Check'
+import { Flex, styled, Text } from '@l.x/ui/src'
+import { Check } from '@l.x/ui/src/components/icons/Check'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 
 const InternalLinkMenuItem = styled(Link, {

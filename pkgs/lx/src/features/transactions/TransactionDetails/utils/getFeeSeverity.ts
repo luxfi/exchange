@@ -1,12 +1,12 @@
 import { Percent } from '@luxamm/sdk-core'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { getFeeWarning, getSeverityFromTokenProtectionWarning } from 'lx/src/features/tokens/warnings/safetyUtils'
-import { TokenProtectionWarning } from 'lx/src/features/tokens/warnings/types'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { getFeeWarning, getSeverityFromTokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/safetyUtils'
+import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
 import {
   FeeOnTransferFeeGroupProps,
   FoTFeeType,
   TokenFeeInfo,
-} from 'lx/src/features/transactions/TransactionDetails/types'
+} from '@l.x/lx/src/features/transactions/TransactionDetails/types'
 
 export function getFeeSeverity(fee: Percent): {
   severity: WarningSeverity

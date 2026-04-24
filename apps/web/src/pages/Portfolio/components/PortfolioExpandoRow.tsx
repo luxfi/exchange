@@ -1,7 +1,7 @@
-import { Flex, FlexProps, Text, TextProps, TouchableArea } from 'ui/src'
-import { ChevronsIn } from 'ui/src/components/icons/ChevronsIn'
-import { ChevronsOut } from 'ui/src/components/icons/ChevronsOut'
-import { IconSizeTokens } from 'ui/src/theme'
+import { Flex, FlexProps, Text, TextProps, TouchableArea } from '@l.x/ui/src'
+import { ChevronsIn } from '@l.x/ui/src/components/icons/ChevronsIn'
+import { ChevronsOut } from '@l.x/ui/src/components/icons/ChevronsOut'
+import { IconSizeTokens } from '@l.x/ui/src/theme'
 
 interface PortfolioExpandoRowProps {
   isExpanded: boolean

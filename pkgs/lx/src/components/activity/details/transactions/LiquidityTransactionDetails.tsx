@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import {
   TwoTokenDetails,
   useTokenAmountInfo,

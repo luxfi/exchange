@@ -3,12 +3,12 @@ import { Protocol } from '@luxamm/router-sdk'
 import { Currency, CurrencyAmount, TradeType } from '@luxamm/sdk-core'
 import { GasEstimate, GraphQLApi, TradingApi } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
-import { AssetType } from 'lx/src/entities/assets'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import type { SwapRouting } from 'lx/src/features/telemetry/types'
-import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { CurrencyId } from 'lx/src/types/currency'
-import { DappRequestInfo, EthTransaction } from 'lx/src/types/walletConnect'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import type { SwapRouting } from '@l.x/lx/src/features/telemetry/types'
+import { ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
+import { DappRequestInfo, EthTransaction } from '@l.x/lx/src/types/walletConnect'
 
 export type ChainIdToTxIdToDetails = Partial<
   Record<UniverseChainId, { [txId: string]: TransactionDetails | InterfaceTransactionDetails }>

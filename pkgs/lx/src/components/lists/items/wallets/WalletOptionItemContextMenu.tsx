@@ -1,12 +1,12 @@
 import React, { ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { Heart } from 'ui/src/components/icons/Heart'
-import { HeartSlash } from 'ui/src/components/icons/HeartSlash'
-import { ContextMenu, MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { selectWatchedAddressSet } from 'lx/src/features/favorites/selectors'
-import { useToggleWatchedWalletCallback } from 'lx/src/features/favorites/useToggleWatchedWalletCallback'
+import { Heart } from '@l.x/ui/src/components/icons/Heart'
+import { HeartSlash } from '@l.x/ui/src/components/icons/HeartSlash'
+import { ContextMenu, MenuOptionItem } from '@l.x/lx/src/components/menus/ContextMenu'
+import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
+import { selectWatchedAddressSet } from '@l.x/lx/src/features/favorites/selectors'
+import { useToggleWatchedWalletCallback } from '@l.x/lx/src/features/favorites/useToggleWatchedWalletCallback'
 
 interface WalletOptionItemContextMenuProps {
   children: ReactNode

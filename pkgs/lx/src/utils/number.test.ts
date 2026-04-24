@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { BigNumberMax, isZero, toStringish } from 'lx/src/utils/number'
+import { BigNumberMax, isZero, toStringish } from '@l.x/lx/src/utils/number'
 
 describe(isZero, () => {
   it('identifies 0 on different types', () => {

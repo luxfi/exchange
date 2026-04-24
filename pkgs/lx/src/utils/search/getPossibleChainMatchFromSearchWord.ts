@@ -1,6 +1,6 @@
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isTestnetChain } from 'lx/src/features/chains/utils'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isTestnetChain } from '@l.x/lx/src/features/chains/utils'
 
 /**
  * Finds a matching chain ID based on the provided chain name.

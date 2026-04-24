@@ -1,23 +1,23 @@
 import { ListTransactionsResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { GraphQLApi } from '@l.x/api'
-import { extractOnRampTransactionDetails } from 'lx/src/features/activity/extract/extractFiatOnRampTransactionDetails'
-import extractRestOnChainTransactionDetails from 'lx/src/features/activity/extract/extractOnChainTransactionDetails'
-import extractPlanDetails from 'lx/src/features/activity/extract/extractPlanDetails'
-import extractRestFiatOnRampDetails from 'lx/src/features/activity/extract/extractRestFiatOnRampDetails'
-import extractRestLXOrderDetails from 'lx/src/features/activity/extract/extractRestLXOrderDetails'
-import extractTransactionDetails from 'lx/src/features/activity/extract/extractTransactionDetails'
-import { extractLXOrderDetails } from 'lx/src/features/activity/extract/extractLXOrderDetails'
-import { getIsNftHidden } from 'lx/src/features/nfts/utils'
+import { extractOnRampTransactionDetails } from '@l.x/lx/src/features/activity/extract/extractFiatOnRampTransactionDetails'
+import extractRestOnChainTransactionDetails from '@l.x/lx/src/features/activity/extract/extractOnChainTransactionDetails'
+import extractPlanDetails from '@l.x/lx/src/features/activity/extract/extractPlanDetails'
+import extractRestFiatOnRampDetails from '@l.x/lx/src/features/activity/extract/extractRestFiatOnRampDetails'
+import extractRestLXOrderDetails from '@l.x/lx/src/features/activity/extract/extractRestLXOrderDetails'
+import extractTransactionDetails from '@l.x/lx/src/features/activity/extract/extractTransactionDetails'
+import { extractLXOrderDetails } from '@l.x/lx/src/features/activity/extract/extractLXOrderDetails'
+import { getIsNftHidden } from '@l.x/lx/src/features/nfts/utils'
 import {
   TransactionDetails,
   TransactionDetailsType,
   TransactionListQueryResponse,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { CurrencyIdToVisibility, NFTKeyToVisibility } from 'lx/src/features/visibility/slice'
-import { CurrencyId } from 'lx/src/types/currency'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { CurrencyIdToVisibility, NFTKeyToVisibility } from '@l.x/lx/src/features/visibility/slice'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Flag to prevent spamming logs when multiple transactions are missing the transaction field
 let hasLoggedMissingTransactionField = false

@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import { Flex, Text, useColorSchemeFromSeed } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
+import { Flex, Text, useColorSchemeFromSeed } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 
 export function UnmemoizedDappIconPlaceholder({ name, iconSize }: { name?: string; iconSize: number }): JSX.Element {
   const { foreground: textColor, background: backgroundColor } = useColorSchemeFromSeed(name ?? '')

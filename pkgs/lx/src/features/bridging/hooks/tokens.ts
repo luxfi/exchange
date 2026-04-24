@@ -21,7 +21,7 @@ import {
   toTradingApiSupportedChainId,
 } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 import { buildCurrencyId, buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function useBridgingTokenWithHighestBalance({
   evmAddress,

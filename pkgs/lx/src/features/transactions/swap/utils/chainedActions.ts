@@ -1,5 +1,5 @@
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 /**
  * Chains that support chained actions.

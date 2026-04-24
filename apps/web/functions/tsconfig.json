@@ -14,13 +14,13 @@
   "include": ["../../../index.d.ts", "**/*.ts", "**/*.tsx"],
   "references": [
     {
-      "path": "../../../packages/ui"
+      "path": "../../../pkgs/ui"
     },
     {
-      "path": "../../../packages/utilities"
+      "path": "../../../pkgs/utilities"
     },
     {
-      "path": "../../../packages/uniswap"
+      "path": "../../../pkgs/lx"
     }
   ]
 }

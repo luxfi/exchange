@@ -25,7 +25,7 @@ import { SearchTab } from '@l.x/lx/src/features/search/SearchModal/types'
 import { selectSearchHistory } from '@l.x/lx/src/features/search/selectSearchHistory'
 import { useCurrencyInfos } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId, buildNativeCurrencyId, currencyId } from '@l.x/lx/src/utils/currencyId'
-import { isMobileApp, isWebApp } from 'utilities/src/platform'
+import { isMobileApp, isWebApp } from '@l.x/utils/src/platform'
 
 export function useRecentlySearchedOptions({
   chainFilter,

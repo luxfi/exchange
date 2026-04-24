@@ -1,11 +1,11 @@
 import { GraphQLApi } from '@l.x/api'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { buildCurrency } from 'lx/src/features/dataApi/utils/buildCurrency'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { buildCurrency } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
 import {
   GqlTokenToCurrencyInfoToken,
   gqlTokenToCurrencyInfo,
-} from 'lx/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
-import { ethToken, removeSafetyInfo } from 'lx/src/test/fixtures'
+} from '@l.x/lx/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
+import { ethToken, removeSafetyInfo } from '@l.x/lx/src/test/fixtures'
 
 describe(gqlTokenToCurrencyInfo, () => {
   it('returns formatted CurrencyInfo for a given token', () => {

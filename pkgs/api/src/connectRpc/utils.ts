@@ -8,7 +8,7 @@ import {
   ProtectionResult,
   SafetyLevel,
 } from '@l.x/api/src/clients/graphql/__generated__/schema-types'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Helper functions to parse string enum fields from REST API responses.

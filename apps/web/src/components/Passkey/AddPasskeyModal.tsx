@@ -8,17 +8,17 @@ import { Mobile } from '@l.x/ui/src/components/icons/Mobile'
 import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
 import { ShieldCheck } from '@l.x/ui/src/components/icons/ShieldCheck'
 import { colors } from '@l.x/ui/src/theme'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import type { AuthenticatorAttachment } from 'lx/src/features/passkey/embeddedWallet'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import type { AuthenticatorAttachment } from '@l.x/lx/src/features/passkey/embeddedWallet'
 import {
   getPrivyEnums,
   listAuthenticators,
   registerNewAuthenticator,
   startAddAuthenticatorSession,
-} from 'lx/src/features/passkey/embeddedWallet'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
+} from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
 import { useAccount } from '~/hooks/useAccount'
 import { useModalState } from '~/hooks/useModalState'

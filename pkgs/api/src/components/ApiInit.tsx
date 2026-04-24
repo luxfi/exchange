@@ -3,8 +3,8 @@ import { SharedQueryClient } from '@l.x/api/src/clients/base/SharedQueryClient'
 import type { SessionInitializationService, SessionInitResult } from '@l.x/sessions'
 import { SessionError } from '@l.x/sessions'
 import { useState } from 'react'
-import type { Logger } from 'utilities/src/logger/logger'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import type { Logger } from '@l.x/utils/src/logger/logger'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 interface ApiInitProps {
   getSessionInitService: () => SessionInitializationService

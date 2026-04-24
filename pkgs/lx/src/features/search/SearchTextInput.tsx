@@ -18,19 +18,19 @@ import {
   Text,
   TouchableArea,
   useComposedRefs,
-} from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { Search } from 'ui/src/components/icons/Search'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { fonts, iconSizes, spacing } from 'ui/src/theme'
+} from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { Search } from '@l.x/ui/src/components/icons/Search'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { fonts, iconSizes, spacing } from '@l.x/ui/src/theme'
 import { SHADOW_OFFSET_SMALL } from '@l.x/lx/src/components/BaseCard/BaseCard'
 import { ViewGestureHandler } from '@l.x/lx/src/components/ViewGestureHandler/ViewGestureHandler'
 import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
-import { isAndroid } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
+import { isAndroid } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 const ENTER_EXIT_STYLE = { opacity: 0, scale: 0 }
 const DEFAULT_MIN_HEIGHT = 48

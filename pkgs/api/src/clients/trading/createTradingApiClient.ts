@@ -30,7 +30,7 @@ import type {
   SwappableTokensParams,
   UpdatePlanRequestWithPlanId,
 } from '@l.x/api/src/clients/trading/tradeTypes'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // TODO(app-infra), de-duplicate with lxUrls.tradingApiPaths when other consumers are migrated to use TradingApiClient
 export const TRADING_API_PATHS = {

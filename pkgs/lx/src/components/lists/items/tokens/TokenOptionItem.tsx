@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { Check } from 'ui/src/components/icons/Check'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Check } from '@l.x/ui/src/components/icons/Check'
 import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import { FocusedRowControl, OptionItem, OptionItemProps } from '@l.x/lx/src/components/lists/items/OptionItem'
 import {
@@ -16,10 +16,10 @@ import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedba
 import { getTokenWarningSeverity } from '@l.x/lx/src/features/tokens/warnings/safetyUtils'
 import TokenWarningModal from '@l.x/lx/src/features/tokens/warnings/TokenWarningModal'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { shortenAddress } from 'utilities/src/addresses'
-import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
-import { isWebApp, isWebPlatform } from 'utilities/src/platform'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
+import { isWebApp, isWebPlatform } from '@l.x/utils/src/platform'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 export enum TokenContextMenuVariant {
   Search = 'search',

@@ -1,11 +1,11 @@
 import { type TransactionRequest } from '@ethersproject/providers'
 import { type GasFeeResultWithoutState, type GasStrategy } from '@l.x/api'
-import { GasServiceClient } from 'lx/src/data/apiClients/gasService/GasServiceClient'
-import { mapGasServiceV2Response } from 'lx/src/data/apiClients/gasService/mapGasServiceV2Response'
-import { mapToEstimateGasFeeRequest } from 'lx/src/data/apiClients/gasService/mapToEstimateGasFeeRequest'
-import { estimateGasWithClientSideProvider } from 'lx/src/features/gas/utils'
-import { logger } from 'utilities/src/logger/logger'
-import { isWebApp } from 'utilities/src/platform'
+import { GasServiceClient } from '@l.x/lx/src/data/apiClients/gasService/GasServiceClient'
+import { mapGasServiceV2Response } from '@l.x/lx/src/data/apiClients/gasService/mapGasServiceV2Response'
+import { mapToEstimateGasFeeRequest } from '@l.x/lx/src/data/apiClients/gasService/mapToEstimateGasFeeRequest'
+import { estimateGasWithClientSideProvider } from '@l.x/lx/src/features/gas/utils'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export async function fetchGasFeeV2({
   tx,

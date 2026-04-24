@@ -8,8 +8,8 @@ import { Flex, type FlexProps } from '@l.x/ui/src/components/layout'
 import { Text, type TextProps } from '@l.x/ui/src/components/text'
 import { TouchableArea } from '@l.x/ui/src/components/touchable'
 import { spacing } from '@l.x/ui/src/theme'
-import { isMobileApp, isWebPlatform } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+import { isMobileApp, isWebPlatform } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type DropdownMenuSheetItemProps = {
   label: string

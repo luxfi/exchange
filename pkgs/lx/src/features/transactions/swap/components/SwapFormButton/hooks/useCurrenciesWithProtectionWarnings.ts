@@ -1,6 +1,6 @@
-import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { usePrefilledNeedsTokenProtectionWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/usePrefilledNeedsTokenProtectionWarning'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import type { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { usePrefilledNeedsTokenProtectionWarning } from '@l.x/lx/src/features/transactions/swap/hooks/useSwapWarnings/usePrefilledNeedsTokenProtectionWarning'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 
 type UseCurrenciesWithProtectionWarnings = () =>
   | {

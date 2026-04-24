@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
-import { Flex } from 'ui/src'
-import { ContentRow } from 'lx/src/components/transactions/requests/ContentRow'
+import { Flex } from '@l.x/ui/src'
+import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
 
 export function InfoRow({
   label,

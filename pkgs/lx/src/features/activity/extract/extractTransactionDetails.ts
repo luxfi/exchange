@@ -1,26 +1,26 @@
 import { GraphQLApi, SpamCode, TradingApi } from '@l.x/api'
-import parseApproveTransaction from 'lx/src/features/activity/parse/parseApproveTransaction'
-import parseBridgingTransaction from 'lx/src/features/activity/parse/parseBridgingTransaction'
-import parseNFTMintTransaction from 'lx/src/features/activity/parse/parseMintTransaction'
-import parseOnRampTransaction from 'lx/src/features/activity/parse/parseOnRampTransaction'
-import parseReceiveTransaction from 'lx/src/features/activity/parse/parseReceiveTransaction'
-import parseSendTransaction from 'lx/src/features/activity/parse/parseSendTransaction'
-import parseTradeTransaction from 'lx/src/features/activity/parse/parseTradeTransaction'
-import { remoteTxStatusToLocalTxStatus } from 'lx/src/features/activity/utils/remote'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY } from 'lx/src/features/chains/evm/defaults'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import parseApproveTransaction from '@l.x/lx/src/features/activity/parse/parseApproveTransaction'
+import parseBridgingTransaction from '@l.x/lx/src/features/activity/parse/parseBridgingTransaction'
+import parseNFTMintTransaction from '@l.x/lx/src/features/activity/parse/parseMintTransaction'
+import parseOnRampTransaction from '@l.x/lx/src/features/activity/parse/parseOnRampTransaction'
+import parseReceiveTransaction from '@l.x/lx/src/features/activity/parse/parseReceiveTransaction'
+import parseSendTransaction from '@l.x/lx/src/features/activity/parse/parseSendTransaction'
+import parseTradeTransaction from '@l.x/lx/src/features/activity/parse/parseTradeTransaction'
+import { remoteTxStatusToLocalTxStatus } from '@l.x/lx/src/features/activity/utils/remote'
+import { DEFAULT_NATIVE_ADDRESS_LEGACY } from '@l.x/lx/src/features/chains/evm/defaults'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import type {
   TransactionDetails,
   TransactionListQueryResponse,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionDetailsType,
   TransactionOriginType,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Parses txn API response item and identifies known txn type. Helps strictly

@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import {
   useSetTransactionSettingsAutoSlippageTolerance,
   useTransactionSettingsActions,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 
 export function useLPSlippageValue({
   version,

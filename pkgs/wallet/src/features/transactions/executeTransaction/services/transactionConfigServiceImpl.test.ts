@@ -13,7 +13,7 @@ jest.mock('@l.x/utils/src/logger/logger', () => ({
 }))
 
 // Mock the providers utils
-jest.mock('wallet/src/features/providers/utils', () => ({
+jest.mock('@luxfi/wallet/src/features/providers/utils', () => ({
   isPrivateRpcSupportedOnChain: jest.fn(),
 }))
 

@@ -1,5 +1,5 @@
 import { OriginApplication } from '@luxamm/analytics'
-import { lxUrls } from 'lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { isPlaywrightEnv, isTestEnv } from '@l.x/utils/src/environment/env'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { ApplicationTransport } from '@l.x/utils/src/telemetry/analytics/ApplicationTransport'

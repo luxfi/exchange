@@ -1,7 +1,7 @@
 import { Flex, FlexProps } from '@l.x/ui/src/components/layout/Flex'
 import { Text, TextProps } from '@l.x/ui/src/components/text/Text'
 import { usePostTextElementPositionProps } from '@l.x/ui/src/utils/layout'
-import { isWebAppDesktop } from 'utilities/src/platform'
+import { isWebAppDesktop } from '@l.x/utils/src/platform'
 
 type ElementAfterTextProps = {
   element?: JSX.Element

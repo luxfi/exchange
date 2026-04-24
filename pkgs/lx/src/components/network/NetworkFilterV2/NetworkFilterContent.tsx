@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea, useMedia } from 'ui/src'
-import { zIndexes } from 'ui/src/theme'
-import { NoResultsFound } from 'lx/src/components/lists/NoResultsFound'
-import type { TieredNetworkOptions } from 'lx/src/components/network/NetworkFilterV2/types'
-import { NetworkOption } from 'lx/src/components/network/NetworkOption'
-import { useNewChainIds } from 'lx/src/features/chains/hooks/useNewChainIds'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isExtensionApp, isWebApp } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Flex, Text, TouchableArea, useMedia } from '@l.x/ui/src'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { NoResultsFound } from '@l.x/lx/src/components/lists/NoResultsFound'
+import type { TieredNetworkOptions } from '@l.x/lx/src/components/network/NetworkFilterV2/types'
+import { NetworkOption } from '@l.x/lx/src/components/network/NetworkOption'
+import { useNewChainIds } from '@l.x/lx/src/features/chains/hooks/useNewChainIds'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isExtensionApp, isWebApp } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 interface NetworkFilterContentProps {
   searchQuery: string

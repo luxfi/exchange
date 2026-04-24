@@ -1,12 +1,12 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { SearchHistoryResultType } from 'lx/src/features/search/SearchHistoryResult'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { SearchHistoryResultType } from '@l.x/lx/src/features/search/SearchHistoryResult'
 import {
   addToSearchHistory,
   clearSearchHistory,
   initialSearchHistoryState,
   searchHistoryReducer,
   searchResultId,
-} from 'lx/src/features/search/searchHistorySlice'
+} from '@l.x/lx/src/features/search/searchHistorySlice'
 
 describe('searchHistorySlice', () => {
   describe('searchResultId', () => {

@@ -6,8 +6,8 @@ import { PortfolioTab } from '~/pages/Portfolio/types'
 import { mocked } from '~/test-utils/mocked'
 import { render } from '~/test-utils/render'
 
-vi.mock('lx/src/features/accounts/store/hooks', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/features/accounts/store/hooks')>()
+vi.mock('@l.x/lx/src/features/accounts/store/hooks', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/lx/src/features/accounts/store/hooks')>()
   return {
     ...actual,
     useActiveAddresses: vi.fn(),

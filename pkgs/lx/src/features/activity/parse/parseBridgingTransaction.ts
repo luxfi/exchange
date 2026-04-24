@@ -1,16 +1,16 @@
 import type { OnChainTransaction } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { Direction } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { GraphQLApi } from '@l.x/api'
-import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
-import { deriveCurrencyAmountFromAssetResponse } from 'lx/src/features/activity/utils/remote'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { ACROSS_DAPP_INFO } from 'lx/src/features/transactions/swap/utils/routing'
+import { extractDappInfo } from '@l.x/lx/src/features/activity/utils/extractDappInfo'
+import { deriveCurrencyAmountFromAssetResponse } from '@l.x/lx/src/features/activity/utils/remote'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { ACROSS_DAPP_INFO } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import type {
   BridgeTransactionInfo,
   TransactionListQueryResponse,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { TransactionDetailsType, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId, buildNativeCurrencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TransactionDetailsType, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId, buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 type AssetChanges = NonNullable<
   Extract<

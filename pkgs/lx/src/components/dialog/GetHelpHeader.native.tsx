@@ -1,9 +1,9 @@
-import { TouchableArea } from 'ui/src'
-import { GetHelpButtonUI } from 'lx/src/components/dialog/GetHelpButtonUI'
-import type { GetHelpHeaderProps } from 'lx/src/components/dialog/GetHelpHeader'
-import { type GetHelpButtonProps, GetHelpHeaderContent } from 'lx/src/components/dialog/GetHelpHeaderContent'
-import { lxUrls } from 'lx/src/constants/urls'
-import { openUri } from 'lx/src/utils/linking'
+import { TouchableArea } from '@l.x/ui/src'
+import { GetHelpButtonUI } from '@l.x/lx/src/components/dialog/GetHelpButtonUI'
+import type { GetHelpHeaderProps } from '@l.x/lx/src/components/dialog/GetHelpHeader'
+import { type GetHelpButtonProps, GetHelpHeaderContent } from '@l.x/lx/src/components/dialog/GetHelpHeaderContent'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { openUri } from '@l.x/lx/src/utils/linking'
 
 function NativeGetHelpButton({ url }: GetHelpButtonProps): JSX.Element {
   const handlePress = async (): Promise<void> => {

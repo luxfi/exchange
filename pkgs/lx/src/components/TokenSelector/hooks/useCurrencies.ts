@@ -1,11 +1,11 @@
 import { ApolloError } from '@apollo/client'
 import { GqlResult } from '@l.x/api'
 import { useMemo } from 'react'
-import { BRIDGED_BASE_ADDRESSES } from 'lx/src/constants/addresses'
-import { useTokenProjects } from 'lx/src/features/dataApi/tokenProjects/tokenProjects'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { usePersistedError } from 'lx/src/features/dataApi/utils/usePersistedError'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
+import { BRIDGED_BASE_ADDRESSES } from '@l.x/lx/src/constants/addresses'
+import { useTokenProjects } from '@l.x/lx/src/features/dataApi/tokenProjects/tokenProjects'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { usePersistedError } from '@l.x/lx/src/features/dataApi/utils/usePersistedError'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 
 export function useCurrencies(currencyIds: string[]): GqlResult<CurrencyInfo[]> {
   const { data: baseCurrencyInfos, loading, error, refetch } = useTokenProjects(currencyIds)

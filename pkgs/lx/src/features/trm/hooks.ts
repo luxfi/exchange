@@ -1,5 +1,5 @@
-import { useTrmScreenQuery } from 'lx/src/data/apiClients/luxApi/useTrmScreenQuery'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { useTrmScreenQuery } from '@l.x/lx/src/data/apiClients/luxApi/useTrmScreenQuery'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 
 export interface IsBlockedResult {
   isBlockedLoading: boolean

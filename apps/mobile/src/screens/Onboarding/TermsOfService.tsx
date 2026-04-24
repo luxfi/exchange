@@ -1,7 +1,7 @@
 import { Trans } from 'react-i18next'
-import { Text } from 'ui/src'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { openUri } from 'uniswap/src/utils/linking'
+import { Text } from '@l.x/ui/src'
+import { uniswapUrls } from '@l.x/lx/src/constants/urls'
+import { openUri } from '@l.x/lx/src/utils/linking'
 
 export function TermsOfService(): JSX.Element {
   return (

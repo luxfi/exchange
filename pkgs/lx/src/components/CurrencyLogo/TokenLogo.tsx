@@ -10,14 +10,14 @@ import {
   UniversalImage,
   useColorSchemeFromSeed,
   useSporeColors,
-} from 'ui/src'
-import { iconSizes, validColor, zIndexes } from 'ui/src/theme'
-import { getBadgeBorderRadius, getBadgeOuterSize } from 'lx/src/components/CurrencyLogo/badgeSizeUtils'
-import { STATUS_RATIO } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isTestnetChain } from 'lx/src/features/chains/utils'
-import { isMobileApp } from 'utilities/src/platform'
+} from '@l.x/ui/src'
+import { iconSizes, validColor, zIndexes } from '@l.x/ui/src/theme'
+import { getBadgeBorderRadius, getBadgeOuterSize } from '@l.x/lx/src/components/CurrencyLogo/badgeSizeUtils'
+import { STATUS_RATIO } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isTestnetChain } from '@l.x/lx/src/features/chains/utils'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 interface TokenLogoProps {
   url?: string | null

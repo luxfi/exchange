@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { BackButton } from 'src/components/buttons/BackButton'
-import { Text, TouchableArea } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Text, TouchableArea } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 export const renderHeaderBackButton = (): JSX.Element => (
   <BackButton color="$neutral2" size="$icon.28" testID={TestID.OnboardingHeaderBack} />

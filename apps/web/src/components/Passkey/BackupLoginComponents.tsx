@@ -8,9 +8,9 @@ import { GoogleLogo } from '@l.x/ui/src/components/icons/GoogleLogo'
 import { X } from '@l.x/ui/src/components/icons/X'
 import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
 import { SpinningLoader } from '@l.x/ui/src/loading/SpinningLoader'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { AppleLogo } from '~/components/Icons/AppleLogo'
 
 export function useDigitInput({ length, onComplete }: { length: number; onComplete?: (code: string) => void }) {

@@ -1,16 +1,16 @@
 import { TradingApi } from '@l.x/api'
-import { SwapEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { getRouteAnalyticsData, logSwapQuoteFetch } from 'lx/src/features/transactions/swap/analytics'
-import { ClassicTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
+import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { getRouteAnalyticsData, logSwapQuoteFetch } from '@l.x/lx/src/features/transactions/swap/analytics'
+import { ClassicTrade, Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
 
-vi.mock('lx/src/features/telemetry/send', () => ({
+vi.mock('@l.x/lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: vi.fn(),
 }))
 
-vi.mock('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker', async (importOriginal) => {
+vi.mock('@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker')>()
+    await importOriginal<typeof import('@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker')>()
   return {
     ...actual,
     timestampTracker: {

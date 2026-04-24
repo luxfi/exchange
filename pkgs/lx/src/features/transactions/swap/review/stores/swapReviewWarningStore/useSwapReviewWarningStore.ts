@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import type {
   SwapReviewWarningState,
   SwapReviewWarningStore,
-} from 'lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/createSwapReviewWarningStore'
-import { SwapReviewWarningStoreContext } from 'lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/SwapReviewWarningStoreContext'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/createSwapReviewWarningStore'
+import { SwapReviewWarningStoreContext } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/SwapReviewWarningStoreContext'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'
 

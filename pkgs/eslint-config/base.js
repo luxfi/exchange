@@ -113,7 +113,7 @@ module.exports = {
         'local-rules/enforce-query-options-result': [
           'error',
           {
-            importPath: 'utilities/src/reactQuery/queryOptions',
+            importPath: '@l.x/utils/src/reactQuery/queryOptions',
           },
         ],
         curly: 'error',

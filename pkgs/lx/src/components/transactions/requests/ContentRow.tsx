@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { Flex, FlexProps, Text, TextProps } from 'ui/src'
+import { Flex, FlexProps, Text, TextProps } from '@l.x/ui/src'
 
 export function ContentRow({
   label,

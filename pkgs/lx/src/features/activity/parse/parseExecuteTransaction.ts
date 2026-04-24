@@ -1,14 +1,14 @@
 import { OnChainTransaction } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@l.x/api'
-import { parseRestApproveTransaction } from 'lx/src/features/activity/parse/parseApproveTransaction'
-import { parseRestSwapTransaction } from 'lx/src/features/activity/parse/parseTradeTransaction'
-import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { parseRestApproveTransaction } from '@l.x/lx/src/features/activity/parse/parseApproveTransaction'
+import { parseRestSwapTransaction } from '@l.x/lx/src/features/activity/parse/parseTradeTransaction'
+import { ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import {
   TransactionDetails,
   TransactionOriginType,
   TransactionStatus,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Represents a parsed EXECUTE transaction that can contain multiple sub-transactions

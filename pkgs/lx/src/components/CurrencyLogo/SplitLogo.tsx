@@ -1,13 +1,13 @@
 import { memo, ReactNode } from 'react'
-import { Flex } from 'ui/src'
-import { Shuffle } from 'ui/src/components/icons/Shuffle'
-import { zIndexes } from 'ui/src/theme'
-import { CurrencyLogo, STATUS_RATIO } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { TransactionSummaryNetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { Flex } from '@l.x/ui/src'
+import { Shuffle } from '@l.x/ui/src/components/icons/Shuffle'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { CurrencyLogo, STATUS_RATIO } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { TransactionSummaryNetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 interface Props {
   inputCurrencyInfo: Maybe<CurrencyInfo>

@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import { INTERFACE_NAV_HEIGHT } from 'ui/src/theme/heights'
+import { INTERFACE_NAV_HEIGHT } from '@l.x/ui/src/theme/heights'
 
 // Singleton to share observation across all consumers
 let headerHeight = INTERFACE_NAV_HEIGHT

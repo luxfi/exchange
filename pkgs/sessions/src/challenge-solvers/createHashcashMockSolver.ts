@@ -1,5 +1,5 @@
 import type { ChallengeData, ChallengeSolver } from '@l.x/sessions/src/challenge-solvers/types'
-import { sleep } from 'utilities/src/time/timing'
+import { sleep } from '@l.x/utils/src/time/timing'
 
 /**
  * Creates a mock Hashcash proof-of-work solver for development/testing

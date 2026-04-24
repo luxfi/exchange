@@ -3,13 +3,13 @@ import {
   type OnchainItemListOption,
   OnchainItemListOptionType,
   type TokenOption,
-} from 'lx/src/components/lists/items/types'
-import { type OnchainItemSection, OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
-import { TokenSelectorFlow } from 'lx/src/components/TokenSelector/types'
-import { tradingApiSwappableTokenToCurrencyInfo } from 'lx/src/data/apiClients/tradingApi/utils/tradingApiSwappableTokenToCurrencyInfo'
-import { ModalName, type ModalNameType } from 'lx/src/features/telemetry/constants'
-import { areCurrencyIdsEqual } from 'lx/src/utils/currencyId'
-import { differenceWith } from 'utilities/src/primitives/array'
+} from '@l.x/lx/src/components/lists/items/types'
+import { type OnchainItemSection, OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { TokenSelectorFlow } from '@l.x/lx/src/components/TokenSelector/types'
+import { tradingApiSwappableTokenToCurrencyInfo } from '@l.x/lx/src/data/apiClients/tradingApi/utils/tradingApiSwappableTokenToCurrencyInfo'
+import { ModalName, type ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
+import { areCurrencyIdsEqual } from '@l.x/lx/src/utils/currencyId'
+import { differenceWith } from '@l.x/utils/src/primitives/array'
 
 export function createEmptyTokenOptionFromBridgingToken(
   token: TradingApi.GetSwappableTokensResponse['tokens'][0],

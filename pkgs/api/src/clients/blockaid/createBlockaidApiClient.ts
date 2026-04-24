@@ -9,7 +9,7 @@ import {
   getBlockaidScanSiteResponseSchema,
   getBlockaidScanTransactionResponseSchema,
 } from '@l.x/api/src/clients/blockaid/types'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export interface BlockaidApiClient {
   scanSite: (url: string) => Promise<DappVerificationStatus>

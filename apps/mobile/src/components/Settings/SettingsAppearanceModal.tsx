@@ -2,12 +2,12 @@ import { default as React, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
-import { Flex, GeneratedIcon, Text, TouchableArea } from 'ui/src'
-import { Check, Contrast, Moon, Sun } from 'ui/src/components/icons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { useCurrentAppearanceSetting } from 'uniswap/src/features/appearance/hooks'
-import { AppearanceSettingType, setSelectedAppearanceSettings } from 'uniswap/src/features/appearance/slice'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Flex, GeneratedIcon, Text, TouchableArea } from '@l.x/ui/src'
+import { Check, Contrast, Moon, Sun } from '@l.x/ui/src/components/icons'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { useCurrentAppearanceSetting } from '@l.x/lx/src/features/appearance/hooks'
+import { AppearanceSettingType, setSelectedAppearanceSettings } from '@l.x/lx/src/features/appearance/slice'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 export function SettingsAppearanceModal(): JSX.Element {
   const { t } = useTranslation()

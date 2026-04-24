@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useSporeColors } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import {
   PercentageAllocationChart,
   PercentageAllocationItem,

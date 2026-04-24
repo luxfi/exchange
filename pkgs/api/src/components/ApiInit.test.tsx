@@ -18,11 +18,11 @@ import {
   type LXIdentifierService,
 } from '@l.x/sessions'
 import React from 'react'
-import { sleep } from 'utilities/src/time/timing'
+import { sleep } from '@l.x/utils/src/time/timing'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock platform detection - we're testing as extension by default
-vi.mock('utilities/src/platform', () => ({
+vi.mock('@l.x/utils/src/platform', () => ({
   isWeb: false,
   isExtension: true,
   isInterface: false,

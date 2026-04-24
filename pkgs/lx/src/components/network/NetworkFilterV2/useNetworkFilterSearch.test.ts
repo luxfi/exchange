@@ -2,10 +2,10 @@ import {
   filterNetworkOptions,
   normalizeNetworkSearchQuery,
   useNetworkFilterSearch,
-} from 'lx/src/components/network/NetworkFilterV2/useNetworkFilterSearch'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { renderHookWithProviders } from 'lx/src/test/render'
-import { act } from 'lx/src/test/test-utils'
+} from '@l.x/lx/src/components/network/NetworkFilterV2/useNetworkFilterSearch'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { renderHookWithProviders } from '@l.x/lx/src/test/render'
+import { act } from '@l.x/lx/src/test/test-utils'
 
 describe('useNetworkFilterSearch', () => {
   it('normalizes whitespace and casing in the search query', () => {

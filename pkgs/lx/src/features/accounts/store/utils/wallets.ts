@@ -1,6 +1,6 @@
 import { useRef } from 'react'
-import type { AccountsState } from 'lx/src/features/accounts/store/types/AccountsState'
-import { Wallet } from 'lx/src/features/accounts/store/types/Wallet'
+import type { AccountsState } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { Wallet } from '@l.x/lx/src/features/accounts/store/types/Wallet'
 import { StoreApi, UseBoundStore, useStore } from 'zustand'
 import { shallow } from 'zustand/shallow'
 

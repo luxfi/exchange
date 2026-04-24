@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src/components/layout'
-import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
-import { styled, Text, TouchableArea } from 'ui/src/index'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
+import { styled, Text, TouchableArea } from '@l.x/ui/src/index'
 import {
   MouseGlow,
   renderSnowflakesWeb,

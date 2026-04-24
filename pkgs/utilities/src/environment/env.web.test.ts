@@ -5,7 +5,7 @@ describe('env', () => {
 
   // Helper function to mock the platform module
   const mockPlatform = (config: { isWebApp?: boolean; isExtensionApp?: boolean } = {}): void => {
-    vi.doMock('utilities/src/platform', () => ({
+    vi.doMock('@l.x/utils/src/platform', () => ({
       isWebApp: config.isWebApp ?? false,
       isExtensionApp: config.isExtensionApp ?? false,
     }))
@@ -26,7 +26,7 @@ describe('env', () => {
 
       mockPlatform()
 
-      const { isTestEnv } = await import('utilities/src/environment/env.web')
+      const { isTestEnv } = await import('@l.x/utils/src/environment/env.web')
       expect(isTestEnv()).toBe(true)
     })
   })
@@ -35,7 +35,7 @@ describe('env', () => {
     it('should return false', async () => {
       mockPlatform()
 
-      const { isPlaywrightEnv } = await import('utilities/src/environment/env.web')
+      const { isPlaywrightEnv } = await import('@l.x/utils/src/environment/env.web')
       expect(isPlaywrightEnv()).toBe(false)
     })
 
@@ -44,7 +44,7 @@ describe('env', () => {
 
       mockPlatform()
 
-      const { isPlaywrightEnv } = await import('utilities/src/environment/env.web')
+      const { isPlaywrightEnv } = await import('@l.x/utils/src/environment/env.web')
       expect(isPlaywrightEnv()).toBe(true)
     })
   })
@@ -53,7 +53,7 @@ describe('env', () => {
     it('should return false', async () => {
       mockPlatform()
 
-      const { isDevEnv } = await import('utilities/src/environment/env.web')
+      const { isDevEnv } = await import('@l.x/utils/src/environment/env.web')
       expect(isDevEnv()).toBe(false)
     })
 
@@ -65,7 +65,7 @@ describe('env', () => {
 
       mockPlatform({ isWebApp: true })
 
-      const { isDevEnv } = await import('utilities/src/environment/env.web')
+      const { isDevEnv } = await import('@l.x/utils/src/environment/env.web')
       const result = isDevEnv()
 
       if (originalVitestId) {
@@ -80,7 +80,7 @@ describe('env', () => {
     it('should return false', async () => {
       mockPlatform()
 
-      const { isBetaEnv } = await import('utilities/src/environment/env.web')
+      const { isBetaEnv } = await import('@l.x/utils/src/environment/env.web')
       expect(isBetaEnv()).toBe(false)
     })
 
@@ -95,7 +95,7 @@ describe('env', () => {
       // Mock isWebApp to return true for this test
       mockPlatform({ isWebApp: true })
 
-      const { isBetaEnv } = await import('utilities/src/environment/env.web')
+      const { isBetaEnv } = await import('@l.x/utils/src/environment/env.web')
       const result = isBetaEnv()
 
       // Restore original env
@@ -111,7 +111,7 @@ describe('env', () => {
     it('should return false', async () => {
       mockPlatform()
 
-      const { isProdEnv } = await import('utilities/src/environment/env.web')
+      const { isProdEnv } = await import('@l.x/utils/src/environment/env.web')
       expect(isProdEnv()).toBe(false)
     })
 
@@ -127,7 +127,7 @@ describe('env', () => {
       // Mock isWebApp to return true for this test
       mockPlatform({ isWebApp: true })
 
-      const { isProdEnv } = await import('utilities/src/environment/env.web')
+      const { isProdEnv } = await import('@l.x/utils/src/environment/env.web')
       const result = isProdEnv()
 
       // Restore original env

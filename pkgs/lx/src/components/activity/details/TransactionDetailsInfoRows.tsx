@@ -12,12 +12,12 @@ import {
   UniversalImage,
   UniversalImageResizeMode,
   useIsDarkMode,
-} from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons'
-import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
-import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
-import { DEX } from 'ui/src/components/icons/DEX'
-import { borderRadii, fonts, iconSizes } from 'ui/src/theme'
+} from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons'
+import { CopyAlt } from '@l.x/ui/src/components/icons/CopyAlt'
+import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
+import { DEX } from '@l.x/ui/src/components/icons/DEX'
+import { borderRadii, fonts, iconSizes } from '@l.x/ui/src/theme'
 import { InfoRow } from '@l.x/lx/src/components/activity/details/InfoRow'
 import { TransactionParticipantRow } from '@l.x/lx/src/components/activity/details/TransactionParticipantRow'
 import { SwapTypeTransactionInfo } from '@l.x/lx/src/components/activity/details/types'
@@ -41,8 +41,8 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
 import { ExplorerDataType, getExplorerLink, openTransactionLink, openUri } from '@l.x/lx/src/utils/linking'
-import { shortenAddress, shortenHash } from 'utilities/src/addresses'
-import { setClipboard } from 'utilities/src/clipboard/clipboard'
+import { shortenAddress, shortenHash } from '@l.x/utils/src/addresses'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
 
 export function TransactionDetailsInfoRows({
   transactionDetails,

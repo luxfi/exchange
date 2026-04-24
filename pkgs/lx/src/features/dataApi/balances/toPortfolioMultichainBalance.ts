@@ -1,14 +1,14 @@
 import type { GetPortfolioResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import type { ChainBalance, MultichainBalance, ProtectionInfo } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import type { GraphQLApi, SpamCode } from '@l.x/api'
-import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
-import { type PortfolioChainBalance, type PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'
-import { buildCurrency, buildCurrencyInfo } from 'lx/src/features/dataApi/utils/buildCurrency'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { type PortfolioChainBalance, type PortfolioMultichainBalance } from '@l.x/lx/src/features/dataApi/types'
+import { buildCurrency, buildCurrencyInfo } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
 import {
   getRestCurrencySafetyInfo,
   getRestTokenSafetyInfo,
-} from 'lx/src/features/dataApi/utils/getCurrencySafetyInfo'
-import { currencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 
 /**
  * Converts API MultichainBalance (with chainBalances[]) to app PortfolioMultichainBalance.

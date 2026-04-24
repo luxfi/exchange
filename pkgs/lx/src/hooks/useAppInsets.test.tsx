@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react'
-import { useDeviceInsets } from 'ui/src/hooks/useDeviceInsets'
-import { useTestnetModeBannerHeight } from 'lx/src/features/settings/hooks'
-import { useAppInsets } from 'lx/src/hooks/useAppInsets'
+import { useDeviceInsets } from '@l.x/ui/src/hooks/useDeviceInsets'
+import { useTestnetModeBannerHeight } from '@l.x/lx/src/features/settings/hooks'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import type { MockedFunction } from 'vitest'
 
-vi.mock('ui/src/hooks/useDeviceInsets', () => ({
+vi.mock('@l.x/ui/src/hooks/useDeviceInsets', () => ({
   useDeviceInsets: vi.fn(),
 }))
-vi.mock('lx/src/features/settings/hooks', () => ({
+vi.mock('@l.x/lx/src/features/settings/hooks', () => ({
   useTestnetModeBannerHeight: vi.fn(),
 }))
 

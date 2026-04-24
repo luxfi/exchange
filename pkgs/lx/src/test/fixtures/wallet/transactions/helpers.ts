@@ -2,26 +2,26 @@ import { TransactionRequest, TransactionResponse } from '@ethersproject/provider
 import { formatEther } from '@ethersproject/units'
 import { BigNumber, providers } from 'ethers/lib/ethers'
 import merge from 'lodash/merge'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { finalizeTransaction } from 'lx/src/features/transactions/slice'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { finalizeTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   ClassicTransactionDetails,
   TransactionReceipt,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   ethersTransactionReceipt,
   ethersTransactionRequest,
   ethersTransactionResponse,
-} from 'lx/src/test/fixtures/lib/ethers'
+} from '@l.x/lx/src/test/fixtures/lib/ethers'
 import {
   finalizedTransactionAction,
   finalizedTransactionDetails,
   transactionDetails,
   transactionReceipt,
-} from 'lx/src/test/fixtures/wallet/transactions/fixtures'
-import { faker } from 'lx/src/test/shared'
+} from '@l.x/lx/src/test/fixtures/wallet/transactions/fixtures'
+import { faker } from '@l.x/lx/src/test/shared'
 
 type TxFixtures<T extends ClassicTransactionDetails> = {
   txDetailsPending: T

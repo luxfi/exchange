@@ -23,8 +23,8 @@ import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/
 import { useSwapTxStore } from '@l.x/lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
 import type { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
 import { getPriceImpact } from '@l.x/lx/src/features/transactions/swap/utils/getPriceImpact'
-import { useIsOffline } from 'utilities/src/connection/useIsOffline'
-import { useMemoCompare } from 'utilities/src/react/hooks'
+import { useIsOffline } from '@l.x/utils/src/connection/useIsOffline'
+import { useMemoCompare } from '@l.x/utils/src/react/hooks'
 import { useStore } from 'zustand'
 
 export function getSwapWarnings({

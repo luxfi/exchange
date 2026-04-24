@@ -1,5 +1,5 @@
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { analytics, UserPropertyValue } from 'utilities/src/telemetry/analytics/analytics'
+import { analytics, UserPropertyValue } from '@l.x/utils/src/telemetry/analytics/analytics'
 
 /**
  * User properties tied to user rather than events

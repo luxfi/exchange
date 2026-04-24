@@ -28,8 +28,8 @@ vi.mock('@l.x/api', async () => {
   }
 })
 
-vi.mock('lx/src/features/chains/hooks/useEnabledChains', async () => {
-  const actual = await vi.importActual('lx/src/features/chains/hooks/useEnabledChains')
+vi.mock('@l.x/lx/src/features/chains/hooks/useEnabledChains', async () => {
+  const actual = await vi.importActual('@l.x/lx/src/features/chains/hooks/useEnabledChains')
   return {
     ...actual,
     useEnabledChains: mockUseEnabledChains,

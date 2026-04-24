@@ -1,5 +1,5 @@
 import type { FetchClient } from '@l.x/api/src/clients/base/types'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export const DATA_SERVICE_API_PATHS = {
   report: '/SubmitReport',

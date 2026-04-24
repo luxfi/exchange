@@ -13,7 +13,7 @@ import {
   useStatsigClient,
 } from '@l.x/gating/src/sdk/statsig'
 import { useEffect, useMemo, useState } from 'react'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function useFeatureFlag(flag: FeatureFlags): boolean {
   const name = getFeatureFlagName(flag)

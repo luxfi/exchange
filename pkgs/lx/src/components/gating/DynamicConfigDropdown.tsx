@@ -1,6 +1,6 @@
 import { DynamicConfigKeys, DynamicConfigs, getOverrideAdapter, useDynamicConfigValue } from '@l.x/gating'
-import { Flex, Text } from 'ui/src'
-import { ActionSheetDropdown } from 'lx/src/components/dropdowns/ActionSheetDropdown'
+import { Flex, Text } from '@l.x/ui/src'
+import { ActionSheetDropdown } from '@l.x/lx/src/components/dropdowns/ActionSheetDropdown'
 
 export function DynamicConfigDropdown({
   config,

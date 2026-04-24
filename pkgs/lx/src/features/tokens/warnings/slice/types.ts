@@ -1,5 +1,5 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TokenProtectionWarning } from 'lx/src/features/tokens/warnings/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
 
 export type SerializedTokenMap<T> = {
   [chainId: number]: {

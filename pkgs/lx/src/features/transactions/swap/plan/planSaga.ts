@@ -2,13 +2,13 @@
 import { TradingApi } from '@l.x/api'
 import ms from 'ms'
 import { call, cancel, delay, fork } from 'typed-redux-saga'
-import { TradingApiSessionClient } from 'lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { AppNotificationType, type PlanTxNotification } from 'lx/src/features/notifications/slice/types'
-import { HandledTransactionInterrupt } from 'lx/src/features/transactions/errors'
-import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { tradeRoutingToFillType } from 'lx/src/features/transactions/swap/analytics'
+import { TradingApiSessionClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { AppNotificationType, type PlanTxNotification } from '@l.x/lx/src/features/notifications/slice/types'
+import { HandledTransactionInterrupt } from '@l.x/lx/src/features/transactions/errors'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { tradeRoutingToFillType } from '@l.x/lx/src/features/transactions/swap/analytics'
 import {
   backgroundPlan,
   buildTradeFromPlanResponse,
@@ -46,15 +46,15 @@ import {
   isChained,
   planStepTypeToTradingRoute,
   requireRouting,
-} from 'lx/src/features/transactions/swap/utils/routing'
-import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
-import { tradingApiToUniverseChainId } from 'lx/src/features/transactions/swap/utils/tradingApi'
-import { TransactionStatus, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'lx/src/utils/currencyId'
-import { createMonitoredSaga } from 'lx/src/utils/saga'
-import { BackoffStrategy, retryWithBackoff } from 'utilities/src/async/retryWithBackoff'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { requireAcceptNewTrade } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { tradingApiToUniverseChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
+import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
+import { BackoffStrategy, retryWithBackoff } from '@l.x/utils/src/async/retryWithBackoff'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 /**
  * Saga for executing a plan returned from the Trading API. This plan

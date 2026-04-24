@@ -1,10 +1,10 @@
 import { type Currency, CurrencyAmount, TradeType } from '@luxamm/sdk-core'
 import { FeeAmount, Pool, Route } from '@luxamm/v3-sdk'
 import { type ClassicQuoteResponse, TradingApi } from '@l.x/api'
-import { UNI, WBTC } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { BridgeTrade, ClassicTrade } from 'lx/src/features/transactions/swap/types/trade'
-import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
+import { UNI, WBTC } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { BridgeTrade, ClassicTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { requireAcceptNewTrade } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 
 export const mockPool = new Pool(
   UNI[UniverseChainId.Mainnet],

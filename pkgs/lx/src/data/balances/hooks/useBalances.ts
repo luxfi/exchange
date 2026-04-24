@@ -1,8 +1,8 @@
 import { WatchQueryFetchPolicy } from '@apollo/client'
 import { useMemo } from 'react'
-import { usePortfolioBalances } from 'lx/src/features/dataApi/balances/balances'
-import { PortfolioBalance } from 'lx/src/features/dataApi/types'
-import { CurrencyId } from 'lx/src/types/currency'
+import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
 
 export function useBalances({
   evmAddress,

@@ -1,7 +1,7 @@
 import { LayoutAnimation, UIManager } from 'react-native'
 import { DEFAULT_LAYOUT_ANIMATION_DURATION } from '@l.x/ui/src/animations/layout/constants'
 import type { LayoutAnimationOptions } from '@l.x/ui/src/animations/layout/types'
-import { isAndroid } from 'utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 const DEFAULT_OPTIONS: Required<LayoutAnimationOptions> = {
   preset: 'easeInEaseOut',

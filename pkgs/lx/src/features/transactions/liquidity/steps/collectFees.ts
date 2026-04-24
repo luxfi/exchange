@@ -1,5 +1,5 @@
-import { OnChainTransactionFields, TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
+import { OnChainTransactionFields, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
 
 export interface CollectFeesTransactionStep extends OnChainTransactionFields {
   type: TransactionStepType.CollectFeesTransactionStep

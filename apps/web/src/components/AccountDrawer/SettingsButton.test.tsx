@@ -1,4 +1,4 @@
-import { Coins } from 'ui/src/components/icons/Coins'
+import { Coins } from '@l.x/ui/src/components/icons/Coins'
 import { SettingsButton } from '~/components/AccountDrawer/SettingsButton'
 import { render } from '~/test-utils/render'
 

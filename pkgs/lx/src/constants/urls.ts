@@ -9,9 +9,9 @@ import {
 } from '@l.x/api'
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-import { config } from 'lx/src/config'
-import { isBetaEnv, isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
-import { isWebApp } from 'utilities/src/platform'
+import { config } from '@l.x/lx/src/config'
+import { isBetaEnv, isDevEnv, isPlaywrightEnv } from '@l.x/utils/src/environment/env'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 function getComplianceApiBaseUrl(): string {
   if (isPlaywrightEnv()) {

@@ -1,5 +1,5 @@
-import { HapticFeedbackControl, NO_HAPTIC_FEEDBACK } from 'lx/src/features/settings/useHapticFeedback/types'
-import { noop } from 'utilities/src/react/noop'
+import { HapticFeedbackControl, NO_HAPTIC_FEEDBACK } from '@l.x/lx/src/features/settings/useHapticFeedback/types'
+import { noop } from '@l.x/utils/src/react/noop'
 
 export function useHapticFeedback(): HapticFeedbackControl {
   // No haptic feedback on web

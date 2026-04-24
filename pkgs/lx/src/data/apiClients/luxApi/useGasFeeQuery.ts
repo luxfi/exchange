@@ -7,11 +7,11 @@ import {
   useQueryWithImmediateGarbageCollection,
 } from '@l.x/api'
 import { FeatureFlags, getFeatureFlag, useStatsigClientStatus } from '@l.x/gating'
-import { lxUrls } from 'lx/src/constants/urls'
-import { fetchGasFeeV2 } from 'lx/src/data/apiClients/gasService/fetchGasFeeV2'
-import { LuxApiClient } from 'lx/src/data/apiClients/luxApi/LuxApiClient'
-import { getActiveGasStrategy } from 'lx/src/features/gas/utils'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { fetchGasFeeV2 } from '@l.x/lx/src/data/apiClients/gasService/fetchGasFeeV2'
+import { LuxApiClient } from '@l.x/lx/src/data/apiClients/luxApi/LuxApiClient'
+import { getActiveGasStrategy } from '@l.x/lx/src/features/gas/utils'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export function useGasFeeQuery({
   params,

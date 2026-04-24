@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { FlexProps } from 'ui/src'
-import { NotImplementedError } from 'utilities/src/errors'
+import { FlexProps } from '@l.x/ui/src'
+import { NotImplementedError } from '@l.x/utils/src/errors'
 
 export type GetHelpHeaderProps = {
   closeModal: () => void

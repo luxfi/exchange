@@ -1,5 +1,5 @@
 import { createStore, Store } from 'redux'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import reducer, {
   ApplicationState,
   DeletePasskeyModalParams,

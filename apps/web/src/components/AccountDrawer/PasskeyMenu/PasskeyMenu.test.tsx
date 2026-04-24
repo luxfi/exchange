@@ -8,14 +8,14 @@ afterAll(() => {
 
 import { fireEvent, waitFor } from '@testing-library/react'
 import type { PropsWithChildren, ReactNode } from 'react'
-import { getPrivyEnums, listAuthenticators } from 'lx/src/features/passkey/embeddedWallet'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { getPrivyEnums, listAuthenticators } from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import PasskeyMenu from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
 import { useEmbeddedWalletState } from '~/state/embeddedWallet/store'
 import { render, screen } from '~/test-utils/render'
 
-vi.mock('lx/src/features/passkey/embeddedWallet', () => ({
+vi.mock('@l.x/lx/src/features/passkey/embeddedWallet', () => ({
   listAuthenticators: vi.fn(),
   authenticateWithPasskey: vi.fn(),
   getPrivyEnums: vi.fn(),

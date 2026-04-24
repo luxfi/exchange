@@ -1,4 +1,4 @@
-import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import type { PresetPercentage } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
 
 const PRESET_MAX = 100
 export const PRESET_PERCENTAGES: PresetPercentage[] = [25, 50, 75, 100]

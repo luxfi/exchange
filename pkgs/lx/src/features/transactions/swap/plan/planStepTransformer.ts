@@ -1,17 +1,17 @@
 import { TradingApi } from '@l.x/api'
-import { createApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
-import { createPermit2SignatureStep } from 'lx/src/features/transactions/steps/permit2Signature'
-import { TransactionStep } from 'lx/src/features/transactions/steps/types'
-import { PlanValidationError } from 'lx/src/features/transactions/swap/plan/types'
-import { parseSendCallsPlanStepPayload } from 'lx/src/features/transactions/swap/plan/utils'
-import { createLXPlanSignatureStep } from 'lx/src/features/transactions/swap/steps/signOrder'
+import { createApprovalTransactionStep } from '@l.x/lx/src/features/transactions/steps/approve'
+import { createPermit2SignatureStep } from '@l.x/lx/src/features/transactions/steps/permit2Signature'
+import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
+import { PlanValidationError } from '@l.x/lx/src/features/transactions/swap/plan/types'
+import { parseSendCallsPlanStepPayload } from '@l.x/lx/src/features/transactions/swap/plan/utils'
+import { createLXPlanSignatureStep } from '@l.x/lx/src/features/transactions/swap/steps/signOrder'
 import {
   createSwapTransactionStep,
   createSwapTransactionStepBatched,
-} from 'lx/src/features/transactions/swap/steps/swap'
-import { isLX, planStepTypeToTradingRoute } from 'lx/src/features/transactions/swap/utils/routing'
-import { validatePermitTypeGuard, validateTransactionRequest } from 'lx/src/features/transactions/swap/utils/trade'
-import { tradingApiToUniverseChainId } from 'lx/src/features/transactions/swap/utils/tradingApi'
+} from '@l.x/lx/src/features/transactions/swap/steps/swap'
+import { isLX, planStepTypeToTradingRoute } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { validatePermitTypeGuard, validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { tradingApiToUniverseChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 
 const ERC20_APPROVE_TX_PREFIX = '0x095ea7b3'
 

@@ -1,5 +1,5 @@
 // Mock the logger to suppress debug logs during tests
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { BigNumber } from '@ethersproject/bignumber'
 import {
   CosignedPriorityOrder,
@@ -10,13 +10,13 @@ import {
   getCancelSingleParams,
 } from '@luxamm/sdk'
 import { TradingApi } from '@l.x/api'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   buildBatchCancellation,
   buildSingleCancellation,
   OrderCancellationParams,
-} from 'lx/src/features/transactions/cancel/cancelOrderFactory'
-import { createPermit2Contract } from 'lx/src/features/transactions/utils/permit2'
+} from '@l.x/lx/src/features/transactions/cancel/cancelOrderFactory'
+import { createPermit2Contract } from '@l.x/lx/src/features/transactions/utils/permit2'
 import type { Mock } from 'vitest'
 
 // Mock the luxswap-sdk functions
@@ -42,7 +42,7 @@ vi.mock('@luxamm/sdk', async (importOriginal) => {
 })
 
 // Mock the permit2 contract creation
-vi.mock('lx/src/features/transactions/utils/permit2', () => ({
+vi.mock('@l.x/lx/src/features/transactions/utils/permit2', () => ({
   createPermit2Contract: vi.fn(),
 }))
 

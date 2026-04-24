@@ -1,5 +1,5 @@
 import { GetPortfolioResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
-import { calculateTotalBalancesUsdPerChainRest } from 'lx/src/data/balances/utils'
+import { calculateTotalBalancesUsdPerChainRest } from '@l.x/lx/src/data/balances/utils'
 
 describe('calculateTotalBalancesUsdPerChainRest', () => {
   it('should calculate total balances per chain correctly', () => {

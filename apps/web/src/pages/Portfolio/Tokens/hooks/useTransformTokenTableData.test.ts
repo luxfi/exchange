@@ -1,7 +1,7 @@
 import { NetworkStatus } from '@apollo/client'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useSortedPortfolioBalancesMultichain } from 'lx/src/features/dataApi/balances/balances'
-import type { PortfolioChainBalance, PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useSortedPortfolioBalancesMultichain } from '@l.x/lx/src/features/dataApi/balances/balances'
+import type { PortfolioChainBalance, PortfolioMultichainBalance } from '@l.x/lx/src/features/dataApi/types'
 import { describe, expect, it, vi } from 'vitest'
 import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
 import { useTransformTokenTableData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
@@ -19,8 +19,8 @@ vi.mock('@l.x/gating', async (importOriginal) => ({
   FeatureFlags: { MultichainTokenUx: 'multichain_token_ux' },
 }))
 
-vi.mock('lx/src/features/dataApi/balances/balances', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/features/dataApi/balances/balances')>()
+vi.mock('@l.x/lx/src/features/dataApi/balances/balances', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/lx/src/features/dataApi/balances/balances')>()
   return {
     ...actual,
     useSortedPortfolioBalancesMultichain: vi.fn(),

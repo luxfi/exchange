@@ -11,19 +11,19 @@
 
 import '@shopify/react-native-skia/jestSetup'
 import mockRNLocalize from 'react-native-localize/mock'
-import { mockLocalizationContext } from 'lux/src/test/mocks/locale'
-import { mockSharedPersistQueryClientProvider } from 'lux/src/test/mocks/mockSharedPersistQueryClientProvider'
+import { mockLocalizationContext } from '@l.x/lx/src/test/mocks/locale'
+import { mockSharedPersistQueryClientProvider } from '@l.x/lx/src/test/mocks/mockSharedPersistQueryClientProvider'
 
 jest.mock('react-native-localize', () => mockRNLocalize)
-jest.mock('lux/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
-jest.mock('lux/src/data/apiClients/SharedPersistQueryClientProvider', () => mockSharedPersistQueryClientProvider)
+jest.mock('@l.x/lx/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
+jest.mock('@l.x/lx/src/data/apiClients/SharedPersistQueryClientProvider', () => mockSharedPersistQueryClientProvider)
 
-jest.mock('utilities/src/device/uniqueId', () => {
-  return jest.requireActual('lux/src/test/mocks/uniqueId')
+jest.mock('@l.x/utils/src/device/uniqueId', () => {
+  return jest.requireActual('@l.x/lx/src/test/mocks/uniqueId')
 })
 
-jest.mock('lux/src/data/getVersionHeader', () => {
-  return jest.requireActual('lux/src/data/getVersionHeader.web')
+jest.mock('@l.x/lx/src/data/getVersionHeader', () => {
+  return jest.requireActual('@l.x/lx/src/data/getVersionHeader.web')
 })
 
 jest.mock('@luxexchange/gating', () => {

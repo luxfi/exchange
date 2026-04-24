@@ -1,8 +1,8 @@
 import { Key } from 'react'
-import { ButtonProps, Flex, FlexProps } from 'ui/src'
-import { get200MsAnimationDelayFromIndex } from 'ui/src/theme/animations/delay200ms'
-import { AmountInputPresetsProps } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { isHoverable } from 'utilities/src/platform'
+import { ButtonProps, Flex, FlexProps } from '@l.x/ui/src'
+import { get200MsAnimationDelayFromIndex } from '@l.x/ui/src/theme/animations/delay200ms'
+import { AmountInputPresetsProps } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { isHoverable } from '@l.x/utils/src/platform'
 
 export const PRESET_BUTTON_PROPS: ButtonProps = { variant: 'default', py: '$spacing4' }
 

@@ -9,7 +9,7 @@ import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/s
 import { SwapFormState } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/types'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface UseResumePlanParams {
   planId: string

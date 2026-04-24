@@ -4,7 +4,7 @@ import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock the useSporeColors hook
-vi.mock('ui/src/hooks/useSporeColors', () => ({
+vi.mock('@l.x/ui/src/hooks/useSporeColors', () => ({
   useSporeColors: vi.fn(),
 }))
 

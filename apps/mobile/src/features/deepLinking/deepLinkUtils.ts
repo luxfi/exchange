@@ -7,9 +7,9 @@ import {
   UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM,
   UNISWAP_WALLETCONNECT_URL,
 } from 'src/features/deepLinking/constants'
-import { UNISWAP_WEB_HOSTNAME } from 'uniswap/src/constants/urls'
-import { isCurrencyIdValid } from 'uniswap/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+import { UNISWAP_WEB_HOSTNAME } from '@l.x/lx/src/constants/urls'
+import { isCurrencyIdValid } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const UNISWAP_URL_SCHEME_WIDGET = 'uniswap://widget/'
 const WALLETCONNECT_URI_SCHEME = 'wc:' // https://eips.ethereum.org/EIPS/eip-1328

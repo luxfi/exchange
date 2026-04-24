@@ -1,4 +1,4 @@
-import { DialogVisibilityId } from 'lx/src/dialog-preferences/types'
+import { DialogVisibilityId } from '@l.x/lx/src/dialog-preferences/types'
 
 /**
  * Service for managing dialog visibility preferences (e.g., "don't show again" functionality)

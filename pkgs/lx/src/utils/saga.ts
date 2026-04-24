@@ -12,10 +12,10 @@ import { useSelector } from 'react-redux'
 import { type PersistState, REHYDRATE } from 'redux-persist'
 import type { SagaIterator } from 'redux-saga'
 import { call, delay, put, race, select, take, takeEvery } from 'typed-redux-saga'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { errorToString } from 'utilities/src/errors'
-import { logger } from 'utilities/src/logger/logger'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { errorToString } from '@l.x/utils/src/errors'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const DEFAULT_TIMEOUT = 90 * 1000 // 1.5 minutes
 

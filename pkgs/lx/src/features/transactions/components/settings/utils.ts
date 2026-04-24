@@ -1,6 +1,6 @@
 import { TradingApi } from '@l.x/api'
-import type { Platform } from 'lx/src/features/platforms/types/Platform'
-import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
+import type { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import type { TransactionSettingConfig } from '@l.x/lx/src/features/transactions/components/settings/types'
 
 // Returns true if the setting is applicable to the trade routing, false otherwise
 export function getShouldSettingApplyToRouting(

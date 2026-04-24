@@ -1,8 +1,8 @@
 import { GraphQLApi } from '@l.x/api'
-import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
-import { EMPTY_NFT_ITEM, HIDDEN_NFTS_ROW } from 'lx/src/features/nfts/constants'
-import { NFTItem } from 'lx/src/features/nfts/types'
-import { NFTKeyToVisibility } from 'lx/src/features/visibility/slice'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { EMPTY_NFT_ITEM, HIDDEN_NFTS_ROW } from '@l.x/lx/src/features/nfts/constants'
+import { NFTItem } from '@l.x/lx/src/features/nfts/types'
+import { NFTKeyToVisibility } from '@l.x/lx/src/features/visibility/slice'
 
 export function formatNftItems(data: GraphQLApi.NftsTabQuery | undefined): NFTItem[] | undefined {
   const items = data?.nftBalances?.edges.flatMap((item) => item.node)

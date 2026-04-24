@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react'
-import { useFreezeWhileSubmitting } from 'lx/src/features/transactions/swap/stores/swapFormStore/hooks/useFreezeWhileSubmitting'
+import { useFreezeWhileSubmitting } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/hooks/useFreezeWhileSubmitting'
 
 describe('useFreezeWhileSubmitting', () => {
   it('should return latest value when not submitting', () => {

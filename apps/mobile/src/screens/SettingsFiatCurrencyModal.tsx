@@ -2,11 +2,11 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { SettingsListModal } from 'src/components/Settings/lists/SettingsListModal'
-import { FiatCurrency, ORDERED_CURRENCIES } from 'uniswap/src/features/fiatCurrency/constants'
-import { getFiatCurrencyCode, getFiatCurrencyName, useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
-import { setCurrentFiatCurrency } from 'uniswap/src/features/settings/slice'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useEvent } from 'utilities/src/react/hooks'
+import { FiatCurrency, ORDERED_CURRENCIES } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { getFiatCurrencyCode, getFiatCurrencyName, useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { setCurrentFiatCurrency } from '@l.x/lx/src/features/settings/slice'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function SettingsFiatCurrencyModal(): JSX.Element {
   const dispatch = useDispatch()

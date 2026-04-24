@@ -18,11 +18,11 @@ jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
 }))
 
-jest.mock('wallet/src/features/telemetry/hooks/usePortfolioDataForReporting')
-jest.mock('wallet/src/features/telemetry/utils/walletFundingDetector', () => ({
+jest.mock('@luxfi/wallet/src/features/telemetry/hooks/usePortfolioDataForReporting')
+jest.mock('@luxfi/wallet/src/features/telemetry/utils/walletFundingDetector', () => ({
   isWalletJustFunded: jest.fn(),
 }))
-jest.mock('wallet/src/features/telemetry/utils/balanceReporter')
+jest.mock('@luxfi/wallet/src/features/telemetry/utils/balanceReporter')
 
 jest.mock('@l.x/lx/src/data/balances/utils', () => ({
   ...jest.requireActual('@l.x/lx/src/data/balances/utils'),

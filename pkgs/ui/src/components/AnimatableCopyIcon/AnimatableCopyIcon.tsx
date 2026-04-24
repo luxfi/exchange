@@ -3,7 +3,7 @@ import { TransitionItem } from '@l.x/ui/src/animations/components/AnimatePresenc
 import { CheckmarkCircle } from '@l.x/ui/src/components/icons/CheckmarkCircle'
 import { CopySheets } from '@l.x/ui/src/components/icons/CopySheets'
 import { Flex } from '@l.x/ui/src/components/layout'
-import { isWebApp } from 'utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export interface CopyIconProps {
   isAnimated?: boolean

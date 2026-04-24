@@ -3,18 +3,18 @@ import { expectSaga } from 'redux-saga-test-plan'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { handleSwapLink } from 'src/features/deepLinking/handleSwapLinkSaga'
 import { parseSwapLinkMobileFormatOrThrow } from 'src/features/deepLinking/parseSwapLink'
-import { DAI, UNI, USDC_UNICHAIN_SEPOLIA } from 'uniswap/src/constants/tokens'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { signerMnemonicAccount } from 'wallet/src/test/fixtures'
+import { DAI, UNI, USDC_UNICHAIN_SEPOLIA } from '@l.x/lx/src/constants/tokens'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
 jest.mock('src/app/navigation/rootNavigation', () => ({
   navigate: jest.fn(),
 }))
 
-jest.mock('uniswap/src/features/settings/saga', () => ({
+jest.mock('@l.x/lx/src/features/settings/saga', () => ({
   *getEnabledChainIdsSaga(
     _platform?: Platform,
   ): Generator<undefined, { isTestnetModeEnabled: boolean; chains: never[]; defaultChainId: number }> {

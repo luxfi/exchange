@@ -1,11 +1,11 @@
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-import { BridgedAssetTDPSection } from 'uniswap/src/components/BridgedAsset/BridgedAssetTDPSection'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { useEvent } from 'utilities/src/react/hooks'
-import { useWalletNavigation } from 'wallet/src/contexts/WalletNavigationContext'
+import { BridgedAssetTDPSection } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetTDPSection'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 
 export function TokenDetailsBridgedAssetSection(): JSX.Element | null {
   const { currencyId, chainId, address } = useTokenDetailsContext()

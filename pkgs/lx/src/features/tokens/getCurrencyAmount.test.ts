@@ -1,7 +1,7 @@
 import { CurrencyAmount } from '@luxamm/sdk-core'
-import { DAI } from 'lx/src/constants/tokens'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { noOpFunction } from 'utilities/src/test/utils'
+import { DAI } from '@l.x/lx/src/constants/tokens'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { noOpFunction } from '@l.x/utils/src/test/utils'
 
 const ZERO_DAI = CurrencyAmount.fromRawAmount(DAI, '0')
 const ONE_DAI = CurrencyAmount.fromRawAmount(DAI, '1000000000000000000')

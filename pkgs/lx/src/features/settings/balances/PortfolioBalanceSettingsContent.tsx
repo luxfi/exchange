@@ -1,15 +1,15 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { Flex, Switch, Text, TouchableArea } from 'ui/src'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { Flex, Switch, Text, TouchableArea } from '@l.x/ui/src'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import {
   useHideReportedActivitySetting,
   useHideSmallBalancesSetting,
   useHideSpamTokensSetting,
-} from 'lx/src/features/settings/hooks'
-import { setHideReportedActivity, setHideSmallBalances, setHideSpamTokens } from 'lx/src/features/settings/slice'
-import { isWebApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/settings/hooks'
+import { setHideReportedActivity, setHideSmallBalances, setHideSpamTokens } from '@l.x/lx/src/features/settings/slice'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 // avoids rendering during animation which makes it laggy
 // set to a bit above the Switch animation "simple" which is 80ms

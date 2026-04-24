@@ -1,4 +1,4 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { getEffectiveListTokensOptions, type UseListTokensOptions } from '~/state/explore/listTokens/types'
 import { useBackendSortedListTokens } from '~/state/explore/listTokens/useBackendSortedListTokens'
 import { useTopTokensLegacy } from '~/state/explore/listTokens/useTopTokensLegacy'

@@ -1,10 +1,10 @@
-import { Accordion, Flex } from 'ui/src'
-import { SwapFormButton } from 'lx/src/features/transactions/swap/components/SwapFormButton/SwapFormButton'
-import { ExpandableRows } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/ExpandableRows'
-import { SwapFormScreenFooter } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/SwapFormScreenFooter'
-import { SwapFormWarningModals } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormWarningModals/SwapFormWarningModals'
-import { useSwapFormScreenStore } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
-import { SwapFormWarningStoreContextProvider } from 'lx/src/features/transactions/swap/form/stores/swapFormWarningStore/SwapFormWarningStoreContextProvider'
+import { Accordion, Flex } from '@l.x/ui/src'
+import { SwapFormButton } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/SwapFormButton'
+import { ExpandableRows } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/ExpandableRows'
+import { SwapFormScreenFooter } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/SwapFormScreenFooter'
+import { SwapFormWarningModals } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormWarningModals/SwapFormWarningModals'
+import { useSwapFormScreenStore } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
+import { SwapFormWarningStoreContextProvider } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormWarningStore/SwapFormWarningStoreContextProvider'
 
 export function SwapFormScreenDetails(): JSX.Element {
   const { tokenColor, showFooter } = useSwapFormScreenStore((state) => ({

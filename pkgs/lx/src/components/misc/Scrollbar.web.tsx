@@ -1,6 +1,6 @@
 import { useState, useSyncExternalStore } from 'react'
-import { Flex, FlexProps } from 'ui/src'
-import type { SharedValue } from 'ui/src/animations'
+import { Flex, FlexProps } from '@l.x/ui/src'
+import type { SharedValue } from '@l.x/ui/src/animations'
 
 type ScrollbarProps = FlexProps & {
   visibleHeight: number

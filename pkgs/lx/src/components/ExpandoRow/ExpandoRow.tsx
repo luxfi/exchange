@@ -1,7 +1,7 @@
 import type { Animated } from 'react-native'
-import { Flex, GetThemeValueForKey, Separator, Text, TouchableArea, useLayoutAnimationOnChange } from 'ui/src'
-import { ChevronsIn } from 'ui/src/components/icons/ChevronsIn'
-import { ChevronsOut } from 'ui/src/components/icons/ChevronsOut'
+import { Flex, GetThemeValueForKey, Separator, Text, TouchableArea, useLayoutAnimationOnChange } from '@l.x/ui/src'
+import { ChevronsIn } from '@l.x/ui/src/components/icons/ChevronsIn'
+import { ChevronsOut } from '@l.x/ui/src/components/icons/ChevronsOut'
 
 export type ExpandoRowProps = {
   isExpanded: boolean

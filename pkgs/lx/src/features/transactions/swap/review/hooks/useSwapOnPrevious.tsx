@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux'
 import {
   TransactionScreen,
   useTransactionModalContext,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { interruptTransactionFlow } from 'lx/src/utils/saga'
-import { isWebApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { interruptTransactionFlow } from '@l.x/lx/src/utils/saga'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export function useSwapOnPrevious(): {
   onPrev: () => void

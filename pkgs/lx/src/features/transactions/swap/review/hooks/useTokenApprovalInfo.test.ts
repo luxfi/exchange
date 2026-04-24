@@ -1,14 +1,14 @@
 import { renderHook } from '@testing-library/react'
 import { CurrencyAmount, Token } from '@luxamm/sdk-core'
 import { FeeType, GasEstimate, TradingApi } from '@l.x/api'
-import { DAI, USDC } from 'lx/src/constants/tokens'
-import { useCheckApprovalQuery } from 'lx/src/data/apiClients/tradingApi/useCheckApprovalQuery'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/consts'
-import type { TokenApprovalInfoParams } from 'lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
-import { useTokenApprovalInfo } from 'lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
-import { ApprovalAction } from 'lx/src/features/transactions/swap/types/trade'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { DAI, USDC } from '@l.x/lx/src/constants/tokens'
+import { useCheckApprovalQuery } from '@l.x/lx/src/data/apiClients/tradingApi/useCheckApprovalQuery'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { DEFAULT_GAS_STRATEGY } from '@l.x/lx/src/features/gas/consts'
+import type { TokenApprovalInfoParams } from '@l.x/lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
+import { useTokenApprovalInfo } from '@l.x/lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
+import { ApprovalAction } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
 import type { Mock } from 'vitest'
 
 const { mockLogger } = vi.hoisted(() => ({
@@ -21,10 +21,10 @@ const { mockLogger } = vi.hoisted(() => ({
   },
 }))
 
-vi.mock('utilities/src/logger/logger', () => ({
+vi.mock('@l.x/utils/src/logger/logger', () => ({
   logger: mockLogger,
 }))
-vi.mock('lx/src/data/apiClients/tradingApi/useCheckApprovalQuery')
+vi.mock('@l.x/lx/src/data/apiClients/tradingApi/useCheckApprovalQuery')
 const mockUseCheckApprovalQuery = useCheckApprovalQuery as Mock
 
 describe('useTokenApprovalInfo', () => {

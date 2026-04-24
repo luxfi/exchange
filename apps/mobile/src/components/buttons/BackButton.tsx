@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { BackButtonView } from 'src/components/layout/BackButtonView'
-import { ColorTokens, TouchableArea, TouchableAreaProps } from 'ui/src'
-import { IconSizeTokens } from 'ui/src/theme'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ColorTokens, TouchableArea, TouchableAreaProps } from '@l.x/ui/src'
+import { IconSizeTokens } from '@l.x/ui/src/theme'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 type Props = {
   size?: IconSizeTokens

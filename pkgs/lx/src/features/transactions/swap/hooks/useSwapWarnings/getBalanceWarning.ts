@@ -1,8 +1,8 @@
 import { TFunction } from 'i18next'
-import { Warning, WarningAction, WarningLabel, WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { CurrencyField } from 'lx/src/types/currency'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Warning, WarningAction, WarningLabel, WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export function getBalanceWarning({
   t,

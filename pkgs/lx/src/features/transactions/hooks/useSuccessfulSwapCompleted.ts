@@ -1,15 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { selectTransactions } from 'lx/src/features/transactions/selectors'
+import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { selectTransactions } from '@l.x/lx/src/features/transactions/selectors'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { flattenObjectOfObjects } from 'utilities/src/primitives/objects'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { flattenObjectOfObjects } from '@l.x/utils/src/primitives/objects'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 const ACCEPTABLE_TIME_DIFF = 5 * ONE_SECOND_MS
 

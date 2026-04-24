@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 import { CreateNewTokenForm } from '~/pages/Liquidity/CreateAuction/components/CreateNewTokenForm'
 import { ExistingTokenForm } from '~/pages/Liquidity/CreateAuction/components/ExistingTokenForm'
 import { HookTile } from '~/pages/Liquidity/CreateAuction/components/HookTile'

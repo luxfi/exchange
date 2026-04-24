@@ -1,10 +1,10 @@
 import { CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { StyleProp, ViewStyle } from 'react-native'
-import { Flex } from 'ui/src'
-import { NoNfts } from 'ui/src/components/icons/NoNfts'
-import { BaseCard } from 'lx/src/components/BaseCard/BaseCard'
-import { isExtensionApp } from 'utilities/src/platform'
+import { Flex } from '@l.x/ui/src'
+import { NoNfts } from '@l.x/ui/src/components/icons/NoNfts'
+import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 interface NftsListEmptyStateProps {
   containerStyle?: StyleProp<ViewStyle | CSSProperties | (ViewStyle & CSSProperties)>

@@ -4,7 +4,7 @@ import {
   MAX_HEX_STRING_LENGTH,
   TOKEN_AMOUNT_SIGNED_HEX_BITS,
   TOLERANCE_INDEX,
-} from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/getOutputAmountFromSwapLogAndFormData.ts/constants'
+} from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/getOutputAmountFromSwapLogAndFormData.ts/constants'
 
 /**
  *

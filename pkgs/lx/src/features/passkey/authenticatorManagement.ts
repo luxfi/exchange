@@ -4,7 +4,7 @@ import type {
   RecoveryMethod,
   RegistrationOptions,
 } from '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb'
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
 import {
   base64ToBase64url,
   base64urlToBase64,
@@ -13,10 +13,10 @@ import {
   getDeviceSession,
   setDeviceSession,
   signWithDeviceKey,
-} from 'lx/src/features/passkey/deviceSession'
-import { authenticateWithPasskey, loadPrivyPbModule } from 'lx/src/features/passkey/embeddedWallet'
-import { authenticatePasskey, registerPasskey } from 'lx/src/features/passkey/passkey'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/passkey/deviceSession'
+import { authenticateWithPasskey, loadPrivyPbModule } from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { authenticatePasskey, registerPasskey } from '@l.x/lx/src/features/passkey/passkey'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export async function listAuthenticators(
   walletId?: string,

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import type { IndicativeTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
+import { useSwapFormStoreDerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import type { IndicativeTrade, Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
 
 // TODO: WALLL-6294
 export function useDebouncedTrade(): Trade | IndicativeTrade | undefined {

@@ -1,8 +1,8 @@
 import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import type { TFunction } from 'i18next'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { uniswapUrls } from '@l.x/lx/src/constants/urls'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TimePeriod } from '~/appGraphql/data/util'
 import {
   sortMultichainTokenByVolume,

@@ -1,11 +1,11 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { FetchError, is401Error } from '@l.x/api'
-import { AppTFunction } from 'ui/src/i18n/types'
-import { lxUrls } from 'lx/src/constants/urls'
-import { TokenApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
-import { TokenRevocationTransactionStep } from 'lx/src/features/transactions/steps/revoke'
-import { TransactionStep, TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { isWebApp } from 'utilities/src/platform'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { TokenApprovalTransactionStep } from '@l.x/lx/src/features/transactions/steps/approve'
+import { TokenRevocationTransactionStep } from '@l.x/lx/src/features/transactions/steps/revoke'
+import { TransactionStep, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 /** Superclass used to differentiate categorized/known transaction errors from generic/unknown errors. */
 export abstract class TransactionError extends Error {}

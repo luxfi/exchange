@@ -10,9 +10,9 @@ import {
   useShadowPropsMedium,
   VisuallyHidden,
   WebBottomSheet,
-} from 'ui/src'
-import { INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@l.x/ui/src'
+import { INTERFACE_NAV_HEIGHT, zIndexes } from '@l.x/ui/src/theme'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { useOnClickOutside } from '~/hooks/useOnClickOutside'
 

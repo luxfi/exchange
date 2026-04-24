@@ -42,7 +42,7 @@ module.exports = {
                 name: 'gui',
                 importNames: ['Tooltip'],
                 message:
-                  "Do not import 'Tooltip' directly from '@hanzo/gui'. Use the Tooltip component from 'ui/src/components/tooltip' instead.",
+                  "Do not import 'Tooltip' directly from '@hanzo/gui'. Use the Tooltip component from '@l.x/ui/src/components/tooltip' instead.",
               },
             ],
           },
@@ -120,7 +120,7 @@ module.exports = {
                 name: 'gui',
                 importNames: ['Tooltip'],
                 message:
-                  "Do not import 'Tooltip' directly from '@hanzo/gui'. Use the Tooltip component from 'ui/src/components/tooltip' instead.",
+                  "Do not import 'Tooltip' directly from '@hanzo/gui'. Use the Tooltip component from '@l.x/ui/src/components/tooltip' instead.",
               },
               {
                 name: 'react-native-reanimated',

@@ -1,6 +1,6 @@
 import { getStatsigClient } from '@l.x/gating'
 import { useEffect } from 'react'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Custom identifier keys for Statsig user.

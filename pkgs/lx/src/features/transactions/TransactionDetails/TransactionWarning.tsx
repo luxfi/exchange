@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { TouchableArea } from 'ui/src'
-import { InlineWarningCard } from 'lx/src/components/InlineWarningCard/InlineWarningCard'
-import { Warning, WarningLabel } from 'lx/src/components/modals/WarningModal/types'
+import { TouchableArea } from '@l.x/ui/src'
+import { InlineWarningCard } from '@l.x/lx/src/components/InlineWarningCard/InlineWarningCard'
+import { Warning, WarningLabel } from '@l.x/lx/src/components/modals/WarningModal/types'
 
 export const TransactionWarning = ({
   warning,

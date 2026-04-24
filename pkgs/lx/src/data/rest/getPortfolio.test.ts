@@ -1,6 +1,6 @@
-import { doesGetPortfolioQueryMatchAddress } from 'lx/src/data/rest/getPortfolio'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { doesGetPortfolioQueryMatchAddress } from '@l.x/lx/src/data/rest/getPortfolio'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 const TEST_EVM_ADDRESS_1 = '0x1234567890123456789012345678901234567890'
 const TEST_EVM_ADDRESS_2 = '0xabcdefabcdefabcdefabcdefabcdefabcdefabcd'

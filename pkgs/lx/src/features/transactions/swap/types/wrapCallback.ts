@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { GasEstimate } from '@l.x/api'
-import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
 
 export type WrapCallbackParams = {
   address: string

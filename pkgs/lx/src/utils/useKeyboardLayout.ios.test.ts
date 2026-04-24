@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react'
 import { DeviceEventEmitter, Dimensions, EmitterSubscription } from 'react-native'
 import { act } from 'react-test-renderer'
-import { useKeyboardLayout } from 'lx/src/utils/useKeyboardLayout'
+import { useKeyboardLayout } from '@l.x/lx/src/utils/useKeyboardLayout'
 
 // Mock Keyboard to use DeviceEventEmitter for event handling (react-native-web's Keyboard is a no-op)
 vi.mock('react-native', async (importOriginal) => {
@@ -26,8 +26,8 @@ const HIDDEN_KEYBOARD_Y = Dimensions.get('window').height
 const SHOWN_KEYBOARD_Y = HIDDEN_KEYBOARD_Y - KEYBOARD_HEIGHT
 
 // Use native useKeyboardLayout implementation
-vi.mock('lx/src/utils/useKeyboardLayout', async (importOriginal) => {
-  return await vi.importActual('lx/src/utils/useKeyboardLayout.native.ts')
+vi.mock('@l.x/lx/src/utils/useKeyboardLayout', async (importOriginal) => {
+  return await vi.importActual('@l.x/lx/src/utils/useKeyboardLayout.native.ts')
 })
 
 const showKeyboard = async (): Promise<void> => {

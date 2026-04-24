@@ -1,4 +1,4 @@
-import { TextProps } from 'ui/src/components/text/Text'
+import { TextProps } from '@l.x/ui/src/components/text/Text'
 
 export const ActionButtonStyle = {
   display: 'flex',

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { DatePickerCard } from '~/pages/Liquidity/CreateAuction/components/DatePickerCard'
 import { StepperCard } from '~/pages/Liquidity/CreateAuction/components/StepperCard'
 

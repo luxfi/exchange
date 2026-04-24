@@ -1,12 +1,12 @@
 import { TradingApi } from '@l.x/api'
 import { useEffect, useMemo } from 'react'
-import { TransactionAndPlanStep } from 'lx/src/features/transactions/swap/plan/planStepTransformer'
+import { TransactionAndPlanStep } from '@l.x/lx/src/features/transactions/swap/plan/planStepTransformer'
 import {
   ActivePlanState,
   activePlanStore,
-} from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { useSwapReviewActions } from 'lx/src/features/transactions/swap/review/stores/swapReviewStore/useSwapReviewStore'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { useSwapReviewActions } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewStore/useSwapReviewStore'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'
 

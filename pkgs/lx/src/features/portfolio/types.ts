@@ -1,4 +1,4 @@
-import { CurrencyId } from 'lx/src/types/currency'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
 
 export const HIDDEN_TOKEN_BALANCES_ROW = 'HIDDEN_TOKEN_BALANCES_ROW' as const
 

@@ -2,27 +2,27 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { JsonRpcProvider, TransactionReceipt } from '@ethersproject/providers'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
-import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { updateTransactionWithoutWatch } from 'lx/src/features/transactions/slice'
-import { getOutputAmountUsingSwapLogAndFormData } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/getOutputAmountFromSwapLogAndFormData.ts/getOutputAmountFromSwapLogAndFormData'
+import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { updateTransactionWithoutWatch } from '@l.x/lx/src/features/transactions/slice'
+import { getOutputAmountUsingSwapLogAndFormData } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/getOutputAmountFromSwapLogAndFormData.ts/getOutputAmountFromSwapLogAndFormData'
 import {
   logSwapTransactionCompleted,
   NO_OUTPUT_ERROR,
   reportOutputAmount,
-} from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/receiptFetching/utils'
-import { getOutputAmountUsingOutputTransferLog } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
-import { useSwapDependenciesStore } from 'lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+} from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/receiptFetching/utils'
+import { getOutputAmountUsingOutputTransferLog } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
+import { useSwapDependenciesStore } from '@l.x/lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { receiptFromEthersReceipt } from 'lx/src/features/transactions/utils/receipt'
-import { CurrencyField } from 'lx/src/types/currency'
-import { isWebApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { receiptFromEthersReceipt } from '@l.x/lx/src/features/transactions/utils/receipt'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 interface ReceiptSuccessParams {
   receipt: TransactionReceipt

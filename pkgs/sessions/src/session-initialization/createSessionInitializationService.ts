@@ -5,7 +5,7 @@ import {
   NoSolverAvailableError,
 } from '@l.x/sessions/src/session-initialization/sessionErrors'
 import type { SessionService } from '@l.x/sessions/src/session-service/types'
-import type { Logger } from 'utilities/src/logger/logger'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 
 interface SessionInitResult {
   sessionId: string | null

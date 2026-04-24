@@ -1,6 +1,6 @@
-import type { CurrencyField } from 'lx/src/types/currency'
-import { usePrevious } from 'utilities/src/react/hooks'
-import { useDebounceWithStatus } from 'utilities/src/time/timing'
+import type { CurrencyField } from '@l.x/lx/src/types/currency'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
+import { useDebounceWithStatus } from '@l.x/utils/src/time/timing'
 
 const SWAP_FORM_DEBOUNCE_TIME_MS = 250
 

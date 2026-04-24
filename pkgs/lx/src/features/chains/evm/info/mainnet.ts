@@ -2,9 +2,9 @@ import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@luxfi/api'
 import { SwapConfigKey } from '@luxfi/gating'
-import { ETH_LOGO, ETHEREUM_LOGO } from 'ui/src/assets'
-import { config } from 'lx/src/config'
-import { CHAIN_ID_TO_URL_PARAM } from 'lx/src/features/chains/chainUrlParam'
+import { ETH_LOGO, ETHEREUM_LOGO } from '@l.x/ui/src/assets'
+import { config } from '@l.x/lx/src/config'
+import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
 import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS_LEGACY,
@@ -22,9 +22,9 @@ import {
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { buildDAI, buildUSDC, buildUSDT } from '@l.x/lx/src/features/tokens/stablecoin'
-import { isPlaywrightEnv } from 'utilities/src/environment/env'
-import { isWebApp } from 'utilities/src/platform'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { isPlaywrightEnv } from '@l.x/utils/src/environment/env'
+import { isWebApp } from '@l.x/utils/src/platform'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 import { mainnet, sepolia } from 'wagmi/chains'
 
 const tokens = buildChainTokens({

@@ -22,9 +22,9 @@ vi.mock('~/pages/PoolDetails/Pools/hooks/useMultiChainPositions')
 
 vi.mock('~/hooks/useAccount')
 
-vi.mock('lx/src/contexts/LuxContext')
+vi.mock('@l.x/lx/src/contexts/LuxContext')
 
-vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext')
+vi.mock('@l.x/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext')
 
 vi.mock('~/pages/Swap', () => {
   return {

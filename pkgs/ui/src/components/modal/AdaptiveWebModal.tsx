@@ -17,7 +17,7 @@ import { RemoveScroll } from '@l.x/ui/src/components/RemoveScroll/RemoveScroll'
 import { useScrollbarStyles } from '@l.x/ui/src/styles/ScrollbarStyles'
 import { INTERFACE_NAV_HEIGHT, zIndexes } from '@l.x/ui/src/theme'
 import { useShadowPropsShort } from '@l.x/ui/src/theme/shadows'
-import { isWebApp } from 'utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export const ADAPTIVE_MODAL_ANIMATION_DURATION = 200
 

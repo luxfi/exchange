@@ -22,10 +22,10 @@ import {
   WidgetUrlResponse,
 } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { config } from 'lx/src/config'
-import { ForApiClient } from 'lx/src/data/apiClients/forApi/ForApiClient'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { ONE_HOUR_MS, ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { config } from '@l.x/lx/src/config'
+import { ForApiClient } from '@l.x/lx/src/data/apiClients/forApi/ForApiClient'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { ONE_HOUR_MS, ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 
 /**
  * Returns whether sessions are ready for FOR API requests.

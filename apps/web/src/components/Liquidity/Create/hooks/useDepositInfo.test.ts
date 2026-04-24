@@ -21,7 +21,7 @@ vi.mock('~/components/Liquidity/Create/hooks/useNativeTokenPercentageBufferExper
   useNativeTokenPercentageBufferExperiment: vi.fn(),
 }))
 
-vi.mock('lx/src/features/portfolio/api', async (importOriginal) => ({
+vi.mock('@l.x/lx/src/features/portfolio/api', async (importOriginal) => ({
   ...(await importOriginal()),
   useOnChainCurrencyBalance: vi.fn(),
 }))
@@ -31,12 +31,12 @@ vi.mock('@l.x/gating', async (importOriginal) => ({
   useDynamicConfigValue: vi.fn(),
 }))
 
-vi.mock('lx/src/features/gas/hooks/useMaxAmountSpend', async (importOriginal) => ({
+vi.mock('@l.x/lx/src/features/gas/hooks/useMaxAmountSpend', async (importOriginal) => ({
   ...(await importOriginal()),
   useMaxAmountSpend: vi.fn(),
 }))
 
-vi.mock('lx/src/features/transactions/hooks/useUSDCPriceWrapper', async (importOriginal) => ({
+vi.mock('@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper', async (importOriginal) => ({
   ...(await importOriginal()),
   useUSDCValue: vi.fn(),
 }))

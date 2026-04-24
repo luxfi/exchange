@@ -1,4 +1,4 @@
-import { config, TamaguiGroupNames } from 'ui/src/tamagui.config'
+import { config, TamaguiGroupNames } from '@l.x/ui/src/tamagui.config'
 
 type Conf = typeof config
 

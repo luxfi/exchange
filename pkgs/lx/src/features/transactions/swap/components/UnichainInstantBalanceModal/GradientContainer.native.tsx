@@ -1,9 +1,9 @@
 import { BlurView } from 'expo-blur'
 import { useEffect, useMemo } from 'react'
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated'
-import { Flex } from 'ui/src'
-import { GradientContainerProps } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/GradientContainer'
-import { useBackgroundColor } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/useBackgroundColor'
+import { Flex } from '@l.x/ui/src'
+import { GradientContainerProps } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/GradientContainer'
+import { useBackgroundColor } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/useBackgroundColor'
 
 export function GradientContainer({ toTokenColor, children }: GradientContainerProps): JSX.Element {
   const backgroundColor = useBackgroundColor()

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Flex, styled, Text, TouchableArea } from 'ui/src'
+import { Flex, styled, Text, TouchableArea } from '@l.x/ui/src'
 import { Dropdown } from '~/components/Dropdowns/Dropdown'
 import { ActionButtonStyle } from '~/components/Explore/stickyHeader/HeaderActions/ActionButtonStyle'
 import { HeaderActionRowContent } from '~/components/Explore/stickyHeader/HeaderActions/HeaderActionRowContent'

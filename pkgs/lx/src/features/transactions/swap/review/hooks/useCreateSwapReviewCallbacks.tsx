@@ -1,28 +1,28 @@
 import { TradingApi } from '@l.x/api'
 import { useCallback } from 'react'
 // biome-ignore lint/style/noRestrictedImports: only using to keep a consistent timing on interface
-import { ADAPTIVE_MODAL_ANIMATION_DURATION } from 'ui/src/components/modal/AdaptiveWebModal'
-import type { ParsedWarnings } from 'lx/src/components/modals/WarningModal/types'
-import type { AuthTrigger } from 'lx/src/features/auth/types'
-import { TransactionScreen } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import type { TransactionStep } from 'lx/src/features/transactions/steps/types'
-import { shouldShowFlashblocksUI } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
-import { useIsUnichainFlashblocksEnabled } from 'lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
+import { ADAPTIVE_MODAL_ANIMATION_DURATION } from '@l.x/ui/src/components/modal/AdaptiveWebModal'
+import type { ParsedWarnings } from '@l.x/lx/src/components/modals/WarningModal/types'
+import type { AuthTrigger } from '@l.x/lx/src/features/auth/types'
+import { TransactionScreen } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import type { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
+import { shouldShowFlashblocksUI } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
+import { useIsUnichainFlashblocksEnabled } from '@l.x/lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
 import {
   ensureFreshSwapTxData,
   useSwapParams,
   useSwapTxAndGasInfoService,
-} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/hooks'
-import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import type { GetExecuteSwapService } from 'lx/src/features/transactions/swap/services/executeSwapService'
-import { useSwapDependenciesStore } from 'lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
-import type { SwapFormState } from 'lx/src/features/transactions/swap/stores/swapFormStore/types'
-import type { SetCurrentStepFn } from 'lx/src/features/transactions/swap/types/swapCallback'
-import { createTransactionId } from 'lx/src/utils/createTransactionId'
-import { tryCatch } from 'utilities/src/errors'
-import { logger } from 'utilities/src/logger/logger'
-import { isWebApp } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/hooks'
+import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import type { GetExecuteSwapService } from '@l.x/lx/src/features/transactions/swap/services/executeSwapService'
+import { useSwapDependenciesStore } from '@l.x/lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
+import type { SwapFormState } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/types'
+import type { SetCurrentStepFn } from '@l.x/lx/src/features/transactions/swap/types/swapCallback'
+import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
+import { tryCatch } from '@l.x/utils/src/errors'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isWebApp } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 interface SwapReviewCallbacks {
   onSwapButtonClick: () => Promise<void>

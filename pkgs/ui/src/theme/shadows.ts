@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import type { FlexProps } from '@l.x/ui/src/components/layout'
 import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
 import { colors, colorsDark, opacify } from '@l.x/ui/src/theme/color'
-import { isWebApp } from 'utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 type ShadowProps = Pick<FlexProps, 'shadowColor' | 'shadowOffset' | 'shadowRadius' | '$platform-web'>
 

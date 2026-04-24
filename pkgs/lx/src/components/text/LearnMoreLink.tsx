@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import type { TextProps, TouchableAreaProps, TouchableTextLinkProps } from 'ui/src'
-import { Button, TouchableTextLink } from 'ui/src'
-import { openUri } from 'lx/src/utils/linking'
-import { isWebPlatform } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+import type { TextProps, TouchableAreaProps, TouchableTextLinkProps } from '@l.x/ui/src'
+import { Button, TouchableTextLink } from '@l.x/ui/src'
+import { openUri } from '@l.x/lx/src/utils/linking'
+import { isWebPlatform } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 const onPressLearnMore = (uri: string): Promise<void> => openUri({ uri })
 

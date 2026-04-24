@@ -7,17 +7,17 @@ import { AppStackParamList, OnboardingStackParamList } from 'src/app/navigation/
 import { BackupScreen } from 'src/screens/Onboarding/BackupScreen'
 import { renderWithProviders } from 'src/test/render'
 import { render } from 'src/test/test-utils'
-import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from 'uniswap/src/types/screens/mobile'
-import { TamaguiProvider } from 'wallet/src/providers/tamagui-provider'
-import { ACCOUNT, preloadedWalletPackageState } from 'wallet/src/test/fixtures'
+import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
+import { TamaguiProvider } from '@luxfi/wallet/src/providers/tamagui-provider'
+import { ACCOUNT, preloadedWalletPackageState } from '@luxfi/wallet/src/test/fixtures'
 
-jest.mock('wallet/src/features/wallet/accounts/utils', () => ({
+jest.mock('@luxfi/wallet/src/features/wallet/accounts/utils', () => ({
   hasExternalBackup: jest.fn(),
   hasBackup: jest.fn(),
 }))
 
-jest.mock('wallet/src/features/onboarding/OnboardingContext', () => ({
+jest.mock('@luxfi/wallet/src/features/onboarding/OnboardingContext', () => ({
   useOnboardingContext: jest.fn().mockReturnValue({
     getOnboardingOrImportedAccount: jest.fn().mockReturnValue({ address: 'mockedAccountAddress' }),
   }),

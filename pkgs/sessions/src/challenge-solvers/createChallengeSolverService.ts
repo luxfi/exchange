@@ -3,7 +3,7 @@ import { createHashcashMockSolver } from '@l.x/sessions/src/challenge-solvers/cr
 import { createNoneMockSolver } from '@l.x/sessions/src/challenge-solvers/createNoneMockSolver'
 import { createTurnstileMockSolver } from '@l.x/sessions/src/challenge-solvers/createTurnstileMockSolver'
 import type { ChallengeSolver, ChallengeSolverService } from '@l.x/sessions/src/challenge-solvers/types'
-import type { Logger } from 'utilities/src/logger/logger'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 
 interface CreateChallengeSolverServiceContext {
   /**

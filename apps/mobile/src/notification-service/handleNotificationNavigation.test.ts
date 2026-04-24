@@ -18,13 +18,13 @@ jest.mock('src/app/store', () => ({
 }))
 
 const mockOpenUri = jest.fn()
-jest.mock('uniswap/src/utils/linking', () => ({
+jest.mock('@l.x/lx/src/utils/linking', () => ({
   openUri: mockOpenUri,
 }))
 
 const mockLoggerWarn = jest.fn()
 const mockLoggerError = jest.fn()
-jest.mock('utilities/src/logger/logger', () => ({
+jest.mock('@l.x/utils/src/logger/logger', () => ({
   getLogger: (): { warn: jest.Mock; error: jest.Mock } => ({
     warn: mockLoggerWarn,
     error: mockLoggerError,
@@ -50,10 +50,10 @@ describe('handleNotificationNavigation', () => {
         getState: (): unknown => mockGetState(),
       },
     }))
-    jest.doMock('uniswap/src/utils/linking', () => ({
+    jest.doMock('@l.x/lx/src/utils/linking', () => ({
       openUri: mockOpenUri,
     }))
-    jest.doMock('utilities/src/logger/logger', () => ({
+    jest.doMock('@l.x/utils/src/logger/logger', () => ({
       getLogger: (): { warn: jest.Mock; error: jest.Mock } => ({
         warn: mockLoggerWarn,
         error: mockLoggerError,

@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useUSDCValueWithStatus } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { getTradeAmounts } from 'lx/src/features/transactions/swap/utils/getTradeAmounts'
-import { isBridge } from 'lx/src/features/transactions/swap/utils/routing'
-import { FeeOnTransferFeeGroupProps } from 'lx/src/features/transactions/TransactionDetails/types'
-import { NumberType } from 'utilities/src/format/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useUSDCValueWithStatus } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { getTradeAmounts } from '@l.x/lx/src/features/transactions/swap/utils/getTradeAmounts'
+import { isBridge } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { FeeOnTransferFeeGroupProps } from '@l.x/lx/src/features/transactions/TransactionDetails/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export function useFeeOnTransferAmounts(
   acceptedDerivedSwapInfo?: DerivedSwapInfo<CurrencyInfo, CurrencyInfo>,

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Image, Text } from 'ui/src'
-import { UNICHAIN_LOGO } from 'ui/src/assets'
+import { Flex, Image, Text } from '@l.x/ui/src'
+import { UNICHAIN_LOGO } from '@l.x/ui/src/assets'
 
 const UNICHAIN_LOGO_SIZE = 14
 const UNICHAIN_LOGO_BORDER_RADIUS = 4.2

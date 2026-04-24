@@ -1,6 +1,6 @@
-import { useUnitagsUsernameQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery'
-import { useCanClaimUnitagName } from 'lx/src/features/unitags/hooks/useCanClaimUnitagName'
-import { renderHook } from 'lx/src/test/test-utils'
+import { useUnitagsUsernameQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery'
+import { useCanClaimUnitagName } from '@l.x/lx/src/features/unitags/hooks/useCanClaimUnitagName'
+import { renderHook } from '@l.x/lx/src/test/test-utils'
 import type { Mock } from 'vitest'
 
 vi.mock('react-i18next', () => ({
@@ -9,9 +9,9 @@ vi.mock('react-i18next', () => ({
   }),
 }))
 
-vi.mock('lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery', async (importOriginal) => {
+vi.mock('@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery', async (importOriginal) => {
   const originalModule =
-    await importOriginal<typeof import('lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery')>()
+    await importOriginal<typeof import('@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery')>()
   return {
     __esModule: true,
     ...originalModule,
@@ -22,7 +22,7 @@ vi.mock('lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery', async (impo
   }
 })
 
-vi.mock('lx/src/features/ens/useENS', () => ({
+vi.mock('@l.x/lx/src/features/ens/useENS', () => ({
   useENS: vi.fn((): { loading: boolean } => ({
     loading: false,
   })),

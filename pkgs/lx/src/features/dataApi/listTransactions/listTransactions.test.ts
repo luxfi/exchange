@@ -1,5 +1,5 @@
-import { useListTransactions } from 'lx/src/features/dataApi/listTransactions/listTransactions'
-import { renderHookWithProviders } from 'lx/src/test/render'
+import { useListTransactions } from '@l.x/lx/src/features/dataApi/listTransactions/listTransactions'
+import { renderHookWithProviders } from '@l.x/lx/src/test/render'
 
 // Use vi.hoisted to create mock function that can be controlled in tests
 const { mockUseListTransactionsQuery } = vi.hoisted(() => ({
@@ -7,14 +7,14 @@ const { mockUseListTransactionsQuery } = vi.hoisted(() => ({
 }))
 
 // Mock the chains hook
-vi.mock('lx/src/features/chains/hooks/useEnabledChains', () => ({
+vi.mock('@l.x/lx/src/features/chains/hooks/useEnabledChains', () => ({
   useEnabledChains: vi.fn(() => ({
     chains: [1],
   })),
 }))
 
 // Mock the REST hook with hoisted mock function
-vi.mock('lx/src/data/rest/listTransactions', () => ({
+vi.mock('@l.x/lx/src/data/rest/listTransactions', () => ({
   useListTransactionsQuery: mockUseListTransactionsQuery,
 }))
 

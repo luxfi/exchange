@@ -1,13 +1,13 @@
 import { GqlResult } from '@l.x/api'
 import { useMemo } from 'react'
-import { TokenOption } from 'lx/src/components/lists/items/types'
-import { type OnchainItemSection, OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
-import { useOnchainItemListSection } from 'lx/src/components/lists/utils'
-import { MAX_DEFAULT_TRENDING_TOKEN_RESULTS_AMOUNT } from 'lx/src/components/TokenSelector/constants'
-import { useRecentlySearchedTokens } from 'lx/src/components/TokenSelector/hooks/useRecentlySearchedTokens'
-import { useTrendingTokensOptions } from 'lx/src/components/TokenSelector/hooks/useTrendingTokensOptions'
-import { TokenSectionsHookProps } from 'lx/src/components/TokenSelector/types'
-import { ClearRecentSearchesButton } from 'lx/src/features/search/ClearRecentSearchesButton'
+import { TokenOption } from '@l.x/lx/src/components/lists/items/types'
+import { type OnchainItemSection, OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { useOnchainItemListSection } from '@l.x/lx/src/components/lists/utils'
+import { MAX_DEFAULT_TRENDING_TOKEN_RESULTS_AMOUNT } from '@l.x/lx/src/components/TokenSelector/constants'
+import { useRecentlySearchedTokens } from '@l.x/lx/src/components/TokenSelector/hooks/useRecentlySearchedTokens'
+import { useTrendingTokensOptions } from '@l.x/lx/src/components/TokenSelector/hooks/useTrendingTokensOptions'
+import { TokenSectionsHookProps } from '@l.x/lx/src/components/TokenSelector/types'
+import { ClearRecentSearchesButton } from '@l.x/lx/src/features/search/ClearRecentSearchesButton'
 
 export function useTokenSectionsForEmptySearch({
   addresses,

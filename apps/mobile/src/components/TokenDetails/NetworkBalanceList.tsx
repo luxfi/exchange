@@ -1,13 +1,13 @@
 import { memo, useMemo } from 'react'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { borderRadii, iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
-import { NumberType } from 'utilities/src/format/types'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { borderRadii, iconSizes } from '@l.x/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 interface NetworkBalanceRowProps {
   balance: PortfolioBalance

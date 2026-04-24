@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { TransactionStep } from 'lx/src/features/transactions/steps/types'
-import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { PresetPercentage } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
+import { ValidatedSwapTxContext } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 
 export type SetCurrentStepFn = (args: { step: TransactionStep; accepted: boolean }) => void
 

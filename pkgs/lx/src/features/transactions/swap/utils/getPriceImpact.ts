@@ -1,8 +1,8 @@
 import { type Currency, CurrencyAmount, Percent } from '@luxamm/sdk-core'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isClassic, isJupiter, isLX } from 'lx/src/features/transactions/swap/utils/routing'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import type { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { getSwapFeeUsdFromDerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/utils/getSwapFeeUsd'
+import { isClassic, isJupiter, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 
 function stringToUSDAmount(value: string | number | undefined, USDCurrency: Currency): Maybe<CurrencyAmount<Currency>> {
   if (!value) {

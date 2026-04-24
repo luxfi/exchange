@@ -1,12 +1,12 @@
 import { ContentStyle } from '@shopify/flash-list'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, GeneratedIcon, Text } from 'ui/src'
-import { Person } from 'ui/src/components/icons'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useSectionsForNoQuerySearch } from 'lx/src/features/search/SearchModal/hooks/useSectionsForNoQuerySearch'
-import { SearchModalList, SearchModalListProps } from 'lx/src/features/search/SearchModal/SearchModalList'
-import { SearchTab } from 'lx/src/features/search/SearchModal/types'
+import { Flex, GeneratedIcon, Text } from '@l.x/ui/src'
+import { Person } from '@l.x/ui/src/components/icons'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useSectionsForNoQuerySearch } from '@l.x/lx/src/features/search/SearchModal/hooks/useSectionsForNoQuerySearch'
+import { SearchModalList, SearchModalListProps } from '@l.x/lx/src/features/search/SearchModal/SearchModalList'
+import { SearchTab } from '@l.x/lx/src/features/search/SearchModal/types'
 
 function EmptyPretypeSection({ title, icon: Icon }: { title: string; icon: GeneratedIcon }): JSX.Element {
   return (

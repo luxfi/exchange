@@ -1,7 +1,7 @@
 import { config } from '@l.x/lx/src/config'
 
 import { RetryOptions, RPCType, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 
 /** Address that represents native currencies on ETH, Arbitrum, etc. */
 export const DEFAULT_NATIVE_ADDRESS_LEGACY = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'

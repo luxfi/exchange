@@ -31,15 +31,15 @@ vi.mock('~/hooks/useAccount', () => ({
   useAccount: vi.fn(),
 }))
 
-vi.mock('lx/src/features/wallet/hooks/useWallet', () => ({
+vi.mock('@l.x/lx/src/features/wallet/hooks/useWallet', () => ({
   useWallet: vi.fn(),
 }))
 
-vi.mock('lx/src/features/passkey/hooks/useGetPasskeyAuthStatus', () => ({
+vi.mock('@l.x/lx/src/features/passkey/hooks/useGetPasskeyAuthStatus', () => ({
   useGetPasskeyAuthStatus: vi.fn(),
 }))
 
-vi.mock('utilities/src/telemetry/trace/TraceContext', () => ({
+vi.mock('@l.x/utils/src/telemetry/trace/TraceContext', () => ({
   useTrace: vi.fn(),
 }))
 
@@ -51,11 +51,11 @@ import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
-import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useGetPasskeyAuthStatus } from 'lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { LPTransactionSettingsStoreContextProvider } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
+import { DAI, USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useGetPasskeyAuthStatus } from '@l.x/lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { LPTransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
+import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
 import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { useCurrencyInfo } from '~/hooks/Tokens'
 import { useAccount } from '~/hooks/useAccount'

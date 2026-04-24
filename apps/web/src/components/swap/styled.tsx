@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { Flex, styled, Text } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
+import { Flex, styled, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
 
 export const PAGE_WRAPPER_MAX_WIDTH = 480
 

@@ -17,7 +17,7 @@ export default defineConfig({
       '@l.x/exchange': path.resolve(__dirname, '../../pkgs/exchange/src'),
       '@l.x/config': path.resolve(__dirname, '../../pkgs/config/src'),
       '@l.x/config/src': path.resolve(__dirname, '../../pkgs/config/src'),
-      'utilities/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
+      '@l.x/utils/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
     },
   },
 })

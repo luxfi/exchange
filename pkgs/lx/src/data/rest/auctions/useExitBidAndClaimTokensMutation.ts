@@ -4,7 +4,7 @@ import type {
   ExitBidAndClaimTokensRequest,
   ExitBidAndClaimTokensResponse,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
-import { AuctionMutationClient } from 'lx/src/data/apiClients/liquidityService/AuctionMutationClient'
+import { AuctionMutationClient } from '@l.x/lx/src/data/apiClients/liquidityService/AuctionMutationClient'
 
 /**
  * Hook to exit bid positions and claim auction tokens in a single transaction.

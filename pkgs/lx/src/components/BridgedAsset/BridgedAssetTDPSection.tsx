@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { InfoCircle } from 'ui/src/components/icons/InfoCircle'
-import { OneToOne } from 'ui/src/components/icons/OneToOne'
-import { getChainLabel } from 'lx/src/features/chains/utils'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { InfoCircle } from '@l.x/ui/src/components/icons/InfoCircle'
+import { OneToOne } from '@l.x/ui/src/components/icons/OneToOne'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 
 export function BridgedAssetTDPSection({
   currencyInfo,

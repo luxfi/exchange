@@ -11,7 +11,7 @@ const { mockLogger } = vi.hoisted(() => ({
   },
 }))
 
-vi.mock('utilities/src/logger/logger', () => ({
+vi.mock('@l.x/utils/src/logger/logger', () => ({
   logger: mockLogger,
 }))
 

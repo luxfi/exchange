@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { setPreventLock } from 'src/features/lockScreen/lockScreenSlice'
-import { waitFrame } from 'utilities/src/react/delayUtils'
-import { useEvent } from 'utilities/src/react/hooks'
+import { waitFrame } from '@l.x/utils/src/react/delayUtils'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 /**
  * Custom hook to prevent the app from entering a background state when calling a function.

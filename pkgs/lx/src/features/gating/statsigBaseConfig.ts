@@ -1,5 +1,5 @@
 import { getOverrideAdapter, getStatsigEnvName, StatsigOptions } from '@l.x/gating'
-import { lxUrls } from 'lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 
 export const statsigBaseConfig: StatsigOptions = {
   networkConfig: { api: lxUrls.statsigProxyUrl },

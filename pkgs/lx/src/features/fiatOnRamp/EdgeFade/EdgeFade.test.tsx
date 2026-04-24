@@ -1,6 +1,6 @@
-import { EdgeFade as MobileEdgeFade } from 'lx/src/features/fiatOnRamp/EdgeFade/EdgeFade.native'
-import { EdgeFade as WebEdgeFade } from 'lx/src/features/fiatOnRamp/EdgeFade/EdgeFade.web'
-import { render } from 'lx/src/test/test-utils'
+import { EdgeFade as MobileEdgeFade } from '@l.x/lx/src/features/fiatOnRamp/EdgeFade/EdgeFade.native'
+import { EdgeFade as WebEdgeFade } from '@l.x/lx/src/features/fiatOnRamp/EdgeFade/EdgeFade.web'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 describe('EdgeFade', () => {
   const leftProps = {

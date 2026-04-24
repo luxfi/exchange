@@ -1,12 +1,12 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { FeeType, GasFeeResult } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
-import { TRANSACTION_CANCELLATION_GAS_FACTOR } from 'lx/src/constants/transactions'
-import { FeeDetails, getAdjustedGasFeeDetails } from 'lx/src/features/gas/adjustGasFee'
-import { CancellationGasFeeDetails } from 'lx/src/features/gas/hooks'
-import { isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
-import { TransactionDetails, LXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
+import { TRANSACTION_CANCELLATION_GAS_FACTOR } from '@l.x/lx/src/constants/transactions'
+import { FeeDetails, getAdjustedGasFeeDetails } from '@l.x/lx/src/features/gas/adjustGasFee'
+import { CancellationGasFeeDetails } from '@l.x/lx/src/features/gas/hooks'
+import { isClassic, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { TransactionDetails, LXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export const CANCELLATION_TX_VALUE = '0x0'
 

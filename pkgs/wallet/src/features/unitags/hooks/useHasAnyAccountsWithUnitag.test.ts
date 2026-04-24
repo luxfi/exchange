@@ -3,7 +3,7 @@ import { useHasAnyAccountsWithUnitag } from '@luxfi/wallet/src/features/unitags/
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { renderHook } from '@luxfi/wallet/src/test/test-utils'
 
-jest.mock('wallet/src/features/wallet/hooks', () => ({
+jest.mock('@luxfi/wallet/src/features/wallet/hooks', () => ({
   useSignerAccounts: jest.fn(),
   useActiveAccount: jest.fn().mockReturnValue(undefined),
 }))

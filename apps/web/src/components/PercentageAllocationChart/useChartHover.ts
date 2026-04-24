@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useEvent } from 'utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function useChartHover(): {
   hoveredItemId: string | null

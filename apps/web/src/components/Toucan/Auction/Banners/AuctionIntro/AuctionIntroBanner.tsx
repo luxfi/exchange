@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea, useMedia } from 'ui/src'
+import { Flex, Text, TouchableArea, useMedia } from '@l.x/ui/src'
 import { PulsingIndicatorDot } from '~/components/Toucan/Auction/Banners/AuctionIntro/PulsingIndicatorDot'
 import { useAuctionIntroBannerData } from '~/components/Toucan/Auction/Banners/AuctionIntro/useAuctionIntroBannerData'
 import { ToucanContainer } from '~/components/Toucan/Shared/ToucanContainer'

@@ -1,6 +1,6 @@
 import { TradingApi } from '@l.x/api'
 import type { FeatureFlags } from '@l.x/gating'
-import type { AppTFunction } from 'ui/src/i18n/types'
+import type { AppTFunction } from '@l.x/ui/src/i18n/types'
 import type { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import type { FrontendSupportedProtocol } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
 

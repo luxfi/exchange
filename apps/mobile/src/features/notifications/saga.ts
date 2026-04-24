@@ -3,11 +3,11 @@ import { NotifSettingType, OneSignalUserTagField } from 'src/features/notificati
 import { selectAllPushNotificationSettings } from 'src/features/notifications/selectors'
 import { initNotifsForNewUser, updateNotifSettings } from 'src/features/notifications/slice'
 import { call, select, takeEvery } from 'typed-redux-saga'
-import { finalizeTransaction } from 'uniswap/src/features/transactions/slice'
-import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
-import { selectActiveAccountAddress, selectFinishedOnboarding } from 'wallet/src/features/wallet/selectors'
-import { removeAccounts, setAccountAsActive } from 'wallet/src/features/wallet/slice'
+import { finalizeTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { selectActiveAccountAddress, selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
+import { removeAccounts, setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
 
 export function* pushNotificationsWatcherSaga() {
   yield* call(syncWithOneSignal)

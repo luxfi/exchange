@@ -9,24 +9,24 @@ import { useReactNavigationModal } from 'src/components/modals/useReactNavigatio
 import { closeAllModals, closeModal, openModal } from 'src/features/modals/modalSlice'
 import { useAdvancedSettingsMenuState } from 'src/features/settings/hooks/useAdvancedSettingsMenuState'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
-import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import {
   useFiatOnRampAggregatorCountryListQuery,
   useFiatOnRampAggregatorGetCountryQuery,
-} from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-import { RampDirection } from 'uniswap/src/features/fiatOnRamp/types'
-import { useNavigateToNftExplorerLink } from 'uniswap/src/features/nfts/hooks/useNavigateToNftExplorerLink'
-import { ModalName, WalletEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { ShareableEntity } from 'uniswap/src/types/sharing'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
-import { getTokenUrl } from 'uniswap/src/utils/linking'
-import { closeKeyboardBeforeCallback } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
-import { logger } from 'utilities/src/logger/logger'
-import { noop } from 'utilities/src/react/noop'
+} from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { RampDirection } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { useNavigateToNftExplorerLink } from '@l.x/lx/src/features/nfts/hooks/useNavigateToNftExplorerLink'
+import { ModalName, WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { ShareableEntity } from '@l.x/lx/src/types/sharing'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { getTokenUrl } from '@l.x/lx/src/utils/linking'
+import { closeKeyboardBeforeCallback } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { noop } from '@l.x/utils/src/react/noop'
 import {
   getNavigateToSendFlowArgsInitialState,
   getNavigateToSwapFlowArgsInitialState,
@@ -37,7 +37,7 @@ import {
   NavigateToSwapFlowArgs,
   ShareTokenArgs,
   WalletNavigationProvider,
-} from 'wallet/src/contexts/WalletNavigationContext'
+} from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 
 export function MobileWalletNavigationProvider({ children }: PropsWithChildren): JSX.Element {
   const handleShareToken = useHandleShareToken()

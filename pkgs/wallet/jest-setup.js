@@ -3,10 +3,10 @@ import 'config/jest-presets/ui/ui-package-mocks'
 import 'lux/jest-package-mocks'
 import 'wallet/jest-package-mocks'
 
-import 'lux/src/i18n' // Uses real translations for tests
+import '@l.x/lx/src/i18n' // Uses real translations for tests
 
 
-jest.mock('lux/src/features/gas/hooks', () => ({
+jest.mock('@l.x/lx/src/features/gas/hooks', () => ({
   useActiveGasStrategy: jest.fn().mockReturnValue({
     limitInflationFactor: 1.15,
     displayLimitInflationFactor: 1,
@@ -16,7 +16,7 @@ jest.mock('lux/src/features/gas/hooks', () => ({
 }))
 
 // Mock getConfig to return test-safe native values
-jest.mock('lux/src/config', () => ({
+jest.mock('@l.x/lx/src/config', () => ({
   config: {
     alchemyApiKey: 'test-alchemy-key',
     amplitudeProxyUrlOverride: '',
@@ -49,18 +49,18 @@ jest.mock('lux/src/config', () => ({
 }))
 
 // Use web unicon
-jest.mock('ui/src/components/Unicon', () => {
-  return jest.requireActual('ui/src/components/Unicon/index.web.tsx')
+jest.mock('@l.x/ui/src/components/Unicon', () => {
+  return jest.requireActual('@l.x/ui/src/components/Unicon/index.web.tsx')
 })
 
 // Use native modal
-jest.mock('lux/src/components/modals/Modal', () => {
-  return jest.requireActual('lux/src/components/modals/Modal.native.tsx')
+jest.mock('@l.x/lx/src/components/modals/Modal', () => {
+  return jest.requireActual('@l.x/lx/src/components/modals/Modal.native.tsx')
 })
 
 // Use native clickable
-jest.mock('ui/src/components/swipeablecards/ClickableWithinGesture', () => {
-  return jest.requireActual('ui/src/components/swipeablecards/ClickableWithinGesture.native.tsx')
+jest.mock('@l.x/ui/src/components/swipeablecards/ClickableWithinGesture', () => {
+  return jest.requireActual('@l.x/ui/src/components/swipeablecards/ClickableWithinGesture.native.tsx')
 })
 
 import crypto from "crypto"
@@ -73,8 +73,8 @@ Object.defineProperty(global, "crypto", {
 });
 
 // Use native locales
-jest.mock('utilities/src/device/locales', () => {
-  return jest.requireActual('utilities/src/device/locales.native.ts')
+jest.mock('@l.x/utils/src/device/locales', () => {
+  return jest.requireActual('@l.x/utils/src/device/locales.native.ts')
 })
 
 // Mock getConfig to use native implementation

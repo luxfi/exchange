@@ -1,7 +1,7 @@
 import { Fragment, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, getTokenValue, Text, VerticalDottedLineSeparator } from 'ui/src'
-import { ArrowRight, ArrowRightDashed } from 'ui/src/components/icons'
+import { Button, Flex, getTokenValue, Text, VerticalDottedLineSeparator } from '@l.x/ui/src'
+import { ArrowRight, ArrowRightDashed } from '@l.x/ui/src/components/icons'
 import { PLAN_STEP_ITEM_WIDTH, PlanStepItem } from '@l.x/lx/src/components/activity/details/plan/PlanStepItem'
 import { ResumePlanButton } from '@l.x/lx/src/components/activity/details/plan/ResumePlanButton'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
@@ -17,7 +17,7 @@ import {
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { buildNativeCurrencyId, buildWrappedNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { isWebPlatform } from 'utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 interface PlanDetailsViewProps {
   isExternalProfile?: boolean

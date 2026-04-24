@@ -1,12 +1,12 @@
 import { ComponentProps } from 'react'
 import { Trans } from 'react-i18next'
-import { Flex, SpinningLoader, Text, TouchableArea } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { iconSizes, spacing } from 'ui/src/theme'
-import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { TestIDType } from 'lx/src/test/fixtures/testIDs'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
+import { Flex, SpinningLoader, Text, TouchableArea } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { iconSizes, spacing } from '@l.x/ui/src/theme'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 
 interface SelectTokenButtonProps {
   onPress: () => void

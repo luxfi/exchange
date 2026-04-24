@@ -1,32 +1,32 @@
 import type { MutableRefObject, RefObject } from 'react'
 import { useCallback, useMemo } from 'react'
 import type { TextInputProps } from 'react-native'
-import { AnimatePresence, type ButtonProps, Flex, type FlexProps, useMedia } from 'ui/src'
-import { AmountInputPresets } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/AmountInputPresets'
-import { PresetAmountButton } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/PresetAmountButton'
-import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { PRESET_PERCENTAGES } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/utils'
-import { MAX_FIAT_INPUT_DECIMALS } from 'lx/src/constants/transactions'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import type { DecimalPadInputRef } from 'lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
+import { AnimatePresence, type ButtonProps, Flex, type FlexProps, useMedia } from '@l.x/ui/src'
+import { AmountInputPresets } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/AmountInputPresets'
+import { PresetAmountButton } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/PresetAmountButton'
+import type { PresetPercentage } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { PRESET_PERCENTAGES } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/utils'
+import { MAX_FIAT_INPUT_DECIMALS } from '@l.x/lx/src/constants/transactions'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import type { DecimalPadInputRef } from '@l.x/lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
 import {
   DecimalPadCalculatedSpaceId,
   DecimalPadCalculateSpace,
   DecimalPadInput,
-} from 'lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
-import { useDecimalPadControlledField } from 'lx/src/features/transactions/swap/form/hooks/useDecimalPadControlledField'
-import { useSwapFormScreenStore } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
+} from '@l.x/lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
+import { useDecimalPadControlledField } from '@l.x/lx/src/features/transactions/swap/form/hooks/useDecimalPadControlledField'
+import { useSwapFormScreenStore } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
 import {
   useSwapFormStore,
   useSwapFormStoreDerivedSwapInfo,
-} from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { maybeLogFirstSwapAction } from 'lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
-import { CurrencyField } from 'lx/src/types/currency'
-import { truncateToMaxDecimals } from 'utilities/src/format/truncateToMaxDecimals'
-import { useEvent } from 'utilities/src/react/hooks'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
-import { useImmediateVisibility } from 'utilities/src/react/useImmediateVisibility'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+} from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { maybeLogFirstSwapAction } from '@l.x/lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { truncateToMaxDecimals } from '@l.x/utils/src/format/truncateToMaxDecimals'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
+import { useImmediateVisibility } from '@l.x/utils/src/react/useImmediateVisibility'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 const SHORT_BREAKPOINT_STYLE: FlexProps['$short'] = { gap: '$none' }
 

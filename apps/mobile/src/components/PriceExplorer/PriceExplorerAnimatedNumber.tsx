@@ -13,18 +13,18 @@ import Animated, {
 } from 'react-native-reanimated'
 import { ValueAndFormattedWithAnimation } from 'src/components/PriceExplorer/usePrice'
 import { PriceNumberOfDigits } from 'src/components/PriceExplorer/usePriceHistory'
-import { TextLoaderWrapper, useSporeColors } from 'ui/src'
-import { fonts } from 'ui/src/theme'
+import { TextLoaderWrapper, useSporeColors } from '@l.x/ui/src'
+import { fonts } from '@l.x/ui/src/theme'
 import {
   ADDITIONAL_WIDTH_FOR_ANIMATIONS,
   AnimatedCharStyles,
   DIGIT_HEIGHT,
   NUMBER_ARRAY,
   NUMBER_WIDTH_ARRAY,
-} from 'uniswap/src/components/AnimatedNumber/AnimatedNumber'
-import { TopAndBottomGradient } from 'uniswap/src/components/AnimatedNumber/TopAndBottomGradient'
-import { FiatCurrencyInfo } from 'uniswap/src/features/fiatOnRamp/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from '@l.x/lx/src/components/AnimatedNumber/AnimatedNumber'
+import { TopAndBottomGradient } from '@l.x/lx/src/components/AnimatedNumber/TopAndBottomGradient'
+import { FiatCurrencyInfo } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 // if price per token has > 3 numbers before the decimal, start showing decimals in neutral3
 // otherwise, show entire price in neutral1

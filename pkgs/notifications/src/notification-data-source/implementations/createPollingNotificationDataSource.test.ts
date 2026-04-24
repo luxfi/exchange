@@ -10,7 +10,7 @@ import type { InAppNotification, NotificationsApiClient } from '@l.x/api'
 import { ContentStyle } from '@l.x/api'
 import { getNotificationQueryOptions } from '@l.x/notifications/src/notification-data-source/getNotificationQueryOptions'
 import { createPollingNotificationDataSource } from '@l.x/notifications/src/notification-data-source/implementations/createPollingNotificationDataSource'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest'
 
 function createMockNotification(id: string): InAppNotification {

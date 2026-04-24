@@ -2,10 +2,10 @@ import { useContext } from 'react'
 import type {
   SwapReviewState,
   SwapReviewStore,
-} from 'lx/src/features/transactions/swap/review/stores/swapReviewStore/createSwapReviewStore'
-import { EMPTY_STEPS } from 'lx/src/features/transactions/swap/review/stores/swapReviewStore/createSwapReviewStore'
-import { SwapReviewStoreContext } from 'lx/src/features/transactions/swap/review/stores/swapReviewStore/SwapReviewContext'
-import { isWebApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewStore/createSwapReviewStore'
+import { EMPTY_STEPS } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewStore/createSwapReviewStore'
+import { SwapReviewStoreContext } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewStore/SwapReviewContext'
+import { isWebApp } from '@l.x/utils/src/platform'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'
 

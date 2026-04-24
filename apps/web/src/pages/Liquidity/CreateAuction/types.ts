@@ -1,7 +1,7 @@
 import { type Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
 import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import type { FeeData } from '~/components/Liquidity/Create/types'
 
 /**

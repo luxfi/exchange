@@ -1,10 +1,10 @@
 import { ContentStyle } from '@shopify/flash-list'
 import { EffectCallback, MutableRefObject } from 'react'
-import { FocusedRowControl } from 'lx/src/components/lists/items/OptionItem'
-import { OnchainItemListOption } from 'lx/src/components/lists/items/types'
-import type { OnchainItemSection } from 'lx/src/components/lists/OnchainItemList/types'
-import { SectionHeaderProps } from 'lx/src/components/lists/SectionHeader'
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { FocusedRowControl } from '@l.x/lx/src/components/lists/items/OptionItem'
+import { OnchainItemListOption } from '@l.x/lx/src/components/lists/items/types'
+import type { OnchainItemSection } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { SectionHeaderProps } from '@l.x/lx/src/components/lists/SectionHeader'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export interface OnchainItemListRef {
   scrollToLocation: (params: { itemIndex: number; sectionIndex: number; animated: boolean }) => void

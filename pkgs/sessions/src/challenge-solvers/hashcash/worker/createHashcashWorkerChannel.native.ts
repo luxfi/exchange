@@ -7,7 +7,7 @@ import type {
   CreateHashcashWorkerChannelContext,
   HashcashWorkerChannel,
 } from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
-import { NotImplementedError } from 'utilities/src/errors'
+import { NotImplementedError } from '@l.x/utils/src/errors'
 
 function createHashcashWorkerChannel(_ctx: CreateHashcashWorkerChannelContext): HashcashWorkerChannel {
   throw new NotImplementedError('createHashcashWorkerChannel')

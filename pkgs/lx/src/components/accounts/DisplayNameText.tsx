@@ -1,9 +1,9 @@
-import { Flex, FlexProps, Text, TextProps } from 'ui/src'
-import { Unitag } from 'ui/src/components/icons/Unitag'
-import { IconSizeTokens } from 'ui/src/theme'
-import { DisplayName, DisplayNameType } from 'lx/src/features/accounts/types'
-import { UNITAG_SUFFIX } from 'lx/src/features/unitags/constants'
-import { isAndroid } from 'utilities/src/platform'
+import { Flex, FlexProps, Text, TextProps } from '@l.x/ui/src'
+import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
+import { IconSizeTokens } from '@l.x/ui/src/theme'
+import { DisplayName, DisplayNameType } from '@l.x/lx/src/features/accounts/types'
+import { UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 type DisplayNameProps = {
   displayName?: DisplayName

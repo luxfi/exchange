@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, Tooltip } from 'ui/src'
-import { Wrench } from 'ui/src/components/icons/Wrench'
-import { zIndexes } from 'ui/src/theme'
+import { Flex, Text, Tooltip } from '@l.x/ui/src'
+import { Wrench } from '@l.x/ui/src/components/icons/Wrench'
+import { zIndexes } from '@l.x/ui/src/theme'
 import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 

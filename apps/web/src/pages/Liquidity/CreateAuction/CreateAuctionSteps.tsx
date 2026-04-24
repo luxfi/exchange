@@ -1,4 +1,4 @@
-import { AnimatePresence, Flex, HeightAnimator } from 'ui/src'
+import { AnimatePresence, Flex, HeightAnimator } from '@l.x/ui/src'
 import { useCreateAuctionStore } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
 import { useUpdateCreateAuctionTokenColor } from '~/pages/Liquidity/CreateAuction/hooks/useUpdateCreateAuctionTokenColor'
 import { AddTokenInfoStep } from '~/pages/Liquidity/CreateAuction/steps/AddTokenInfoStep'

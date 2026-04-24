@@ -1,10 +1,10 @@
 import { act, waitFor } from '@testing-library/react'
 import { SharedQueryClient } from '@l.x/api'
-import { BehaviorType, useDialogVisibility } from 'lx/src/components/dialog/hooks/useDialogVisibility'
-import { type DialogPreferencesService } from 'lx/src/dialog-preferences'
-import { DialogVisibilityId } from 'lx/src/dialog-preferences/types'
-import { renderHook } from 'lx/src/test/test-utils'
-import { mockLogger } from 'utilities/src/logger/mocks'
+import { BehaviorType, useDialogVisibility } from '@l.x/lx/src/components/dialog/hooks/useDialogVisibility'
+import { type DialogPreferencesService } from '@l.x/lx/src/dialog-preferences'
+import { DialogVisibilityId } from '@l.x/lx/src/dialog-preferences/types'
+import { renderHook } from '@l.x/lx/src/test/test-utils'
+import { mockLogger } from '@l.x/utils/src/logger/mocks'
 import type { Mocked } from 'vitest'
 
 describe('useDialogVisibility', () => {

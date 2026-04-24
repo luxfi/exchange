@@ -6,9 +6,9 @@ import {
   DEV_CONVERSION_PROXY_API_BASE_URL,
   PROD_CONVERSION_PROXY_API_BASE_URL,
   STAGING_CONVERSION_PROXY_API_BASE_URL,
-} from 'lx/src/data/rest/conversionTracking/constants'
-import { PlatformIdType } from 'lx/src/data/rest/conversionTracking/types'
-import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
+} from '@l.x/lx/src/data/rest/conversionTracking/constants'
+import { PlatformIdType } from '@l.x/lx/src/data/rest/conversionTracking/types'
+import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
 
 const JITTER_MIN_MS = ms('10d')
 const JITTER_MAX_MS = ms('14d')

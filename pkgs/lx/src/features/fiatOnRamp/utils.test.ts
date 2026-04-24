@@ -1,4 +1,4 @@
-import { FORFilters, FORQuote, FORServiceProvider, InitialQuoteSelection } from 'lx/src/features/fiatOnRamp/types'
+import { FORFilters, FORQuote, FORServiceProvider, InitialQuoteSelection } from '@l.x/lx/src/features/fiatOnRamp/types'
 import {
   filterQuotesByPaymentMethod,
   getCountryFlagSvgUrl,
@@ -7,7 +7,7 @@ import {
   isInvalidRequestAmountTooLow,
   isValidIsoCurrencyCode,
   organizeQuotesIntoSections,
-} from 'lx/src/features/fiatOnRamp/utils'
+} from '@l.x/lx/src/features/fiatOnRamp/utils'
 
 describe('isValidIsoCurrencyCode', () => {
   test('returns true for valid 3-letter currency codes', () => {

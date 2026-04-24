@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { Wifi } from 'ui/src/components/icons/Wifi'
-import { AppTFunction } from 'ui/src/i18n/types'
-import { getAlertColor } from 'lx/src/components/modals/WarningModal/getAlertColor'
+import { Wifi } from '@l.x/ui/src/components/icons/Wifi'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
+import { getAlertColor } from '@l.x/lx/src/components/modals/WarningModal/getAlertColor'
 import {
   ParsedWarnings,
   Warning,
@@ -9,7 +9,7 @@ import {
   WarningLabel,
   WarningSeverity,
   WarningWithStyle,
-} from 'lx/src/components/modals/WarningModal/types'
+} from '@l.x/lx/src/components/modals/WarningModal/types'
 
 export function isPriceImpactWarning(warning: Warning): boolean {
   return warning.type === WarningLabel.PriceImpactMedium || warning.type === WarningLabel.PriceImpactHigh

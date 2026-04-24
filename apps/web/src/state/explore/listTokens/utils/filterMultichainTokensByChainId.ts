@@ -1,5 +1,5 @@
 import { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 /**
  * Keeps only multichain tokens that have a chainToken on the given chain,

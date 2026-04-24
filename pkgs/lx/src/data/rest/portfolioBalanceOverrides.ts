@@ -1,18 +1,18 @@
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { GetPortfolioResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
-import { getNativeAddress } from 'lx/src/constants/addresses'
-import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'lx/src/data/cache'
-import { AccountAddressesByPlatform } from 'lx/src/data/rest/buildAccountAddressesByPlatform'
-import { makeSelectTokenBalanceOverridesForWalletAddress } from 'lx/src/features/portfolio/slice/selectors'
-import { removeTokenFromBalanceOverride } from 'lx/src/features/portfolio/slice/slice'
-import { CurrencyId } from 'lx/src/types/currency'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { AccountAddressesByPlatform } from '@l.x/lx/src/data/rest/buildAccountAddressesByPlatform'
+import { makeSelectTokenBalanceOverridesForWalletAddress } from '@l.x/lx/src/features/portfolio/slice/selectors'
+import { removeTokenFromBalanceOverride } from '@l.x/lx/src/features/portfolio/slice/slice'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
 import {
   buildCurrencyId,
   currencyIdToAddress,
   currencyIdToChain,
   isNativeCurrencyAddress,
-} from 'lx/src/utils/currencyId'
-import { createLogger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/utils/currencyId'
+import { createLogger } from '@l.x/utils/src/logger/logger'
 
 const FILE_NAME = 'portfolioBalanceOverrides.ts'
 

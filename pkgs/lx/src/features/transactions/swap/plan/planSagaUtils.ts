@@ -23,18 +23,18 @@ import {
   createOrRefreshPlan,
   findFirstActiveStep,
   getStepLogArray,
-} from 'lx/src/features/transactions/swap/plan/utils'
+} from '@l.x/lx/src/features/transactions/swap/plan/utils'
 import {
   ActivePlanData,
   activePlanStore,
-} from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { ValidatedTradeInput } from 'lx/src/features/transactions/swap/services/tradeService/transformations/buildQuoteRequest'
-import { ValidatedChainedSwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { ChainedActionTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { signalSwapModalClosed } from 'lx/src/utils/saga'
-import { isProdEnv } from 'utilities/src/environment/env'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { ValidatedTradeInput } from '@l.x/lx/src/features/transactions/swap/services/tradeService/transformations/buildQuoteRequest'
+import { ValidatedChainedSwapTxAndGasInfo } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { ChainedActionTrade, Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { signalSwapModalClosed } from '@l.x/lx/src/utils/saga'
+import { isProdEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface FetchAndTransformPlanParams {
   quote: ChainedQuoteResponse['quote']

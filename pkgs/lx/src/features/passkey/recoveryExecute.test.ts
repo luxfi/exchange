@@ -1,21 +1,21 @@
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
-import { deriveArgon2InWorker } from 'lx/src/features/passkey/pinCrypto'
-import { fetchEncryptedBlob } from 'lx/src/features/passkey/privyBlobStore'
-import { attemptPinDecryption } from 'lx/src/features/passkey/recoveryExecute'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
+import { deriveArgon2InWorker } from '@l.x/lx/src/features/passkey/pinCrypto'
+import { fetchEncryptedBlob } from '@l.x/lx/src/features/passkey/privyBlobStore'
+import { attemptPinDecryption } from '@l.x/lx/src/features/passkey/recoveryExecute'
 
-vi.mock('lx/src/data/rest/embeddedWallet/requests', () => ({
+vi.mock('@l.x/lx/src/data/rest/embeddedWallet/requests', () => ({
   EmbeddedWalletApiClient: {
     fetchOprfEvaluate: vi.fn(),
     fetchReportDecryptionResult: vi.fn(),
   },
 }))
 
-vi.mock('lx/src/features/passkey/privyBlobStore', () => ({
+vi.mock('@l.x/lx/src/features/passkey/privyBlobStore', () => ({
   fetchEncryptedBlob: vi.fn(),
 }))
 
-vi.mock('lx/src/features/passkey/pinCrypto', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/features/passkey/pinCrypto')>()
+vi.mock('@l.x/lx/src/features/passkey/pinCrypto', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/lx/src/features/passkey/pinCrypto')>()
   return {
     ...actual,
     deriveArgon2InWorker: vi.fn(),
@@ -25,7 +25,7 @@ vi.mock('lx/src/features/passkey/pinCrypto', async (importOriginal) => {
 })
 
 const { encryptAuthKey, generateAuthKeyPair, hashAuthMethodId, blindPin, finalizeOprf } = await import(
-  'lx/src/features/passkey/pinCrypto'
+  '@l.x/lx/src/features/passkey/pinCrypto'
 )
 
 async function buildValidBlob(pin: string): Promise<{ blob: string; authPrivateKey: Uint8Array; salt1: Uint8Array }> {
@@ -37,7 +37,7 @@ async function buildValidBlob(pin: string): Promise<{ blob: string; authPrivateK
   // Build final key the same way recoveryExecute does (HKDF over pinKey||oprfOutput)
   const { hkdf } = await import('@noble/hashes/hkdf.js')
   const { sha256 } = await import('@noble/hashes/sha2.js')
-  const { AES_KEY_LENGTH, HKDF_INFO } = await import('lx/src/features/passkey/pinCrypto')
+  const { AES_KEY_LENGTH, HKDF_INFO } = await import('@l.x/lx/src/features/passkey/pinCrypto')
 
   // Simulate pinKey from argon2
   const pinKey = crypto.getRandomValues(new Uint8Array(32))
@@ -78,7 +78,7 @@ describe('attemptPinDecryption', () => {
       blindState: {
         finalizationData: {},
         client: {},
-      } as unknown as import('lx/src/features/passkey/pinCrypto').OprfBlindState,
+      } as unknown as import('@l.x/lx/src/features/passkey/pinCrypto').OprfBlindState,
     })
     vi.mocked(EmbeddedWalletApiClient.fetchOprfEvaluate).mockResolvedValue({
       errorMessage: 'too many attempts',
@@ -95,7 +95,7 @@ describe('attemptPinDecryption', () => {
       blindState: {
         finalizationData: {},
         client: {},
-      } as unknown as import('lx/src/features/passkey/pinCrypto').OprfBlindState,
+      } as unknown as import('@l.x/lx/src/features/passkey/pinCrypto').OprfBlindState,
     })
     vi.mocked(EmbeddedWalletApiClient.fetchOprfEvaluate).mockResolvedValue({} as never)
 
@@ -116,7 +116,7 @@ describe('attemptPinDecryption', () => {
     vi.mocked(fetchEncryptedBlob).mockResolvedValue(blob)
     vi.mocked(blindPin).mockResolvedValue({
       blindedElement: 'blinded',
-      blindState: {} as unknown as import('lx/src/features/passkey/pinCrypto').OprfBlindState,
+      blindState: {} as unknown as import('@l.x/lx/src/features/passkey/pinCrypto').OprfBlindState,
     })
     vi.mocked(EmbeddedWalletApiClient.fetchOprfEvaluate).mockResolvedValue({
       evaluatedElement: 'eval',
@@ -146,7 +146,7 @@ describe('attemptPinDecryption', () => {
     vi.mocked(fetchEncryptedBlob).mockResolvedValue(blob)
     vi.mocked(blindPin).mockResolvedValue({
       blindedElement: 'blinded',
-      blindState: {} as unknown as import('lx/src/features/passkey/pinCrypto').OprfBlindState,
+      blindState: {} as unknown as import('@l.x/lx/src/features/passkey/pinCrypto').OprfBlindState,
     })
     vi.mocked(EmbeddedWalletApiClient.fetchOprfEvaluate).mockResolvedValue({ evaluatedElement: 'eval' } as never)
     vi.mocked(finalizeOprf).mockResolvedValue(fakeOprfOutput)
@@ -170,7 +170,7 @@ describe('attemptPinDecryption', () => {
     vi.mocked(fetchEncryptedBlob).mockResolvedValue(blob)
     vi.mocked(blindPin).mockResolvedValue({
       blindedElement: 'blinded',
-      blindState: {} as unknown as import('lx/src/features/passkey/pinCrypto').OprfBlindState,
+      blindState: {} as unknown as import('@l.x/lx/src/features/passkey/pinCrypto').OprfBlindState,
     })
     vi.mocked(EmbeddedWalletApiClient.fetchOprfEvaluate).mockResolvedValue({ evaluatedElement: 'eval' } as never)
     vi.mocked(finalizeOprf).mockResolvedValue(fakeOprfOutput)
@@ -194,7 +194,7 @@ describe('attemptPinDecryption', () => {
     vi.mocked(fetchEncryptedBlob).mockResolvedValue(blob)
     vi.mocked(blindPin).mockResolvedValue({
       blindedElement: 'blinded',
-      blindState: {} as unknown as import('lx/src/features/passkey/pinCrypto').OprfBlindState,
+      blindState: {} as unknown as import('@l.x/lx/src/features/passkey/pinCrypto').OprfBlindState,
     })
     vi.mocked(EmbeddedWalletApiClient.fetchOprfEvaluate).mockResolvedValue({ evaluatedElement: 'eval' } as never)
     vi.mocked(finalizeOprf).mockResolvedValue(fakeOprfOutput)

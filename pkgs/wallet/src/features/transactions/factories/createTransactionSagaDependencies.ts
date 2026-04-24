@@ -48,7 +48,7 @@ export function createTransactionSagaDependencies(): TransactionSagaDependencies
     get runSagaEffect(): RunSagaEffect {
       // Import runSagaEffect only when actually accessed, not during module initialization
       // This prevents the "Cannot access 'runSagaEffect' before initialization" error
-      const { runSagaEffect } = require('wallet/src/state') as {
+      const { runSagaEffect } = require('@luxfi/wallet/src/state') as {
         runSagaEffect: RunSagaEffect
       }
       return runSagaEffect

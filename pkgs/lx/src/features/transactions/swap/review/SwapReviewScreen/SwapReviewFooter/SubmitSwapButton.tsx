@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { ButtonVariant } from 'ui/src'
-import { AnimatePresence, Button, Flex, useIsShortMobileDevice } from 'ui/src'
-import { Passkey } from 'ui/src/components/icons/Passkey'
-import type { AppTFunction } from 'ui/src/i18n/types'
+import type { ButtonVariant } from '@l.x/ui/src'
+import { AnimatePresence, Button, Flex, useIsShortMobileDevice } from '@l.x/ui/src'
+import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
+import type { AppTFunction } from '@l.x/ui/src/i18n/types'
 import type { Warning } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import type { PasskeyAuthStatus } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
@@ -23,7 +23,7 @@ import { PermitMethod } from '@l.x/lx/src/features/transactions/swap/types/swapT
 import { isChained, isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isWebApp } from 'utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 interface SubmitSwapButtonProps {
   disabled: boolean

@@ -4,9 +4,9 @@ import type { InAppNotification } from '@l.x/api'
 import { InlineBannerNotification, type NotificationClickTarget } from '@l.x/notifications'
 import { AnimatePresence, motion } from 'framer-motion'
 import { memo, useEffect } from 'react'
-import { Portal, useMedia } from 'ui/src'
-import { zIndexes } from 'ui/src/theme'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Portal, useMedia } from '@l.x/ui/src'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { calculateStackingProps, MAX_STACKED_BANNERS } from '~/notification-service/notification-renderer/stackingUtils'
 
 interface StackedLowerLeftBannersProps {

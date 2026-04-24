@@ -1,5 +1,5 @@
-import type { TransactionStep } from 'lx/src/features/transactions/steps/types'
-import { isDevEnv } from 'utilities/src/environment/env'
+import type { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
 import type { StoreApi, UseBoundStore } from 'zustand'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'

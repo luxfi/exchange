@@ -1,4 +1,4 @@
-import { NotImplementedError } from 'utilities/src/errors'
+import { NotImplementedError } from '@l.x/utils/src/errors'
 
 export function initializeScrollWatcher(): void {
   throw new NotImplementedError('initializeScrollWatcher')

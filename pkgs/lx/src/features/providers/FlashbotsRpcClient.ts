@@ -1,11 +1,11 @@
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import {
   buildFlashbotsUrl,
   FLASHBOTS_DEFAULT_REFUND_PERCENT,
   FLASHBOTS_SIGNATURE_HEADER,
   SignerInfo,
-} from 'lx/src/features/providers/FlashbotsCommon'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
+} from '@l.x/lx/src/features/providers/FlashbotsCommon'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import {
   Chain,
   ClientConfig,

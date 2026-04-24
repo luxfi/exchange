@@ -6,9 +6,9 @@ import {
 } from 'expo-local-authentication'
 import DeviceInfo from 'react-native-device-info'
 import { openSecuritySettings } from 'src/utils/linking'
-import i18n from 'uniswap/src/i18n'
-import { logger } from 'utilities/src/logger/logger'
-import { isAndroid } from 'utilities/src/platform'
+import i18n from '@l.x/lx/src/i18n'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 /**
  * Biometric authentication statuses

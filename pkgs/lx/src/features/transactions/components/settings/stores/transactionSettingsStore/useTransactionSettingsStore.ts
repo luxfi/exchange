@@ -3,7 +3,7 @@ import type { TransactionSettingsAutoSlippageToleranceState } from '@l.x/lx/src/
 import type { TransactionSettingsStoreState } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/createTransactionSettingsStore'
 import { TransactionSettingsStoreContext } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/TransactionSettingsStoreContext'
 import type { TransactionSettingsState } from '@l.x/lx/src/features/transactions/components/settings/types'
-import { useEvent } from 'utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import type { StoreApi } from 'zustand'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'

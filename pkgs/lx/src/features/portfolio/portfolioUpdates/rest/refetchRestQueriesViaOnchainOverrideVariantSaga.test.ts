@@ -1,19 +1,19 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { PartialMessage } from '@bufbuild/protobuf'
 import { GetPortfolioResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb.d'
 import { Balance } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { OnChainMapRest } from 'lx/src/features/portfolio/portfolioUpdates/rest/fetchOnChainBalancesRest'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { OnChainMapRest } from '@l.x/lx/src/features/portfolio/portfolioUpdates/rest/fetchOnChainBalancesRest'
 import {
   getCurrenciesToUpdate,
   mergeOnChainBalances,
-} from 'lx/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
+} from '@l.x/lx/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 const MOCK_TOKEN_ADDRESS = '0x1234567890123456789012345678901234567890'
 const MOCK_OTHER_ADDRESS = '0x9876543210987654321098765432109876543210'

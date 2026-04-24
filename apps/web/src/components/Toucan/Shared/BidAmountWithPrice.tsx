@@ -1,4 +1,4 @@
-import { Flex, Text } from 'ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 
 interface BidAmountWithPriceProps {
   amount: string

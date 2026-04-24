@@ -1,13 +1,13 @@
 import { FORCountry } from '@l.x/lx/src/features/fiatOnRamp/types'
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 
 // Mock the navigatorLocale function
-vi.mock('lx/src/features/language/navigatorLocale', () => ({
+vi.mock('@l.x/lx/src/features/language/navigatorLocale', () => ({
   navigatorLocale: vi.fn(),
 }))
 
 // Mock UI components to avoid React Native imports
-vi.mock('ui/src', () => ({
+vi.mock('@l.x/ui/src', () => ({
   Flex: 'div',
   ModalCloseIcon: 'div',
   styled: () => 'div',
@@ -15,7 +15,7 @@ vi.mock('ui/src', () => ({
 }))
 
 // Mock SVG
-vi.mock('ui/src/assets/backgrounds/for-connecting-v2.svg', () => ({
+vi.mock('@l.x/ui/src/assets/backgrounds/for-connecting-v2.svg', () => ({
   ReactComponent: 'svg',
 }))
 

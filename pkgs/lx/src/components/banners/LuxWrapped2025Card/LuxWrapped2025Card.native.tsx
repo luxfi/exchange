@@ -1,9 +1,9 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src/components/layout'
-import { Text } from 'ui/src/components/text'
-import { TouchableArea } from 'ui/src/components/touchable'
-import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { Text } from '@l.x/ui/src/components/text'
+import { TouchableArea } from '@l.x/ui/src/components/touchable'
+import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
 import {
   renderSnowflakesNative,
   SnowflakeContainer,

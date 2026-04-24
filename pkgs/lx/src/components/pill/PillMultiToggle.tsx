@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react'
 import { useState } from 'react'
-import { AnimatePresence, ColorTokens, Flex, TabLayout, Tabs, TabsTabProps, Text } from 'ui/src'
+import { AnimatePresence, ColorTokens, Flex, TabLayout, Tabs, TabsTabProps, Text } from '@l.x/ui/src'
 
 interface PillMultiToggleOption {
   value: string

@@ -1,5 +1,5 @@
 import { type Currency, type CurrencyAmount } from '@luxamm/sdk-core'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Conversion factor from 18-decimal native gas units to 6-decimal pathUSD
 export const TEMPO_GAS_FEE_DECIMALS_SHIFT = BigInt(10) ** BigInt(12)

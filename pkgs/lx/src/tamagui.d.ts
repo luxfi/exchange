@@ -1,4 +1,4 @@
-import { config, GuiGroupNames } from 'ui/src/gui.config'
+import { config, GuiGroupNames } from '@l.x/ui/src/gui.config'
 
 type Conf = typeof config
 

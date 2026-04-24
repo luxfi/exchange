@@ -1,6 +1,6 @@
 import { GasEstimate, GasFeeResult, TradingApi } from '@l.x/api'
-import { ValidatedGasFeeResult, validateGasFeeResult } from 'lx/src/features/gas/utils'
-import { SolanaTrade } from 'lx/src/features/transactions/swap/types/solana'
+import { ValidatedGasFeeResult, validateGasFeeResult } from '@l.x/lx/src/features/gas/utils'
+import { SolanaTrade } from '@l.x/lx/src/features/transactions/swap/types/solana'
 import {
   BridgeTrade,
   ChainedActionTrade,
@@ -8,7 +8,7 @@ import {
   LXTrade,
   UnwrapTrade,
   WrapTrade,
-} from 'lx/src/features/transactions/swap/types/trade'
+} from '@l.x/lx/src/features/transactions/swap/types/trade'
 import {
   isBridge,
   isChained,
@@ -16,13 +16,13 @@ import {
   isJupiter,
   isLX,
   isWrap,
-} from 'lx/src/features/transactions/swap/utils/routing'
-import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'
+} from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { ValidatedPermit } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 import {
   PopulatedTransactionRequestArray,
   ValidatedTransactionRequest,
-} from 'lx/src/features/transactions/types/transactionRequests'
-import { isWebApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/types/transactionRequests'
+import { isWebApp } from '@l.x/utils/src/platform'
 import { Prettify } from 'viem'
 
 export type SwapTxAndGasInfo =

@@ -8,7 +8,7 @@ import { useUpdateManualOutage } from '~/hooks/useUpdateManualOutage'
 import { useManualChainOutageStore } from '~/state/outage/store'
 import { mocked } from '~/test-utils/mocked'
 
-vi.mock('utilities/src/connection/useIsOffline', () => ({
+vi.mock('@l.x/utils/src/connection/useIsOffline', () => ({
   useIsOffline: vi.fn(),
 }))
 

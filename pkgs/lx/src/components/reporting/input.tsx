@@ -1,6 +1,6 @@
-import { fonts } from 'ui/src/theme'
+import { fonts } from '@l.x/ui/src/theme'
 import { TextInput, TextInputProps } from '@l.x/lx/src/components/input/TextInput'
-import { isMobileApp } from 'utilities/src/platform'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 const MAX_REPORT_TEXT_LENGTH = 500
 

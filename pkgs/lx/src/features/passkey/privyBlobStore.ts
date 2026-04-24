@@ -1,4 +1,4 @@
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Privy REST API for encrypted authorization keys
 // Docs: https://docs.privy.io/guide/api/encrypted-authorization-keys

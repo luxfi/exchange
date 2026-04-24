@@ -5,7 +5,7 @@ import {
   type NotificationServiceConfig,
 } from '@luxfi/notifications/src/notification-service/NotificationService'
 import ms from 'ms'
-import { getLogger } from 'utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 
 // Module-level singletons to track notification telemetry across service recreations.
 // This prevents duplicate telemetry events when the service is destroyed

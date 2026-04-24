@@ -21,10 +21,10 @@ import {
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Pair } from '@luxamm/v2-sdk'
 import { useMemo } from 'react'
-import { lxPostTransport } from 'lx/src/data/rest/base'
-import { SerializedToken } from 'lx/src/features/tokens/warnings/slice/types'
-import { deserializeToken } from 'lx/src/utils/currency'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { lxPostTransport } from '@l.x/lx/src/data/rest/base'
+import { SerializedToken } from '@l.x/lx/src/features/tokens/warnings/slice/types'
+import { deserializeToken } from '@l.x/lx/src/utils/currency'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 const positionsClient = createPromiseClient(DataApiService, lxPostTransport)
 

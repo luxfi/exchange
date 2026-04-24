@@ -1,31 +1,31 @@
 import type { BottomSheetView } from '@gorhom/bottom-sheet'
 import type { ComponentProps } from 'react'
-import type { FlexProps } from 'ui/src'
-import { Flex } from 'ui/src'
+import type { FlexProps } from '@l.x/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { chainIdToPlatform } from '@l.x/lx/src/features/platforms/utils/chains'
 import type { TransactionSettingConfig } from '@l.x/lx/src/features/transactions/components/settings/types'
 import {
   filterSettingsByPlatformAndTradeRouting,
   getShouldSettingApplyToRouting,
-} from 'lx/src/features/transactions/components/settings/utils'
-import { TransactionModalInnerContainer } from 'lx/src/features/transactions/components/TransactionModal/TransactionModal'
-import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { SwapFormSettings } from 'lx/src/features/transactions/swap/components/SwapFormSettings/SwapFormSettings'
-import { Slippage } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/slippage/Slippage/Slippage'
-import { TradeRoutingPreference } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/TradeRoutingPreference/TradeRoutingPreference'
-import { SwapFormCurrencyInputPanel } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormCurrencyInputPanel'
-import { SwapFormCurrencyOutputPanel } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormCurrencyOutputPanel'
-import { SwapFormDecimalPad } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormDecimalPad/SwapFormDecimalPad'
-import { SwapFormHeader } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormHeader/SwapFormHeader'
-import { SwapFormScreenDetails } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenDetails'
-import { SwapTokenSelector } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapTokenSelector/SwapTokenSelector'
-import { SwitchCurrenciesButton } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwitchCurrenciesButton'
-import { SwapFormScreenStoreContextProvider } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/SwapFormScreenStoreContextProvider'
+} from '@l.x/lx/src/features/transactions/components/settings/utils'
+import { TransactionModalInnerContainer } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
+import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { SwapFormSettings } from '@l.x/lx/src/features/transactions/swap/components/SwapFormSettings/SwapFormSettings'
+import { Slippage } from '@l.x/lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/slippage/Slippage/Slippage'
+import { TradeRoutingPreference } from '@l.x/lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/TradeRoutingPreference/TradeRoutingPreference'
+import { SwapFormCurrencyInputPanel } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormCurrencyInputPanel'
+import { SwapFormCurrencyOutputPanel } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormCurrencyOutputPanel'
+import { SwapFormDecimalPad } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormDecimalPad/SwapFormDecimalPad'
+import { SwapFormHeader } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormHeader/SwapFormHeader'
+import { SwapFormScreenDetails } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenDetails'
+import { SwapTokenSelector } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapTokenSelector/SwapTokenSelector'
+import { SwitchCurrenciesButton } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwitchCurrenciesButton'
+import { SwapFormScreenStoreContextProvider } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/SwapFormScreenStoreContextProvider'
 import {
   useSwapFormStore,
   useSwapFormStoreDerivedSwapInfo,
 } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { isExtensionApp, isWebApp } from 'utilities/src/platform'
+import { isExtensionApp, isWebApp } from '@l.x/utils/src/platform'
 
 interface SwapFormScreenProps {
   hideContent: boolean

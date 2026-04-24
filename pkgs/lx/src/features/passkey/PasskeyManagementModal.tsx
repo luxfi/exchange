@@ -1,13 +1,13 @@
 import { Trans, useTranslation } from 'react-i18next'
-import { Button, Flex, Text, useSporeColors } from 'ui/src'
-import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
-import { Passkey } from 'ui/src/components/icons/Passkey'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { lxUrls } from 'lx/src/constants/urls'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { openUri } from 'lx/src/utils/linking'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Button, Flex, Text, useSporeColors } from '@l.x/ui/src'
+import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
+import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { openUri } from '@l.x/lx/src/utils/linking'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 type PasskeyManagementModalProps = {
   isOpen: boolean

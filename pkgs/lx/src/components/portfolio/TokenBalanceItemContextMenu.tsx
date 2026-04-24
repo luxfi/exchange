@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
-import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { PortfolioBalance } from 'lx/src/features/dataApi/types'
-import { TokenMenuActionType } from 'lx/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { TokenMenuActionType } from '@l.x/lx/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export interface TokenBalanceItemContextMenuProps {
   portfolioBalance: PortfolioBalance

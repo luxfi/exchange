@@ -6,17 +6,17 @@ import * as biometricAppSettingsHooks from 'src/features/biometrics/useBiometric
 import * as deviceBiometricHooks from 'src/features/biometrics/useDeviceSupportsBiometricAuth'
 import { AuthMethod } from 'src/features/telemetry/utils'
 import * as versionUtils from 'src/utils/version'
-import * as useIsDarkModeFile from 'ui/src/hooks/useIsDarkMode'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import * as fiatCurrencyHooks from 'uniswap/src/features/fiatCurrency/hooks'
-import * as languageHooks from 'uniswap/src/features/language/hooks'
-import * as userSettingsHooks from 'uniswap/src/features/settings/hooks'
-import { MobileUserPropertyName } from 'uniswap/src/features/telemetry/user'
-import { analytics } from 'utilities/src/telemetry/analytics/analytics'
-import { BackupType, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
-import * as walletHooks from 'wallet/src/features/wallet/hooks'
-import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+import * as useIsDarkModeFile from '@l.x/ui/src/hooks/useIsDarkMode'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import * as fiatCurrencyHooks from '@l.x/lx/src/features/fiatCurrency/hooks'
+import * as languageHooks from '@l.x/lx/src/features/language/hooks'
+import * as userSettingsHooks from '@l.x/lx/src/features/settings/hooks'
+import { MobileUserPropertyName } from '@l.x/lx/src/features/telemetry/user'
+import { analytics } from '@l.x/utils/src/telemetry/analytics/analytics'
+import { BackupType, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
+import * as walletHooks from '@luxfi/wallet/src/features/wallet/hooks'
+import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 
 // `any` is the actual type used by `jest.spyOn`
 // oxlint-disable-next-line max-params
@@ -36,8 +36,8 @@ jest.mock('@l.x/sessions', () => ({
   uniswapIdentifierQuery: jest.fn().mockReturnValue({}),
 }))
 jest.mock('react-native/Libraries/Utilities/useColorScheme')
-jest.mock('wallet/src/features/gating/userPropertyHooks')
-jest.mock('wallet/src/features/wallet/Keyring/Keyring', () => {
+jest.mock('@luxfi/wallet/src/features/gating/userPropertyHooks')
+jest.mock('@luxfi/wallet/src/features/wallet/Keyring/Keyring', () => {
   return {
     Keyring: {
       getMnemonicIds: (): Promise<string[]> => Promise.resolve([]),
@@ -45,7 +45,7 @@ jest.mock('wallet/src/features/wallet/Keyring/Keyring', () => {
     },
   }
 })
-jest.mock('wallet/src/features/accounts/useAccountListData', () => {
+jest.mock('@luxfi/wallet/src/features/accounts/useAccountListData', () => {
   return {
     useAccountBalances: jest.fn().mockReturnValue({ totalBalance: 0 }),
   }

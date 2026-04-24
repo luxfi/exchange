@@ -1,6 +1,6 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useLXPriorityOrderFlag } from 'lx/src/features/transactions/swap/utils/protocols'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useLXPriorityOrderFlag } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
 
 /**
  * Returns true if the chain is supported by LX. Does not differentiate between LX v1 and v2.

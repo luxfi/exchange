@@ -3,7 +3,7 @@ import { type ConnectError, type Transport } from '@connectrpc/connect'
 import { useMutation } from '@connectrpc/connect-query'
 import { type UseMutationResult } from '@tanstack/react-query'
 import { ConversionTrackingApi, createConnectTransportWithDefaults } from '@l.x/api'
-import { getConversionProxyApiBaseUrl } from 'lx/src/data/rest/conversionTracking/utils'
+import { getConversionProxyApiBaseUrl } from '@l.x/lx/src/data/rest/conversionTracking/utils'
 
 const createConversionProxyTransport = (): Transport =>
   createConnectTransportWithDefaults({

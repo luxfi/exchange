@@ -1,13 +1,13 @@
 import { TradingApi } from '@l.x/api'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { finalizeTransaction, updateTransaction } from 'lx/src/features/transactions/slice'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { finalizeTransaction, updateTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   type LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from '@l.x/lx/src/features/transactions/types/utils'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { useHandleLXActivityUpdate } from '~/hooks/useHandleLXActivityUpdate'
@@ -39,7 +39,7 @@ vi.mock('~/tracing/swapFlowLoggers', () => ({
   logLXSwapFinalized: vi.fn(),
 }))
 
-vi.mock('lx/src/features/transactions/types/utils', () => ({
+vi.mock('@l.x/lx/src/features/transactions/types/utils', () => ({
   isFinalizedTx: vi.fn(),
 }))
 

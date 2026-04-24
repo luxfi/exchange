@@ -1,9 +1,9 @@
 import { Percent } from '@luxamm/sdk-core'
 import i18next from 'i18next'
-import { AlertTriangleFilled } from 'ui/src/components/icons'
-import { WarningAction, WarningLabel, WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { getPriceImpactWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/getPriceImpactWarning'
-import { PercentNumberDecimals } from 'utilities/src/format/types'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
+import { WarningAction, WarningLabel, WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { getPriceImpactWarning } from '@l.x/lx/src/features/transactions/swap/hooks/useSwapWarnings/getPriceImpactWarning'
+import { PercentNumberDecimals } from '@l.x/utils/src/format/types'
 
 describe('getPriceImpactWarning', () => {
   const mockTFunction = i18next.t.bind(i18next)

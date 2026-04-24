@@ -1,4 +1,4 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { Price, WETH9 } from '@luxamm/sdk-core'
 import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import TradePrice from '~/components/swap/TradePrice'

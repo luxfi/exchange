@@ -1,6 +1,6 @@
 import { Currency, CurrencyAmount, TradeType as SdkTradeType } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
-import { areCurrencyIdsEqual, currencyId } from 'lx/src/utils/currencyId'
+import { areCurrencyIdsEqual, currencyId } from '@l.x/lx/src/utils/currencyId'
 
 interface ParseQuoteCurrenciesInput {
   tradeType: SdkTradeType

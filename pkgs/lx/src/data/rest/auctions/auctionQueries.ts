@@ -17,10 +17,10 @@ import {
 } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
 import type { AuctionServiceClient } from '@l.x/api/src/clients/auctions/createAuctionServiceClient'
 import { UseQueryApiHelperHookArgs } from '@l.x/api/src/hooks/shared/types'
-import { AuctionServiceClient as AuctionServiceClientInstance } from 'lx/src/data/rest/auctions/AuctionServiceClient'
-import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from 'lx/src/data/rest/auctions/queryTypes'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { AuctionServiceClient as AuctionServiceClientInstance } from '@l.x/lx/src/data/rest/auctions/AuctionServiceClient'
+import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from '@l.x/lx/src/data/rest/auctions/queryTypes'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 
 function getAuctionQueryOptions(
   client: AuctionServiceClient,

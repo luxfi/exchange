@@ -1,12 +1,12 @@
 import { memo } from 'react'
-import { TouchableArea, useMedia, useSporeColors } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
-import { TokenOption } from 'lx/src/components/lists/items/types'
-import type { OnchainItemSection } from 'lx/src/components/lists/OnchainItemList/types'
-import { Pill } from 'lx/src/components/pill/Pill'
-import { OnSelectCurrency } from 'lx/src/components/TokenSelector/types'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
+import { TouchableArea, useMedia, useSporeColors } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { TokenOption } from '@l.x/lx/src/components/lists/items/types'
+import type { OnchainItemSection } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { Pill } from '@l.x/lx/src/components/pill/Pill'
+import { OnSelectCurrency } from '@l.x/lx/src/components/TokenSelector/types'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 
 function _TokenPill({
   onSelectCurrency,

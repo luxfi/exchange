@@ -2,11 +2,11 @@ import { CurrencyAmount } from '@luxamm/sdk-core'
 import type { ClassicQuoteResponse, GasFeeResult } from '@l.x/api'
 import { FeeType, TradingApi } from '@l.x/api'
 import type { providers } from 'ethers/lib/ethers'
-import { DAI, USDC } from 'lx/src/constants/tokens'
-import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/consts'
-import type { TransactionSettingsState } from 'lx/src/features/transactions/components/settings/types'
-import { UnknownSimulationError } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
-import type { SwapData } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
+import { DAI, USDC } from '@l.x/lx/src/constants/tokens'
+import { DEFAULT_GAS_STRATEGY } from '@l.x/lx/src/features/gas/consts'
+import type { TransactionSettingsState } from '@l.x/lx/src/features/transactions/components/settings/types'
+import { UnknownSimulationError } from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
+import type { SwapData } from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
 import {
   createPrepareSwapRequestParams,
   createProcessSwapResponse,
@@ -65,8 +65,8 @@ describe('processWrapResponse (smart contract unwrap fallback)', () => {
     vi.resetModules()
 
     // Mock the platform module before importing
-    vi.doMock('utilities/src/platform', async () => {
-      const actual = await vi.importActual<typeof import('utilities/src/platform')>('utilities/src/platform')
+    vi.doMock('@l.x/utils/src/platform', async () => {
+      const actual = await vi.importActual<typeof import('@l.x/utils/src/platform')>('@l.x/utils/src/platform')
       return {
         ...actual,
         isWebApp: true,
@@ -75,11 +75,11 @@ describe('processWrapResponse (smart contract unwrap fallback)', () => {
 
     // Use dynamic imports to get modules with the mock applied
     const { processWrapResponse: mockedProcessWrapResponse } = await import(
-      'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
+      '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
     )
 
     const { WRAP_FALLBACK_GAS_LIMIT_IN_GWEI } = await import(
-      'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
+      '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
     )
 
     const gasFeeResult: GasFeeResult = {
@@ -109,7 +109,7 @@ describe('processWrapResponse (smart contract unwrap fallback)', () => {
 
     // Clean up by resetting mocks
     vi.resetModules()
-    vi.doUnmock('utilities/src/platform')
+    vi.doUnmock('@l.x/utils/src/platform')
   })
 })
 

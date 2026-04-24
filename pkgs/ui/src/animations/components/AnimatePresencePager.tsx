@@ -2,7 +2,7 @@ import { Children, ReactNode, useEffect, useState } from 'react'
 import { AnimatePresence, styled } from '@hanzo/gui'
 import { Flex } from '@l.x/ui/src/components/layout'
 import { animations } from '@l.x/ui/src/theme/animations'
-import { usePrevious } from 'utilities/src/react/hooks'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 
 type TransitionDirection = 'forward' | 'backward' | 'up' | 'down'
 export type AnimationType = 'fade' | TransitionDirection

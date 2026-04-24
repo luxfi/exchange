@@ -1,8 +1,8 @@
-import { AccountType } from 'lx/src/features/accounts/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { EVMAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
-import { WalletMeta } from 'lx/src/features/wallet/types/WalletMeta'
-import { HexString } from 'utilities/src/addresses/hex'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { EVMAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
+import { WalletMeta } from '@l.x/lx/src/features/wallet/types/WalletMeta'
+import { HexString } from '@l.x/utils/src/addresses/hex'
 
 export const createMockEVMAccountDetails = (overrides: Partial<EVMAccountDetails> = {}): EVMAccountDetails => {
   return {

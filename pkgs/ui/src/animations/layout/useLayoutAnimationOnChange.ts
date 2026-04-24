@@ -1,5 +1,5 @@
 import { easeInEaseOutLayoutAnimation } from '@l.x/ui/src/animations/layout/layoutAnimation'
-import { useHasValueChanged } from 'utilities/src/react/useHasValueChanged'
+import { useHasValueChanged } from '@l.x/utils/src/react/useHasValueChanged'
 
 export function useLayoutAnimationOnChange<ValueType>(
   value: ValueType,

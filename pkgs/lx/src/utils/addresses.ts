@@ -1,12 +1,12 @@
 import { getAddress } from '@ethersproject/address'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { chainIdToPlatform } from 'lx/src/features/platforms/utils/chains'
-import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
-import { HexString } from 'utilities/src/addresses/hex'
-import { isSVMAddress } from 'utilities/src/addresses/svm/svm'
-import { tryCatch } from 'utilities/src/errors'
-import { logger } from 'utilities/src/logger/logger'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { chainIdToPlatform } from '@l.x/lx/src/features/platforms/utils/chains'
+import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
+import { HexString } from '@l.x/utils/src/addresses/hex'
+import { isSVMAddress } from '@l.x/utils/src/addresses/svm/svm'
+import { tryCatch } from '@l.x/utils/src/errors'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export enum AddressStringFormat {
   Lowercase = 0,

@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCustomEndpoint } from 'src/features/tweaks/selectors'
 import { setCustomEndpoint } from 'src/features/tweaks/slice'
-import { Accordion, Flex, Text } from 'ui/src'
-import { GatingButton } from 'uniswap/src/components/gating/GatingButton'
-import { AccordionHeader } from 'uniswap/src/components/gating/GatingOverrides'
-import { TextInput } from 'uniswap/src/components/input/TextInput'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { Accordion, Flex, Text } from '@l.x/ui/src'
+import { GatingButton } from '@l.x/lx/src/components/gating/GatingButton'
+import { AccordionHeader } from '@l.x/lx/src/components/gating/GatingOverrides'
+import { TextInput } from '@l.x/lx/src/components/input/TextInput'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 
 export function ServerOverrides(): JSX.Element {
   const dispatch = useDispatch()

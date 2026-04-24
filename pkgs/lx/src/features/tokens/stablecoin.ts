@@ -1,5 +1,5 @@
 import { Token } from '@luxamm/sdk-core'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 function createTokenFactory(defaults: { decimals: number; name: string; symbol: string }) {
   return function createToken<A extends string>(address: A, chainId: UniverseChainId): Token {

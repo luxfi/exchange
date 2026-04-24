@@ -2,8 +2,8 @@ import { NetworkStatus } from '@apollo/client'
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
 import { preloadedMobileState } from 'src/test/fixtures'
 import { act, renderHook, waitFor } from 'src/test/test-utils'
-import { useCrossChainBalances } from 'uniswap/src/data/balances/hooks/useCrossChainBalances'
-import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
+import { useCrossChainBalances } from '@l.x/lx/src/data/balances/hooks/useCrossChainBalances'
+import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
 import {
   portfolio,
   portfolioBalances,
@@ -12,9 +12,9 @@ import {
   tokenBalance,
   usdcArbitrumToken,
   usdcBaseToken,
-} from 'uniswap/src/test/fixtures'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { portfolioBalancesById } from 'uniswap/src/utils/balances'
+} from '@l.x/lx/src/test/fixtures'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { portfolioBalancesById } from '@l.x/lx/src/utils/balances'
 
 const mockedNavigation = {
   navigate: jest.fn(),
@@ -32,8 +32,8 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 
-jest.mock('uniswap/src/features/dataApi/balances/balances', () => {
-  const actual = jest.requireActual('uniswap/src/features/dataApi/balances/balances')
+jest.mock('@l.x/lx/src/features/dataApi/balances/balances', () => {
+  const actual = jest.requireActual('@l.x/lx/src/features/dataApi/balances/balances')
   const { NetworkStatus: MockNetworkStatus } = jest.requireActual('@apollo/client')
   return {
     ...actual,

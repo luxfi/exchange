@@ -7,9 +7,9 @@ import { Text, type TextProps } from '@l.x/ui/src/components/text'
 import { TouchableAreaFrame } from '@l.x/ui/src/components/touchable/TouchableArea/TouchableAreaFrame'
 import type { TouchableAreaProps } from '@l.x/ui/src/components/touchable/TouchableArea/types'
 import { getMaybeHoverColor } from '@l.x/ui/src/theme'
-import { logger } from 'utilities/src/logger/logger'
-import { isMobileApp } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isMobileApp } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 type PropsFromText = Pick<
   TextProps,

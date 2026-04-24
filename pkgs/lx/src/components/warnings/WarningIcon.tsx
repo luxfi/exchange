@@ -1,11 +1,11 @@
 import { GraphQLApi } from '@l.x/api'
-import { ColorTokens, Flex, IconProps } from 'ui/src'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { ColorTokens, Flex, IconProps } from '@l.x/ui/src'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import {
   getWarningIcon,
   getWarningIconColors,
   safetyLevelToWarningSeverity,
-} from 'lx/src/components/warnings/utils'
+} from '@l.x/lx/src/components/warnings/utils'
 
 interface Props {
   // TODO (WALL-4626): remove GraphQLApi.SafetyLevel entirely

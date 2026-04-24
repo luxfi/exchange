@@ -2,8 +2,8 @@ import type {
   ChainDelegatedResults,
   DelegatedResult,
   DelegationRepository,
-} from 'lx/src/features/smartWallet/delegation/delegationRepository'
-import type { Logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/smartWallet/delegation/delegationRepository'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 
 export type Address = string
 

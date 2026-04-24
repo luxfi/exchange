@@ -1,9 +1,9 @@
-import { Flex, TouchableArea } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { Flex, TouchableArea } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const NETWORK_ICON_SIZE = iconSizes.icon20
 

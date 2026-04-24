@@ -2,10 +2,10 @@ import {
   TESTNET_MODE_BANNER_HEIGHT,
   useHideSpamTokensSetting,
   useTestnetModeBannerHeight,
-} from 'lx/src/features/settings/hooks'
-import { selectIsTestnetModeEnabled, selectWalletHideSpamTokensSetting } from 'lx/src/features/settings/selectors'
+} from '@l.x/lx/src/features/settings/hooks'
+import { selectIsTestnetModeEnabled, selectWalletHideSpamTokensSetting } from '@l.x/lx/src/features/settings/selectors'
 
-import { renderHook } from 'lx/src/test/test-utils'
+import { renderHook } from '@l.x/lx/src/test/test-utils'
 import type { Mock } from 'vitest'
 
 // Use vi.hoisted to create mutable mock state that can be changed between tests
@@ -13,8 +13,8 @@ const { mockIsMobileApp } = vi.hoisted(() => ({
   mockIsMobileApp: { value: false },
 }))
 
-vi.mock('utilities/src/platform', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('utilities/src/platform')>()
+vi.mock('@l.x/utils/src/platform', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/utils/src/platform')>()
   return {
     ...actual,
     get isMobileApp(): boolean {
@@ -31,7 +31,7 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('lx/src/features/settings/selectors', () => ({
+vi.mock('@l.x/lx/src/features/settings/selectors', () => ({
   selectIsTestnetModeEnabled: vi.fn(),
   selectWalletHideSmallBalancesSetting: vi.fn(),
   selectWalletHideSpamTokensSetting: vi.fn(),

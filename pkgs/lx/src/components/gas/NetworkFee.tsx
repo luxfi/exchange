@@ -1,21 +1,21 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, LXText } from 'ui/src'
-import { LX } from 'ui/src/components/icons/LX'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
-import { IndicativeLoadingWrapper } from 'lx/src/components/misc/IndicativeLoadingWrapper'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { Flex, Text, LXText } from '@l.x/ui/src'
+import { LX } from '@l.x/ui/src/components/icons/LX'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { NetworkFeeWarning } from '@l.x/lx/src/components/gas/NetworkFeeWarning'
+import { IndicativeLoadingWrapper } from '@l.x/lx/src/components/misc/IndicativeLoadingWrapper'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   useFormattedDEXGasFeeInfo,
   useGasFeeFormattedDisplayAmounts,
   useGasFeeHighRelativeToValue,
-} from 'lx/src/features/gas/hooks'
-import { LXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { isZero } from 'lx/src/utils/number'
-import { isWebApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/gas/hooks'
+import { LXGasBreakdown } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { isZero } from '@l.x/lx/src/utils/number'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export function NetworkFee({
   chainId,

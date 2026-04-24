@@ -1,6 +1,6 @@
 import { helpUrl } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import { Flex, Switch, Text } from 'ui/src'
+import { Flex, Switch, Text } from '@l.x/ui/src'
 import { ExternalLink } from '~/theme/components/Links'
 
 export function BuybackAndBurnSection({

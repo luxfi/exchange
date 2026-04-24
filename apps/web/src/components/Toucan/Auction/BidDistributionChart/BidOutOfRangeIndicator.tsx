@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useSporeColors } from 'ui/src'
-import { zIndexes } from 'ui/src/theme'
+import { Flex, Text, useSporeColors } from '@l.x/ui/src'
+import { zIndexes } from '@l.x/ui/src/theme'
 import { BID_OUT_OF_RANGE_INDICATOR } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 import { formatTickForDisplay } from '~/components/Toucan/Auction/BidDistributionChart/utils/utils'
 import type { BidTokenInfo } from '~/components/Toucan/Auction/store/types'

@@ -1,9 +1,9 @@
 import { GraphQLApi } from '@l.x/api'
-import { assetActivity } from 'lx/src/test/fixtures/gql'
-import { amount } from 'lx/src/test/fixtures/gql/amounts'
-import { tokenBalance } from 'lx/src/test/fixtures/gql/assets'
-import { faker } from 'lx/src/test/shared'
-import { createArray, createFixture } from 'lx/src/test/utils'
+import { assetActivity } from '@l.x/lx/src/test/fixtures/gql'
+import { amount } from '@l.x/lx/src/test/fixtures/gql/amounts'
+import { tokenBalance } from '@l.x/lx/src/test/fixtures/gql/assets'
+import { faker } from '@l.x/lx/src/test/shared'
+import { createArray, createFixture } from '@l.x/lx/src/test/utils'
 
 type PortfolioOptions = {
   activitiesCount: number

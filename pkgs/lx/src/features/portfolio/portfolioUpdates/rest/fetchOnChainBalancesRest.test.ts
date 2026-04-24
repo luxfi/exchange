@@ -1,14 +1,14 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { GetPortfolioResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb.d'
 import { type Token as SearchToken } from '@luxamm/client-search/dist/search/v1/api_pb'
-import * as searchTokensAndPools from 'lx/src/data/rest/searchTokensAndPools'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { fetchOnChainCurrencyBalance } from 'lx/src/features/portfolio/api'
-import { fetchOnChainBalancesRest } from 'lx/src/features/portfolio/portfolioUpdates/rest/fetchOnChainBalancesRest'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+import * as searchTokensAndPools from '@l.x/lx/src/data/rest/searchTokensAndPools'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fetchOnChainCurrencyBalance } from '@l.x/lx/src/features/portfolio/api'
+import { fetchOnChainBalancesRest } from '@l.x/lx/src/features/portfolio/portfolioUpdates/rest/fetchOnChainBalancesRest'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import type { MockedFunction } from 'vitest'
 
-vi.mock('lx/src/data/apiClients/tradingApi/useTradingApiIndicativeQuoteQuery', () => ({
+vi.mock('@l.x/lx/src/data/apiClients/tradingApi/useTradingApiIndicativeQuoteQuery', () => ({
   fetchTradingApiIndicativeQuote: vi.fn().mockResolvedValue({
     output: {
       token: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
@@ -18,12 +18,12 @@ vi.mock('lx/src/data/apiClients/tradingApi/useTradingApiIndicativeQuoteQuery', (
   }),
 }))
 
-vi.mock('lx/src/features/portfolio/api', () => ({
+vi.mock('@l.x/lx/src/features/portfolio/api', () => ({
   fetchOnChainCurrencyBalance: vi.fn(),
 }))
 
-vi.mock('lx/src/data/rest/searchTokensAndPools', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/data/rest/searchTokensAndPools')>()
+vi.mock('@l.x/lx/src/data/rest/searchTokensAndPools', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/lx/src/data/rest/searchTokensAndPools')>()
   return {
     ...actual,
     fetchTokenByAddress: vi.fn(),

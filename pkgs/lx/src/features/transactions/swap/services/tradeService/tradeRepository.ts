@@ -1,6 +1,6 @@
 import { type DiscriminatedQuoteResponse, type TradingApi, type TradingApiClient } from '@l.x/api'
-import { logSwapQuoteFetch } from 'lx/src/features/transactions/swap/analytics'
-import { type Logger } from 'utilities/src/logger/logger'
+import { logSwapQuoteFetch } from '@l.x/lx/src/features/transactions/swap/analytics'
+import { type Logger } from '@l.x/utils/src/logger/logger'
 
 // Minimal parameters needed for indicative quotes
 export interface IndicativeQuoteRequest {

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { AnimatePresence, Flex, Image, Text } from 'ui/src'
-import { LX_LOGO_LARGE } from 'ui/src/assets'
-import { iconSizes } from 'ui/src/theme'
-import { ServiceProviderLogoStyles } from 'lx/src/features/fiatOnRamp/constants'
-import { useAppInsets } from 'lx/src/hooks/useAppInsets'
+import { AnimatePresence, Flex, Image, Text } from '@l.x/ui/src'
+import { LX_LOGO_LARGE } from '@l.x/ui/src/assets'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { ServiceProviderLogoStyles } from '@l.x/lx/src/features/fiatOnRamp/constants'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 
 export function FiatOnRampConnectingView({
   isOffRamp,

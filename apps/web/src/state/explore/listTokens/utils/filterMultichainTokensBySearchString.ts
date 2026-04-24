@@ -1,5 +1,5 @@
 import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
 
 /** Filters multichain tokens by search string (name, symbol, address, project name). */
 export function filterMultichainTokensBySearchString(

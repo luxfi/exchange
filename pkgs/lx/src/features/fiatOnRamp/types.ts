@@ -26,7 +26,7 @@ export {
   SupportedCountriesResponse,
 } from '@l.x/api'
 
-import { CurrencyInfo, PortfolioBalance } from 'lx/src/features/dataApi/types'
+import { CurrencyInfo, PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 import {
   LocalOffRampTransactionInfo,
   LocalOnRampTransactionInfo,
@@ -34,9 +34,9 @@ import {
   OnRampPurchaseInfo,
   OnRampTransferInfo,
   TransactionDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { FiatCurrencyComponents } from 'utilities/src/format/localeBased'
+import { FiatCurrencyComponents } from '@l.x/utils/src/format/localeBased'
 
 // Transaction types (app-specific, extends TransactionDetails)
 

@@ -8,7 +8,7 @@ import { useCurrencyInfo } from '~/hooks/Tokens'
 import { TEST_TOKEN_1 } from '~/test-utils/constants'
 import { renderHook } from '~/test-utils/render'
 
-vi.mock('lx/src/features/tokens/useCurrencyInfo', () => ({
+vi.mock('@l.x/lx/src/features/tokens/useCurrencyInfo', () => ({
   useCurrencyInfo: vi.fn(),
 }))
 

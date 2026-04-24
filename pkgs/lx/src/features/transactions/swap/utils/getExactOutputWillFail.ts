@@ -1,8 +1,8 @@
 import { Token } from '@luxamm/sdk-core'
-import { toSupportedChainId } from 'lx/src/features/chains/utils'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
-import { CurrencyField } from 'lx/src/types/currency'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 function getHasTokenFee(currencyInfo: Maybe<CurrencyInfo>): {
   hasBuyTax: boolean

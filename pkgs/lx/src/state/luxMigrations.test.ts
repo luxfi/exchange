@@ -7,10 +7,10 @@
  * For tests of the full migration chain, see lxMigrationTests.ts.
  */
 /* biome-ignore-all lint/suspicious/noExplicitAny: legacy code needs review */
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { SearchHistoryResultType } from 'lx/src/features/search/SearchHistoryResult'
-import { TokenProtectionWarning } from 'lx/src/features/tokens/warnings/types'
-import { PreV55SearchResultType } from 'lx/src/state/oldTypes'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { SearchHistoryResultType } from '@l.x/lx/src/features/search/SearchHistoryResult'
+import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
+import { PreV55SearchResultType } from '@l.x/lx/src/state/oldTypes'
 import {
   addActivityVisibility,
   addDismissedBridgedAndCompatibleWarnings,
@@ -18,8 +18,8 @@ import {
   migrateSearchHistory,
   removeThaiBahtFromFiatCurrency,
   unchecksumDismissedTokenWarningKeys,
-} from 'lx/src/state/lxMigrations'
-import { createThrowingProxy } from 'utilities/src/test/utils'
+} from '@l.x/lx/src/state/lxMigrations'
+import { createThrowingProxy } from '@l.x/utils/src/test/utils'
 
 // Mobile: 82
 // Extension: 18

@@ -4,7 +4,7 @@ import { atom } from 'jotai'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { Flag } from 'ui/src/components/icons/Flag'
+import { Flag } from '@l.x/ui/src/components/icons/Flag'
 import { BaseModalProps } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
 import { ReportModal, ReportOption } from '@l.x/lx/src/components/reporting/ReportModal'
 import { DataServiceApiClient } from '@l.x/lx/src/data/apiClients/dataApi/DataApiClient'
@@ -15,9 +15,9 @@ import { submitTokenIssueReport, TokenReportOption } from '@l.x/lx/src/features/
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { setTokenVisibility } from '@l.x/lx/src/features/visibility/slice'
 import { currencyId, NATIVE_ANALYTICS_ADDRESS_VALUE } from '@l.x/lx/src/utils/currencyId'
-import { isProdEnv } from 'utilities/src/environment/env'
-import { logger } from 'utilities/src/logger/logger'
-import { useEvent } from 'utilities/src/react/hooks'
+import { isProdEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type ReportTokenModalProps = {
   currency?: Currency

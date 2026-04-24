@@ -1,12 +1,12 @@
 import { ComponentProps, CSSProperties } from 'react'
 import type { StyleProp, ViewStyle } from 'react-native'
 import { SharedValue } from 'react-native-reanimated'
-import { AnimatedFlashList } from 'ui/src/components/AnimatedFlashList/AnimatedFlashList'
-import { NftsNextFetchPolicy, SearchInputProps } from 'lx/src/components/nfts/types'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { NFTItem } from 'lx/src/features/nfts/types'
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { AnimatedFlashList } from '@l.x/ui/src/components/AnimatedFlashList/AnimatedFlashList'
+import { NftsNextFetchPolicy, SearchInputProps } from '@l.x/lx/src/components/nfts/types'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { NFTItem } from '@l.x/lx/src/features/nfts/types'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export type NftsListProps = Omit<
   ComponentProps<typeof AnimatedFlashList> & {

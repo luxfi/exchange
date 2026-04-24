@@ -3,7 +3,7 @@
 // page level — observers of the swap-form store get re-rendered on
 // pair changes so the disclosure appears/disappears responsively.
 
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 import { getRuntimeConfig } from '@l.x/config'
 import { SecurityDisclosure } from '~/components/Swap/SecurityDisclosure'
 import { useSecurityGate } from './useSecurityGate'

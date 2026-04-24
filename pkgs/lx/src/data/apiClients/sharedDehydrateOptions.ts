@@ -1,6 +1,6 @@
 import { defaultShouldDehydrateQuery } from '@tanstack/react-query'
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
-import { DISABLE_CACHE_PERSISTENCE_TO_DISK, ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { DISABLE_CACHE_PERSISTENCE_TO_DISK, ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export const sharedDehydrateOptions: React.ComponentProps<
   typeof PersistQueryClientProvider

@@ -4,7 +4,7 @@ import { useQuery } from '@connectrpc/connect-query'
 import { UseQueryResult } from '@tanstack/react-query'
 import { ExploreStatsRequest, ExploreStatsResponse } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
 import { exploreStats } from '@luxamm/client-explore/dist/lx/explore/v1/service-ExploreStatsService_connectquery'
-import { lxGetTransport } from 'lx/src/data/rest/base'
+import { lxGetTransport } from '@l.x/lx/src/data/rest/base'
 
 /**
  * Wrapper around Tanstack useQuery for the Lx REST BE service ExploreStats

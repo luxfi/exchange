@@ -1,6 +1,6 @@
-import { OnchainItemListOptionType } from 'lx/src/components/lists/items/types'
-import { ENS_SUFFIX } from 'lx/src/features/ens/constants'
-import { UNITAG_SUBDOMAIN, UNITAG_SUFFIX } from 'lx/src/features/unitags/constants'
+import { OnchainItemListOptionType } from '@l.x/lx/src/components/lists/items/types'
+import { ENS_SUFFIX } from '@l.x/lx/src/features/ens/constants'
+import { UNITAG_SUBDOMAIN, UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
 
 export function extractDomain(
   walletName: string,

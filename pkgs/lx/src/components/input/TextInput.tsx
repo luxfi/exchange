@@ -1,6 +1,6 @@
 import { forwardRef, useEffect } from 'react'
-import { Input, InputProps, Input as TextInputBase, useSporeColors } from 'ui/src'
-import { isWebApp } from 'utilities/src/platform'
+import { Input, InputProps, Input as TextInputBase, useSporeColors } from '@l.x/ui/src'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export type TextInputProps = InputProps
 

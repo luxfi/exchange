@@ -1,14 +1,14 @@
 import { TradingApi } from '@l.x/api'
 import invariant from 'tiny-invariant'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { UnexpectedTransactionStateError } from 'lx/src/features/transactions/errors'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { UnexpectedTransactionStateError } from '@l.x/lx/src/features/transactions/errors'
 import {
   OnChainTransactionFields,
   OnChainTransactionFieldsBatched,
   TransactionStepType,
-} from 'lx/src/features/transactions/steps/types'
-import { validateTransactionRequest } from 'lx/src/features/transactions/swap/utils/trade'
-import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
+} from '@l.x/lx/src/features/transactions/steps/types'
+import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
 
 export interface SwapTransactionStep extends OnChainTransactionFields {
   // Swaps that don't require permit

@@ -17,7 +17,7 @@ module.exports = {
         properties: {
           importPath: {
             type: 'string',
-            default: 'utilities/src/reactQuery/queryOptions',
+            default: '@l.x/utils/src/reactQuery/queryOptions',
           },
         },
         additionalProperties: false,
@@ -30,7 +30,7 @@ module.exports = {
 
   create(context) {
     const options = context.options[0] || {}
-    const importPath = options.importPath || 'utilities/src/reactQuery/queryOptions'
+    const importPath = options.importPath || '@l.x/utils/src/reactQuery/queryOptions'
     const sourceCode = context.getSourceCode()
 
     // Track imports state
@@ -117,7 +117,7 @@ module.exports = {
         // Check if this import is from our utilities path
         if (
           importValue.includes('reactQuery/queryOptions') ||
-          importValue.includes('utilities/src/reactQuery') ||
+          importValue.includes('@l.x/utils/src/reactQuery') ||
           importValue.includes('utilities/reactQuery')
         ) {
           existingImportNode = node

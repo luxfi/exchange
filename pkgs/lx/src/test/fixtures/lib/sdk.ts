@@ -1,7 +1,7 @@
 import { Token } from '@luxamm/sdk-core'
-import { getWrappedNativeAddress } from 'lx/src/constants/addresses'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY } from 'lx/src/features/chains/evm/defaults'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getWrappedNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { DEFAULT_NATIVE_ADDRESS_LEGACY } from '@l.x/lx/src/features/chains/evm/defaults'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 export const ETH = new Token(UniverseChainId.Mainnet, DEFAULT_NATIVE_ADDRESS_LEGACY, 18, 'ETH', 'Ethereum')
 

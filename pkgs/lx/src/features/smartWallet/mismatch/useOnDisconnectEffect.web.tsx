@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { useDispatch } from 'react-redux'
-import { setHasShownMismatchToast } from 'lx/src/features/behaviorHistory/slice'
-import { isExtensionApp } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+import { setHasShownMismatchToast } from '@l.x/lx/src/features/behaviorHistory/slice'
+import { isExtensionApp } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useAccountEffect } from 'wagmi'
 
 export function useOnDisconnectEffectWeb(): void {

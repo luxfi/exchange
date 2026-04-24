@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react'
-import type { TieredNetworkOptions } from 'lx/src/components/network/NetworkFilterV2/types'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import i18next from 'lx/src/i18n'
+import type { TieredNetworkOptions } from '@l.x/lx/src/components/network/NetworkFilterV2/types'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import i18next from '@l.x/lx/src/i18n'
 
 interface FilterNetworkOptionsParams {
   chainIds: UniverseChainId[]

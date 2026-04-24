@@ -1,6 +1,6 @@
-import { RevokeApproveFields, TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
-import { parseERC20ApproveCalldata } from 'lx/src/utils/approvals'
+import { RevokeApproveFields, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
+import { parseERC20ApproveCalldata } from '@l.x/lx/src/utils/approvals'
 
 export interface TokenRevocationTransactionStep extends RevokeApproveFields {
   type: TransactionStepType.TokenRevocationTransaction

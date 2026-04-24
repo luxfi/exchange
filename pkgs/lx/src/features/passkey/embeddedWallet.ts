@@ -4,18 +4,18 @@ import type {
   ChallengeResponse,
   RegistrationOptions,
 } from '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb'
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
 import {
   clearDeviceSession,
   generateDeviceKeyPair,
   getDeviceSession,
   setDeviceSession,
-} from 'lx/src/features/passkey/deviceSession'
-import { authenticatePasskey, registerPasskey } from 'lx/src/features/passkey/passkey'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { getValidAddress } from 'lx/src/utils/addresses'
-import { HexString } from 'utilities/src/addresses/hex'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/passkey/deviceSession'
+import { authenticatePasskey, registerPasskey } from '@l.x/lx/src/features/passkey/passkey'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { HexString } from '@l.x/utils/src/addresses/hex'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export type {
   Action,
@@ -283,16 +283,16 @@ export {
   listAuthenticators,
   registerNewAuthenticator,
   startAddAuthenticatorSession,
-} from 'lx/src/features/passkey/authenticatorManagement'
-export type { SetupProgress } from 'lx/src/features/passkey/recoverySetup'
-export { encryptAndStoreRecovery } from 'lx/src/features/passkey/recoverySetup'
+} from '@l.x/lx/src/features/passkey/authenticatorManagement'
+export type { SetupProgress } from '@l.x/lx/src/features/passkey/recoverySetup'
+export { encryptAndStoreRecovery } from '@l.x/lx/src/features/passkey/recoverySetup'
 // Re-exports from sub-modules — consumers continue to import from this file
 export {
   exportEncryptedSeedPhrase,
   signMessageWithPasskey,
   signTransactionWithPasskey,
   signTypedDataWithPasskey,
-} from 'lx/src/features/passkey/signing'
+} from '@l.x/lx/src/features/passkey/signing'
 
 /** Result of the crypto phase — feed this into {@link authorizeAndCompleteRecovery}. */
 export interface EncryptedRecoveryState {
@@ -322,7 +322,7 @@ export async function authorizeAndCompleteRecovery({
   walletId: string
   privyUserId: string
   authMethodType: RecoveryAuthMethodType
-  onProgress?: (step: import('lx/src/features/passkey/recoverySetup').SetupProgress) => void
+  onProgress?: (step: import('@l.x/lx/src/features/passkey/recoverySetup').SetupProgress) => void
 }): Promise<{ recoveryQuorumId: string }> {
   const { AuthenticationTypes, Action: ActionEnum } = await loadPrivyPbModule()
 

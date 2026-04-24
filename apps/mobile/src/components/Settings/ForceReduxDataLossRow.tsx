@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { DevSettings } from 'react-native'
 import { MMKV } from 'react-native-mmkv'
-import { Flex, type IconProps, Text, TouchableArea } from 'ui/src'
-import { RotatableChevron, UniswapLogo } from 'ui/src/components/icons'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { logger } from 'utilities/src/logger/logger'
+import { Flex, type IconProps, Text, TouchableArea } from '@l.x/ui/src'
+import { RotatableChevron, UniswapLogo } from '@l.x/ui/src/components/icons'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Dev tool to simulate complete Redux data loss while keeping Keyring intact.

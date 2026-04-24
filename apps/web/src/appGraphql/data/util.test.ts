@@ -1,6 +1,6 @@
 import { GraphQLApi } from '@l.x/api'
-import { DAI, WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI, WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { gqlToCurrency, unwrapToken } from '~/appGraphql/data/util'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 

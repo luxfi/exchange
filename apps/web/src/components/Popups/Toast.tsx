@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Flex, Text, TouchableArea, useShadowPropsMedium } from 'ui/src'
-import { X } from 'ui/src/components/icons/X'
+import { Flex, Text, TouchableArea, useShadowPropsMedium } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons/X'
 import { POPUP_MAX_WIDTH } from '~/components/Popups/constants'
 
 type ToastProps = {

@@ -1,5 +1,5 @@
 import defaultTokenList from '@uniswap/default-token-list'
-import { mockLogger } from 'utilities/src/logger/mocks'
+import { mockLogger } from '@l.x/utils/src/logger/mocks'
 import createFetchMock from 'vitest-fetch-mock'
 import fetchTokenList from '~/lib/hooks/useTokenList/fetchTokenList'
 import contenthashToUri from '~/lib/utils/contenthashToUri'

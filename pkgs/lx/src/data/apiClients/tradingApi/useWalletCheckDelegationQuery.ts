@@ -1,8 +1,8 @@
 import { type QueryFunction, type QueryKey, skipToken, type UseQueryResult, useQuery } from '@tanstack/react-query'
 import { type TradingApi, type UseQueryApiHelperHookArgs } from '@l.x/api'
-import { lxUrls } from 'lx/src/constants/urls'
-import { checkWalletDelegation } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { checkWalletDelegation } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export type WalletCheckDelegationParams = {
   walletAddresses: TradingApi.WalletCheckDelegationRequestBody['walletAddresses']

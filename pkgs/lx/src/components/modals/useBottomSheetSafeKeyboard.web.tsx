@@ -1,4 +1,4 @@
-import { KeyboardInfo } from 'lx/src/components/modals/useBottomSheetSafeKeyboard'
+import { KeyboardInfo } from '@l.x/lx/src/components/modals/useBottomSheetSafeKeyboard'
 
 export function useBottomSheetSafeKeyboard(): KeyboardInfo {
   // Not yet accounting for mWeb

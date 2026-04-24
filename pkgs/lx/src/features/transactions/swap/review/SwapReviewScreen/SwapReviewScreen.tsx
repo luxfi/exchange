@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { memo } from 'react'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 import { ProgressIndicator } from '@l.x/lx/src/components/ConfirmSwapModal/ProgressIndicator'
 import { TransactionModalInnerContainer } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
 import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
@@ -33,8 +33,8 @@ import { useSwapDependenciesStore } from '@l.x/lx/src/features/transactions/swap
 import { useSwapTxStore } from '@l.x/lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
 import { isChained } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { TransactionWarning } from '@l.x/lx/src/features/transactions/TransactionDetails/TransactionWarning'
-import { logger } from 'utilities/src/logger/logger'
-import { isWebPlatform } from 'utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 interface SwapReviewScreenProps {
   hideContent: boolean

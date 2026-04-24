@@ -6,30 +6,30 @@ import { Balance } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { PortfolioValueModifier as RestPortfolioValueModifier } from '@luxamm/client-data-api/dist/data/v1/types_pb.d'
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
-import { GetPortfolioInput, getPortfolioQuery, useGetPortfolioQuery } from 'lx/src/data/rest/getPortfolio'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { GetPortfolioInput, getPortfolioQuery, useGetPortfolioQuery } from '@l.x/lx/src/data/rest/getPortfolio'
 import {
   shouldTransformToMultichain,
   transformPortfolioToMultichain,
-} from 'lx/src/data/rest/transformPortfolioToMultichain'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+} from '@l.x/lx/src/data/rest/transformPortfolioToMultichain'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   buildPortfolioBalance,
   PortfolioCacheUpdater,
   PortfolioTotalValueResult,
-} from 'lx/src/features/dataApi/balances/balances'
-import { getPortfolioMultichainBalancesById } from 'lx/src/features/dataApi/balances/toPortfolioMultichainBalance'
-import { mapRestStatusToNetworkStatus, matchesCurrency } from 'lx/src/features/dataApi/balances/utils'
+} from '@l.x/lx/src/features/dataApi/balances/balances'
+import { getPortfolioMultichainBalancesById } from '@l.x/lx/src/features/dataApi/balances/toPortfolioMultichainBalance'
+import { mapRestStatusToNetworkStatus, matchesCurrency } from '@l.x/lx/src/features/dataApi/balances/utils'
 import {
   BaseResult,
   PortfolioBalance,
   PortfolioMultichainBalance,
   RestContract,
-} from 'lx/src/features/dataApi/types'
-import { buildCurrency, buildCurrencyInfo } from 'lx/src/features/dataApi/utils/buildCurrency'
-import { currencyIdToRestContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
+} from '@l.x/lx/src/features/dataApi/types'
+import { buildCurrency, buildCurrencyInfo } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
+import { currencyIdToRestContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
 import {
   getRestCurrencySafetyInfo,
   getRestTokenSafetyInfo,
@@ -39,7 +39,7 @@ import { useCurrencyIdToVisibility } from '@l.x/lx/src/features/transactions/sel
 import { CurrencyId } from '@l.x/lx/src/types/currency'
 import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import { usePlatformBasedFetchPolicy } from '@l.x/lx/src/utils/usePlatformBasedFetchPolicy'
-import { useEvent } from 'utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type RestTokenOverrides = {
   includeOverrides: RestContract[]

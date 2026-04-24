@@ -1,21 +1,21 @@
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
 import {
   deleteAuthenticator,
   listAuthenticators,
   registerNewAuthenticator,
   startAddAuthenticatorSession,
-} from 'lx/src/features/passkey/authenticatorManagement'
+} from '@l.x/lx/src/features/passkey/authenticatorManagement'
 import {
   clearDeviceSession,
   generateDeviceKeyPair,
   getDeviceSession,
   setDeviceSession,
-} from 'lx/src/features/passkey/deviceSession'
-import { loadPrivyPbModule } from 'lx/src/features/passkey/embeddedWallet'
-import { authenticatePasskey, registerPasskey } from 'lx/src/features/passkey/passkey'
+} from '@l.x/lx/src/features/passkey/deviceSession'
+import { loadPrivyPbModule } from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { authenticatePasskey, registerPasskey } from '@l.x/lx/src/features/passkey/passkey'
 import { type MockedFunction, vi } from 'vitest'
 
-vi.mock('lx/src/data/rest/embeddedWallet/requests', () => ({
+vi.mock('@l.x/lx/src/data/rest/embeddedWallet/requests', () => ({
   EmbeddedWalletApiClient: {
     fetchListAuthenticatorsRequest: vi.fn(),
     fetchChallengeRequest: vi.fn(),
@@ -25,11 +25,11 @@ vi.mock('lx/src/data/rest/embeddedWallet/requests', () => ({
   },
 }))
 
-vi.mock('lx/src/features/passkey/embeddedWallet', () => ({
+vi.mock('@l.x/lx/src/features/passkey/embeddedWallet', () => ({
   loadPrivyPbModule: vi.fn(),
 }))
 
-vi.mock('lx/src/features/passkey/passkey', () => ({
+vi.mock('@l.x/lx/src/features/passkey/passkey', () => ({
   authenticatePasskey: vi.fn(),
   registerPasskey: vi.fn(),
 }))

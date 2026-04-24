@@ -11,22 +11,22 @@ import {
   useColorsFromTokenColor,
   useExtractedTokenColor,
   useSporeColors,
-} from 'ui/src'
-import { EnvelopeHeart } from 'ui/src/components/icons/EnvelopeHeart'
-import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
-import { Shuffle } from 'ui/src/components/icons/Shuffle'
-import { iconSizes } from 'ui/src/theme'
-import { BaseModalProps } from 'lx/src/components/BridgedAsset/BridgedAssetModal'
-import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { lxUrls } from 'lx/src/constants/urls'
-import { getChainLabel } from 'lx/src/features/chains/utils'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { openUri } from 'lx/src/utils/linking'
-import { isWebAppDesktop } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@l.x/ui/src'
+import { EnvelopeHeart } from '@l.x/ui/src/components/icons/EnvelopeHeart'
+import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
+import { Shuffle } from '@l.x/ui/src/components/icons/Shuffle'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { BaseModalProps } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { openUri } from '@l.x/lx/src/utils/linking'
+import { isWebAppDesktop } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type WormholeModalProps = {
   currencyInfo?: CurrencyInfo

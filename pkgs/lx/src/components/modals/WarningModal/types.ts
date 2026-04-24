@@ -1,5 +1,5 @@
 import { Currency } from '@luxamm/sdk-core'
-import { ColorTokens, GeneratedIcon } from 'ui/src'
+import { ColorTokens, GeneratedIcon } from '@l.x/ui/src'
 
 export enum WarningSeverity {
   None = 0,

@@ -7,7 +7,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { useAllFeeTierPoolData } from '~/components/Liquidity/hooks/useAllFeeTierPoolData'
 import { TEST_TOKEN_1, TEST_TOKEN_2 } from '~/test-utils/constants'
 
-vi.mock('lx/src/data/rest/getPools', () => ({
+vi.mock('@l.x/lx/src/data/rest/getPools', () => ({
   useGetPoolsByTokens: vi.fn(),
 }))
 

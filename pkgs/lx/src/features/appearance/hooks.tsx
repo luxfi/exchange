@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
-import { AppearanceSettingType } from 'lx/src/features/appearance/slice'
-import { ColorScheme } from 'lx/src/features/appearance/types'
-import { useColorScheme } from 'lx/src/features/appearance/useColorScheme'
-import { LXState } from 'lx/src/state/lxReducer'
+import { AppearanceSettingType } from '@l.x/lx/src/features/appearance/slice'
+import { ColorScheme } from '@l.x/lx/src/features/appearance/types'
+import { useColorScheme } from '@l.x/lx/src/features/appearance/useColorScheme'
+import { LXState } from '@l.x/lx/src/state/lxReducer'
 
 export function useCurrentAppearanceSetting(): AppearanceSettingType {
   const { selectedAppearanceSettings } = useSelector((state: LXState) => state.appearanceSettings)

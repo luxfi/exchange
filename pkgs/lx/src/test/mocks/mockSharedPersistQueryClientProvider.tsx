@@ -1,7 +1,7 @@
 import { QueryClientProvider } from '@tanstack/react-query'
 import { SharedQueryClient } from '@l.x/api'
 import { PropsWithChildren } from 'react'
-import { createMockFn } from 'lx/src/test/mockFn'
+import { createMockFn } from '@l.x/lx/src/test/mockFn'
 
 export const mockSharedPersistQueryClientProvider = {
   SharedPersistQueryClientProvider: createMockFn().mockImplementation(MockedSharedPersistQueryClientProvider),

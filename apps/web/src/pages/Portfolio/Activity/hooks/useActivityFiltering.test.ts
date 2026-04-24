@@ -1,11 +1,11 @@
 import { renderHook } from '@testing-library/react'
-import { useActivityData } from 'lx/src/features/activity/hooks/useActivityData'
-import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { useActivityData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
+import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ActivityFilterType } from '~/pages/Portfolio/Activity/Filters/utils'
 import { useActivityFiltering } from '~/pages/Portfolio/Activity/hooks/useActivityFiltering'
 
-vi.mock('lx/src/features/activity/hooks/useActivityData')
-vi.mock('utilities/src/react/useInfiniteScroll', () => ({
+vi.mock('@l.x/lx/src/features/activity/hooks/useActivityData')
+vi.mock('@l.x/utils/src/react/useInfiniteScroll', () => ({
   useInfiniteScroll: () => ({ sentinelRef: { current: null } }),
 }))
 

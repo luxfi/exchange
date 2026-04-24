@@ -1,6 +1,6 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
-import { dataApiServiceClient } from 'lx/src/data/apiClients/dataApiService/listTokens'
+import { dataApiServiceClient } from '@l.x/lx/src/data/apiClients/dataApiService/listTokens'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { createListTokensService, type ListTokensService } from '~/state/explore/listTokens/services/listTokensService'
 import { getEffectiveListTokensOptions, type UseListTokensOptions } from '~/state/explore/listTokens/types'

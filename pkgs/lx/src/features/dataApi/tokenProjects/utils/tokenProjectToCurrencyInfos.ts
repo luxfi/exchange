@@ -1,10 +1,10 @@
 import { GraphQLApi } from '@l.x/api'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { buildCurrency, buildCurrencyInfo } from 'lx/src/features/dataApi/utils/buildCurrency'
-import { getCurrencySafetyInfo } from 'lx/src/features/dataApi/utils/getCurrencySafetyInfo'
-import { currencyId } from 'lx/src/utils/currencyId'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { buildCurrency, buildCurrencyInfo } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
+import { getCurrencySafetyInfo } from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 
 export function tokenProjectToCurrencyInfos(
   tokenProjects: GraphQLApi.TokenProjectsQuery['tokenProjects'],

@@ -6,8 +6,8 @@ import { GetPortfolioChartRequest, GetPortfolioChartResponse } from '@luxamm/cli
 import { transformInput, WithoutWalletAccount } from '@luxfi/api'
 import { lxPostTransport } from '@l.x/lx/src/data/rest/base'
 import { buildAccountAddressesByPlatform } from '@l.x/lx/src/data/rest/buildAccountAddressesByPlatform'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 
 export type GetPortfolioChartInput = {
   input?: WithoutWalletAccount<PartialMessage<GetPortfolioChartRequest>> & {

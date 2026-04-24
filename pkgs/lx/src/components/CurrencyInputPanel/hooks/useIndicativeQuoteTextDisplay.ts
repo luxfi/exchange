@@ -1,6 +1,6 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useEffect, useMemo, useRef } from 'react'
-import { CurrencyInputPanelProps } from 'lx/src/components/CurrencyInputPanel/types'
+import { CurrencyInputPanelProps } from '@l.x/lx/src/components/CurrencyInputPanel/types'
 
 export type PanelTextDisplay = {
   value: string | undefined

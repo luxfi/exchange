@@ -1,10 +1,10 @@
 import { isError, isNonPollingRequestInFlight } from '@l.x/api'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, FlexProps, Loader } from 'ui/src'
-import { BaseCard } from 'lx/src/components/BaseCard/BaseCard'
-import { useTokenBalanceListContext } from 'lx/src/features/portfolio/TokenBalanceListContext'
-import { isMobileApp } from 'utilities/src/platform'
+import { Flex, FlexProps, Loader } from '@l.x/ui/src'
+import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
+import { useTokenBalanceListContext } from '@l.x/lx/src/features/portfolio/TokenBalanceListContext'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 export const EmptyTokensList = memo(function _EmptyTokensList({
   emptyCondition,

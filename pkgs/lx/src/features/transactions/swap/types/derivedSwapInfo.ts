@@ -1,10 +1,10 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { TradeWithStatus } from 'lx/src/features/transactions/swap/types/trade'
-import { BaseDerivedInfo } from 'lx/src/features/transactions/types/baseDerivedInfo'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { CurrencyField } from 'lx/src/types/currency'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { TradeWithStatus } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { BaseDerivedInfo } from '@l.x/lx/src/features/transactions/types/baseDerivedInfo'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export type DerivedSwapInfo<
   TInput = CurrencyInfo,

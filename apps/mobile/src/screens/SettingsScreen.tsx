@@ -32,7 +32,7 @@ import {
 import { useAdvancedSettingsMenuState } from 'src/features/settings/hooks/useAdvancedSettingsMenuState'
 import { useWalletRestore } from 'src/features/wallet/useWalletRestore'
 import { importFromCloudBackupOption, restoreFromCloudBackupOption } from 'src/screens/Import/constants'
-import { Flex, IconProps, Text, useSporeColors } from 'ui/src'
+import { Flex, IconProps, Text, useSporeColors } from '@l.x/ui/src'
 import {
   Bell,
   BookOpen,
@@ -55,25 +55,25 @@ import {
   UniswapLogo,
   WavePulse,
   Wrench,
-} from 'ui/src/components/icons'
-import { iconSizes } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { useCurrentAppearanceSetting } from 'uniswap/src/features/appearance/hooks'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useCurrentLanguageInfo } from 'uniswap/src/features/language/hooks'
-import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { getCloudProviderName } from 'uniswap/src/utils/cloud-backup/getCloudProviderName'
-import { isDevEnv } from 'utilities/src/environment/env'
-import { isAndroid } from 'utilities/src/platform'
-import { selectHasCopiedPrivateKeys } from 'wallet/src/features/behaviorHistory/selectors'
-import { BackupType } from 'wallet/src/features/wallet/accounts/types'
-import { hasBackup } from 'wallet/src/features/wallet/accounts/utils'
-import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+} from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { uniswapUrls } from '@l.x/lx/src/constants/urls'
+import { useCurrentAppearanceSetting } from '@l.x/lx/src/features/appearance/hooks'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { useCurrentLanguageInfo } from '@l.x/lx/src/features/language/hooks'
+import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
+import { isAndroid } from '@l.x/utils/src/platform'
+import { selectHasCopiedPrivateKeys } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
+import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
+import { hasBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
+import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 
 // avoids rendering during animation which makes it laggy
 // set to a bit above the Switch animation "simple" which is 80ms

@@ -2,7 +2,7 @@ import { TradingApi } from '@l.x/api'
 import {
   ActivePlanState,
   activePlanStore,
-} from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'
 

@@ -1,5 +1,5 @@
-import { isBetaEnv, isProdEnv } from 'utilities/src/environment/env'
-import { isWebApp } from 'utilities/src/platform'
+import { isBetaEnv, isProdEnv } from '@l.x/utils/src/environment/env'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export enum StatsigEnvName {
   Beta = 'beta', // mobile and extension environment-specific

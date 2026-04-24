@@ -1,8 +1,8 @@
 import { isAddress } from '@ethersproject/address'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Input, Switch, Text } from 'ui/src'
-import { fonts } from 'ui/src/theme/fonts'
+import { Flex, Input, Switch, Text } from '@l.x/ui/src'
+import { fonts } from '@l.x/ui/src/theme/fonts'
 
 export function SendFeesToAddressSection({
   enabled,

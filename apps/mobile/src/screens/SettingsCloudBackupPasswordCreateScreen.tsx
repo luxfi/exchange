@@ -5,12 +5,12 @@ import { SettingsStackParamList } from 'src/app/navigation/types'
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { SafeKeyboardScreen } from 'src/components/layout/SafeKeyboardScreen'
 import { CloudBackupPassword } from 'src/features/CloudBackup/CloudBackupForm/CloudBackupPassword'
-import { Button, Flex, Text, useSporeColors } from 'ui/src'
-import { OSDynamicCloudIcon } from 'ui/src/components/icons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { getCloudProviderName } from 'uniswap/src/utils/cloud-backup/getCloudProviderName'
+import { Button, Flex, Text, useSporeColors } from '@l.x/ui/src'
+import { OSDynamicCloudIcon } from '@l.x/ui/src/components/icons'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
 
 type Props = NativeStackScreenProps<SettingsStackParamList, MobileScreens.SettingsCloudBackupPasswordCreate>
 

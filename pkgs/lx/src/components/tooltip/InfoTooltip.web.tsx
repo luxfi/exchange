@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
-import { Flex, type PopperProps, Text, Tooltip, useMedia } from 'ui/src'
-import { zIndexes } from 'ui/src/theme'
-import { InfoTooltipProps } from 'lx/src/components/tooltip/InfoTooltipProps'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Flex, type PopperProps, Text, Tooltip, useMedia } from '@l.x/ui/src'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { InfoTooltipProps } from '@l.x/lx/src/components/tooltip/InfoTooltipProps'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 const TOOLTIP_REST_MS = 20
 const TOOLTIP_CLOSE_MS = 100

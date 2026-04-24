@@ -1,12 +1,12 @@
-import { config } from 'lx/src/config'
+import { config } from '@l.x/lx/src/config'
 import {
   getQuicknodeChainId,
   getQuicknodeChainIdPathSuffix,
   getQuicknodeEndpointUrl,
-} from 'lx/src/features/chains/evm/rpc'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+} from '@l.x/lx/src/features/chains/evm/rpc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
-vi.mock('lx/src/config', () => ({
+vi.mock('@l.x/lx/src/config', () => ({
   config: {
     quicknodeEndpointName: 'test-endpoint',
     quicknodeEndpointToken: 'test-token-123',

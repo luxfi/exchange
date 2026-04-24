@@ -1,4 +1,4 @@
-import 'utilities/src/logger/mocks'
+import '@l.x/utils/src/logger/mocks'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { configureStore } from '@reduxjs/toolkit'
 import { QueryClient } from '@tanstack/react-query'

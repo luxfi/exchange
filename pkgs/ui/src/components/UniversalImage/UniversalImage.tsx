@@ -7,8 +7,8 @@ import { PlainImage } from '@l.x/ui/src/components/UniversalImage/internal/Plain
 import { SvgImage } from '@l.x/ui/src/components/UniversalImage/internal/SvgImage'
 import { type UniversalImageProps, type UniversalImageSize } from '@l.x/ui/src/components/UniversalImage/types'
 import { Loader } from '@l.x/ui/src/loading/Loader'
-import { isSVGUri, uriToHttpUrls } from 'utilities/src/format/urls'
-import { logger } from 'utilities/src/logger/logger'
+import { isSVGUri, uriToHttpUrls } from '@l.x/utils/src/format/urls'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const LOADING_FALLBACK = <Loader.Image />
 

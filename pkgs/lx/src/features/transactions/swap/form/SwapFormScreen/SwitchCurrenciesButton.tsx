@@ -1,10 +1,10 @@
-import { Flex, useIsShortMobileDevice } from 'ui/src'
-import { iconSizes, spacing } from 'ui/src/theme'
-import { ElementName, SwapEventName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { SwapArrowButton } from 'lx/src/features/transactions/swap/components/SwapArrowButton'
-import { useSwapFormScreenStore } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { Flex, useIsShortMobileDevice } from '@l.x/ui/src'
+import { iconSizes, spacing } from '@l.x/ui/src/theme'
+import { ElementName, SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { SwapArrowButton } from '@l.x/lx/src/features/transactions/swap/components/SwapArrowButton'
+import { useSwapFormScreenStore } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenStore'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const SWAP_DIRECTION_BUTTON_SIZE = {
   size: {

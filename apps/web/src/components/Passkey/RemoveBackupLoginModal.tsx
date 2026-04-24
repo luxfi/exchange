@@ -1,11 +1,11 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from '@l.x/ui/src'
-import { Modal } from 'lx/src/components/modals/Modal'
-import WarningIcon from 'lx/src/components/warnings/WarningIcon'
-import { deleteRecoveryMethod } from 'lx/src/features/passkey/embeddedWallet'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import WarningIcon from '@l.x/lx/src/components/warnings/WarningIcon'
+import { deleteRecoveryMethod } from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import {
   getRecoveryMethodLabel,
   LIST_AUTHENTICATORS_QUERY_KEY,

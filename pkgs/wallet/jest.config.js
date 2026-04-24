@@ -44,11 +44,11 @@ module.exports = {
     '@tamagui/core': '@tamagui/core/native-test',
     '@tamagui/web': '@tamagui/core/native-test',
     // Map theme animations to native version for tests (base index.ts uses CSS animations now)
-    'ui/src/theme/animations$': '<rootDir>/../ui/src/theme/animations/index.native.ts',
+    '@l.x/ui/src/theme/animations$': '<rootDir>/../ui/src/theme/animations/index.native.ts',
     // Map platform-specific animation components to native versions for tests
-    'ui/src/components/factories/animated$': '<rootDir>/../ui/src/components/factories/animated.native.tsx',
-    'ui/src/components/layout/AnimatedFlex$': '<rootDir>/../ui/src/components/layout/AnimatedFlex.native.tsx',
-    'ui/src/components/layout/AnimatedScrollView$': '<rootDir>/../ui/src/components/layout/AnimatedScrollView.native.ts',
-    'ui/src/components/AnimatedFlashList/AnimatedFlashList$': '<rootDir>/../ui/src/components/AnimatedFlashList/AnimatedFlashList.native.tsx',
+    '@l.x/ui/src/components/factories/animated$': '<rootDir>/../ui/src/components/factories/animated.native.tsx',
+    '@l.x/ui/src/components/layout/AnimatedFlex$': '<rootDir>/../ui/src/components/layout/AnimatedFlex.native.tsx',
+    '@l.x/ui/src/components/layout/AnimatedScrollView$': '<rootDir>/../ui/src/components/layout/AnimatedScrollView.native.ts',
+    '@l.x/ui/src/components/AnimatedFlashList/AnimatedFlashList$': '<rootDir>/../ui/src/components/AnimatedFlashList/AnimatedFlashList.native.tsx',
   },
 }

@@ -1,5 +1,5 @@
 import { ChainToken, MultichainToken, TokenType } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { createDataApiMultichainToken } from 'uniswap/src/test/fixtures/dataApi/multichainToken'
+import { createDataApiMultichainToken } from '@l.x/lx/src/test/fixtures/dataApi/multichainToken'
 import { describe, expect, it, vi } from 'vitest'
 import { TimePeriod } from '~/appGraphql/data/util'
 import { TokenSortMethod } from '~/components/Tokens/constants'

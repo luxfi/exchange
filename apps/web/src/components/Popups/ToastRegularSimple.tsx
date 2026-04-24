@@ -1,6 +1,6 @@
-import { Flex, FlexProps, Text, TouchableArea, useShadowPropsMedium } from 'ui/src'
-import { X } from 'ui/src/components/icons/X'
-import { spacing } from 'ui/src/theme'
+import { Flex, FlexProps, Text, TouchableArea, useShadowPropsMedium } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { spacing } from '@l.x/ui/src/theme'
 import { POPUP_MAX_WIDTH } from '~/components/Popups/constants'
 
 // Temporary Spore-ish implementation for mweb until Spore project makes toasts consistent across all platforms

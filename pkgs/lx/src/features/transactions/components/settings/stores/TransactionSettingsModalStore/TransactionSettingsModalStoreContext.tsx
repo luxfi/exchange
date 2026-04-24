@@ -2,7 +2,7 @@ import { createContext } from 'react'
 import type {
   TransactionSettingsModalId,
   TransactionSettingsModalState,
-} from 'lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
 import type { StoreApi } from 'zustand/vanilla'
 
 export const TransactionSettingsModalStoreContext = createContext<StoreApi<

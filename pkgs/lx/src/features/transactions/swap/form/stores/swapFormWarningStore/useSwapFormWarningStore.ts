@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import type {
   SwapFormWarningStore,
   SwapFormWarningStoreState,
-} from 'lx/src/features/transactions/swap/form/stores/swapFormWarningStore/createSwapFormWarningStore'
-import { SwapFormWarningStoreContext } from 'lx/src/features/transactions/swap/form/stores/swapFormWarningStore/SwapFormWarningStoreContext'
+} from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormWarningStore/createSwapFormWarningStore'
+import { SwapFormWarningStoreContext } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormWarningStore/SwapFormWarningStoreContext'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'
 

@@ -5,7 +5,7 @@ import {
   getDeviceSession,
   setDeviceSession,
   signWithDeviceKey,
-} from 'lx/src/features/passkey/deviceSession'
+} from '@l.x/lx/src/features/passkey/deviceSession'
 
 describe('deviceSession', () => {
   afterEach(() => {

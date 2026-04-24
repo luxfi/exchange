@@ -1,4 +1,4 @@
-import { Flex, Input, styled } from 'ui/src'
+import { Flex, Input, styled } from '@l.x/ui/src'
 
 export const MenuItem = styled(Flex, {
   row: true,

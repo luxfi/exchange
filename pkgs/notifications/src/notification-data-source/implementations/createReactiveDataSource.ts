@@ -3,7 +3,7 @@ import { createNotificationDataSource } from '@l.x/notifications/src/notificatio
 import { type NotificationDataSource } from '@l.x/notifications/src/notification-data-source/NotificationDataSource'
 import { type ReactiveCondition } from '@l.x/notifications/src/notification-data-source/types/ReactiveCondition'
 import { type NotificationTracker } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
-import { getLogger } from 'utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 
 export interface CreateReactiveDataSourceContext<TState> {
   /** The reactive condition that determines when to show the notification */

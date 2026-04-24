@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { useExtractedTokenColor, useSporeColors } from 'ui/src'
+import { useExtractedTokenColor, useSporeColors } from '@l.x/ui/src'
 import {
   useCreateAuctionStore,
   useCreateAuctionStoreActions,

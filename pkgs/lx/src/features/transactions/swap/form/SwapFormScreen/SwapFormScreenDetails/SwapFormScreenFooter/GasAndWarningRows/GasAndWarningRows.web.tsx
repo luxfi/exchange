@@ -1,12 +1,12 @@
-import { Flex } from 'ui/src'
-import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
-import { InsufficientNativeTokenWarning } from 'lx/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
-import { BlockedAddressWarning } from 'lx/src/features/transactions/modals/BlockedAddressWarning'
-import { TradeInfoRow } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/TradeInfoRow'
-import { useDebouncedGasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/useDebouncedGasInfo'
-import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
-import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useIsBlocked } from 'lx/src/features/trm/hooks'
+import { Flex } from '@l.x/ui/src'
+import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
+import { InsufficientNativeTokenWarning } from '@l.x/lx/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
+import { BlockedAddressWarning } from '@l.x/lx/src/features/transactions/modals/BlockedAddressWarning'
+import { TradeInfoRow } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/TradeInfoRow'
+import { useDebouncedGasInfo } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/useDebouncedGasInfo'
+import { useParsedSwapWarnings } from '@l.x/lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
+import { useSwapFormStoreDerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useIsBlocked } from '@l.x/lx/src/features/trm/hooks'
 
 export function GasAndWarningRows(): JSX.Element {
   const chainId = useSwapFormStoreDerivedSwapInfo((s) => s.chainId)

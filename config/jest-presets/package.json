@@ -1,8 +1,24 @@
 {
-  "name": "jest-presets",
-  "version": "0.0.0",
+  "name": "@l.x/jest-preset",
+  "version": "1.0.0",
+  "description": "Shared Jest preset for Lux Exchange apps and packages.",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxfi/exchange.git",
+    "directory": "config/jest-presets"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "jest"
+  ],
   "dependencies": {
     "ts-jest": "29.2.5"
+  },
+  "peerDependencies": {
+    "jest": ">=29"
   },
   "devDependencies": {
     "@testing-library/jest-native": "5.4.3",
@@ -10,7 +26,5 @@
     "jest-svg-transformer": "1.0.0",
     "jest-transform-stub": "2.0.0",
     "mem-storage-area": "1.0.3"
-  },
-  "license": "MIT",
-  "private": true
+  }
 }

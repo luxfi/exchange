@@ -1,4 +1,4 @@
-import { isAndroid, isIOS } from 'utilities/src/platform'
+import { isAndroid, isIOS } from '@l.x/utils/src/platform'
 
 const APPLE_PAY = 'Apple Pay'
 const GOOGLE_PAY = 'Google Pay'

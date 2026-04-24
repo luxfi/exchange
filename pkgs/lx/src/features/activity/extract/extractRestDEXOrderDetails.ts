@@ -13,7 +13,7 @@ import {
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 function mapDEXStatusToLocalTxStatus(status: LXTransactionStatus): TransactionStatus {
   switch (status) {

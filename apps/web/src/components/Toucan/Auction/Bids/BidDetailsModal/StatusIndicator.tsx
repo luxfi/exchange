@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { ArrowUpCircle } from 'ui/src/components/icons/ArrowUpCircle'
-import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
+import { Flex, Text } from '@l.x/ui/src'
+import { ArrowUpCircle } from '@l.x/ui/src/components/icons/ArrowUpCircle'
+import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
 import { useBidStatusColors } from '~/components/Toucan/Auction/hooks/useBidStatusColors'
 import { type BidDisplayState } from '~/components/Toucan/Auction/utils/bidDetails'
 

@@ -1,5 +1,5 @@
 import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TokenSortMethod } from '~/components/Tokens/constants'
 import type { UseListTokensOptions } from '~/state/explore/listTokens/types'
 import { buildTokenSortRankFromMultichain } from '~/state/explore/listTokens/utils/buildTokenSortRankFromMultichain'

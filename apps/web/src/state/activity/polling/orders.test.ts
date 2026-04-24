@@ -40,8 +40,8 @@ vi.mock('~/state/hooks', async () => {
   }
 })
 
-vi.mock('lx/src/features/transactions/slice', async () => {
-  const actual = await vi.importActual('lx/src/features/transactions/slice')
+vi.mock('@l.x/lx/src/features/transactions/slice', async () => {
+  const actual = await vi.importActual('@l.x/lx/src/features/transactions/slice')
   return {
     ...actual,
     updateTransaction: vi.fn((tx: any) => ({ type: 'transactions/updateTransaction', payload: tx })),

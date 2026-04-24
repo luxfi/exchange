@@ -1,5 +1,5 @@
 import { act, fireEvent } from '@testing-library/react'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { PasskeyGenerationModal } from '~/components/NavBar/DownloadApp/Modal/PasskeyGeneration'
 import { useSignInWithPasskey } from '~/hooks/useSignInWithPasskey'
 import { mocked } from '~/test-utils/mocked'

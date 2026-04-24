@@ -1,6 +1,6 @@
 import { queryOptions, UseQueryResult, useQuery } from '@tanstack/react-query'
 import { Camera, PermissionResponse } from 'expo-camera'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export const cameraPermissionQuery = queryOptions({
   queryKey: [ReactQueryCacheKey.CameraPermission],

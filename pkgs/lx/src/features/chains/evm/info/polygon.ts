@@ -1,10 +1,10 @@
 import { GraphQLApi } from '@luxfi/api'
 import { SwapConfigKey } from '@luxfi/gating'
-import { POLYGON_LOGO } from 'ui/src/assets'
-import { config } from 'lx/src/config'
-import { CHAIN_ID_TO_URL_PARAM } from 'lx/src/features/chains/chainUrlParam'
-import { getQuicknodeEndpointUrl } from 'lx/src/features/chains/evm/rpc'
-import { buildChainTokens } from 'lx/src/features/chains/evm/tokens'
+import { POLYGON_LOGO } from '@l.x/ui/src/assets'
+import { config } from '@l.x/lx/src/config'
+import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
+import { getQuicknodeEndpointUrl } from '@l.x/lx/src/features/chains/evm/rpc'
+import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import {
   GqlChainId,
   NetworkLayer,

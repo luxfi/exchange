@@ -1,8 +1,8 @@
 import { GraphQLApi } from '@l.x/api'
-import { amount, timestampedAmount } from 'lx/src/test/fixtures/gql/amounts'
-import { faker } from 'lx/src/test/shared'
-import { createArray, createFixture, randomEnumValue } from 'lx/src/test/utils'
-import { ONE_DAY_MS, ONE_HOUR_MS, ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { amount, timestampedAmount } from '@l.x/lx/src/test/fixtures/gql/amounts'
+import { faker } from '@l.x/lx/src/test/shared'
+import { createArray, createFixture, randomEnumValue } from '@l.x/lx/src/test/utils'
+import { ONE_DAY_MS, ONE_HOUR_MS, ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 
 /**
  * Constants

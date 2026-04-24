@@ -4,7 +4,7 @@ import { getDeviceLocales } from '@l.x/utils/src/device/locales.web'
 import { Mock, vi } from 'vitest'
 
 // Mock the chrome utilities to return the global chrome mock from vitest setup
-vi.mock('utilities/src/chrome/chrome', () => ({
+vi.mock('@l.x/utils/src/chrome/chrome', () => ({
   getChromeWithThrow: (): typeof chrome => global.chrome,
 }))
 

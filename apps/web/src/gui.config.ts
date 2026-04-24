@@ -1,6 +1,6 @@
-import { createGui } from 'ui/src'
-import { animations } from 'ui/src/theme/animations'
-import { configWithoutAnimations, GuiGroupNames } from 'ui/src/theme/config'
+import { createGui } from '@l.x/ui/src'
+import { animations } from '@l.x/ui/src/theme/animations'
+import { configWithoutAnimations, GuiGroupNames } from '@l.x/ui/src/theme/config'
 
 const {
   // web has specific settings (see below)

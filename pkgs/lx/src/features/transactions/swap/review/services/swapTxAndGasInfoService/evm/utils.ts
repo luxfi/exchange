@@ -1,21 +1,21 @@
 import type { GasStrategy } from '@l.x/api'
-import type { TransactionSettings } from 'lx/src/features/transactions/components/settings/types'
-import type { ApprovalTxInfo } from 'lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
-import type { EVMSwapInstructionsService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapInstructionsService'
-import type { TransactionRequestInfo } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
+import type { TransactionSettings } from '@l.x/lx/src/features/transactions/components/settings/types'
+import type { ApprovalTxInfo } from '@l.x/lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
+import type { EVMSwapInstructionsService } from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapInstructionsService'
+import type { TransactionRequestInfo } from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
 import {
   createProcessSwapResponse,
   getSwapInputExceedsBalance,
-} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
+} from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
+import type { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
 import type {
   BridgeTrade,
   ClassicTrade,
   UnwrapTrade,
   WrapTrade,
-} from 'lx/src/features/transactions/swap/types/trade'
-import { ApprovalAction } from 'lx/src/features/transactions/swap/types/trade'
-import { tryCatch } from 'utilities/src/errors'
+} from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { ApprovalAction } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { tryCatch } from '@l.x/utils/src/errors'
 
 type GetEVMSwapTransactionRequestInfoFn = (params: {
   trade: ClassicTrade | BridgeTrade | WrapTrade | UnwrapTrade

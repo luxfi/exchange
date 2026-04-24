@@ -1,14 +1,14 @@
 import { TradeType } from '@luxamm/sdk-core'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
+import { Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
 import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { SlippageInfoProps } from '@l.x/lx/src/features/transactions/swap/components/MaxSlippageRow/SlippageInfo/types'
 import { useFormatSlippageAmount } from '@l.x/lx/src/features/transactions/swap/components/MaxSlippageRow/SlippageInfo/useFormatSlippageAmount'
 import { TradeWithSlippage } from '@l.x/lx/src/features/transactions/swap/types/trade'
-import { isMobileApp, isWebPlatform } from 'utilities/src/platform'
+import { isMobileApp, isWebPlatform } from '@l.x/utils/src/platform'
 
 function SlippageWarningText(): JSX.Element {
   const { t } = useTranslation()

@@ -1,4 +1,4 @@
-import { ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
+import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 /** Stale time constants for auction queries */
 export const AuctionStaleTime = {

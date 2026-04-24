@@ -5,7 +5,7 @@ import {
   type NotificationProcessorResult,
 } from '@l.x/notifications/src/notification-processor/NotificationProcessor'
 import { type NotificationTracker } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
-import { getLogger } from 'utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Creates a base notification processor that implements style-based deduplication and limiting,

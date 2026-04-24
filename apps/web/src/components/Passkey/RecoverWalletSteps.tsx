@@ -5,9 +5,9 @@ import { EnvelopeLock } from '@l.x/ui/src/components/icons/EnvelopeLock'
 import { Eye } from '@l.x/ui/src/components/icons/Eye'
 import { EyeOff } from '@l.x/ui/src/components/icons/EyeOff'
 import { Person } from '@l.x/ui/src/components/icons/Person'
-import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
+import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { DigitInputRow, type DigitInputState, IconBox, StepHeader } from '~/components/Passkey/BackupLoginComponents'
 
 export function OAuthLoadingStep({

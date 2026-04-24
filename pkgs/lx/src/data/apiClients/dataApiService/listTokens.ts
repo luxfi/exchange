@@ -5,7 +5,7 @@ import { DataApiService } from '@luxamm/client-data-api/dist/data/v1/api_connect
 import type { ListTokensRequest, ListTokensResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { createDataApiServiceClient } from '@l.x/api'
 import { lxGetTransport } from '@l.x/lx/src/data/rest/base'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export type ListTokensInput = {
   params?: Omit<PartialMessage<ListTokensRequest>, 'pageToken'>

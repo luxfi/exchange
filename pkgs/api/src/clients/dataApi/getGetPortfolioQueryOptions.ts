@@ -3,8 +3,8 @@ import { queryOptions } from '@tanstack/react-query'
 import type { GetPortfolioRequest, GetPortfolioResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { type DataApiServiceClient } from '@l.x/api/src/clients/dataApi/createDataApiServiceClient'
 import { transformInput, type WithoutWalletAccount } from '@l.x/api/src/connectRpc/utils'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { type QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { type QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 
 /**
  * Sorts `chainIds` in a query cache inputs object so that the same logical input

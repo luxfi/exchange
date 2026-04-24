@@ -7,7 +7,7 @@ vi.mock('~/state/multichain/useMultichainContext', () => ({
   useMultichainContext: vi.fn(),
 }))
 
-vi.mock('lx/src/features/accounts/store/hooks', () => ({
+vi.mock('@l.x/lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(),
 }))
 

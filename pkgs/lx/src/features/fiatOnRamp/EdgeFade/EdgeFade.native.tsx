@@ -1,5 +1,5 @@
-import { FlexProps, LinearGradient, useSporeColors } from 'ui/src'
-import { opacify } from 'ui/src/theme'
+import { FlexProps, LinearGradient, useSporeColors } from '@l.x/ui/src'
+import { opacify } from '@l.x/ui/src/theme'
 
 export function EdgeFade({ side, width }: { side: 'left' | 'right' } & FlexProps): JSX.Element {
   const colors = useSporeColors()

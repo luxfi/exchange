@@ -1,7 +1,7 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Skeleton, Text, TouchableArea, useMedia } from 'ui/src'
+import { Flex, Skeleton, Text, TouchableArea, useMedia } from '@l.x/ui/src'
 import { ActivityTimeline } from '~/components/Toucan/Auction/ActivityTimeline/ActivityTimeline'
 import { AuctionDetailsModal } from '~/components/Toucan/Auction/ActivityTimeline/AuctionDetailsModal'
 import { BidActivities } from '~/components/Toucan/Auction/BidActivities/BidActivities'

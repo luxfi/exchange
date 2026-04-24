@@ -1,16 +1,16 @@
 import { useCallback } from 'react'
-import { easeInEaseOutLayoutAnimation } from 'ui/src/animations/layout/layoutAnimation'
-import { AlertTriangle } from 'ui/src/components/icons/AlertTriangle'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { easeInEaseOutLayoutAnimation } from '@l.x/ui/src/animations/layout/layoutAnimation'
+import { AlertTriangle } from '@l.x/ui/src/components/icons/AlertTriangle'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import {
   ActionSheetDropdown,
   ActionSheetDropdownStyleProps,
-} from 'lx/src/components/dropdowns/ActionSheetDropdown'
-import { useNetworkOptions } from 'lx/src/components/network/hooks'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isMobileApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/components/dropdowns/ActionSheetDropdown'
+import { useNetworkOptions } from '@l.x/lx/src/components/network/hooks'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 const NETWORK_ICON_SIZE = iconSizes.icon20
 

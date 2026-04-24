@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { LXLogo } from 'ui/src/components/icons/LXLogo'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
-import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { lxUrls } from 'lx/src/constants/urls'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Flex, Text } from '@l.x/ui/src'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
+import { LXLogo } from '@l.x/ui/src/components/icons/LXLogo'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { WarningInfo } from '@l.x/lx/src/components/modals/WarningModal/WarningInfo'
+import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export function V4HooksInfo(): JSX.Element {
   const { t } = useTranslation()

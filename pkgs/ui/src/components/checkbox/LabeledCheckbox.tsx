@@ -8,7 +8,7 @@ import { Flex } from '@l.x/ui/src/components/layout'
 import { Text } from '@l.x/ui/src/components/text'
 import { TouchableArea } from '@l.x/ui/src/components/touchable'
 import type { SporeComponentVariant } from '@l.x/ui/src/components/types'
-import { useEvent } from 'utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type LabeledCheckboxProps = {
   size?: CheckboxSizeTokens

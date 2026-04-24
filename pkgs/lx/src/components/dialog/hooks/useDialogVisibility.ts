@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useRef } from 'react'
-import type { DialogPreferencesService } from 'lx/src/dialog-preferences'
-import { DialogVisibilityId } from 'lx/src/dialog-preferences/types'
-import { logger } from 'utilities/src/logger/logger'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
-import { useHasValueBecomeTruthy } from 'utilities/src/react/useHasValueBecomeTruthy'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import type { DialogPreferencesService } from '@l.x/lx/src/dialog-preferences'
+import { DialogVisibilityId } from '@l.x/lx/src/dialog-preferences/types'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
+import { useHasValueBecomeTruthy } from '@l.x/utils/src/react/useHasValueBecomeTruthy'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export enum BehaviorType {
   DontShowAgain = 'DontShowAgain',

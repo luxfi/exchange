@@ -1,7 +1,7 @@
 import { Currency } from '@uniswap/sdk-core'
 import { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
-import { AlertTriangle } from 'ui/src/components/icons/AlertTriangle'
+import { AlertTriangle } from '@l.x/ui/src/components/icons/AlertTriangle'
 import { LimitPriceErrorType } from '~/components/CurrencyInputPanel/LimitPriceInputPanel/useCurrentPriceAdjustment'
 import Column from '~/components/deprecated/Column'
 import Row from '~/components/deprecated/Row'

@@ -2,24 +2,24 @@ import { BottomSheetFooter, BottomSheetView, KEYBOARD_STATUS, useBottomSheetInte
 import { useMemo, useState } from 'react'
 import { type StyleProp, TouchableWithoutFeedback, type ViewStyle } from 'react-native'
 import { Extrapolation, interpolate, useAnimatedStyle, useDerivedValue, useSharedValue } from 'react-native-reanimated'
-import { type ColorTokens, Flex, LinearGradient, type LinearGradientProps, useSporeColors } from 'ui/src'
-import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { DEFAULT_BOTTOM_INSET } from 'ui/src/hooks/constants'
-import { borderRadii, opacify, spacing } from 'ui/src/theme'
-import { HandleBar } from 'lx/src/components/modals/HandleBar'
-import { Modal } from 'lx/src/components/modals/Modal'
+import { type ColorTokens, Flex, LinearGradient, type LinearGradientProps, useSporeColors } from '@l.x/ui/src'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { DEFAULT_BOTTOM_INSET } from '@l.x/ui/src/hooks/constants'
+import { borderRadii, opacify, spacing } from '@l.x/ui/src/theme'
+import { HandleBar } from '@l.x/lx/src/components/modals/HandleBar'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import {
   TransactionModalContextProvider,
   TransactionScreen,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import type {
   TransactionModalFooterContainerProps,
   TransactionModalInnerContainerProps,
   TransactionModalProps,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalProps'
-import { TransactionModalUpdateLogger } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalUpdateLogger'
-import { useAppInsets } from 'lx/src/hooks/useAppInsets'
-import { isAndroid } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalProps'
+import { TransactionModalUpdateLogger } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalUpdateLogger'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 export function TransactionModal({
   children,

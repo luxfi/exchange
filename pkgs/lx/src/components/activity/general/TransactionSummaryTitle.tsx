@@ -1,6 +1,6 @@
 import React from 'react'
-import { Flex, Text, UniversalImage, useIsDarkMode } from 'ui/src'
-import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { Flex, Text, UniversalImage, useIsDarkMode } from '@l.x/ui/src'
+import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 interface TransactionSummaryTitleProps {
   transaction: TransactionDetails

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { MultichainTokenOption, OnchainItemListOptionType } from 'lx/src/components/lists/items/types'
-import { MultichainSearchResult } from 'lx/src/features/dataApi/types'
+import { MultichainTokenOption, OnchainItemListOptionType } from '@l.x/lx/src/components/lists/items/types'
+import { MultichainSearchResult } from '@l.x/lx/src/features/dataApi/types'
 
 export function multichainSearchResultsToOptions(
   results: MultichainSearchResult[] | undefined,

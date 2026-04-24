@@ -1,13 +1,13 @@
 import { type Currency, type CurrencyAmount, TradeType as SdkTradeType } from '@luxamm/sdk-core'
 import { type DiscriminatedQuoteResponse, type GasEstimate, TradingApi } from '@l.x/api'
-import { type QuoteCurrencyData } from 'lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
-import { getGasEstimate } from 'lx/src/features/transactions/swap/services/tradeService/transformations/estimateGas'
+import { type QuoteCurrencyData } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
+import { getGasEstimate } from '@l.x/lx/src/features/transactions/swap/services/tradeService/transformations/estimateGas'
 import {
   transformTradingApiResponseToTrade,
   validateTrade,
-} from 'lx/src/features/transactions/swap/utils/tradingApi'
-import { CurrencyField } from 'lx/src/types/currency'
-import { inXMinutesUnix } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { inXMinutesUnix } from '@l.x/utils/src/time/time'
 
 const DEFAULT_SWAP_VALIDITY_TIME_MINS = 30
 

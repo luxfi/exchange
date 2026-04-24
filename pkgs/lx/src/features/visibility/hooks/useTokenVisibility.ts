@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
-import { selectTokensVisibility } from 'lx/src/features/visibility/selectors'
-import type { CurrencyId } from 'lx/src/types/currency'
+import { normalizeCurrencyIdForMapLookup } from '@l.x/lx/src/data/cache'
+import { selectTokensVisibility } from '@l.x/lx/src/features/visibility/selectors'
+import type { CurrencyId } from '@l.x/lx/src/types/currency'
 
 /**
  * Hook to determine token visibility by checking Redux state first, then falling back to cached flag

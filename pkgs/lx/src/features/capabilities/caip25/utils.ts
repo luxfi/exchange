@@ -2,8 +2,8 @@ import {
   CAIP25Namespace,
   MultipleChainsNamespaceScopeKey,
   SingleChainNamespaceScopeKey,
-} from 'lx/src/features/capabilities/caip25/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+} from '@l.x/lx/src/features/capabilities/caip25/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 export function getScopeKey(params: {
   namespace: CAIP25Namespace

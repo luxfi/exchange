@@ -16,7 +16,7 @@ import { mocked } from '~/test-utils/mocked'
 
 const USDCAmount = CurrencyAmount.fromRawAmount(USDC_MAINNET, '10000')
 
-vi.mock('utilities/src/react/useIsWindowVisible')
+vi.mock('@l.x/utils/src/react/useIsWindowVisible')
 vi.mock('./slice', () => {
   return {
     useGetQuoteQuery: vi.fn(),
@@ -32,7 +32,7 @@ vi.mock('@l.x/gating', async (importOriginal) => {
     getFeatureFlag: vi.fn(),
   }
 })
-vi.mock('lx/src/features/smartWallet/mismatch/hooks', () => ({
+vi.mock('@l.x/lx/src/features/smartWallet/mismatch/hooks', () => ({
   useIsMismatchAccountQuery: vi.fn(),
 }))
 

@@ -38,7 +38,7 @@ vi.mock('~/state/application/atoms', () => ({
 }))
 
 // Mock utilities
-vi.mock('utilities/src/react/hooks', () => ({
+vi.mock('@l.x/utils/src/react/hooks', () => ({
   useEvent: vi.fn((fn) => fn),
 }))
 

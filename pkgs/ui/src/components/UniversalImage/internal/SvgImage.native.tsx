@@ -3,7 +3,7 @@ import { Flex } from '@l.x/ui/src/components/layout/Flex'
 import { SvgImageProps } from '@l.x/ui/src/components/UniversalImage/types'
 import { useSvgData } from '@l.x/ui/src/components/UniversalImage/utils'
 import { Loader } from '@l.x/ui/src/loading/Loader'
-import { isIOS } from 'utilities/src/platform'
+import { isIOS } from '@l.x/utils/src/platform'
 
 const heightUnits = isIOS ? 'vh' : '%'
 

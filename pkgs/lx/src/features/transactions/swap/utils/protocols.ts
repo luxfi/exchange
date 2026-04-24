@@ -1,10 +1,10 @@
 import { TradingApi } from '@l.x/api'
 import { FeatureFlags, getFeatureFlag, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
-import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
-import { createGetSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { createGetV4SwapEnabled, useV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
+import { useLuxContextSelector } from '@l.x/lx/src/contexts/LuxContext'
+import { createGetSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { createGetV4SwapEnabled, useV4SwapEnabled } from '@l.x/lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
 
 export const DEFAULT_PROTOCOL_OPTIONS = [
   // `as const` allows us to derive a type narrower than ProtocolItems, and the `...` spread removes readonly, allowing DEFAULT_PROTOCOL_OPTIONS to be passed around as an argument without `readonly`

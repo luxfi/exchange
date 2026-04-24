@@ -2,14 +2,14 @@
 import { Currency, NativeCurrency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import { ColorTokens } from 'ui/src'
-import { getAlertColor } from 'lx/src/components/modals/WarningModal/getAlertColor'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { AttackType, CurrencyInfo, TokenList } from 'lx/src/features/dataApi/types'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { TokenProtectionWarning } from 'lx/src/features/tokens/warnings/types'
-import { logger } from 'utilities/src/logger/logger'
-import { isWebApp } from 'utilities/src/platform'
+import { ColorTokens } from '@l.x/ui/src'
+import { getAlertColor } from '@l.x/lx/src/components/modals/WarningModal/getAlertColor'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { AttackType, CurrencyInfo, TokenList } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export const TOKEN_PROTECTION_FOT_HONEYPOT_BREAKPOINT = 100
 export const TOKEN_PROTECTION_FOT_HIGH_FEE_BREAKPOINT = 80

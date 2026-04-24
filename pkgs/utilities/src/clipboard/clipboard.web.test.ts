@@ -1,7 +1,7 @@
 import { getClipboard, setClipboard, setClipboardImage } from '@l.x/utils/src/clipboard/clipboard.web'
 import { describe, expect, it, vi } from 'vitest'
 
-vi.mock('utilities/src/logger/logger', () => ({
+vi.mock('@l.x/utils/src/logger/logger', () => ({
   logger: {
     debug: vi.fn(),
     error: vi.fn(),

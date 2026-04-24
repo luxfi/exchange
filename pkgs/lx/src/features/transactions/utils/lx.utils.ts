@@ -1,10 +1,10 @@
 import { GraphQLApi, TradingApi } from '@l.x/api'
-import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Converts a trading API OrderType to internal Routing type.

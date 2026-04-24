@@ -1,4 +1,4 @@
-import { DappInfoTransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { DappInfoTransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ActivityProtocolInfo } from '~/pages/Portfolio/Activity/ActivityTable/activityTableModels'
 
 /**

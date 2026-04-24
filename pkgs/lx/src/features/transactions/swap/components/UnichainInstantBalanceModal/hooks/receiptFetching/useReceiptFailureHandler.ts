@@ -1,19 +1,19 @@
 import { useCallback } from 'react'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import {
   TransactionScreen,
   useTransactionModalContext,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { FLASHBLOCKS_INSTANT_BALANCE_TIMEOUT } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/constants'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { FLASHBLOCKS_INSTANT_BALANCE_TIMEOUT } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/constants'
 import {
   NO_OUTPUT_ERROR,
   resetSwapFormAndReturnToForm,
-} from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/receiptFetching/utils'
-import { useSwapDependenciesStore } from 'lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { logger } from 'utilities/src/logger/logger'
-import { isMobileApp } from 'utilities/src/platform'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/receiptFetching/utils'
+import { useSwapDependenciesStore } from '@l.x/lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isMobileApp } from '@l.x/utils/src/platform'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 interface ReceiptFailureParams {
   error: unknown

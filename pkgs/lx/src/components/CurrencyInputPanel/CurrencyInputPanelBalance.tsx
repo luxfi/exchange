@@ -1,11 +1,11 @@
 import type { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { Text, type TextProps } from 'ui/src'
-import { useConnectionStatus } from 'lx/src/features/accounts/store/hooks'
-import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { CurrencyField } from 'lx/src/types/currency'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
-import { NumberType } from 'utilities/src/format/types'
+import { Text, type TextProps } from '@l.x/ui/src'
+import { useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'
+import type { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 interface CurrencyInputBalanceProps {
   currencyBalance: Maybe<CurrencyAmount<Currency>>

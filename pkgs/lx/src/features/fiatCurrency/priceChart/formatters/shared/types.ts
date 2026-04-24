@@ -1,5 +1,5 @@
-import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
-import { FormatNumberOrStringInput } from 'lx/src/features/language/formatter'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { FormatNumberOrStringInput } from '@l.x/lx/src/features/language/formatter'
 
 export type DecimalPlaceNumber = number | 'threshold' | 'zero'
 

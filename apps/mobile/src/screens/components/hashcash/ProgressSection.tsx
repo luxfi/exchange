@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { useHashcashBenchmarkStore } from 'src/screens/stores/hashcashBenchmarkStore'
-import { Flex, Text } from 'ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useShallow } from 'zustand/shallow'
 
 function formatDuration(ms: number): string {

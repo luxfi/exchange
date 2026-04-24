@@ -1,4 +1,4 @@
-import { isDevEnv } from 'utilities/src/environment/env'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 import type { StoreApi } from 'zustand/vanilla'

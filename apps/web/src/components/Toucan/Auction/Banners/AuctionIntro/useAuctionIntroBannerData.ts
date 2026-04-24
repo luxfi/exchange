@@ -1,7 +1,7 @@
 import { TFunction } from 'i18next'
 import { CSSProperties, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSporeColors } from 'ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { useAuctionTokenColor } from '~/components/Toucan/Auction/hooks/useAuctionTokenColor'
 import { useDurationRemaining } from '~/components/Toucan/Auction/hooks/useDurationRemaining'
 import { AuctionDetails, AuctionProgressState } from '~/components/Toucan/Auction/store/types'

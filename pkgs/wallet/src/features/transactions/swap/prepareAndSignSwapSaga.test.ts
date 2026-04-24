@@ -30,7 +30,7 @@ import { selectWalletSwapProtectionSetting } from '@luxfi/wallet/src/features/wa
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 
 // Mock dependencies
-jest.mock('wallet/src/features/transactions/factories/createTransactionServices')
+jest.mock('@luxfi/wallet/src/features/transactions/factories/createTransactionServices')
 
 const mockPrivateRpcFlag = jest.fn().mockReturnValue(true)
 

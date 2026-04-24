@@ -9,7 +9,7 @@ import {
   IconProps,
   Text,
   DEXText,
-} from 'ui/src'
+} from '@l.x/ui/src'
 
 type OuterProps = {
   children: ReactNode

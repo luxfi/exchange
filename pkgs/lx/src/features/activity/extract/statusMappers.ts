@@ -5,7 +5,7 @@ import {
 } from '@luxamm/client-data-api/dist/data/v1/plan_pb'
 import { PlanActivity } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@l.x/api'
-import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 export function mapDAPIPlanStatusToTXStatus(status: DataApiPlanStatus | undefined): TransactionStatus {
   switch (status) {

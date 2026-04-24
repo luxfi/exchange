@@ -3,7 +3,7 @@ import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { ChartBarCrossed } from 'ui/src/components/icons/ChartBarCrossed'
+import { ChartBarCrossed } from '@l.x/ui/src/components/icons/ChartBarCrossed'
 import { BaseModalProps } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
 import { ReportModal, ReportOption } from '@l.x/lx/src/components/reporting/ReportModal'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -11,7 +11,7 @@ import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { PoolDataReportOption, submitPoolDataReport } from '@l.x/lx/src/features/reporting/reports'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from 'utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type ReportPoolDataModalProps = {
   onReportSuccess?: () => void

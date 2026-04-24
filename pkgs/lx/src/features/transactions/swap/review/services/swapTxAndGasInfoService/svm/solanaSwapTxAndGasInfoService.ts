@@ -1,6 +1,6 @@
 import { type GasFeeResult, type JupiterOrderResponse, TradingApi } from '@l.x/api'
-import { type SwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/swapTxAndGasInfoService'
-import { type SolanaTrade } from 'lx/src/features/transactions/swap/types/solana'
+import { type SwapTxAndGasInfoService } from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/swapTxAndGasInfoService'
+import { type SolanaTrade } from '@l.x/lx/src/features/transactions/swap/types/solana'
 
 function getGasValue(quote: JupiterOrderResponse): string {
   if (quote.gasless) {

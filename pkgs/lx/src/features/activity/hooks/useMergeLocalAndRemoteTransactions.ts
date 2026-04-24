@@ -1,21 +1,21 @@
 import { useMemo } from 'react'
 import { useDispatch } from 'react-redux'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { useSelectAddressTransactions } from 'lx/src/features/transactions/selectors'
-import { finalizeTransaction, updateTransactionWithoutWatch } from 'lx/src/features/transactions/slice'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { useSelectAddressTransactions } from '@l.x/lx/src/features/transactions/selectors'
+import { finalizeTransaction, updateTransactionWithoutWatch } from '@l.x/lx/src/features/transactions/slice'
 import {
   type ActivePlanState,
   activePlanStore,
-} from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { isBridge, isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
+} from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { isBridge, isClassic, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx, isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
-import { ensureLeading0x } from 'lx/src/utils/addresses'
-import { areCurrencyIdsEqual, buildCurrencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx, isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
+import { ensureLeading0x } from '@l.x/lx/src/utils/addresses'
+import { areCurrencyIdsEqual, buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { useStore } from 'zustand'
 
 type HashToTxMap = Map<string, TransactionDetails>

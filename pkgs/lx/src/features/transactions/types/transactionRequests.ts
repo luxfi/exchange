@@ -1,5 +1,5 @@
 import { TransactionRequest } from '@ethersproject/providers'
-import { NonEmptyArray } from 'utilities/src/primitives/array'
+import { NonEmptyArray } from '@l.x/utils/src/primitives/array'
 
 export type PopulatedTransactionRequestArray = NonEmptyArray<ValidatedTransactionRequest>
 export type ValidatedTransactionRequest = TransactionRequest & { to: string; chainId: number }

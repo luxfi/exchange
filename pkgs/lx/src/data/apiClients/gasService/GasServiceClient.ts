@@ -8,8 +8,8 @@ import {
   type GasServiceClient as GasServiceClientType,
   reinitializeSession,
 } from '@l.x/api'
-import { entryGatewayPostTransport } from 'lx/src/data/rest/base'
-import { logger } from 'utilities/src/logger/logger'
+import { entryGatewayPostTransport } from '@l.x/lx/src/data/rest/base'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const withSessionRetry = createWithSessionRetry({
   reinitializeSession: () => {

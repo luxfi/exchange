@@ -1,6 +1,6 @@
 import i18n from 'i18next'
-import { Locale } from 'lx/src/features/language/constants'
-import { isWebApp } from 'utilities/src/platform'
+import { Locale } from '@l.x/lx/src/features/language/constants'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 let changingTo = ''
 export async function changeLanguage(locale: Locale): Promise<void> {

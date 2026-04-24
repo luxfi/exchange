@@ -1,5 +1,5 @@
 import { OnChainTransaction, OnChainTransactionLabel } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { DappInfoTransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { DappInfoTransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Extracts Dapp info from a REST API OnChainTransaction's protocol metadata.

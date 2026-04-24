@@ -1,5 +1,5 @@
 import { AuthTypes } from '@walletconnect/types'
-import { EthMethod } from 'lx/src/features/dappRequests/types'
+import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
 
 export enum WalletConnectEvent {
   Connected = 0,

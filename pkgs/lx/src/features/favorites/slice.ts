@@ -1,11 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { Ether } from '@luxamm/sdk-core'
-import { WBTC } from 'lx/src/constants/tokens'
-import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { type CurrencyId } from 'lx/src/types/currency'
-import { currencyId as idFromCurrency } from 'lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+import { WBTC } from '@l.x/lx/src/constants/tokens'
+import { normalizeCurrencyIdForMapLookup } from '@l.x/lx/src/data/cache'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { type CurrencyId } from '@l.x/lx/src/types/currency'
+import { currencyId as idFromCurrency } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export interface FavoritesState {
   tokens: CurrencyId[]

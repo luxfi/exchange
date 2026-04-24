@@ -1,6 +1,6 @@
 import 'i18next'
 
-const en = require('lx/src/i18n/locales/source/en-US.json') as Record<string, string>
+const en = require('@l.x/lx/src/i18n/locales/source/en-US.json') as Record<string, string>
 
 const resources = {
   translation: en,

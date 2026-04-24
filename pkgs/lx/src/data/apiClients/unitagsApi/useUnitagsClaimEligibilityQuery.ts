@@ -4,9 +4,9 @@ import {
   type UnitagClaimEligibilityResponse,
   type UseQueryApiHelperHookArgs,
 } from '@l.x/api'
-import { UnitagsApiClient } from 'lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { UnitagsApiClient } from '@l.x/lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 
 export function useUnitagsClaimEligibilityQuery({
   params,

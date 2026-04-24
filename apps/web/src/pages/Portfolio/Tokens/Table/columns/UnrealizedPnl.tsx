@@ -1,10 +1,10 @@
 import { memo, useMemo } from 'react'
-import { ColorTokens, Flex, Text } from 'ui/src'
-import { Caret } from 'ui/src/components/icons/Caret'
-import { MAX_REASONABLE_USD_VALUE } from 'uniswap/src/components/ProfitLoss/constants'
-import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { NumberType } from 'utilities/src/format/types'
+import { ColorTokens, Flex, Text } from '@l.x/ui/src'
+import { Caret } from '@l.x/ui/src/components/icons/Caret'
+import { MAX_REASONABLE_USD_VALUE } from '@l.x/lx/src/components/ProfitLoss/constants'
+import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { EmptyTableCell } from '~/pages/Portfolio/EmptyTableCell'
 
 interface UnrealizedPnlProps {

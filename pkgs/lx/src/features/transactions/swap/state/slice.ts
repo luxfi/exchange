@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import type { CurrencyField } from 'lx/src/types/currency'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import type { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export interface SwapSettingsState {
   filteredChainIds: { [key in CurrencyField]?: UniverseChainId } | undefined

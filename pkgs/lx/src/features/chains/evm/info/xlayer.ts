@@ -1,7 +1,7 @@
 import { Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
-import { OKB_LOGO, XLAYER_LOGO } from 'ui/src/assets'
-import { CHAIN_ID_TO_URL_PARAM } from 'lx/src/features/chains/chainUrlParam'
+import { OKB_LOGO, XLAYER_LOGO } from '@l.x/ui/src/assets'
+import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
 import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS_LEGACY,

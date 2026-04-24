@@ -19,7 +19,7 @@ ruleTester.run('enforce-query-options-result', rule, {
     // Function with correct return type
     {
       code: `
-import { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 import { queryOptions } from '@tanstack/react-query'
 
 export function getUserQueryOptions(id: string): QueryOptionsResult<User> {
@@ -78,7 +78,7 @@ export const makeQueryOptions = (id: string) => {
     // Already using QueryOptionsResult with full generics
     {
       code: `
-import { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 import { queryOptions } from '@tanstack/react-query'
 
 const makeUserQueryOptions = (id: string): QueryOptionsResult<User, Error, User, ['user', string]> => {
@@ -141,7 +141,7 @@ export function getUserQueryOptions(id: string): UseQueryOptions<User> {
         },
       ],
       output: `
-import { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 import { UseQueryOptions } from '@tanstack/react-query'
 import { queryOptions } from '@tanstack/react-query'
 
@@ -172,7 +172,7 @@ export function getQueryResult(): UseQueryResult<Data> {
         },
       ],
       output: `
-import { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 import { UseQueryResult } from '@tanstack/react-query'
 
 export function getQueryResult(): QueryOptionsResult<Data> {
@@ -202,7 +202,7 @@ export const makeQuery = (): QueryOptions => {
         },
       ],
       output: `
-import { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 import { QueryOptions } from '@tanstack/react-query'
 
 export const makeQuery = (): QueryOptionsResult => {

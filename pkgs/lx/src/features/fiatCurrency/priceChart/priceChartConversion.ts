@@ -1,10 +1,10 @@
-import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
 import type {
   FiatDeltaFormatOptions,
   FormattedFiatDelta,
-} from 'lx/src/features/fiatCurrency/priceChart/formatters/shared/types'
-import { createStablecoinFormatter } from 'lx/src/features/fiatCurrency/priceChart/formatters/stablecoinFormatter'
-import { createStandardFormatter } from 'lx/src/features/fiatCurrency/priceChart/formatters/standardFormatter'
+} from '@l.x/lx/src/features/fiatCurrency/priceChart/formatters/shared/types'
+import { createStablecoinFormatter } from '@l.x/lx/src/features/fiatCurrency/priceChart/formatters/stablecoinFormatter'
+import { createStandardFormatter } from '@l.x/lx/src/features/fiatCurrency/priceChart/formatters/standardFormatter'
 
 /**
  * Utility for formatting fiat currency delta values in price charts.

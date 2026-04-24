@@ -1,4 +1,4 @@
-import { Flex, Skeleton } from 'ui/src'
+import { Flex, Skeleton } from '@l.x/ui/src'
 
 function BidItemSkeleton(): JSX.Element {
   return (

@@ -1,6 +1,6 @@
-import { Flex, Text } from 'ui/src'
-import { GeneratedIcon } from 'ui/src/components/factories/createIcon'
-import { Check } from 'ui/src/components/icons/Check'
+import { Flex, Text } from '@l.x/ui/src'
+import { GeneratedIcon } from '@l.x/ui/src/components/factories/createIcon'
+import { Check } from '@l.x/ui/src/components/icons/Check'
 import { Dropdown, DropdownProps, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 
 export interface SelectOption {

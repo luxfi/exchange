@@ -6,27 +6,27 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
 import { TokenDetailsFavoriteButton } from 'src/components/TokenDetails/TokenDetailsFavoriteButton'
 import { useTokenDetailsCurrentChainBalance } from 'src/components/TokenDetails/useTokenDetailsCurrentChainBalance'
-import { Flex, Text } from 'ui/src'
-import { Ellipsis } from 'ui/src/components/icons'
-import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { iconSizes, spacing } from 'ui/src/theme'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { ContextMenu } from 'uniswap/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
+import { Flex, Text } from '@l.x/ui/src'
+import { Ellipsis } from '@l.x/ui/src/components/icons'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { iconSizes, spacing } from '@l.x/ui/src/theme'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { ContextMenu } from '@l.x/lx/src/components/menus/ContextMenu'
+import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { TokenList } from 'uniswap/src/features/dataApi/types'
+} from '@l.x/lx/src/data/graphql/uniswap-data-api/fragments'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { TokenList } from '@l.x/lx/src/features/dataApi/types'
 import {
   TokenMenuActionType,
   useTokenContextMenuOptions,
-} from 'uniswap/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
-import { ElementName, ModalName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { useEvent } from 'utilities/src/react/hooks'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+} from '@l.x/lx/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
+import { ElementName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 export const HeaderTitleElement = memo(function HeaderTitleElement(): JSX.Element {
   const { t } = useTranslation()

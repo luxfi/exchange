@@ -10,7 +10,7 @@ import {
 } from '@l.x/ui/src/components/switch/shared'
 import type { SwitchProps } from '@l.x/ui/src/components/switch/types'
 import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
-import { useEvent } from 'utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 const ANIMATION_CONFIG = {
   duration: 80,

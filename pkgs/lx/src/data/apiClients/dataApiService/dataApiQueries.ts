@@ -1,11 +1,11 @@
 import { infiniteQueryOptions } from '@tanstack/react-query'
 import type { ListTokensResponse, ListTopPoolsResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
-import { getListTokensQueryOptions, type ListTokensInput } from 'lx/src/data/apiClients/dataApiService/listTokens'
+import { getListTokensQueryOptions, type ListTokensInput } from '@l.x/lx/src/data/apiClients/dataApiService/listTokens'
 import {
   getListTopPoolsQueryOptions,
   type ListTopPoolsInput,
-} from 'lx/src/data/apiClients/dataApiService/listTopPools'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+} from '@l.x/lx/src/data/apiClients/dataApiService/listTopPools'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 type ListTokensQueryKey = readonly [ReactQueryCacheKey.DataApiService, 'listTokens', ListTokensInput['params']]
 type ListTopPoolsQueryKey = readonly [ReactQueryCacheKey.DataApiService, 'listTopPools', ListTopPoolsInput['params']]

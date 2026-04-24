@@ -9,13 +9,13 @@ import {
 } from 'src/features/notifications/hooks/useNotificationOSPermissionsEnabled'
 import { usePromptPushPermission } from 'src/features/notifications/hooks/usePromptPushPermission'
 import { openNotificationSettings } from 'src/utils/linking'
-import { Button, Flex } from 'ui/src'
-import { BellOn } from 'ui/src/components/icons/BellOn'
-import { GenericHeader } from 'uniswap/src/components/misc/GenericHeader'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { Button, Flex } from '@l.x/ui/src'
+import { BellOn } from '@l.x/ui/src/components/icons/BellOn'
+import { GenericHeader } from '@l.x/lx/src/components/misc/GenericHeader'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 
 type NotificationsOSSettingsModalProps = {
   navigation: SettingsStackNavigationProp

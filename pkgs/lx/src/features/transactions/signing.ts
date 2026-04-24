@@ -1,5 +1,5 @@
 import { Signer, TypedDataDomain, TypedDataField, Wallet } from 'ethers/lib/ethers'
-import { ensureLeading0x } from 'lx/src/utils/addresses'
+import { ensureLeading0x } from '@l.x/lx/src/utils/addresses'
 
 export interface SignsTypedData {
   _signTypedData: Wallet['_signTypedData']

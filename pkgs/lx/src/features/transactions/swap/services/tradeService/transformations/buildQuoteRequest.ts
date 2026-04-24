@@ -1,11 +1,11 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { GasStrategy, TradingApi } from '@l.x/api'
-import { getActiveGasStrategy } from 'lx/src/features/gas/utils'
+import { getActiveGasStrategy } from '@l.x/lx/src/features/gas/utils'
 import {
   isZeroAmount,
   parseQuoteCurrencies,
-} from 'lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
-import type { UseTradeArgs } from 'lx/src/features/transactions/swap/types/trade'
+} from '@l.x/lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
+import type { UseTradeArgs } from '@l.x/lx/src/features/transactions/swap/types/trade'
 import {
   GetQuoteRoutingParams,
   GetQuoteSlippageParams,
@@ -14,7 +14,7 @@ import {
   QuoteSlippageParamsResult,
   SWAP_GAS_URGENCY_OVERRIDE,
   toTradingApiSupportedChainId,
-} from 'lx/src/features/transactions/swap/utils/tradingApi'
+} from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 
 // The TradingAPI requires an address for the swapper field; we supply a placeholder address if no account is connected.
 // Note: This address was randomly generated.

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { getUniconColors, passesContrast, useExtractedColors, useIsDarkMode, useSporeColors } from 'ui/src'
-import { useAvatar } from 'lx/src/features/address/avatar'
+import { getUniconColors, passesContrast, useExtractedColors, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
+import { useAvatar } from '@l.x/lx/src/features/address/avatar'
 
 export function useAddressColorProps(address: Address): string {
   const colors = useSporeColors()

@@ -1,7 +1,7 @@
 import { OnChainTransaction } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
-import { AssetCase, isRestTokenSpam } from 'lx/src/features/activity/utils/remote'
-import { TransactionType, UnknownTransactionInfo } from 'lx/src/features/transactions/types/transactionDetails'
+import { extractDappInfo } from '@l.x/lx/src/features/activity/utils/extractDappInfo'
+import { AssetCase, isRestTokenSpam } from '@l.x/lx/src/features/activity/utils/remote'
+import { TransactionType, UnknownTransactionInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Parse an unknown transaction from the REST API

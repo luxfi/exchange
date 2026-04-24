@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
-import type { NetworkSelectorOption, TieredNetworkOptions } from 'lx/src/components/network/NetworkFilterV2/types'
-import { usePortfolioBalancesForAddressById } from 'lx/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById'
-import type { AddressGroup } from 'lx/src/features/accounts/store/types/AccountsState'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import { toSupportedChainId } from 'lx/src/features/chains/utils'
-import type { PortfolioBalance } from 'lx/src/features/dataApi/types'
+import type { NetworkSelectorOption, TieredNetworkOptions } from '@l.x/lx/src/components/network/NetworkFilterV2/types'
+import { usePortfolioBalancesForAddressById } from '@l.x/lx/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById'
+import type { AddressGroup } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import type { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 
 function aggregateBalancesByChain(
   portfolioBalancesById: Record<string, PortfolioBalance>,

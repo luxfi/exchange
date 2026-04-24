@@ -1,7 +1,7 @@
 import {
   DEFAULT_PROTOCOL_OPTIONS,
   type FrontendSupportedProtocol,
-} from 'lx/src/features/transactions/swap/utils/protocols'
+} from '@l.x/lx/src/features/transactions/swap/utils/protocols'
 
 export function isDefaultTradeRouteOptions({
   selectedProtocols,

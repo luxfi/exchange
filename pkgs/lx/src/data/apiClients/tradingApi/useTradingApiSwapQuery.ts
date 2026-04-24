@@ -4,15 +4,15 @@ import {
   type UseQueryWithImmediateGarbageCollectionApiHelperHookArgs,
   useQueryWithImmediateGarbageCollection,
 } from '@l.x/api'
-import { lxUrls } from 'lx/src/constants/urls'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
 import {
   convertSwap5792ResponseToSwapData,
   convertSwap7702ResponseToSwapData,
   convertSwapResponseToSwapData,
   type SwapData,
-} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+} from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 export function useTradingApiSwapQuery(
   { params, ...rest }: UseQueryWithImmediateGarbageCollectionApiHelperHookArgs<TradingApi.CreateSwapRequest, SwapData>,

@@ -10,7 +10,7 @@ import {
 import {
   shouldTransformSearchToMultichain,
   transformSearchToMultichain,
-} from 'lx/src/data/rest/transformSearchToMultichain'
+} from '@l.x/lx/src/data/rest/transformSearchToMultichain'
 
 function createSearchToken(
   overrides: {

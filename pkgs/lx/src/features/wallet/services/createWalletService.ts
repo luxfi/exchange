@@ -1,4 +1,4 @@
-import type { WalletService } from 'lx/src/features/wallet/services/IWalletService'
+import type { WalletService } from '@l.x/lx/src/features/wallet/services/IWalletService'
 
 export function createWalletService(ctx: {
   evmWalletService?: WalletService

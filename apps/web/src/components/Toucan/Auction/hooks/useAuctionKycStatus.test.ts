@@ -26,8 +26,8 @@ vi.mock('@l.x/gating', () => ({
 
 const mockUseVerifyWalletQuery = vi.fn()
 
-vi.mock('lx/src/data/rest/auctions/useVerifyWallet', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/data/rest/auctions/useVerifyWallet')>()
+vi.mock('@l.x/lx/src/data/rest/auctions/useVerifyWallet', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/lx/src/data/rest/auctions/useVerifyWallet')>()
   return {
     ...actual,
     useVerifyWalletQuery: (...args: unknown[]) => mockUseVerifyWalletQuery(...args),

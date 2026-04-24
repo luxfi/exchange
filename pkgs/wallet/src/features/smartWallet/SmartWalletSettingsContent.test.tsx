@@ -19,17 +19,17 @@ const mockWallets: WalletData[] = [
   },
 ]
 
-jest.mock('wallet/src/features/smartWallet/hooks/useSmartWalletData', () => ({
+jest.mock('@luxfi/wallet/src/features/smartWallet/hooks/useSmartWalletData', () => ({
   useSmartWalletData: (): WalletData[] => mockWallets,
 }))
 
-jest.mock('wallet/src/features/smartWallet/WalletDelegationProvider', () => ({
+jest.mock('@luxfi/wallet/src/features/smartWallet/WalletDelegationProvider', () => ({
   useWalletDelegationContext: () => ({
     refreshDelegationData: jest.fn().mockResolvedValue(undefined),
   }),
 }))
 
-jest.mock('wallet/src/features/smartWallet/SmartWalletModalsManager', () => ({
+jest.mock('@luxfi/wallet/src/features/smartWallet/SmartWalletModalsManager', () => ({
   useSmartWalletModals: () => ({
     selectedWallet: undefined,
     modalState: 'none',

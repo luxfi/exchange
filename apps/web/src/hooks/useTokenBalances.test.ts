@@ -17,8 +17,8 @@ vi.mock('~/features/accounts/store/hooks', () => ({
 }))
 
 // Mock the balances module with all exports
-vi.mock('lx/src/features/dataApi/balances/balances', async () => {
-  const actual = await vi.importActual('lx/src/features/dataApi/balances/balances')
+vi.mock('@l.x/lx/src/features/dataApi/balances/balances', async () => {
+  const actual = await vi.importActual('@l.x/lx/src/features/dataApi/balances/balances')
   return {
     ...actual,
     usePortfolioBalances: vi.fn(() => ({

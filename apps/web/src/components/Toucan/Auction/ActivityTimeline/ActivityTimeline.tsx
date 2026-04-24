@@ -1,11 +1,11 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, TouchableArea } from 'ui/src'
-import { HeightAnimator } from 'ui/src/animations/components/HeightAnimator'
-import { AnglesMaximize } from 'ui/src/components/icons/AnglesMaximize'
-import { AnglesMinimize } from 'ui/src/components/icons/AnglesMinimize'
-import { useColorHexFromThemeKey } from 'ui/src/hooks/useColorHexFromThemeKey'
-import { FORMAT_DATE_TIME_SHORT, useLocalizedDayjs } from 'uniswap/src/features/language/localizedDayjs'
+import { Flex, styled, Text, TouchableArea } from '@l.x/ui/src'
+import { HeightAnimator } from '@l.x/ui/src/animations/components/HeightAnimator'
+import { AnglesMaximize } from '@l.x/ui/src/components/icons/AnglesMaximize'
+import { AnglesMinimize } from '@l.x/ui/src/components/icons/AnglesMinimize'
+import { useColorHexFromThemeKey } from '@l.x/ui/src/hooks/useColorHexFromThemeKey'
+import { FORMAT_DATE_TIME_SHORT, useLocalizedDayjs } from '@l.x/lx/src/features/language/localizedDayjs'
 import {
   getActiveEventIndex,
   TimelineEvent,

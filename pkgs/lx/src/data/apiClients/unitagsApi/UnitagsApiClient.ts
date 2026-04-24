@@ -7,7 +7,7 @@ import {
 } from '@l.x/api'
 import { getConfig } from '@l.x/config'
 import { getIsSessionServiceEnabled } from '@l.x/gating'
-import { lxUrls } from 'lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 
 const UnitagsApiFetchClient = createFetchClient({
   baseUrl:

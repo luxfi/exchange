@@ -1,12 +1,12 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   addTokensToBalanceOverride,
   initialPortfolioState,
   portfolioReducer,
   removeExpiredBalanceOverrides,
   removeTokenFromBalanceOverride,
-} from 'lx/src/features/portfolio/slice/slice'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/portfolio/slice/slice'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 const TEST_ADDRESS1 = '0x1234567890123456789012345678901234567890'
 const TEST_ADDRESS2 = '0x0987654321098765432109876543210987654321'

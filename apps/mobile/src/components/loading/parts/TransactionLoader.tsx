@@ -1,6 +1,6 @@
 import React from 'react'
-import { Flex, Text } from 'ui/src'
-import { TXN_HISTORY_ICON_SIZE } from 'uniswap/src/components/activity/utils'
+import { Flex, Text } from '@l.x/ui/src'
+import { TXN_HISTORY_ICON_SIZE } from '@l.x/lx/src/components/activity/utils'
 
 interface TransactionLoaderProps {
   opacity: number

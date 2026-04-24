@@ -8,7 +8,7 @@ import { useDefaultInitialPrice } from '~/components/Liquidity/Create/hooks/useD
 import { renderHook } from '~/test-utils/render'
 import { PositionField } from '~/types/position'
 
-vi.mock('lx/src/features/transactions/swap/hooks/useTrade', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/hooks/useTrade', () => ({
   useTrade: vi.fn(),
 }))
 

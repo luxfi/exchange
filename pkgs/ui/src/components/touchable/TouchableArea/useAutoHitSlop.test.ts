@@ -1,11 +1,11 @@
 import { act, renderHook } from '@testing-library/react'
 import type { LayoutChangeEvent } from 'react-native'
 import { getHitSlop, useAutoHitSlop } from '@l.x/ui/src/components/touchable/TouchableArea/useAutoHitSlop'
-import { isIOS } from 'utilities/src/platform'
+import { isIOS } from '@l.x/utils/src/platform'
 import { describe, expect, it, vi } from 'vitest'
 
 // Mock the isIOS value to test both iOS and Android cases
-vi.mock('utilities/src/platform', () => ({
+vi.mock('@l.x/utils/src/platform', () => ({
   isIOS: false,
 }))
 

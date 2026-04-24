@@ -1,7 +1,7 @@
 import { styled, YStack, type YStackProps } from '@hanzo/gui'
 import { FOCUS_SCALE } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonFrame/constants'
 import { withCommonPressStyle } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonFrame/utils'
-import { isWebPlatform } from 'utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 type TouchableAreaVariant = 'unstyled' | 'none' | 'outlined' | 'filled' | 'raised' | 'floating'
 

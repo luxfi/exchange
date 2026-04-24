@@ -5,7 +5,7 @@ import { Alert } from 'react-native'
 import { cameraPermissionQuery } from 'src/components/QRCodeScanner/hooks/useCameraPermissionQuery'
 import { usePreventLock } from 'src/features/lockScreen/hooks/usePreventLock'
 import { openSettings } from 'src/utils/linking'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const ERROR_PERMISSION_STATUSES = [PermissionStatus.UNDETERMINED, PermissionStatus.DENIED]
 

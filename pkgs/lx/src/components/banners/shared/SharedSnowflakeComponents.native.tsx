@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
-import { Flex, styled } from 'ui/src'
-import { Snowflake } from 'ui/src/components/icons'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Flex, styled } from '@l.x/ui/src'
+import { Snowflake } from '@l.x/ui/src/components/icons'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 // Shared styled components
 export const SnowflakeContainer = styled(Flex, {

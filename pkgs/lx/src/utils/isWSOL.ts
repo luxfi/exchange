@@ -1,7 +1,7 @@
 import { Currency } from '@luxamm/sdk-core'
-import { WRAPPED_SOL_ADDRESS_SOLANA } from 'lx/src/features/chains/svm/defaults'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from '@l.x/lx/src/features/chains/svm/defaults'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 
 /**
  * Checks if a currency is WSOL (Wrapped SOL)

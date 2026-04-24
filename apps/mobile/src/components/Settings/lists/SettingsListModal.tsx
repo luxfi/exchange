@@ -1,11 +1,11 @@
 // TODO(WALL-7189): Explore removing FlatList. Currently using this to fix a scrolling regression.
 import { FlatList } from 'react-native-gesture-handler'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { Check } from 'ui/src/components/icons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalNameType } from 'uniswap/src/features/telemetry/constants'
-import { useEvent } from 'utilities/src/react/hooks'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Check } from '@l.x/ui/src/components/icons'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 type SettingsListModalProps<T> = {
   modalName: ModalNameType

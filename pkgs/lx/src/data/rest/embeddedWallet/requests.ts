@@ -4,8 +4,8 @@ import type { EmbeddedWalletApiClient as EmbeddedWalletApiClientType, EmbeddedWa
 import { createEmbeddedWalletApiClient, getTransport } from '@l.x/api'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { getVersionHeader } from '@l.x/lx/src/data/getVersionHeader'
-import { isMobileApp } from 'utilities/src/platform'
-import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
+import { isMobileApp } from '@l.x/utils/src/platform'
+import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
 
 function createEmbeddedWalletTransport(): Transport {
   return getTransport({

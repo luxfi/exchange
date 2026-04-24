@@ -10,9 +10,9 @@ import {
   type SessionService,
   type LXIdentifierService,
 } from '@l.x/sessions'
-import type { Logger } from 'utilities/src/logger/logger'
-import { isWebApp } from 'utilities/src/platform'
-import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
+import type { Logger } from '@l.x/utils/src/logger/logger'
+import { isWebApp } from '@l.x/utils/src/platform'
+import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
 
 function provideSessionService(ctx: {
   getBaseUrl: () => string

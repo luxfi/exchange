@@ -65,7 +65,7 @@ import {
   resetTokensOrderBy,
   resetTokensOrderByAndMetadataDisplayType,
   restructureTransactionsAndNotifications,
-} from 'uniswap/src/state/uniswapMigrations'
+} from '@l.x/lx/src/state/uniswapMigrations'
 import {
   activatePendingAccounts,
   addBatchedTransactions,
@@ -90,7 +90,7 @@ import {
   removeUniconV2BehaviorState,
   removeWalletIsUnlockedState,
   updateExploreOrderByType,
-} from 'wallet/src/state/walletMigrations'
+} from '@luxfi/wallet/src/state/walletMigrations'
 
 export const migrations = {
   0: restructureTransactionsAndNotifications,

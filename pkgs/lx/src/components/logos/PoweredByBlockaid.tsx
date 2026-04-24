@@ -1,7 +1,7 @@
 import { Trans } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { BlockaidLogo } from 'ui/src/components/logos/BlockaidLogo'
-import { isMobileApp } from 'utilities/src/platform'
+import { Flex, Text } from '@l.x/ui/src'
+import { BlockaidLogo } from '@l.x/ui/src/components/logos/BlockaidLogo'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 const BLOCKAID_LOGO_WIDTH = 50
 const BLOCKAID_LOGO_HEIGHT = isMobileApp ? 13 : 10
