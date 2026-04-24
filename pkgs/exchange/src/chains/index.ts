@@ -1,21 +1,39 @@
 /**
- * Chain definitions for Lux Exchange
+ * Canonical Lux-ecosystem chains + common external chains.
+ * All 3 envs (mainnet/testnet/devnet) available for every native chain.
  */
 
 export {
-  luxMainnet,
-  luxTestnet,
-  zooMainnet,
-  zooTestnet,
-  luxDev,
-  supportedChains,
-  LUX_MAINNET_ID,
-  LUX_TESTNET_ID,
-  ZOO_MAINNET_ID,
-  ZOO_TESTNET_ID,
-  LUX_DEV_ID,
-  type SupportedChainId,
-} from './lux'
+  // Lux
+  luxMainnet,    luxTestnet,    luxDevnet,
+  LUX_MAINNET_ID, LUX_TESTNET_ID,
+  // Zoo
+  zooMainnet,    zooTestnet,    zooDevnet,
+  ZOO_MAINNET_ID, ZOO_TESTNET_ID, ZOO_DEVNET_ID,
+  // Hanzo (AI chain — $AI token)
+  hanzoMainnet,  hanzoTestnet,  hanzoDevnet,
+  HANZO_MAINNET_ID, HANZO_TESTNET_ID,
+  // Pars
+  parsMainnet,   parsTestnet,   parsDevnet,
+  PARS_MAINNET_ID,
+  // SPC
+  spcMainnet,    spcTestnet,    spcDevnet,
+  SPC_MAINNET_ID,
+  // Liquid EVM (regulated securities via Liquidity.io)
+  liquidMainnet, liquidTestnet, liquidDevnet,
+  LIQUID_MAINNET_ID, LIQUID_TESTNET_ID, LIQUID_DEVNET_ID,
+  // Local dev (anvil/hardhat-compatible)
+  localDev,
+  LOCAL_DEV_ID,
 
-// Re-export common chains from wagmi for external chain support
+  /**
+   * Canonical enabled-by-default chain set — lux, zoo, hanzo, pars,
+   * liquid. SPC + local-dev available via explicit import.
+   */
+  canonicalChains,
+  supportedChains,
+  type SupportedChainId,
+} from './canonical'
+
+// External EVM chains from wagmi for cross-chain support
 export { mainnet, sepolia, arbitrum, optimism, polygon, base } from 'wagmi/chains'

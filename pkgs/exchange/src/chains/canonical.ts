@@ -297,24 +297,21 @@ export const liquidDevnet = defineChain({
 })
 
 /**
- * Dev Chain Definition (for running local node with --dev)
+ * Local development chain — anvil/hardhat/luxd-compatible on :8545.
+ * Chain id 31337 is the standard anvil/hardhat default.
  */
-export const luxDev = defineChain({
-  id: 1337,
-  name: 'Lux Dev',
-  nativeCurrency: {
-    name: 'LUX',
-    symbol: 'LUX',
-    decimals: 18,
-  },
+export const localDev = defineChain({
+  id: 31337,
+  name: 'Local Dev',
+  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
-    default: { http: ['http://localhost:8545/ext/bc/C/rpc'] },
-    public: { http: ['http://localhost:8545/ext/bc/C/rpc'] },
+    default: { http: ['http://localhost:8545'] },
+    public:  { http: ['http://localhost:8545'] },
   },
   blockExplorers: {
-    default: { name: 'Dev', url: 'http://localhost:8545' },
+    default: { name: 'Local', url: 'http://localhost:8545' },
   },
-  testnet: false,
+  testnet: true,
 })
 
 /**
@@ -341,7 +338,7 @@ export const LUX_MAINNET_ID = 96369
 export const LUX_TESTNET_ID = 96368
 export const ZOO_MAINNET_ID = 200200
 export const ZOO_TESTNET_ID = 200201
-export const LUX_DEV_ID = 1337
+export const LOCAL_DEV_ID       = 31337
 export const ZOO_DEVNET_ID      = 200202
 export const HANZO_MAINNET_ID   = 36963
 export const HANZO_TESTNET_ID   = 36964
@@ -352,23 +349,30 @@ export const LIQUID_TESTNET_ID  = 8675310
 export const LIQUID_DEVNET_ID   = 8675311
 
 /**
- * All supported chains
+ * Canonical chains — enabled by default in every Lux-ecosystem
+ * exchange. Natively-integrated Lux family + Liquidity regulated
+ * securities. SPC and localDev available via explicit import.
+ */
+export const canonicalChains = [
+  // Lux — native + bridged
+  luxMainnet,    luxTestnet,    luxDevnet,
+  // Hanzo (AI chain — $AI token)
+  hanzoMainnet,  hanzoTestnet,  hanzoDevnet,
+  // Zoo
+  zooMainnet,    zooTestnet,    zooDevnet,
+  // Pars
+  parsMainnet,   parsTestnet,   parsDevnet,
+  // Liquid EVM (Liquidity — regulated securities)
+  liquidMainnet, liquidTestnet, liquidDevnet,
+] as const
+
+/**
+ * All supported chains — canonical + SPC + local dev.
  */
 export const supportedChains = [
-  // Lux — 3 envs
-  luxMainnet,    luxTestnet,    luxDevnet,
-  // Zoo — 3 envs
-  zooMainnet,    zooTestnet,    zooDevnet,
-  // Hanzo — 3 envs
-  hanzoMainnet,  hanzoTestnet,  hanzoDevnet,
-  // Pars — 3 envs
-  parsMainnet,   parsTestnet,   parsDevnet,
-  // SPC — 3 envs
+  ...canonicalChains,
   spcMainnet,    spcTestnet,    spcDevnet,
-  // Liquid EVM — 3 envs (regulated securities)
-  liquidMainnet, liquidTestnet, liquidDevnet,
-  // Local anvil-compat dev chain
-  luxDev,
+  localDev,
 ] as const
 
 export type SupportedChainId = typeof supportedChains[number]['id']
