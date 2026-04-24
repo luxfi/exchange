@@ -36,25 +36,25 @@ import {
   setHasPendingSessionError,
 } from 'src/features/walletConnect/walletConnectSlice'
 import { call, fork, put, select, take } from 'typed-redux-saga'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
-import { EthMethod } from 'uniswap/src/features/dappRequests/types'
-import { isSelfCallWithData } from 'uniswap/src/features/dappRequests/utils'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
-import i18n from 'uniswap/src/i18n'
-import { DappRequestType, EthEvent, WalletConnectEvent } from 'uniswap/src/types/walletConnect'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
+import { isSelfCallWithData } from '@l.x/lx/src/features/dappRequests/utils'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
+import i18n from '@l.x/lx/src/i18n'
+import { DappRequestType, EthEvent, WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import {
   selectAccounts,
   selectActiveAccountAddress,
   selectSignerMnemonicAccounts,
-} from 'wallet/src/features/wallet/selectors'
-import { setAccountAsActive } from 'wallet/src/features/wallet/slice'
+} from '@luxfi/wallet/src/features/wallet/selectors'
+import { setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
 
 const WC_SUPPORTED_METHODS = [
   EthMethod.EthSign,

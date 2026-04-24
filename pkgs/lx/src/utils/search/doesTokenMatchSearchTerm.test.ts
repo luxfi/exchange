@@ -1,7 +1,7 @@
 import { Currency } from '@luxamm/sdk-core'
-import { DAI, nativeOnChain, USDC, WBTC } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { doesTokenMatchSearchTerm } from 'lx/src/utils/search/doesTokenMatchSearchTerm'
+import { DAI, nativeOnChain, USDC, WBTC } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { doesTokenMatchSearchTerm } from '@l.x/lx/src/utils/search/doesTokenMatchSearchTerm'
 
 // Test data factory functions using real tokens
 const createMockCurrencyInfo = (

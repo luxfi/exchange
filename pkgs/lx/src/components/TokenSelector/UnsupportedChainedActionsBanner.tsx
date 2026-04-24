@@ -1,12 +1,12 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { spacing } from 'ui/src/theme'
-import { TradeableAsset } from 'lx/src/entities/assets'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { getChainLabel } from 'lx/src/features/chains/utils'
-import { isChainSupportedForChainedActions } from 'lx/src/features/transactions/swap/utils/chainedActions'
+import { Flex, Text } from '@l.x/ui/src'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
+import { spacing } from '@l.x/ui/src/theme'
+import { TradeableAsset } from '@l.x/lx/src/entities/assets'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { isChainSupportedForChainedActions } from '@l.x/lx/src/features/transactions/swap/utils/chainedActions'
 
 const CHAINS_WITHOUT_ACROSS_BRIDGING: UniverseChainId[] = [UniverseChainId.Celo, UniverseChainId.Avalanche] as const
 

@@ -1,11 +1,11 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
-import { WarningMessage } from 'lx/src/components/WarningMessage/WarningMessage'
-import { SlippageWarning } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageWarning'
+import { WarningMessage } from '@l.x/lx/src/components/WarningMessage/WarningMessage'
+import { SlippageWarning } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageWarning'
 import {
   useTransactionSettingsAutoSlippageToleranceStore,
   useTransactionSettingsStore,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 
 export const SLIPPAGE_LOW_TOLERANCE_LP = 0.05
 

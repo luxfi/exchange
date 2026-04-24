@@ -1,16 +1,16 @@
 import { GqlResult } from '@l.x/api'
 import { useMemo } from 'react'
-import { TokenOption } from 'lx/src/components/lists/items/types'
-import { useCommonTokensOptions } from 'lx/src/components/TokenSelector/hooks/useCommonTokensOptions'
-import { useCurrencies } from 'lx/src/components/TokenSelector/hooks/useCurrencies'
+import { TokenOption } from '@l.x/lx/src/components/lists/items/types'
+import { useCommonTokensOptions } from '@l.x/lx/src/components/TokenSelector/hooks/useCommonTokensOptions'
+import { useCurrencies } from '@l.x/lx/src/components/TokenSelector/hooks/useCurrencies'
 import {
   currencyInfosToTokenOptions,
   useCurrencyInfosToTokenOptions,
-} from 'lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
-import { COMMON_BASES } from 'lx/src/constants/routing'
-import type { AddressGroup } from 'lx/src/features/accounts/store/types/AccountsState'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { currencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
+import { COMMON_BASES } from '@l.x/lx/src/constants/routing'
+import type { AddressGroup } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 
 export function useCommonTokensOptionsWithFallback({
   addresses,

@@ -4,7 +4,7 @@ import { TradeableAsset } from '@l.x/lx/src/entities/assets'
 import type { AddressGroup } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-import { FiatNumberType } from 'utilities/src/format/types'
+import { FiatNumberType } from '@l.x/utils/src/format/types'
 
 export type OnSelectCurrency = (
   currency: CurrencyInfo,

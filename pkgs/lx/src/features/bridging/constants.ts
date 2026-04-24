@@ -1,6 +1,6 @@
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { extractBaseUrl } from 'utilities/src/format/urls'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { extractBaseUrl } from '@l.x/utils/src/format/urls'
 
 /*
  * Common bridging dapp urls

@@ -1,14 +1,14 @@
 import { PropsWithChildren } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Text, TouchableArea, useSporeColors } from 'ui/src'
-import { AlertCircleFilled } from 'ui/src/components/icons/AlertCircleFilled'
-import { zIndexes } from 'ui/src/theme'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
-import { lxUrls } from 'lx/src/constants/urls'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { openUri } from 'lx/src/utils/linking'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { AlertCircleFilled } from '@l.x/ui/src/components/icons/AlertCircleFilled'
+import { zIndexes } from '@l.x/ui/src/theme'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { WarningInfo } from '@l.x/lx/src/components/modals/WarningModal/WarningInfo'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { openUri } from '@l.x/lx/src/utils/linking'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export function SwapFeeWarning({
   noLuxInterfaceFees,

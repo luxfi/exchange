@@ -2,7 +2,7 @@ import { ChartPeriod } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { isWarmLoadingStatus } from '@l.x/api'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, RefreshButton, Shine, Text, useIsDarkMode } from 'ui/src'
+import { Flex, RefreshButton, Shine, Text, useIsDarkMode } from '@l.x/ui/src'
 import AnimatedNumber, {
   BALANCE_CHANGE_INDICATION_DURATION,
 } from '@l.x/lx/src/components/AnimatedNumber/AnimatedNumber'
@@ -14,8 +14,8 @@ import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
 import { useAppFiatCurrency, useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import i18next from '@l.x/lx/src/i18n'
-import { NumberType } from 'utilities/src/format/types'
-import { isWebPlatform } from 'utilities/src/platform'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 function periodToTimeLabel(t: ReturnType<typeof useTranslation>['t'], period: ChartPeriod): string {
   switch (period) {

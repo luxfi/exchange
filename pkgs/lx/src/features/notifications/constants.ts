@@ -1,5 +1,5 @@
-import { borderRadii, iconSizes, spacing } from 'ui/src/theme'
-import { ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
+import { borderRadii, iconSizes, spacing } from '@l.x/ui/src/theme'
+import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 // Timing
 export const STALE_TRANSACTION_TIME_MS = ONE_MINUTE_MS * 30

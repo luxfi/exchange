@@ -8,8 +8,8 @@ import { type Currency, type CurrencyAmount, type Token } from '@luxamm/sdk-core
 import {
   type PermitTransaction,
   type PermitTypedData,
-} from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { type ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
+} from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { type ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
 
 export enum LiquidityTransactionType {
   Create = 'create',

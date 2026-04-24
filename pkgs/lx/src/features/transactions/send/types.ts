@@ -1,9 +1,9 @@
-import { AssetType } from 'lx/src/entities/assets'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { GQLNftAsset } from 'lx/src/features/nfts/types'
-import { BaseDerivedInfo } from 'lx/src/features/transactions/types/baseDerivedInfo'
-import { CurrencyField } from 'lx/src/types/currency'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { GQLNftAsset } from '@l.x/lx/src/features/nfts/types'
+import { BaseDerivedInfo } from '@l.x/lx/src/features/transactions/types/baseDerivedInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export type DerivedSendInfo = BaseDerivedInfo<CurrencyInfo | GQLNftAsset> & {
   currencyTypes: { [CurrencyField.INPUT]?: AssetType }

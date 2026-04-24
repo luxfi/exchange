@@ -1,9 +1,9 @@
 import { BigNumberish } from '@ethersproject/bignumber'
 import { useMemo } from 'react'
-import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
-import { usePendingTransactions } from 'lx/src/features/transactions/hooks/usePendingTransactions'
-import { isChained, isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
-import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { useActiveAddresses } from '@l.x/lx/src/features/accounts/store/hooks'
+import { usePendingTransactions } from '@l.x/lx/src/features/transactions/hooks/usePendingTransactions'
+import { isChained, isClassic, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 function useLowestPendingNonce(): BigNumberish | undefined {
   const activeAddresses = useActiveAddresses()

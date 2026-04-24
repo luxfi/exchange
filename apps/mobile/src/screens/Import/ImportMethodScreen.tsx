@@ -15,17 +15,17 @@ import {
   seedPhraseImportOption,
 } from 'src/screens/Import/constants'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-import { Flex, SpinningLoader, Text, TouchableArea } from 'ui/src'
-import { Eye, WalletFilled } from 'ui/src/components/icons'
-import { useIsDarkMode } from 'ui/src/hooks/useIsDarkMode'
-import { iconSizes } from 'ui/src/theme'
-import { authenticateWithPasskeyForSeedPhraseExport } from 'uniswap/src/features/passkey/embeddedWallet'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
-import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
-import { logger } from 'utilities/src/logger/logger'
+import { Flex, SpinningLoader, Text, TouchableArea } from '@l.x/ui/src'
+import { Eye, WalletFilled } from '@l.x/ui/src/components/icons'
+import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { authenticateWithPasskeyForSeedPhraseExport } from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const options: ImportMethodOption[] = [seedPhraseImportOption, importFromCloudBackupOption, passKeySignInOption]
 

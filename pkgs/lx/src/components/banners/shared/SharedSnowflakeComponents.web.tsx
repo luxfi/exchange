@@ -1,5 +1,5 @@
-import { Flex, styled } from 'ui/src'
-import { Snowflake } from 'ui/src/components/icons'
+import { Flex, styled } from '@l.x/ui/src'
+import { Snowflake } from '@l.x/ui/src/components/icons'
 
 // Shared styled components
 export const SnowflakeContainer = styled(Flex, {

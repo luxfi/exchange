@@ -1,14 +1,14 @@
 import {
   COPY_FEEDBACK_RESET_MS,
   MultichainAddressList,
-} from 'lx/src/components/MultichainTokenDetails/MultichainAddressList'
-import type { MultichainTokenEntry } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ON_PRESS_EVENT_PAYLOAD } from 'lx/src/test/fixtures'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { act, fireEvent, render } from 'lx/src/test/test-utils'
+} from '@l.x/lx/src/components/MultichainTokenDetails/MultichainAddressList'
+import type { MultichainTokenEntry } from '@l.x/lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { act, fireEvent, render } from '@l.x/lx/src/test/test-utils'
 
-vi.mock('utilities/src/addresses', async (importOriginal) => {
+vi.mock('@l.x/utils/src/addresses', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     shortenAddress: vi.fn(({ address }: { address: string }) => `${address.slice(0, 6)}...`),

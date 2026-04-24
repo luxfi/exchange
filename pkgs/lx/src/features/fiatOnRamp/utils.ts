@@ -1,5 +1,5 @@
 import type { SectionListData } from 'react-native'
-import { PortfolioBalance } from 'lx/src/features/dataApi/types'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 import {
   FiatOnRampCurrency,
   FORCurrencyOrBalance,
@@ -8,8 +8,8 @@ import {
   FORLogo,
   FORQuote,
   InitialQuoteSelection,
-} from 'lx/src/features/fiatOnRamp/types'
-import { isAndroid, isIOS } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/fiatOnRamp/types'
+import { isAndroid, isIOS } from '@l.x/utils/src/platform'
 import { v4 as uuid } from 'uuid'
 
 const APPLE_PAY = 'Apple Pay'

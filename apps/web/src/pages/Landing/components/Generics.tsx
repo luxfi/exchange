@@ -1,4 +1,4 @@
-import { styled, Text } from 'ui/src'
+import { styled, Text } from '@l.x/ui/src'
 
 export const H2 = styled(Text, {
   p: 0,

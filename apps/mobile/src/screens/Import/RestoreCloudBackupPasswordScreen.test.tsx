@@ -4,8 +4,8 @@ import React from 'react'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { RestoreCloudBackupPasswordScreen } from 'src/screens/Import/RestoreCloudBackupPasswordScreen'
 import { render } from 'src/test/test-utils'
-import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
-import { TamaguiProvider } from 'wallet/src/providers/tamagui-provider'
+import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
+import { TamaguiProvider } from '@luxfi/wallet/src/providers/tamagui-provider'
 
 const setOptionsSpy = jest.fn()
 const routeProp = { params: {} } as RouteProp<OnboardingStackParamList, OnboardingScreens.RestoreCloudBackupPassword>

@@ -1,7 +1,7 @@
 import { CustomRankingType, RankingType } from '@l.x/api'
 import { SortButton } from 'src/components/explore/SortButton'
 import { act, render } from 'src/test/test-utils'
-import { ExploreOrderBy } from 'wallet/src/features/wallet/types'
+import { ExploreOrderBy } from '@luxfi/wallet/src/features/wallet/types'
 
 jest.mock('react-native-context-menu-view', () => {
   // Use the actual implementation of `react-native-context-menu-view` as the mock implementation

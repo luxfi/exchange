@@ -1,6 +1,6 @@
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
-import { AVERAGE_L2_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { AVERAGE_L2_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
 
 /**
  * Converts a block number to a Date using an anchor block/timestamp pair.

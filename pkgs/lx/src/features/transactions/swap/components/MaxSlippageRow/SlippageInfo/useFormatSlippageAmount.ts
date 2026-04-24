@@ -1,8 +1,8 @@
 import { TradeType } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { TradeWithSlippage } from 'lx/src/features/transactions/swap/types/trade'
-import { NumberType } from 'utilities/src/format/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { TradeWithSlippage } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export function useFormatSlippageAmount(trade: TradeWithSlippage | null): string {
   const { formatCurrencyAmount } = useLocalizationContext()

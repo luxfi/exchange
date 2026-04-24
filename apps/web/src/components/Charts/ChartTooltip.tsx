@@ -1,4 +1,4 @@
-import { Flex, styled } from 'ui/src'
+import { Flex, styled } from '@l.x/ui/src'
 
 export const ChartTooltip = styled(Flex, {
   alignItems: 'center',

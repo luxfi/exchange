@@ -5,8 +5,8 @@ import type {
   AccountsGetters,
   AccountsState,
   AccountsStore,
-} from 'lx/src/features/accounts/store/types/AccountsState'
-import { isDevEnv } from 'utilities/src/environment/env'
+} from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 

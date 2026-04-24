@@ -1,39 +1,39 @@
 import { renderHook } from '@testing-library/react'
 import type { MutableRefObject, RefObject } from 'react'
 import type { TextInputProps } from 'react-native'
-import type { CurrencyInputPanelRef } from 'lx/src/components/CurrencyInputPanel/types'
-import type { DecimalPadInputRef } from 'lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
-import { useSwapFormScreenCallbacks } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenCallbacks'
-import { CurrencyField } from 'lx/src/types/currency'
+import type { CurrencyInputPanelRef } from '@l.x/lx/src/components/CurrencyInputPanel/types'
+import type { DecimalPadInputRef } from '@l.x/lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
+import { useSwapFormScreenCallbacks } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenCallbacks'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 import type { Mock } from 'vitest'
 
 // Mock all dependencies
-vi.mock('utilities/src/platform', () => ({
+vi.mock('@l.x/utils/src/platform', () => ({
   isWebPlatform: true,
   isMobileApp: false,
 }))
 
-vi.mock('utilities/src/telemetry/trace/TraceContext', () => ({
+vi.mock('@l.x/utils/src/telemetry/trace/TraceContext', () => ({
   useTrace: vi.fn(() => ({})),
 }))
 
-vi.mock('utilities/src/react/hooks', () => ({
+vi.mock('@l.x/utils/src/react/hooks', () => ({
   useEvent: vi.fn((fn) => fn),
 }))
 
-vi.mock('lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction', () => ({
   maybeLogFirstSwapAction: vi.fn(),
 }))
 
-vi.mock('lx/src/features/transactions/swap/form/hooks/useDecimalPadControlledField', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/form/hooks/useDecimalPadControlledField', () => ({
   useDecimalPadControlledField: vi.fn(() => CurrencyField.INPUT),
 }))
 
-vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/hooks/useOnToggleIsFiatMode', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/stores/swapFormStore/hooks/useOnToggleIsFiatMode', () => ({
   useOnToggleIsFiatMode: vi.fn(() => vi.fn()),
 }))
 
-vi.mock('lx/src/components/CurrencyInputPanel/AmountInputPresets/utils', () => ({
+vi.mock('@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/utils', () => ({
   isMaxPercentage: vi.fn((percentage) => percentage === 'max'),
 }))
 
@@ -42,7 +42,7 @@ const mockUpdateSwapForm = vi.fn()
 const mockAmountUpdatedTimeRef = { current: 0 }
 const mockExactAmountTokenRef = { current: '' }
 
-vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
   useSwapFormStore: vi.fn((selector) =>
     selector({
       amountUpdatedTimeRef: mockAmountUpdatedTimeRef,

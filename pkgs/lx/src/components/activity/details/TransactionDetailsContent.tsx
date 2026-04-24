@@ -1,4 +1,4 @@
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 import { ApproveTransactionDetails } from '@l.x/lx/src/components/activity/details/transactions/ApproveTransactionDetails'
 import { AuctionTransactionDetails } from '@l.x/lx/src/components/activity/details/transactions/AuctionTransactionDetails'
 import { BridgeTransactionDetails } from '@l.x/lx/src/components/activity/details/transactions/BridgeTransactionDetails'

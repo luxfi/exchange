@@ -1,6 +1,6 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
-import { refetchRestQueriesViaOnchainOverrideVariant } from 'lx/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
-import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { refetchRestQueriesViaOnchainOverrideVariant } from '@l.x/lx/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 export function* refetchQueries({
   transaction,

@@ -1,15 +1,15 @@
 import { UseMutationResult, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useMemo, useRef } from 'react'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useMismatchContext } from 'lx/src/features/smartWallet/mismatch/MismatchContext'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useMismatchContext } from '@l.x/lx/src/features/smartWallet/mismatch/MismatchContext'
 import {
   getIsMismatchAccountQueryOptions,
   MisMatchQueryOptions,
   type MisMatchQueryResult,
   type MismatchResult,
-} from 'lx/src/features/smartWallet/mismatch/queryOptions'
-import { getLogger } from 'utilities/src/logger/logger'
-import { useEvent, usePrevious } from 'utilities/src/react/hooks'
+} from '@l.x/lx/src/features/smartWallet/mismatch/queryOptions'
+import { getLogger } from '@l.x/utils/src/logger/logger'
+import { useEvent, usePrevious } from '@l.x/utils/src/react/hooks'
 
 /**
  * [public] useIsMismatchAccountQuery -- gets the mismatch account status for the current account, specific to a chain

@@ -1,12 +1,12 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
-import { OnchainItemListOptionType, PoolOption } from 'lx/src/components/lists/items/types'
-import { ZERO_ADDRESS } from 'lx/src/constants/misc'
-import { V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
-import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
-import { PoolSearchHistoryResult } from 'lx/src/features/search/SearchHistoryResult'
-import { useCurrencyInfos } from 'lx/src/features/tokens/useCurrencyInfo'
-import { CurrencyId } from 'lx/src/types/currency'
+import { OnchainItemListOptionType, PoolOption } from '@l.x/lx/src/components/lists/items/types'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { V2_DEFAULT_FEE_TIER } from '@l.x/lx/src/constants/pools'
+import { normalizeCurrencyIdForMapLookup } from '@l.x/lx/src/data/cache'
+import { PoolSearchHistoryResult } from '@l.x/lx/src/features/search/SearchHistoryResult'
+import { useCurrencyInfos } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
 
 export function usePoolSearchResultsToPoolOptions(searchResults: PoolSearchHistoryResult[]): PoolOption[] {
   // combine all pool search results' tokens' currencyIds in an array of de-duped currencyIds

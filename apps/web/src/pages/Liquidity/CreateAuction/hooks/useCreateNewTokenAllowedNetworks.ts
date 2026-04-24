@@ -1,6 +1,6 @@
 import { CreateAuctionConfigKey, DynamicConfigs, useDynamicConfigValue } from '@l.x/gating'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isUniverseChainIdArrayType } from 'lx/src/features/gating/typeGuards'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isUniverseChainIdArrayType } from '@l.x/lx/src/features/gating/typeGuards'
 
 const DEFAULT_ALLOWED_NETWORKS = [UniverseChainId.Mainnet, UniverseChainId.Unichain, UniverseChainId.Base]
 

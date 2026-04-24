@@ -1,8 +1,8 @@
 import { Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@luxfi/api'
 import { SwapConfigKey } from '@luxfi/gating'
-import { MONAD_LOGO_FILLED } from 'ui/src/assets'
-import { CHAIN_ID_TO_URL_PARAM } from 'lx/src/features/chains/chainUrlParam'
+import { MONAD_LOGO_FILLED } from '@l.x/ui/src/assets'
+import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
 import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS_LEGACY,

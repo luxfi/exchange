@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 import {
   type MultichainTokenEntry,
   useOrderedMultichainEntries,
-} from 'uniswap/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+} from '@l.x/lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
 import type { MultiChainMap } from '~/pages/TokenDetails/context/TDPContext'
 
 /** Maps TDP `multiChainMap` to ordered multichain entries (same ordering as balances / address dropdown). */

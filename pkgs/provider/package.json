@@ -1,0 +1,36 @@
+{
+  "name": "@l.x/provider",
+  "version": "1.0.0",
+  "description": "Jurisdiction-neutral regulated-provider SDK for Lux Exchange forks.",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxfi/exchange.git",
+    "directory": "pkgs/provider"
+  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./config": "./src/config.ts",
+    "./react": "./src/react.tsx"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
+}

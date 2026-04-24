@@ -1,4 +1,4 @@
-import { unique } from 'utilities/src/primitives/array'
+import { unique } from '@l.x/utils/src/primitives/array'
 
 interface HasAddress {
   address: string

@@ -1,7 +1,7 @@
 import type { BottomSheetModal } from '@gorhom/bottom-sheet'
 import { ComponentProps } from 'react'
 import { Easing } from 'react-native-reanimated'
-import { isIOS } from 'utilities/src/platform'
+import { isIOS } from '@l.x/utils/src/platform'
 
 /**
  * iOS animation config. Based on default values from

@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { addFavoriteToken } from 'lx/src/features/favorites/slice'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { createAppStateResetter } from 'lx/src/state/createAppStateResetter'
-import { type LXState, lxReducer } from 'lx/src/state/lxReducer'
-import { sleep } from 'utilities/src/time/timing'
+import { addFavoriteToken } from '@l.x/lx/src/features/favorites/slice'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { createAppStateResetter } from '@l.x/lx/src/state/createAppStateResetter'
+import { type LXState, lxReducer } from '@l.x/lx/src/state/lxReducer'
+import { sleep } from '@l.x/utils/src/time/timing'
 import type { Mock } from 'vitest'
 
 describe('createAppStateResetter', () => {

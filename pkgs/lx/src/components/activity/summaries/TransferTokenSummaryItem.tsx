@@ -1,25 +1,25 @@
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ElementAfterText } from 'ui/src'
-import { Unitag } from 'ui/src/components/icons/Unitag'
-import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
-import { SummaryItemProps } from 'lx/src/components/activity/types'
-import { TXN_HISTORY_ICON_SIZE } from 'lx/src/components/activity/utils'
-import { LogoWithTxStatus } from 'lx/src/components/CurrencyLogo/LogoWithTxStatus'
-import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { AssetType } from 'lx/src/entities/assets'
-import { useENS } from 'lx/src/features/ens/useENS'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { ElementAfterText } from '@l.x/ui/src'
+import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
+import { TransactionSummaryLayout } from '@l.x/lx/src/components/activity/summaries/TransactionSummaryLayout'
+import { SummaryItemProps } from '@l.x/lx/src/components/activity/types'
+import { TXN_HISTORY_ICON_SIZE } from '@l.x/lx/src/components/activity/utils'
+import { LogoWithTxStatus } from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { useENS } from '@l.x/lx/src/features/ens/useENS'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import {
   ReceiveTokenTransactionInfo,
   SendTokenTransactionInfo,
   TransactionDetails,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { getFormattedCurrencyAmount, getSymbolDisplayText } from 'lx/src/utils/currency'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { shortenAddress } from 'utilities/src/addresses'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getFormattedCurrencyAmount, getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 
 function _TransferTokenSummaryItem({
   transactionType,

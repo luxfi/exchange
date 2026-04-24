@@ -9,12 +9,12 @@ import { Pool as V3Pool, Route as V3Route } from '@luxamm/v3-sdk'
 import { Pool as V4Pool, Route as V4Route } from '@luxamm/v4-sdk'
 import { type ClassicQuoteResponse, type DiscriminatedQuoteResponse, TradingApi } from '@l.x/api'
 import { DynamicConfigs, getDynamicConfigValue, SwapConfigKey } from '@l.x/gating'
-import { nativeOnChain } from 'lx/src/constants/tokens'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import { isUniverseChainId } from 'lx/src/features/chains/utils'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import type { Trade } from 'lx/src/features/transactions/swap/types/trade'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import type { Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
 import {
   BridgeTrade,
   ChainedActionTrade,
@@ -24,15 +24,15 @@ import {
   LXV3Trade,
   UnwrapTrade,
   WrapTrade,
-} from 'lx/src/features/transactions/swap/types/trade'
-import type { FrontendSupportedProtocol } from 'lx/src/features/transactions/swap/utils/protocols'
-import { DEFAULT_PROTOCOL_OPTIONS, useProtocolsForChain } from 'lx/src/features/transactions/swap/utils/protocols'
-import { isClassic } from 'lx/src/features/transactions/swap/utils/routing'
-import type { CurrencyField } from 'lx/src/types/currency'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
-import { currencyAddress, currencyId } from 'lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
-import { isWebApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/swap/types/trade'
+import type { FrontendSupportedProtocol } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
+import { DEFAULT_PROTOCOL_OPTIONS, useProtocolsForChain } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
+import { isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import type { CurrencyField } from '@l.x/lx/src/types/currency'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { currencyAddress, currencyId } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 export const NATIVE_ADDRESS_FOR_TRADING_API = '0x0000000000000000000000000000000000000000'
 export const SWAP_GAS_URGENCY_OVERRIDE = isWebApp ? TradingApi.Urgency.NORMAL : undefined // on Interface, use a normal urgency, else use TradingAPI default

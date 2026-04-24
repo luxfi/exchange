@@ -1,13 +1,13 @@
 import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
-import { AssetCase } from 'lx/src/features/activity/utils/remote'
+import { extractDappInfo } from '@l.x/lx/src/features/activity/utils/extractDappInfo'
+import { AssetCase } from '@l.x/lx/src/features/activity/utils/remote'
 import {
   AuctionBidTransactionInfo,
   AuctionClaimedTransactionInfo,
   AuctionExitedTransactionInfo,
   TransactionType,
   UnknownTransactionInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 export function parseRestAuctionTransaction(
   transaction: OnChainTransaction,

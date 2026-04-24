@@ -1,8 +1,8 @@
 import { memo } from 'react'
-import { useSwapReviewCallbacksStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewCallbacksStore/useSwapReviewCallbacksStore'
-import { useSwapReviewTransactionStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/useSwapReviewTransactionStore'
-import { TransactionDetails } from 'lx/src/features/transactions/TransactionDetails/TransactionDetails'
-import { logger } from 'utilities/src/logger/logger'
+import { useSwapReviewCallbacksStore } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewCallbacksStore/useSwapReviewCallbacksStore'
+import { useSwapReviewTransactionStore } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/useSwapReviewTransactionStore'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/TransactionDetails/TransactionDetails'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export const SwapReviewWrapTransactionDetails = memo(function SwapReviewWrapTransactionDetails(): JSX.Element | null {
   const { chainId, gasFee, reviewScreenWarning, txSimulationErrors, routing } = useSwapReviewTransactionStore((s) => ({

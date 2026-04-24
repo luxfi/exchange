@@ -15,7 +15,7 @@ vi.mock('~/state/hooks', async () => {
   }
 })
 
-vi.mock('lx/src/features/trm/hooks', () => ({
+vi.mock('@l.x/lx/src/features/trm/hooks', () => ({
   useIsBlocked: vi.fn(),
 }))
 

@@ -1,6 +1,6 @@
 import type { Currency, Token } from '@luxamm/sdk-core'
 import type { PriceKey, TokenIdentifier, TokenInput, TokenSubscriptionParams } from '@l.x/prices'
-import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
+import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
 
 /** Address that represents native currencies on ETH, Arbitrum, etc. */
 const DEFAULT_NATIVE_ADDRESS = '0x0000000000000000000000000000000000000000'

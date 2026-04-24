@@ -1,7 +1,7 @@
-import { Flex, Text } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { Flex, Text } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 export type CrossChainCurrencyRowProps = {
   inputChainId: UniverseChainId | null

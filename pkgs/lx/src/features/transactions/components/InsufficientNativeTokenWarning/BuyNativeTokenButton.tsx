@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex } from 'ui/src'
-import { validColor } from 'ui/src/theme'
-import { useLuxContext } from 'lx/src/contexts/LuxContext'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { useIsSupportedFiatOnRampCurrency } from 'lx/src/features/fiatOnRamp/hooks'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { useNetworkColors } from 'lx/src/utils/colors'
+import { Button, Flex } from '@l.x/ui/src'
+import { validColor } from '@l.x/ui/src/theme'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useIsSupportedFiatOnRampCurrency } from '@l.x/lx/src/features/fiatOnRamp/hooks'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { useNetworkColors } from '@l.x/lx/src/utils/colors'
 
 export function BuyNativeTokenButton({
   nativeCurrencyInfo,

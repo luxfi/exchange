@@ -1,15 +1,15 @@
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { AppTFunction } from 'ui/src/i18n/types'
-import { useUrlContext } from 'lx/src/contexts/UrlContext'
-import { FiatCurrency, ORDERED_CURRENCIES } from 'lx/src/features/fiatCurrency/constants'
-import { FiatCurrencyInfo } from 'lx/src/features/fiatOnRamp/types'
-import { useCurrentLocale } from 'lx/src/features/language/hooks'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { LXState } from 'lx/src/state/lxReducer'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
+import { useUrlContext } from '@l.x/lx/src/contexts/UrlContext'
+import { FiatCurrency, ORDERED_CURRENCIES } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { FiatCurrencyInfo } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { LXState } from '@l.x/lx/src/state/lxReducer'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { FiatCurrencyComponents, getFiatCurrencyComponents } from 'utilities/src/format/localeBased'
+import { FiatCurrencyComponents, getFiatCurrencyComponents } from '@l.x/utils/src/format/localeBased'
 
 /**
  * Helper function for getting the ISO currency code from our internal enum

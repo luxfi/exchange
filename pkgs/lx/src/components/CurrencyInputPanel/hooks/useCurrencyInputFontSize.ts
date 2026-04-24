@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
-import { FontSizeOptions, useDynamicFontSizing } from 'ui/src/hooks/useDynamicFontSizing'
+import { FontSizeOptions, useDynamicFontSizing } from '@l.x/ui/src/hooks/useDynamicFontSizing'
 
 const MAX_INPUT_FONT_SIZE = 36
 export const MIN_INPUT_FONT_SIZE = 24

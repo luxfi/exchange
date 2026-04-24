@@ -1,13 +1,13 @@
 import { TradingApi } from '@l.x/api'
 import { runSaga, stdChannel } from 'redux-saga'
-import { UNI, WBTC } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import type { FetchAndTransformPlanResult } from 'lx/src/features/transactions/swap/plan/planSagaUtils'
-import type { TransactionAndPlanStep } from 'lx/src/features/transactions/swap/plan/planStepTransformer'
-import type { WatchPlanStepResult } from 'lx/src/features/transactions/swap/plan/watchPlanStepSaga'
-import type { ValidatedChainedSwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { ChainedActionTrade } from 'lx/src/features/transactions/swap/types/trade'
+import { UNI, WBTC } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import type { FetchAndTransformPlanResult } from '@l.x/lx/src/features/transactions/swap/plan/planSagaUtils'
+import type { TransactionAndPlanStep } from '@l.x/lx/src/features/transactions/swap/plan/planStepTransformer'
+import type { WatchPlanStepResult } from '@l.x/lx/src/features/transactions/swap/plan/watchPlanStepSaga'
+import type { ValidatedChainedSwapTxAndGasInfo } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { ChainedActionTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
 
 interface InitializePlanResult extends FetchAndTransformPlanResult {
   response?: TradingApi.PlanResponse
@@ -37,7 +37,7 @@ const mockLockPlanForExecution = vi.fn()
 const mockUnlockPlanExecution = vi.fn()
 
 // ── Module mocks ────────────────────────────────────────────────────────
-vi.mock('lx/src/features/transactions/swap/plan/planSagaUtils', async (importOriginal) => {
+vi.mock('@l.x/lx/src/features/transactions/swap/plan/planSagaUtils', async (importOriginal) => {
   const actual: Record<string, unknown> = await importOriginal()
   return {
     ...actual,
@@ -63,25 +63,25 @@ vi.mock('lx/src/features/transactions/swap/plan/planSagaUtils', async (importOri
   }
 })
 
-vi.mock('lx/src/features/transactions/swap/plan/watchPlanStepSaga', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/plan/watchPlanStepSaga', () => ({
   // biome-ignore lint/correctness/useYield: saga mock — runSaga requires generator functions
   watchPlanStep: vi.fn().mockImplementation(function* () {
     return watchPlanStepResult
   }),
 }))
 
-vi.mock('utilities/src/async/retryWithBackoff', () => ({
+vi.mock('@l.x/utils/src/async/retryWithBackoff', () => ({
   retryWithBackoff: vi.fn().mockResolvedValue(undefined),
   BackoffStrategy: { None: 'none' },
 }))
 
-vi.mock('lx/src/data/apiClients/tradingApi/TradingApiSessionClient', () => ({
+vi.mock('@l.x/lx/src/data/apiClients/tradingApi/TradingApiSessionClient', () => ({
   TradingApiSessionClient: {
     updateExistingPlan: vi.fn().mockResolvedValue(undefined),
   },
 }))
 
-vi.mock('lx/src/utils/saga', () => ({
+vi.mock('@l.x/lx/src/utils/saga', () => ({
   createMonitoredSaga: vi.fn().mockImplementation(({ saga, name }: { saga: unknown; name: string }) => ({
     name,
     wrappedSaga: saga,
@@ -236,7 +236,7 @@ function scaleOutput(numerator: number, denominator: number): string {
 }
 
 async function runPlanSaga(params: unknown): Promise<void> {
-  const { plan } = await import('lx/src/features/transactions/swap/plan/planSaga')
+  const { plan } = await import('@l.x/lx/src/features/transactions/swap/plan/planSaga')
   const channel = stdChannel()
   await runSaga({ channel, dispatch: () => {}, getState: () => ({}) }, plan, params as never).toPromise()
 }

@@ -1,10 +1,10 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { spacing } from 'ui/src/theme'
-import { NetworkPile } from 'lx/src/components/network/NetworkPile/NetworkPile'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { Flex, Text } from '@l.x/ui/src'
+import { spacing } from '@l.x/ui/src/theme'
+import { NetworkPile } from '@l.x/lx/src/components/network/NetworkPile/NetworkPile'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 interface ExcludedNetworkBannerProps {
   chainIds: UniverseChainId[]

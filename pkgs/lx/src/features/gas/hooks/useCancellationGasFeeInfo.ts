@@ -1,30 +1,30 @@
 import { useQuery } from '@tanstack/react-query'
 import { providers } from 'ethers/lib/ethers'
 import { useCallback, useMemo } from 'react'
-import { CancellationGasFeeDetails, useTransactionGasFee } from 'lx/src/features/gas/hooks'
+import { CancellationGasFeeDetails, useTransactionGasFee } from '@l.x/lx/src/features/gas/hooks'
 import {
   PlanCancellationGasFeeDetails,
   usePlanCancellationGasFeeInfo,
-} from 'lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
+} from '@l.x/lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
 import {
   CancellationType,
   calculateCancellationGasFee,
   createClassicCancelRequest,
   getCancellationType,
-} from 'lx/src/features/gas/utils/cancel'
+} from '@l.x/lx/src/features/gas/utils/cancel'
 import {
   extractCancellationData,
   getCancelMultipleLXOrdersTransaction,
-} from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
-import { getCancelOrderTxRequest } from 'lx/src/features/transactions/cancel/getCancelOrderTxRequest'
-import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
+} from '@l.x/lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { getCancelOrderTxRequest } from '@l.x/lx/src/features/transactions/cancel/getCancelOrderTxRequest'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   PlanTransactionDetails,
   TransactionDetails,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 /**
  * Hook to calculate cancellation gas fees

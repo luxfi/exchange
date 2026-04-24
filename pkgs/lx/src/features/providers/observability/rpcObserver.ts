@@ -1,5 +1,5 @@
-import { extractProviderName } from 'lx/src/features/providers/observability/extractProviderName'
-import { logger } from 'utilities/src/logger/logger'
+import { extractProviderName } from '@l.x/lx/src/features/providers/observability/extractProviderName'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export interface RpcRequestContext {
   requestId: string

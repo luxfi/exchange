@@ -211,14 +211,14 @@ export default defineConfig(({ mode }) => {
     'react-native': 'react-native-web',
     'expo-blur': path.resolve(__dirname, 'src/lib/expo-blur-mock.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
-    'lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
-    'utilities/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
+    '@l.x/lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
+    '@l.x/utils/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
     // Solidity artifact path aliases — npm packages have original contract names
     '@luxamm/v3-periphery/artifacts/contracts/lens/LXInterfaceMulticall.sol/LXInterfaceMulticall.json':
       path.resolve(__dirname, '../../node_modules/@luxamm/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'),
     '@luxamm/v3-core/artifacts/contracts/interfaces/pool/ILXV3PoolState.sol/ILXV3PoolState.json':
       path.resolve(__dirname, '../../node_modules/@luxamm/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json'),
-    'ui/src': path.resolve(__dirname, '../../pkgs/ui/src'),
+    '@l.x/ui/src': path.resolve(__dirname, '../../pkgs/ui/src'),
     'expo-clipboard': path.resolve(__dirname, 'src/lib/expo-clipboard.jsx'),
     // Workspace package aliases (upstream uses @universe/pkg/src/* paths)
     // Upstream @universe/* -> Lux @l.x/* package aliases (packages/uniswap still has old names)
@@ -270,13 +270,13 @@ export default defineConfig(({ mode }) => {
     '@luxfi/wallet/src': path.resolve(__dirname, '../../pkgs/wallet/src'),
     '@luxfi/wallet': path.resolve(__dirname, '../../pkgs/wallet'),
     // Bare package aliases (needed by tamagui/hanzogui bundler which bypasses vite aliases)
-    'utilities/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
+    '@l.x/utils/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
     'utilities': path.resolve(__dirname, '../../pkgs/utilities'),
-    'ui/src': path.resolve(__dirname, '../../pkgs/ui/src'),
+    '@l.x/ui/src': path.resolve(__dirname, '../../pkgs/ui/src'),
     'ui': path.resolve(__dirname, '../../pkgs/ui'),
-    'wallet/src': path.resolve(__dirname, '../../pkgs/wallet/src'),
+    '@luxfi/wallet/src': path.resolve(__dirname, '../../pkgs/wallet/src'),
     'wallet': path.resolve(__dirname, '../../pkgs/wallet'),
-    'lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
+    '@l.x/lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
     'lx': path.resolve(__dirname, '../../pkgs/lx'),
     // @luxamm package aliases — these are `export * from '@uniswap/*'` re-exports.
     // Vite's optimizer can't handle the CJS→ESM conversion for conditional require() entries,

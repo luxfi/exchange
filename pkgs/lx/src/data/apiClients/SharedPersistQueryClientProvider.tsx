@@ -1,9 +1,9 @@
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import { SharedQueryClient } from '@l.x/api'
 import { PropsWithChildren } from 'react'
-import { createPersister } from 'lx/src/data/apiClients/createPersister'
-import { sharedDehydrateOptions } from 'lx/src/data/apiClients/sharedDehydrateOptions'
-import { MAX_REACT_QUERY_CACHE_TIME_MS } from 'utilities/src/time/time'
+import { createPersister } from '@l.x/lx/src/data/apiClients/createPersister'
+import { sharedDehydrateOptions } from '@l.x/lx/src/data/apiClients/sharedDehydrateOptions'
+import { MAX_REACT_QUERY_CACHE_TIME_MS } from '@l.x/utils/src/time/time'
 
 const persister = createPersister()
 

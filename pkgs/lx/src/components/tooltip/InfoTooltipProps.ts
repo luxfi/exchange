@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { PopperProps } from 'ui/src'
+import { PopperProps } from '@l.x/ui/src'
 
 export type InfoTooltipProps = {
   title?: string

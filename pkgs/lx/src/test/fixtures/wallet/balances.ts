@@ -1,12 +1,12 @@
 import { GraphQLApi } from '@l.x/api'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { PortfolioBalance } from 'lx/src/features/dataApi/types'
-import { buildCurrency } from 'lx/src/features/dataApi/utils/buildCurrency'
-import { getCurrencySafetyInfo } from 'lx/src/features/dataApi/utils/getCurrencySafetyInfo'
-import { currencyInfo, portfolio, tokenBalance } from 'lx/src/test/fixtures'
-import { faker } from 'lx/src/test/shared'
-import { createFixture } from 'lx/src/test/utils'
-import { currencyId } from 'lx/src/utils/currencyId'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { buildCurrency } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
+import { getCurrencySafetyInfo } from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
+import { currencyInfo, portfolio, tokenBalance } from '@l.x/lx/src/test/fixtures'
+import { faker } from '@l.x/lx/src/test/shared'
+import { createFixture } from '@l.x/lx/src/test/utils'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 
 const portfolioBalanceBase = createFixture<PortfolioBalance>()(() => ({
   id: faker.datatype.uuid(),

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Extrapolate, interpolate, SharedValue, useAnimatedStyle } from 'react-native-reanimated'
-import { Flex } from 'ui/src'
-import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { Flex } from '@l.x/ui/src'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 
 export function AnimatedIndicator({
   scroll,

@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@luxfi/api'
-import { ETH_LOGO, OPTIMISM_LOGO } from 'ui/src/assets'
-import { config } from 'lx/src/config'
-import { CHAIN_ID_TO_URL_PARAM } from 'lx/src/features/chains/chainUrlParam'
+import { ETH_LOGO, OPTIMISM_LOGO } from '@l.x/ui/src/assets'
+import { config } from '@l.x/lx/src/config'
+import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
 import {
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   DEFAULT_RETRY_OPTIONS,
@@ -19,7 +19,7 @@ import {
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { buildDAI, buildUSDC, buildUSDT } from '@l.x/lx/src/features/tokens/stablecoin'
-import { isWebApp } from 'utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 import { optimism } from 'wagmi/chains'
 
 const tokens = buildChainTokens({

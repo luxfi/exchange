@@ -4,7 +4,7 @@ import { getIsNotificationServiceLocalOverrideEnabled } from '@l.x/notifications
 import React, { useEffect } from 'react'
 import { getNotificationServiceQueryOptions } from 'src/notification-service/MobileNotificationService'
 import { NotificationContainer } from 'src/notification-service/notification-renderer/NotificationContainer'
-import { getLogger } from 'utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Manages the lifecycle of the notification service on mobile.

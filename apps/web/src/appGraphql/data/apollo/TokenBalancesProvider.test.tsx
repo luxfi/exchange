@@ -1,5 +1,5 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 import { PrefetchBalancesWrapper, useTokenBalancesQuery } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { useAccount } from '~/hooks/useAccount'
 import { mocked } from '~/test-utils/mocked'

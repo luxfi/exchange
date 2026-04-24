@@ -1,10 +1,10 @@
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import JSBI from 'jsbi'
-import { DAI, nativeOnChain } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useMaxAmountSpend } from 'lx/src/features/gas/hooks/useMaxAmountSpend'
-import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { MAINNET_CURRENCY } from 'lx/src/test/fixtures/wallet/currencies'
+import { DAI, nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useMaxAmountSpend } from '@l.x/lx/src/features/gas/hooks/useMaxAmountSpend'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { MAINNET_CURRENCY } from '@l.x/lx/src/test/fixtures/wallet/currencies'
 
 const mockUseDynamicConfigValue = vi.fn()
 

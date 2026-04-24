@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
-import { useSelectAddressTransactions } from 'lx/src/features/transactions/selectors'
+import { useSelectAddressTransactions } from '@l.x/lx/src/features/transactions/selectors'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 export function usePendingTransactions({
   evmAddress,

@@ -1,14 +1,14 @@
 import { FiatOnRampTransaction, FiatOnRampTransactionStatus } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@l.x/api'
 
-import { parseRestOnRampTransaction } from 'lx/src/features/activity/parse/parseOnRampTransaction'
-import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { parseRestOnRampTransaction } from '@l.x/lx/src/features/activity/parse/parseOnRampTransaction'
+import { ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import {
   TransactionDetails,
   TransactionOriginType,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 function mapFiatOnRampStatusToLocalTxStatus(status: FiatOnRampTransactionStatus): TransactionStatus {
   switch (status) {

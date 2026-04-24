@@ -1,5 +1,5 @@
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import type { CurrencyField } from 'lx/src/types/currency'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import type { CurrencyField } from '@l.x/lx/src/types/currency'
 
 /**
  * We want the `DecimalPad` to always control one of the 2 inputs even when no input is focused,

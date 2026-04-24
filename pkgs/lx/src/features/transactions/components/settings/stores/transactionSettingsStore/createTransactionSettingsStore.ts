@@ -3,8 +3,8 @@ import {
   DEFAULT_PROTOCOL_OPTIONS,
   type FrontendSupportedProtocol,
 } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
-import { isDevEnv } from 'utilities/src/environment/env'
-import { logContextUpdate } from 'utilities/src/logger/contextEnhancer'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
+import { logContextUpdate } from '@l.x/utils/src/logger/contextEnhancer'
 import { create, type UseBoundStore } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 import { type StoreApi } from 'zustand/vanilla'

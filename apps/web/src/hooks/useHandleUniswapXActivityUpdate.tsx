@@ -1,13 +1,13 @@
 import { useTrace } from '@uniswap/analytics'
 import { TradingApi } from '@l.x/api'
 import { useCallback } from 'react'
-import { finalizeTransaction, updateTransaction } from 'uniswap/src/features/transactions/slice'
+import { finalizeTransaction, updateTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   extractPlanFieldsFromTypeInfo,
   extractTransactionTypeInfoAttribute,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from 'uniswap/src/features/transactions/types/utils'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from '@l.x/lx/src/features/transactions/types/utils'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import type { UniswapXOrderUpdate } from '~/state/activity/types'

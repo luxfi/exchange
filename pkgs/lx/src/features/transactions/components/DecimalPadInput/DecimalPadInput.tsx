@@ -11,13 +11,13 @@ import {
   useState,
 } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
-import { Flex, useIsShortMobileDevice } from 'ui/src'
+import { Flex, useIsShortMobileDevice } from '@l.x/ui/src'
 import { type TextInputProps } from '@l.x/lx/src/components/input/TextInput'
 import { DecimalPad } from '@l.x/lx/src/features/transactions/components/DecimalPadInput/DecimalPad'
 import { KeyAction, type KeyLabel } from '@l.x/lx/src/features/transactions/components/DecimalPadInput/types'
-import { maxDecimalsReached } from 'utilities/src/format/truncateToMaxDecimals'
-import { isNumeric, isSafeNumber } from 'utilities/src/primitives/integer'
-import { useEvent } from 'utilities/src/react/hooks'
+import { maxDecimalsReached } from '@l.x/utils/src/format/truncateToMaxDecimals'
+import { isNumeric, isSafeNumber } from '@l.x/utils/src/primitives/integer'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 const LONG_PRESS_DELETE_INTERVAL_MS = 20
 const LONG_PRESS_DELETE_INTERVAL_DELIMITER_MS = 750

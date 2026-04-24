@@ -1,9 +1,9 @@
-import { AssetType, TradeableAsset } from 'lx/src/entities/assets'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { FiatOffRampMetaData } from 'lx/src/features/fiatOnRamp/types'
-import { FrontendSupportedProtocol } from 'lx/src/features/transactions/swap/utils/protocols'
-import { CurrencyField, CurrencyId } from 'lx/src/types/currency'
-import { currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
+import { AssetType, TradeableAsset } from '@l.x/lx/src/entities/assets'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { FiatOffRampMetaData } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { FrontendSupportedProtocol } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
+import { CurrencyField, CurrencyId } from '@l.x/lx/src/types/currency'
+import { currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
 
 export interface TransactionState {
   txId?: string

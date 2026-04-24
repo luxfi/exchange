@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { assertWebElement, TamaguiElement, useSporeColors } from 'ui/src'
+import { assertWebElement, TamaguiElement, useSporeColors } from '@l.x/ui/src'
 
 export function useApplyChartTextureEffects({
   chartDivElement,

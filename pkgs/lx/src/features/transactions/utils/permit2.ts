@@ -1,8 +1,8 @@
 import { PERMIT2_ADDRESS, permit2Address } from '@luxamm/permit2-sdk'
 import { Contract, providers } from 'ethers/lib/ethers'
-import PERMIT2_ABI from 'lx/src/abis/permit2.json'
-import { Permit2 } from 'lx/src/abis/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import PERMIT2_ABI from '@l.x/lx/src/abis/permit2.json'
+import { Permit2 } from '@l.x/lx/src/abis/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 /**
  * Factory function to create a Permit2 contract instance

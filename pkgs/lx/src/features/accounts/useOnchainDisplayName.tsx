@@ -1,11 +1,11 @@
-import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { DisplayName, DisplayNameType } from 'lx/src/features/accounts/types'
-import { useENSName } from 'lx/src/features/ens/api'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { UNITAG_SUFFIX } from 'lx/src/features/unitags/constants'
-import { getValidAddress, sanitizeAddressText } from 'lx/src/utils/addresses'
-import { shortenAddress } from 'utilities/src/addresses'
-import { trimToLength } from 'utilities/src/primitives/string'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { DisplayName, DisplayNameType } from '@l.x/lx/src/features/accounts/types'
+import { useENSName } from '@l.x/lx/src/features/ens/api'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
+import { getValidAddress, sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { trimToLength } from '@l.x/utils/src/primitives/string'
 
 const ENS_TRIM_LENGTH = 8
 

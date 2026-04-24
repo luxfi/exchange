@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router'
-import { Flex, FlexProps, Text } from 'ui/src'
+import { Flex, FlexProps, Text } from '@l.x/ui/src'
 
 type ValuePropCardProps = FlexProps & {
   smaller?: boolean

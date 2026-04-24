@@ -1,4 +1,4 @@
 import { createContext } from 'react'
-import type { createSwapFormScreenStore } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/createSwapFormScreenStore'
+import type { createSwapFormScreenStore } from '@l.x/lx/src/features/transactions/swap/form/stores/swapFormScreenStore/createSwapFormScreenStore'
 
 export const SwapFormScreenStoreContext = createContext<ReturnType<typeof createSwapFormScreenStore> | null>(null)

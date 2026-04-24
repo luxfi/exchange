@@ -1,29 +1,29 @@
 import { renderHook } from '@testing-library/react'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { useSyncFiatAndTokenAmountUpdater } from 'lx/src/features/transactions/swap/form/hooks/useSyncFiatAndTokenAmountUpdater'
-import { SwapFormStoreState } from 'lx/src/features/transactions/swap/stores/swapFormStore/types'
-import * as useSwapFormStoreModule from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { CurrencyField } from 'lx/src/types/currency'
+import { useSyncFiatAndTokenAmountUpdater } from '@l.x/lx/src/features/transactions/swap/form/hooks/useSyncFiatAndTokenAmountUpdater'
+import { SwapFormStoreState } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/types'
+import * as useSwapFormStoreModule from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 import type { Mock } from 'vitest'
 
 // Mock all dependencies
-vi.mock('lx/src/features/language/LocalizationContext', () => ({
+vi.mock('@l.x/lx/src/features/language/LocalizationContext', () => ({
   useLocalizationContext: vi.fn(),
 }))
 
-vi.mock('lx/src/features/tokens/getCurrencyAmount', () => ({
+vi.mock('@l.x/lx/src/features/tokens/getCurrencyAmount', () => ({
   ValueType: {
     Exact: 'EXACT',
   },
   getCurrencyAmount: vi.fn(),
 }))
 
-vi.mock('lx/src/utils/currencyId', () => ({
+vi.mock('@l.x/lx/src/utils/currencyId', () => ({
   currencyIdToChain: vi.fn(),
 }))
 
-vi.mock('lx/src/features/transactions/hooks/useUSDCPriceWrapper', () => ({
+vi.mock('@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper', () => ({
   useUSDCPrice: vi.fn(),
   STABLECOIN_AMOUNT_OUT: {
     1: { currency: {} as Currency },
@@ -31,16 +31,16 @@ vi.mock('lx/src/features/transactions/hooks/useUSDCPriceWrapper', () => ({
 }))
 
 // Mock swap form store hooks (both selector-based hooks)
-vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
+vi.mock('@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
   useSwapFormStore: vi.fn(),
   useSwapFormStoreDerivedSwapInfo: vi.fn(),
 }))
 
 // Import the mocked functions - these are the mocks, not actual implementations
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { getCurrencyAmount } from 'lx/src/features/tokens/getCurrencyAmount'
-import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { currencyIdToChain } from 'lx/src/utils/currencyId'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { getCurrencyAmount } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { useUSDCPrice } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
 
 // Cast mocked functions to Mock type
 const mockUseLocalizationContext = useLocalizationContext as Mock

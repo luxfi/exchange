@@ -1,11 +1,11 @@
-import { Flex, Text } from 'ui/src'
-import { Gas } from 'ui/src/components/icons/Gas'
-import { LXFee } from 'lx/src/components/gas/NetworkFee'
-import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
-import type { GasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { isZero } from 'lx/src/utils/number'
-import { isWebApp } from 'utilities/src/platform'
+import { Flex, Text } from '@l.x/ui/src'
+import { Gas } from '@l.x/ui/src/components/icons/Gas'
+import { LXFee } from '@l.x/lx/src/components/gas/NetworkFee'
+import { NetworkFeeWarning } from '@l.x/lx/src/components/gas/NetworkFeeWarning'
+import type { GasInfo } from '@l.x/lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { isZero } from '@l.x/lx/src/utils/number'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 function NetworkFeeWarningContent({ gasInfo }: { gasInfo?: GasInfo }): JSX.Element | null {
   if (!gasInfo?.fiatPriceFormatted) {

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { toSupportedChainId } from 'lx/src/features/chains/utils'
-import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { CurrencyField } from 'lx/src/types/currency'
+import { Flex, Text } from '@l.x/ui/src'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
+import type { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 type ExactOutputUnavailableWarningRowProps = {
   currencies: DerivedSwapInfo['currencies']

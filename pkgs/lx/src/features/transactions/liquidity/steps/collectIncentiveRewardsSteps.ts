@@ -1,3 +1,3 @@
-import { CollectLpIncentiveRewardsTransactionStep } from 'lx/src/features/transactions/liquidity/steps/collectIncentiveRewards'
+import { CollectLpIncentiveRewardsTransactionStep } from '@l.x/lx/src/features/transactions/liquidity/steps/collectIncentiveRewards'
 
 export type CollectLpIncentiveRewardsSteps = CollectLpIncentiveRewardsTransactionStep

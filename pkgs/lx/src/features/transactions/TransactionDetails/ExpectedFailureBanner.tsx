@@ -1,8 +1,8 @@
 import { TradingApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { SlippageEdit } from 'lx/src/features/transactions/TransactionDetails/SlippageEdit'
+import { Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { SlippageEdit } from '@l.x/lx/src/features/transactions/TransactionDetails/SlippageEdit'
 
 export function ExpectedFailureBanner({
   txFailureReasons,

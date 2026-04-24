@@ -1,6 +1,6 @@
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { SAMPLE_SEED_ADDRESS_1 } from 'lx/src/test/fixtures'
-import { getValidAddress } from 'lx/src/utils/addresses'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 
 /* -------------------------------------------------------------------------- */
 /*                                  EVM FIXTURES                              */

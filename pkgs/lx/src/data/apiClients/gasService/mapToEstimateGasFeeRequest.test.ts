@@ -1,5 +1,5 @@
 import { BigNumber } from 'ethers/lib/ethers'
-import { mapToEstimateGasFeeRequest } from 'lx/src/data/apiClients/gasService/mapToEstimateGasFeeRequest'
+import { mapToEstimateGasFeeRequest } from '@l.x/lx/src/data/apiClients/gasService/mapToEstimateGasFeeRequest'
 import { describe, expect, it } from 'vitest'
 
 const BASE_STRATEGY = {

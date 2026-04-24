@@ -1,7 +1,7 @@
-import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
-import { ArrowUp } from 'ui/src/components/icons/ArrowUp'
-import { Flex, styled, Text } from 'ui/src/index'
-import { IconSizeTokens } from 'ui/src/theme'
+import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
+import { ArrowUp } from '@l.x/ui/src/components/icons/ArrowUp'
+import { Flex, styled, Text } from '@l.x/ui/src/index'
+import { IconSizeTokens } from '@l.x/ui/src/theme'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 
 export const ClickableHeaderRow = styled(Flex, {

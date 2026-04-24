@@ -1,6 +1,6 @@
 import { RefObject } from 'react'
 import type { TextInput } from 'react-native'
-import type { CurrencyField } from 'lx/src/types/currency'
+import type { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export interface UseInputFocusSyncProps {
   inputRef: RefObject<TextInput | null>

@@ -1,8 +1,8 @@
 import { useLoginWithEmail, useLoginWithOAuth, usePrivy } from '@privy-io/react-auth'
 import { fireEvent, waitFor } from '@testing-library/react'
-import { authorizeAndCompleteRecovery, encryptAndStoreRecovery } from 'lx/src/features/passkey/embeddedWallet'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { authorizeAndCompleteRecovery, encryptAndStoreRecovery } from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { AddBackupLoginModal } from '~/components/Passkey/AddBackupLoginModal'
 import { useModalState } from '~/hooks/useModalState'
 import { useEmbeddedWalletState } from '~/state/embeddedWallet/store'
@@ -23,7 +23,7 @@ vi.mock('~/state/embeddedWallet/store', () => ({
   getEmbeddedWalletState: vi.fn().mockReturnValue({ chainId: 1 }),
 }))
 
-vi.mock('lx/src/features/passkey/embeddedWallet', () => ({
+vi.mock('@l.x/lx/src/features/passkey/embeddedWallet', () => ({
   encryptAndStoreRecovery: vi.fn(),
   authorizeAndCompleteRecovery: vi.fn(),
 }))

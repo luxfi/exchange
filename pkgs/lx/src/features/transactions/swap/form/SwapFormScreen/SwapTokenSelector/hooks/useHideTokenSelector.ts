@@ -1,6 +1,6 @@
-import { useLuxContext } from 'lx/src/contexts/LuxContext'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useEvent } from 'utilities/src/react/hooks'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export const useHideTokenSelector = (): (() => void) => {
   const { updateSwapForm, isSelectingCurrencyFieldPrefilled } = useSwapFormStore((s) => ({

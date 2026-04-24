@@ -4,10 +4,10 @@ import {
   mapDeviceLanguageToLanguage,
   mapLocaleToLanguage,
   PLATFORM_SUPPORTED_LANGUAGES,
-} from 'lx/src/features/language/constants'
-import { getLocale } from 'lx/src/features/language/navigatorLocale'
-import { getDeviceLocales } from 'utilities/src/device/locales'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/language/constants'
+import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
+import { getDeviceLocales } from '@l.x/utils/src/device/locales'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Mapping for locales that don't match their file names
 const LOCALE_TO_FILE_NAME: Record<string, string> = {

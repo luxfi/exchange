@@ -20,7 +20,7 @@ import { useCurrencyIdToVisibility } from '@l.x/lx/src/features/transactions/sel
 import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isLimitOrder } from '@l.x/lx/src/features/transactions/utils/dexUtils'
 import { selectNftsVisibility } from '@l.x/lx/src/features/visibility/selectors'
-import { isAndroid } from 'utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 const LOADING_ITEM = (index: number): LoadingItem => ({ itemType: 'LOADING', id: index })
 const LOADING_DATA = [LOADING_ITEM(1), LOADING_ITEM(2), LOADING_ITEM(3), LOADING_ITEM(4)]

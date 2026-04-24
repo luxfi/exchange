@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import WarningIcon from '@l.x/lx/src/components/warnings/WarningIcon'
 import { FeeOnTransferWarning } from '@l.x/lx/src/features/transactions/TransactionDetails/modals/FeeOnTransferWarning'
 import {

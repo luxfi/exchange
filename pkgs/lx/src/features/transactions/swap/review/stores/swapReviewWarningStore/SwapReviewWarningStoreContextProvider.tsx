@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import { useState } from 'react'
-import { createSwapReviewWarningStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/createSwapReviewWarningStore'
-import { SwapReviewWarningStoreContext } from 'lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/SwapReviewWarningStoreContext'
+import { createSwapReviewWarningStore } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/createSwapReviewWarningStore'
+import { SwapReviewWarningStoreContext } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewWarningStore/SwapReviewWarningStoreContext'
 
 export const SwapReviewWarningStoreContextProvider = ({ children }: PropsWithChildren): JSX.Element => {
   const [store] = useState(() => createSwapReviewWarningStore())

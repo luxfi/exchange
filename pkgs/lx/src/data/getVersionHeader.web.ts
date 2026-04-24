@@ -1,4 +1,4 @@
-import { isExtensionApp } from 'utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 export const getVersionHeader = (): string => {
   if (isExtensionApp) {

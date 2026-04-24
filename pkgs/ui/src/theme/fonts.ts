@@ -2,7 +2,7 @@
 // biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
 import { createFont, isAndroid } from '@hanzogui/core'
 import { needsSmallFont } from '@l.x/ui/src/utils/needs-small-font'
-import { isWebApp, isWebPlatform } from 'utilities/src/platform'
+import { isWebApp, isWebPlatform } from '@l.x/utils/src/platform'
 
 // TODO(EXT-148): remove this type and use Gui's FontTokens
 export type TextVariantTokens = keyof typeof fonts

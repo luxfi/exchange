@@ -1,7 +1,7 @@
 import { TradeType } from '@luxamm/sdk-core'
-import { useSporeColors } from 'ui/src'
-import { Arrow } from 'ui/src/components/arrow/Arrow'
-import { iconSizes } from 'ui/src/theme'
+import { useSporeColors } from '@l.x/ui/src'
+import { Arrow } from '@l.x/ui/src/components/arrow/Arrow'
+import { iconSizes } from '@l.x/ui/src/theme'
 import {
   TwoTokenDetails,
   useTokenAmountInfo,

@@ -5,31 +5,31 @@
   "exclude": [".storybook/storybook.requires.ts"],
   "references": [
     {
-      "path": "../../packages/sessions"
+      "path": "../../pkgs/sessions"
     },
     {
-      "path": "../../packages/notifications"
+      "path": "../../pkgs/notifications"
     },
     {
-      "path": "../../packages/hashcash-native"
+      "path": "../../pkgs/hashcash-native"
     },
     {
-      "path": "../../packages/gating"
+      "path": "../../pkgs/gating"
     },
     {
-      "path": "../../packages/api"
+      "path": "../../pkgs/api"
     },
     {
-      "path": "../../packages/wallet"
+      "path": "../../pkgs/wallet"
     },
     {
-      "path": "../../packages/utilities"
+      "path": "../../pkgs/utilities"
     },
     {
-      "path": "../../packages/ui"
+      "path": "../../pkgs/ui"
     },
     {
-      "path": "../../packages/uniswap"
+      "path": "../../pkgs/lx"
     }
   ],
   "compilerOptions": {

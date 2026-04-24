@@ -1,7 +1,7 @@
-import { AdaptiveWebPopoverContent } from 'ui/src'
-import { TransactionSettingsModalContent } from 'lx/src/features/transactions/components/settings/TransactionSettingsModal/TransactionSettingsModalContent/TransactionSettingsModalContent'
-import { TransactionSettingsModalProps } from 'lx/src/features/transactions/components/settings/TransactionSettingsModal/types'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { AdaptiveWebPopoverContent } from '@l.x/ui/src'
+import { TransactionSettingsModalContent } from '@l.x/lx/src/features/transactions/components/settings/TransactionSettingsModal/TransactionSettingsModalContent/TransactionSettingsModalContent'
+import { TransactionSettingsModalProps } from '@l.x/lx/src/features/transactions/components/settings/TransactionSettingsModal/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const POPOVER_WIDTH = 320
 

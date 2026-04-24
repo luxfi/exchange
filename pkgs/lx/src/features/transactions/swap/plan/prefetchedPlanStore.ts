@@ -1,11 +1,11 @@
 import { TradingApi } from '@l.x/api'
 import { PlanResponse } from '@l.x/api/src/clients/trading/__generated__/models/PlanResponse'
-import { TradingApiSessionClient } from 'lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
-import { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { isChained } from 'lx/src/features/transactions/swap/utils/routing'
-import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { TradingApiSessionClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
+import { Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { isChained } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { requireAcceptNewTrade } from '@l.x/lx/src/features/transactions/swap/utils/trade'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 const PREFETCH_TTL_MS = 15 * ONE_SECOND_MS
 

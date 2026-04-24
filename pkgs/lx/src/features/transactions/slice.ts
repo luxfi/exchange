@@ -1,10 +1,10 @@
 /* biome-ignore-all lint/style/noNonNullAssertion: helpful when dealing with deeply nested state objects */
 import { createAction, createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
 import { providers } from 'ethers/lib/ethers'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { FORTransactionDetails } from 'lx/src/features/fiatOnRamp/types'
-import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
-import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { FORTransactionDetails } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { CancelableStepInfo } from '@l.x/lx/src/features/transactions/hooks/useIsCancelable'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   BridgeTransactionInfo,
   ChainIdToTxIdToDetails,
@@ -16,13 +16,13 @@ import {
   TransactionType,
   TransactionTypeInfo,
   type LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   getInterfaceTransaction,
   getWalletTransaction,
   isBridgeTypeInfo,
-} from 'lx/src/features/transactions/types/utils'
-import { assert } from 'utilities/src/errors'
+} from '@l.x/lx/src/features/transactions/types/utils'
+import { assert } from '@l.x/utils/src/errors'
 
 export type TransactionsState = Partial<Record<Address, ChainIdToTxIdToDetails>>
 

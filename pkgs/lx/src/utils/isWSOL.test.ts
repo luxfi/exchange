@@ -1,8 +1,8 @@
 import { Currency } from '@luxamm/sdk-core'
-import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { SolanaToken } from 'lx/src/features/tokens/SolanaToken'
-import { isWSOL } from 'lx/src/utils/isWSOL'
+import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { SolanaToken } from '@l.x/lx/src/features/tokens/SolanaToken'
+import { isWSOL } from '@l.x/lx/src/utils/isWSOL'
 
 const SOL = nativeOnChain(UniverseChainId.Solana)
 const WSOL = WRAPPED_NATIVE_CURRENCY[UniverseChainId.Solana]!

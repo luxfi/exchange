@@ -29,7 +29,7 @@ vi.mock('expo-localization', () => ({
   ],
 }))
 
-vi.mock('utilities/src/environment/env', () => ({
+vi.mock('@l.x/utils/src/environment/env', () => ({
   isTestEnv: vi.fn(() => true),
   isDevEnv: vi.fn(() => false),
   isBetaEnv: vi.fn(() => false),
@@ -46,7 +46,7 @@ vi.mock('@datadog/browser-logs', () => ({
 }))
 
 // Mock utilities/src/platform - provide all platform exports with default test values
-vi.mock('utilities/src/platform', () => ({
+vi.mock('@l.x/utils/src/platform', () => ({
   isAndroid: false,
   isIOS: false,
   isWebPlatform: true,

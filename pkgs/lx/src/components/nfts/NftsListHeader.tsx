@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Input, Text, useMedia } from 'ui/src'
-import { Search } from 'ui/src/components/icons/Search'
+import { Flex, Input, Text, useMedia } from '@l.x/ui/src'
+import { Search } from '@l.x/ui/src/components/icons/Search'
 import { SearchInputProps } from '@l.x/lx/src/components/nfts/types'
-import { useDebouncedCallback } from 'utilities/src/react/useDebouncedCallback'
+import { useDebouncedCallback } from '@l.x/utils/src/react/useDebouncedCallback'
 
 const DEFAULT_SEARCH_INPUT_WIDTH = 320
 const DEBOUNCE_DELAY_MS = 300

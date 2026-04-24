@@ -1,14 +1,14 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { useFeatureFlaggedChainIds } from 'lx/src/features/chains/hooks/useFeatureFlaggedChainIds'
+import { useFeatureFlaggedChainIds } from '@l.x/lx/src/features/chains/hooks/useFeatureFlaggedChainIds'
 // This is the only file that should be importing `useOrderedChainIds` directly.
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { useOrderedChainIds } from 'lx/src/features/chains/hooks/useOrderedChainIds'
-import { EnabledChainsInfo, UniverseChainId } from 'lx/src/features/chains/types'
-import { getEnabledChains, isTestnetChain } from 'lx/src/features/chains/utils'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { useOrderedChainIds } from '@l.x/lx/src/features/chains/hooks/useOrderedChainIds'
+import { EnabledChainsInfo, UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getEnabledChains, isTestnetChain } from '@l.x/lx/src/features/chains/utils'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { selectIsTestnetModeEnabled } from 'lx/src/features/settings/selectors'
+import { selectIsTestnetModeEnabled } from '@l.x/lx/src/features/settings/selectors'
 
 export function useIsModeMismatch(chainId?: UniverseChainId): boolean {
   const { isTestnetModeEnabled } = useEnabledChains()

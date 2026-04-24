@@ -12,7 +12,7 @@ import type {
   TurnstileScriptOptions,
 } from '@l.x/sessions/src/challenge-solvers/types'
 import type { PerformanceTracker } from '@l.x/sessions/src/performance/types'
-import type { Logger } from 'utilities/src/logger/logger'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Analytics data for Turnstile solve attempts.

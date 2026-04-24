@@ -1,12 +1,12 @@
 import { TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { useTradingApiSwappableTokensQuery } from 'lx/src/data/apiClients/tradingApi/useTradingApiSwappableTokensQuery'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { toSupportedChainId } from 'lx/src/features/chains/utils'
+import { useTradingApiSwappableTokensQuery } from '@l.x/lx/src/data/apiClients/tradingApi/useTradingApiSwappableTokensQuery'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import {
   NATIVE_ADDRESS_FOR_TRADING_API,
   toTradingApiSupportedChainId,
-} from 'lx/src/features/transactions/swap/utils/tradingApi'
+} from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 
 const FALLBACK_NUM_CHAINS = 8
 

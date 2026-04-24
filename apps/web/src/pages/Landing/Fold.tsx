@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { Flex } from 'ui/src'
+import { Flex } from '@l.x/ui/src'
 import { AppsOverview } from '~/pages/Landing/sections/AppsOverview'
 import { Footer } from '~/pages/Landing/sections/Footer'
 import { NewsletterEtc } from '~/pages/Landing/sections/NewsletterEtc'

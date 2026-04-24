@@ -1,8 +1,8 @@
 import { NativeCurrency, Token } from '@luxamm/sdk-core'
-import { OnchainItemListOptionType } from 'lx/src/components/lists/items/types'
-import { multichainSearchResultsToOptions } from 'lx/src/components/TokenSelector/hooks/useMultichainSearchResultsToOptions'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo, MultichainSearchResult } from 'lx/src/features/dataApi/types'
+import { OnchainItemListOptionType } from '@l.x/lx/src/components/lists/items/types'
+import { multichainSearchResultsToOptions } from '@l.x/lx/src/components/TokenSelector/hooks/useMultichainSearchResultsToOptions'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo, MultichainSearchResult } from '@l.x/lx/src/features/dataApi/types'
 
 function createCurrencyInfo(overrides?: Partial<CurrencyInfo>): CurrencyInfo {
   const currency = new Token(

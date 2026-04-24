@@ -1,14 +1,14 @@
 import { TradingApi } from '@l.x/api'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Button, CustomButtonFrame, Flex, ThemedSpinningLoader, useIsShortMobileDevice, useSporeColors } from 'ui/src'
-import type { Warning } from 'lx/src/components/modals/WarningModal/types'
-import { getPlanProgressEstimates, PlanProgressEstimates } from 'lx/src/features/transactions/swap/plan/utils'
-import { DelayedSubmissionText } from 'lx/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewFooter/DelayedSubmissionText'
-import { useSwapReviewStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewStore/useSwapReviewStore'
-import { useSwapReviewTransactionStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/useSwapReviewTransactionStore'
-import { isChained } from 'lx/src/features/transactions/swap/utils/routing'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { Button, CustomButtonFrame, Flex, ThemedSpinningLoader, useIsShortMobileDevice, useSporeColors } from '@l.x/ui/src'
+import type { Warning } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { getPlanProgressEstimates, PlanProgressEstimates } from '@l.x/lx/src/features/transactions/swap/plan/utils'
+import { DelayedSubmissionText } from '@l.x/lx/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewFooter/DelayedSubmissionText'
+import { useSwapReviewStore } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewStore/useSwapReviewStore'
+import { useSwapReviewTransactionStore } from '@l.x/lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/useSwapReviewTransactionStore'
+import { isChained } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 interface PendingSwapButtonProps {
   disabled: boolean

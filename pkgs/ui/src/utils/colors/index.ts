@@ -8,8 +8,8 @@ import { colorsDark, colorsLight } from '@l.x/ui/src/theme'
 import type { ColorStrategy, ExtractedColors } from '@l.x/ui/src/utils/colors/getExtractedColors'
 import { getExtractedColors } from '@l.x/ui/src/utils/colors/getExtractedColors'
 import { SPECIAL_CASE_TOKEN_COLORS } from '@l.x/ui/src/utils/colors/specialCaseTokens'
-import { isSVGUri } from 'utilities/src/format/urls'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { isSVGUri } from '@l.x/utils/src/format/urls'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { hex } from 'wcag-contrast'
 
 /** The contrast threshold for token colors is currently lower than the WCAG AA standard of 3.0 because a slightly lower threshold leads to better results right now due to imitations of the color extraction library. */

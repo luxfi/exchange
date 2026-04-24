@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { INTERFACE_NAV_HEIGHT } from 'ui/src/theme'
-import { assert } from 'utilities/src/errors'
+import { Flex, Text } from '@l.x/ui/src'
+import { INTERFACE_NAV_HEIGHT } from '@l.x/ui/src/theme'
+import { assert } from '@l.x/utils/src/errors'
 import { useStickyHeaderBorder } from '~/hooks/useStickyHeaderBorder'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import type { ImageSourcePropType } from 'react-native'
-import { Flex, FlexProps, Image, Loader, useSporeColors } from 'ui/src'
-import { ALL_NETWORKS_LOGO } from 'ui/src/assets'
-import { iconSizes, zIndexes } from 'ui/src/theme'
-import { getBadgeBorderRadius, getBadgeOuterSize } from 'lx/src/components/CurrencyLogo/badgeSizeUtils'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isMobileWeb } from 'utilities/src/platform'
+import { Flex, FlexProps, Image, Loader, useSporeColors } from '@l.x/ui/src'
+import { ALL_NETWORKS_LOGO } from '@l.x/ui/src/assets'
+import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
+import { getBadgeBorderRadius, getBadgeOuterSize } from '@l.x/lx/src/components/CurrencyLogo/badgeSizeUtils'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isMobileWeb } from '@l.x/utils/src/platform'
 
 type NetworkLogoProps = FlexProps & {
   chainId: UniverseChainId | null // null signifies this is the AllNetworks logo

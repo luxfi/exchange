@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export async function registerPasskey(_challenge: string): Promise<string> {
   throw new PlatformSplitStubError('registerPasskey')

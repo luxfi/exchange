@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import { EmitterSubscription, Keyboard } from 'react-native'
-import { KeyboardInfo } from 'lx/src/components/modals/useBottomSheetSafeKeyboard'
-import { isIOS } from 'utilities/src/platform'
+import { KeyboardInfo } from '@l.x/lx/src/components/modals/useBottomSheetSafeKeyboard'
+import { isIOS } from '@l.x/utils/src/platform'
 
 /**
  *  Hook to substitute KeyboardAvoidingView for a bottom sheet modal

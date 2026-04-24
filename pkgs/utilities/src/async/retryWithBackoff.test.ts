@@ -2,7 +2,7 @@ import { BackoffStrategy, retryWithBackoff } from '@l.x/utils/src/async/retryWit
 import { sleep } from '@l.x/utils/src/time/timing'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-vi.mock('utilities/src/time/timing', () => ({
+vi.mock('@l.x/utils/src/time/timing', () => ({
   sleep: vi.fn().mockResolvedValue(true),
 }))
 

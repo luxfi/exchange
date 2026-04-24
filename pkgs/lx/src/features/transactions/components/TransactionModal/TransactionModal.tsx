@@ -2,7 +2,7 @@ import {
   TransactionModalFooterContainerProps,
   TransactionModalInnerContainerProps,
   TransactionModalProps,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalProps'
+} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalProps'
 
 export function TransactionModal(_: TransactionModalProps): JSX.Element {
   throw new Error('Implemented in `.native.tsx` and `.web.tsx` files')

@@ -13,8 +13,8 @@ import { Flex } from '@l.x/ui/src/components/layout'
 import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
 import { ShineProps } from '@l.x/ui/src/loading/ShineProps'
 import { opacify } from '@l.x/ui/src/theme'
-import { useEvent } from 'utilities/src/react/hooks'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 const LINEAR_GRADIENT_END = { x: 1, y: 0 }
 const LINEAR_GRADIENT_START = { x: 0, y: 0 }

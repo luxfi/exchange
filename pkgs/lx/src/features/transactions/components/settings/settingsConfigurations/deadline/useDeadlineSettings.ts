@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react'
-import { DEFAULT_CUSTOM_DEADLINE, MAX_CUSTOM_DEADLINE } from 'lx/src/constants/transactions'
+import { DEFAULT_CUSTOM_DEADLINE, MAX_CUSTOM_DEADLINE } from '@l.x/lx/src/constants/transactions'
 import {
   useTransactionSettingsActions,
   useTransactionSettingsStore,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 
 export function useDeadlineSettings(): {
   isEditingDeadline: boolean

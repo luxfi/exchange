@@ -6,17 +6,17 @@ import { I18nManager, StyleSheet } from 'react-native'
 import { DotGrid } from 'src/components/charts/DotGrid'
 import { type ChartData, SparklineChart } from 'src/components/home/PortfolioChart/SparklineChart'
 import { Loader } from 'src/components/loading/loaders'
-import { Flex, Separator, Text, TouchableArea, useSporeColors } from 'ui/src'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { opacify } from 'ui/src/theme'
+import { Flex, Separator, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { opacify } from '@l.x/ui/src/theme'
 import {
   CHART_PERIOD_OPTIONS,
   chartPeriodToElementName,
   chartPeriodToLabel,
   chartPeriodToTestIdSuffix,
-} from 'uniswap/src/features/portfolio/chartPeriod'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from '@l.x/lx/src/features/portfolio/chartPeriod'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const EXPANDED_CHART_HEIGHT = 180
 const COLLAPSED_CHART_VISIBLE_HEIGHT = 70

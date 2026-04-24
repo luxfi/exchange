@@ -1,5 +1,5 @@
 import type { Config } from '@l.x/config/src/config-types'
-import { isNonTestDev } from 'utilities/src/environment/constants'
+import { isNonTestDev } from '@l.x/utils/src/environment/constants'
 
 // Module-level cache for config to avoid recomputing on every call
 let cachedConfig: Config | undefined

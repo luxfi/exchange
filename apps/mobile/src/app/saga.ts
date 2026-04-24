@@ -13,9 +13,9 @@ import { restoreMnemonicCompleteWatcher } from 'src/features/wallet/saga'
 import { walletConnectSaga } from 'src/features/walletConnect/saga'
 import { signWcRequestSaga } from 'src/features/walletConnect/signWcRequestSaga'
 import { call, fork, join, spawn } from 'typed-redux-saga'
-import { waitForRehydration } from 'uniswap/src/utils/saga'
-import { apolloClientRef } from 'wallet/src/data/apollo/usePersistedApolloClient'
-import { transactionWatcher } from 'wallet/src/features/transactions/watcher/transactionWatcherSaga'
+import { waitForRehydration } from '@l.x/lx/src/utils/saga'
+import { apolloClientRef } from '@luxfi/wallet/src/data/apollo/usePersistedApolloClient'
+import { transactionWatcher } from '@luxfi/wallet/src/features/transactions/watcher/transactionWatcherSaga'
 
 // These sagas are not persisted, so we can run them before rehydration
 const nonPersistedSagas = [appStateSaga, splashScreenSaga, biometricsSaga]

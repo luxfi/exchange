@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, flexStyles, ScrollView, Text, TouchableArea } from 'ui/src'
-import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { BottomSheetDetachedModal } from 'lx/src/components/modals/Modal'
-import { ModalNameType } from 'lx/src/features/telemetry/constants'
+import { Flex, flexStyles, ScrollView, Text, TouchableArea } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { BottomSheetDetachedModal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
 
 export interface MenuItemProp {
   key: string

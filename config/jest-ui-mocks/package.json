@@ -1,0 +1,22 @@
+{
+  "name": "@l.x/jest-ui-mocks",
+  "version": "1.0.0",
+  "description": "Jest mocks for @l.x/ui package and its peer dependencies (Tamagui, react-native-*, etc.).",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxfi/exchange.git",
+    "directory": "config/jest-ui-mocks"
+  },
+  "main": "ui-package-mocks.ts",
+  "types": "ui-package-mocks.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "ui-package-mocks.ts"
+  ],
+  "peerDependencies": {
+    "jest": ">=29"
+  }
+}

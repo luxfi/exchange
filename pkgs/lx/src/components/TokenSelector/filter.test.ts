@@ -1,9 +1,9 @@
 import { Currency } from '@luxamm/sdk-core'
-import { OnchainItemListOptionType, TokenOption } from 'lx/src/components/lists/items/types'
-import { filter } from 'lx/src/components/TokenSelector/filter'
-import { DAI, DAI_ARBITRUM_ONE, nativeOnChain } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { currencyId } from 'lx/src/utils/currencyId'
+import { OnchainItemListOptionType, TokenOption } from '@l.x/lx/src/components/lists/items/types'
+import { filter } from '@l.x/lx/src/components/TokenSelector/filter'
+import { DAI, DAI_ARBITRUM_ONE, nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 
 const ETH = nativeOnChain(UniverseChainId.Mainnet)
 

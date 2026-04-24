@@ -1,23 +1,23 @@
 import { TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, getTokenValue, Separator, Text, useSporeColors, VerticalDottedLineSeparator } from 'ui/src'
-import { zIndexes } from 'ui/src/theme'
+import { Flex, getTokenValue, Separator, Text, useSporeColors, VerticalDottedLineSeparator } from '@l.x/ui/src'
+import { zIndexes } from '@l.x/ui/src/theme'
 import {
   TokenApprovalTransactionStepRow,
   TokenRevocationTransactionStepRow,
-} from 'lx/src/components/ConfirmSwapModal/steps/Approve'
-import { LPTransactionStepRow } from 'lx/src/components/ConfirmSwapModal/steps/LP'
+} from '@l.x/lx/src/components/ConfirmSwapModal/steps/Approve'
+import { LPTransactionStepRow } from '@l.x/lx/src/components/ConfirmSwapModal/steps/LP'
 import {
   Permit2SignatureStepRow,
   Permit2TransactionStepRow,
-} from 'lx/src/components/ConfirmSwapModal/steps/Permit'
-import { STEP_ROW_HEIGHT, STEP_ROW_ICON_SIZE } from 'lx/src/components/ConfirmSwapModal/steps/StepRowSkeleton'
-import { SwapTransactionStepRow } from 'lx/src/components/ConfirmSwapModal/steps/Swap'
-import { SwapSteps, SwapTransactionPlanStepRow } from 'lx/src/components/ConfirmSwapModal/steps/SwapTXPlanStepRow'
-import { WrapTransactionStepRow } from 'lx/src/components/ConfirmSwapModal/steps/Wrap'
-import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
-import { TransactionStep, TransactionStepType } from 'lx/src/features/transactions/steps/types'
+} from '@l.x/lx/src/components/ConfirmSwapModal/steps/Permit'
+import { STEP_ROW_HEIGHT, STEP_ROW_ICON_SIZE } from '@l.x/lx/src/components/ConfirmSwapModal/steps/StepRowSkeleton'
+import { SwapTransactionStepRow } from '@l.x/lx/src/components/ConfirmSwapModal/steps/Swap'
+import { SwapSteps, SwapTransactionPlanStepRow } from '@l.x/lx/src/components/ConfirmSwapModal/steps/SwapTXPlanStepRow'
+import { WrapTransactionStepRow } from '@l.x/lx/src/components/ConfirmSwapModal/steps/Wrap'
+import { StepStatus } from '@l.x/lx/src/components/ConfirmSwapModal/types'
+import { TransactionStep, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
 
 interface ProgressIndicatorProps {
   steps: TransactionStep[]

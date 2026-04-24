@@ -1,9 +1,9 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { isChainSupportedForChainedActions } from 'lx/src/features/transactions/swap/utils/chainedActions'
-import { CurrencyField } from 'lx/src/types/currency'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { isChainSupportedForChainedActions } from '@l.x/lx/src/features/transactions/swap/utils/chainedActions'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export const useChainId = (): UniverseChainId | undefined => {
   const { filteredChainIds, selectingCurrencyField, input, output } = useSwapFormStore((s) => ({

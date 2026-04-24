@@ -1,7 +1,7 @@
 import { TradingApi } from '@l.x/api'
-import { SignTypedDataStepFields } from 'lx/src/features/transactions/steps/permit2Signature'
-import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'
+import { SignTypedDataStepFields } from '@l.x/lx/src/features/transactions/steps/permit2Signature'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { ValidatedPermit } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 
 export interface LXSignatureStep extends SignTypedDataStepFields {
   type: TransactionStepType.LXSignature

@@ -19,8 +19,8 @@ vi.mock('~/features/accounts/store/hooks', async (importOriginal) => {
 })
 
 // Header uses useShowDemoView, which imports from lux package; setupTests only mocks useConnectionStatus
-vi.mock('lx/src/features/accounts/store/hooks', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/features/accounts/store/hooks')>()
+vi.mock('@l.x/lx/src/features/accounts/store/hooks', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/lx/src/features/accounts/store/hooks')>()
   return {
     ...actual,
     useActiveAddresses: mockUseActiveAddresses,

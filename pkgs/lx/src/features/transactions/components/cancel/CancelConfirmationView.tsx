@@ -1,27 +1,27 @@
 import { providers } from 'ethers/lib/ethers'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, FlexLoader, Separator, Skeleton, Text } from 'ui/src'
-import { SlashCircle } from 'ui/src/components/icons/SlashCircle'
-import { fonts } from 'ui/src/theme'
-import { AuthTrigger } from 'lx/src/features/auth/types'
-import { useUSDValueOfGasFee } from 'lx/src/features/gas/hooks'
-import { useCancellationGasFeeInfo } from 'lx/src/features/gas/hooks/useCancellationGasFeeInfo'
-import { PlanCancellationGasFeeDetails } from 'lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
-import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
+import { Button, Flex, FlexLoader, Separator, Skeleton, Text } from '@l.x/ui/src'
+import { SlashCircle } from '@l.x/ui/src/components/icons/SlashCircle'
+import { fonts } from '@l.x/ui/src/theme'
+import { AuthTrigger } from '@l.x/lx/src/features/auth/types'
+import { useUSDValueOfGasFee } from '@l.x/lx/src/features/gas/hooks'
+import { useCancellationGasFeeInfo } from '@l.x/lx/src/features/gas/hooks/useCancellationGasFeeInfo'
+import { PlanCancellationGasFeeDetails } from '@l.x/lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { CancelableStepInfo } from '@l.x/lx/src/features/transactions/hooks/useIsCancelable'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   PlanTransactionInfo,
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { NumberType } from 'utilities/src/format/types'
-import { isWebPlatform } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export interface PlanCancellationInfo {
   isPlanCancellation: true

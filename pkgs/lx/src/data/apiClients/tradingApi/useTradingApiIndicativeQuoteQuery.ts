@@ -1,9 +1,9 @@
 import { type QueryClient, type QueryKey, skipToken, type UseQueryResult, useQuery } from '@tanstack/react-query'
 import { is404Error, SharedQueryClient, TradingApi, type UseQueryApiHelperHookArgs } from '@l.x/api'
-import { lxUrls } from 'lx/src/constants/urls'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { logSwapQuoteFetch } from 'lx/src/features/transactions/swap/analytics'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { logSwapQuoteFetch } from '@l.x/lx/src/features/transactions/swap/analytics'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 function getTradingApiIndicativeQuoteQueryKey(params: TradingApi.QuoteRequest | undefined): QueryKey {
   return [

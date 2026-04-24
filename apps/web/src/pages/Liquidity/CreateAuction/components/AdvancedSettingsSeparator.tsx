@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Separator, Text, TouchableArea } from 'ui/src'
-import { ChevronsIn } from 'ui/src/components/icons/ChevronsIn'
-import { ChevronsOut } from 'ui/src/components/icons/ChevronsOut'
+import { Flex, Separator, Text, TouchableArea } from '@l.x/ui/src'
+import { ChevronsIn } from '@l.x/ui/src/components/icons/ChevronsIn'
+import { ChevronsOut } from '@l.x/ui/src/components/icons/ChevronsOut'
 
 export function AdvancedSettingsSeparator({ isExpanded, onToggle }: { isExpanded: boolean; onToggle: () => void }) {
   const { t } = useTranslation()

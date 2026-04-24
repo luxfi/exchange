@@ -49,7 +49,7 @@ import { type OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { type ShareableEntity } from '@l.x/lx/src/types/sharing'
 import { type UwULinkMethod, type WCEventType, type WCRequestOutcome } from '@l.x/lx/src/types/walletConnect'
 import { type WidgetEvent, type WidgetType } from '@l.x/lx/src/types/widgets'
-import { type ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
+import { type ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 export enum ExtensionUninstallFeedbackOptions {
   SwitchingWallet = 'switching-wallet',

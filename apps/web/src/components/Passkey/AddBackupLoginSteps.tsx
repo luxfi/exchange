@@ -12,8 +12,8 @@ import { Person } from '@l.x/ui/src/components/icons/Person'
 import { ShieldCheck } from '@l.x/ui/src/components/icons/ShieldCheck'
 import { X } from '@l.x/ui/src/components/icons/X'
 import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { AppleLogo } from '~/components/Icons/AppleLogo'
 import {
   BackupMethodSummary,

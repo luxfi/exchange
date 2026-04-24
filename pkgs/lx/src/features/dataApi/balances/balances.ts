@@ -5,25 +5,25 @@ import { QueryHookOptions } from '@apollo/client/react/types/types'
 import { GqlResult, GraphQLApi, SpamCode } from '@luxfi/api'
 import isEqual from 'lodash/isEqual'
 import { useMemo } from 'react'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { nativeOnChain } from 'lx/src/constants/tokens'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import type {
   PortfolioDataResult,
   PortfolioDataResultMultichain,
-} from 'lx/src/features/dataApi/balances/balancesRest'
+} from '@l.x/lx/src/features/dataApi/balances/balancesRest'
 
-export type { PortfolioDataResult } from 'lx/src/features/dataApi/balances/balancesRest'
+export type { PortfolioDataResult } from '@l.x/lx/src/features/dataApi/balances/balancesRest'
 
-import { usePortfolioData, usePortfolioDataMultichain } from 'lx/src/features/dataApi/balances/balancesRest'
-import { sortBalancesByName } from 'lx/src/features/dataApi/balances/utils'
-import { BaseResult, PortfolioBalance, PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'
-import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { useHideSmallBalancesSetting, useHideSpamTokensSetting } from 'lx/src/features/settings/hooks'
-import { useCurrencyIdToVisibility } from 'lx/src/features/transactions/selectors'
-import { CurrencyId } from 'lx/src/types/currency'
-import { currencyId } from 'lx/src/utils/currencyId'
+import { usePortfolioData, usePortfolioDataMultichain } from '@l.x/lx/src/features/dataApi/balances/balancesRest'
+import { sortBalancesByName } from '@l.x/lx/src/features/dataApi/balances/utils'
+import { BaseResult, PortfolioBalance, PortfolioMultichainBalance } from '@l.x/lx/src/features/dataApi/types'
+import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { useHideSmallBalancesSetting, useHideSpamTokensSetting } from '@l.x/lx/src/features/settings/hooks'
+import { useCurrencyIdToVisibility } from '@l.x/lx/src/features/transactions/selectors'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 
 export type PortfolioTotalValueResult = BaseResult<PortfolioTotalValue>
 

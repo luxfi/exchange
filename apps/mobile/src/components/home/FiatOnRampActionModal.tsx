@@ -6,12 +6,12 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { openModal } from 'src/features/modals/modalSlice'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { GeneratedIcon } from 'ui/src/components/factories/createIcon'
-import { ArrowUpCircle, Bank, CoinConvert } from 'ui/src/components/icons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { GeneratedIcon } from '@l.x/ui/src/components/factories/createIcon'
+import { ArrowUpCircle, Bank, CoinConvert } from '@l.x/ui/src/components/icons'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 
 type ActionRow = {
   Icon: GeneratedIcon

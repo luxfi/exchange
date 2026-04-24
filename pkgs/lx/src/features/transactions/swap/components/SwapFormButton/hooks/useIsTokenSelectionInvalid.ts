@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useSwapFormStoreDerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 
 export const useIsTokenSelectionInvalid = (): boolean => {
   const currencies = useSwapFormStoreDerivedSwapInfo((s) => s.currencies)

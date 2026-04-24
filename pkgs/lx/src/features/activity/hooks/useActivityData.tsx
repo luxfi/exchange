@@ -4,21 +4,21 @@ import { TransactionTypeFilter } from '@luxamm/client-data-api/dist/data/v1/type
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { StyleProp, ViewStyle } from 'react-native'
-import { Flex, Loader, Text } from 'ui/src'
-import { NoTransactions } from 'ui/src/components/icons/NoTransactions'
+import { Flex, Loader, Text } from '@l.x/ui/src'
+import { NoTransactions } from '@l.x/ui/src/components/icons/NoTransactions'
 import {
   ActivityItem,
   ActivityItemRenderer,
   generateActivityItemRenderer,
-} from 'lx/src/components/activity/generateActivityItemRenderer'
-import { SwapSummaryCallbacks } from 'lx/src/components/activity/types'
-import { BaseCard } from 'lx/src/components/BaseCard/BaseCard'
-import { useFormattedTransactionDataForActivity } from 'lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
-import { AuthTrigger } from 'lx/src/features/auth/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { PaginationControls } from 'lx/src/features/dataApi/types'
-import { useHideSpamTokensSetting } from 'lx/src/features/settings/hooks'
-import { isWebPlatform } from 'utilities/src/platform'
+} from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
+import { SwapSummaryCallbacks } from '@l.x/lx/src/components/activity/types'
+import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
+import { useFormattedTransactionDataForActivity } from '@l.x/lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
+import { AuthTrigger } from '@l.x/lx/src/features/auth/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { PaginationControls } from '@l.x/lx/src/features/dataApi/types'
+import { useHideSpamTokensSetting } from '@l.x/lx/src/features/settings/hooks'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export type UseActivityDataProps = {
   evmOwner?: Address

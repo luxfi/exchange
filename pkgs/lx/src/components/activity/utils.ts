@@ -1,12 +1,12 @@
-import { TXN_HISTORY_LOADER_ICON_SIZE } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
+import { TXN_HISTORY_LOADER_ICON_SIZE } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import {
   isReceiveTokenTransactionInfo,
   isSendTokenTransactionInfo,
-} from 'lx/src/components/activity/details/types'
-import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
-import { AssetType } from 'lx/src/entities/assets'
-import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
+} from '@l.x/lx/src/components/activity/details/types'
+import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { LocalizationContextState } from '@l.x/lx/src/features/language/LocalizationContext'
 import {
   INFINITE_APPROVAL_AMOUNT,
   INFINITE_APPROVAL_NUMBER,
@@ -14,8 +14,8 @@ import {
   REVOKE_APPROVAL_AMOUNT,
   TransactionType,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { NumberType } from 'utilities/src/format/types'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export const TXN_HISTORY_ICON_SIZE = TXN_HISTORY_LOADER_ICON_SIZE
 export const TXN_STATUS_ICON_SIZE = iconSizes.icon16

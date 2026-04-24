@@ -1,4 +1,4 @@
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 
 export type AccountAddressesByPlatform = Record<Platform, string>
 

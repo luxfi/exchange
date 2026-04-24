@@ -9,15 +9,15 @@ import {
   Text,
   useIsDarkMode,
   useMedia,
-} from 'ui/src'
+} from '@l.x/ui/src'
 // LinearGradient is native-only; stub for web builds (guarded by isMobileApp)
 const LinearGradient = Flex as any
-import { X } from 'ui/src/components/icons/X'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { parseCustomIconLink } from 'lx/src/components/notifications/iconUtils'
-import { ElementName, type ModalNameType } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { isMobileApp, isWebApp } from 'utilities/src/platform'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { parseCustomIconLink } from '@l.x/lx/src/components/notifications/iconUtils'
+import { ElementName, type ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { isMobileApp, isWebApp } from '@l.x/utils/src/platform'
 
 const MODAL_MAX_WIDTH = 440
 

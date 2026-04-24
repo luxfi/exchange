@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from 'ui/src'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import { Trace } from 'lx/src/features/telemetry/Trace'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { CurrencyField } from 'lx/src/types/currency'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
-import { NumberType } from 'utilities/src/format/types'
+import { Button, Flex, Text } from '@l.x/ui/src'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 function calculatePercentageDifference({
   derivedSwapInfo,

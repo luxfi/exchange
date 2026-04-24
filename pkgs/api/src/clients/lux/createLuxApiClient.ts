@@ -5,7 +5,7 @@ import {
   type GasFeeResultWithoutState,
   type GasStrategy,
 } from '@l.x/api/src/clients/trading/types'
-import { isWebApp } from 'utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 // TODO(app-infra), de-duplicate with lxUrls when other consumers are migrated to use this client
 const LUX_API_PATHS = {

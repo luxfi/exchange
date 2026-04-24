@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import { EmitterSubscription, Keyboard, KeyboardEvent, useWindowDimensions } from 'react-native'
-import { KeyboardLayout } from 'lx/src/utils/useKeyboardLayout'
-import { isAndroid } from 'utilities/src/platform'
+import { KeyboardLayout } from '@l.x/lx/src/utils/useKeyboardLayout'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 export function useKeyboardLayout(): KeyboardLayout {
   const window = useWindowDimensions()

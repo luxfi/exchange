@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Text, TouchableArea } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { X } from 'ui/src/components/icons/X'
+import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { X } from '@l.x/ui/src/components/icons/X'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { isMobileApp, isMobileWeb } from 'utilities/src/platform'
+import { isMobileApp, isMobileWeb } from '@l.x/utils/src/platform'
 
 interface SlippageWarningModalProps {
   isOpen: boolean

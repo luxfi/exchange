@@ -1,5 +1,5 @@
 import { FeatureFlags, getFeatureFlagName } from '@l.x/gating'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 

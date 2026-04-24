@@ -20,9 +20,9 @@ import type { WebSocketClient } from '@l.x/websocket'
 import { createWebSocketClient, createZustandConnectionStore } from '@l.x/websocket'
 import type { ReactElement, ReactNode } from 'react'
 import { useState } from 'react'
-import { isDevEnv } from 'utilities/src/environment/env'
-import { logger } from 'utilities/src/logger/logger'
-import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
 import { createRestPriceClient } from '~/state/livePrices/createRestPriceClient'
 
 function createLivePricesClient(): WebSocketClient<TokenSubscriptionParams, TokenPriceMessage['data']> | null {

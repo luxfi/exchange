@@ -1,5 +1,5 @@
-import { useSporeColors } from 'ui/src/hooks/useSporeColors'
-import { DIGIT_HEIGHT } from 'lx/src/components/AnimatedNumber/AnimatedNumber'
+import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
+import { DIGIT_HEIGHT } from '@l.x/lx/src/components/AnimatedNumber/AnimatedNumber'
 
 export const TopAndBottomGradient = (): JSX.Element => {
   const colors = useSporeColors()

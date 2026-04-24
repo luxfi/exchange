@@ -2,15 +2,15 @@ import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from '@l.x/ui/src'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { SLIPPAGE_CRITICAL_TOLERANCE } from 'lx/src/constants/transactions'
-import { useLuxContext } from 'lx/src/contexts/LuxContext'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { SLIPPAGE_CRITICAL_TOLERANCE } from '@l.x/lx/src/constants/transactions'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import {
   useTransactionSettingsActions,
   useTransactionSettingsStore,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import SlippageWarningModal from 'lx/src/features/transactions/swap/components/SwapFormSettings/SlippageWarningModal'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import SlippageWarningModal from '@l.x/lx/src/features/transactions/swap/components/SwapFormSettings/SlippageWarningModal'
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { useDefaultInitialPrice } from '~/components/Liquidity/Create/hooks/useDefaultInitialPrice'
 import { DepositInputForm } from '~/components/Liquidity/DepositInputForm'

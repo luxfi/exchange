@@ -1,7 +1,7 @@
-import { Flex, LinearGradient, TouchableArea, useSporeColors } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { iconSizes, opacify, spacing, zIndexes } from 'ui/src/theme'
-import { isExtensionApp } from 'utilities/src/platform'
+import { Flex, LinearGradient, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { iconSizes, opacify, spacing, zIndexes } from '@l.x/ui/src/theme'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 export const ScrollArrow = ({ onPress, side }: { onPress: () => void; side: 'left' | 'right' }): JSX.Element => {
   const iconSize = iconSizes.icon24

@@ -11,17 +11,17 @@ import { useActiveAccount, useHasSmartWalletConsent, useSignerAccounts } from '@
 import { ACCOUNT, readOnlyAccount, signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 import { renderHook, waitFor } from '@luxfi/wallet/src/test/test-utils'
 
-jest.mock('wallet/src/features/wallet/hooks', () => ({
+jest.mock('@luxfi/wallet/src/features/wallet/hooks', () => ({
   useActiveAccount: jest.fn(),
   useSignerAccounts: jest.fn(),
   useHasSmartWalletConsent: jest.fn(),
 }))
 
-jest.mock('wallet/src/features/smartWallet/hooks/useSmartWalletChains', () => ({
+jest.mock('@luxfi/wallet/src/features/smartWallet/hooks/useSmartWalletChains', () => ({
   useSmartWalletChains: jest.fn(),
 }))
 
-jest.mock('wallet/src/features/smartWallet/WalletDelegationProvider', () => ({
+jest.mock('@luxfi/wallet/src/features/smartWallet/WalletDelegationProvider', () => ({
   useWalletDelegationContext: jest.fn(),
 }))
 

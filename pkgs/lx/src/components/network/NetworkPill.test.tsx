@@ -1,6 +1,6 @@
-import { InlineNetworkPill, NetworkPill } from 'lx/src/components/network/NetworkPill'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { render } from 'lx/src/test/test-utils'
+import { InlineNetworkPill, NetworkPill } from '@l.x/lx/src/components/network/NetworkPill'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 describe(NetworkPill, () => {
   it('renders a NetworkPill without image', () => {

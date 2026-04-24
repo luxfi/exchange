@@ -1,9 +1,9 @@
 import { Currency } from '@luxamm/sdk-core'
 import { createContext, PropsWithChildren, useContext, useMemo } from 'react'
 import type { StyleProp, ViewStyle } from 'react-native'
-import { AuthTrigger } from 'lx/src/features/auth/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyField } from 'lx/src/types/currency'
+import { AuthTrigger } from '@l.x/lx/src/features/auth/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export enum TransactionScreen {
   Form = 'Form',

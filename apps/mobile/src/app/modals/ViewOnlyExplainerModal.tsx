@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
-import { Button, Flex, Text, useIsDarkMode } from 'ui/src'
-import ViewOnlyWalletDark from 'ui/src/assets/graphics/view-only-wallet-dark.svg'
-import ViewOnlyWalletLight from 'ui/src/assets/graphics/view-only-wallet-light.svg'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from 'uniswap/src/types/screens/mobile'
-import { useActiveAccountAddress, useNativeAccountExists } from 'wallet/src/features/wallet/hooks'
+import { Button, Flex, Text, useIsDarkMode } from '@l.x/ui/src'
+import ViewOnlyWalletDark from '@l.x/ui/src/assets/graphics/view-only-wallet-dark.svg'
+import ViewOnlyWalletLight from '@l.x/ui/src/assets/graphics/view-only-wallet-light.svg'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
+import { useActiveAccountAddress, useNativeAccountExists } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const WALLET_IMAGE_ASPECT_RATIO = 327 / 215
 

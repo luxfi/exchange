@@ -7,7 +7,7 @@ import { useAddressNotificationToggle } from 'src/features/notifications/hooks/u
 import { promptPushPermission } from 'src/features/notifications/Onesignal'
 import { showNotificationSettingsAlert } from 'src/features/notifications/showNotificationSettingsAlert'
 import { act, renderHook, waitFor } from 'src/test/test-utils'
-import { useSelectAccountNotificationSetting } from 'wallet/src/features/wallet/hooks'
+import { useSelectAccountNotificationSetting } from '@luxfi/wallet/src/features/wallet/hooks'
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'), // Keep all other exports
@@ -23,8 +23,8 @@ jest.mock('src/features/notifications/hooks/useNotificationOSPermissionsEnabled'
   useNotificationOSPermissionsEnabled: jest.fn(),
 }))
 
-jest.mock('wallet/src/features/wallet/accounts/editAccountSaga', () => ({
-  ...jest.requireActual('wallet/src/features/wallet/accounts/editAccountSaga'),
+jest.mock('@luxfi/wallet/src/features/wallet/accounts/editAccountSaga', () => ({
+  ...jest.requireActual('@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'),
   editAccountActions: {
     trigger: jest.fn((payload) => ({ type: 'EDIT_ACCOUNT', payload })),
   },
@@ -38,7 +38,7 @@ jest.mock('src/utils/useAppStateTrigger', () => ({
   useAppStateTrigger: jest.fn(),
 }))
 
-jest.mock('wallet/src/features/wallet/hooks', () => ({
+jest.mock('@luxfi/wallet/src/features/wallet/hooks', () => ({
   useSelectAccountNotificationSetting: jest.fn(),
 }))
 

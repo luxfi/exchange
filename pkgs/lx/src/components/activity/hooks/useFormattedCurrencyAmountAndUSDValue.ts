@@ -1,9 +1,9 @@
 import { Currency } from '@luxamm/sdk-core'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { useUSDCValueWithStatus } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from 'utilities/src/format/types'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { LocalizationContextState } from '@l.x/lx/src/features/language/LocalizationContext'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { useUSDCValueWithStatus } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export function useFormattedCurrencyAmountAndUSDValue({
   currency,

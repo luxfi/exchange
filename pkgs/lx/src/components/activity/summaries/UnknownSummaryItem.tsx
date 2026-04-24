@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
-import { useSporeColors } from 'ui/src'
-import { ContractInteraction } from 'ui/src/components/icons/ContractInteraction'
-import { iconSizes } from 'ui/src/theme'
-import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
-import { SummaryItemProps } from 'lx/src/components/activity/types'
-import { DappLogoWithWCBadge } from 'lx/src/components/CurrencyLogo/LogoWithTxStatus'
-import { TransactionDetails, UnknownTransactionInfo } from 'lx/src/features/transactions/types/transactionDetails'
-import { getValidAddress } from 'lx/src/utils/addresses'
-import { shortenAddress } from 'utilities/src/addresses'
+import { useSporeColors } from '@l.x/ui/src'
+import { ContractInteraction } from '@l.x/ui/src/components/icons/ContractInteraction'
+import { iconSizes } from '@l.x/ui/src/theme'
+import { TransactionSummaryLayout } from '@l.x/lx/src/components/activity/summaries/TransactionSummaryLayout'
+import { SummaryItemProps } from '@l.x/lx/src/components/activity/types'
+import { DappLogoWithWCBadge } from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
+import { TransactionDetails, UnknownTransactionInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 
 export function UnknownSummaryItem({
   transaction,

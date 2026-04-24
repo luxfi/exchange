@@ -1,7 +1,7 @@
 import { Currency } from '@luxamm/sdk-core'
 import { JupiterOrderResponse } from '@l.x/api'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { createSolanaTrade } from 'lx/src/features/transactions/swap/types/solana'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { createSolanaTrade } from '@l.x/lx/src/features/transactions/swap/types/solana'
 
 // Constants
 const SOL_MINT = 'So11111111111111111111111111111111111111112'

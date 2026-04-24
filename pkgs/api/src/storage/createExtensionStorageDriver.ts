@@ -1,5 +1,5 @@
 import type { StorageDriver } from '@l.x/api/src/storage/types'
-import { getChromeWithThrow } from 'utilities/src/chrome/chrome'
+import { getChromeWithThrow } from '@l.x/utils/src/chrome/chrome'
 
 export function createExtensionStorageDriver(): StorageDriver {
   return {

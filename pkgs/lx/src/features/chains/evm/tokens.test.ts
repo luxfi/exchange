@@ -1,7 +1,7 @@
 import { Token } from '@luxamm/sdk-core'
-import { buildChainTokens } from 'lx/src/features/chains/evm/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { buildDAI, buildUSDC, buildUSDT } from 'lx/src/features/tokens/stablecoin'
+import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { buildDAI, buildUSDC, buildUSDT } from '@l.x/lx/src/features/tokens/stablecoin'
 
 describe('buildChainTokens', () => {
   const chainId = UniverseChainId.Mainnet

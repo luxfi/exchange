@@ -1,11 +1,11 @@
 import { Currency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
-import { nativeOnChain } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo, SafetyInfo, TokenList } from 'lx/src/features/dataApi/types'
-import { faker } from 'lx/src/test/shared'
-import { createFixture } from 'lx/src/test/utils'
-import { currencyId } from 'lx/src/utils/currencyId'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo, SafetyInfo, TokenList } from '@l.x/lx/src/features/dataApi/types'
+import { faker } from '@l.x/lx/src/test/shared'
+import { createFixture } from '@l.x/lx/src/test/utils'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 
 export const MAINNET_CURRENCY = nativeOnChain(UniverseChainId.Mainnet)
 export const BASE_CURRENCY = nativeOnChain(UniverseChainId.Base)

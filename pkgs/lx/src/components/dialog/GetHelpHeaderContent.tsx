@@ -1,7 +1,7 @@
-import { Flex, ModalCloseIcon, TouchableArea } from 'ui/src'
-import { BackArrow } from 'ui/src/components/icons/BackArrow'
-import { Text } from 'ui/src/components/text/Text'
-import type { GetHelpHeaderProps } from 'lx/src/components/dialog/GetHelpHeader'
+import { Flex, ModalCloseIcon, TouchableArea } from '@l.x/ui/src'
+import { BackArrow } from '@l.x/ui/src/components/icons/BackArrow'
+import { Text } from '@l.x/ui/src/components/text/Text'
+import type { GetHelpHeaderProps } from '@l.x/lx/src/components/dialog/GetHelpHeader'
 
 export type GetHelpButtonProps = {
   url?: string

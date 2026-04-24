@@ -9,7 +9,7 @@ import { DoubleCurrencyLogo } from '~/components/Logo/DoubleLogo'
 import { mocked } from '~/test-utils/mocked'
 import { render } from '~/test-utils/render'
 
-vi.mock('lx/src/features/tokens/useCurrencyInfo', () => ({
+vi.mock('@l.x/lx/src/features/tokens/useCurrencyInfo', () => ({
   useCurrencyInfo: vi.fn(),
 }))
 

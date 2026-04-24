@@ -4,7 +4,7 @@
  */
 
 import type { HashcashWorkerChannel } from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 /**
  * Configuration for multi-worker hashcash channel.

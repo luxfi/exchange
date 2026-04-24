@@ -1,5 +1,5 @@
-import { NFTItem } from 'lx/src/features/nfts/types'
-import { filterNft } from 'lx/src/features/nfts/utils'
+import { NFTItem } from '@l.x/lx/src/features/nfts/types'
+import { filterNft } from '@l.x/lx/src/features/nfts/utils'
 
 describe('filterNft', () => {
   const createMockNft = (overrides: Partial<NFTItem> = {}): NFTItem => ({

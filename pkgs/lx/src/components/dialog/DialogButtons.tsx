@@ -1,5 +1,5 @@
-import { Button, type ButtonEmphasis, type ButtonVariant, Flex, type FlexProps } from 'ui/src'
-import { TestIDType } from 'lx/src/test/fixtures/testIDs'
+import { Button, type ButtonEmphasis, type ButtonVariant, Flex, type FlexProps } from '@l.x/ui/src'
+import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
 
 export type ButtonConfig = {
   testID?: TestIDType

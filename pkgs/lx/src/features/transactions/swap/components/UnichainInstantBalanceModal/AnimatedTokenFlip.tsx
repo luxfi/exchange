@@ -1,4 +1,4 @@
-import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import type { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 
 export interface AnimatedTokenFlipProps {
   size: number

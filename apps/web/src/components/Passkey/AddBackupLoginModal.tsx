@@ -4,15 +4,15 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex } from '@l.x/ui/src'
-import { Modal } from 'lx/src/components/modals/Modal'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import {
   authorizeAndCompleteRecovery,
   type EncryptedRecoveryState,
   encryptAndStoreRecovery,
   type RecoveryAuthMethodType,
-} from 'lx/src/features/passkey/embeddedWallet'
-import { validatePin } from 'lx/src/features/passkey/pinValidation'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+} from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { validatePin } from '@l.x/lx/src/features/passkey/pinValidation'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'

@@ -1,6 +1,6 @@
-import { useIsChromeWindowFocusedWithTimeout } from 'lx/src/extension/useIsChromeWindowFocused'
-import { isExtensionApp } from 'utilities/src/platform'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useIsChromeWindowFocusedWithTimeout } from '@l.x/lx/src/extension/useIsChromeWindowFocused'
+import { isExtensionApp } from '@l.x/utils/src/platform'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 export type UsePlatformBasedValue<T> = {
   defaultValue: T

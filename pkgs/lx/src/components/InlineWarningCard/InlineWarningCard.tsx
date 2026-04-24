@@ -1,14 +1,14 @@
 import { SharedEventName } from '@luxamm/analytics-events'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, GeneratedIcon, InlineCard, LabeledCheckbox, Text, TouchableArea } from 'ui/src'
-import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { getWarningIcon, getWarningIconColors } from 'lx/src/components/warnings/utils'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { openUri } from 'lx/src/utils/linking'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { Flex, GeneratedIcon, InlineCard, LabeledCheckbox, Text, TouchableArea } from '@l.x/ui/src'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { getWarningIcon, getWarningIconColors } from '@l.x/lx/src/components/warnings/utils'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { openUri } from '@l.x/lx/src/utils/linking'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 type InlineWarningCardProps = {
   severity: WarningSeverity

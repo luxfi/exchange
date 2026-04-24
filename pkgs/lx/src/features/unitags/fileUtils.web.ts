@@ -1,5 +1,5 @@
 import { UnitagAvatarUploadCredentials } from '@l.x/api'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Web-specific: data URLs and blob URLs as local files
 export function isLocalFileUri(imageUri: string): boolean {
