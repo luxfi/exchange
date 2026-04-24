@@ -209,50 +209,6 @@ export const parsDevnet = defineChain({
 })
 
 /**
- * SPC Mainnet / Testnet / Devnet Chain Definitions
- */
-export const spcMainnet = defineChain({
-  id: 36911,
-  name: 'SPC Mainnet',
-  nativeCurrency: { name: 'SPC', symbol: 'SPC', decimals: 18 },
-  rpcUrls: {
-    default: { http: ['https://api.spc.network/rpc'] },
-    public:  { http: ['https://api.spc.network/rpc'] },
-  },
-  blockExplorers: {
-    default: { name: 'SPC Explorer', url: 'https://explore.spc.network' },
-  },
-})
-
-export const spcTestnet = defineChain({
-  id: 36910,
-  name: 'SPC Testnet',
-  nativeCurrency: { name: 'SPC', symbol: 'SPC', decimals: 18 },
-  rpcUrls: {
-    default: { http: ['https://api.spc-test.network/rpc'] },
-    public:  { http: ['https://api.spc-test.network/rpc'] },
-  },
-  blockExplorers: {
-    default: { name: 'SPC Testnet Explorer', url: 'https://explore.spc-test.network' },
-  },
-  testnet: true,
-})
-
-export const spcDevnet = defineChain({
-  id: 36912,
-  name: 'SPC Devnet',
-  nativeCurrency: { name: 'SPC', symbol: 'SPC', decimals: 18 },
-  rpcUrls: {
-    default: { http: ['https://api.spc-dev.network/rpc'] },
-    public:  { http: ['https://api.spc-dev.network/rpc'] },
-  },
-  blockExplorers: {
-    default: { name: 'SPC Devnet Explorer', url: 'https://explore.spc-dev.network' },
-  },
-  testnet: true,
-})
-
-/**
  * Liquid EVM — regulated digital securities (Liquidity.io ATS)
  */
 export const liquidMainnet = defineChain({
@@ -343,35 +299,39 @@ export const ZOO_DEVNET_ID      = 200202
 export const HANZO_MAINNET_ID   = 36963
 export const HANZO_TESTNET_ID   = 36964
 export const PARS_MAINNET_ID    = 494949
-export const SPC_MAINNET_ID     = 36911
 export const LIQUID_MAINNET_ID  = 8675309
 export const LIQUID_TESTNET_ID  = 8675310
 export const LIQUID_DEVNET_ID   = 8675311
 
 /**
- * Canonical chains — enabled by default in every Lux-ecosystem
- * exchange. Natively-integrated Lux family + Liquidity regulated
- * securities. SPC and localDev available via explicit import.
+ * Canonical chains — enabled out-of-box in every Lux-ecosystem
+ * exchange. Four natively-integrated chains × 3 envs each = 12 chains.
+ *
+ *   Lux    (96369 / 96368 / 96370)     — LUX   — base L1
+ *   Hanzo  (36963 / 36964 / 36965)     — AI    — AI chain
+ *   Zoo    (200200 / 200201 / 200202)  — ZOO
+ *   Liquid (8675309 / 8675310 / 8675311) — LQDTY — regulated securities
+ *
+ * Pars (not in canonical default) + localDev available via explicit
+ * import — opt-in when needed.
  */
 export const canonicalChains = [
-  // Lux — native + bridged
+  // Lux — base L1
   luxMainnet,    luxTestnet,    luxDevnet,
-  // Hanzo (AI chain — $AI token)
+  // Hanzo — AI chain (AI coin)
   hanzoMainnet,  hanzoTestnet,  hanzoDevnet,
   // Zoo
   zooMainnet,    zooTestnet,    zooDevnet,
-  // Pars
-  parsMainnet,   parsTestnet,   parsDevnet,
-  // Liquid EVM (Liquidity — regulated securities)
+  // Liquid EVM (Liquidity.io — regulated securities)
   liquidMainnet, liquidTestnet, liquidDevnet,
 ] as const
 
 /**
- * All supported chains — canonical + SPC + local dev.
+ * All supported chains — canonical + optional Pars + local dev.
  */
 export const supportedChains = [
   ...canonicalChains,
-  spcMainnet,    spcTestnet,    spcDevnet,
+  parsMainnet,   parsTestnet,   parsDevnet,
   localDev,
 ] as const
 

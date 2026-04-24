@@ -16,9 +16,6 @@ export {
   // Pars
   parsMainnet,   parsTestnet,   parsDevnet,
   PARS_MAINNET_ID,
-  // SPC
-  spcMainnet,    spcTestnet,    spcDevnet,
-  SPC_MAINNET_ID,
   // Liquid EVM (regulated securities via Liquidity.io)
   liquidMainnet, liquidTestnet, liquidDevnet,
   LIQUID_MAINNET_ID, LIQUID_TESTNET_ID, LIQUID_DEVNET_ID,
