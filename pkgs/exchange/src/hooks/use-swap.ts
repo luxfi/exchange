@@ -27,16 +27,20 @@ export function useSwap() {
 
   const swap = useMutation({
     mutationFn: async (params: SwapRequest) => {
-      const contracts = getContracts(params.chainId)
+      const contracts = getContracts(params.chainId) as Record<string, `0x${string}` | undefined>
       const isNativeIn = isNativeToken(params.tokenIn)
+      const router = contracts.V3_SWAP_ROUTER_02 ?? contracts.V2_ROUTER
+      const wrappedNative = contracts.WLUX ?? contracts.WZOO
+      if (!router) throw new Error(`No DEX router deployed on chain ${params.chainId}`)
+      if (isNativeIn && !wrappedNative) throw new Error(`No wrapped native on chain ${params.chainId}`)
 
       const txHash = await writeContractAsync({
-        address: (contracts as any).V3_SWAP_ROUTER_02 ?? contracts.V2_ROUTER,
+        address: router,
         abi: SWAP_ROUTER_ABI,
         functionName: 'exactInputSingle',
         args: [
           {
-            tokenIn: isNativeIn ? contracts.WLUX : params.tokenIn.address,
+            tokenIn: isNativeIn ? wrappedNative! : params.tokenIn.address,
             tokenOut: params.tokenOut.address,
             fee: 3000, // 0.30% fee tier
             recipient: params.recipient,
