@@ -148,7 +148,24 @@ export const hanzoTestnet = defineChain({
 })
 
 /**
- * Pars Mainnet Chain Definition
+ * Hanzo Devnet Chain Definition
+ */
+export const hanzoDevnet = defineChain({
+  id: 36965,
+  name: 'Hanzo Devnet',
+  nativeCurrency: { name: 'AI', symbol: 'AI', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.hanzo-dev.network/rpc'] },
+    public:  { http: ['https://api.hanzo-dev.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Hanzo Devnet Explorer', url: 'https://explore.hanzo-dev.network' },
+  },
+  testnet: true,
+})
+
+/**
+ * Pars Mainnet / Testnet / Devnet Chain Definitions
  */
 export const parsMainnet = defineChain({
   id: 494949,
@@ -163,8 +180,36 @@ export const parsMainnet = defineChain({
   },
 })
 
+export const parsTestnet = defineChain({
+  id: 7071,
+  name: 'Pars Testnet',
+  nativeCurrency: { name: 'PARS', symbol: 'PARS', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.pars-test.network/rpc'] },
+    public:  { http: ['https://api.pars-test.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Pars Testnet Explorer', url: 'https://explore.pars-test.network' },
+  },
+  testnet: true,
+})
+
+export const parsDevnet = defineChain({
+  id: 7072,
+  name: 'Pars Devnet',
+  nativeCurrency: { name: 'PARS', symbol: 'PARS', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.pars-dev.network/rpc'] },
+    public:  { http: ['https://api.pars-dev.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Pars Devnet Explorer', url: 'https://explore.pars-dev.network' },
+  },
+  testnet: true,
+})
+
 /**
- * SPC Mainnet Chain Definition
+ * SPC Mainnet / Testnet / Devnet Chain Definitions
  */
 export const spcMainnet = defineChain({
   id: 36911,
@@ -177,6 +222,34 @@ export const spcMainnet = defineChain({
   blockExplorers: {
     default: { name: 'SPC Explorer', url: 'https://explore.spc.network' },
   },
+})
+
+export const spcTestnet = defineChain({
+  id: 36910,
+  name: 'SPC Testnet',
+  nativeCurrency: { name: 'SPC', symbol: 'SPC', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.spc-test.network/rpc'] },
+    public:  { http: ['https://api.spc-test.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'SPC Testnet Explorer', url: 'https://explore.spc-test.network' },
+  },
+  testnet: true,
+})
+
+export const spcDevnet = defineChain({
+  id: 36912,
+  name: 'SPC Devnet',
+  nativeCurrency: { name: 'SPC', symbol: 'SPC', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.spc-dev.network/rpc'] },
+    public:  { http: ['https://api.spc-dev.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'SPC Devnet Explorer', url: 'https://explore.spc-dev.network' },
+  },
+  testnet: true,
 })
 
 /**
@@ -245,6 +318,23 @@ export const luxDev = defineChain({
 })
 
 /**
+ * Lux Devnet (chain 96370) — shared devnet, not local-only.
+ */
+export const luxDevnet = defineChain({
+  id: 96370,
+  name: 'Lux Devnet',
+  nativeCurrency: { name: 'LUX', symbol: 'LUX', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://api.lux-dev.network/rpc'] },
+    public:  { http: ['https://api.lux-dev.network/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Lux Devnet Explorer', url: 'https://explore.lux-dev.network' },
+  },
+  testnet: true,
+})
+
+/**
  * Chain IDs
  */
 export const LUX_MAINNET_ID = 96369
@@ -265,12 +355,19 @@ export const LIQUID_DEVNET_ID   = 8675311
  * All supported chains
  */
 export const supportedChains = [
-  luxMainnet,    luxTestnet,
+  // Lux — 3 envs
+  luxMainnet,    luxTestnet,    luxDevnet,
+  // Zoo — 3 envs
   zooMainnet,    zooTestnet,    zooDevnet,
-  hanzoMainnet,  hanzoTestnet,
-  parsMainnet,
-  spcMainnet,
+  // Hanzo — 3 envs
+  hanzoMainnet,  hanzoTestnet,  hanzoDevnet,
+  // Pars — 3 envs
+  parsMainnet,   parsTestnet,   parsDevnet,
+  // SPC — 3 envs
+  spcMainnet,    spcTestnet,    spcDevnet,
+  // Liquid EVM — 3 envs (regulated securities)
   liquidMainnet, liquidTestnet, liquidDevnet,
+  // Local anvil-compat dev chain
   luxDev,
 ] as const
 
