@@ -1,205 +1,209 @@
 # Lux Exchange
 
-Composable DEX stack. One canonical source, infinite white-labels.
+Composable Lux-ecosystem DEX stack. One canonical source, infinite
+white-labels — fork or build your own frontend against the published
+SDK in under 20 lines of TypeScript.
 
 [**lux.exchange**](https://lux.exchange) runs on it. So does
 [zoo.exchange](https://zoo.exchange), [pars.market](https://pars.market),
-and any Lux-network, L1, L2, or EVM-based team that wants a
-production-grade exchange interface in 15 lines of code.
+[swap.dev.satschel.com](https://swap.dev.satschel.com) (Liquid DEX), and
+any Lux-network / L1 / L2 / external-EVM team that wants a
+production-grade exchange interface with regulated-securities support.
 
-## What you get
+## The declarative SDK (recommended approach)
 
-- **Full SPA** — swap, pool, portfolio, limit, send, bridge, activity,
-  explore, NFT — every surface Uniswap's frontend has, reimplemented on
-  Lux primitives with Tamagui via `@hanzo/gui`.
-- **Native DEX backend** — Lux DEX precompiles (LP-9010…LP-9040)
-  for sub-microsecond matching on chains that enable them; standard
-  V2/V3 AMM contracts everywhere else.
-- **Regulated-provider gate** — plug in any US-compliant adapter
-  (Alpaca / OmniSub / FalconX / in-house) without modifying the SPA.
-- **Identity via Hanzo IAM** — OIDC, social login, phone/OTP, passkeys,
-  KYC handoff. Zero auth code on your side.
-- **One register API** — features, chains, tokens, auth, i18n, routes,
-  widgets — composable and orthogonal.
-
-## Spin up a white-label exchange
+**One React component. One config object. Everything composable.**
 
 ```tsx
-// apps/web/src/main.tsx — 10 lines, the whole app.
 import { createRoot } from 'react-dom/client'
-import Exchange from '@luxfi/exchange'
+import Exchange, { canonicalChains, zooMainnet } from '@luxfi/exchange'
 import brand from '@acme/brand'
+import Logo  from '@acme/logo'
+import en from '@acme/brand/translations/en-US.json'
 
-createRoot(document.getElementById('root')!).render(<Exchange brand={brand} />)
+createRoot(document.getElementById('root')!).render(
+  <Exchange
+    {...brand}                                  // visual identity
+    logo={Logo}                                 // logo marks (React component)
+    chains={canonicalChains}                    // lux + hanzo + zoo + liquid (×3 envs)
+    defaultChain={zooMainnet}                   // primary
+    dex={{ kind: 'precompile' }}                // Lux DEX precompiles
+    provider={{                                 // regulated-asset gate
+      name: 'Liquidity', adapter, router, onboardingUrl: 'https://id.acme.com',
+    }}
+    auth={{                                     // OIDC via Hanzo IAM
+      provider: 'iam', issuer, clientId, idHost,
+    }}
+    kms={{ url: 'https://kms.acme.network' }}
+    i18n={{ 'en-US': en }}
+    features={{ nft: true, bridge: true }}
+    featured={[ /* TokenRef[] */ ]}
+    routes={[ /* custom pages */ ]}
+    widgets={[ /* slot components */ ]}
+  />,
+)
 ```
 
-Brand comes from an npm package of your own — colors, logos, fonts,
-`brand.json`. That's it to mount.
+No `register()` calls, no state machines, no global mutation, no ordering.
+React props = React idioms. Order-free, composable via object spread,
+testable. See [`pkgs/exchange/src/register.ts`](pkgs/exchange/src/register.ts)
+for the full `ExchangeConfig` type.
 
-Customize further through one API:
+## Canonical chains (out of the box)
+
+Four natively-integrated chains × 3 envs each = **12 chains**. Enabled
+by default via `canonicalChains` from `@luxfi/exchange`.
+
+| chain | native | mainnet | testnet | devnet |
+|---|---|---|---|---|
+| **Lux** | LUX | 96369 | 96368 | 96370 |
+| **Hanzo** | AI (AI chain) | 36963 | 36964 | 36965 |
+| **Zoo** | ZOO | 200200 | 200201 | 200202 |
+| **Liquid EVM** (regulated securities) | LQDTY | 8675309 | 8675310 | 8675311 |
+
+Pars (494949/7071/7072) + `localDev` (31337, anvil-compat) available via
+explicit import; not in `canonicalChains` default. External EVMs
+(Ethereum / Base / Arbitrum / Optimism / Polygon / Sepolia) re-exported
+from wagmi.
+
+## Fork it → your own exchange in ~10 minutes
+
+The canonical white-label example is **[zooai/exchange](https://github.com/zooai/exchange)**.
+Fork it, swap the brand imports, you're done.
+
+```bash
+gh repo fork zooai/exchange acmeai/exchange --clone
+cd exchange
+
+# 1. Point at your brand + logo npm packages
+sed -i '' 's|@zooai/brand|@acmeai/brand|g; s|@zooai/logo|@acmeai/logo|g' apps/web/src/main.tsx
+
+# 2. Register your npm scope (or just publish @acmeai/brand + @acmeai/logo)
+# 3. Update Dockerfile to point at your registry
+# 4. CI builds, tags, deploys — ghcr.io/acmeai/exchange:v1.x.x
+```
+
+That's it. Upstream `@luxfi/exchange` updates flow in automatically —
+you only maintain the ~20 lines in `apps/web/src/main.tsx` + your brand
+package.
+
+## Five DEX backend modes
+
+Registered via the `dex` prop:
 
 ```ts
-import Exchange, { luxMainnet } from '@luxfi/exchange'
-
-Exchange.register({ features: { bridge: false, nft: false } })
-Exchange.register({ chains: [luxMainnet, acmeL2] })
-Exchange.register({ defaultChain: acmeL2 })
-Exchange.register({ featured: [ACME, WETH, USDC] })
-Exchange.register({ provider: { name, adapter, router, onboardingUrl } })
-Exchange.register({ auth:     { provider: 'iam', issuer, clientId, idHost } })
-Exchange.register({ i18n:     { 'en-US': { 'swap.title': 'Trade on Acme' } } })
-Exchange.register({ route:    { path: '/stake', component: AcmeStakePage } })
-Exchange.register({ widget:   { slot: 'landing.hero', component: AcmeHero } })
+{ kind: 'precompile' }                                              // Lux DEX native (LP-9010…LP-9040)
+{ kind: 'v3', factory, router, quoter }                             // V2/V3 AMM on any EVM
+{ kind: 'gateway', url: 'https://dex.acme.network' }                // Lux gateway — cross-chain routing
+{ kind: 'hybrid', amm: {...}, clob: {...} }                         // mix — router picks per order type
+myDexAdapter                                                         // custom — implement DexAdapter (7 methods)
 ```
 
-See [`pkgs/exchange/README.md`](pkgs/exchange/README.md) for the full
-slot/route/payload catalog.
+`DexAdapter` interface at [`pkgs/exchange/src/register.ts`](pkgs/exchange/src/register.ts#L90-L100):
+`quote`, `swap`, `pools`, `positions`, `prices`, `tokens`, `health`.
 
-## Backend — use ours, or your own
+See [`examples/custom-dex/`](examples/custom-dex) for a complete
+adapter implementation.
 
-The exchange talks to a **DEX backend** through a single interface.
-Five drop-in modes:
+## White-label brand packages
 
-| Mode | When | What to set |
-| --- | --- | --- |
-| **Lux DEX precompiles** (native) | You run on a Lux chain with `LP-9xxx` precompiles enabled | default — works out of the box |
-| **Standard V2/V3 AMM** (any EVM) | You deploy the Lux `standard` AMM contracts | set `dex: { kind: 'v3', factory, router, quoter }` |
-| **Your own DEX** | You run your own orderbook / AMM | implement the `DexAdapter` interface, `Exchange.register({ dex: myAdapter })` |
-| **Lux Gateway** | You want cross-chain routing via [`~/work/lux/dex`](https://github.com/luxfi/dex) | set `gatewayUrl: 'https://dex.acme.network'` |
-| **Hybrid** | CLOB for limits + AMM for swaps | both adapters registered; router picks |
+Each brand ships a `@<org>/brand` + `@<org>/logo` pair on npm. These are
+the **only** files a white-label deployment maintains:
 
-`DexAdapter` is 7 methods (quote, swap, pools, positions, prices, tokens, health). Type definitions at
-[`pkgs/exchange/src/dex/adapter.ts`](pkgs/exchange/src/dex/adapter.ts).
+| brand | `@<org>/brand` | `@<org>/logo` |
+|---|---|---|
+| Lux | [`@luxfi/brand`](https://www.npmjs.com/package/@luxfi/brand) | [`@luxfi/logo`](https://www.npmjs.com/package/@luxfi/logo) |
+| Hanzo | [`@hanzo/brand`](https://www.npmjs.com/package/@hanzo/brand) | [`@hanzo/logo`](https://www.npmjs.com/package/@hanzo/logo) |
+| Zoo | [`@zooai/brand`](https://www.npmjs.com/package/@zooai/brand) | [`@zooai/logo`](https://www.npmjs.com/package/@zooai/logo) |
+| Liquidity | [`@liquidityio/brand`](https://www.npmjs.com/package/@liquidityio/brand) | `@liquidityio/logo` (pending) |
+| Pars | `@parsdao/brand` (pending) | `@pars/logo` (pending) |
 
-## Chain — ours, yours, whatever
+Each brand package ships:
+- `brand.json` — colors, fonts, emails, socials, legal, domains (pure visual/content)
+- `translations/{locale}.json` — per-locale text packs
+- `assets/` — static images, icons
+- `fonts/` — brand fonts
 
-- **Lux C-Chain** (96369 / 96368) — `luxMainnet`, `luxTestnet`
-- **Lux L1 subnets** — Hanzo (36963), Zoo (200200), Pars (494949), SPC (36911), and any subnet you deploy: register the `Chain` config, supply RPC + explorer, done
-- **Your own L2** — rollup on top of Lux C-Chain or any EVM; register like any chain
-- **Your own L1** — fully independent EVM; register with RPC + wagmi config + contract addresses
-- **Any external EVM** — Ethereum, Base, Arbitrum, etc. — already supported
+Chain, auth, KMS, DEX, provider config **live in the exchange app's
+`main.tsx` props** — not in the brand package. Separation of concerns.
 
-All chain config is runtime — see **Config & secrets** below. One
-image, any chain.
+## Config & secrets via KMS
 
-## Config & secrets
+Every deployment runs its own [`luxfi/kms`](https://github.com/luxfi/kms)
+instance. The exchange pod pulls secrets + runtime config via the
+native ZAP binary client on pod startup; `ghcr.io/hanzoai/spa:1.2.0`
+templates `/config.json` from `SPA_*` env vars injected by KMS.
 
-Canonical source: **[luxfi/kms](https://github.com/luxfi/kms)**. Every
-deployment mounts a KMS instance and pulls config + secrets at pod
-startup. `ghcr.io/hanzoai/spa:1.2.0` templates `/config.json` from
-`SPA_*` env vars injected by the KMS client — the SPA itself stays
-untouched.
+| brand | KMS endpoint |
+|---|---|
+| lux.exchange | `kms.lux.network` |
+| zoo.exchange | `kms.zoo.network` |
+| pars.market | `kms.pars.network` |
+| swap.\*.satschel.com | `kms.\*.satschel.com` |
+
+Simple setups can set `SPA_*` env vars directly in K8s Secret / Deployment
+instead of KMS. Mix freely.
+
+## Identity via Hanzo IAM
+
+Every brand runs its own white-label IAM:
+- `iam.lux.network` / `id.lux.network`
+- `iam.zoo.network` / `zoolabs.id`
+- `iam.satschel.com` / `id.satschel.com`
+
+OIDC + PKCE + social login + phone/OTP + passkeys + KYC — all out of box.
+
+## Examples
+
+Five copy-paste starters in [`examples/`](examples):
+
+| directory | what | chain | DEX | auth |
+|---|---|---|---|---|
+| [`examples/minimal/`](examples/minimal) | smoke test — `<Exchange />` with defaults | lux mainnet | gateway | wallet only |
+| [`examples/zoo/`](examples/zoo) | Zoo Network (same as `zooai/exchange`) | zoo mainnet | precompile | Hanzo IAM @ zoolabs.id |
+| [`examples/lux/`](examples/lux) | full Lux Exchange | lux mainnet | precompile | Hanzo IAM @ lux.id |
+| [`examples/liquidity/`](examples/liquidity) | regulated securities | Liquid EVM | gateway | Hanzo IAM @ id.satschel.com |
+| [`examples/custom-dex/`](examples/custom-dex) | bring your own DEX adapter | any EVM | custom `DexAdapter` | wallet only |
+| [`examples/custom-l1/`](examples/custom-l1) | brand new L1 | yours | your gateway | your IAM |
+
+## This repo
 
 ```
-KMS (native ZAP client)  →  SPA_* env  →  /config.json  →  loadBrandConfig()
-                                                             │
-                                                             └─ wagmi chain, RPC,
-                                                                gateway URL,
-                                                                IAM issuer,
-                                                                featureFlags, …
+luxfi/exchange/
+├── apps/
+│   ├── web/                    # Vite SPA — the App that @luxfi/exchange wraps
+│   └── mobile/                 # Expo iOS + Android
+├── pkgs/
+│   ├── exchange/               # @luxfi/exchange — App + SDK (chains, tokens, contracts, hooks, stores, DEX, register types)
+│   ├── wallet/                 # @luxfi/wallet — cross-chain wallet core
+│   ├── dex/                    # @luxfi/dex
+│   ├── lx/                     # @l.x/lx — business logic
+│   ├── ui/                     # @l.x/ui — Tamagui UI on @hanzo/gui
+│   ├── api/                    # @l.x/api — data fetching (REST + GraphQL)
+│   ├── config/                 # @l.x/config — runtime brand/chain loader
+│   ├── gating/                 # @l.x/gating — Statsig feature flags
+│   ├── sessions/               # @l.x/sessions — hashcash + PoW sessions
+│   ├── prices/                 # @l.x/prices — price feed client
+│   ├── notifications/          # @l.x/notifications — toast + push
+│   ├── websocket/              # @l.x/websocket — reconnecting client
+│   ├── utilities/              # @l.x/utils
+│   ├── mycelium/               # @l.x/mycelium — connection pool
+│   ├── provider/               # @l.x/provider — regulated-asset SDK
+│   ├── analytics, logger, privacy, react-query, trpc, options, hashcash-native
+│   ├── biome-config, eslint-config  # @luxfi/biome-config, @luxfi/eslint-config
+├── config/
+│   ├── jest-presets/           # @l.x/jest-preset
+│   ├── jest-ui-mocks/          # @l.x/jest-ui-mocks
+│   ├── vitest-presets/         # @l.x/vitest-preset
+│   └── tsconfig/               # @l.x/tsconfig
+└── examples/
+    ├── minimal/
+    ├── zoo/
+    ├── lux/
+    ├── liquidity/
+    ├── custom-dex/
+    └── custom-l1/
 ```
-
-Each brand runs its **own white-label KMS**:
-
-| deployment | KMS endpoint | scope |
-| --- | --- | --- |
-| lux.exchange | `kms.lux.network` | Lux secrets |
-| zoo.exchange | `kms.zoo.network` | Zoo secrets (WL of luxfi/kms) |
-| pars.market | `kms.pars.network` | Pars secrets |
-
-Not runtime-sensitive values (static chain IDs, public token lists,
-IAM issuer URLs) can also be set via plain `SPA_*` env vars — no KMS
-roundtrip. Actual secrets (WalletConnect project IDs, private RPC
-URLs, Insights API keys, gateway signing keys) always go through KMS.
-
-### Run your own KMS
-
-```bash
-git clone git@github.com:luxfi/kms.git
-# deploy via hanzoai/platform or your own K8s
-# expose at kms.<your-domain>
-# create a machine identity for the exchange pod
-# populate secrets via the KMS CLI or UI
-```
-
-The exchange pod consumes it via native ZAP (binary protocol,
-sub-millisecond fetches — the spa image ships the client). Set
-`KMS_URL=https://kms.acme.network` and the machine-identity
-credentials; the SPA image hydrates `/config.json` on startup.
-
-**Or** skip KMS and set `SPA_*` env vars directly in the Deployment /
-Secret — supported for simple setups and local dev. Mix freely: KMS
-for secrets, env for non-sensitive config.
-
-## White-label approach
-
-Two shapes, both one source of truth:
-
-**1 — Fork this repo** (zero code, your customizations):
-
-```bash
-git clone git@github.com:luxfi/exchange.git acme-exchange
-cd acme-exchange
-# edit apps/web/src/main.tsx — register chains, auth, i18n, brand
-# publish @acme/brand to npm (colors, logo, fonts)
-# push → CI builds ghcr.io/acme/exchange:<semver>
-```
-
-**2 — Build your own FE from scratch against our SDK**:
-
-```bash
-pnpm create vite my-exchange --template react-ts
-cd my-exchange
-pnpm add @luxfi/exchange @acme/brand
-# write main.tsx — 10 lines — import Exchange, register, mount
-```
-
-Either way you get the full Lux Exchange feature set + whatever you
-register on top. No upstream changes needed. Ever.
-
-## Same backend, different frontends
-
-Every frontend can point at the **same DEX backend + same regulated
-provider**. That's the whole point.
-
-- Lux Exchange FE → `gatewayUrl: https://dex.lux.network` + Alpaca provider
-- Zoo Exchange FE → same gateway, different brand, Zoo tokens featured
-- Pars Exchange FE → same gateway, Pars brand, Pars chain default
-- Third-party Zoo fork → same gateway, same provider, their own FE
-
-Regulated users onboarded once at the provider can trade from any
-frontend pointing at the same backend. Your customers, your brand,
-shared compliance rails.
-
-## SDK primitives
-
-```ts
-import { chains, tokens, contracts, hooks, stores, dex, bridge } from '@luxfi/exchange'
-// or for tree-shaking:
-import { chains } from '@luxfi/exchange/sdk'
-```
-
-Same package. No second SDK, no duplicate tarball. Default export is
-the App; named exports are primitives.
-
-## Apps in this repo
-
-| App | Path | What |
-| --- | --- | --- |
-| **Web** | [`apps/web`](apps/web) | Vite SPA at `lux.exchange` |
-| **Mobile** | [`apps/mobile`](apps/mobile) | Expo iOS + Android |
-
-## Packages in this repo
-
-Canonical home for everything published under `@l.x/*` and `@luxfi/*`:
-
-| published npm package | source |
-| --- | --- |
-| [`@luxfi/exchange`](https://www.npmjs.com/package/@luxfi/exchange) | [`pkgs/exchange`](pkgs/exchange) — App + SDK |
-| [`@luxfi/wallet`](https://www.npmjs.com/package/@luxfi/wallet) | [`pkgs/wallet`](pkgs/wallet) — wallet core |
-| [`@luxfi/dex`](https://www.npmjs.com/package/@luxfi/dex), [`@luxfi/biome-config`](https://www.npmjs.com/package/@luxfi/biome-config), [`@luxfi/eslint-config`](https://www.npmjs.com/package/@luxfi/eslint-config) | [`pkgs/{dex,biome-config,eslint-config}`](pkgs) |
-| [`@l.x/lx`](https://www.npmjs.com/package/@l.x/lx), [`@l.x/ui`](https://www.npmjs.com/package/@l.x/ui), [`@l.x/api`](https://www.npmjs.com/package/@l.x/api), [`@l.x/utils`](https://www.npmjs.com/package/@l.x/utils), [`@l.x/config`](https://www.npmjs.com/package/@l.x/config), [`@l.x/gating`](https://www.npmjs.com/package/@l.x/gating), [`@l.x/sessions`](https://www.npmjs.com/package/@l.x/sessions), [`@l.x/notifications`](https://www.npmjs.com/package/@l.x/notifications), [`@l.x/prices`](https://www.npmjs.com/package/@l.x/prices), [`@l.x/websocket`](https://www.npmjs.com/package/@l.x/websocket), [`@l.x/provider`](https://www.npmjs.com/package/@l.x/provider), [`@l.x/analytics`](https://www.npmjs.com/package/@l.x/analytics), [`@l.x/mycelium`](https://www.npmjs.com/package/@l.x/mycelium), [`@l.x/options`](https://www.npmjs.com/package/@l.x/options), [`@l.x/privacy`](https://www.npmjs.com/package/@l.x/privacy), [`@l.x/react-query`](https://www.npmjs.com/package/@l.x/react-query), [`@l.x/trpc`](https://www.npmjs.com/package/@l.x/trpc), [`@l.x/logger`](https://www.npmjs.com/package/@l.x/logger), [`@l.x/hashcash-native`](https://www.npmjs.com/package/@l.x/hashcash-native) | [`pkgs/*`](pkgs) |
-| [`@l.x/jest-preset`](https://www.npmjs.com/package/@l.x/jest-preset), [`@l.x/jest-ui-mocks`](https://www.npmjs.com/package/@l.x/jest-ui-mocks), [`@l.x/vitest-preset`](https://www.npmjs.com/package/@l.x/vitest-preset), [`@l.x/tsconfig`](https://www.npmjs.com/package/@l.x/tsconfig) | [`config/*`](config) |
 
 ## Dev
 
@@ -216,24 +220,31 @@ Mobile: `pnpm --dir apps/mobile ios|android|start`.
 
 ## Deploy
 
-- Web: `ghcr.io/luxfi/exchange:<semver>` — multi-arch, built on Hanzo
-  ARC runners. Served via `ghcr.io/hanzoai/spa:1.2.0` (tiny static
-  server + runtime `/config.json` templating + reverse-proxy).
-- K8s: DOKS clusters — `lux-k8s` (mainnet), `lux-test-k8s`
-  (testnet), `lux-dev-k8s` (devnet).
-- White-labels: `ghcr.io/<org>/exchange:<semver>` — CI builds your own
-  image off the same base.
+- **Web**: `ghcr.io/luxfi/exchange:<semver>` — multi-arch on Hanzo ARC
+  runners. Runtime: `ghcr.io/hanzoai/spa:1.2.0`.
+- **K8s**: DOKS clusters `lux-k8s` / `lux-test-k8s` / `lux-dev-k8s`.
+- **White-labels**: `ghcr.io/<org>/exchange:<semver>` — CI forks the
+  same base.
+
+## Version policy
+
+- `@luxfi/exchange` — stays on **1.x**. App runtime lands as `1.0.9` /
+  `1.1.0`. No `2.0.0` jump.
+- `@l.x/*` and `@luxfi/*` sub-packages — semver per-package, minor bump
+  for non-breaking.
+- Brand packages — minor bump per content change (translations, logo
+  iteration, social link update).
 
 ## Links
 
 - **Lux Network** — [lux.network](https://lux.network)
-- **Lux DEX backend** — [github.com/luxfi/dex](https://github.com/luxfi/dex)
+- **Lux DEX backend** — [github.com/luxfi/dex](https://github.com/luxfi/dex) (lives at `dex.lux.network`)
 - **Lux Standard AMM** — [github.com/luxfi/standard](https://github.com/luxfi/standard)
+- **Lux Bridge + Teleport** — [github.com/luxfi/bridge](https://github.com/luxfi/bridge)
+- **Lux KMS** — [github.com/luxfi/kms](https://github.com/luxfi/kms)
 - **Docs** — [docs.lux.network](https://docs.lux.network)
-- **Contact** — [contact@lux.network](mailto:contact@lux.network) ·
-  [X: @luxdefi](https://x.com/luxdefi) ·
-  [Discord](https://discord.gg/luxnetwork)
+- **Contact** — [contact@lux.network](mailto:contact@lux.network) · [X: @luxdefi](https://x.com/luxdefi) · [Discord](https://discord.gg/luxnetwork)
 
 ## License
 
-GPL-3.0-or-later — see [LICENSE](LICENSE).
+GPL-3.0-or-later.
