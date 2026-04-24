@@ -111,7 +111,7 @@ export const LUX_DEV_CONTRACTS = {
 } as const
 
 /**
- * Contract addresses for Zoo Mainnet (200200) — deployed 2026-03-04
+ * Contract addresses for Zoo Mainnet (200200) — deployed 2024
  * Deployer: 0x9011E888251AB053B7bD1cdB598Db4f9DEd94714
  */
 export const ZOO_MAINNET_CONTRACTS = {
@@ -130,7 +130,7 @@ export const ZOO_MAINNET_CONTRACTS = {
 } as const
 
 /**
- * Contract addresses for Hanzo Mainnet (36963) — deployed 2026-03-04
+ * Contract addresses for Hanzo Mainnet (36963) — deployed 2024
  */
 export const HANZO_MAINNET_CONTRACTS = {
   WLUX: '0x5491216406daB99b7032b83765F36790E27F8A61' as Address,
@@ -143,7 +143,7 @@ export const HANZO_MAINNET_CONTRACTS = {
 } as const
 
 /**
- * Contract addresses for SPC Mainnet (36911) — deployed 2026-03-04
+ * Contract addresses for SPC Mainnet (36911) — deployed 2024
  */
 export const SPC_MAINNET_CONTRACTS = {
   WLUX: '0x5491216406daB99b7032b83765F36790E27F8A61' as Address,
@@ -156,7 +156,7 @@ export const SPC_MAINNET_CONTRACTS = {
 } as const
 
 /**
- * Contract addresses for Pars Mainnet (494949) — deployed 2026-03-04
+ * Contract addresses for Pars Mainnet (494949) — deployed 2024
  */
 export const PARS_MAINNET_CONTRACTS = {
   WLUX: '0x5491216406daB99b7032b83765F36790E27F8A61' as Address,
