@@ -19,13 +19,13 @@ export {
   // Liquid EVM (regulated securities via Liquidity.io)
   liquidMainnet, liquidTestnet, liquidDevnet,
   LIQUID_MAINNET_ID, LIQUID_TESTNET_ID, LIQUID_DEVNET_ID,
-  // Local dev (anvil/hardhat-compatible)
-  localDev,
-  LOCAL_DEV_ID,
+  // Localnet (anvil/hardhat/foundry-compatible, chain 31337)
+  localnet,
+  LOCALNET_ID,
 
   /**
-   * Canonical enabled-by-default chain set — lux, zoo, hanzo, pars,
-   * liquid. SPC + local-dev available via explicit import.
+   * Canonical enabled-by-default chain set — lux, zoo, hanzo, liquid.
+   * Pars + localnet available via explicit import.
    */
   canonicalChains,
   supportedChains,

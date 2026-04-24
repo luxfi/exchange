@@ -65,11 +65,22 @@ export interface ChainConfig extends Chain {
 }
 
 // ─── DEX backend ───────────────────────────────────────────────────
+// - `precompile`: native LP-9010 family on the target chain
+// - `v3`:         UniswapV3-style concentrated liquidity AMM
+// - `v2`:         UniswapV2-style constant-product AMM
+// - `gateway`:    dex.lux.network HTTP router (layers precompile → V3 → V2
+//                 → cross-chain Warp automatically)
+// - `hybrid`:     AMM + CLOB split (single-chain order-book trading)
+// - `layered`:    explicit fallback order across multiple backends on one
+//                 chain (try first, then next, then next)
+// - DexAdapter:   full custom implementation
 export type DexSpec =
   | { kind: 'precompile' }
   | { kind: 'v3'; factory: `0x${string}`; router: `0x${string}`; quoter: `0x${string}` }
+  | { kind: 'v2'; factory: `0x${string}`; router: `0x${string}` }
   | { kind: 'gateway'; url: string }
   | { kind: 'hybrid'; amm: DexSpec; clob: DexSpec }
+  | { kind: 'layered'; layers: DexSpec[] }
   | DexAdapter
 
 export interface DexAdapter {
@@ -115,12 +126,21 @@ export interface Position {
 }
 
 // ─── Regulated provider ────────────────────────────────────────────
-export interface ProviderConfig {
-  name:               string
+//
+// Each Liquid EVM env (mainnet/testnet/devnet) runs a separate ATS
+// deployment with its own contracts + onboarding host, so apps that
+// span multiple envs declare them via `endpoints: { [chainId]: {…} }`.
+// For single-env apps, the top-level fields are the default.
+export interface ProviderEndpoint {
   adapter:            `0x${string}`
   router:             `0x${string}`
   onboardingUrl:      string
   regulatedAssets?:   `0x${string}`[]
+}
+
+export interface ProviderConfig extends Partial<ProviderEndpoint> {
+  name:               string
+  endpoints?:         Record<number, ProviderEndpoint>
 }
 
 // ─── Auth ──────────────────────────────────────────────────────────

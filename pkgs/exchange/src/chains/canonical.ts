@@ -253,12 +253,12 @@ export const liquidDevnet = defineChain({
 })
 
 /**
- * Local development chain — anvil/hardhat/luxd-compatible on :8545.
- * Chain id 31337 is the standard anvil/hardhat default.
+ * Localnet — anvil/hardhat/foundry default EVM on :8545.
+ * Chain id 31337 is the standard localnet id.
  */
-export const localDev = defineChain({
+export const localnet = defineChain({
   id: 31337,
-  name: 'Local Dev',
+  name: 'Localnet',
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: { http: ['http://localhost:8545'] },
@@ -294,7 +294,7 @@ export const LUX_MAINNET_ID = 96369
 export const LUX_TESTNET_ID = 96368
 export const ZOO_MAINNET_ID = 200200
 export const ZOO_TESTNET_ID = 200201
-export const LOCAL_DEV_ID       = 31337
+export const LOCALNET_ID        = 31337
 export const ZOO_DEVNET_ID      = 200202
 export const HANZO_MAINNET_ID   = 36963
 export const HANZO_TESTNET_ID   = 36964
@@ -312,7 +312,7 @@ export const LIQUID_DEVNET_ID   = 8675311
  *   Zoo    (200200 / 200201 / 200202)  — ZOO
  *   Liquid (8675309 / 8675310 / 8675311) — LQDTY — regulated securities
  *
- * Pars (not in canonical default) + localDev available via explicit
+ * Pars (not in canonical default) + localnet available via explicit
  * import — opt-in when needed.
  */
 export const canonicalChains = [
@@ -332,7 +332,7 @@ export const canonicalChains = [
 export const supportedChains = [
   ...canonicalChains,
   parsMainnet,   parsTestnet,   parsDevnet,
-  localDev,
+  localnet,
 ] as const
 
 export type SupportedChainId = typeof supportedChains[number]['id']
