@@ -14,7 +14,7 @@ export function* initProviders() {
   const initTasks = []
 
   // TODO(SWAP-150): replace with `const { chains: enabledEVMChainIds } = yield* call(getEnabledChainIdsSaga, Platform.EVM)`
-  //                 once we figure out how to properly wait for statsig to be initialized within that saga..
+  //                 once we figure out how to properly wait for insights to be ready within that saga..
   for (const chainId of ALL_EVM_CHAIN_IDS) {
     const task = yield* fork(initProvider, { chainId, providerManager, viemClientManager })
     initTasks.push(task)

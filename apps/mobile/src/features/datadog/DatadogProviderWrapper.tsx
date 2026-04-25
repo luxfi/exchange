@@ -22,7 +22,7 @@ import { setAttributesToDatadog } from '@l.x/utils/src/logger/datadog/Datadog'
 import { getDatadogEnvironment } from '@l.x/utils/src/logger/datadog/env'
 import { logger } from '@l.x/utils/src/logger/logger'
 
-// In case Statsig is not available
+// Fallback when the Insights flag payload hasn't loaded yet
 export const MOBILE_DEFAULT_DATADOG_SESSION_SAMPLE_RATE = 10 // percent
 
 // Configuration for Datadog's automatic monitoring features:

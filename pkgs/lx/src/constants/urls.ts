@@ -11,7 +11,6 @@ import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { config } from '@l.x/lx/src/config'
 import { isBetaEnv, isDevEnv, isPlaywrightEnv } from '@l.x/utils/src/environment/env'
-import { isWebApp } from '@l.x/utils/src/platform'
 
 function getComplianceApiBaseUrl(): string {
   if (isPlaywrightEnv()) {
@@ -200,15 +199,6 @@ function buildLxUrls(): Record<string, any> {
     config.apiBaseUrlV2Override || getCloudflareApiBaseUrl({ flow: TrafficFlows.DataApi, postfix: 'v2' }),
   graphQLUrl:
     config.graphqlUrlOverride || getCloudflareApiBaseUrl({ flow: TrafficFlows.GraphQL, postfix: 'v1/graphql' }),
-
-  // Proxies
-  amplitudeProxyUrl:
-    config.amplitudeProxyUrlOverride ||
-    getCloudflareApiBaseUrl({ flow: TrafficFlows.Metrics, postfix: 'v1/amplitude-proxy' }),
-  // On web, proxy through same-origin "/config" — the BFF (Hono) rewrites to the real Cloudflare URL.
-  statsigProxyUrl:
-    config.statsigProxyUrlOverride ||
-    (isWebApp ? '/config' : getCloudflareApiBaseUrl({ flow: TrafficFlows.Gating, postfix: 'v1/statsig-proxy' })),
 
   // Feature service URL's
   unitagsApiUrl:

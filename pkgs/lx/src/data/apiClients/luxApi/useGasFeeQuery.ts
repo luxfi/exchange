@@ -6,7 +6,7 @@ import {
   type UseQueryWithImmediateGarbageCollectionApiHelperHookArgs,
   useQueryWithImmediateGarbageCollection,
 } from '@l.x/api'
-import { FeatureFlags, getFeatureFlag, useStatsigClientStatus } from '@l.x/gating'
+import { FeatureFlags, getFeatureFlag, useInsightsStatus } from '@l.x/gating'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { fetchGasFeeV2 } from '@l.x/lx/src/data/apiClients/gasService/fetchGasFeeV2'
 import { LuxApiClient } from '@l.x/lx/src/data/apiClients/luxApi/LuxApiClient'
@@ -27,7 +27,7 @@ export function useGasFeeQuery({
   },
   GasFeeResultWithoutState
 > & { shouldUsePreviousValueDuringLoading?: boolean }): UseQueryResult<GasFeeResultWithoutState> {
-  const { isStatsigReady } = useStatsigClientStatus()
+  const { isInsightsReady } = useInsightsStatus()
   const queryKey = [
     ReactQueryCacheKey.LuxApi,
     lxUrls.gasServicePath,
@@ -40,7 +40,7 @@ export function useGasFeeQuery({
   return useQueryWithImmediateGarbageCollection<GasFeeResultWithoutState>({
     queryKey,
     queryFn: params
-      ? (): Promise<GasFeeResultWithoutState> => fetchGasFeeQuery({ ...params, isStatsigReady })
+      ? (): Promise<GasFeeResultWithoutState> => fetchGasFeeQuery({ ...params, isInsightsReady })
       : skipToken,
     ...(shouldUsePreviousValueDuringLoading && { placeholderData: keepPreviousData }),
     ...rest,
@@ -51,18 +51,19 @@ export async function fetchGasFeeQuery(params: {
   tx: TransactionRequest
   fallbackGasLimit?: number
   smartContractDelegationAddress?: Address
-  isStatsigReady: boolean
+  isInsightsReady: boolean
   gasStrategy?: GasStrategy
 }): Promise<GasFeeResultWithoutState> {
   const {
     tx,
     fallbackGasLimit,
     smartContractDelegationAddress,
-    isStatsigReady,
+    isInsightsReady,
     gasStrategy: overrideGasStrategy,
   } = params
   const gasStrategy =
-    overrideGasStrategy || getActiveGasStrategy({ chainId: tx.chainId, type: 'general', isStatsigReady })
+    overrideGasStrategy ||
+    getActiveGasStrategy({ chainId: tx.chainId, type: 'general', isInsightsReady })
 
   const shouldUseGasServiceV2 = getFeatureFlag(FeatureFlags.GasServiceV2)
 

@@ -1,12 +1,14 @@
 import type { DynamicConfigKeys } from '@l.x/gating'
 import {
+  clearAllOverrides,
   DynamicConfigs,
   ExternallyConnectableExtensionConfigKey,
   FeatureFlags,
   getFeatureFlagName,
-  getOverrideAdapter,
   Layers,
   NetworkRequestsConfigKey,
+  setConfigOverride,
+  setGateOverride,
   useDynamicConfigValue,
   useFeatureFlagWithExposureLoggingDisabled,
 } from '@l.x/gating'
@@ -131,7 +133,7 @@ const FeatureFlagOption = memo(function FeatureFlagOption({ flag, label }: Featu
   const isOptionPinned = isPinned(name)
 
   const onFlagVariantChange = useEvent((enabled: boolean) => {
-    getOverrideAdapter().overrideGate(name, enabled)
+    setGateOverride(name, enabled)
   })
 
   const onPinPress = useEvent(() => {
@@ -209,7 +211,7 @@ const DynamicConfigDropdown = memo(function DynamicConfigDropdown<
   parser: (opt: string) => unknown
 }): JSX.Element {
   const onValueChange = useEvent((value: string) => {
-    getOverrideAdapter().overrideDynamicConfig(config, {
+    setConfigOverride(config, {
       [configKey]: parser(value),
     })
   })
@@ -234,7 +236,7 @@ export default function FeatureFlagModal(): JSX.Element {
   const externallyConnectableExtensionId = useExternallyConnectableExtensionId()
 
   const removeAllOverrides = useEvent(() => {
-    getOverrideAdapter().removeAllOverrides()
+    clearAllOverrides()
   })
 
   const handleReload = useEvent(() => {

@@ -43,10 +43,11 @@ jest.mock('expo-web-browser', () => ({
 }))
 jest.mock('@l.x/gating', () => ({
   ...jest.requireActual('@l.x/gating'),
-  getStatsigClient: jest.fn(() => ({
-    checkGate: jest.fn(() => false), // Always return false to avoid Korea gate redirects
+  getInsights: jest.fn(() => ({
+    isFeatureEnabled: jest.fn(() => false),
+    getFeatureFlagPayload: jest.fn(() => undefined),
   })),
-  getFeatureFlag: jest.fn(() => false), // Default to false for feature flags
+  getFeatureFlag: jest.fn(() => false),
 }))
 
 const account = signerMnemonicAccount()

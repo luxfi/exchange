@@ -16,7 +16,8 @@ const LOCALE_TO_FILE_NAME: Record<string, string> = {
 }
 
 /**
- * Returns the translation file name or statsig translation key for a given locale.
+ * Returns the canonical translation file name (also used as the locale key
+ * for feature-flag payload translation tables) for a given locale.
  *
  * @param locale - The locale to get the translation file name for.
  * @returns The translation file name.

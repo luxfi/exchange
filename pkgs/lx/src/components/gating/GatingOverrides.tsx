@@ -1,4 +1,5 @@
 import {
+  clearAllOverrides,
   DynamicConfigs,
   EmbeddedWalletConfigKey,
   Experiments,
@@ -6,8 +7,11 @@ import {
   FeatureFlags,
   ForceUpgradeConfigKey,
   getFeatureFlagName,
-  getOverrideAdapter,
   Layers,
+  removeConfigOverride,
+  removeExperimentOverride,
+  removeGateOverride,
+  setGateOverride,
   useFeatureFlagWithExposureLoggingDisabled,
   WALLET_FEATURE_FLAG_NAMES,
 } from '@l.x/gating'
@@ -63,33 +67,30 @@ export function GatingOverrides(): JSX.Element {
 
   const onClearAllLocalFeatureGateOverrides = useEvent(() => {
     WALLET_FEATURE_FLAG_NAMES.forEach((flag) => {
-      getOverrideAdapter().removeGateOverride(flag)
+      removeGateOverride(flag)
     })
   })
 
   const onClearAllLocalExperimentConfigOverrides = useEvent(() => {
-    const experiments = Object.keys(Experiments)
-    experiments.forEach((experiment) => {
-      getOverrideAdapter().removeExperimentOverride(experiment)
+    Object.keys(Experiments).forEach((experiment) => {
+      removeExperimentOverride(experiment)
     })
   })
 
   const onClearAllLocalLayerConfigOverrides = useEvent(() => {
-    const layers = Object.values(Layers)
-    layers.forEach((layer) => {
-      getOverrideAdapter().removeLayerOverride(layer)
+    Object.values(Layers).forEach((layer) => {
+      removeConfigOverride(layer)
     })
   })
 
   const onClearAllLocalDynamicConfigOverrides = useEvent(() => {
-    const dynamicConfigs = Object.values(DynamicConfigs)
-    dynamicConfigs.forEach((config) => {
-      getOverrideAdapter().removeDynamicConfigOverride(config)
+    Object.values(DynamicConfigs).forEach((config) => {
+      removeConfigOverride(config)
     })
   })
 
   const onClearAllGatingOverrides = useEvent(() => {
-    getOverrideAdapter().removeAllOverrides()
+    clearAllOverrides()
   })
 
   return (
@@ -226,7 +227,7 @@ function FeatureFlagRow({ flag }: { flag: FeatureFlags }): JSX.Element {
   const name = getFeatureFlagName(flag)
   const onCheckedChange = useCallback(
     (newValue: boolean): void => {
-      getOverrideAdapter().overrideGate(name, newValue)
+      setGateOverride(name, newValue)
     },
     [name],
   )

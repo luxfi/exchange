@@ -2,7 +2,7 @@ import {
   DynamicConfigs,
   EmbeddedWalletBetaPassphrasesKey,
   getDynamicConfigValue,
-  getOverrideAdapter,
+  setGateOverride,
 } from '@l.x/gating'
 import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -34,7 +34,7 @@ export function BetaPasscodeModal(): JSX.Element {
       defaultValue: [] as string[],
     })
     if (validCodes.includes(passphrase)) {
-      getOverrideAdapter().overrideGate('embedded_wallet', true)
+      setGateOverride('embedded_wallet', true)
       navigate('/?intro=true', { replace: true })
     } else {
       setHasError(true)

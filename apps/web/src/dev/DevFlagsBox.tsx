@@ -1,13 +1,15 @@
 import {
-  getOverrideAdapter,
   getOverrides,
   LayerProperties,
   Layers,
-  StatsigContext,
-  useGateValue,
-  useLayer,
+  setGateOverride,
+  setConfigOverride,
+  useFeatureFlag,
+  FeatureFlags,
+  getFeatureFlagName,
 } from '@l.x/gating'
-import { memo, useContext, useEffect, useState } from 'react'
+import { useFeatureFlagEnabled, useFeatureFlagPayload } from '@hanzo/insights-react'
+import { memo, useEffect, useMemo, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Button, Flex, Switch, Text, useShadowPropsShort } from '@l.x/ui/src'
 import { Flag } from '@l.x/ui/src/components/icons/Flag'
@@ -43,10 +45,10 @@ const Override = (name: string, value: unknown) => {
 }
 
 const PinnedFlagRow = memo(function PinnedFlagRow({ gateName }: { gateName: string }): JSX.Element {
-  const checked = useGateValue(gateName, { disableExposureLog: true })
+  const checked = Boolean(useFeatureFlagEnabled(gateName))
 
   const onCheckedChange = useEvent((value: boolean): void => {
-    getOverrideAdapter().overrideGate(gateName, value)
+    setGateOverride(gateName, value)
   })
 
   return (
@@ -72,12 +74,12 @@ const PinnedExperimentRow = memo(function PinnedExperimentRow({
   layerName: Layers
   experimentName: string
 }): JSX.Element {
-  const { get: getLayerValue } = useLayer(layerName)
+  const payload = useFeatureFlagPayload(layerName as string) as Record<string, unknown> | undefined
   const keys = LayerProperties[layerName]
-  const value = keys.reduce<Record<string, unknown>>((acc, key) => ({ ...acc, [key]: getLayerValue(key) ?? false }), {})
+  const value = keys.reduce<Record<string, unknown>>((acc, key) => ({ ...acc, [key]: payload?.[key] ?? false }), {})
   const checked = Boolean(value[experimentName])
   const onCheckedChange = useEvent((newValue: boolean): void => {
-    getOverrideAdapter().overrideLayer(layerName, { ...value, [experimentName]: newValue })
+    setConfigOverride(layerName, { ...value, [experimentName]: newValue })
   })
 
   return (
@@ -92,22 +94,26 @@ const PinnedExperimentRow = memo(function PinnedExperimentRow({
 })
 
 export default function DevFlagsBox() {
-  const { client: statsigClient } = useContext(StatsigContext)
-  const latest = getOverrides(statsigClient)
-  const [displayOverrides, setDisplayOverrides] = useState(latest)
+  const [, force] = useState(0)
+  const overrides = useMemo(() => getOverrides(), [])
+  const [displayOverrides, setDisplayOverrides] = useState({
+    gateOverrides: Object.entries(overrides.gates),
+    configOverrides: Object.entries(overrides.configs),
+  })
 
-  // When Statsig refreshes after a toggle, getOverrides briefly returns empty. Keep showing the last
-  // non-empty list until we get a new one so the list doesn't flash.
   useEffect(() => {
-    const next = getOverrides(statsigClient)
-    const hasAny = next.gateOverrides.length > 0 || next.configOverrides.length > 0
-    if (hasAny) {
-      setDisplayOverrides({
-        gateOverrides: next.gateOverrides,
-        configOverrides: next.configOverrides,
-      })
+    const handler = () => {
+      const next = getOverrides()
+      const gateOverrides = Object.entries(next.gates)
+      const configOverrides = Object.entries(next.configs)
+      if (gateOverrides.length > 0 || configOverrides.length > 0) {
+        setDisplayOverrides({ gateOverrides, configOverrides })
+      }
+      force((n) => n + 1)
     }
-  }, [statsigClient, statsigClient.loadingStatus])
+    window.addEventListener('l.x:gating:overrides:changed', handler)
+    return () => window.removeEventListener('l.x:gating:overrides:changed', handler)
+  }, [])
 
   const { gateOverrides, configOverrides } = displayOverrides
   const { pinnedFlags } = usePinnedFeatureFlags()
@@ -116,11 +122,11 @@ export default function DevFlagsBox() {
 
   const allOverrides = [...gateOverrides, ...configOverrides]
 
-  const overrides = allOverrides
+  const overrideRows = allOverrides
     .filter(([name]) => !pinnedFlags.includes(name))
     .map(([name, value]) => Override(name, value))
 
-  const hasFilteredOverrides = overrides.length > 0
+  const hasFilteredOverrides = overrideRows.length > 0
   const hasPinnedFlags = pinnedFlags.length > 0
   const hasPinnedExperiments = pinnedExperiments.length > 0
 
@@ -189,7 +195,7 @@ export default function DevFlagsBox() {
               </Flex>
             </MouseoverTooltip>
           </Flex>
-          {hasFilteredOverrides && overrides}
+          {hasFilteredOverrides && overrideRows}
           {allOverrides.length === 0 && (
             <Text variant="body3" color="$neutral2">
               No overrides
@@ -226,3 +232,8 @@ export default function DevFlagsBox() {
     </Flex>
   )
 }
+
+// preserve unused imports for typecheck
+void useFeatureFlag
+void FeatureFlags
+void getFeatureFlagName

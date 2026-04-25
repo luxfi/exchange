@@ -323,7 +323,7 @@ describe('ApiInit Integration', () => {
   })
 
   it('should wait for feature flag to be enabled before initializing session', async () => {
-    // Start with feature flag disabled (simulating Statsig loading)
+    // Start with feature flag disabled (simulating Insights loading)
     isSessionServiceEnabled = false
 
     const { rerender } = render(
@@ -346,7 +346,7 @@ describe('ApiInit Integration', () => {
     // Verify it still hasn't been called
     expect(mockApiClient.initSession).not.toHaveBeenCalled()
 
-    // Now simulate feature flag becoming enabled (Statsig loaded)
+    // Now simulate feature flag becoming enabled (Insights loaded)
     isSessionServiceEnabled = true
 
     // Trigger a re-render

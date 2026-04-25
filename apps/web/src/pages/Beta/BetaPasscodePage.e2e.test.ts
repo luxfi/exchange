@@ -20,9 +20,9 @@ test.describe('/preview passphrase gate', () => {
   })
 
   test('navigates to /swap on correct passphrase', async ({ page }) => {
-    // Bypass Statsig dynamic config by patching Array.prototype.includes globally.
-    // The validate() function calls validCodes.includes(passphrase) — this makes it
-    // return true for our unique test passphrase, cutting Statsig out of the loop.
+    // Bypass the Insights flag payload (`embeddedWalletBetaPassphrases`) by patching
+    // Array.prototype.includes globally. validate() calls validCodes.includes(passphrase) —
+    // this makes it return true for our unique test passphrase, cutting Insights out of the loop.
     // NOTE: This is a global prototype mutation scoped to this test's page context only.
     // The passphrase value is intentionally unique to avoid colliding with other .includes() calls.
     await page.addInitScript((passphrase) => {

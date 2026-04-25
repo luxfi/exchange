@@ -6,7 +6,6 @@ import { ApolloProvider } from '@apollo/client'
 import { datadogRum } from '@datadog/browser-rum'
 import { PrivyProvider } from '@privy-io/react-auth'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
-import type { StatsigUser } from '@l.x/gating'
 import {
   getIsHashcashSolverEnabled,
   getIsSessionServiceEnabled,
@@ -40,7 +39,7 @@ import { BrowserRouter, HashRouter, useLocation } from 'react-router'
 import { PortalProvider } from '@l.x/ui/src'
 import { ReactRouterUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
 import { initializePortfolioQueryOverrides } from '@l.x/lx/src/data/rest/portfolioBalanceOverrides'
-import { StatsigProviderWrapper } from '@l.x/lx/src/features/gating/StatsigProviderWrapper'
+import { InsightsProviderWrapper } from '@l.x/lx/src/features/gating/InsightsProviderWrapper'
 import { LocalizationContextProvider } from '@l.x/lx/src/features/language/LocalizationContext'
 import { TokenPriceProvider } from '@l.x/lx/src/features/prices/TokenPriceContext'
 import i18n from '@l.x/lx/src/i18n'
@@ -48,7 +47,6 @@ import { initializeDatadog } from '@l.x/lx/src/utils/datadog'
 import { localDevDatadogEnabled } from '@l.x/utils/src/environment/constants'
 import { isDevEnv, isTestEnv } from '@l.x/utils/src/environment/env'
 import { getLogger } from '@l.x/utils/src/logger/logger'
-// biome-ignore lint/style/noRestrictedImports: custom useAccount hook requires statsig
 import { useAccount } from 'wagmi'
 import { AssetActivityProvider } from '~/appGraphql/data/apollo/AssetActivityProvider'
 import { apolloClient } from '~/appGraphql/data/apollo/client'
@@ -196,14 +194,11 @@ function GraphqlProviders({ children }: { children: React.ReactNode }) {
     </ApolloProvider>
   )
 }
-function StatsigProvider({ children }: PropsWithChildren) {
+function GatingProvider({ children }: PropsWithChildren) {
   const account = useAccount()
-
-  const statsigUser: StatsigUser = useMemo(
-    () => ({
-      userID: getDeviceId(),
-      customIDs: { address: account.address ?? '' },
-    }),
+  const distinctId = useMemo(() => account.address ?? getDeviceId(), [account.address])
+  const superProperties = useMemo(
+    () => ({ address: account.address ?? '' }),
     [account.address],
   )
 
@@ -217,7 +212,7 @@ function StatsigProvider({ children }: PropsWithChildren) {
     })
   }, [account])
 
-  const onStatsigInit = () => {
+  const onInsightsInit = () => {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!isDevEnv() || localDevDatadogEnabled) {
       initializeDatadog('web').catch(() => undefined)
@@ -225,9 +220,9 @@ function StatsigProvider({ children }: PropsWithChildren) {
   }
 
   return (
-    <StatsigProviderWrapper user={statsigUser} onInit={onStatsigInit}>
+    <InsightsProviderWrapper distinctId={distinctId} superProperties={superProperties} onInit={onInsightsInit}>
       {children}
-    </StatsigProviderWrapper>
+    </InsightsProviderWrapper>
   )
 }
 
@@ -261,7 +256,7 @@ const RootApp = (): JSX.Element => {
                     <I18nextProvider i18n={i18n}>
                       <LanguageProvider>
                         <Web3Provider>
-                          <StatsigProvider>
+                          <GatingProvider>
                             <WalletCapabilitiesEffects />
                             <ExternalWalletProvider>
                               <ConnectWalletMutationProvider>
@@ -291,7 +286,7 @@ const RootApp = (): JSX.Element => {
                                 </WebAccountsStoreProvider>
                               </ConnectWalletMutationProvider>
                             </ExternalWalletProvider>
-                          </StatsigProvider>
+                          </GatingProvider>
                         </Web3Provider>
                       </LanguageProvider>
                     </I18nextProvider>

@@ -181,7 +181,7 @@ luxfi/exchange/
 │   ├── ui/                     # @l.x/ui — Tamagui UI on @hanzo/gui
 │   ├── api/                    # @l.x/api — data fetching (REST + GraphQL)
 │   ├── config/                 # @l.x/config — runtime brand/chain loader
-│   ├── gating/                 # @l.x/gating — Statsig feature flags
+│   ├── gating/                 # @l.x/gating — feature flags + experiments via @hanzo/insights
 │   ├── sessions/               # @l.x/sessions — hashcash + PoW sessions
 │   ├── prices/                 # @l.x/prices — price feed client
 │   ├── notifications/          # @l.x/notifications — toast + push

@@ -7,6 +7,7 @@ import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
 import {
   DatadogSessionSampleRateKey,
   DynamicConfigs,
+  CustomAppValue,
   Experiments,
   FeatureFlags,
   getDynamicConfigValue,
@@ -15,10 +16,6 @@ import {
   getIsSessionsPerformanceTrackingEnabled,
   getIsSessionUpgradeAutoEnabled,
   getIsTurnstileSolverEnabled,
-  getStatsigClient,
-  StatsigCustomAppValue,
-  type StatsigUser,
-  Storage,
   useFeatureFlag,
   useIsSessionServiceEnabled,
   WALLET_FEATURE_FLAG_NAMES,
@@ -69,7 +66,6 @@ import { OneSignalUserTagField } from 'src/features/notifications/constants'
 import { NotificationToastWrapper } from 'src/features/notifications/NotificationToastWrapper'
 import { initOneSignal } from 'src/features/notifications/Onesignal'
 import { createHashcashWorkerChannel } from 'src/features/sessions/createHashcashWorkerChannel'
-import { statsigMMKVStorageProvider } from 'src/features/statsig/statsigMMKVStorageProvider'
 import { shouldLogScreen } from 'src/features/telemetry/directLogScreens'
 import { selectCustomEndpoint } from 'src/features/tweaks/selectors'
 import {
@@ -89,7 +85,7 @@ import { initializePortfolioQueryOverrides } from '@l.x/lx/src/data/rest/portfol
 import { useCurrentAppearanceSetting } from '@l.x/lx/src/features/appearance/hooks'
 import { selectFavoriteTokens } from '@l.x/lx/src/features/favorites/selectors'
 import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
-import { StatsigProviderWrapper } from '@l.x/lx/src/features/gating/StatsigProviderWrapper'
+import { InsightsProviderWrapper } from '@l.x/lx/src/features/gating/InsightsProviderWrapper'
 import { mapLanguageToLocale } from '@l.x/lx/src/features/language/constants'
 import { useCurrentLanguageInfo } from '@l.x/lx/src/features/language/hooks'
 import { LocalizationContextProvider } from '@l.x/lx/src/features/language/LocalizationContext'
@@ -113,7 +109,7 @@ import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorB
 // oxlint-disable-next-line no-restricted-imports -- Required for Apollo client initialization at app root
 import { usePersistedApolloClient } from '@luxfi/wallet/src/data/apollo/usePersistedApolloClient'
 import { AccountsStoreContextProvider } from '@luxfi/wallet/src/features/accounts/store/provider'
-import { StatsigUserIdentifiersUpdater } from '@luxfi/wallet/src/features/gating/StatsigUserIdentifiersUpdater'
+import { InsightsUserIdentifiersUpdater } from '@luxfi/wallet/src/features/gating/InsightsUserIdentifiersUpdater'
 import { useHeartbeatReporter } from '@luxfi/wallet/src/features/telemetry/hooks/useHeartbeatReporter'
 import { useLastBalancesReporter } from '@luxfi/wallet/src/features/telemetry/hooks/useLastBalancesReporter'
 import { selectAllowAnalytics } from '@luxfi/wallet/src/features/telemetry/selectors'
@@ -218,19 +214,10 @@ function App(): JSX.Element | null {
 
   const [datadogSessionSampleRate, setDatadogSessionSampleRate] = React.useState<number | undefined>(undefined)
 
-  Storage._setProvider(statsigMMKVStorageProvider)
+  const distinctId = useMemo(() => getUniqueIdSync(), [])
+  const superProperties = useMemo(() => ({ app: CustomAppValue.Mobile }), [])
 
-  const statsigUser: StatsigUser = useMemo(
-    () => ({
-      userID: getUniqueIdSync(),
-      custom: {
-        app: StatsigCustomAppValue.Mobile,
-      },
-    }),
-    [],
-  )
-
-  const onStatsigInit = (): void => {
+  const onInsightsInit = (): void => {
     setDatadogSessionSampleRate(
       getDynamicConfigValue({
         config: DynamicConfigs.DatadogSessionSampleRate,
@@ -241,7 +228,7 @@ function App(): JSX.Element | null {
   }
 
   return (
-    <StatsigProviderWrapper user={statsigUser} storageProvider={statsigMMKVStorageProvider} onInit={onStatsigInit}>
+    <InsightsProviderWrapper distinctId={distinctId} superProperties={superProperties} onInit={onInsightsInit}>
       <DatadogProviderWrapper sessionSampleRate={datadogSessionSampleRate}>
         <Trace>
           <StrictMode>
@@ -262,7 +249,7 @@ function App(): JSX.Element | null {
           </StrictMode>
         </Trace>
       </DatadogProviderWrapper>
-    </StatsigProviderWrapper>
+    </InsightsProviderWrapper>
   )
 }
 
@@ -385,7 +372,7 @@ function DataUpdaters(): JSX.Element {
   return (
     <>
       <TraceUserProperties />
-      <StatsigUserIdentifiersUpdater />
+      <InsightsUserIdentifiersUpdater />
       <ApiInit
         getSessionInitService={provideSessionInitializationService}
         isSessionServiceEnabled={isSessionServiceEnabled}

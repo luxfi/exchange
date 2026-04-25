@@ -65,7 +65,7 @@ All mocks from jest-presets have been migrated:
 
 3. **Jest-specific mock packages**: Some packages provide Jest-specific mocks (e.g., `@react-native-community/netinfo/jest/netinfo-mock.js`). These have been replaced with custom Vitest mocks in the setup file.
 
-4. **Statsig mocks**: The Statsig SDK mocks that were importing from `uniswap/src/features/gating/*` have been removed to avoid cross-package dependencies.
+4. **Insights mocks**: The Hanzo Insights SDK is mocked via the `@l.x/gating` mock entries in `vitest/globals.js` — `getInsights()`, `useInsightsStatus()`, and `isInsightsReady()`.
 
 ## Testing the Configuration
 

@@ -62,7 +62,7 @@ export enum Locale {
 
 /**
  * Dynamic Configs
- * These should match the dynamic config's `Config Name` on Statsig
+ * These must match the feature-flag name on Hanzo Insights (insights.hanzo.ai)
  */
 export enum DynamicConfigs {
   // Shared
@@ -278,8 +278,7 @@ export type DynamicConfigKeys = {
   [DynamicConfigs.EmbeddedWalletBetaPassphrases]: EmbeddedWalletBetaPassphrasesKey
 }
 
-// This type must match the format in statsig dynamic config for uwulink
-// https://console.statsig.com/5HjUux4OvSGzgqWIfKFt8i/dynamic_configs/uwulink_config
+// This type must match the JSON payload of the `uwulink_config` feature flag on Hanzo Insights
 export type UwULinkAllowlistItem = {
   chainId: number
   address: string

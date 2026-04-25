@@ -437,11 +437,21 @@ vi.mock('@l.x/gating', async (importOriginal) => {
     getExperimentValueFromLayer: vi.fn(),
     useExperimentValueFromLayer: vi.fn(),
     checkTypeGuard: vi.fn(),
-    useStatsigClientStatus: () => ({
-      isStatsigLoading: false,
-      isStatsigReady: true,
-      isStatsigUninitialized: false,
-    }), // Specific custom mock for useStatsigClientStatus
+    useInsightsStatus: () => ({
+      isInsightsLoading: false,
+      isInsightsReady: true,
+    }),
+    isInsightsReady: () => true,
+    getInsights: () => ({
+      isFeatureEnabled: () => false,
+      getFeatureFlag: () => undefined,
+      getFeatureFlagPayload: () => undefined,
+      identify: () => undefined,
+      register: () => undefined,
+      capture: () => undefined,
+      reloadFeatureFlags: () => undefined,
+      onFeatureFlags: () => () => undefined,
+    }),
   }
 })
 
@@ -451,18 +461,17 @@ vi.mock('@l.x/lx/src/features/chains/hooks/useOrderedChainIds', () => {
   }
 })
 
-function muteStatsigWarnings() {
+function muteInsightsWarnings() {
   // biome-ignore lint/suspicious/noConsole: strictly for testing
   const originalWarn = console.warn
   vi.spyOn(console, 'warn').mockImplementation((message, ...args) => {
-    const isStatsigWarning = args.some((arg) => {
-      return typeof arg === 'string' && arg.includes('Statsig')
+    const isInsightsWarning = args.some((arg) => {
+      return typeof arg === 'string' && (arg.includes('Insights') || arg.includes('insights'))
     })
 
-    if (isStatsigWarning) {
+    if (isInsightsWarning) {
       return
     } else {
-      // Forward all other warnings to the original console.warn to avoid losing them
       originalWarn(message, ...args)
     }
   })
@@ -492,8 +501,7 @@ beforeEach(() => {
     }
     originalConsoleDebug(...args)
   })
-  // TODO: can be removed after wrapping the test app in StatsigProvider and mocking flags and configs
-  muteStatsigWarnings()
+  muteInsightsWarnings()
 })
 
 afterEach(() => {

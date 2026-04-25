@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
-import { FeatureFlags, getFeatureFlagName, getOverrideAdapter, getStatsigClient } from '@l.x/gating'
+import { clearAllOverrides, FeatureFlags, getFeatureFlagName, getInsights, setGateOverride } from '@l.x/gating'
 import { parseUri } from '@walletconnect/utils'
 import { Alert } from 'react-native'
 import { navigate } from 'src/app/navigation/rootNavigation'
@@ -190,7 +190,8 @@ function* _sendAnalyticsEvent(deepLinkAction: DeepLinkActionResult, coldStart: b
 }
 
 function* handleGoToFiatOnRampDeepLink(data: PayloadWithFiatOnRampParams) {
-  const disableForKorea = getStatsigClient().checkGate(getFeatureFlagName(FeatureFlags.DisableFiatOnRampKorea))
+  const disableForKorea =
+    getInsights().isFeatureEnabled(getFeatureFlagName(FeatureFlags.DisableFiatOnRampKorea)) ?? false
   if (disableForKorea) {
     navigate(ModalName.KoreaCexTransferInfoModal)
   } else {
@@ -267,7 +268,8 @@ export function* parseAndValidateUserAddress(userAddress: string | null) {
 
 function* handleScantasticDeepLink(scantasticQueryParams: string): Generator {
   const params = parseScantasticParams(scantasticQueryParams)
-  const scantasticEnabled = getStatsigClient().checkGate(getFeatureFlagName(FeatureFlags.Scantastic))
+  const scantasticEnabled =
+    getInsights().isFeatureEnabled(getFeatureFlagName(FeatureFlags.Scantastic)) ?? false
 
   if (!params || !scantasticEnabled) {
     Alert.alert(i18n.t('walletConnect.error.scantastic.title'), i18n.t('walletConnect.error.scantastic.message'), [
@@ -339,10 +341,8 @@ function handleE2EOverrideGates({ enable }: { enable: string[] }): void {
     return
   }
 
-  const overrideAdapter = getOverrideAdapter()
-  overrideAdapter.removeAllOverrides()
-
+  clearAllOverrides()
   for (const gate of enable) {
-    overrideAdapter.overrideGate(gate, true)
+    setGateOverride(gate, true)
   }
 }

@@ -30,9 +30,17 @@ jest.mock('@luxexchange/gating', () => {
   const actual = jest.requireActual('@luxexchange/gating')
   return {
     ...actual,
-    useClientAsyncInit: jest.fn(() => ({
-      client: null,
-      isLoading: true,
+    useInsightsStatus: jest.fn(() => ({ isInsightsLoading: false, isInsightsReady: true })),
+    isInsightsReady: jest.fn(() => true),
+    getInsights: jest.fn(() => ({
+      isFeatureEnabled: jest.fn(() => false),
+      getFeatureFlag: jest.fn(() => undefined),
+      getFeatureFlagPayload: jest.fn(() => undefined),
+      identify: jest.fn(),
+      register: jest.fn(),
+      capture: jest.fn(),
+      reloadFeatureFlags: jest.fn(),
+      onFeatureFlags: jest.fn(() => () => undefined),
     })),
   }
 })

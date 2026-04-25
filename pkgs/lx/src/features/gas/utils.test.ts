@@ -1,6 +1,6 @@
 import { CurrencyAmount, Token } from '@luxamm/sdk-core'
 import type { GasStrategy } from '@l.x/api'
-import { DynamicConfigs, type GasStrategies, getStatsigClient } from '@l.x/gating'
+import { DynamicConfigs, type GasStrategies, getInsights, isInsightsReady } from '@l.x/gating'
 import { DAI } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { DEFAULT_GAS_STRATEGY } from '@l.x/lx/src/features/gas/consts'
@@ -16,10 +16,12 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
-    getStatsigClient: vi.fn(() => ({
-      loadingStatus: 'Ready',
-      getDynamicConfig: vi.fn(() => ({ value: {} })),
+    getInsights: vi.fn(() => ({
+      isFeatureEnabled: vi.fn(() => false),
+      getFeatureFlag: vi.fn(() => undefined),
+      getFeatureFlagPayload: vi.fn(() => undefined),
     })),
+    isInsightsReady: vi.fn(() => true),
   }
 })
 
@@ -142,28 +144,31 @@ describe(hasSufficientGasBalance, () => {
 })
 
 describe(getActiveGasStrategy, () => {
-  const mockGetStatsigClient = vi.mocked(getStatsigClient)
+  const mockGetInsights = vi.mocked(getInsights)
+  const mockIsInsightsReady = vi.mocked(isInsightsReady)
 
-  function mockStatsig({
-    loadingStatus = 'Ready' as string,
+  function mockInsights({
+    ready = true,
     strategies = [] as GasStrategies['strategies'],
   } = {}): void {
-    mockGetStatsigClient.mockReturnValue({
-      loadingStatus,
-      getDynamicConfig: vi.fn((config: string) => {
+    mockIsInsightsReady.mockReturnValue(ready)
+    mockGetInsights.mockReturnValue({
+      isFeatureEnabled: vi.fn(() => false),
+      getFeatureFlag: vi.fn(() => undefined),
+      getFeatureFlagPayload: vi.fn((config: string) => {
         if (config === DynamicConfigs.GasStrategies) {
-          return { value: { strategies } }
+          return { strategies }
         }
-        return { value: {} }
+        return undefined
       }),
-    } as unknown as ReturnType<typeof getStatsigClient>)
+    } as unknown as ReturnType<typeof getInsights>)
   }
 
   beforeEach(() => {
-    mockStatsig()
+    mockInsights()
   })
 
-  it('returns DEFAULT_GAS_STRATEGY when Statsig has no config and no chain override', () => {
+  it('returns DEFAULT_GAS_STRATEGY when Insights has no config and no chain override', () => {
     const result = getActiveGasStrategy({ chainId: 1, type: 'swap' })
     expect(result).toEqual(DEFAULT_GAS_STRATEGY)
   })
@@ -177,8 +182,8 @@ describe(getActiveGasStrategy, () => {
     })
   })
 
-  it('merges chain overrides on top of Statsig strategy', () => {
-    const statsigStrategy: GasStrategy = {
+  it('merges chain overrides on top of Insights strategy', () => {
+    const insightsStrategy: GasStrategy = {
       limitInflationFactor: 1.2,
       displayLimitInflationFactor: 1,
       priceInflationFactor: 1.3,
@@ -191,10 +196,10 @@ describe(getActiveGasStrategy, () => {
       maxPriorityFeeGwei: 12,
     }
 
-    mockStatsig({
+    mockInsights({
       strategies: [
         {
-          strategy: statsigStrategy,
+          strategy: insightsStrategy,
           conditions: { name: 'test', chainId: 42161, types: 'swap', isActive: true },
         },
       ],
@@ -202,14 +207,14 @@ describe(getActiveGasStrategy, () => {
 
     const result = getActiveGasStrategy({ chainId: 42161, type: 'swap' })
     expect(result).toEqual({
-      ...statsigStrategy,
+      ...insightsStrategy,
       minPriorityFeeGwei: 0,
       maxPriorityFeeGwei: 0,
     })
   })
 
-  it('returns Statsig strategy unchanged when no chain override exists', () => {
-    const statsigStrategy: GasStrategy = {
+  it('returns Insights strategy unchanged when no chain override exists', () => {
+    const insightsStrategy: GasStrategy = {
       limitInflationFactor: 1.2,
       displayLimitInflationFactor: 1,
       priceInflationFactor: 1.3,
@@ -222,17 +227,17 @@ describe(getActiveGasStrategy, () => {
       maxPriorityFeeGwei: 12,
     }
 
-    mockStatsig({
+    mockInsights({
       strategies: [
         {
-          strategy: statsigStrategy,
+          strategy: insightsStrategy,
           conditions: { name: 'test', chainId: 1, types: 'swap', isActive: true },
         },
       ],
     })
 
     const result = getActiveGasStrategy({ chainId: 1, type: 'swap' })
-    expect(result).toEqual(statsigStrategy)
+    expect(result).toEqual(insightsStrategy)
   })
 
   it('returns DEFAULT_GAS_STRATEGY without overrides when chainId is undefined', () => {
@@ -240,8 +245,8 @@ describe(getActiveGasStrategy, () => {
     expect(result).toEqual(DEFAULT_GAS_STRATEGY)
   })
 
-  it('returns DEFAULT_GAS_STRATEGY when isStatsigReady is false', () => {
-    const result = getActiveGasStrategy({ chainId: 42161, type: 'swap', isStatsigReady: false })
+  it('returns DEFAULT_GAS_STRATEGY when isInsightsReady is false', () => {
+    const result = getActiveGasStrategy({ chainId: 42161, type: 'swap', isInsightsReady: false })
     expect(result).toEqual({
       ...DEFAULT_GAS_STRATEGY,
       minPriorityFeeGwei: 0,

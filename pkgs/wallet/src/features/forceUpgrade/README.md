@@ -6,7 +6,7 @@ upgrading the app.
 
 ## Schema
 
-This module relies on the following schema + StatSig's SDK automatically passes the version number of the app.
+This module relies on the following schema served via the Hanzo Insights `force_upgrade` flag payload. The app's version number is passed in the user-properties so the flag can target by version.
 
 ```javascript
 force_upgrade: {

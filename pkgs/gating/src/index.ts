@@ -33,11 +33,10 @@ export {
   UwuLinkConfigKey,
   VerifiedAuctionsConfigKey,
 } from '@l.x/gating/src/configs'
-export { StatsigCustomAppValue } from '@l.x/gating/src/constants'
+export { CustomAppValue } from '@l.x/gating/src/constants'
 export type { ExperimentProperties } from '@l.x/gating/src/experiments'
 export {
   EthAsErc20DEXProperties,
-  EthAsErc20DEXProperties as EthAsErc20UniswapXProperties,
   Experiments,
   ExploreBackendSortingProperties,
   LayerProperties,
@@ -46,6 +45,7 @@ export {
   PrivateRpcProperties,
   UnichainFlashblocksProperties,
 } from '@l.x/gating/src/experiments'
+export { InsightsEnvName, getInsightsEnvName } from '@l.x/gating/src/env'
 export {
   FeatureFlagClient,
   FeatureFlags,
@@ -64,7 +64,6 @@ export {
   getIsTurnstileSolverEnabled,
   useIsTurnstileSolverEnabled,
 } from '@l.x/gating/src/getIsTurnstileSolverEnabled'
-export { getStatsigEnvName } from '@l.x/gating/src/getStatsigEnvName'
 export {
   getDynamicConfigValue,
   getExperimentValue,
@@ -77,26 +76,20 @@ export {
   useFeatureFlag,
   useFeatureFlagWithExposureLoggingDisabled,
   useFeatureFlagWithLoading,
-  useStatsigClientStatus,
+  useInsightsStatus,
 } from '@l.x/gating/src/hooks'
-export { LocalOverrideAdapterWrapper } from '@l.x/gating/src/LocalOverrideAdapterWrapper'
-export type {
-  StatsigOptions,
-  StatsigUser,
-  StorageProvider,
-} from '@l.x/gating/src/sdk/statsig'
+export { getInsights, isInsightsReady, resetInsights } from '@l.x/gating/src/insights'
 export {
-  getOverrideAdapter,
-  getStatsigClient,
-  StatsigClient,
-  StatsigContext,
-  StatsigProvider,
-  Storage,
-  useClientAsyncInit,
-  useExperiment,
-  useGateValue,
-  useLayer,
-} from '@l.x/gating/src/sdk/statsig'
+  clearAllOverrides,
+  getConfigOverride,
+  getExperimentOverride,
+  getGateOverride,
+  getOverrides as getRawOverrides,
+  removeConfigOverride,
+  removeExperimentOverride,
+  removeGateOverride,
+  setConfigOverride,
+  setExperimentOverride,
+  setGateOverride,
+} from '@l.x/gating/src/overrides'
 export { getOverrides } from '@l.x/gating/src/utils'
-// Upstream compat stub (packages/uniswap references this via @universe/gating)
-export async function waitForStatsigReady(): Promise<void> { /* no-op */ }

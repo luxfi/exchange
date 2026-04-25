@@ -1,4 +1,4 @@
-export enum StatsigCustomAppValue {
+export enum CustomAppValue {
   Mobile = 'mobile',
   Extension = 'extension',
 }

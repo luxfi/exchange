@@ -29,7 +29,7 @@ interface CreateForceUpgradeNotificationDataSourceContext {
  * Creates a notification data source specifically for force upgrade prompts.
  *
  * This data source:
- * - Polls Statsig for force upgrade status on a configurable interval
+ * - Polls Hanzo Insights for force upgrade status on a configurable interval
  * - Emits a modal notification when upgrade is required or recommended
  * - Handles the "required" vs "recommended" distinction via different notification IDs
  *

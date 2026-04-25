@@ -125,9 +125,8 @@ export function getFlashblocksExperimentStatus({
 
   return {
     // TRUE for all users that reach this point, even if they're not part of the experiment.
-    // Statsig will later filter out non-allocated users because it applies the auto-exposure filter first,
-    // and then filters by users that triggered this event *after* being exposed to the experiment.
-    // More info: https://docs.statsig.com/statsig-warehouse-native/configuration/qualifying-events
+    // Hanzo Insights filters out non-allocated users via auto-exposure: only users that
+    // triggered this event *after* being exposed to the experiment are counted.
     shouldLogQualifyingEvent: true,
     // TRUE for treatment variant or forced override
     shouldShowModal: flashblocksModalEnabled === true,

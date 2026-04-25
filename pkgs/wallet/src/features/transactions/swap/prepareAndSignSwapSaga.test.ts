@@ -36,16 +36,14 @@ const mockPrivateRpcFlag = jest.fn().mockReturnValue(true)
 
 jest.mock('@l.x/gating', () => ({
   ...jest.requireActual('@l.x/gating'),
-  getStatsigClient: jest.fn(() => ({
-    checkGate: jest.fn().mockImplementation((flagName: string) => {
+  getInsights: jest.fn(() => ({
+    isFeatureEnabled: jest.fn().mockImplementation((flagName: string) => {
       if (flagName === 'mev-blocker') {
         return mockPrivateRpcFlag()
       }
-      return false // Default for other flags
+      return false
     }),
-    getLayer: jest.fn(() => ({
-      get: jest.fn(() => false),
-    })),
+    getFeatureFlagPayload: jest.fn(() => undefined),
   })),
 }))
 

@@ -46,8 +46,8 @@ export function parseUwuLinkDataFromDeeplink(uri: string): string {
   return uri.slice(UNISWAP_URL_SCHEME_UWU_LINK.length + UWULINK_PREFIX.length).replaceAll('\\', '')
 }
 
-// Gets the UWULink contract allow list from statsig dynamic config.
-// We can safely cast as long as the statsig config format matches our `UwuLinkAllowlist` type.
+// Gets the UWULink contract allow list from the Hanzo Insights flag payload.
+// Safe to cast as long as the flag payload JSON shape matches `UwuLinkAllowlist`.
 export function useUwuLinkContractAllowlist(): UwULinkAllowlist {
   return useDynamicConfigValue({
     config: DynamicConfigs.UwuLink,

@@ -11,7 +11,7 @@ declare module 'react-native-dotenv' {
   export const INFURA_KEY: string
   export const SIMPLEHASH_API_KEY: string
   export const SIMPLEHASH_API_URL: string
-  export const STATSIG_PROXY_URL: string
+  export const INSIGHTS_HOST: string
   export const ONESIGNAL_APP_ID: string
   export const WALLETCONNECT_PROJECT_ID: string
   export const WALLETCONNECT_PROJECT_ID_BETA: string
@@ -20,14 +20,12 @@ declare module 'react-native-dotenv' {
   export const QUICKNODE_ENDPOINT_TOKEN: string
   export const TRADING_API_KEY: string
   export const FIREBASE_APP_CHECK_DEBUG_TOKEN: string
-  export const AMPLITUDE_PROXY_URL_OVERRIDE: string
   export const API_BASE_URL_OVERRIDE: string
   export const API_BASE_URL_V2_OVERRIDE: string
   export const FOR_API_URL_OVERRIDE: string
   export const GRAPHQL_URL_OVERRIDE: string
   export const SCANTASTIC_API_URL_OVERRIDE: string
-  export const STATSIG_API_KEY: string
-  export const STATSIG_PROXY_URL_OVERRIDE: string
+  export const INSIGHTS_API_KEY: string
   export const TRADING_API_URL_OVERRIDE: string
   export const UNITAGS_API_URL_OVERRIDE: string
   export const LX_NOTIF_API_BASE_URL_OVERRIDE: string

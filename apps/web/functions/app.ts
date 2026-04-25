@@ -26,9 +26,6 @@ export const ENTRY_GATEWAY_URLS = {
   get production() { return getGatewayUrl('/conversion') },
 } as const
 
-// Statsig proxy -- routed through gateway in production
-const STATSIG_PROXY_TARGET_FN = () => getGatewayUrl('/gateway')
-
 export const WEBSOCKET_URLS = {
   get development() { return getWsUrl('/staging') },
   get staging() { return getWsUrl('/staging') },
@@ -107,21 +104,6 @@ export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, g
     // Rewrite Set-Cookie headers so cookies work on non-.lux.exchange domains
     // (Vercel previews, staging, etc.)
     return rewriteProxiedCookies(response)
-  })
-
-  // ── BFF proxy: config ──────────────────────────────────────────────
-  app.all('/config/*', async (c) => {
-    const path = c.req.path.replace(/^\/config/, '/v1/statsig-proxy')
-    const query = new URL(c.req.url).search
-
-    return proxy(`${STATSIG_PROXY_TARGET_FN()}${path}${query}`, {
-      ...c.req,
-      headers: {
-        ...c.req.header(),
-        host: undefined,
-      },
-      redirect: 'manual',
-    })
   })
 
   // ── BFF proxy: WebSocket ────────────────────────────────────────────

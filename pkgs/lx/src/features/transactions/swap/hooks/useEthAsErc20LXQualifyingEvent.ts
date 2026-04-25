@@ -37,7 +37,7 @@ const CHAIN_KEY_TO_ID: Record<keyof MinUsdThresholdsByChain, UniverseChainId> = 
   arbitrum: UniverseChainId.ArbitrumOne,
 }
 
-function statsigThresholdsObjectToChainIdObject(
+function thresholdsObjectToChainIdObject(
   object: Record<keyof MinUsdThresholdsByChain, number>,
 ): Partial<Record<UniverseChainId, number>> {
   const result: Partial<Record<UniverseChainId, number>> = {}
@@ -55,7 +55,7 @@ function useMinUsdThresholds(): Partial<Record<UniverseChainId, number>> {
   })
 
   try {
-    return statsigThresholdsObjectToChainIdObject(thresholds)
+    return thresholdsObjectToChainIdObject(thresholds)
   } catch (error) {
     logger.error(error, {
       tags: {
@@ -68,7 +68,7 @@ function useMinUsdThresholds(): Partial<Record<UniverseChainId, number>> {
     })
   }
 
-  return statsigThresholdsObjectToChainIdObject(DEFAULT_MIN_USD_THRESHOLDS)
+  return thresholdsObjectToChainIdObject(DEFAULT_MIN_USD_THRESHOLDS)
 }
 
 /**
@@ -185,7 +185,7 @@ function useNativeAllowanceCheck({
  * 2. Input token is native ETH
  * 3. Same-chain swap (not cross-chain/bridge)
  * 4. Chain is one of `ELIGIBLE_CHAIN_IDS`.
- * 5. Input USD value higher than `DEFAULT_MIN_USD_THRESHOLDS` (configurable via Statsig)
+ * 5. Input USD value higher than `DEFAULT_MIN_USD_THRESHOLDS` (configurable via Hanzo Insights flag payload)
  * 6. Wallet has sufficient balance for the swap input amount
  * 7. Wallet is delegated to Lx (via /check_delegation API)
  * 8. Wallet has native allowance > 0 for the ERC20 ETH contract (on-chain check)

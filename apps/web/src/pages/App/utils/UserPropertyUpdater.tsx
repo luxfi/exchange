@@ -6,7 +6,7 @@ import { lxIdentifierQuery } from '@l.x/sessions'
 import { useEffect } from 'react'
 import { useIsDarkMode } from '@l.x/ui/src'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { useSyncStatsigUserIdentifiers } from '@l.x/lx/src/features/gating/useSyncStatsigUserIdentifiers'
+import { useSyncInsightsUserIdentifiers } from '@l.x/lx/src/features/gating/useSyncInsightsUserIdentifiers'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { InterfaceUserPropertyName, setUserProperty } from '@l.x/lx/src/features/telemetry/user'
@@ -23,20 +23,20 @@ export function UserPropertyUpdater() {
   const [routerPreference] = useRouterPreference()
   const rehydrated = useAppSelector((state) => state._persist.rehydrated)
 
-  const { data: luxIdentifier } = useQuery(lxIdentifierQuery(provideLXIdentifierService))
+  const { data: lxIdentifier } = useQuery(lxIdentifierQuery(provideLXIdentifierService))
 
-  // Update Statsig user with address and lux_identifier for experiment targeting
-  useSyncStatsigUserIdentifiers({
+  // Update Insights user with address + lx_identifier for experiment targeting
+  useSyncInsightsUserIdentifiers({
     address,
-    luxIdentifier,
+    lxIdentifier,
   })
 
   useEffect(() => {
-    if (luxIdentifier) {
-      setUserProperty(InterfaceUserPropertyName.LuxIdentifier, luxIdentifier)
-      datadogRum.setUserProperty(InterfaceUserPropertyName.LuxIdentifier, luxIdentifier)
+    if (lxIdentifier) {
+      setUserProperty(InterfaceUserPropertyName.LuxIdentifier, lxIdentifier)
+      datadogRum.setUserProperty(InterfaceUserPropertyName.LuxIdentifier, lxIdentifier)
     }
-  }, [luxIdentifier])
+  }, [lxIdentifier])
 
   useEffect(() => {
     // User properties *must* be set before sending corresponding event properties,

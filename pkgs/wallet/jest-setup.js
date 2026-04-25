@@ -19,7 +19,6 @@ jest.mock('@l.x/lx/src/features/gas/hooks', () => ({
 jest.mock('@l.x/lx/src/config', () => ({
   config: {
     alchemyApiKey: 'test-alchemy-key',
-    amplitudeProxyUrlOverride: '',
     apiBaseUrlOverride: '',
     apiBaseUrlV2Override: '',
     appsflyerApiKey: 'test-appsflyer-key',
@@ -35,8 +34,8 @@ jest.mock('@l.x/lx/src/config', () => ({
     quicknodeEndpointName: '',
     quicknodeEndpointToken: '',
     scantasticApiUrlOverride: '',
-    statsigApiKey: 'test-statsig-key',
-    statsigProxyUrlOverride: '',
+    insightsApiKey: 'test-insights-key',
+    insightsHostOverride: '',
     tradingApiKey: 'test-trading-key',
     tradingApiUrlOverride: '',
     tradingApiWebTestEnv: '',

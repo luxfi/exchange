@@ -18,7 +18,6 @@ export const getConfig = (): Config => {
    */
   const config: Config = {
     alchemyApiKey: process.env.REACT_APP_ALCHEMY_API_KEY || process.env.ALCHEMY_API_KEY || '',
-    amplitudeProxyUrlOverride: process.env.AMPLITUDE_PROXY_URL_OVERRIDE || '',
     apiBaseUrlOverride: process.env.API_BASE_URL_OVERRIDE || '',
     apiBaseUrlV2Override: process.env.API_BASE_URL_V2_OVERRIDE || '',
     appsflyerApiKey: process.env.APPSFLYER_API_KEY || '',
@@ -43,8 +42,8 @@ export const getConfig = (): Config => {
     quicknodeEndpointToken:
       process.env.REACT_APP_QUICKNODE_ENDPOINT_TOKEN || process.env.QUICKNODE_ENDPOINT_TOKEN || '',
     scantasticApiUrlOverride: process.env.SCANTASTIC_API_URL_OVERRIDE || '',
-    statsigApiKey: process.env.REACT_APP_STATSIG_API_KEY || process.env.STATSIG_API_KEY || '',
-    statsigProxyUrlOverride: process.env.STATSIG_PROXY_URL_OVERRIDE || '',
+    insightsApiKey: process.env.REACT_APP_INSIGHTS_API_KEY || process.env.INSIGHTS_API_KEY || '',
+    insightsHostOverride: process.env.REACT_APP_INSIGHTS_HOST || process.env.INSIGHTS_HOST || '',
     tradingApiKey: process.env.REACT_APP_TRADING_API_KEY || process.env.TRADING_API_KEY || '',
     tradingApiUrlOverride: process.env.REACT_APP_TRADING_API_URL_OVERRIDE || process.env.TRADING_API_URL_OVERRIDE || '',
     tradingApiWebTestEnv: process.env.REACT_APP_TRADING_API_TEST_ENV || '',

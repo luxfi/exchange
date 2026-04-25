@@ -1,8 +1,8 @@
 // oxlint-disable-next-line no-restricted-imports -- playwright test utilities needed for test fixtures
 import { mergeTests } from '@playwright/test'
-import { test as amplitudeTest } from '~/playwright/fixtures/amplitude'
 import { test as anvilTest } from '~/playwright/fixtures/anvil'
 import { test as dataApiTest } from '~/playwright/fixtures/dataApi'
+import { test as eventsTest } from '~/playwright/fixtures/events'
 import { test as graphqlTest } from '~/playwright/fixtures/graphql'
 import { test as tradingApiTest } from '~/playwright/fixtures/tradingApi'
 
@@ -19,8 +19,8 @@ interface TestConfig {
 }
 
 // Get the merged test types
-const getAnvilTest = () => mergeTests(anvilTest, graphqlTest, amplitudeTest, tradingApiTest, dataApiTest)
-const getBaseTest = () => mergeTests(graphqlTest, amplitudeTest, tradingApiTest, dataApiTest)
+const getAnvilTest = () => mergeTests(anvilTest, graphqlTest, eventsTest, tradingApiTest, dataApiTest)
+const getBaseTest = () => mergeTests(graphqlTest, eventsTest, tradingApiTest, dataApiTest)
 
 // Type for test with anvil
 type AnvilTest = ReturnType<typeof getAnvilTest>

@@ -8,7 +8,7 @@ import {
   DynamicConfigs,
   Experiments,
   getDynamicConfigValue,
-  getStatsigClient,
+  getInsights,
   WALLET_FEATURE_FLAG_NAMES,
   WEB_FEATURE_FLAG_NAMES,
 } from '@l.x/gating'
@@ -20,7 +20,7 @@ import { getDatadogEnvironment } from '@l.x/utils/src/logger/datadog/env'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { isExtensionApp, isWebApp } from '@l.x/utils/src/platform'
 
-// In case Statsig is not available
+// In case Insights is not available
 const EXTENSION_DEFAULT_DATADOG_SESSION_SAMPLE_RATE = 10 // percent
 const INTERFACE_DEFAULT_DATADOG_SESSION_SAMPLE_RATE = 10 // percent
 
@@ -144,7 +144,7 @@ export async function initializeDatadog(appName: string): Promise<void> {
       // Datadog has a limited set of accepted symbols in feature flags
       // https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=reactnative#feature-flag-naming
       flagKey.replaceAll('-', '_'),
-      getStatsigClient().checkGate(flagKey),
+      getInsights().isFeatureEnabled(flagKey) ?? false,
     )
   }
 
@@ -153,7 +153,7 @@ export async function initializeDatadog(appName: string): Promise<void> {
       // Datadog has a limited set of accepted symbols in feature flags
       // https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=reactnative#feature-flag-naming
       `experiment_${experiment.replaceAll('-', '_')}`,
-      getStatsigClient().getExperiment(experiment).groupName,
+      String(getInsights().getFeatureFlag(experiment) ?? ''),
     )
   }
 }

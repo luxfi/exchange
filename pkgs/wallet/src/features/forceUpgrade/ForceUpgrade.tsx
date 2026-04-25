@@ -4,7 +4,7 @@ import { useSporeColors } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { useForceUpgradeStatus } from '@l.x/lx/src/features/forceUpgrade/hooks/useForceUpgradeStatus'
 import { useForceUpgradeTranslations } from '@l.x/lx/src/features/forceUpgrade/hooks/useForceUpgradeTranslations'
-import { useLocalizedStatsigLanguage } from '@l.x/lx/src/features/language/hooks'
+import { useLocalizedFlagLocale } from '@l.x/lx/src/features/language/hooks'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { openUri } from '@l.x/lx/src/utils/linking'
 import { isExtensionApp, isIOS, isMobileApp } from '@l.x/utils/src/platform'
@@ -51,20 +51,20 @@ function ForceUpgradeModal({
 }: ForceUpgradeProps & { upgradeStatus: UpgradeStatus }): JSX.Element {
   const { t } = useTranslation()
   const colors = useSporeColors()
-  const statsigLanguage = useLocalizedStatsigLanguage()
+  const flagLocale = useLocalizedFlagLocale()
 
   const upgradeTextTranslations = useForceUpgradeTranslations()
 
   const { description: translatedDescription, title: translatedTitle } = useMemo<Translation>(() => {
-    if (!statsigLanguage) {
+    if (!flagLocale) {
       return { description: undefined, title: undefined }
     }
 
-    const translation = upgradeTextTranslations[statsigLanguage]
+    const translation = upgradeTextTranslations[flagLocale]
     return translation
       ? { description: translation.description, title: translation.title }
       : { description: undefined, title: undefined }
-  }, [upgradeTextTranslations, statsigLanguage])
+  }, [upgradeTextTranslations, flagLocale])
 
   const shouldShow = upgradeStatus !== UpgradeStatus.NotRequired
   const [userDismissed, setUserDismissed] = useState(false)

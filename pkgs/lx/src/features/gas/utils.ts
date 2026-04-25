@@ -13,7 +13,8 @@ import {
   type GasStrategies,
   type GasStrategyType,
   type GasStrategyWithConditions,
-  getStatsigClient,
+  getInsights,
+  isInsightsReady,
 } from '@l.x/gating'
 import JSBI from 'jsbi'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -145,8 +146,8 @@ export function findLocalGasStrategy(
   gasEstimate: GasEstimate,
   type: GasStrategyType,
 ): GasStrategyWithConditions | undefined {
-  const gasStrategies = getStatsigClient().getDynamicConfig(DynamicConfigs.GasStrategies).value as GasStrategies
-  return gasStrategies.strategies.find(
+  const gasStrategies = getInsights().getFeatureFlagPayload(DynamicConfigs.GasStrategies) as GasStrategies | undefined
+  return gasStrategies?.strategies.find(
     (s) => s.conditions.types === type && areEqualGasStrategies(s.strategy, gasEstimate.strategy),
   )
 }
@@ -161,24 +162,20 @@ function isValidGasStrategies(value: unknown): value is GasStrategies {
   )
 }
 
-function getIsStatsigReady(): boolean {
-  return getStatsigClient().loadingStatus === 'Ready'
-}
-
 export function getActiveGasStrategy({
   chainId,
   type,
-  isStatsigReady,
+  isInsightsReady: ready,
 }: {
   chainId: number | undefined
   type: GasStrategyType
-  isStatsigReady?: boolean
+  isInsightsReady?: boolean
 }): GasStrategy {
   let baseStrategy: GasStrategy = DEFAULT_GAS_STRATEGY
 
-  if (isStatsigReady !== false && getIsStatsigReady()) {
-    const config = getStatsigClient().getDynamicConfig(DynamicConfigs.GasStrategies)
-    const gasStrategies = isValidGasStrategies(config.value) ? config.value : undefined
+  if (ready !== false && isInsightsReady()) {
+    const payload = getInsights().getFeatureFlagPayload(DynamicConfigs.GasStrategies)
+    const gasStrategies = isValidGasStrategies(payload) ? payload : undefined
     const activeStrategy = gasStrategies?.strategies.find(
       (s) => s.conditions.chainId === chainId && s.conditions.types === type && s.conditions.isActive,
     )

@@ -3,7 +3,6 @@
 // namespace vs module declarations
 declare module 'react-native-dotenv' {
   export const ALCHEMY_API_KEY: string
-  export const AMPLITUDE_PROXY_URL_OVERRIDE: string
   export const API_BASE_URL_OVERRIDE: string
   export const API_BASE_URL_V2_OVERRIDE: string
   export const APPSFLYER_API_KEY: string
@@ -26,8 +25,8 @@ declare module 'react-native-dotenv' {
   export const QUICKNODE_ENDPOINT_NAME: string
   export const QUICKNODE_ENDPOINT_TOKEN: string
   export const SCANTASTIC_API_URL_OVERRIDE: string
-  export const STATSIG_API_KEY: string
-  export const STATSIG_PROXY_URL_OVERRIDE: string
+  export const INSIGHTS_API_KEY: string
+  export const INSIGHTS_HOST: string
   export const TRADING_API_KEY: string
   export const TRADING_API_URL_OVERRIDE: string
   export const LX_API_KEY: string

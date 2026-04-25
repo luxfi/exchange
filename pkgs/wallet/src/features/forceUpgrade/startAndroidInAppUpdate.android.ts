@@ -33,7 +33,7 @@ export async function startAndroidInAppUpdate({ isRequired }: { isRequired: bool
     const result = await inAppUpdates.checkNeedsUpdate()
 
     if (!result.shouldUpdate) {
-      // This should only happen if we misconfigure statsig or if the user is using a very old Android version that we no longer support.
+      // This should only happen if we misconfigure the force-upgrade flag or if the user is on a very old Android version we no longer support.
       // When this happens, the `ForceUpgradeModal` component will redirect to the Play Store where the user would be able to see that
       // there are either no updates available or their device is no longer supported.
       logger.error(new Error('Unexpected call to `startAndroidInAppUpdate` when no update is available'), {

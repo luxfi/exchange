@@ -1,24 +1,15 @@
-import { PrecomputedEvaluationsInterface } from '@statsig/js-client'
-import { getOverrideAdapter } from '@l.x/gating/src/sdk/statsig'
-
-export function isStatsigReady(client: PrecomputedEvaluationsInterface): boolean {
-  return client.loadingStatus === 'Ready'
-}
+import { getOverrides as getRaw } from '@l.x/gating/src/overrides'
 
 type GateOverride = [string, boolean]
 type ConfigOverride = [string, Record<string, unknown>]
 
-export function getOverrides(client: PrecomputedEvaluationsInterface): {
+export function getOverrides(): {
   configOverrides: ConfigOverride[]
   gateOverrides: GateOverride[]
 } {
-  const statsigOverrides = isStatsigReady(client)
-    ? getOverrideAdapter().getAllOverrides()
-    : { gate: {}, dynamicConfig: {}, layer: {} }
-
+  const o = getRaw()
   const filterNumbers = (value: [string, unknown]): boolean => isNaN(parseInt(value[0], 10))
-  const gateOverrides = Object.entries(statsigOverrides.gate).filter(filterNumbers)
-  const configOverrides = Object.entries(statsigOverrides.dynamicConfig).filter(filterNumbers)
-
+  const gateOverrides = Object.entries(o.gates).filter(filterNumbers)
+  const configOverrides = Object.entries(o.configs).filter(filterNumbers)
   return { configOverrides, gateOverrides }
 }

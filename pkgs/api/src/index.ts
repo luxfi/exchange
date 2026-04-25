@@ -28,8 +28,6 @@ export {
   createHelpArticleUrl,
   DEV_ENTRY_GATEWAY_API_BASE_URL,
   getCloudflareApiBaseUrl,
-  getCloudflarePrefix,
-  getServicePrefix,
   helpUrl,
   PROD_ENTRY_GATEWAY_API_BASE_URL,
   STAGING_ENTRY_GATEWAY_API_BASE_URL,

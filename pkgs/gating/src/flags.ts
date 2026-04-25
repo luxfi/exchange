@@ -92,7 +92,7 @@ export enum FeatureFlags {
 }
 /* biome-ignore-end lint/style/useEnumInitializers: preserve the order */
 
-// These names must match the gate name on statsig.
+// These names must match the feature-flag name on Hanzo Insights (insights.hanzo.ai).
 // Add in alphabetical order to decrease probability of merge conflicts.
 export const SHARED_FEATURE_FLAG_NAMES = new Map<FeatureFlags, string>([
   [FeatureFlags.AllowDEXOnlyRoutesInSwapSettings, 'allow_luxx_only_routes_in_swap_settings'],
@@ -140,7 +140,7 @@ export const SHARED_FEATURE_FLAG_NAMES = new Map<FeatureFlags, string>([
   [FeatureFlags.XLayer, 'x_layer'],
 ])
 
-// These names must match the gate name on statsig.
+// These names must match the feature-flag name on Hanzo Insights (insights.hanzo.ai).
 // Add in alphabetical order to decrease probability of merge conflicts.
 export const WEB_FEATURE_FLAG_NAMES = new Map<FeatureFlags, string>([
   ...SHARED_FEATURE_FLAG_NAMES,
@@ -165,7 +165,7 @@ export const WEB_FEATURE_FLAG_NAMES = new Map<FeatureFlags, string>([
   [FeatureFlags.UniversalSwap, 'universal_swap'],
 ])
 
-// These names must match the gate name on statsig.
+// These names must match the feature-flag name on Hanzo Insights (insights.hanzo.ai).
 // Add in alphabetical order to decrease probability of merge conflicts.
 export const WALLET_FEATURE_FLAG_NAMES = new Map<FeatureFlags, string>([
   ...SHARED_FEATURE_FLAG_NAMES,

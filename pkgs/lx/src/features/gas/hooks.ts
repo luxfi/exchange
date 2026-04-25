@@ -1,6 +1,6 @@
 import { type Currency, type CurrencyAmount } from '@luxamm/sdk-core'
 import { type FormattedDEXGasFeeInfo, type GasFeeResult, type GasStrategy } from '@l.x/api'
-import { type GasStrategyType, useStatsigClientStatus } from '@l.x/gating'
+import { type GasStrategyType, useInsightsStatus } from '@l.x/gating'
 import { BigNumber, type providers } from 'ethers/lib/ethers'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -40,8 +40,11 @@ export type CancellationGasFeeDetails = {
 
 // Hook to use active GasStrategy for a specific chain.
 export function useActiveGasStrategy(chainId: number | undefined, type: GasStrategyType): GasStrategy {
-  const { isStatsigReady } = useStatsigClientStatus()
-  return useMemo(() => getActiveGasStrategy({ chainId, type, isStatsigReady }), [isStatsigReady, chainId, type])
+  const { isInsightsReady } = useInsightsStatus()
+  return useMemo(
+    () => getActiveGasStrategy({ chainId, type, isInsightsReady }),
+    [isInsightsReady, chainId, type],
+  )
 }
 
 /**

@@ -10,7 +10,6 @@
 
 export interface Config {
   alchemyApiKey: string
-  amplitudeProxyUrlOverride: string
   apiBaseUrlOverride: string
   apiBaseUrlV2Override: string
   appsflyerApiKey: string
@@ -29,8 +28,8 @@ export interface Config {
   quicknodeEndpointName: string
   quicknodeEndpointToken: string
   scantasticApiUrlOverride: string
-  statsigProxyUrlOverride: string
-  statsigApiKey: string
+  insightsApiKey: string
+  insightsHostOverride: string
   tradingApiKey: string
   tradingApiUrlOverride: string
   tradingApiWebTestEnv: string

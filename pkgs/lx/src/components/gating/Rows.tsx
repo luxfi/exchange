@@ -1,4 +1,5 @@
-import { Experiments, getOverrideAdapter, LayerProperties, Layers, useExperiment, useLayer } from '@luxfi/gating'
+import { Experiments, LayerProperties, Layers, setConfigOverride, setExperimentOverride } from '@luxfi/gating'
+import { useFeatureFlagPayload } from '@hanzo/insights-react'
 import { useCallback } from 'react'
 import { Flex, Input, Switch, Text } from '@l.x/ui/src'
 
@@ -6,16 +7,16 @@ export function useLayerValue(
   layerName: Layers,
   layerDefault: unknown = false,
 ): { value: Record<string, unknown>; overrideValue: <T>(newPairs: Record<string, T>) => void } {
-  const { get: getLayerValue } = useLayer(layerName)
+  const payload = useFeatureFlagPayload(layerName as string) as Record<string, unknown> | undefined
 
   const value = Object.values(LayerProperties[layerName]).reduce(
-    (acc, key) => ({ ...acc, [key]: getLayerValue(key) ?? layerDefault }),
+    (acc, key) => ({ ...acc, [key]: payload?.[key] ?? layerDefault }),
     {},
   )
 
   const overrideValue = useCallback(
     <T,>(newPairs: Record<string, T>) => {
-      getOverrideAdapter().overrideLayer(layerName, { ...value, ...newPairs })
+      setConfigOverride(layerName, { ...value, ...newPairs })
     },
     [layerName, value],
   )
@@ -41,11 +42,12 @@ export function ExperimentRow({
   value: Experiments
   hideTarget?: boolean
 }): JSX.Element {
-  const { value } = useExperiment(experimentName)
+  const payload = useFeatureFlagPayload(experimentName as string) as Record<string, unknown> | undefined
+  const value = payload ?? {}
 
   const overrideValue = useCallback(
     <T,>(newPairs: Record<string, T>) => {
-      getOverrideAdapter().overrideExperiment(experimentName, newPairs)
+      setExperimentOverride(experimentName, newPairs)
     },
     [experimentName],
   )

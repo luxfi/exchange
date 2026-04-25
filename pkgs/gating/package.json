@@ -1,12 +1,10 @@
 {
   "name": "@l.x/gating",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "dependencies": {
-    "@statsig/client-core": "3.12.2",
-    "@statsig/js-client": "3.12.2",
-    "@statsig/js-local-overrides": "3.12.2",
-    "@statsig/react-bindings": "3.12.2",
-    "@statsig/react-native-bindings": "3.12.2",
+    "@hanzo/insights": "^1.23.0",
+    "@hanzo/insights-react": "^1.9.0",
+    "@hanzo/insights-react-native": "^1.9.0",
     "@l.x/api": "workspace:*",
     "@l.x/config": "workspace:*",
     "@l.x/utils": "workspace:^"

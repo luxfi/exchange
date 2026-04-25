@@ -1,7 +1,7 @@
 /**
  * Experiment parameter names. Ordered alphabetically.
  *
- * These must match parameter names on Statsig within an experiment
+ * These must match the `params` keys inside a feature-flag JSON payload on Hanzo Insights.
  */
 export enum Experiments {
   EthAsErc20DEX = 'eth_as_erc20_luxx_experiment',

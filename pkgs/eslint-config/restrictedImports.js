@@ -108,8 +108,20 @@ const sharedRules = {
         "This hook should only be used once at the top level where the React app is initialized . You can use `import { useApolloClient } from '@apollo/client'` to get the default apollo client from the provider elsewhere in React. If you need access to apollo outside of React, you can use `import { apolloClientRef } from '@luxfi/wallet/src/data/apollo/usePersistedApolloClient''`.",
     },
     {
-      name: 'statsig-react',
-      message: 'Import from internal module lux/src/features/gating instead',
+      name: '@statsig/client-core',
+      message: 'Statsig is removed. Use @l.x/gating (@hanzo/insights underneath).',
+    },
+    {
+      name: '@statsig/js-client',
+      message: 'Statsig is removed. Use @l.x/gating (@hanzo/insights underneath).',
+    },
+    {
+      name: '@statsig/js-local-overrides',
+      message: 'Statsig is removed. Use overrides from @l.x/gating instead.',
+    },
+    {
+      name: '@statsig/react-bindings',
+      message: 'Statsig is removed. Use @l.x/gating + @hanzo/insights-react instead.',
     },
     {
       name: '@luxfi/wallet/src/components/ErrorBoundary/restart',
@@ -137,8 +149,8 @@ const nativeRules = {
     },
     // Native specific pkgs/restrictions
     {
-      name: 'statsig-react-native',
-      message: 'Import from internal module lux/src/features/gating instead',
+      name: '@statsig/react-native-bindings',
+      message: 'Statsig is removed. Use @l.x/gating + @hanzo/insights-react-native instead.',
     },
     {
       name: 'react-native-safe-area-context',

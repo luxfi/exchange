@@ -1,7 +1,6 @@
 import type { Config } from '@l.x/config/src/config-types'
 import {
   ALCHEMY_API_KEY,
-  AMPLITUDE_PROXY_URL_OVERRIDE,
   API_BASE_URL_OVERRIDE,
   API_BASE_URL_V2_OVERRIDE,
   APPSFLYER_API_KEY,
@@ -24,8 +23,8 @@ import {
   QUICKNODE_ENDPOINT_NAME,
   QUICKNODE_ENDPOINT_TOKEN,
   SCANTASTIC_API_URL_OVERRIDE,
-  STATSIG_API_KEY,
-  STATSIG_PROXY_URL_OVERRIDE,
+  INSIGHTS_API_KEY,
+  INSIGHTS_HOST,
   TRADING_API_KEY,
   TRADING_API_URL_OVERRIDE,
   LX_API_KEY,
@@ -59,7 +58,6 @@ export const getConfig = (): Config => {
 
   const config: Config = {
     alchemyApiKey: process.env.REACT_APP_ALCHEMY_API_KEY || process.env.ALCHEMY_API_KEY || ALCHEMY_API_KEY,
-    amplitudeProxyUrlOverride: process.env.AMPLITUDE_PROXY_URL_OVERRIDE || AMPLITUDE_PROXY_URL_OVERRIDE,
     apiBaseUrlOverride: process.env.API_BASE_URL_OVERRIDE || API_BASE_URL_OVERRIDE,
     apiBaseUrlV2Override: process.env.API_BASE_URL_V2_OVERRIDE || API_BASE_URL_V2_OVERRIDE,
     appsflyerApiKey: process.env.APPSFLYER_API_KEY || APPSFLYER_API_KEY,
@@ -88,8 +86,8 @@ export const getConfig = (): Config => {
       process.env.QUICKNODE_ENDPOINT_TOKEN ||
       QUICKNODE_ENDPOINT_TOKEN,
     scantasticApiUrlOverride: process.env.SCANTASTIC_API_URL_OVERRIDE || SCANTASTIC_API_URL_OVERRIDE,
-    statsigApiKey: process.env.REACT_APP_STATSIG_API_KEY || process.env.STATSIG_API_KEY || STATSIG_API_KEY,
-    statsigProxyUrlOverride: process.env.STATSIG_PROXY_URL_OVERRIDE || STATSIG_PROXY_URL_OVERRIDE,
+    insightsApiKey: process.env.REACT_APP_INSIGHTS_API_KEY || process.env.INSIGHTS_API_KEY || INSIGHTS_API_KEY,
+    insightsHostOverride: process.env.REACT_APP_INSIGHTS_HOST || process.env.INSIGHTS_HOST || INSIGHTS_HOST,
     tradingApiKey: process.env.REACT_APP_TRADING_API_KEY || process.env.TRADING_API_KEY || TRADING_API_KEY,
     tradingApiUrlOverride:
       process.env.REACT_APP_TRADING_API_URL_OVERRIDE ||

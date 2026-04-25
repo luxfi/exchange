@@ -4,7 +4,7 @@ import { getFeatureFlag, useFeatureFlag } from '@l.x/gating/src/hooks'
 /**
  * Returns whether sessions performance tracking is enabled.
  *
- * Defaults to false (disabled) - must be explicitly enabled via Statsig flag.
+ * Defaults to false (disabled) - must be explicitly enabled via Hanzo Insights feature flag.
  * When enabled, session analytics will include duration measurements.
  * When disabled, duration values will be -1 (sentinel value).
  */

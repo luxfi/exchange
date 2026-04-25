@@ -211,6 +211,9 @@ export async function loadBrandConfig(): Promise<RuntimeConfig> {
     if (config.api?.insights) {
       brand.insightsHost = config.api.insights
     }
+    if (config.brand?.insightsApiKey) {
+      brand.insightsApiKey = config.brand.insightsApiKey
+    }
 
     // Update document title and favicon
     if (typeof document !== 'undefined') {

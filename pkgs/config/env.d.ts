@@ -6,7 +6,6 @@ declare global {
     interface ProcessEnv {
       NODE_ENV?: 'development' | 'production' | 'test'
       ALCHEMY_API_KEY?: string
-      AMPLITUDE_PROXY_URL_OVERRIDE?: string
       API_BASE_URL_OVERRIDE?: string
       API_BASE_URL_V2_OVERRIDE?: string
       APPSFLYER_API_KEY?: string
@@ -38,14 +37,15 @@ declare global {
       REACT_APP_LIQUIDITY_SERVICE_URL_OVERRIDE?: string
       REACT_APP_QUICKNODE_ENDPOINT_NAME?: string
       REACT_APP_QUICKNODE_ENDPOINT_TOKEN?: string
-      REACT_APP_STATSIG_API_KEY?: string
+      REACT_APP_INSIGHTS_API_KEY?: string
+      REACT_APP_INSIGHTS_HOST?: string
       REACT_APP_TRADING_API_KEY?: string
       REACT_APP_TRADING_API_TEST_ENV?: string
       REACT_APP_TRADING_API_URL_OVERRIDE?: string
       REACT_APP_WALLET_CONNECT_PROJECT_ID?: string
       SCANTASTIC_API_URL_OVERRIDE?: string
-      STATSIG_API_KEY?: string
-      STATSIG_PROXY_URL_OVERRIDE?: string
+      INSIGHTS_API_KEY?: string
+      INSIGHTS_HOST?: string
       TRADING_API_KEY?: string
       TRADING_API_URL_OVERRIDE?: string
       LX_API_KEY?: string

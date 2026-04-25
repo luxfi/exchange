@@ -163,8 +163,6 @@ writeFileSync(
         { src: '^/api(?:/(.*))?$', dest: '/api' },
         // Entry gateway BFF proxy -> serverless function
         { src: '^/entry-gateway(?:/(.*))?$', dest: '/api' },
-        // Config proxy (statsig) -> serverless function
-        { src: '^/config(?:/(.*))?$', dest: '/api' },
         // Note: no /ws route — Vercel cannot proxy WebSocket connections (neither
         // through functions nor external rewrites). On Vercel, prices use REST
         // polling via the /entry-gateway proxy. WS is only used on CF Workers (staging/prod).

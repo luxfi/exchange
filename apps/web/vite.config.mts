@@ -645,12 +645,6 @@ export default defineConfig(({ mode }) => {
     server: {
       port: DEFAULT_PORT,
       proxy: {
-        '/config': {
-          target: 'https://gw.lux.exchange',
-          changeOrigin: true,
-          secure: true,
-          rewrite: (path) => path.replace(/^\/config/, '/gateway/v1/statsig-proxy'),
-        },
         ...(ENABLE_PROXY ? { '/entry-gateway': createEntryGatewayProxy({ getLogger }) } : {}),
       },
     },

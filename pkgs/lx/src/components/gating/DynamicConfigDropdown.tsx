@@ -1,4 +1,4 @@
-import { DynamicConfigKeys, DynamicConfigs, getOverrideAdapter, useDynamicConfigValue } from '@l.x/gating'
+import { DynamicConfigKeys, DynamicConfigs, getConfigOverride, setConfigOverride, useDynamicConfigValue } from '@l.x/gating'
 import { Flex, Text } from '@l.x/ui/src'
 import { ActionSheetDropdown } from '@l.x/lx/src/components/dropdowns/ActionSheetDropdown'
 
@@ -43,8 +43,8 @@ export function DynamicConfigDropdown({
           options={options.map((option) => ({
             key: option.label ?? ('value' in option ? option.value.toString() : JSON.stringify(option.jsonValue)),
             onPress: (): void => {
-              getOverrideAdapter().overrideDynamicConfig(config, {
-                ...getOverrideAdapter().getAllOverrides().dynamicConfig[config],
+              setConfigOverride(config, {
+                ...(getConfigOverride(config) ?? {}),
                 [configKey]: 'value' in option ? option.value : option.jsonValue,
               })
             },

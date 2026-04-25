@@ -124,28 +124,20 @@ jest.mock('@universe/gating', () => {
   const actual = jest.requireActual('@universe/gating')
   return {
     ...actual,
-    // Mock functions
     useDynamicConfigValue: jest.fn((args) => args.defaultValue),
     useFeatureFlag: jest.fn(() => false),
-    useGate: jest.fn(() => ({ isLoading: false, value: false })),
-    useConfig: jest.fn(() => ({})),
-    getStatsigClient: jest.fn(() => ({
-      checkGate: jest.fn(() => false),
-      getConfig: jest.fn(() => ({
-        get: (_name, fallback) => fallback,
-        getValue: (_name, fallback) => fallback,
-      })),
-      getLayer: jest.fn(() => ({
-        get: jest.fn(() => false),
-      })),
+    useInsightsStatus: jest.fn(() => ({ isInsightsLoading: false, isInsightsReady: true })),
+    isInsightsReady: jest.fn(() => true),
+    getInsights: jest.fn(() => ({
+      isFeatureEnabled: jest.fn(() => false),
+      getFeatureFlag: jest.fn(() => undefined),
+      getFeatureFlagPayload: jest.fn(() => undefined),
+      identify: jest.fn(),
+      register: jest.fn(),
+      capture: jest.fn(),
+      reloadFeatureFlags: jest.fn(),
+      onFeatureFlags: jest.fn(() => () => undefined),
     })),
-    Statsig: {
-      checkGate: jest.fn(() => false),
-      getConfig: jest.fn(() => ({
-        get: (_name, fallback) => fallback,
-        getValue: (_name, fallback) => fallback,
-      })),
-    },
   }
 })
 

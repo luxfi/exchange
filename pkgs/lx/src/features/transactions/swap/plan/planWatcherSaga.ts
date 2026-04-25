@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlag, getStatsigClient } from '@l.x/gating'
+import { FeatureFlags, getFeatureFlag, isInsightsReady } from '@l.x/gating'
 import { call, delay, fork, select } from 'typed-redux-saga'
 import { makeSelectPlanTransaction } from '@l.x/lx/src/features/transactions/selectors'
 import {
@@ -30,7 +30,7 @@ export class PlanWatcher {
   private static index = 0
 
   static *initialize(): Generator<unknown> {
-    yield* call(PlanWatcher.waitForStatsigReady)
+    yield* call(PlanWatcher.waitForInsightsReady)
     if (!getFeatureFlag(FeatureFlags.ChainedActions)) {
       return
     }
@@ -38,8 +38,8 @@ export class PlanWatcher {
     yield* fork(PlanWatcher.poll, PlanWatcher.index)
   }
 
-  private static *waitForStatsigReady(): Generator<unknown> {
-    while (getStatsigClient().loadingStatus !== 'Ready') {
+  private static *waitForInsightsReady(): Generator<unknown> {
+    while (!isInsightsReady()) {
       yield* delay(ONE_SECOND_MS)
     }
   }

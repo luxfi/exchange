@@ -268,19 +268,19 @@ export function useCurrentLanguageInfo(): LanguageInfo {
 type SupportedLocale = keyof ForceUpgradeTranslations
 
 /**
- * Retrieves the Statsig key for a given locale from the i18n resources.
- * @returns The Statsig key if available, otherwise null.
+ * Returns the canonical locale key (used to index into flag-payload translation
+ * tables, e.g. force-upgrade copy) for the user's current language.
  */
-export function useLocalizedStatsigLanguage(): SupportedLocale | null {
+export function useLocalizedFlagLocale(): SupportedLocale | null {
   const { i18n } = useTranslation()
   const parsedLocale = parseLocale(i18n.resolvedLanguage)
-  const resources = i18n.services.backendConnector.options.resources as Record<string, { statsigKey?: SupportedLocale }>
+  const resources = i18n.services.backendConnector.options.resources as Record<string, { localeKey?: SupportedLocale }>
 
   if (typeof parsedLocale !== 'string' || !(parsedLocale in resources)) {
     return null
   }
 
-  return resources[parsedLocale]?.statsigKey ?? null
+  return resources[parsedLocale]?.localeKey ?? null
 }
 
 /**

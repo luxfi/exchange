@@ -1,4 +1,4 @@
-import { getOverrideAdapter } from '@l.x/gating'
+import { setGateOverride } from '@l.x/gating'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { BetaPasscodeModal } from '~/pages/Beta/BetaPasscodeModal'
 import { act, fireEvent, render, screen } from '~/test-utils/render'
@@ -19,7 +19,7 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...actual,
     getDynamicConfigValue: (...args: unknown[]) => mockGetDynamicConfigValue(...args),
-    getOverrideAdapter: vi.fn().mockReturnValue({ overrideGate: vi.fn() }),
+    setGateOverride: vi.fn(),
   }
 })
 
@@ -80,7 +80,7 @@ describe('BetaPasscodeModal', () => {
       fireEvent.click(submitButton)
     })
 
-    expect(getOverrideAdapter().overrideGate).toHaveBeenCalledWith('embedded_wallet', true)
+    expect(setGateOverride).toHaveBeenCalledWith('embedded_wallet', true)
     expect(mockNavigate).toHaveBeenCalledWith('/?intro=true', { replace: true })
   })
 })

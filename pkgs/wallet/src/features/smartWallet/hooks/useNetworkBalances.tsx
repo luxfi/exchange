@@ -1,4 +1,4 @@
-import { useStatsigClientStatus } from '@l.x/gating'
+import { useInsightsStatus } from '@l.x/gating'
 import { useEffect, useState } from 'react'
 import { fetchGasFeeQuery } from '@l.x/lx/src/data/apiClients/luxApi/useGasFeeQuery'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
@@ -18,7 +18,7 @@ export const useNetworkBalances = (account?: Address): NetworkInfo[] => {
   const enabledChains = useSmartWalletChains()
   const { getDelegationDetails } = useWalletDelegationContext()
   const [networkInfos, setNetworkInfos] = useState<NetworkInfo[]>([])
-  const { isStatsigReady } = useStatsigClientStatus()
+  const { isInsightsReady } = useInsightsStatus()
 
   useEffect(() => {
     const checkBalances = async (): Promise<void> => {
@@ -39,7 +39,7 @@ export const useNetworkBalances = (account?: Address): NetworkInfo[] => {
 
             const gasAmount = await fetchGasFeeQuery({
               tx: getRemoveDelegationTransaction(chainId, account),
-              isStatsigReady,
+              isInsightsReady,
               smartContractDelegationAddress: DEFAULT_NATIVE_ADDRESS,
             })
 
@@ -68,7 +68,7 @@ export const useNetworkBalances = (account?: Address): NetworkInfo[] => {
     checkBalances().catch(() => {
       setNetworkInfos([])
     })
-  }, [account, enabledChains, getDelegationDetails, isStatsigReady])
+  }, [account, enabledChains, getDelegationDetails, isInsightsReady])
 
   return networkInfos
 }

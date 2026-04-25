@@ -1,5 +1,5 @@
 import { TradingApi } from '@l.x/api'
-import { FeatureFlags, getFeatureFlagName, getStatsigClient } from '@l.x/gating'
+import { FeatureFlags, getFeatureFlagName, getInsights } from '@l.x/gating'
 import { SagaGenerator, take } from 'typed-redux-saga'
 import { getDelegationService } from '@l.x/lx/src/domains/services'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -39,9 +39,9 @@ export async function getShouldWaitBetweenTransactions(params: {
   privateRpcAvailable: boolean
 }): Promise<boolean> {
   const { swapper, chainId, privateRpcAvailable } = params
-  const transactionSpacingEnabled = getStatsigClient().checkGate(
-    getFeatureFlagName(FeatureFlags.EnableTransactionSpacingForDelegatedAccounts),
-  )
+  const transactionSpacingEnabled =
+    getInsights().isFeatureEnabled(getFeatureFlagName(FeatureFlags.EnableTransactionSpacingForDelegatedAccounts)) ??
+    false
 
   // Private RPC clients are expected to accept simultaneous pending transactions
   if (!transactionSpacingEnabled || privateRpcAvailable) {
