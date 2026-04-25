@@ -139,7 +139,7 @@ exports[`SwapDetails.tsx > renders slippage tooltip 1`] = `
     <br />
     <a
       class="c0"
-      href="https://support.uniswap.org/hc/en-us/articles/20131678274957"
+      href="https://support.lux.network/hc/en-us/articles/20131678274957"
       rel="noopener noreferrer"
       target="_blank"
     >

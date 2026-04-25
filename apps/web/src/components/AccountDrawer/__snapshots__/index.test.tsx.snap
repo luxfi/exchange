@@ -307,7 +307,7 @@ exports[`AccountDrawer tests > AccountDrawer default styles 1`] = `
                             By connecting a wallet, you agree to Uniswap Labs’ 
                             <a
                               class="c0 c1"
-                              href="https://uniswap.org/terms-of-service/"
+                              href="https://lux.network/terms-of-service/"
                               rel="noopener noreferrer"
                               target="_blank"
                             >
@@ -316,7 +316,7 @@ exports[`AccountDrawer tests > AccountDrawer default styles 1`] = `
                              and consent to its 
                             <a
                               class="c0 c1"
-                              href="https://uniswap.org/privacy-policy"
+                              href="https://lux.network/privacy-policy"
                               rel="noopener noreferrer"
                               target="_blank"
                             >
@@ -583,7 +583,7 @@ exports[`AccountDrawer tests > AccountDrawer default styles 1`] = `
                             By connecting a wallet, you agree to Uniswap Labs’ 
                             <a
                               class="c0 c1"
-                              href="https://uniswap.org/terms-of-service/"
+                              href="https://lux.network/terms-of-service/"
                               rel="noopener noreferrer"
                               target="_blank"
                             >
@@ -592,7 +592,7 @@ exports[`AccountDrawer tests > AccountDrawer default styles 1`] = `
                              and consent to its 
                             <a
                               class="c0 c1"
-                              href="https://uniswap.org/privacy-policy"
+                              href="https://lux.network/privacy-policy"
                               rel="noopener noreferrer"
                               target="_blank"
                             >

@@ -740,7 +740,7 @@ exports[`OrderContent > should render without error, limit order 1`] = `
         >
           <a
             class="c6"
-            href="https://support.uniswap.org/hc/en-us/articles/24300813697933"
+            href="https://support.lux.network/hc/en-us/articles/24300813697933"
             rel="noopener noreferrer"
             target="_blank"
           >

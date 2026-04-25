@@ -272,7 +272,7 @@ exports[`EmbeddedWalletConnectionsModal > renders correctly 1`] = `
               By connecting a wallet, you agree to Uniswap Labs’ 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/terms-of-service/"
+                href="https://lux.network/terms-of-service/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -281,7 +281,7 @@ exports[`EmbeddedWalletConnectionsModal > renders correctly 1`] = `
                and consent to its 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/privacy-policy"
+                href="https://lux.network/privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -463,7 +463,7 @@ exports[`OtherWalletsModal > renders correctly with EW disabled 1`] = `
               By connecting a wallet, you agree to Uniswap Labs’ 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/terms-of-service/"
+                href="https://lux.network/terms-of-service/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -472,7 +472,7 @@ exports[`OtherWalletsModal > renders correctly with EW disabled 1`] = `
                and consent to its 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/privacy-policy"
+                href="https://lux.network/privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -654,7 +654,7 @@ exports[`OtherWalletsModal > renders correctly with EW enabled 1`] = `
               By connecting a wallet, you agree to Uniswap Labs’ 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/terms-of-service/"
+                href="https://lux.network/terms-of-service/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -663,7 +663,7 @@ exports[`OtherWalletsModal > renders correctly with EW enabled 1`] = `
                and consent to its 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/privacy-policy"
+                href="https://lux.network/privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -956,7 +956,7 @@ exports[`StandardWalletModal > renders correctly 1`] = `
               By connecting a wallet, you agree to Uniswap Labs’ 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/terms-of-service/"
+                href="https://lux.network/terms-of-service/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -965,7 +965,7 @@ exports[`StandardWalletModal > renders correctly 1`] = `
                and consent to its 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/privacy-policy"
+                href="https://lux.network/privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
               >

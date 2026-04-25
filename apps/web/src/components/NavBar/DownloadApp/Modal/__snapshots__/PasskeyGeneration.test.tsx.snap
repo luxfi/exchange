@@ -154,7 +154,7 @@ exports[`PasskeyGenerationModal > renders default state 1`] = `
             </span>
             <a
               class="c0"
-              href="https://support.uniswap.org/hc/en-us/articles/35522111260173?product_link=web"
+              href="https://support.lux.network/hc/en-us/articles/35522111260173?product_link=web"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -368,7 +368,7 @@ exports[`PasskeyGenerationModal > renders loading state 1`] = `
             </span>
             <a
               class="c0"
-              href="https://support.uniswap.org/hc/en-us/articles/35522111260173?product_link=web"
+              href="https://support.lux.network/hc/en-us/articles/35522111260173?product_link=web"
               rel="noopener noreferrer"
               target="_blank"
             >

@@ -26,7 +26,7 @@ window.$RefreshSig$ = () => (type) => type;</script>
 
     <!-- CSP will be injected here -->
 
-    <link rel="preconnect" href="https://interface.gateway.uniswap.org/" crossorigin/>
+    <link rel="preconnect" href="https://api.lux.network/" crossorigin/>
     <link rel="preconnect" href="https://mainnet.infura.io/" crossorigin/>
 
     <link rel="preload" href="/fonts/Basel-Grotesk-Book.woff2" as="font" type="font/woff2" crossorigin />
@@ -173,7 +173,7 @@ window.$RefreshSig$ = () => (type) => type;</script>
 
     <!-- CSP will be injected here -->
 
-    <link rel="preconnect" href="https://interface.gateway.uniswap.org/" crossorigin/>
+    <link rel="preconnect" href="https://api.lux.network/" crossorigin/>
     <link rel="preconnect" href="https://mainnet.infura.io/" crossorigin/>
 
     <link rel="preload" href="/fonts/Basel-Grotesk-Book.woff2" as="font" type="font/woff2" crossorigin />
@@ -320,7 +320,7 @@ window.$RefreshSig$ = () => (type) => type;</script>
 
     <!-- CSP will be injected here -->
 
-    <link rel="preconnect" href="https://interface.gateway.uniswap.org/" crossorigin/>
+    <link rel="preconnect" href="https://api.lux.network/" crossorigin/>
     <link rel="preconnect" href="https://mainnet.infura.io/" crossorigin/>
 
     <link rel="preload" href="/fonts/Basel-Grotesk-Book.woff2" as="font" type="font/woff2" crossorigin />

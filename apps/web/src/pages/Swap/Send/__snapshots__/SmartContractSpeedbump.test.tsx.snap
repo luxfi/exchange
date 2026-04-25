@@ -61,7 +61,7 @@ exports[`SmartContractSpeedBumpModal > should render correctly 1`] = `
                   class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-1 _flexDirection-row _flexGrow-1 _justifyContent-flex-end _alignItems-center _gap-t-space-spa1360334080"
                 >
                   <a
-                    href="https://support.uniswap.org/hc/en-us"
+                    href="https://support.lux.network/hc/en-us"
                     style="text-decoration: none;"
                     target="_blank"
                   >
