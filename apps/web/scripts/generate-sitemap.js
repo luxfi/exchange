@@ -64,13 +64,13 @@ fs.readFile('./public/tokens-sitemap.xml', 'utf8', async (_err, data) => {
     }
 
     const tokensResponse = await fetch(
-      'https://interface.gateway.uniswap.org/v2/uniswap.explore.v1.ExploreStatsService/TokenRankings?connect=v1&encoding=json&message=' +
+      'https://api.lux.network/v2/uniswap.explore.v1.ExploreStatsService/TokenRankings?connect=v1&encoding=json&message=' +
         encodeURIComponent(JSON.stringify({ chainId: 'ALL_NETWORKS' })),
       {
         method: 'GET',
         headers: {
           accept: '*/*',
-          origin: 'https://app.uniswap.org',
+          origin: 'https://app.lux.network',
           'content-type': 'application/json',
         },
       },
@@ -82,7 +82,7 @@ fs.readFile('./public/tokens-sitemap.xml', 'utf8', async (_err, data) => {
     })
 
     tokenAddresses.forEach(({ chainName, address }) => {
-      const tokenURL = `https://app.uniswap.org/explore/tokens/${chainName}/${normalizeTokenAddressForCache(address)}`
+      const tokenURL = `https://app.lux.network/explore/tokens/${chainName}/${normalizeTokenAddressForCache(address)}`
       if (!(tokenURL in tokenURLs)) {
         sitemap.urlset.url.push({
           loc: [tokenURL],
@@ -128,11 +128,11 @@ fs.readFile('./public/pools-sitemap.xml', 'utf8', async (_err, data) => {
     }
 
     for (const chainName of chains) {
-      const poolsResponse = await fetch('https://api.uniswap.org/v1/graphql', {
+      const poolsResponse = await fetch('https://api.lux.network/v1/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Origin: 'https://app.uniswap.org',
+          Origin: 'https://app.lux.network',
         },
         body: JSON.stringify({ query: getTopPoolsQuery(chainName) }),
       })
@@ -142,7 +142,7 @@ fs.readFile('./public/pools-sitemap.xml', 'utf8', async (_err, data) => {
       const poolAddresses = v3PoolAddresses.concat(v2PoolAddresses)
 
       poolAddresses.forEach((address) => {
-        const poolUrl = `https://app.uniswap.org/explore/pools/${chainName.toLowerCase()}/${normalizeTokenAddressForCache(address)}`
+        const poolUrl = `https://app.lux.network/explore/pools/${chainName.toLowerCase()}/${normalizeTokenAddressForCache(address)}`
         if (!(poolUrl in poolURLs)) {
           sitemap.urlset.url.push({
             loc: [poolUrl],

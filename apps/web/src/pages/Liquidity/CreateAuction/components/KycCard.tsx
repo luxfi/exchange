@@ -20,7 +20,7 @@ export function KycCard() {
         <Text variant="body4" color="$neutral1">
           {t('toucan.createAuction.step.configureAuction.kyc.description')}
         </Text>
-        <ExternalLink href="https://support.uniswap.org/hc/en-us">
+        <ExternalLink href="https://support.lux.network/hc/en-us">
           <Text variant="buttonLabel4" color="$neutral2">
             {t('toucan.createAuction.step.configureAuction.kyc.learnMore')}
           </Text>

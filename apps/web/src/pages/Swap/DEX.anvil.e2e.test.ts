@@ -13,7 +13,7 @@ import { assume0xAddress } from '~/utils/wagmi'
 
 const test = getTest({ withAnvil: true })
 
-const LUX_X_ORDERS_ENDPOINT = `https://interface.gateway.lux.org/v2/orders?swapper=${TEST_WALLET_ADDRESS}&orderHashes=${ZERO_ADDRESS}`
+const LUX_X_ORDERS_ENDPOINT = `https://api.lux.network/v2/orders?swapper=${TEST_WALLET_ADDRESS}&orderHashes=${ZERO_ADDRESS}`
 
 test.describe(
   'DEX',

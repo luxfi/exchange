@@ -423,9 +423,9 @@ describe('handleNotificationNavigation', () => {
     it('opens Uniswap explore URLs', () => {
       mockOpenUri.mockResolvedValue(undefined)
 
-      handleNotificationNavigation('https://app.uniswap.org/explore/tokens/monad')
+      handleNotificationNavigation('https://app.lux.network/explore/tokens/monad')
 
-      expect(mockOpenUri).toHaveBeenCalledWith({ uri: 'https://app.uniswap.org/explore/tokens/monad' })
+      expect(mockOpenUri).toHaveBeenCalledWith({ uri: 'https://app.lux.network/explore/tokens/monad' })
     })
   })
 

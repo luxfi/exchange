@@ -32,7 +32,7 @@ function createMockPerformanceTracker(): PerformanceTracker {
   }
 }
 
-const BACKEND_URL = 'https://entry-gateway.backend-staging.api.lux.org'
+const BACKEND_URL = 'https://entry-gateway.backend-staging.api.lux.network'
 // const BACKEND_URL = 'http://localhost:3000'
 
 // =============================================================================

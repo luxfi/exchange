@@ -38,7 +38,7 @@ describe('handleUniswapAppDeepLink', () => {
   describe('Token deep links', () => {
     it('should handle token share with contract address', () => {
       const path = `tokens/ethereum/${SAMPLE_CONTRACT_ADDRESS}`
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -67,7 +67,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle token share with native currency', () => {
       const path = `tokens/ethereum/${BACKEND_NATIVE_CHAIN_ADDRESS_STRING}`
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -96,7 +96,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle widget token link', () => {
       const path = `tokens/ethereum/${SAMPLE_CONTRACT_ADDRESS}`
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -125,7 +125,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should throw error for token link with invalid network', () => {
       const path = `tokens/invalid/${SAMPLE_CONTRACT_ADDRESS}`
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expect(
         expectSaga(handleUniswapAppDeepLink, {
@@ -140,7 +140,7 @@ describe('handleUniswapAppDeepLink', () => {
   describe('Top Tokens deep links', () => {
     it('should handle explore top tokens with chain', () => {
       const path = 'explore/tokens/unichain'
-      const url = `https://app.uniswap.org/${path}?metric=volume`
+      const url = `https://app.lux.network/${path}?metric=volume`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -162,7 +162,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle top tokens with chain', () => {
       const path = 'tokens/ethereum'
-      const url = `https://app.uniswap.org/${path}?metric=volume`
+      const url = `https://app.lux.network/${path}?metric=volume`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -184,7 +184,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle explore top tokens without chain', () => {
       const path = 'explore/tokens'
-      const url = `https://app.uniswap.org/${path}?metric=volume`
+      const url = `https://app.lux.network/${path}?metric=volume`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -205,7 +205,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle top tokens without chain', () => {
       const path = 'tokens'
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -229,7 +229,7 @@ describe('handleUniswapAppDeepLink', () => {
     it('should handle external address share', () => {
       const externalAddress = '0x1234567890abcdef1234567890abcdef12345679'
       const path = `portfolio/${externalAddress}`
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -257,7 +257,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle internal address share by switching to that account', () => {
       const path = `portfolio/${SAMPLE_CONTRACT_ADDRESS_2}`
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -280,7 +280,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should not handle active account address', () => {
       const path = `portfolio/${account.address}`
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -305,7 +305,7 @@ describe('handleUniswapAppDeepLink', () => {
     it('should handle portfolio share', () => {
       const externalAddress = '0x1234567890abcdef1234567890abcdef12345679'
       const path = `portfolio/${externalAddress}`
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -335,7 +335,7 @@ describe('handleUniswapAppDeepLink', () => {
   describe('Edge cases and invalid paths', () => {
     it('should not handle unrecognized paths', () => {
       const path = 'unknown/path'
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -349,7 +349,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should not handle address with invalid format', () => {
       const path = 'portfolio/invalid-address'
-      const url = `https://app.uniswap.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -364,7 +364,7 @@ describe('handleUniswapAppDeepLink', () => {
   describe('Buy deep links', () => {
     it('should handle buy link with value and currencyCode', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?value=3&currencyCode=ETH'
+      const url = 'https://app.lux.network/buy?value=3&currencyCode=ETH'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -392,7 +392,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with only value', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?value=100'
+      const url = 'https://app.lux.network/buy?value=100'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -420,7 +420,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with only currencyCode', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?currencyCode=USDC'
+      const url = 'https://app.lux.network/buy?currencyCode=USDC'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -448,7 +448,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with no parameters', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy'
+      const url = 'https://app.lux.network/buy'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -476,7 +476,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with isTokenInputMode=true', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?value=50&currencyCode=BTC&isTokenInputMode=true'
+      const url = 'https://app.lux.network/buy?value=50&currencyCode=BTC&isTokenInputMode=true'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -504,7 +504,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with isTokenInputMode=false', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?value=25&currencyCode=USDT&isTokenInputMode=false'
+      const url = 'https://app.lux.network/buy?value=25&currencyCode=USDT&isTokenInputMode=false'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -532,7 +532,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with only isTokenInputMode parameter', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?isTokenInputMode=true'
+      const url = 'https://app.lux.network/buy?isTokenInputMode=true'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -560,7 +560,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with single provider', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?providers=moonpay'
+      const url = 'https://app.lux.network/buy?providers=moonpay'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -588,7 +588,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with multiple providers', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?providers=moonpay,coinbasepay,stripe'
+      const url = 'https://app.lux.network/buy?providers=moonpay,coinbasepay,stripe'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -616,7 +616,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with providers in mixed case (converted to uppercase)', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?providers=MoonPay,coinbasepay,STRIPE'
+      const url = 'https://app.lux.network/buy?providers=MoonPay,coinbasepay,STRIPE'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -645,7 +645,7 @@ describe('handleUniswapAppDeepLink', () => {
     it('should handle buy link with providers and other parameters', () => {
       const path = 'buy'
       const url =
-        'https://app.uniswap.org/buy?value=100&currencyCode=ETH&isTokenInputMode=true&providers=moonpay,coinbasepay'
+        'https://app.lux.network/buy?value=100&currencyCode=ETH&isTokenInputMode=true&providers=moonpay,coinbasepay'
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,
@@ -673,7 +673,7 @@ describe('handleUniswapAppDeepLink', () => {
 
     it('should handle buy link with empty providers parameter', () => {
       const path = 'buy'
-      const url = 'https://app.uniswap.org/buy?providers='
+      const url = 'https://app.lux.network/buy?providers='
 
       return expectSaga(handleUniswapAppDeepLink, {
         path,

@@ -112,7 +112,7 @@ type TradingApiFixture = {
 
 export const test = base.extend<TradingApiFixture>({
   // Intercept tx polling requests to trading api and succeed
-  // https://trading-api-labs.interface.gateway.lux.org/v1/swaps
+  // https://trading-api-labs.api.lux.network/v1/swaps
   // {
   //     "requestId": "1b0bef68-a804-4532-b956-781bf9856229",
   //     "swaps": [

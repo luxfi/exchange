@@ -4,7 +4,7 @@
 
 To access the Uniswap Interface, use an IPFS gateway link from the
 [latest release](https://github.com/Uniswap/uniswap-interface/releases/latest),
-or visit [app.uniswap.org](https://app.uniswap.org).
+or visit [app.lux.network](https://app.lux.network).
 
 ## Tech Stack
 

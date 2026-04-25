@@ -36,14 +36,14 @@ export function* handleLuxAppDeepLink({
   url: string
   linkSource: LinkSource
 }): Generator {
-  // Handle Buy links (ex. https://app.lux.org/buy?value=3&currencyCode=ETH)
+  // Handle Buy links (ex. https://app.lux.network/buy?value=3&currencyCode=ETH)
   if (BUY_LINK_HASH_REGEX.test(path)) {
     const urlObj = new URL(url)
     yield* call(handleBuyLink, urlObj)
     return
   }
 
-  // Handle Swap links (ex. https://app.lux.org/swap?inputCurrency=ETH&outputCurrency=0x...)
+  // Handle Swap links (ex. https://app.lux.network/swap?inputCurrency=ETH&outputCurrency=0x...)
   if (SWAP_LINK_HASH_REGEX.test(path)) {
     const urlObj = new URL(url)
     yield* call(handleSwapLink, urlObj, parseSwapLinkWebFormatOrThrow)
@@ -57,8 +57,8 @@ export function* handleLuxAppDeepLink({
   }
 
   // Handle Top Tokens page with or without explore and chain path:
-  // ex. https://app.lux.org/tokens/unichain?metric=volume or https://app.lux.org/explore/tokens/base?metric=market_cap
-  // or https://app.lux.org/tokens?metric=volume or https://app.lux.org/explore/tokens?metric=market_cap
+  // ex. https://app.lux.network/tokens/unichain?metric=volume or https://app.lux.network/explore/tokens/base?metric=market_cap
+  // or https://app.lux.network/tokens?metric=volume or https://app.lux.network/explore/tokens?metric=market_cap
   if (TOP_TOKENS_LINK_CHAIN_REGEX.test(path) || TOP_TOKENS_LINK_REGEX.test(path)) {
     const [, network] = path.match(TOP_TOKENS_LINK_CHAIN_REGEX) || []
     const chainId = network ? fromLuxWebAppLink(network) : undefined
@@ -67,7 +67,7 @@ export function* handleLuxAppDeepLink({
     return
   }
 
-  // Handle Address share (ex. https://app.lux.org/address/0x...)
+  // Handle Address share (ex. https://app.lux.network/address/0x...)
   if (ADDRESS_SHARE_LINK_HASH_REGEX.test(path)) {
     yield* call(handleAddressShare, { path, url })
     return

@@ -9,8 +9,8 @@ labels: bug
 
 Which application are you experiencing issues with?
 
-- [ ] Web ([app.uniswap.org](https://app.uniswap.org))
-- [ ] Wallet Extension ([wallet.uniswap.org](https://wallet.uniswap.org))
+- [ ] Web ([app.lux.network](https://app.lux.network))
+- [ ] Wallet Extension ([wallet.lux.network](https://wallet.lux.network))
 - [ ] Wallet Mobile App
   - [ ] iOS
   - [ ] Android

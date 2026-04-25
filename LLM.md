@@ -197,7 +197,7 @@ Add to `~/.lux/chain-configs/C/config.json`:
 - Updated default chain from Ethereum Mainnet to Lux in `utils.ts:getDefaultChainId()`
 - Changed Apollo client Origin header to `https://lux.exchange`
 - Updated MICROSITE_LINK to `https://lux.exchange/wallet`
-- Updated env.ts domain checks from lux.org to lux.exchange
+- Updated env.ts domain checks from lux.network to lux.exchange
 - Updated setupTests.ts origin to lux.exchange
 
 **Support/Help URLs Updated:**
@@ -217,7 +217,7 @@ Add to `~/.lux/chain-configs/C/config.json`:
 - WalletConnect metadata → `https://lux.exchange`, `Lux Exchange`
 
 **Compliance email updated:**
-- `compliance@lux.org` → `compliance@lux.exchange` (en-US.json + all 14 translation files)
+- `compliance@lux.network` → `compliance@lux.exchange` (en-US.json + all 14 translation files)
 
 **Additional Package Updates (pkgs/lux):**
 - dynamicConfigOverrides.tsx → `lux.exchange` embedded wallet URL
@@ -226,9 +226,9 @@ Add to `~/.lux/chain-configs/C/config.json`:
 - conversionTracking/utils.ts → Updated subdomain comment
 
 **Remaining Backend API URLs (NOT changed - connect to real infrastructure):**
-- `api.lux.org` - Core API endpoint
-- `liquidity.backend-prod.api.lux.org` - Liquidity service
-- `entry-gateway.backend-*.api.lux.org` - Conversion tracking APIs
+- `api.lux.network` - Core API endpoint
+- `liquidity.backend-prod.api.lux.network` - Liquidity service
+- `entry-gateway.backend-*.api.lux.network` - Conversion tracking APIs
 These require Lux backend infrastructure to replace.
 
 ### @luxfi/config Exports Fixed

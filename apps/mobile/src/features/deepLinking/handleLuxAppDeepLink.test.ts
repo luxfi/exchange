@@ -38,7 +38,7 @@ describe('handleLxAppDeepLink', () => {
   describe('Token deep links', () => {
     it('should handle token share with contract address', () => {
       const path = `tokens/ethereum/${SAMPLE_CONTRACT_ADDRESS}`
-      const url = `https://app.lux.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -67,7 +67,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle token share with native currency', () => {
       const path = `tokens/ethereum/${BACKEND_NATIVE_CHAIN_ADDRESS_STRING}`
-      const url = `https://app.lux.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -96,7 +96,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle widget token link', () => {
       const path = `tokens/ethereum/${SAMPLE_CONTRACT_ADDRESS}`
-      const url = `https://app.lux.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -125,7 +125,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should throw error for token link with invalid network', () => {
       const path = `tokens/invalid/${SAMPLE_CONTRACT_ADDRESS}`
-      const url = `https://app.lux.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expect(
         expectSaga(handleLuxAppDeepLink, {
@@ -140,7 +140,7 @@ describe('handleLxAppDeepLink', () => {
   describe('Top Tokens deep links', () => {
     it('should handle explore top tokens with chain', () => {
       const path = 'explore/tokens/unichain'
-      const url = `https://app.lux.org/${path}?metric=volume`
+      const url = `https://app.lux.network/${path}?metric=volume`
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -162,7 +162,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle top tokens with chain', () => {
       const path = 'tokens/ethereum'
-      const url = `https://app.lux.org/${path}?metric=volume`
+      const url = `https://app.lux.network/${path}?metric=volume`
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -184,7 +184,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle explore top tokens without chain', () => {
       const path = 'explore/tokens'
-      const url = `https://app.lux.org/${path}?metric=volume`
+      const url = `https://app.lux.network/${path}?metric=volume`
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -205,7 +205,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle top tokens without chain', () => {
       const path = 'tokens'
-      const url = `https://app.lux.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -335,7 +335,7 @@ describe('handleLxAppDeepLink', () => {
   describe('Edge cases and invalid paths', () => {
     it('should not handle unrecognized paths', () => {
       const path = 'unknown/path'
-      const url = `https://app.lux.org/${path}`
+      const url = `https://app.lux.network/${path}`
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -364,7 +364,7 @@ describe('handleLxAppDeepLink', () => {
   describe('Buy deep links', () => {
     it('should handle buy link with value and currencyCode', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?value=3&currencyCode=ETH'
+      const url = 'https://app.lux.network/buy?value=3&currencyCode=ETH'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -392,7 +392,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with only value', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?value=100'
+      const url = 'https://app.lux.network/buy?value=100'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -420,7 +420,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with only currencyCode', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?currencyCode=USDC'
+      const url = 'https://app.lux.network/buy?currencyCode=USDC'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -448,7 +448,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with no parameters', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy'
+      const url = 'https://app.lux.network/buy'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -476,7 +476,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with isTokenInputMode=true', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?value=50&currencyCode=BTC&isTokenInputMode=true'
+      const url = 'https://app.lux.network/buy?value=50&currencyCode=BTC&isTokenInputMode=true'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -504,7 +504,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with isTokenInputMode=false', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?value=25&currencyCode=USDT&isTokenInputMode=false'
+      const url = 'https://app.lux.network/buy?value=25&currencyCode=USDT&isTokenInputMode=false'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -532,7 +532,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with only isTokenInputMode parameter', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?isTokenInputMode=true'
+      const url = 'https://app.lux.network/buy?isTokenInputMode=true'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -560,7 +560,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with single provider', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?providers=moonpay'
+      const url = 'https://app.lux.network/buy?providers=moonpay'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -588,7 +588,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with multiple providers', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?providers=moonpay,coinbasepay,stripe'
+      const url = 'https://app.lux.network/buy?providers=moonpay,coinbasepay,stripe'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -616,7 +616,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with providers in mixed case (converted to uppercase)', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?providers=MoonPay,coinbasepay,STRIPE'
+      const url = 'https://app.lux.network/buy?providers=MoonPay,coinbasepay,STRIPE'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -645,7 +645,7 @@ describe('handleLxAppDeepLink', () => {
     it('should handle buy link with providers and other parameters', () => {
       const path = 'buy'
       const url =
-        'https://app.lux.org/buy?value=100&currencyCode=ETH&isTokenInputMode=true&providers=moonpay,coinbasepay'
+        'https://app.lux.network/buy?value=100&currencyCode=ETH&isTokenInputMode=true&providers=moonpay,coinbasepay'
 
       return expectSaga(handleLuxAppDeepLink, {
         path,
@@ -673,7 +673,7 @@ describe('handleLxAppDeepLink', () => {
 
     it('should handle buy link with empty providers parameter', () => {
       const path = 'buy'
-      const url = 'https://app.lux.org/buy?providers='
+      const url = 'https://app.lux.network/buy?providers='
 
       return expectSaga(handleLuxAppDeepLink, {
         path,

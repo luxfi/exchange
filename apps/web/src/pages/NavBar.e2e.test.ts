@@ -7,25 +7,25 @@ const companyMenu = [
   {
     label: 'Products',
     items: [
-      { label: 'Wallet', href: 'https://wallet.lux.org/' },
-      { label: 'DEX', href: 'https://x.lux.org/' },
-      { label: 'API', href: 'https://hub.lux.org/' },
+      { label: 'Wallet', href: 'https://wallet.lux.network/' },
+      { label: 'DEX', href: 'https://x.lux.network/' },
+      { label: 'API', href: 'https://hub.lux.network/' },
       { label: 'Unichain', href: 'https://www.unichain.org/' },
     ],
   },
   {
     label: 'Protocol',
     items: [
-      { label: 'Governance', href: 'https://lux.org/governance' },
-      { label: 'Developers', href: 'https://lux.org/developers' },
+      { label: 'Governance', href: 'https://lux.network/governance' },
+      { label: 'Developers', href: 'https://lux.network/developers' },
       { label: 'Vote', href: 'https://vote.luxfoundation.org' },
     ],
   },
   {
     label: 'Company',
     items: [
-      { label: 'Careers', href: 'https://careers.lux.org/' },
-      { label: 'Blog', href: 'https://blog.lux.org/' },
+      { label: 'Careers', href: 'https://careers.lux.network/' },
+      { label: 'Blog', href: 'https://blog.lux.network/' },
     ],
   },
 ]
@@ -109,7 +109,7 @@ test.describe(
         await expect(page.getByTestId(TestID.NavCompanyDropdown).getByText('Terms of Service')).toBeVisible()
 
         await expect(
-          page.getByTestId(TestID.NavCompanyDropdown).locator('a[href="https://lux.org/terms-of-service"]'),
+          page.getByTestId(TestID.NavCompanyDropdown).locator('a[href="https://lux.network/terms-of-service"]'),
         ).toBeVisible()
       })
 
@@ -168,7 +168,7 @@ test.describe(
         await expect(drawer.getByText('Privacy Policy')).toBeVisible()
         await expect(drawer.getByText('Terms of Service')).toBeVisible()
 
-        await expect(drawer.locator('a[href="https://lux.org/terms-of-service"]')).toBeVisible()
+        await expect(drawer.locator('a[href="https://lux.network/terms-of-service"]')).toBeVisible()
       })
 
       test('displays mobile-specific UI elements', async ({ page }) => {
@@ -181,11 +181,11 @@ test.describe(
         await expect(page.getByTestId(TestID.HelpModal).getByText('Contact us')).toBeVisible()
 
         await expect(
-          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.lux.org/hc/en-us"]'),
+          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.lux.network/hc/en-us"]'),
         ).toBeVisible()
-        await expect(page.getByTestId(TestID.HelpModal).locator('a[href="https://docs.lux.org/"]')).toBeVisible()
+        await expect(page.getByTestId(TestID.HelpModal).locator('a[href="https://docs.lux.network/"]')).toBeVisible()
         await expect(
-          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.lux.org/hc/en-us/requests/new"]'),
+          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.lux.network/hc/en-us/requests/new"]'),
         ).toBeVisible()
       })
 

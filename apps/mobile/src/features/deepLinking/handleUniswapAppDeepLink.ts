@@ -36,29 +36,29 @@ export function* handleUniswapAppDeepLink({
   url: string
   linkSource: LinkSource
 }): Generator {
-  // Handle Buy links (ex. https://app.uniswap.org/buy?value=3&currencyCode=ETH)
+  // Handle Buy links (ex. https://app.lux.network/buy?value=3&currencyCode=ETH)
   if (BUY_LINK_HASH_REGEX.test(path)) {
     const urlObj = new URL(url)
     yield* call(handleBuyLink, urlObj)
     return
   }
 
-  // Handle Swap links (ex. https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0x...)
+  // Handle Swap links (ex. https://app.lux.network/swap?inputCurrency=ETH&outputCurrency=0x...)
   if (SWAP_LINK_HASH_REGEX.test(path)) {
     const urlObj = new URL(url)
     yield* call(handleSwapLink, urlObj, parseSwapLinkWebFormatOrThrow)
     return
   }
 
-  // Handle Token share (ex. https://app.uniswap.org/tokens/ethereum/0x... or https://app.uniswap.org/explore/tokens/arbitrum/0x...)
+  // Handle Token share (ex. https://app.lux.network/tokens/ethereum/0x... or https://app.lux.network/explore/tokens/arbitrum/0x...)
   if (TOKEN_SHARE_LINK_HASH_REGEX.test(path)) {
     yield* call(handleTokenShare, { path, url, linkSource })
     return
   }
 
   // Handle Top Tokens page with or without explore and chain path:
-  // ex. https://app.uniswap.org/tokens/unichain?metric=volume or https://app.uniswap.org/explore/tokens/base?metric=market_cap
-  // or https://app.uniswap.org/tokens?metric=volume or https://app.uniswap.org/explore/tokens?metric=market_cap
+  // ex. https://app.lux.network/tokens/unichain?metric=volume or https://app.lux.network/explore/tokens/base?metric=market_cap
+  // or https://app.lux.network/tokens?metric=volume or https://app.lux.network/explore/tokens?metric=market_cap
   if (TOP_TOKENS_LINK_CHAIN_REGEX.test(path) || TOP_TOKENS_LINK_REGEX.test(path)) {
     const [, network] = path.match(TOP_TOKENS_LINK_CHAIN_REGEX) || []
     const chainId = network ? fromUniswapWebAppLink(network) : undefined
@@ -67,7 +67,7 @@ export function* handleUniswapAppDeepLink({
     return
   }
 
-  // Handle Address share (ex. https://app.uniswap.org/address/0x...)
+  // Handle Address share (ex. https://app.lux.network/address/0x...)
   if (ADDRESS_SHARE_LINK_HASH_REGEX.test(path)) {
     yield* call(handleAddressShare, { path, url })
     return
