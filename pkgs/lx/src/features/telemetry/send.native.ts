@@ -1,9 +1,8 @@
 import appsFlyer from 'react-native-appsflyer'
+import { getInsights } from '@l.x/gating'
 import { AppsFlyerEventProperties, UniverseEventProperties } from '@l.x/lx/src/features/telemetry/types'
 import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
 import { logger } from '@l.x/utils/src/logger/logger'
-// biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { analytics } from '@l.x/utils/src/telemetry/analytics/analytics'
 
 export function sendAnalyticsEvent<EventName extends keyof UniverseEventProperties>(
   ...args: undefined extends UniverseEventProperties[EventName]
@@ -11,7 +10,11 @@ export function sendAnalyticsEvent<EventName extends keyof UniverseEventProperti
     : [EventName, UniverseEventProperties[EventName]]
 ): void {
   const [eventName, eventProperties] = args
-  analytics.sendEvent(eventName, eventProperties as Record<string, unknown>)
+  try {
+    getInsights().capture(eventName as string, eventProperties as Record<string, unknown> | undefined)
+  } catch {
+    /* INSIGHTS_API_KEY not configured — events disabled */
+  }
 }
 
 export async function sendAppsFlyerEvent<EventName extends keyof AppsFlyerEventProperties>(
@@ -21,7 +24,7 @@ export async function sendAppsFlyerEvent<EventName extends keyof AppsFlyerEventP
 ): Promise<void> {
   const [eventName, eventProperties] = args
   if (__DEV__ || isDevEnv() || isBetaEnv()) {
-    logger.debug('telemetry/send.native.ts', 'sendWalletAppsFlyerEvent', JSON.stringify({ eventName, eventProperties }))
+    logger.debug('telemetry/send.native.ts', 'sendAppsFlyerEvent', JSON.stringify({ eventName, eventProperties }))
   } else {
     await appsFlyer.logEvent(eventName, eventProperties ?? {})
   }
