@@ -168,14 +168,52 @@ export const ZOO_DEVNET_CONTRACTS = ZOO_MAINNET_CONTRACTS
 
 /**
  * Contract addresses for Hanzo Mainnet (36963).
- * TODO: Full AMM + bridge deploy pending — same pattern as Zoo.
+ * Deployed 2026-04-24 via DeployMultiNetwork.s.sol (nonce-based CREATE).
+ * Deployer: 0x9011E888251AB053B7bD1cdB598Db4f9DEd94714.
  */
 export const HANZO_MAINNET_CONTRACTS = {
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
-  // Bridge tokens — shared CREATE2 deployments, identical to Lux/Zoo
-  LETH: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba' as Address,
-  LBTC: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e' as Address,
-  LUSD: '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2' as Address,
+
+  // Core — native AI coin
+  WLUX: '0x97c265001eb088e1de2f77a13a62b708014c9e68' as Address, // Wrapped AI
+  WAI:  '0x97c265001eb088e1de2f77a13a62b708014c9e68' as Address, // alias
+
+  // Bridged collateral (Hanzo's own — NOT the Lux/Zoo CREATE2-shared set)
+  LETH: '0xc5372b943bec0dad2cb4f51ae709824f5a708dd2' as Address,
+  LBTC: '0x316520ca05eac5d2418f562a116091f1b22bf6e0' as Address,
+  LUSDC:'0x4a7971c204e60373001670fbe7f8ff668d0fd9a7' as Address,
+  LUSD: '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2' as Address, // canonical shared
+
+  // Staking
+  STAKED_LUX: '0x4ec24da7d598cac1540f2e8078d05869e36a4ef1' as Address,
+
+  // AMM V2
+  V2_FACTORY: '0x99d7376365d48d8f917c410bb7e999db6283d3dd' as Address,
+  V2_ROUTER:  '0x0b48fdb9e1a19b351c7a0a1c519abececbd9373a' as Address,
+
+  // Governance
+  VOTES_TOKEN:      '0x7ee1c236aabcecd5cbfe69e060494928ce42aa17' as Address,
+  TIMELOCK:         '0xa834dcd9a7d34f32cde7e78db91c26915ef58217' as Address,
+  VLUX:             '0x1f6e1b50aab840f59008f1d9bffe7a12bd3f8da7' as Address,
+  GAUGE_CONTROLLER: '0x0b5c04afbec35996ed8ba81135c5c7e52b4defb4' as Address,
+  KARMA:            '0x183ff5359234fc0a2fc8453f05236fb020c2aca9' as Address,
+  DLUX:             '0x4be0e01c4e36e6b002eba5f62488944e362b6811' as Address,
+
+  // Identity
+  DID_REGISTRY: '0x3099908029fbf48885127d19f742a38ada3ee91d' as Address,
+
+  // Treasury
+  FEE_GOV:         '0x6ebe6ac014236e78f05fd1e9b820bf1817796f4b' as Address,
+  VALIDATOR_VAULT: '0xd297db66e459ef6bda915604bd96be56a5275f82' as Address,
+
+  // LSSVM (NFT AMM)
+  LINEAR_CURVE:      '0x5bf9619a241360652196200b4a39749b97cd2009' as Address,
+  EXPONENTIAL_CURVE: '0x2ce7d2cfe0e2592b09b5b2cec64e28de393ef888' as Address,
+  LSSVM_FACTORY:     '0x7a082fa9e5878b2aa49c525ea4182bb9b6cdace8' as Address,
+
+  // DeFi
+  MARKETS: '0x176615d944a0becf5f9ad4658b185a3aecc5d6e3' as Address, // Morpho-style lending
+  PERP:    '0xc8e5c5cba86df6307f1c167bd3958979ad178a7b' as Address, // perpetual futures
 } as const
 
 export const HANZO_TESTNET_CONTRACTS = HANZO_MAINNET_CONTRACTS
@@ -183,13 +221,55 @@ export const HANZO_DEVNET_CONTRACTS = HANZO_MAINNET_CONTRACTS
 
 /**
  * Contract addresses for Pars Mainnet (494949).
- * TODO: Full AMM + bridge deploy pending — same pattern as Zoo.
+ * Deployed 2026-04-24 via DeployMultiNetwork.s.sol (nonce-based CREATE).
+ * Deployer: 0x9011E888251AB053B7bD1cdB598Db4f9DEd94714.
+ * Deployer balance was 999 PARS (stale genesis); LiquidLUX setup tx skipped
+ * due to insufficient funds — pending chain relaunch with 7B alloc.
  */
 export const PARS_MAINNET_CONTRACTS = {
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
-  LETH: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba' as Address,
-  LBTC: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e' as Address,
-  LUSD: '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2' as Address,
+
+  // Core
+  WLUX: '0x548f54dfb32ea6ce4fa3515236696cf3d1b7d26a' as Address,
+
+  // Bridged collateral
+  LETH: '0xe0f7e9a0cb1688cca453995fd6e19ae4fbd9cbfd' as Address,
+  LBTC: '0x7d7cc8d05bb0f38d80b5ce44b4b069a6fb769468' as Address,
+  LUSDC:'0xc5e4a6f54be469551a342872c1ab83ab46f61b22' as Address,
+
+  // Staking
+  STAKED_LUX: '0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326' as Address,
+
+  // AMM V2
+  V2_FACTORY: '0x84cf0a13db1be8e1f0676405cfcbc8b09692fd1c' as Address,
+  V2_ROUTER:  '0x2382f7a49fa48e1f91bec466c32e1d7f13ec8206' as Address,
+
+  // Governance
+  VOTES_TOKEN:      '0xa4a1a9be63d2dcdf8b3d61fd2bd4b1cfc5e25dcd' as Address, // VotesToken
+  TIMELOCK:         '0x1f4989a809774cea35100529690aacaf289f1dc3' as Address,
+  VLUX:             '0x51b74dc77fcca83ecc2c5c70782c6eac27ea6197' as Address,
+  GAUGE_CONTROLLER: '0x09ab488a7434921aabc2fff20af955a62f524862' as Address,
+  KARMA:            '0x518aba97ec84851e1c68d571e2da3bd2fc0507a0' as Address,
+  DLUX:             '0x18f1df4f036ad993093f8ead20dd62712dac2996' as Address,
+
+  // Identity
+  DID_REGISTRY: '0x6042014293591de798da8f40d50708d4497138d5' as Address,
+
+  // Treasury
+  FEE_GOV:         '0x5f6db1d3b6f41ffcb8987dbc392781a4c0020b30' as Address,
+  VALIDATOR_VAULT: '0x50de09afe31af68acaf7d6dd7f6fe40ae190d564' as Address,
+
+  // LSSVM (NFT AMM)
+  LINEAR_CURVE:      '0xd13ab81f02449b1630ecd940be5fb9cd367225b4' as Address,
+  EXPONENTIAL_CURVE: '0xbc92f4e290f8ad03f5348f81a27fb2af3b37ec47' as Address,
+  LSSVM_FACTORY:     '0xb43db9af0c5cacb99f783e30398ee0aee6744212' as Address,
+
+  // DeFi
+  MARKETS: '0x3589fd09e7dff3f7653fc4965b7ce1b8d8fda9bd' as Address,
+  PERP:    '0xd984fed38c98c1eab66e577fd1ddc8dcd88ea799' as Address,
+
+  // Pre-existing (likely from a prior partial deploy attempt)
+  V3_SWAP_ROUTER_02: '0x939bC0Bca6F9B9c52E6e3AD8A3C590b5d9B9D10E' as Address,
 } as const
 
 export const PARS_TESTNET_CONTRACTS = PARS_MAINNET_CONTRACTS
