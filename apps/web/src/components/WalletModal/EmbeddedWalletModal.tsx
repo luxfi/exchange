@@ -1,4 +1,4 @@
-import { useLoginWithOAuth, usePrivy } from '@privy-io/react-auth'
+import { useLoginWithOAuth, usePrivy } from '~/lib/privyShim'
 import { atom, useAtom } from 'jotai'
 import { useAtomValue } from 'jotai/utils'
 import { useState } from 'react'

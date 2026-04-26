@@ -1,4 +1,4 @@
-import { useAuthorizationSignature, useLoginWithEmail, usePrivy } from '@privy-io/react-auth'
+import { useAuthorizationSignature, useLoginWithEmail, usePrivy } from '~/lib/privyShim'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { connect } from '@wagmi/core'
 import { useEffect, useState } from 'react'

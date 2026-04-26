@@ -12,11 +12,13 @@ import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import type { AuthenticatorAttachment } from '@l.x/lx/src/features/passkey/embeddedWallet'
 import {
-  getPrivyEnums,
   listAuthenticators,
   registerNewAuthenticator,
   startAddAuthenticatorSession,
 } from '@l.x/lx/src/features/passkey/embeddedWallet'
+
+// Local replacement for the Privy AuthenticatorAttachment enum.
+const AuthenticatorAttachmentEnum = { PLATFORM: 'platform', CROSS_PLATFORM: 'cross-platform' } as const
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
@@ -131,10 +133,7 @@ export function AddPasskeyModal() {
             </Flex>
             <Trace logPress element={ElementName.AddPasskeyPlatform}>
               <TouchableArea
-                onPress={async () => {
-                  const { AuthenticatorAttachment } = await getPrivyEnums()
-                  registerAuthenticator(AuthenticatorAttachment.PLATFORM)
-                }}
+                onPress={() => registerAuthenticator(AuthenticatorAttachmentEnum.PLATFORM as AuthenticatorAttachment)}
                 width="100%"
                 disabled={unitagLoading}
               >
@@ -158,10 +157,9 @@ export function AddPasskeyModal() {
             </Trace>
             <Trace logPress element={ElementName.AddPasskeyCrossPlatform}>
               <TouchableArea
-                onPress={async () => {
-                  const { AuthenticatorAttachment } = await getPrivyEnums()
-                  registerAuthenticator(AuthenticatorAttachment.CROSS_PLATFORM)
-                }}
+                onPress={() =>
+                  registerAuthenticator(AuthenticatorAttachmentEnum.CROSS_PLATFORM as AuthenticatorAttachment)
+                }
                 width="100%"
                 disabled={unitagLoading}
               >

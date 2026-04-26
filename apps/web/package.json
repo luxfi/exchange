@@ -153,7 +153,6 @@
     "@hono/node-server": "1.19.11",
     "@juggle/resize-observer": "3.4.0",
     "@popperjs/core": "2.11.8",
-    "@privy-io/react-auth": "3.17.0",
     "@reach/dialog": "0.10.5",
     "@reach/portal": "0.10.5",
     "@reduxjs/toolkit": "1.9.3",
