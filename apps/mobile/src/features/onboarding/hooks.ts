@@ -1,4 +1,4 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxamm/analytics-events'
 import { OneSignal } from 'react-native-onesignal'
 import { useDispatch } from 'react-redux'
 import { OnboardingStackBaseParams, useOnboardingStackNavigation } from 'src/app/navigation/types'

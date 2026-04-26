@@ -1,4 +1,4 @@
-import { Currency, Price } from '@uniswap/sdk-core'
+import { Currency, Price } from '@luxamm/sdk-core'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
 import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'

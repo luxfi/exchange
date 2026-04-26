@@ -1,5 +1,5 @@
 import { queryOptions } from '@tanstack/react-query'
-import { PlatformType } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { PlatformType } from '@luxamm/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import {
   createFetchClient,
   createNotificationsApiClient,

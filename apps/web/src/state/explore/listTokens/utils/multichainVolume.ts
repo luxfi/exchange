@@ -1,5 +1,5 @@
 import type { PlainMessage } from '@bufbuild/protobuf'
-import { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { MultichainToken } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TimePeriod } from '~/appGraphql/data/util'
 

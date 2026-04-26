@@ -1,4 +1,4 @@
-import { Percent } from '@uniswap/sdk-core'
+import { Percent } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Flex, Text } from '@l.x/ui/src'

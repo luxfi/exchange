@@ -4,7 +4,7 @@ import {
   TokenRankingsResponse,
   TokenRankingsStat,
   TokenStats,
-} from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+} from '@luxamm/client-explore/dist/uniswap/explore/v1/service_pb'
 import { ALL_NETWORKS_ARG } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'

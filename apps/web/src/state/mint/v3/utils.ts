@@ -1,5 +1,5 @@
-import { Currency, Price, Token } from '@uniswap/sdk-core'
-import { encodeSqrtRatioX96, FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath } from '@uniswap/v3-sdk'
+import { Currency, Price, Token } from '@luxamm/sdk-core'
+import { encodeSqrtRatioX96, FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath } from '@luxamm/v3-sdk'
 import JSBI from 'jsbi'
 import { convertScientificNotationToNumber } from '@l.x/utils/src/format/convertScientificNotation'
 

@@ -1,4 +1,4 @@
-import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import type { MultichainToken } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Popover, Text, useIsTouchDevice, useShadowPropsMedium } from '@l.x/ui/src'

@@ -1,5 +1,5 @@
 import ReactNativeIdfaAaid from '@sparkfabrik/react-native-idfa-aaid'
-import { ANONYMOUS_DEVICE_ID, OriginApplication } from '@uniswap/analytics'
+import { ANONYMOUS_DEVICE_ID, OriginApplication } from '@luxamm/analytics'
 import DeviceInfo from 'react-native-device-info'
 import { call, delay, fork, select } from 'typed-redux-saga'
 import { uniswapUrls } from '@l.x/lx/src/constants/urls'

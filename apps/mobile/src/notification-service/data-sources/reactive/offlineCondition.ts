@@ -4,7 +4,7 @@ import {
   ContentStyle,
   Notification,
   OnClick,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+} from '@luxamm/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { type InAppNotification, OnClickAction } from '@l.x/api'
 import { type ReactiveCondition } from '@l.x/notifications'
 import { type MobileState } from 'src/app/mobileReducer'

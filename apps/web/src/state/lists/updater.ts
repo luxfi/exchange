@@ -1,4 +1,4 @@
-import { getVersionUpgrade, VersionUpgrade } from '@uniswap/token-lists'
+import { getVersionUpgrade, VersionUpgrade } from '@luxamm/token-lists'
 import { useWeb3React } from '@web3-react/core'
 import ms from 'ms'
 import { useCallback, useEffect } from 'react'

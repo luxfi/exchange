@@ -1,4 +1,4 @@
-import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import type { MultichainToken } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 
 /**
  * Builds a rank map from multichain tokens (multichainId -> 1-based rank).
