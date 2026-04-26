@@ -28,7 +28,7 @@ export const SelectTokenButton = memo(function _SelectTokenButton({
   const validTokenColor = validColor(tokenColor)
   const hoverStyle: { backgroundColor: ComponentProps<typeof Flex>['backgroundColor'] } = useMemo(
     () => ({
-      backgroundColor: selectedCurrencyInfo ? '$surface1Hovered' : (validTokenColor ?? '$accent1Hovered'),
+      backgroundColor: selectedCurrencyInfo ? '$surface1Hovered' : (validTokenColor ?? '$surface2Hovered'),
       filter: validTokenColor ? getHoverCssFilter({ isDarkMode }) : undefined,
     }),
     [selectedCurrencyInfo, validTokenColor, isDarkMode],
@@ -47,12 +47,19 @@ export const SelectTokenButton = memo(function _SelectTokenButton({
     )
   }
 
-  const textColor = selectedCurrencyInfo ? '$neutral1' : tokenColor ? getContrastPassingTextColor(tokenColor) : '$white'
+  // When no token is selected, render as a neutral surface pill so the label is
+  // always readable regardless of the brand's accent1 (which can be white,
+  // yellow, or any low-contrast color in white-label deployments).
+  const textColor = selectedCurrencyInfo
+    ? '$neutral1'
+    : tokenColor
+      ? getContrastPassingTextColor(tokenColor)
+      : '$neutral1'
   const chevronColor = selectedCurrencyInfo ? '$neutral2' : textColor
 
   return (
     <TouchableArea
-      backgroundColor={selectedCurrencyInfo ? '$surface1' : (validTokenColor ?? '$accent1')}
+      backgroundColor={selectedCurrencyInfo ? '$surface1' : (validTokenColor ?? '$surface2')}
       borderRadius="$roundedFull"
       testID={testID}
       borderColor="$surface3Solid"

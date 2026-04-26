@@ -1,4 +1,5 @@
 export * from './borderRadii'
+export * from './brandThemeOverlay'
 export * from './breakpoints'
 export * from './color'
 export * from './fonts'
