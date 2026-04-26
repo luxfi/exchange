@@ -1,4 +1,4 @@
-import { usePrivy } from '@privy-io/react-auth'
+import { usePrivy } from '~/lib/privyShim'
 import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 import { disconnectWallet } from '@l.x/lx/src/features/passkey/embeddedWallet'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'

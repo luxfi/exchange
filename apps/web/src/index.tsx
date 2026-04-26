@@ -4,7 +4,6 @@ import '~/sideEffects'
 import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
 import { datadogRum } from '@datadog/browser-rum'
-import { PrivyProvider } from '@privy-io/react-auth'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
 import type { StatsigUser } from '@l.x/gating'
 import {
@@ -28,7 +27,7 @@ import {
   createTurnstileSolver,
 } from '@l.x/sessions'
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
-import type { PropsWithChildren, ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
 import { StrictMode, useEffect, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Helmet, HelmetProvider } from 'react-helmet-async/lib/index'
@@ -231,19 +230,6 @@ function StatsigProvider({ children }: PropsWithChildren) {
   )
 }
 
-const PRIVY_APP_ID = process.env.PRIVY_APP_ID
-
-function MaybePrivyProvider({ children }: { children: ReactNode }) {
-  if (!PRIVY_APP_ID) {
-    return <>{children}</>
-  }
-  return (
-    <PrivyProvider appId={PRIVY_APP_ID} config={{ loginMethods: ['email', 'google', 'apple'] }}>
-      {children}
-    </PrivyProvider>
-  )
-}
-
 const container = document.getElementById('root') as HTMLElement
 
 const Router = isBrowserRouterEnabled() ? BrowserRouter : HashRouter
@@ -257,7 +243,7 @@ const RootApp = (): JSX.Element => {
             <QueryClientPersistProvider>
               <NuqsAdapter>
                 <Router>
-                  <MaybePrivyProvider>
+                  <>
                     <I18nextProvider i18n={i18n}>
                       <LanguageProvider>
                         <Web3Provider>
@@ -295,7 +281,7 @@ const RootApp = (): JSX.Element => {
                         </Web3Provider>
                       </LanguageProvider>
                     </I18nextProvider>
-                  </MaybePrivyProvider>
+                  </>
                 </Router>
               </NuqsAdapter>
             </QueryClientPersistProvider>
@@ -311,8 +297,13 @@ const RootApp = (): JSX.Element => {
 // loadRuntimeConfig fetches /config.json (per-deployment, templated by
 // hanzoai/spa from SPA_* env vars at pod startup).
 import { brand, loadBrandConfig, loadRuntimeConfig } from '@l.x/config'
+import { brandThemeOverlay } from '@l.x/ui/src/theme'
 
 Promise.all([loadBrandConfig(), loadRuntimeConfig()]).then(() => {
+  // Apply brand color tokens (accent1, surface1, neutral1, etc.) over the
+  // default Tamagui themes so any code that reads themes via JS sees the
+  // brand-overridden values. CSS variables are already set by loadBrandConfig.
+  brandThemeOverlay(brand.theme)
   // Inject brand values as i18n interpolation defaults so {{brandName}} etc. work in translations
   const brandVars = {
     brandName: brand.name,

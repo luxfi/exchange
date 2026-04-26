@@ -2,7 +2,6 @@ import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { Key } from '@l.x/ui/src/components/icons/Key'
-import { PrivyLogo } from '@l.x/ui/src/components/logos/PrivyLogo'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
@@ -37,9 +36,6 @@ export function KeyManagementModal({
             <Text variant="body3" color="$neutral3">
               {t('onboarding.keyManagement.securedBy')}
             </Text>
-            <Flex height={14} overflow="hidden" justifyContent="center" mt="$spacing4">
-              <PrivyLogo size={63} color="$neutral1" />
-            </Flex>
           </Flex>
         }
       >

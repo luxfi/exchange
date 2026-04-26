@@ -1,5 +1,5 @@
 import { Code, ConnectError } from '@connectrpc/connect'
-import { useLoginWithEmail, useLoginWithOAuth, usePrivy } from '@privy-io/react-auth'
+import { useLoginWithEmail, useLoginWithOAuth, usePrivy } from '~/lib/privyShim'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
