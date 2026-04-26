@@ -110,6 +110,32 @@ export function fromGraphQLChain(chain: GraphQLApi.Chain | string | undefined): 
       return UniverseChainId.Zora
     case GraphQLApi.Chain.Tempo:
       return UniverseChainId.Tempo
+    case GraphQLApi.Chain.Lux:
+      return UniverseChainId.Lux
+    case GraphQLApi.Chain.LuxTestnet:
+      return UniverseChainId.LuxTestnet
+    case GraphQLApi.Chain.LuxDev:
+      return UniverseChainId.LuxDev
+    case GraphQLApi.Chain.Zoo:
+      return UniverseChainId.Zoo
+    case GraphQLApi.Chain.ZooTestnet:
+      return UniverseChainId.ZooTestnet
+    case GraphQLApi.Chain.ZooDevnet:
+      return UniverseChainId.ZooDev
+    case GraphQLApi.Chain.Hanzo:
+      return UniverseChainId.Hanzo
+    case GraphQLApi.Chain.HanzoTestnet:
+      return UniverseChainId.HanzoTestnet
+    case GraphQLApi.Chain.Spc:
+      return UniverseChainId.SPC
+    case GraphQLApi.Chain.Pars:
+      return UniverseChainId.Pars
+    case GraphQLApi.Chain.Liquidity:
+      return UniverseChainId.Liquidity
+    case GraphQLApi.Chain.LiquidityTestnet:
+      return UniverseChainId.LiquidityTestnet
+    case GraphQLApi.Chain.LiquidityDevnet:
+      return UniverseChainId.LiquidityDev
   }
 
   return null
@@ -161,6 +187,39 @@ export function fromLxWebAppLink(network: string | null): UniverseChainId {
       return UniverseChainId.Zora
     case GraphQLApi.Chain.Tempo.toLowerCase():
       return UniverseChainId.Tempo
+    case GraphQLApi.Chain.Lux.toLowerCase():
+      return UniverseChainId.Lux
+    case GraphQLApi.Chain.LuxTestnet.toLowerCase():
+    case 'lux_testnet':
+      return UniverseChainId.LuxTestnet
+    case GraphQLApi.Chain.LuxDev.toLowerCase():
+    case 'lux_dev':
+      return UniverseChainId.LuxDev
+    case GraphQLApi.Chain.Zoo.toLowerCase():
+      return UniverseChainId.Zoo
+    case GraphQLApi.Chain.ZooTestnet.toLowerCase():
+    case 'zoo_testnet':
+      return UniverseChainId.ZooTestnet
+    case GraphQLApi.Chain.ZooDevnet.toLowerCase():
+    case 'zoo_dev':
+      return UniverseChainId.ZooDev
+    case GraphQLApi.Chain.Hanzo.toLowerCase():
+      return UniverseChainId.Hanzo
+    case GraphQLApi.Chain.HanzoTestnet.toLowerCase():
+    case 'hanzo_testnet':
+      return UniverseChainId.HanzoTestnet
+    case GraphQLApi.Chain.Spc.toLowerCase():
+      return UniverseChainId.SPC
+    case GraphQLApi.Chain.Pars.toLowerCase():
+      return UniverseChainId.Pars
+    case GraphQLApi.Chain.Liquidity.toLowerCase():
+      return UniverseChainId.Liquidity
+    case GraphQLApi.Chain.LiquidityTestnet.toLowerCase():
+    case 'liquidity_testnet':
+      return UniverseChainId.LiquidityTestnet
+    case GraphQLApi.Chain.LiquidityDevnet.toLowerCase():
+    case 'liquidity_dev':
+      return UniverseChainId.LiquidityDev
     default:
       throw new Error(`Network "${network}" can not be mapped`)
   }
@@ -206,6 +265,32 @@ export function toLuxWebAppLink(chainId: UniverseChainId): string | null {
       return GraphQLApi.Chain.Zora.toLowerCase()
     case UniverseChainId.Tempo:
       return GraphQLApi.Chain.Tempo.toLowerCase()
+    case UniverseChainId.Lux:
+      return GraphQLApi.Chain.Lux.toLowerCase()
+    case UniverseChainId.LuxTestnet:
+      return 'lux_testnet'
+    case UniverseChainId.LuxDev:
+      return 'lux_dev'
+    case UniverseChainId.Zoo:
+      return GraphQLApi.Chain.Zoo.toLowerCase()
+    case UniverseChainId.ZooTestnet:
+      return 'zoo_testnet'
+    case UniverseChainId.ZooDev:
+      return 'zoo_dev'
+    case UniverseChainId.Hanzo:
+      return GraphQLApi.Chain.Hanzo.toLowerCase()
+    case UniverseChainId.HanzoTestnet:
+      return 'hanzo_testnet'
+    case UniverseChainId.SPC:
+      return GraphQLApi.Chain.Spc.toLowerCase()
+    case UniverseChainId.Pars:
+      return GraphQLApi.Chain.Pars.toLowerCase()
+    case UniverseChainId.Liquidity:
+      return GraphQLApi.Chain.Liquidity.toLowerCase()
+    case UniverseChainId.LiquidityTestnet:
+      return 'liquidity_testnet'
+    case UniverseChainId.LiquidityDev:
+      return 'liquidity_dev'
     default:
       throw new Error(`ChainID "${chainId}" can not be mapped`)
   }
