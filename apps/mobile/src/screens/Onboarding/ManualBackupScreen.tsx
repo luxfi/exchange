@@ -1,6 +1,6 @@
 import { useFocusEffect } from '@react-navigation/core'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxamm/analytics-events'
 import { addScreenshotListener } from 'expo-screen-capture'
 import React, { useCallback, useEffect, useReducer, useState } from 'react'
 import { useTranslation } from 'react-i18next'

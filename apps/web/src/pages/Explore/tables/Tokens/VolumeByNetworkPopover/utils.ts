@@ -1,4 +1,4 @@
-import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import type { MultichainToken } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import type { TFunction } from 'i18next'
 import { uniswapUrls } from '@l.x/lx/src/constants/urls'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'

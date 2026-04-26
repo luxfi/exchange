@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { ReactNavigationPerformanceView } from '@shopify/react-native-performance-navigation'
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxamm/analytics-events'
 import { DynamicConfigs, OnDeviceRecoveryConfigKey, useDynamicConfigValue } from '@l.x/gating'
 import dayjs from 'dayjs'
 import React, { useCallback, useEffect, useState } from 'react'
