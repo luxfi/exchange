@@ -183,7 +183,7 @@
     "@luxamm/router-sdk": "2.7.5",
     "@luxamm/sdk-core": "7.12.4",
     "@luxamm/token-lists": "1.0.3",
-    "@luxdex/sdk": "github:lux-dex/sdk#23123c83dbf8e364a2ea48ca3ddb9843926b5692",
+    "@luxdex/sdk": "^1.0.0",
     "@luxamm/universal-router-sdk": "4.33.5",
     "@luxamm/v2-sdk": "4.19.5",
     "@luxamm/v3-core": "1.0.104",
