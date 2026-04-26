@@ -1,5 +1,5 @@
 {
-  "name": "vitest-presets",
+  "name": "@l.x/vitest-preset",
   "version": "1.0.0",
   "description": "Shared Vitest preset for Lux Exchange apps and packages.",
   "license": "GPL-3.0-or-later",

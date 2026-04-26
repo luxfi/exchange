@@ -1,5 +1,5 @@
 {
-  "name": "jest-presets",
+  "name": "@l.x/jest-preset",
   "version": "1.0.0",
   "description": "Shared Jest preset for Lux Exchange apps and packages.",
   "license": "GPL-3.0-or-later",
