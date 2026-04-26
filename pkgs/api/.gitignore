@@ -4,5 +4,7 @@ THUMBS_DB
 tsconfig.tsbuildinfo
 dist/
 
-# generated files
-src/**/__generated__
+# (Generated artifacts under src/**/__generated__ ARE committed so
+# downstream builds don't need to install + run openapi-typescript-codegen
+# at build time. Regenerate via `pnpm tradingapi:generate:openapi` and
+# commit the diff.)

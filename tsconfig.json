@@ -5,7 +5,6 @@
   "include": [],
   "references": [
     { "path": "./apps/web" },
-    { "path": "./apps/mobile" },
     { "path": "./pkgs/api" },
     { "path": "./pkgs/config" },
     { "path": "./pkgs/dex" },
