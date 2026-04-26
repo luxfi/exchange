@@ -329,7 +329,9 @@ export default defineConfig(({ mode }) => {
     // Force JSBI to use ESM build so transform plugin can add __esModule marker
     jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
     // @luxamm/* packages resolve directly from npm (real forks, no overrides needed)
-    '@luxdex/sdk': path.resolve(__dirname, '../../pkgs/luxdex-sdk/dist/esm/src/index.js'),
+    // @luxdex/sdk resolves from node_modules via github:lux-dex/sdk git URL (no alias needed)
+    // @luxamm/v3-sdk hardcodes import to LuxV3Staker.json which doesn't exist in v3-staker — alias to UniswapV3Staker.json
+    '@luxamm/v3-staker/artifacts/contracts/LuxV3Staker.sol/LuxV3Staker.json': path.resolve(__dirname, '../../node_modules/@luxamm/v3-staker/artifacts/contracts/UniswapV3Staker.sol/UniswapV3Staker.json'),
     '@luxamm/conedison/format': path.resolve(__dirname, 'src/lib/conedison-format-stub.ts'),
     // react-router v7 merged react-router-dom into react-router
     'react-router-dom': path.resolve(__dirname, '../../node_modules/react-router'),
