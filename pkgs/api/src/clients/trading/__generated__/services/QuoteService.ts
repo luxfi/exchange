@@ -1,0 +1,64 @@
+/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+import type { QuoteRequest } from '../models/QuoteRequest';
+import type { QuoteResponse } from '../models/QuoteResponse';
+import type { UniversalRouterVersion } from '../models/UniversalRouterVersion';
+import type { CancelablePromise } from '../core/CancelablePromise';
+import { OpenAPI } from '../core/OpenAPI';
+import { request as __request } from '../core/request';
+export class QuoteService {
+    /**
+     * Get a quote
+     * Requests a quote according to the specified swap parameters. This endpoint may be used to get a quote for a swap, a bridge, or a wrap/unwrap. The resulting response includes a quote for the swap and the proposed route by which the quote was achieved. The response will also include estimated gas fees for the proposed quote route. If the proposed route is via a Lx Protocol pool, the response may include a permit2 message for the swapper to sign prior to making a /swap request. The proposed route will also be simulated. If the simulation fails, the response will include an error message or `txFailureReason`.
+     *
+     * Certain routing options may be whitelisted by the requestor through the use of the `protocols` field. Further, the requestor may ask for the best price route or for the fastest price route through the 'routingPreference' field. Note that the fastest price route refers to the speed with which a quote is returned, not the number of transactions that may be required to get from the input token and chain to the output token and chain. Further note that all `routingPreference` values except for `FASTEST` and `BEST_PRICE` are deprecated. For more information on the `protocols` and `routingPreference` fields, see the [Token Trading Workflow](https://lx-docs.readme.io/reference/trading-flow#swap-routing) explanation of Swap Routing.
+     *
+     * API integrators using this API for the benefit of customer end users may request a service fee be taken from the output token and deposited to a fee collection address. To request this, please reach out to your Lx Labs contact. This optional fee is associated to the API key and is always taken from the output token. Note if there is a fee and the `type` is `EXACT_INPUT`, the output amount quoted will **not** include the fee subtraction. If there is a fee and the `type` is `EXACT_OUTPUT`, the input amount quoted will **not** include the fee addition. Instead, in both cases, the fee will be recorded in the `portionBips` and `portionAmount` fields.
+     *
+     * Native ETH on LxX: LxX routes (e.g. `DUTCH_V2`, `DUTCH_V3`, `PRIORITY`) can use native ETH as the input token by setting `tokenIn` to the native currency address (e.g. `0x0000000000000000000000000000000000000000`) and passing `x-erc20eth-enabled: true`. Native ETH input on LxX requires wallet support for EIP-7914, a smart wallet activated on your desired network, and a sufficient native allowance (set via /swap_7702 if x-erc20eth-enabled header is set to `true`). If these requirements are not met, LxX quotes for native input may be omitted and the response may fall back to `CLASSIC` routing instead.
+     * @returns QuoteResponse Quote request successful.
+     * @throws ApiError
+     */
+    public static aggregatorQuote({
+        xUniversalRouterVersion,
+        xErc20EthEnabled = false,
+        xPermit2Disabled = false,
+        requestBody,
+    }: {
+        /**
+         * The version of the Universal Router to use for the swap journey. *MUST* be consistent throughout the API calls.
+         */
+        xUniversalRouterVersion?: UniversalRouterVersion,
+        /**
+         * Enable native ETH input support for LxX via ERC20-ETH (EIP-7914). When set to true and `tokenIn` is the native currency address (e.g. `0x0000000000000000000000000000000000000000`), the API may return LxX routes that spend native ETH for supported wallets.
+         */
+        xErc20EthEnabled?: boolean,
+        /**
+         * Disables the Permit2 approval flow. When set to `true`, `permitData` is returned as `null` and the header is forwarded to the routing layer for correct gas simulation against the Proxy Universal Router contract. When `false` or omitted, the standard Permit2 approval flow is used. This header is intended for integrators whose infrastructure uses a direct approval-then-swap pattern without Permit2.
+         */
+        xPermit2Disabled?: boolean,
+        requestBody?: QuoteRequest,
+    }): CancelablePromise<QuoteResponse> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/quote',
+            headers: {
+                'x-universal-router-version': xUniversalRouterVersion,
+                'x-erc20eth-enabled': xErc20EthEnabled,
+                'x-permit2-disabled': xPermit2Disabled,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `RequestValidationError, Bad Input`,
+                401: `UnauthorizedError eg. Account is blocked.`,
+                404: `ResourceNotFound eg. No quotes available or Gas fee/price not available`,
+                429: `Ratelimited`,
+                500: `Unexpected error`,
+                504: `Request duration limit reached.`,
+            },
+        });
+    }
+}
