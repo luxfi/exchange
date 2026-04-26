@@ -5,7 +5,7 @@
   "devDependencies": {
     "@types/node": "22.13.1",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@luxfi/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "^1.0.8",
     "depcheck": "1.4.7",
     "eslint": "8.57.1",
     "typescript": "5.9.3"

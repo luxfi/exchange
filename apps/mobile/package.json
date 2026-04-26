@@ -115,11 +115,11 @@
     "@uniswap/client-notification-service": "0.0.11",
     "@uniswap/ethers-rs-mobile": "0.0.5",
     "@uniswap/sdk-core": "7.12.1",
-    "@l.x/api": "workspace:^",
-    "@l.x/gating": "workspace:^",
-    "@l.x/hashcash-native": "workspace:^",
-    "@l.x/notifications": "workspace:^",
-    "@l.x/sessions": "workspace:^",
+    "@l.x/api": "^1.0.8",
+    "@l.x/gating": "^1.0.7",
+    "@l.x/hashcash-native": "^1.0.7",
+    "@l.x/notifications": "^1.0.7",
+    "@l.x/sessions": "^1.0.8",
     "@walletconnect/core": "2.23.0",
     "@walletconnect/react-native-compat": "2.23.0",
     "@walletconnect/types": "2.23.0",
@@ -194,10 +194,10 @@
     "sp-react-native-in-app-updates": "1.5.0",
     "ts-node": "10.9.2",
     "typed-redux-saga": "1.5.0",
-    "@l.x/lx": "workspace:^",
-    "@l.x/utils": "workspace:^",
+    "@l.x/lx": "^1.0.8",
+    "@l.x/utils": "^1.1.3",
     "uuid": "9.0.0",
-    "@luxfi/wallet": "workspace:^",
+    "@luxfi/wallet": "^1.0.10",
     "zod": "4.3.6",
     "zustand": "5.0.6"
   },
@@ -251,6 +251,6 @@
     "reactotron-redux": "3.2.0",
     "redux-saga-test-plan": "4.0.4",
     "typescript": "5.9.3",
-    "@luxfi/eslint-config": "workspace:^"
+    "@luxfi/eslint-config": "^1.0.8"
   }
 }
