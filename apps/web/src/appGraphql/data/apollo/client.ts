@@ -4,7 +4,8 @@ import { setupSharedApolloCache } from '@l.x/lx/src/data/cache'
 import { getDatadogApolloLink } from '@l.x/utils/src/logger/datadog/datadogLink'
 import { getRetryLink } from '~/appGraphql/data/apollo/retryLink'
 
-const API_URL = process.env.REACT_APP_AWS_API_ENDPOINT || 'https://api-exchange.lux.network/v1/graphql'
+// Default to the live Lux Gateway. White-label builds override via REACT_APP_AWS_API_ENDPOINT.
+const API_URL = process.env.REACT_APP_AWS_API_ENDPOINT || 'https://dex.lux.network/v1/graphql'
 
 const httpLink = new HttpLink({ uri: API_URL })
 const datadogLink = getDatadogApolloLink()

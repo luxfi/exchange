@@ -2,8 +2,13 @@ import { brand } from '@l.x/config'
 import { isTestEnv } from '@l.x/utils/src/environment/env'
 import { logger } from '@l.x/utils/src/logger/logger'
 
-const INSIGHTS_API_KEY = process.env.REACT_APP_INSIGHTS_API_KEY || 'hi_a5316882b930d11c9183007d70c3955b'
-const INSIGHTS_HOST = process.env.REACT_APP_INSIGHTS_HOST || 'https://insights.hanzo.ai'
+// Insights is fully opt-in via env. No hardcoded API key or host —
+// white-label builds (liquidity, zoo) self-host their own insights and
+// supply their own keys; the canonical Lux build supplies its own.
+// When unset, setupInsights becomes a no-op so we never leak telemetry
+// to a host the consuming brand didn't configure.
+const INSIGHTS_API_KEY = process.env.REACT_APP_INSIGHTS_API_KEY || ''
+const INSIGHTS_HOST = process.env.REACT_APP_INSIGHTS_HOST || ''
 
 let insightsClient: any = null
 
@@ -14,6 +19,11 @@ export function getInsightsClient() {
 export async function setupInsights() {
   if (isTestEnv()) {
     logger.debug('insights.ts', 'setupInsights', 'Skipping Insights initialization in test environment')
+    return
+  }
+
+  if (!INSIGHTS_API_KEY || !INSIGHTS_HOST) {
+    logger.debug('insights.ts', 'setupInsights', 'Insights not configured (REACT_APP_INSIGHTS_HOST/API_KEY unset) — skipping')
     return
   }
 

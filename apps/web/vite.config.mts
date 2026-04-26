@@ -209,6 +209,12 @@ export default defineConfig(({ mode }) => {
   const overrides = {
     // External package aliases
     'react-native': 'react-native-web',
+    // Web stub for reanimated — the only call sites surviving Vite's
+    // .native.tsx resolution are configureReanimatedLogger / Easing /
+    // type SharedValue. This alias bypasses the @hanzogui fork entirely
+    // (which ships raw JSX in lib/module/**/*.js and an off-spec
+    // 3.19.3-fork.1 version that breaks Rollup's commonjs-resolver).
+    'react-native-reanimated': path.resolve(__dirname, 'src/stubs/react-native-reanimated.ts'),
     'expo-blur': path.resolve(__dirname, 'src/lib/expo-blur-mock.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
     '@l.x/lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
@@ -459,29 +465,10 @@ export default defineConfig(({ mode }) => {
           }
         },
       },
-      {
-        name: 'transform-react-native-jsx',
-        async transform(code: string, id: string) {
-          // Transform JSX in react-native libraries that ship JSX in .js files
-          const needsJsxTransform = [
-            'node_modules/react-native-reanimated',
-            'node_modules/expo-blur'  // In case it's not fully mocked
-          ].some(path => id.includes(path))
-
-          if (!needsJsxTransform || !id.endsWith('.js')) {
-            return null
-          }
-
-          // Dynamic import to avoid top-level import issues
-          const { transformWithEsbuild } = await import('vite')
-
-          // Use Vite's transformWithEsbuild to handle JSX
-          return transformWithEsbuild(code, id, {
-            loader: 'jsx',
-            jsx: 'automatic',
-          })
-        },
-      },
+      // (transform-react-native-jsx plugin removed — react-native-reanimated
+      //  is now aliased to a web stub at apps/web/src/stubs and expo-blur is
+      //  already aliased to a mock above; no node_modules JSX-in-.js to
+      //  rescue at this stage.)
       portWarningPlugin(isProduction),
       reactPlugin(),
       (isProduction || isStaging) && process.env.DISABLE_EXTRACTION !== '1'
@@ -665,7 +652,8 @@ export default defineConfig(({ mode }) => {
           /\.stories\.[tj]sx?$/,
           /\.mdx$/,
           /expo-clipboard\/build\/ClipboardPasteButton\.js/,
-          /react-native-reanimated/,
+          // react-native-reanimated removed: aliased to a web stub in
+          // apps/web/src/stubs/react-native-reanimated.ts above.
           // When the private package is not installed, externalize it so Rollup doesn't error.
           // Dynamic imports of this module will fail at runtime (caught by loadPrivyPbModule's try/catch).
           ...(!privyPackageInstalled ? [/^@luxamm\/client-privy-embedded-wallet/] : []),

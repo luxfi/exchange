@@ -113,8 +113,12 @@ export function useSwapTxAndGasInfoService(): SwapTxAndGasInfoService {
   }, [swapConfig, transactionSettings, instructionService, decorateWithEVMLogging])
 
   const lxOrderSwapTxInfoService = useMemo(() => {
-    return createLXSwapTxAndGasInfoService()
-  }, [])
+    return createLXSwapTxAndGasInfoService({
+      ...swapConfig,
+      transactionSettings,
+      instructionService,
+    })
+  }, [swapConfig, transactionSettings, instructionService])
 
   const chainedSwapTxInfoService = useMemo(() => {
     return createChainedActionSwapTxAndGasInfoService({
