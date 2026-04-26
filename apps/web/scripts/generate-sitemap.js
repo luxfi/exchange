@@ -63,8 +63,9 @@ fs.readFile('./public/tokens-sitemap.xml', 'utf8', async (_err, data) => {
       })
     }
 
+    const GATEWAY_HOST = process.env.REACT_APP_GATEWAY_HOST || 'https://dex.lux.network'
     const tokensResponse = await fetch(
-      'https://interface.gateway.uniswap.org/v2/uniswap.explore.v1.ExploreStatsService/TokenRankings?connect=v1&encoding=json&message=' +
+      `${GATEWAY_HOST}/v2/uniswap.explore.v1.ExploreStatsService/TokenRankings?connect=v1&encoding=json&message=` +
         encodeURIComponent(JSON.stringify({ chainId: 'ALL_NETWORKS' })),
       {
         method: 'GET',
