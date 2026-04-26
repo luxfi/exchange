@@ -208,7 +208,7 @@ export function getFeatureFlagName(flag: FeatureFlags, client?: FeatureFlagClien
     // result and treat empty strings / undefined as 'feature off'.
     // Throwing triggered React error #185 infinite render loops in
     // every white-label web build with a stub Statsig client.
-    logger.debug('flags.ts', 'getFeatureFlagName', `Feature ${FeatureFlags[flag] ?? '<undefined>'} not mapped — defaulting off`)
+    logger.warn('flags.ts', 'getFeatureFlagName', `Feature ${FeatureFlags[flag] ?? '<undefined>'} not mapped — defaulting off`)
     return ''
   }
 
