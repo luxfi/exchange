@@ -22,11 +22,12 @@ import {
   type PublicPool,
 } from './publicTokenData'
 
-// V3 graph engine endpoint — served by luxfi/graph, proxied through exchange ingress
+// V3 graph engine endpoint — Lux Gateway (luxfi/dex) by default; white-label
+// builds override via REACT_APP_GRAPH_ENGINE_URL.
 const GRAPH_ENGINE_URL =
   process.env.REACT_APP_GRAPH_ENGINE_URL ||
   process.env.NEXT_PUBLIC_GRAPH_ENGINE_URL ||
-  'https://api-exchange.lux.network/v1/graphql'
+  'https://dex.lux.network/v1/graphql'
 
 function chainIdToGqlChain(chainId: number): string {
   return CHAIN_TO_GQL[chainId] ?? GraphQLApi.Chain.Ethereum

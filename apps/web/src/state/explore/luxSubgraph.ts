@@ -9,10 +9,12 @@ import { useQuery } from '@tanstack/react-query'
 // ─── Constants ─────────────────────────────────────────────────────
 
 export const LUX_CHAIN_ID = 96369
+// Default to the live Lux Gateway (luxfi/dex). White-labels (liquidity,
+// zoo, pars) override via REACT_APP_GRAPH_ENGINE_URL at build time.
 export const GRAPH_ENGINE_URL =
   process.env.REACT_APP_GRAPH_ENGINE_URL ||
   process.env.NEXT_PUBLIC_GRAPH_ENGINE_URL ||
-  'https://api-exchange.lux.network/v1/graphql'
+  'https://dex.lux.network/v1/graphql'
 
 // ─── Types ─────────────────────────────────────────────────────────
 
