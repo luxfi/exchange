@@ -204,16 +204,12 @@ export function getFeatureFlagName(flag: FeatureFlags, client?: FeatureFlagClien
         : FEATURE_FLAG_NAMES[FeatureFlagClient.Wallet]
   const name = names.get(flag)
   if (!name) {
-    const err = new Error(`Feature ${FeatureFlags[flag]} does not have a name mapped for this application`)
-
-    logger.error(err, {
-      tags: {
-        file: 'flags.ts',
-        function: 'getFeatureFlagName',
-      },
-    })
-
-    throw err
+    // An unmapped flag must not throw — consumers destructure the
+    // result and treat empty strings / undefined as 'feature off'.
+    // Throwing triggered React error #185 infinite render loops in
+    // every white-label web build with a stub Statsig client.
+    logger.debug('flags.ts', 'getFeatureFlagName', `Feature ${FeatureFlags[flag] ?? '<undefined>'} not mapped — defaulting off`)
+    return ''
   }
 
   return name
