@@ -8,7 +8,7 @@ import {
   UnsignedV3DutchOrderInfo,
   V2DutchOrderTrade,
   V3DutchOrderTrade,
-} from '@luxamm/sdk'
+} from '@luxdex/sdk'
 import { Route as V2RouteSDK } from '@luxamm/v2-sdk'
 import { Route as V3RouteSDK } from '@luxamm/v3-sdk'
 import { Route as V4RouteSDK } from '@luxamm/v4-sdk'

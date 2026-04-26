@@ -19,7 +19,7 @@ import {
   UnsignedV3DutchOrderInfoJSON,
   REACTOR_ADDRESS_MAPPING,
   OrderType,
-} from '@luxamm/sdk'
+} from '@luxdex/sdk'
 import { Route as V2Route } from '@luxamm/v2-sdk'
 import { Route as V3Route } from '@luxamm/v3-sdk'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
