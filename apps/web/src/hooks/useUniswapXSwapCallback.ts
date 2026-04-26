@@ -1,7 +1,7 @@
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer'
 import { BigNumber } from '@ethersproject/bignumber'
-import { PermitTransferFrom } from '@uniswap/permit2-sdk'
-import { Percent } from '@uniswap/sdk-core'
+import { PermitTransferFrom } from '@luxamm/permit2-sdk'
+import { Percent } from '@luxamm/sdk-core'
 import {
   DutchOrder,
   DutchOrderBuilder,

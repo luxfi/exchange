@@ -1,4 +1,4 @@
-import { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { MultichainToken } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 /**

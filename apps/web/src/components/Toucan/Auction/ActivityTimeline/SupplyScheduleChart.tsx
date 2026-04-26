@@ -1,4 +1,4 @@
-import { AuctionStep } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
+import { AuctionStep } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
 import {
   CrosshairMode,
   createChart,

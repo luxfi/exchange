@@ -1,4 +1,4 @@
-import { AuctionStep } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
+import { AuctionStep } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
 import { useMemo } from 'react'
 import { AuctionDetails } from '~/components/Toucan/Auction/store/types'
 import { blockToTimestamp } from '~/components/Toucan/Auction/utils/blockToTimestamp'

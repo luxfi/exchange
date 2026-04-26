@@ -1,4 +1,4 @@
-import type { TokenList } from '@uniswap/token-lists'
+import type { TokenList } from '@luxamm/token-lists'
 import { uriToHttpUrls } from '@l.x/utils/src/format/urls'
 import { logger } from '@l.x/utils/src/logger/logger'
 import contenthashToUri from '~/lib/utils/contenthashToUri'

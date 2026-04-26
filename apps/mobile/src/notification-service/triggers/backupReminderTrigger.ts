@@ -3,7 +3,7 @@ import {
   Metadata,
   Notification,
   OnClick,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+} from '@luxamm/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
 import { type TriggerCondition } from '@l.x/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
 import { type MobileState } from 'src/app/mobileReducer'

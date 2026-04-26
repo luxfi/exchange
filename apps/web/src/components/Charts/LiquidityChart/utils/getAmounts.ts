@@ -1,4 +1,4 @@
-import { SqrtPriceMath, TickMath } from '@uniswap/v3-sdk'
+import { SqrtPriceMath, TickMath } from '@luxamm/v3-sdk'
 import JSBI from 'jsbi'
 
 type GetAmountParams = {

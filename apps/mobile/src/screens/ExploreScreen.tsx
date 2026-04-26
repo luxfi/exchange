@@ -1,6 +1,6 @@
 import type { RouteProp } from '@react-navigation/native'
 import { useIsFocused, useNavigation, useRoute, useScrollToTop } from '@react-navigation/native'
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxamm/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'

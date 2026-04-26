@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
 import { AlertTriangle } from '@l.x/ui/src/components/icons/AlertTriangle'

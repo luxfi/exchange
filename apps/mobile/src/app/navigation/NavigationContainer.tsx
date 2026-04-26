@@ -5,7 +5,7 @@ import {
   NavigationContainerRefWithCurrent,
 } from '@react-navigation/native'
 import { useMutation } from '@tanstack/react-query'
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxamm/analytics-events'
 import React, { FC, PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { EmitterSubscription, Linking } from 'react-native'
 import { useDispatch } from 'react-redux'

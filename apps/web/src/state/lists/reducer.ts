@@ -1,6 +1,6 @@
 /* oxlint-disable typescript/no-unnecessary-condition */
 import { createReducer } from '@reduxjs/toolkit'
-import { getVersionUpgrade, VersionUpgrade } from '@uniswap/token-lists'
+import { getVersionUpgrade, VersionUpgrade } from '@luxamm/token-lists'
 import { DEFAULT_INACTIVE_LIST_URLS } from '~/constants/lists'
 import { updateVersion } from '~/state/global/actions'
 import { acceptListUpdate, addList, fetchTokenList, removeList, resetLists } from '~/state/lists/actions'

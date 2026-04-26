@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { SharedEventName } from '@uniswap/analytics-events'
-import { ChartPeriod } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import { SharedEventName } from '@luxamm/analytics-events'
+import { ChartPeriod } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { PortfolioChart } from 'src/components/home/PortfolioChart/PortfolioChart'
