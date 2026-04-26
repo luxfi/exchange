@@ -87,7 +87,7 @@
     "jest": "29.7.0",
     "jest-chrome": "0.8.0",
     "jest-extended": "4.0.2",
-    "jest-presets": "^1.0.0",
+    "@l.x/jest-preset": "^1.0.0",
     "react-test-renderer": "19.0.3",
     "typescript": "5.9.3"
   },

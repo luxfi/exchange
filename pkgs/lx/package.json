@@ -156,7 +156,7 @@
     "typechain": "5.2.0",
     "typescript": "5.9.3",
     "vitest": "3.2.1",
-    "vitest-presets": "^1.0.0"
+    "@l.x/vitest-preset": "^1.0.0"
   },
   "main": "src/index.ts",
   "private": false,
