@@ -255,6 +255,7 @@
     "typed-redux-saga": "1.5.0",
     "@l.x/ui": "workspace:^",
     "@l.x/lx": "workspace:^",
+    "@l.x/options": "workspace:^",
     "use-resize-observer": "9.1.0",
     "@l.x/utils": "workspace:^",
     "uuid": "9.0.0",

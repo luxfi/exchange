@@ -1,89 +1,32 @@
 {
-  "__comment": "NX's entrypoint for establishing the project graph",
+  "__comment": "NX's entrypoint for establishing the project graph. Paths follow the pkgs/ + config/ + apps/ workspace layout.",
   "extends": "./tsconfig.base.json",
   "files": [],
   "include": [],
   "references": [
-    {
-      "path": "./packages/utilities"
-    },
-    {
-      "path": "./packages/uniswap"
-    },
-    {
-      "path": "./packages/wallet"
-    },
-    {
-      "path": "./packages/ui"
-    },
-    {
-      "path": "./apps/web"
-    },
-    {
-      "path": "./packages/api"
-    },
-    {
-      "path": "./packages/config"
-    },
-    {
-      "path": "./packages/sessions"
-    },
-    {
-      "path": "./config/vitest-presets"
-    },
-    {
-      "path": "./tools/uniswap-nx"
-    },
-    {
-      "path": "./packages/gating"
-    },
-    {
-      "path": "./packages/notifications"
-    },
-    {
-      "path": "./apps/cli"
-    },
-    {
-      "path": "./packages/hashcash-native"
-    },
-    {
-      "path": "./packages/transactional"
-    },
-    {
-      "path": "./packages/mycelium"
-    },
-    {
-      "path": "./packages/docker-image-builder"
-    },
-    {
-      "path": "./packages/websocket"
-    },
-    {
-      "path": "./packages/prices"
-    },
-    {
-      "path": "./apps/mobile"
-    },
-    {
-      "path": "./apps/dev-portal"
-    },
-    {
-      "path": "./apps/mission-control"
-    },
-    {
-      "path": "./packages/privacy"
-    },
-    {
-      "path": "./packages/logger"
-    },
-    {
-      "path": "./packages/react-query"
-    },
-    {
-      "path": "./packages/analytics"
-    },
-    {
-      "path": "./packages/trpc"
-    }
+    { "path": "./apps/web" },
+    { "path": "./apps/mobile" },
+    { "path": "./pkgs/api" },
+    { "path": "./pkgs/config" },
+    { "path": "./pkgs/dex" },
+    { "path": "./pkgs/exchange" },
+    { "path": "./pkgs/gating" },
+    { "path": "./pkgs/hashcash-native" },
+    { "path": "./pkgs/logger" },
+    { "path": "./pkgs/lx" },
+    { "path": "./pkgs/mycelium" },
+    { "path": "./pkgs/notifications" },
+    { "path": "./pkgs/options" },
+    { "path": "./pkgs/prices" },
+    { "path": "./pkgs/privacy" },
+    { "path": "./pkgs/react-query" },
+    { "path": "./pkgs/sessions" },
+    { "path": "./pkgs/trpc" },
+    { "path": "./pkgs/ui" },
+    { "path": "./pkgs/utilities" },
+    { "path": "./pkgs/wallet" },
+    { "path": "./pkgs/websocket" },
+    { "path": "./config/vitest-presets" },
+    { "path": "./config/jest-presets" }
   ]
 }
