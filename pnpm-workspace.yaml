@@ -5,7 +5,12 @@ packages:
 
 catalog:
   react-native: "npm:@hanzogui/react-native@0.79.5-fork.1"
-  react-native-reanimated: "npm:@hanzogui/react-native-reanimated@3.19.3-fork.1"
+  # react-native-reanimated: web aliases to apps/web/src/stubs (Vite),
+  # mobile resolves to upstream react-native-reanimated@3.19.3 directly.
+  # The previous @hanzogui/react-native-reanimated@3.19.3-fork.1 was
+  # off-spec semver and shipped raw JSX in lib/module/**/*.js — Rollup's
+  # commonjs-resolver couldn't parse it.
+  react-native-reanimated: "3.19.3"
   react-native-sortables: "npm:@hanzogui/react-native-sortables@1.7.1-fork.1"
   react-native-svg: "npm:@hanzogui/react-native-svg@15.13.0-fork.1"
   "@react-native/gradle-plugin": "npm:@hanzogui/react-native-gradle-plugin@0.79.5-fork.1"
