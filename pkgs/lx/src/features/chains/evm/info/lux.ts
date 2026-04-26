@@ -36,7 +36,7 @@ export const LUX_CHAIN_INFO = {
   testnet: false,
   assetRepoNetworkName: undefined,
   backendChain: {
-    chain: GraphQLApi.Chain.Ethereum as GqlChainId,
+    chain: GraphQLApi.Chain.Lux as GqlChainId,
     backendSupported: false,
     nativeTokenBackendAddress: undefined,
   },
@@ -88,7 +88,7 @@ export const LUX_TESTNET_CHAIN_INFO = {
   testnet: true,
   assetRepoNetworkName: undefined,
   backendChain: {
-    chain: GraphQLApi.Chain.Ethereum as GqlChainId,
+    chain: GraphQLApi.Chain.LuxTestnet as GqlChainId,
     backendSupported: false,
     nativeTokenBackendAddress: undefined,
   },
@@ -140,7 +140,7 @@ export const LUX_DEV_CHAIN_INFO = {
   testnet: true,
   assetRepoNetworkName: undefined,
   backendChain: {
-    chain: GraphQLApi.Chain.Ethereum as GqlChainId,
+    chain: GraphQLApi.Chain.LuxDev as GqlChainId,
     backendSupported: false,
     nativeTokenBackendAddress: undefined,
   },

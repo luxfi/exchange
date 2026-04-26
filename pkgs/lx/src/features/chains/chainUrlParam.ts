@@ -36,11 +36,14 @@ export const CHAIN_ID_TO_URL_PARAM: Record<UniverseChainId, string> = {
   [UniverseChainId.LuxDev]: 'lux_dev',
   [UniverseChainId.Zoo]: 'zoo',
   [UniverseChainId.ZooTestnet]: 'zoo_testnet',
+  [UniverseChainId.ZooDev]: 'zoo_dev',
   [UniverseChainId.Hanzo]: 'hanzo',
+  [UniverseChainId.HanzoTestnet]: 'hanzo_testnet',
   [UniverseChainId.SPC]: 'spc',
   [UniverseChainId.Pars]: 'pars',
   [UniverseChainId.Liquidity]: 'liquidity',
   [UniverseChainId.LiquidityTestnet]: 'liquidity_testnet',
+  [UniverseChainId.LiquidityDev]: 'liquidity_dev',
 }
 
 /** Reverse mapping: URL-param → chain ID (built once, O(1) lookup). */

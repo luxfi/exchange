@@ -23,7 +23,7 @@ export const PARS_CHAIN_INFO = {
   testnet: false,
   assetRepoNetworkName: undefined,
   backendChain: {
-    chain: GraphQLApi.Chain.Ethereum as GqlChainId,
+    chain: GraphQLApi.Chain.Pars as GqlChainId,
     backendSupported: false,
     nativeTokenBackendAddress: undefined,
   },

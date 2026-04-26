@@ -23,7 +23,7 @@ export const SPC_CHAIN_INFO = {
   testnet: false,
   assetRepoNetworkName: undefined,
   backendChain: {
-    chain: GraphQLApi.Chain.Ethereum as GqlChainId,
+    chain: GraphQLApi.Chain.Spc as GqlChainId,
     backendSupported: false,
     nativeTokenBackendAddress: undefined,
   },
