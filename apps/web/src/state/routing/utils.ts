@@ -14,7 +14,7 @@ import {
   UnsignedV3DutchOrderInfo,
   UnsignedV3DutchOrderInfoJSON,
   V3DutchOutputJSON,
-} from '@luxamm/sdk'
+} from '@luxdex/sdk'
 import { Pair, Route as V2Route } from '@luxamm/v2-sdk'
 import { FeeAmount, Pool, Route as V3Route } from '@luxamm/v3-sdk'
 import { BIPS_BASE } from '@l.x/lx/src/constants/misc'

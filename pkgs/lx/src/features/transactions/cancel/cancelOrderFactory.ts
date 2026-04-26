@@ -6,7 +6,7 @@ import {
   DutchOrder,
   getCancelMultipleParams,
   getCancelSingleParams,
-} from '@luxamm/sdk'
+} from '@luxdex/sdk'
 import { TradingApi } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
