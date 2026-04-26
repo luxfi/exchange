@@ -17,13 +17,19 @@ const hanzoTokens = buildChainTokens({
   },
 })
 
+const hanzoTestnetTokens = buildChainTokens({
+  stables: {
+    LUSDC: new Token(UniverseChainId.HanzoTestnet, LUSDC_ADDRESS, 6, 'LUSDC', 'Lux USD Coin'),
+  },
+})
+
 export const HANZO_CHAIN_INFO = {
   id: UniverseChainId.Hanzo,
   platform: Platform.EVM,
   testnet: false,
   assetRepoNetworkName: undefined,
   backendChain: {
-    chain: GraphQLApi.Chain.Ethereum as GqlChainId,
+    chain: GraphQLApi.Chain.Hanzo as GqlChainId,
     backendSupported: false,
     nativeTokenBackendAddress: undefined,
   },
@@ -65,6 +71,58 @@ export const HANZO_CHAIN_INFO = {
   },
   interfaceName: 'hanzo',
   tokens: hanzoTokens,
+  tradingApiPollingIntervalMs: ONE_SECOND_MS,
+  gasConfig: GENERIC_L2_GAS_CONFIG,
+} as const satisfies UniverseChainInfo
+
+export const HANZO_TESTNET_CHAIN_INFO = {
+  id: UniverseChainId.HanzoTestnet,
+  platform: Platform.EVM,
+  testnet: true,
+  assetRepoNetworkName: undefined,
+  backendChain: {
+    chain: GraphQLApi.Chain.HanzoTestnet as GqlChainId,
+    backendSupported: false,
+    nativeTokenBackendAddress: undefined,
+  },
+  bridge: undefined,
+  docs: 'https://docs.hanzo.ai',
+  label: 'Hanzo Testnet',
+  logo: HANZO_LOGO,
+  name: 'Hanzo Testnet',
+  nativeCurrency: {
+    name: 'AI',
+    symbol: 'AI',
+    decimals: 18,
+    address: DEFAULT_NATIVE_ADDRESS_LEGACY,
+    logo: HANZO_LOGO,
+  },
+  networkLayer: NetworkLayer.L2,
+  blockTimeMs: 2000,
+  pendingTransactionsRetryOptions: undefined,
+  statusPage: undefined,
+  supportsV4: false,
+  supportsNFTs: false,
+  urlParam: 'hanzo_testnet',
+  rpcUrls: {
+    [RPCType.Default]: { http: ['https://api.lux.network/testnet/ext/bc/hanzo/rpc'] },
+    [RPCType.Interface]: { http: ['https://api.lux.network/testnet/ext/bc/hanzo/rpc'] },
+  },
+  wrappedNativeCurrency: {
+    name: 'Wrapped AI',
+    symbol: 'WAI',
+    decimals: 18,
+    address: '0x0000000000000000000000000000000000000000',
+  },
+  blockPerMainnetEpochForChainId: 1,
+  blockWaitMsBeforeWarning: undefined,
+  elementName: ElementName.ChainHanzoTestnet,
+  explorer: {
+    name: 'Hanzo Testnet Explorer',
+    url: 'https://explore-hanzo.lux.network/',
+  },
+  interfaceName: 'hanzo_testnet',
+  tokens: hanzoTestnetTokens,
   tradingApiPollingIntervalMs: ONE_SECOND_MS,
   gasConfig: GENERIC_L2_GAS_CONFIG,
 } as const satisfies UniverseChainInfo

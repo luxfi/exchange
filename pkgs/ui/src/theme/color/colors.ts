@@ -367,6 +367,7 @@ export const colorsLight = {
   chain_36963: networkColors.lux.light, // Hanzo Network
   chain_36911: networkColors.lux.light, // SPC Network
   chain_494949: networkColors.lux.light, // Pars Network
+  chain_8675309: networkColors.lux.light, // Liquidity Mainnet
 
   // Testnets
   chain_11155111: networkColors.ethereum.light,
@@ -374,6 +375,10 @@ export const colorsLight = {
   chain_10143: networkColors.monad.light,
   chain_96368: networkColors.lux.light,
   chain_200201: networkColors.zoo.light,
+  chain_200202: networkColors.zoo.light, // Zoo Devnet
+  chain_36964: networkColors.lux.light, // Hanzo Testnet
+  chain_8675310: networkColors.lux.light, // Liquidity Testnet
+  chain_8675311: networkColors.lux.light, // Liquidity Devnet
   chain_1337: networkColors.lux.light, // Lux Local dev mode
 
   pinkThemed: colors.pinkLight,
@@ -469,6 +474,7 @@ export const colorsDark = {
   chain_36963: networkColors.lux.dark, // Hanzo Network
   chain_36911: networkColors.lux.dark, // SPC Network
   chain_494949: networkColors.lux.dark, // Pars Network
+  chain_8675309: networkColors.lux.dark, // Liquidity Mainnet
 
   // Testnets
   chain_11155111: networkColors.ethereum.dark,
@@ -476,6 +482,10 @@ export const colorsDark = {
   chain_10143: networkColors.monad.dark,
   chain_96368: networkColors.lux.dark,
   chain_200201: networkColors.zoo.dark,
+  chain_200202: networkColors.zoo.dark, // Zoo Devnet
+  chain_36964: networkColors.lux.dark, // Hanzo Testnet
+  chain_8675310: networkColors.lux.dark, // Liquidity Testnet
+  chain_8675311: networkColors.lux.dark, // Liquidity Devnet
   chain_1337: networkColors.lux.dark, // Lux Local dev mode
 
   pinkThemed: colors.pinkDark,

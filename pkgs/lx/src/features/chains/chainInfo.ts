@@ -4,8 +4,12 @@ import { BASE_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/base'
 import { BLAST_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/blast'
 import { BNB_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/bnb'
 import { CELO_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/celo'
-import { HANZO_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/hanzo'
-import { LIQUIDITY_CHAIN_INFO, LIQUIDITY_TESTNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/liquidity'
+import { HANZO_CHAIN_INFO, HANZO_TESTNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/hanzo'
+import {
+  LIQUIDITY_CHAIN_INFO,
+  LIQUIDITY_DEV_CHAIN_INFO,
+  LIQUIDITY_TESTNET_CHAIN_INFO,
+} from '@l.x/lx/src/features/chains/evm/info/liquidity'
 import { LUX_CHAIN_INFO, LUX_DEV_CHAIN_INFO, LUX_TESTNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/lux'
 import { MAINNET_CHAIN_INFO, SEPOLIA_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/mainnet'
 import { MONAD_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/monad'
@@ -19,7 +23,7 @@ import { UNICHAIN_CHAIN_INFO, UNICHAIN_SEPOLIA_CHAIN_INFO } from '@l.x/lx/src/fe
 import { WORLD_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/worldchain'
 import { XLAYER_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/xlayer'
 import { ZKSYNC_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/zksync'
-import { ZOO_CHAIN_INFO, ZOO_TESTNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/zoo'
+import { ZOO_CHAIN_INFO, ZOO_DEV_CHAIN_INFO, ZOO_TESTNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/zoo'
 import { ZORA_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/zora'
 import { SOLANA_CHAIN_INFO } from '@l.x/lx/src/features/chains/svm/info/solana'
 import { UniverseChainId, UniverseChainInfo } from '@l.x/lx/src/features/chains/types'
@@ -60,7 +64,10 @@ export const ORDERED_CHAINS = [
   LUX_TESTNET_CHAIN_INFO,
   LUX_DEV_CHAIN_INFO,
   ZOO_TESTNET_CHAIN_INFO,
+  ZOO_DEV_CHAIN_INFO,
+  HANZO_TESTNET_CHAIN_INFO,
   LIQUIDITY_TESTNET_CHAIN_INFO,
+  LIQUIDITY_DEV_CHAIN_INFO,
 ] as const satisfies UniverseChainInfo[]
 
 type ConstChainInfo<P extends Platform = Platform> = Extract<(typeof ORDERED_CHAINS)[number], { platform: P }>
@@ -121,7 +128,10 @@ export const UNIVERSE_CHAIN_INFO = {
   [UniverseChainId.LuxTestnet]: LUX_TESTNET_CHAIN_INFO,
   [UniverseChainId.LuxDev]: LUX_DEV_CHAIN_INFO,
   [UniverseChainId.ZooTestnet]: ZOO_TESTNET_CHAIN_INFO,
+  [UniverseChainId.ZooDev]: ZOO_DEV_CHAIN_INFO,
+  [UniverseChainId.HanzoTestnet]: HANZO_TESTNET_CHAIN_INFO,
   [UniverseChainId.LiquidityTestnet]: LIQUIDITY_TESTNET_CHAIN_INFO,
+  [UniverseChainId.LiquidityDev]: LIQUIDITY_DEV_CHAIN_INFO,
 
   // SVM
   [UniverseChainId.Solana]: SOLANA_CHAIN_INFO,

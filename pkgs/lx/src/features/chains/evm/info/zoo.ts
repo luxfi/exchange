@@ -23,13 +23,19 @@ const zooTestnetTokens = buildChainTokens({
   },
 })
 
+const zooDevTokens = buildChainTokens({
+  stables: {
+    LUSDC: new Token(UniverseChainId.ZooDev, LUSDC_ADDRESS, 6, 'LUSDC', 'Lux USD Coin'),
+  },
+})
+
 export const ZOO_CHAIN_INFO = {
   id: UniverseChainId.Zoo,
   platform: Platform.EVM,
   testnet: false,
   assetRepoNetworkName: undefined,
   backendChain: {
-    chain: GraphQLApi.Chain.Ethereum as GqlChainId,
+    chain: GraphQLApi.Chain.Zoo as GqlChainId,
     backendSupported: false,
     nativeTokenBackendAddress: undefined,
   },
@@ -81,7 +87,7 @@ export const ZOO_TESTNET_CHAIN_INFO = {
   testnet: true,
   assetRepoNetworkName: undefined,
   backendChain: {
-    chain: GraphQLApi.Chain.Ethereum as GqlChainId,
+    chain: GraphQLApi.Chain.ZooTestnet as GqlChainId,
     backendSupported: false,
     nativeTokenBackendAddress: undefined,
   },
@@ -123,6 +129,58 @@ export const ZOO_TESTNET_CHAIN_INFO = {
   },
   interfaceName: 'zoo_testnet',
   tokens: zooTestnetTokens,
+  tradingApiPollingIntervalMs: ONE_SECOND_MS,
+  gasConfig: GENERIC_L2_GAS_CONFIG,
+} as const satisfies UniverseChainInfo
+
+export const ZOO_DEV_CHAIN_INFO = {
+  id: UniverseChainId.ZooDev,
+  platform: Platform.EVM,
+  testnet: true,
+  assetRepoNetworkName: undefined,
+  backendChain: {
+    chain: GraphQLApi.Chain.ZooDevnet as GqlChainId,
+    backendSupported: false,
+    nativeTokenBackendAddress: undefined,
+  },
+  bridge: undefined,
+  docs: 'https://docs.zoo.network',
+  label: 'Zoo Network Devnet',
+  logo: ZOO_LOGO,
+  name: 'Zoo Network Devnet',
+  nativeCurrency: {
+    name: 'ZOO',
+    symbol: 'ZOO',
+    decimals: 18,
+    address: DEFAULT_NATIVE_ADDRESS_LEGACY,
+    logo: ZOO_LOGO,
+  },
+  networkLayer: NetworkLayer.L2,
+  blockTimeMs: 2000,
+  pendingTransactionsRetryOptions: undefined,
+  statusPage: undefined,
+  supportsV4: false,
+  supportsNFTs: false,
+  urlParam: 'zoo_dev',
+  rpcUrls: {
+    [RPCType.Default]: { http: ['https://api.lux.network/devnet/ext/bc/zoo/rpc'] },
+    [RPCType.Interface]: { http: ['https://api.lux.network/devnet/ext/bc/zoo/rpc'] },
+  },
+  wrappedNativeCurrency: {
+    name: 'Wrapped ZOO',
+    symbol: 'WZOO',
+    decimals: 18,
+    address: '0x0000000000000000000000000000000000000000',
+  },
+  blockPerMainnetEpochForChainId: 1,
+  blockWaitMsBeforeWarning: undefined,
+  elementName: ElementName.ChainZooDev,
+  explorer: {
+    name: 'Zoo Devnet Explorer',
+    url: 'https://explore-zoo.lux.network/',
+  },
+  interfaceName: 'zoo_dev',
+  tokens: zooDevTokens,
   tradingApiPollingIntervalMs: ONE_SECOND_MS,
   gasConfig: GENERIC_L2_GAS_CONFIG,
 } as const satisfies UniverseChainInfo
