@@ -36,9 +36,10 @@ vi.mock('~/components/Popups/types', () => ({
   PopupType: { Plan: 'Plan' },
 }))
 
-vi.mock('@datadog/browser-rum', () => ({
-  datadogRum: { addAction: vi.fn() },
-}))
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
+  return { ...actual, getInsights: () => ({ capture: vi.fn() }) }
+})
 
 vi.mock('~/state/activity/utils', () => ({
   getRoutingForTransaction: vi.fn().mockReturnValue('CLASSIC'),

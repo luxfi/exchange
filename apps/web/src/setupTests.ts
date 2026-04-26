@@ -162,13 +162,6 @@ vi.mock('@l.x/ui/src/components/touchable/TouchableArea', () => ({
   },
 }))
 
-vi.mock('@datadog/browser-logs', () => ({
-  datadogLogs: {
-    // leave it empty as we should avoid it in test mode
-    logger: {},
-  },
-}))
-
 // This package must be mocked because it doesn't support ESM
 vi.mock('@luxamm/analytics-events', () => {
   return {

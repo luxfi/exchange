@@ -1,6 +1,6 @@
-import { ErrorBoundary as DatadogErrorBoundary } from '@datadog/browser-rum-react'
-import { type PropsWithChildren, useCallback, useState } from 'react'
+import { type PropsWithChildren, Component, type ErrorInfo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { getInsights } from '@l.x/gating'
 import { Button, Flex, Switch, Text, TouchableArea } from '@l.x/ui/src'
 import { CopyAlt } from '@l.x/ui/src/components/icons/CopyAlt'
 import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
@@ -45,15 +45,9 @@ const Fallback = ({ error, eventId }: { error: Error; eventId: string | null }) 
     if (isClearDataEnabled) {
       try {
         await appStateResetter.resetAll()
-        // Flush persistor to ensure state is written to storage before reload
         await persistor.flush()
       } catch (e) {
-        logger.error(e, {
-          tags: {
-            file: 'ErrorBoundary',
-            function: 'handleReload',
-          },
-        })
+        logger.error(e, { tags: { file: 'ErrorBoundary', function: 'handleReload' } })
       }
     }
     window.location.reload()
@@ -129,7 +123,6 @@ function ErrorDetailsSection({ errorDetails, eventId }: { errorDetails: string; 
   const [isExpanded, setExpanded] = useState(false)
   const isMobile = useIsMobile()
 
-  // @todo: ThemedText components should be responsive by default
   const [Title, Description] = isMobile
     ? [ThemedText.HeadlineSmall, ThemedText.BodySmall]
     : [ThemedText.HeadlineLarge, ThemedText.BodySecondary]
@@ -173,18 +166,46 @@ function ErrorDetailsSection({ errorDetails, eventId }: { errorDetails: string; 
   )
 }
 
-export default function ErrorBoundary({
-  children,
-  fallback,
-}: PropsWithChildren & {
-  fallback?: React.ComponentType<{
-    error: Error
-    resetError: () => void
-  }>
-}): JSX.Element {
-  return (
-    <DatadogErrorBoundary fallback={fallback ?? (({ error }) => <Fallback error={error} eventId={null} />)}>
-      {children}
-    </DatadogErrorBoundary>
-  )
+interface InsightsErrorBoundaryProps extends PropsWithChildren {
+  fallback?: React.ComponentType<{ error: Error; resetError: () => void }>
+}
+
+interface InsightsErrorBoundaryState {
+  error: Error | null
+}
+
+class InsightsErrorBoundary extends Component<InsightsErrorBoundaryProps, InsightsErrorBoundaryState> {
+  state: InsightsErrorBoundaryState = { error: null }
+
+  static getDerivedStateFromError(error: Error): InsightsErrorBoundaryState {
+    return { error }
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo): void {
+    logger.error(error, { tags: { file: 'ErrorBoundary', function: 'componentDidCatch' }, extra: info })
+    try {
+      getInsights().capture('$exception', {
+        $exception_message: error.message,
+        $exception_type: error.name,
+        $exception_stack_trace_raw: error.stack,
+        componentStack: info.componentStack,
+      })
+    } catch {
+      /* INSIGHTS_API_KEY not configured */
+    }
+  }
+
+  resetError = (): void => this.setState({ error: null })
+
+  render(): React.ReactNode {
+    const { error } = this.state
+    if (!error) return this.props.children
+    const Custom = this.props.fallback
+    if (Custom) return <Custom error={error} resetError={this.resetError} />
+    return <Fallback error={error} eventId={null} />
+  }
+}
+
+export default function ErrorBoundary(props: InsightsErrorBoundaryProps): JSX.Element {
+  return <InsightsErrorBoundary {...props} />
 }

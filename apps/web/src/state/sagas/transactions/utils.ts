@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { datadogRum } from '@datadog/browser-rum'
+import { getInsights } from '@l.x/gating'
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import type { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { TradeType } from '@luxamm/sdk-core'
@@ -613,12 +613,16 @@ export function addTransactionBreadcrumb({
   }
   status?: TransactionBreadcrumbStatus
 }) {
-  datadogRum.addAction('Transaction Action', {
-    message: `${step.type} ${status}`,
-    step: step.type,
-    level: 'info',
-    data,
-  })
+  try {
+    getInsights().capture('Transaction Action', {
+      message: `${step.type} ${status}`,
+      step: step.type,
+      level: 'info',
+      data,
+    })
+  } catch {
+    /* insights not configured */
+  }
 }
 
 export function getDisplayableError({

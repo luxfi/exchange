@@ -1,4 +1,4 @@
-import { datadogRum } from '@datadog/browser-rum'
+import { getInsights } from '@l.x/gating'
 import { useQuery } from '@tanstack/react-query'
 import { getBrowser, SharedEventName } from '@luxamm/analytics-events'
 import { provideLXIdentifierService } from '@l.x/api'
@@ -34,7 +34,11 @@ export function UserPropertyUpdater() {
   useEffect(() => {
     if (lxIdentifier) {
       setUserProperty(InterfaceUserPropertyName.LuxIdentifier, lxIdentifier)
-      datadogRum.setUserProperty(InterfaceUserPropertyName.LuxIdentifier, lxIdentifier)
+      try {
+        getInsights().identify(lxIdentifier, { [InterfaceUserPropertyName.LuxIdentifier]: lxIdentifier })
+      } catch {
+        /* insights not configured */
+      }
     }
   }, [lxIdentifier])
 

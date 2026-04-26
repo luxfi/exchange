@@ -3,7 +3,7 @@ import '~/sideEffects'
 
 import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
-import { datadogRum } from '@datadog/browser-rum'
+import { getInsights } from '@l.x/gating'
 import { PrivyProvider } from '@privy-io/react-auth'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
 import {
@@ -43,8 +43,6 @@ import { InsightsProviderWrapper } from '@l.x/lx/src/features/gating/InsightsPro
 import { LocalizationContextProvider } from '@l.x/lx/src/features/language/LocalizationContext'
 import { TokenPriceProvider } from '@l.x/lx/src/features/prices/TokenPriceContext'
 import i18n from '@l.x/lx/src/i18n'
-import { initializeDatadog } from '@l.x/lx/src/utils/datadog'
-import { localDevDatadogEnabled } from '@l.x/utils/src/environment/constants'
 import { isDevEnv, isTestEnv } from '@l.x/utils/src/environment/env'
 import { getLogger } from '@l.x/utils/src/logger/logger'
 import { useAccount } from 'wagmi'
@@ -203,20 +201,23 @@ function GatingProvider({ children }: PropsWithChildren) {
   )
 
   useEffect(() => {
-    datadogRum.setUserProperty('connection', {
-      type: account.connector?.type,
-      name: account.connector?.name,
-      rdns: account.connector?.id,
-      address: account.address,
-      status: account.status,
-    })
+    try {
+      getInsights().register({
+        connection: {
+          type: account.connector?.type,
+          name: account.connector?.name,
+          rdns: account.connector?.id,
+          address: account.address,
+          status: account.status,
+        },
+      })
+    } catch {
+      /* insights not configured */
+    }
   }, [account])
 
   const onInsightsInit = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (!isDevEnv() || localDevDatadogEnabled) {
-      initializeDatadog('web').catch(() => undefined)
-    }
+    /* Insights handles error + analytics + flags. No Datadog init. */
   }
 
   return (
