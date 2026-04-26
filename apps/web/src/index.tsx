@@ -304,6 +304,7 @@ Promise.all([loadBrandConfig(), loadRuntimeConfig()]).then(() => {
   // default Tamagui themes so any code that reads themes via JS sees the
   // brand-overridden values. CSS variables are already set by loadBrandConfig.
   brandThemeOverlay(brand.theme)
+
   // Inject brand values as i18n interpolation defaults so {{brandName}} etc. work in translations
   const brandVars = {
     brandName: brand.name,
