@@ -286,17 +286,7 @@ export default defineConfig(({ mode }) => {
     'lx': path.resolve(__dirname, '../../pkgs/lx'),
     // @luxamm package aliases — these are `export * from '@uniswap/*'` re-exports.
     // Vite's optimizer can't handle the CJS→ESM conversion for conditional require() entries,
-    // so we point directly to the upstream ESM dist files.
-    '@luxamm/sdk': path.resolve(__dirname, '../../node_modules/@uniswap/uniswapx-sdk'),
-    '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@uniswap/sdk-core/dist/sdk-core.esm.js'),
-    '@luxamm/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk/dist/router-sdk.esm.js'),
-    '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk/dist/v2-sdk.esm.js'),
-    '@uniswap/sdk-core': path.resolve(__dirname, '../../node_modules/@uniswap/sdk-core/dist/sdk-core.esm.js'),
-    '@uniswap/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk/dist/router-sdk.esm.js'),
-    '@uniswap/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk/dist/v2-sdk.esm.js'),
-    '@luxamm/luxswap-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/uniswapx-sdk'),
-    '@luxamm/merkle-distributor': path.resolve(__dirname, '../../node_modules/@uniswap/merkle-distributor'),
-    // Upstream @uniswap/client-* -> @luxamm/client-* (packages/uniswap uses @uniswap names)
+    // so we point directly to the upstream ESM dist files.    // Upstream @uniswap/client-* -> @luxamm/client-* (packages/uniswap uses @uniswap names)
     '@uniswap/client-data-api': path.resolve(__dirname, '../../node_modules/@luxamm/client-data-api'),
     '@uniswap/client-explore': path.resolve(__dirname, '../../node_modules/@luxamm/client-explore'),
     '@uniswap/client-liquidity': path.resolve(__dirname, '../../node_modules/@luxamm/client-liquidity'),
