@@ -66,7 +66,7 @@
     "typescript": "5.9.3",
     "uppercamelcase": "3.0.0",
     "vitest": "3.2.1",
-    "vitest-presets": "workspace:^"
+    "vitest-presets": "^1.0.0"
   },
   "files": [
     "src",
