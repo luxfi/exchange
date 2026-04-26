@@ -11,8 +11,8 @@ export function NavIcon({ onClick }: { onClick?: () => void }) {
     <img
       src={src}
       alt={alt}
-      width={28}
-      height={28}
+      width={40}
+      height={40}
       onClick={onClick}
       style={{ cursor: onClick ? 'pointer' : undefined, display: 'block' }}
     />
