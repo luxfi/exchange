@@ -1,5 +1,5 @@
 import { GraphQLApi } from '@luxfi/api'
-import { SwapConfigKey } from '@luxfi/gating'
+import { SwapConfigKey } from '@l.x/gating'
 import { CELO_LOGO } from '@l.x/ui/src/assets'
 import { config } from '@l.x/lx/src/config'
 import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'

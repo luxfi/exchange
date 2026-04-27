@@ -33,8 +33,6 @@ const PrivacyPolicyModal = createLazy(() =>
 const PrivacyChoicesModal = createLazy(() =>
   import('~/components/PrivacyChoices').then((module) => ({ default: module.PrivacyChoicesModal })),
 )
-const FeatureFlagModal = createLazy(() => import('~/components/FeatureFlagModal/FeatureFlagModal'))
-const DevFlagsBox = createLazy(() => import('~/dev/DevFlagsBox'))
 const TokenNotFoundModal = createLazy(() => import('~/components/NotFoundModal/TokenNotFoundModal'))
 const PoolNotFoundModal = createLazy(() => import('~/components/NotFoundModal/PoolNotFoundModal'))
 const IncreaseLiquidityModal = createLazy(() =>
@@ -175,10 +173,7 @@ export const modalRegistry: ModalRegistry = {
     component: PrivacyChoicesModal,
     shouldMount: (state) => state.application.openModal?.name === ModalName.PrivacyChoices,
   },
-  [ModalName.FeatureFlags]: {
-    component: FeatureFlagModal,
-    shouldMount: (state) => state.application.openModal?.name === ModalName.FeatureFlags,
-  },
+  // Gating debug modal removed alongside Statsig — gates are no-ops now.
   [ModalName.AddLiquidity]: {
     component: IncreaseLiquidityModal,
     shouldMount: (state) => state.application.openModal?.name === ModalName.AddLiquidity,
@@ -199,10 +194,7 @@ export const modalRegistry: ModalRegistry = {
     component: PoolNotFoundModal,
     shouldMount: (state) => state.application.openModal?.name === ModalName.PoolNotFound,
   },
-  [ModalName.DevFlags]: {
-    component: DevFlagsBox,
-    shouldMount: () => true,
-  },
+  // DevFlagsBox removed alongside Statsig — gates are no-ops now.
   [ModalName.PasskeysHelp]: {
     component: PasskeysHelpModal,
     shouldMount: (state) => state.application.openModal?.name === ModalName.PasskeysHelp,
