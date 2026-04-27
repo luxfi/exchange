@@ -1,6 +1,6 @@
 import { memo, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, getContrastPassingTextColor, Slider, Text, Tooltip, styled as tamaguiStyled } from '@l.x/ui/src'
+import { Flex, getContrastPassingTextColor, Slider, Text, Tooltip, styled as guiStyled } from '@l.x/ui/src'
 import { zIndexes } from '@l.x/ui/src/theme'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
@@ -18,7 +18,7 @@ const MAX_PERCENTAGE = 270
 const MARKER_COUNT = 10 // 0% to 270% in 30% increments = 10 dots
 const TOOLTIP_OPEN_DELAY_MS = 2000
 
-const StyledSlider = tamaguiStyled(Slider, {
+const StyledSlider = guiStyled(Slider, {
   hoverTheme: false,
   pressTheme: false,
   focusTheme: false,
@@ -27,7 +27,7 @@ const StyledSlider = tamaguiStyled(Slider, {
   justifyContent: 'center',
 })
 
-const SliderTrack = tamaguiStyled(Slider.Track, {
+const SliderTrack = guiStyled(Slider.Track, {
   height: 4,
   borderRadius: '$roundedFull',
   backgroundColor: '$surface1',
@@ -35,13 +35,13 @@ const SliderTrack = tamaguiStyled(Slider.Track, {
   justifyContent: 'center',
 })
 
-const SliderTrackActive = tamaguiStyled(Slider.TrackActive, {
+const SliderTrackActive = guiStyled(Slider.TrackActive, {
   height: 4,
   borderRadius: '$roundedFull',
   backgroundColor: 'transparent',
 })
 
-const SliderThumb = tamaguiStyled(Slider.Thumb, {
+const SliderThumb = guiStyled(Slider.Thumb, {
   hoverTheme: false,
   pressTheme: false,
   focusTheme: false,
@@ -193,7 +193,7 @@ function ValuationSliderComponent({
   const clampedSliderIndex = clamp({ value: sliderIndex, min: 0, max: totalTicks })
 
   // Track whether user is actively dragging the slider to prevent spurious change events
-  // when clicking elsewhere in the form (a Tamagui Slider issue on mobile)
+  // when clicking elsewhere in the form (a Slider issue on mobile)
   const isDraggingRef = useRef(false)
   // Store cleanup function to remove document listeners on unmount
   const cleanupListenersRef = useRef<(() => void) | null>(null)

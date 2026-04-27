@@ -1,17 +1,17 @@
 /**
  * Brand theme overlay — merges `brand.theme.{light,dark}` color overrides over
- * the default Tamagui theme tokens at runtime.
+ * the default @hanzo/gui theme tokens at runtime.
  *
  * Why this exists:
  * - The default themes ship with hard-coded accent/surface/neutral colors
  *   (`pkgs/ui/src/theme/themes.ts`). White-label deployments need these to
  *   come from `brand.theme` in the runtime config.
- * - On web, Tamagui themes also compile down to CSS custom properties; brand.ts
+ * - On web, @hanzo/gui themes also compile down to CSS custom properties; brand.ts
  *   already overrides `--accent1`, `--surface1`, etc. on `document.documentElement`.
  *   This helper covers the JS path so any code that reads theme tokens directly
  *   (useSporeColors, useTheme, etc.) sees the brand values too.
  *
- * Call once after `loadBrandConfig()` resolves and before Tamagui mounts.
+ * Call once after `loadBrandConfig()` resolves and before @hanzo/gui mounts.
  */
 import { themes } from '@l.x/ui/src/theme/themes'
 
@@ -75,7 +75,7 @@ function overlayTheme(target: Record<string, unknown>, overrides?: BrandTheme): 
     target['backgroundPress'] = bgHover
     target['backgroundFocus'] = bgHover
   }
-  // Color tokens (Tamagui's `color` etc.) follow neutral1/accent1
+  // Color tokens (@hanzo/gui's `color` etc.) follow neutral1/accent1
   if (overrides.neutral1) {
     target['color'] = overrides.neutral1
   }

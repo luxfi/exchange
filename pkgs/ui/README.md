@@ -7,7 +7,7 @@ This package holds a component library and themes that can be used across all ap
 The `ui` package contains all low level components that are shared between apps. It should *not* contain components that are specific to any one app or Lux Exchange business logic. Each component should be guided by the following principles:
 
 - All components should be compatible with all platforms.
-- Wrap as many implementation details as possible, including any direct exports from Tamagui.
+- Wrap as many implementation details as possible, including any direct exports from @hanzo/gui.
 - Export only what’s needed from `ui/src` or another allowlisted path.
 - Only include components that will be used beyond a single feature.
 
@@ -30,7 +30,7 @@ Custom icons that take props can be added to the same icons import by adding the
 
 ## Core Components
 
-Many base components are available in the UI library. While some are customized `tamagui` elements or even fully custom elements, many are simple or direct exposure of `tamagui` elements. If you would like to use any `tamagui` elements, please add them through this library to ensure a layer of abstraction between tamagui and our usage when possible.
+Many base components are available in the UI library. While some are customized `@hanzo/gui` elements or even fully custom elements, many are simple or direct exposure of `@hanzo/gui` elements. If you would like to use any `@hanzo/gui` elements, please add them through this library to ensure a layer of abstraction between @hanzo/gui and our usage when possible.
 
 Below are summaries of the most commonly used elements.
 

@@ -48,7 +48,7 @@ export default defineConfig({
         __dirname,
         '../../node_modules/@hanzogui/use-callback-ref/dist/cjs/index.cjs',
       ),
-      tamagui: path.resolve(__dirname, '../../node_modules/gui/dist/cjs/index.cjs'),
+      '@hanzo/gui': path.resolve(__dirname, '../../node_modules/@hanzo/gui/dist/cjs/index.cjs'),
     },
   },
   optimizeDeps: {

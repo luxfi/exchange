@@ -1,6 +1,6 @@
 // until the web app needs all of gui, avoid heavy imports there
 // biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
-import type { CreateTamaguiProps as CreateGuiProps } from '@hanzogui/core'
+import type { CreateGuiProps } from '@hanzogui/core'
 import { allFonts } from '@l.x/ui/src/theme/fonts'
 import { media } from '@l.x/ui/src/theme/media'
 import { shorthands } from '@l.x/ui/src/theme/shorthands'

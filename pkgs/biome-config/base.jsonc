@@ -57,7 +57,7 @@
       "__mocks__/**",
       ".bun/**",
       ".detoxrc.js",
-      ".tamagui/**",
+      ".gui/**",
       "@types/**",
       "*.graphql",
       "*.html",
@@ -111,7 +111,7 @@
       "!**/__mocks__",
       "!**/.bun",
       "!**/.detoxrc.js",
-      "!**/.tamagui",
+      "!**/.gui",
       "!**/@types",
       "!**/*.graphql",
       "!**/*.html",
@@ -270,8 +270,8 @@
                 "importNames": ["sendAnalyticsEvent"],
                 "message": "Please use the typed `sendAnalyticsEvent` in 'lux/src/features/telemetry/send'"
               },
-              "@tamagui/core": {
-                "message": "Please import from 'tamagui' directly to prevent mismatches."
+              "@hanzogui/core": {
+                "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
               }
             },
             "patterns": [

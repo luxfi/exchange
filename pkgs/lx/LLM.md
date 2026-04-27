@@ -135,7 +135,7 @@ This package is consumed by:
 
 It depends on workspace packages:
 
-- `pkgs/ui` - Tamagui-based UI components
+- `pkgs/ui` - @hanzo/gui based UI components
 - `pkgs/utilities` - Pure utility functions
 
 ## Performance Considerations
