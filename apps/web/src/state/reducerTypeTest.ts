@@ -64,7 +64,10 @@ type ExpectedAppState = CombinedState<{
 
   // Lux State
   readonly appearanceSettings: AppearanceSettingsState
-  readonly luxBehaviorHistory: LXBehaviorHistoryState
+  // Slice key matches the `lxBehaviorHistory` registration in `@l.x/lx`'s
+  // `luxReducer` — the previous `luxBehaviorHistory` declaration didn't match
+  // the runtime store shape and let the wrong selector compile.
+  readonly lxBehaviorHistory: LXBehaviorHistoryState
   readonly favorites: FavoritesState
   readonly notifications: NotificationState
   readonly searchHistory: Readonly<SearchHistoryState>
