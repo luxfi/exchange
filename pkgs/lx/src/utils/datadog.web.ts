@@ -6,11 +6,7 @@ import {
   DatadogSessionSampleRateKey,
   DatadogSessionSampleRateValType,
   DynamicConfigs,
-  Experiments,
   getDynamicConfigValue,
-  getStatsigClient,
-  WALLET_FEATURE_FLAG_NAMES,
-  WEB_FEATURE_FLAG_NAMES,
 } from '@l.x/gating'
 import { config } from '@l.x/lx/src/config'
 import { getUniqueId } from '@l.x/utils/src/device/uniqueId'
@@ -139,21 +135,6 @@ export async function initializeDatadog(appName: string): Promise<void> {
   datadogRum.setGlobalContextProperty('app', appName)
   datadogRum.setGlobalContextProperty('buildType', process.env.REACT_APP_WEB_BUILD_TYPE)
 
-  for (const [_, flagKey] of [...WEB_FEATURE_FLAG_NAMES.entries(), ...WALLET_FEATURE_FLAG_NAMES.entries()]) {
-    datadogRum.addFeatureFlagEvaluation(
-      // Datadog has a limited set of accepted symbols in feature flags
-      // https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=reactnative#feature-flag-naming
-      flagKey.replaceAll('-', '_'),
-      getStatsigClient().checkGate(flagKey),
-    )
-  }
-
-  for (const experiment of Object.values(Experiments)) {
-    datadogRum.addFeatureFlagEvaluation(
-      // Datadog has a limited set of accepted symbols in feature flags
-      // https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=reactnative#feature-flag-naming
-      `experiment_${experiment.replaceAll('-', '_')}`,
-      getStatsigClient().getExperiment(experiment).groupName,
-    )
-  }
+  // Datadog feature-flag/experiment correlation moved to `@hanzo/insights` —
+  // wire from the PostHog client there instead of evaluating gates locally.
 }

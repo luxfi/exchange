@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlagName, getStatsigClient } from '@l.x/gating'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { call, select } from 'typed-redux-saga'
 import type { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
 import type { PrepareSwapParams } from '@l.x/lx/src/features/transactions/swap/types/swapHandlers'
@@ -190,7 +190,7 @@ export function createPrepareAndSignSwapSaga(dependencies: TransactionSagaDepend
 export function* shouldSubmitViaPrivateRpc(chainId: number) {
   const swapProtectionSetting = yield* select(selectWalletSwapProtectionSetting)
   const swapProtectionOn = swapProtectionSetting === SwapProtectionSetting.On
-  const privateRpcFeatureEnabled = getStatsigClient().checkGate(getFeatureFlagName(FeatureFlags.PrivateRpc))
+  const privateRpcFeatureEnabled = getFeatureFlag(FeatureFlags.PrivateRpc)
   const privateRpcSupportedOnChain = chainId ? isPrivateRpcSupportedOnChain(chainId) : false
   return Boolean(swapProtectionOn && privateRpcSupportedOnChain && privateRpcFeatureEnabled)
 }

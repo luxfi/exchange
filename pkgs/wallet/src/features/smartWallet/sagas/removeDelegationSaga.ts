@@ -31,8 +31,6 @@ export async function getRemoveDelegationTransactionWithGasLimit(
   const gasAmount = await fetchGasFeeQuery({
     tx: request,
     smartContractDelegationAddress: DEFAULT_NATIVE_ADDRESS,
-    // TODO(WALL-7074): replace with the actual statsig ready state
-    isStatsigReady: true,
   })
   return {
     ...request,

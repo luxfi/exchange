@@ -437,11 +437,6 @@ vi.mock('@l.x/gating', async (importOriginal) => {
     getExperimentValueFromLayer: vi.fn(),
     useExperimentValueFromLayer: vi.fn(),
     checkTypeGuard: vi.fn(),
-    useStatsigClientStatus: () => ({
-      isStatsigLoading: false,
-      isStatsigReady: true,
-      isStatsigUninitialized: false,
-    }), // Specific custom mock for useStatsigClientStatus
   }
 })
 
@@ -492,7 +487,7 @@ beforeEach(() => {
     }
     originalConsoleDebug(...args)
   })
-  // TODO: can be removed after wrapping the test app in StatsigProvider and mocking flags and configs
+  // Local-only flag mocks; matches the no-op @l.x/gating implementation.
   muteStatsigWarnings()
 })
 

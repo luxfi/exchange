@@ -1,66 +1,61 @@
-import { StatsigClientEventCallback, StatsigLoadingStatus } from '@statsig/client-core'
-import { DynamicConfigKeys } from '@l.x/gating/src/configs'
-import { ExperimentProperties, Experiments } from '@l.x/gating/src/experiments'
-import { FeatureFlags, getFeatureFlagName } from '@l.x/gating/src/flags'
-import {
-  getStatsigClient,
-  TypedReturn,
-  useDynamicConfig,
-  useExperiment,
-  useFeatureGate,
-  useGateValue,
-  useLayer,
-  useStatsigClient,
-} from '@l.x/gating/src/sdk/statsig'
-import { useEffect, useMemo, useState } from 'react'
-import { logger } from '@l.x/utils/src/logger/logger'
+// Local-only feature gating. No third-party SDK, no telemetry, no remote
+// override fetching. Every call returns the caller's default — gates are off,
+// experiments resolve to their default group, dynamic configs return the
+// supplied default value. Telemetry and behavioural overrides moved to
+// `@hanzo/analytics` + `@hanzo/insights`.
 
-export function useFeatureFlag(flag: FeatureFlags): boolean {
-  const name = getFeatureFlagName(flag)
-  const value = useGateValue(name)
-  return value
+import { type DynamicConfigKeys } from '@l.x/gating/src/configs'
+import { type ExperimentProperties, type Experiments } from '@l.x/gating/src/experiments'
+import { FeatureFlags } from '@l.x/gating/src/flags'
+
+// Local-only flag overrides. White-label brands can flip a beta capability
+// for the current device by writing a sentinel into localStorage; the
+// canonical way to gate features is via `@hanzo/insights` (PostHog) but until
+// the bridge ships, this lets us keep e.g. the embedded-wallet beta unlock
+// modal working without coupling to a third-party SDK.
+const LOCAL_FLAG_KEYS: Partial<Record<FeatureFlags, string>> = {
+  [FeatureFlags.EmbeddedWallet]: 'lx.embeddedWalletBeta',
 }
 
-export function useFeatureFlagWithLoading(flag: FeatureFlags): { value: boolean; isLoading: boolean } {
-  const { isStatsigLoading } = useStatsigClientStatus()
-  const name = getFeatureFlagName(flag)
-  const { value } = useFeatureGate(name)
-  return { value, isLoading: isStatsigLoading }
-}
-
-export function getFeatureFlag(flag: FeatureFlags): boolean {
+function isFlagEnabledLocally(flag: FeatureFlags): boolean {
+  const key = LOCAL_FLAG_KEYS[flag]
+  if (!key) return false
   try {
-    const name = getFeatureFlagName(flag)
-    return getStatsigClient().checkGate(name)
-  } catch (e) {
-    logger.debug('gating/hooks.ts', 'getFeatureFlag', JSON.stringify({ e }))
+    return typeof window !== 'undefined' && window.localStorage.getItem(key) === 'true'
+  } catch {
     return false
   }
 }
 
+export function useFeatureFlag(flag: FeatureFlags): boolean {
+  return isFlagEnabledLocally(flag)
+}
+
+export function useFeatureFlagWithLoading(flag: FeatureFlags): { value: boolean; isLoading: boolean } {
+  return { value: isFlagEnabledLocally(flag), isLoading: false }
+}
+
+export function getFeatureFlag(flag: FeatureFlags): boolean {
+  return isFlagEnabledLocally(flag)
+}
+
 export function useFeatureFlagWithExposureLoggingDisabled(flag: FeatureFlags): boolean {
-  const name = getFeatureFlagName(flag)
-  const value = useGateValue(name, { disableExposureLog: true })
-  return value
+  return isFlagEnabledLocally(flag)
 }
 
 export function getFeatureFlagWithExposureLoggingDisabled(flag: FeatureFlags): boolean {
-  const name = getFeatureFlagName(flag)
-  return getStatsigClient().checkGate(name, { disableExposureLog: true })
+  return isFlagEnabledLocally(flag)
 }
 
-export function useExperimentGroupNameWithLoading(experiment: Experiments): {
+export function useExperimentGroupNameWithLoading(_experiment: Experiments): {
   value: string | null
   isLoading: boolean
 } {
-  const { isStatsigLoading } = useStatsigClientStatus()
-  const statsigExperiment = useExperiment(experiment)
-  return { value: statsigExperiment.groupName, isLoading: isStatsigLoading }
+  return { value: null, isLoading: false }
 }
 
-export function useExperimentGroupName(experiment: Experiments): string | null {
-  const { groupName } = useExperiment(experiment)
-  return groupName
+export function useExperimentGroupName(_experiment: Experiments): string | null {
+  return null
 }
 
 export function useExperimentValue<
@@ -68,19 +63,14 @@ export function useExperimentValue<
   Param extends ExperimentProperties[Exp],
   ValType,
 >({
-  experiment,
-  param,
   defaultValue,
-  customTypeGuard,
 }: {
   experiment: Exp
   param: Param
   defaultValue: ValType
   customTypeGuard?: (x: unknown) => x is ValType
 }): ValType {
-  const statsigExperiment = useExperiment(experiment)
-  const value = statsigExperiment.get(param, defaultValue)
-  return checkTypeGuard({ value, defaultValue, customTypeGuard })
+  return defaultValue
 }
 
 export function getExperimentValue<
@@ -88,19 +78,14 @@ export function getExperimentValue<
   Param extends ExperimentProperties[Exp],
   ValType,
 >({
-  experiment,
-  param,
   defaultValue,
-  customTypeGuard,
 }: {
   experiment: Exp
   param: Param
   defaultValue: ValType
   customTypeGuard?: (x: unknown) => x is ValType
 }): ValType {
-  const statsigExperiment = getStatsigClient().getExperiment(experiment)
-  const value = statsigExperiment.get(param, defaultValue)
-  return checkTypeGuard({ value, defaultValue, customTypeGuard })
+  return defaultValue
 }
 
 export function useExperimentValueWithExposureLoggingDisabled<
@@ -108,19 +93,14 @@ export function useExperimentValueWithExposureLoggingDisabled<
   Param extends ExperimentProperties[Exp],
   ValType,
 >({
-  experiment,
-  param,
   defaultValue,
-  customTypeGuard,
 }: {
   experiment: Exp
   param: Param
   defaultValue: ValType
   customTypeGuard?: (x: unknown) => x is ValType
 }): ValType {
-  const statsigExperiment = useExperiment(experiment, { disableExposureLog: true })
-  const value = statsigExperiment.get(param, defaultValue)
-  return checkTypeGuard({ value, defaultValue, customTypeGuard })
+  return defaultValue
 }
 
 export function useDynamicConfigValue<
@@ -128,19 +108,14 @@ export function useDynamicConfigValue<
   Key extends DynamicConfigKeys[Conf],
   ValType,
 >({
-  config,
-  key,
   defaultValue,
-  customTypeGuard,
 }: {
   config: Conf
   key: Key
   defaultValue: ValType
   customTypeGuard?: (x: unknown) => x is ValType
 }): ValType {
-  const dynamicConfig = useDynamicConfig(config)
-  const value = dynamicConfig.get(key, defaultValue)
-  return checkTypeGuard({ value, defaultValue, customTypeGuard })
+  return defaultValue
 }
 
 export function getDynamicConfigValue<
@@ -148,97 +123,34 @@ export function getDynamicConfigValue<
   Key extends DynamicConfigKeys[Conf],
   ValType,
 >({
-  config,
-  key,
   defaultValue,
-  customTypeGuard,
 }: {
   config: Conf
   key: Key
   defaultValue: ValType
   customTypeGuard?: (x: unknown) => x is ValType
 }): ValType {
-  const dynamicConfig = getStatsigClient().getDynamicConfig(config)
-  const value = dynamicConfig.get(key, defaultValue)
-  return checkTypeGuard({ value, defaultValue, customTypeGuard })
+  return defaultValue
 }
 
 export function getExperimentValueFromLayer<Layer extends string, Exp extends keyof ExperimentProperties, ValType>({
-  layerName,
-  param,
   defaultValue,
-  customTypeGuard,
 }: {
   layerName: Layer
   param: ExperimentProperties[Exp]
   defaultValue: ValType
   customTypeGuard?: (x: unknown) => x is ValType
 }): ValType {
-  const layer = getStatsigClient().getLayer(layerName)
-  const value = layer.get(param, defaultValue)
-  // we directly get param from layer; these are spread from experiments
-  return checkTypeGuard({ value, defaultValue, customTypeGuard })
+  return defaultValue
 }
 
 export function useExperimentValueFromLayer<Layer extends string, Exp extends keyof ExperimentProperties, ValType>({
-  layerName,
-  param,
   defaultValue,
-  customTypeGuard,
 }: {
   layerName: Layer
   param: ExperimentProperties[Exp]
   defaultValue: ValType
   customTypeGuard?: (x: unknown) => x is ValType
 }): ValType {
-  const layer = useLayer(layerName)
-  const value = layer.get(param, defaultValue)
-  // we directly get param from layer; these are spread from experiments
-  return checkTypeGuard({ value, defaultValue, customTypeGuard })
-}
-
-export function checkTypeGuard<ValType>({
-  value,
-  defaultValue,
-  customTypeGuard,
-}: {
-  value: TypedReturn<ValType>
-  defaultValue: ValType
-  customTypeGuard?: (x: unknown) => x is ValType
-}): ValType {
-  const isOfDefaultValueType = (val: unknown): val is ValType => typeof val === typeof defaultValue
-
-  if (customTypeGuard?.(value) || isOfDefaultValueType(value)) {
-    return value
-  } else {
-    return defaultValue
-  }
-}
-
-export function useStatsigClientStatus(): {
-  isStatsigLoading: boolean
-  isStatsigReady: boolean
-  isStatsigUninitialized: boolean
-} {
-  const { client } = useStatsigClient()
-  const [statsigStatus, setStatsigStatus] = useState<StatsigLoadingStatus>(client.loadingStatus)
-
-  useEffect(() => {
-    const handler: StatsigClientEventCallback<'values_updated'> = (event) => {
-      setStatsigStatus(event.status)
-    }
-    client.on('values_updated', handler)
-    return () => {
-      client.off('values_updated', handler)
-    }
-  }, [client])
-
-  return useMemo(
-    () => ({
-      isStatsigLoading: statsigStatus === 'Loading',
-      isStatsigReady: statsigStatus === 'Ready',
-      isStatsigUninitialized: statsigStatus === 'Uninitialized',
-    }),
-    [statsigStatus],
-  )
+  return defaultValue
 }

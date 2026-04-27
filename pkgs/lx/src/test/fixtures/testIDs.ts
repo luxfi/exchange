@@ -59,7 +59,6 @@ export const TestID = {
   DecimalPadNumber9: 'decimal-pad-9',
   DevDeletePrivateKeysButton: 'delete-private-keys-button',
   DevDeleteSeedPhraseButton: 'delete-seed-phrase-button',
-  DevFlagsBox: 'dev-flags-box',
   DevFlagsSettingsToggle: 'dev-flags-settings-toggle',
   DevSeedPhrasePrivateKeysAccordion: 'seed-phrase-private-keys-accordion',
   DialogCloseButton: 'Dialog-closeButton',

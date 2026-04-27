@@ -1,44 +1,5 @@
-import { getStatsigClient } from '@l.x/gating'
-import { useEffect } from 'react'
-import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { useENSName } from '@l.x/lx/src/features/ens/api'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
-
-export function useGatingUserPropertyUsernames(): void {
-  const activeAccount = useActiveAccount()
-  // TODO(WALL-7065): Update to support Solana
-  const validatedAddress = getValidAddress({ address: activeAccount?.address, platform: Platform.EVM })
-  const { data: ens } = useENSName(validatedAddress ?? undefined)
-  const { data: unitag } = useUnitagsAddressQuery({
-    params: validatedAddress ? { address: validatedAddress } : undefined,
-  })
-
-  useEffect(() => {
-    const statsigClient = getStatsigClient()
-    const { user } = statsigClient.getContext()
-    const newEns = ens?.split('.')[0]
-    if (activeAccount?.type === AccountType.SignerMnemonic) {
-      statsigClient
-        .updateUserAsync({
-          ...user,
-          privateAttributes: {
-            ...user.privateAttributes,
-            unitag: unitag?.username,
-            ens: newEns,
-          },
-        })
-        .catch((error) => {
-          logger.warn(
-            'userPropertyHooks',
-            'useGatingUserPropertyUsernames',
-            'Failed to set usernames for gating',
-            error,
-          )
-        })
-    }
-  }, [activeAccount?.type, ens, unitag?.username])
-}
+// User-property attachment for gating used to push ENS / unitag into the
+// Statsig user context. With the SDK gone this is a no-op until the
+// `@hanzo/insights` (PostHog) bridge lands and we wire `posthog.identify(...)`
+// here instead.
+export function useGatingUserPropertyUsernames(): void {}

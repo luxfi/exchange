@@ -1,11 +1,9 @@
 // Ordering is intentional and must be preserved: sideEffects followed by functionality.
 import '~/sideEffects'
 
-import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
 import { datadogRum } from '@datadog/browser-rum'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
-import type { StatsigUser } from '@l.x/gating'
 import {
   getIsHashcashSolverEnabled,
   getIsSessionServiceEnabled,
@@ -28,7 +26,7 @@ import {
 } from '@l.x/sessions'
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import type { PropsWithChildren } from 'react'
-import { StrictMode, useEffect, useMemo } from 'react'
+import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Helmet, HelmetProvider } from 'react-helmet-async/lib/index'
 import { I18nextProvider } from 'react-i18next'
@@ -39,7 +37,6 @@ import { BrowserRouter, HashRouter, useLocation } from 'react-router'
 import { PortalProvider } from '@l.x/ui/src'
 import { ReactRouterUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
 import { initializePortfolioQueryOverrides } from '@l.x/lx/src/data/rest/portfolioBalanceOverrides'
-import { StatsigProviderWrapper } from '@l.x/lx/src/features/gating/StatsigProviderWrapper'
 import { LocalizationContextProvider } from '@l.x/lx/src/features/language/LocalizationContext'
 import { TokenPriceProvider } from '@l.x/lx/src/features/prices/TokenPriceContext'
 import i18n from '@l.x/lx/src/i18n'
@@ -195,17 +192,11 @@ function GraphqlProviders({ children }: { children: React.ReactNode }) {
     </ApolloProvider>
   )
 }
-function StatsigProvider({ children }: PropsWithChildren) {
+function TelemetryProvider({ children }: PropsWithChildren) {
   const account = useAccount()
 
-  const statsigUser: StatsigUser = useMemo(
-    () => ({
-      userID: getDeviceId(),
-      customIDs: { address: account.address ?? '' },
-    }),
-    [account.address],
-  )
-
+  // Datadog gets the connection metadata that used to be a Statsig user
+  // property. Gating is now local-only — no SDK init, no provider wrapper.
   useEffect(() => {
     datadogRum.setUserProperty('connection', {
       type: account.connector?.type,
@@ -216,18 +207,14 @@ function StatsigProvider({ children }: PropsWithChildren) {
     })
   }, [account])
 
-  const onStatsigInit = () => {
+  useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!isDevEnv() || localDevDatadogEnabled) {
       initializeDatadog('web').catch(() => undefined)
     }
-  }
+  }, [])
 
-  return (
-    <StatsigProviderWrapper user={statsigUser} onInit={onStatsigInit}>
-      {children}
-    </StatsigProviderWrapper>
-  )
+  return <>{children}</>
 }
 
 const container = document.getElementById('root') as HTMLElement
@@ -247,7 +234,7 @@ const RootApp = (): JSX.Element => {
                     <I18nextProvider i18n={i18n}>
                       <LanguageProvider>
                         <Web3Provider>
-                          <StatsigProvider>
+                          <TelemetryProvider>
                             <WalletCapabilitiesEffects />
                             <ExternalWalletProvider>
                               <ConnectWalletMutationProvider>
@@ -277,7 +264,7 @@ const RootApp = (): JSX.Element => {
                                 </WebAccountsStoreProvider>
                               </ConnectWalletMutationProvider>
                             </ExternalWalletProvider>
-                          </StatsigProvider>
+                          </TelemetryProvider>
                         </Web3Provider>
                       </LanguageProvider>
                     </I18nextProvider>

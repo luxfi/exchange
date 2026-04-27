@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useDEXPriorityOrderFlag } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
 

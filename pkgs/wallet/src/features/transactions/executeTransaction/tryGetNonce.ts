@@ -2,8 +2,7 @@ import {
   Experiments,
   FeatureFlags,
   getExperimentValue,
-  getFeatureFlagName,
-  getStatsigClient,
+  getFeatureFlag,
   PrivateRpcProperties,
 } from '@l.x/gating'
 import { SagaIterator } from 'redux-saga'
@@ -37,7 +36,7 @@ export function* tryGetNonce(
   chainId: UniverseChainId,
 ): SagaIterator<CalculatedNonce | undefined> {
   try {
-    const isPrivateRpcEnabled = getStatsigClient().checkGate(getFeatureFlagName(FeatureFlags.PrivateRpc))
+    const isPrivateRpcEnabled = getFeatureFlag(FeatureFlags.PrivateRpc)
 
     const flashbotsEnabled = getExperimentValue({
       experiment: Experiments.PrivateRpc,
