@@ -55,7 +55,7 @@ export enum ReactQueryCacheKey {
   SharedDEXActivities = 'SharedDEXActivities',
   SignatureToActivity = 'SignatureToActivity',
   SolanaConnection = 'SolanaConnection',
-  StatsigUser = 'StatsigUser',
+  InsightsUser = 'InsightsUser',
   TradingApi = 'TradingApi',
   TradeService = 'TradeService',
   SolanaTradeService = 'SolanaTradeService',

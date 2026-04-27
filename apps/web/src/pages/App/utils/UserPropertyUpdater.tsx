@@ -6,30 +6,20 @@ import { lxIdentifierQuery } from '@l.x/sessions'
 import { useEffect } from 'react'
 import { useIsDarkMode } from '@l.x/ui/src'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { useSyncStatsigUserIdentifiers } from '@l.x/lx/src/features/gating/useSyncStatsigUserIdentifiers'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { InterfaceUserPropertyName, setUserProperty } from '@l.x/lx/src/features/telemetry/user'
 import { Metric, onCLS, onFCP, onINP, onLCP } from 'web-vitals'
-import { useActiveAddress } from '~/features/accounts/store/hooks'
 import { useAppSelector } from '~/state/hooks'
 import { useRouterPreference } from '~/state/user/hooks'
 
 export function UserPropertyUpdater() {
   const isDarkMode = useIsDarkMode()
   const { isTestnetModeEnabled } = useEnabledChains()
-  const address = useActiveAddress(Platform.EVM)
 
   const [routerPreference] = useRouterPreference()
   const rehydrated = useAppSelector((state) => state._persist.rehydrated)
 
   const { data: luxIdentifier } = useQuery(lxIdentifierQuery(provideLXIdentifierService))
-
-  // Update Statsig user with address and lux_identifier for experiment targeting
-  useSyncStatsigUserIdentifiers({
-    address,
-    luxIdentifier,
-  })
 
   useEffect(() => {
     if (luxIdentifier) {

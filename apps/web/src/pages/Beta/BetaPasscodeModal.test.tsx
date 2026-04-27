@@ -1,4 +1,3 @@
-import { getOverrideAdapter } from '@l.x/gating'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { BetaPasscodeModal } from '~/pages/Beta/BetaPasscodeModal'
 import { act, fireEvent, render, screen } from '~/test-utils/render'
@@ -19,7 +18,6 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...actual,
     getDynamicConfigValue: (...args: unknown[]) => mockGetDynamicConfigValue(...args),
-    getOverrideAdapter: vi.fn().mockReturnValue({ overrideGate: vi.fn() }),
   }
 })
 
@@ -35,6 +33,7 @@ describe('BetaPasscodeModal', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockGetDynamicConfigValue.mockReturnValue([])
+    window.localStorage.clear()
   })
 
   it('renders default state', () => {
@@ -66,7 +65,7 @@ describe('BetaPasscodeModal', () => {
     expect(screen.getByTestId(TestID.PreviewPassphraseError)).toBeTruthy()
   })
 
-  it('overrides gate and navigates on correct passphrase', async () => {
+  it('persists embedded-wallet beta flag and navigates on correct passphrase', async () => {
     mockGetDynamicConfigValue.mockReturnValue(['correct-code'])
     render(<BetaPasscodeModal />)
     const input = screen.getByTestId(TestID.PreviewPassphraseInput)
@@ -80,7 +79,7 @@ describe('BetaPasscodeModal', () => {
       fireEvent.click(submitButton)
     })
 
-    expect(getOverrideAdapter().overrideGate).toHaveBeenCalledWith('embedded_wallet', true)
+    expect(window.localStorage.getItem('lx.embeddedWalletBeta')).toBe('true')
     expect(mockNavigate).toHaveBeenCalledWith('/?intro=true', { replace: true })
   })
 })

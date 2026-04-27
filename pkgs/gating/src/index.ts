@@ -1,3 +1,8 @@
+// Local-only gating. Telemetry and remote feature flags moved to
+// `@hanzo/analytics` + `@hanzo/insights`. This package is the seam consumers
+// import from — every hook returns the caller's default value so gates are
+// off and experiments resolve to their default branch.
+
 export type {
   DatadogIgnoredErrorsValType,
   DatadogSessionSampleRateValType,
@@ -33,7 +38,6 @@ export {
   UwuLinkConfigKey,
   VerifiedAuctionsConfigKey,
 } from '@l.x/gating/src/configs'
-export { StatsigCustomAppValue } from '@l.x/gating/src/constants'
 export type { ExperimentProperties } from '@l.x/gating/src/experiments'
 export {
   EthAsErc20DEXProperties,
@@ -64,7 +68,6 @@ export {
   getIsTurnstileSolverEnabled,
   useIsTurnstileSolverEnabled,
 } from '@l.x/gating/src/getIsTurnstileSolverEnabled'
-export { getStatsigEnvName } from '@l.x/gating/src/getStatsigEnvName'
 export {
   getDynamicConfigValue,
   getExperimentValue,
@@ -77,26 +80,4 @@ export {
   useFeatureFlag,
   useFeatureFlagWithExposureLoggingDisabled,
   useFeatureFlagWithLoading,
-  useStatsigClientStatus,
 } from '@l.x/gating/src/hooks'
-export { LocalOverrideAdapterWrapper } from '@l.x/gating/src/LocalOverrideAdapterWrapper'
-export type {
-  StatsigOptions,
-  StatsigUser,
-  StorageProvider,
-} from '@l.x/gating/src/sdk/statsig'
-export {
-  getOverrideAdapter,
-  getStatsigClient,
-  StatsigClient,
-  StatsigContext,
-  StatsigProvider,
-  Storage,
-  useClientAsyncInit,
-  useExperiment,
-  useGateValue,
-  useLayer,
-} from '@l.x/gating/src/sdk/statsig'
-export { getOverrides } from '@l.x/gating/src/utils'
-// Upstream compat stub (packages/uniswap references this via @universe/gating)
-export async function waitForStatsigReady(): Promise<void> { /* no-op */ }

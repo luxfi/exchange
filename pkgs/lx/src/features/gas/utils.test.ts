@@ -1,6 +1,4 @@
 import { CurrencyAmount, Token } from '@luxamm/sdk-core'
-import type { GasStrategy } from '@l.x/api'
-import { DynamicConfigs, type GasStrategies, getStatsigClient } from '@l.x/gating'
 import { DAI } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { DEFAULT_GAS_STRATEGY } from '@l.x/lx/src/features/gas/consts'
@@ -11,17 +9,6 @@ import {
   hasSufficientGasBalance,
 } from '@l.x/lx/src/features/gas/utils'
 import { MAINNET_CURRENCY } from '@l.x/lx/src/test/fixtures'
-
-vi.mock('@l.x/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@l.x/gating')>()
-  return {
-    ...actual,
-    getStatsigClient: vi.fn(() => ({
-      loadingStatus: 'Ready',
-      getDynamicConfig: vi.fn(() => ({ value: {} })),
-    })),
-  }
-})
 
 const ZERO_ETH = CurrencyAmount.fromRawAmount(MAINNET_CURRENCY, 0)
 const ONE_ETH = CurrencyAmount.fromRawAmount(MAINNET_CURRENCY, 1e18)
@@ -142,110 +129,22 @@ describe(hasSufficientGasBalance, () => {
 })
 
 describe(getActiveGasStrategy, () => {
-  const mockGetStatsigClient = vi.mocked(getStatsigClient)
-
-  function mockStatsig({
-    loadingStatus = 'Ready' as string,
-    strategies = [] as GasStrategies['strategies'],
-  } = {}): void {
-    mockGetStatsigClient.mockReturnValue({
-      loadingStatus,
-      getDynamicConfig: vi.fn((config: string) => {
-        if (config === DynamicConfigs.GasStrategies) {
-          return { value: { strategies } }
-        }
-        return { value: {} }
-      }),
-    } as unknown as ReturnType<typeof getStatsigClient>)
-  }
-
-  beforeEach(() => {
-    mockStatsig()
-  })
-
-  it('returns DEFAULT_GAS_STRATEGY when Statsig has no config and no chain override', () => {
+  it('returns DEFAULT_GAS_STRATEGY when no chain override exists', () => {
     const result = getActiveGasStrategy({ chainId: 1, type: 'swap' })
     expect(result).toEqual(DEFAULT_GAS_STRATEGY)
   })
 
-  it('returns DEFAULT_GAS_STRATEGY with overrides for Arbitrum', () => {
+  it('merges chain overrides on top of DEFAULT_GAS_STRATEGY', () => {
     const result = getActiveGasStrategy({ chainId: 42161, type: 'swap' })
     expect(result).toEqual({
       ...DEFAULT_GAS_STRATEGY,
       minPriorityFeeGwei: 0,
       maxPriorityFeeGwei: 0,
     })
-  })
-
-  it('merges chain overrides on top of Statsig strategy', () => {
-    const statsigStrategy: GasStrategy = {
-      limitInflationFactor: 1.2,
-      displayLimitInflationFactor: 1,
-      priceInflationFactor: 1.3,
-      percentileThresholdFor1559Fee: 80,
-      thresholdToInflateLastBlockBaseFee: 0.7,
-      baseFeeMultiplier: 1.1,
-      baseFeeHistoryWindow: 25,
-      minPriorityFeeRatioOfBaseFee: 0.25,
-      minPriorityFeeGwei: 3,
-      maxPriorityFeeGwei: 12,
-    }
-
-    mockStatsig({
-      strategies: [
-        {
-          strategy: statsigStrategy,
-          conditions: { name: 'test', chainId: 42161, types: 'swap', isActive: true },
-        },
-      ],
-    })
-
-    const result = getActiveGasStrategy({ chainId: 42161, type: 'swap' })
-    expect(result).toEqual({
-      ...statsigStrategy,
-      minPriorityFeeGwei: 0,
-      maxPriorityFeeGwei: 0,
-    })
-  })
-
-  it('returns Statsig strategy unchanged when no chain override exists', () => {
-    const statsigStrategy: GasStrategy = {
-      limitInflationFactor: 1.2,
-      displayLimitInflationFactor: 1,
-      priceInflationFactor: 1.3,
-      percentileThresholdFor1559Fee: 80,
-      thresholdToInflateLastBlockBaseFee: 0.7,
-      baseFeeMultiplier: 1.1,
-      baseFeeHistoryWindow: 25,
-      minPriorityFeeRatioOfBaseFee: 0.25,
-      minPriorityFeeGwei: 3,
-      maxPriorityFeeGwei: 12,
-    }
-
-    mockStatsig({
-      strategies: [
-        {
-          strategy: statsigStrategy,
-          conditions: { name: 'test', chainId: 1, types: 'swap', isActive: true },
-        },
-      ],
-    })
-
-    const result = getActiveGasStrategy({ chainId: 1, type: 'swap' })
-    expect(result).toEqual(statsigStrategy)
   })
 
   it('returns DEFAULT_GAS_STRATEGY without overrides when chainId is undefined', () => {
     const result = getActiveGasStrategy({ chainId: undefined, type: 'swap' })
     expect(result).toEqual(DEFAULT_GAS_STRATEGY)
-  })
-
-  it('returns DEFAULT_GAS_STRATEGY when isStatsigReady is false', () => {
-    const result = getActiveGasStrategy({ chainId: 42161, type: 'swap', isStatsigReady: false })
-    expect(result).toEqual({
-      ...DEFAULT_GAS_STRATEGY,
-      minPriorityFeeGwei: 0,
-      maxPriorityFeeGwei: 0,
-    })
   })
 })

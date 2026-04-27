@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlag, useFeatureFlag } from '@luxfi/gating'
+import { FeatureFlags, getFeatureFlag, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { filterChainIdsByFeatureFlag } from '@l.x/lx/src/features/chains/utils'

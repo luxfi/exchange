@@ -2,7 +2,6 @@ import {
   DynamicConfigs,
   EmbeddedWalletBetaPassphrasesKey,
   getDynamicConfigValue,
-  getOverrideAdapter,
 } from '@l.x/gating'
 import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -34,7 +33,14 @@ export function BetaPasscodeModal(): JSX.Element {
       defaultValue: [] as string[],
     })
     if (validCodes.includes(passphrase)) {
-      getOverrideAdapter().overrideGate('embedded_wallet', true)
+      // Local override (no remote gating SDK). The embedded-wallet gate
+      // checks this localStorage key alongside any `@hanzo/insights` flag.
+      try {
+        window.localStorage.setItem('lx.embeddedWalletBeta', 'true')
+      } catch {
+        // SSR / privacy-mode storage failure is non-fatal — user just won't
+        // unlock the beta on this device.
+      }
       navigate('/?intro=true', { replace: true })
     } else {
       setHasError(true)

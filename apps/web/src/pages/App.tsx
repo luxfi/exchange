@@ -7,7 +7,6 @@ import { initializeScrollWatcher } from '@l.x/lx/src/components/modals/ScrollLoc
 import { EXTENSION_PASSKEY_AUTH_PATH } from '@l.x/lx/src/features/passkey/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import ErrorBoundary from '~/components/ErrorBoundary'
-import { useFeatureFlagUrlOverrides } from '~/featureFlags/useFeatureFlagUrlOverrides'
 import { Body } from '~/pages/App/Body'
 import { AppLayout } from '~/pages/App/Layout'
 import { ResetPageScrollEffect } from '~/pages/App/utils/ResetPageScroll'
@@ -27,8 +26,6 @@ export default function App() {
   const location = useLocation()
   const { pathname } = location
   const currentPage = getCurrentPageFromLocation(pathname)
-
-  useFeatureFlagUrlOverrides()
 
   useEffect(() => {
     initializeScrollWatcher()

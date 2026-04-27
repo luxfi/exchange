@@ -1,5 +1,5 @@
-import { FeatureFlags, getFeatureFlag, getStatsigClient } from '@l.x/gating'
-import { call, delay, fork, select } from 'typed-redux-saga'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
+import { delay, fork, select } from 'typed-redux-saga'
 import { makeSelectPlanTransaction } from '@l.x/lx/src/features/transactions/selectors'
 import {
   logPlanPollDebug,
@@ -11,7 +11,6 @@ import {
 } from '@l.x/lx/src/features/transactions/swap/plan/planPollingUtils'
 import { PlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 interface PlanListener {
   updatePlanStatus: (updatedPlan: PlanTransactionDetails) => void
@@ -30,18 +29,11 @@ export class PlanWatcher {
   private static index = 0
 
   static *initialize(): Generator<unknown> {
-    yield* call(PlanWatcher.waitForStatsigReady)
     if (!getFeatureFlag(FeatureFlags.ChainedActions)) {
       return
     }
     PlanWatcher.index++
     yield* fork(PlanWatcher.poll, PlanWatcher.index)
-  }
-
-  private static *waitForStatsigReady(): Generator<unknown> {
-    while (getStatsigClient().loadingStatus !== 'Ready') {
-      yield* delay(ONE_SECOND_MS)
-    }
   }
 
   private static *poll(index: number): Generator<unknown> {

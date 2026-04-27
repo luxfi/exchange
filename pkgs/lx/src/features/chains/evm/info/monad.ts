@@ -1,6 +1,6 @@
 import { Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@luxfi/api'
-import { SwapConfigKey } from '@luxfi/gating'
+import { SwapConfigKey } from '@l.x/gating'
 import { MONAD_LOGO_FILLED } from '@l.x/ui/src/assets'
 import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
 import {

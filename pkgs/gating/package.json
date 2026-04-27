@@ -2,11 +2,6 @@
   "name": "@l.x/gating",
   "version": "1.0.7",
   "dependencies": {
-    "@statsig/client-core": "3.12.2",
-    "@statsig/js-client": "3.12.2",
-    "@statsig/js-local-overrides": "3.12.2",
-    "@statsig/react-bindings": "3.12.2",
-    "@statsig/react-native-bindings": "3.12.2",
     "@l.x/api": "^1.0.8",
     "@l.x/config": "^1.0.7",
     "@l.x/utils": "^1.1.3"

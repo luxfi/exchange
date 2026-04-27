@@ -8,13 +8,7 @@ import {
   type TransactionEip1559FeeParams,
   type TransactionLegacyFeeParams,
 } from '@l.x/api'
-import {
-  DynamicConfigs,
-  type GasStrategies,
-  type GasStrategyType,
-  type GasStrategyWithConditions,
-  getStatsigClient,
-} from '@l.x/gating'
+import { type GasStrategyType, type GasStrategyWithConditions } from '@l.x/gating'
 import JSBI from 'jsbi'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
@@ -140,55 +134,24 @@ export function hasSufficientGasBalance({
   })
 }
 
-// Function to find the name of a gas strategy based on the GasEstimate
+// Gas strategies are now defined locally in `consts.ts` (DEFAULT/NORMAL/FAST/
+// URGENT) plus `CHAIN_GAS_STRATEGY_OVERRIDES`. There's no remote dynamic
+// config to look up.
 export function findLocalGasStrategy(
-  gasEstimate: GasEstimate,
-  type: GasStrategyType,
+  _gasEstimate: GasEstimate,
+  _type: GasStrategyType,
 ): GasStrategyWithConditions | undefined {
-  const gasStrategies = getStatsigClient().getDynamicConfig(DynamicConfigs.GasStrategies).value as GasStrategies
-  return gasStrategies.strategies.find(
-    (s) => s.conditions.types === type && areEqualGasStrategies(s.strategy, gasEstimate.strategy),
-  )
-}
-
-// Helper function to check if the config value is a valid GasStrategies object
-function isValidGasStrategies(value: unknown): value is GasStrategies {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    'strategies' in value &&
-    Array.isArray((value as GasStrategies).strategies)
-  )
-}
-
-function getIsStatsigReady(): boolean {
-  return getStatsigClient().loadingStatus === 'Ready'
+  return undefined
 }
 
 export function getActiveGasStrategy({
   chainId,
-  type,
-  isStatsigReady,
 }: {
   chainId: number | undefined
   type: GasStrategyType
-  isStatsigReady?: boolean
 }): GasStrategy {
-  let baseStrategy: GasStrategy = DEFAULT_GAS_STRATEGY
-
-  if (isStatsigReady !== false && getIsStatsigReady()) {
-    const config = getStatsigClient().getDynamicConfig(DynamicConfigs.GasStrategies)
-    const gasStrategies = isValidGasStrategies(config.value) ? config.value : undefined
-    const activeStrategy = gasStrategies?.strategies.find(
-      (s) => s.conditions.chainId === chainId && s.conditions.types === type && s.conditions.isActive,
-    )
-    if (activeStrategy) {
-      baseStrategy = activeStrategy.strategy
-    }
-  }
-
   const overrides = chainId ? CHAIN_GAS_STRATEGY_OVERRIDES[chainId] : undefined
-  return { ...baseStrategy, ...overrides }
+  return { ...DEFAULT_GAS_STRATEGY, ...overrides }
 }
 
 export function areEqualGasStrategies(a?: GasStrategy, b?: GasStrategy): boolean {

@@ -3,7 +3,7 @@ import { ChainId as LXSDKChainId } from '@luxamm/sdk-core'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import type { CurrencyAmount, Token } from '@luxamm/sdk-core'
 import type { GraphQLApi } from '@luxfi/api'
-import { SwapConfigKey } from '@luxfi/gating'
+import { SwapConfigKey } from '@l.x/gating'
 import type { ImageSourcePropType } from 'react-native'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import { type UNIVERSE_CHAIN_INFO } from '@l.x/lx/src/features/chains/chainInfo'

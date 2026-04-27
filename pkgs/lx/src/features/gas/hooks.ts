@@ -1,6 +1,6 @@
 import { type Currency, type CurrencyAmount } from '@luxamm/sdk-core'
 import { type FormattedDEXGasFeeInfo, type GasFeeResult, type GasStrategy } from '@l.x/api'
-import { type GasStrategyType, useStatsigClientStatus } from '@l.x/gating'
+import { type GasStrategyType } from '@l.x/gating'
 import { BigNumber, type providers } from 'ethers/lib/ethers'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -38,10 +38,11 @@ export type CancellationGasFeeDetails = {
   gasFeeDisplayValue: string
 }
 
-// Hook to use active GasStrategy for a specific chain.
+// Hook to use active GasStrategy for a specific chain. Strategies are local
+// constants now (no remote dynamic config), so the result is purely a function
+// of (chainId, type).
 export function useActiveGasStrategy(chainId: number | undefined, type: GasStrategyType): GasStrategy {
-  const { isStatsigReady } = useStatsigClientStatus()
-  return useMemo(() => getActiveGasStrategy({ chainId, type, isStatsigReady }), [isStatsigReady, chainId, type])
+  return useMemo(() => getActiveGasStrategy({ chainId, type }), [chainId, type])
 }
 
 /**

@@ -1,6 +1,6 @@
 import { Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@luxfi/api'
-import { SwapConfigKey } from '@luxfi/gating'
+import { SwapConfigKey } from '@l.x/gating'
 import { AVALANCHE_LOGO } from '@l.x/ui/src/assets'
 import { config } from '@l.x/lx/src/config'
 import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'

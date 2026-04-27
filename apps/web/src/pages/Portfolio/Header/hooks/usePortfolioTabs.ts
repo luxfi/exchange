@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
 

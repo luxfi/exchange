@@ -1821,21 +1821,6 @@ importers:
       '@l.x/utils':
         specifier: ^1.1.3
         version: 1.1.3(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(encoding@0.1.13)(expo@53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.10.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))(react@19.2.5))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))(react@19.2.5)(utf-8-validate@5.0.10))(graphql-ws@5.12.1(graphql@16.10.0))(react-dom@19.2.5(react@19.2.5))(utf-8-validate@5.0.10)
-      '@statsig/client-core':
-        specifier: 3.12.2
-        version: 3.12.2
-      '@statsig/js-client':
-        specifier: 3.12.2
-        version: 3.12.2
-      '@statsig/js-local-overrides':
-        specifier: 3.12.2
-        version: 3.12.2
-      '@statsig/react-bindings':
-        specifier: 3.12.2
-        version: 3.12.2(react@19.2.5)
-      '@statsig/react-native-bindings':
-        specifier: 3.12.2
-        version: 3.12.2(@react-native-async-storage/async-storage@2.1.2(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)))(react-native-device-info@10.11.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))(react@19.2.5)
     devDependencies:
       '@luxfi/eslint-config':
         specifier: ^1.0.8
@@ -36856,7 +36841,7 @@ snapshots:
   '@hanzogui/use-keyboard-visible@7.0.0(@hanzogui/react-native@0.79.5-fork.1)(react@19.2.5)':
     dependencies:
       react: 19.2.5
-      react-native: '@hanzogui/react-native@0.79.5-fork.1(@babel/core@7.29.0)(@hanzogui/react-native@0.79.5-fork.1)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)'
+      react-native: '@hanzogui/react-native@0.79.5-fork.1(@babel/core@7.26.0)(@hanzogui/react-native@0.79.5-fork.1)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)'
 
   '@hanzogui/use-presence@4.4.0(45f06717636f94e91b4f67f28d45f016)':
     dependencies:
@@ -41198,11 +41183,6 @@ snapshots:
       merge-options: 3.0.4
       react-native: 0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)
 
-  '@react-native-async-storage/async-storage@2.1.2(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))':
-    dependencies:
-      merge-options: 3.0.4
-      react-native: 0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)
-
   '@react-native-community/cli-clean@18.0.1':
     dependencies:
       '@react-native-community/cli-tools': 18.0.1
@@ -44969,18 +44949,6 @@ snapshots:
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
 
-  '@statsig/react-native-bindings@3.12.2(@react-native-async-storage/async-storage@2.1.2(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)))(react-native-device-info@10.11.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))(react@19.2.5)':
-    dependencies:
-      '@statsig/client-core': 3.12.2
-      '@statsig/js-client': 3.12.2
-      '@statsig/react-bindings': 3.12.2(react@19.2.5)
-      '@statsig/react-native-core': 3.12.2(@react-native-async-storage/async-storage@2.1.2(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))
-      react: 19.2.5
-      react-native: 0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)
-      react-native-device-info: 10.11.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))
-    transitivePeerDependencies:
-      - '@react-native-async-storage/async-storage'
-
   '@statsig/react-native-core@3.12.2(@hanzogui/react-native@0.79.5-fork.1)':
     dependencies:
       '@statsig/client-core': 3.12.2
@@ -45003,12 +44971,6 @@ snapshots:
       '@react-native-async-storage/async-storage': 2.1.2(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))
       '@statsig/client-core': 3.12.2
       react-native: 0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)
-
-  '@statsig/react-native-core@3.12.2(@react-native-async-storage/async-storage@2.1.2(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))':
-    dependencies:
-      '@react-native-async-storage/async-storage': 2.1.2(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10))
-      '@statsig/client-core': 3.12.2
-      react-native: 0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)
 
   '@storybook/addon-controls@8.6.18(storybook@8.5.2(bufferutil@4.1.0)(prettier@2.8.8)(utf-8-validate@5.0.10))':
     dependencies:
@@ -61889,10 +61851,6 @@ snapshots:
   react-native-device-info@10.11.0(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)):
     dependencies:
       react-native: 0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)
-
-  react-native-device-info@10.11.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)):
-    dependencies:
-      react-native: 0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.2.5)(utf-8-validate@5.0.10)
 
   react-native-device-info@10.3.0(@hanzogui/react-native@0.79.5-fork.1):
     dependencies:
