@@ -25,8 +25,12 @@ export function StatsigProviderWrapper({
   storageProvider,
   onInit,
 }: StatsigProviderWrapperProps): ReactNode {
+  // White-label brands without their own Statsig project ship with an
+  // empty key. Bypass the provider entirely so feature gates default to
+  // off and the app still renders. Throwing here previously broke first
+  // paint on every brand that didn't have Statsig provisioned.
   if (!config.statsigApiKey) {
-    throw new Error('statsigApiKey is not set')
+    return children
   }
 
   const statsigOptions = useMemo<StatsigOptions>(
