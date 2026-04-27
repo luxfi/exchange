@@ -25,11 +25,16 @@ export {
 let localOverrideAdapter: LocalOverrideAdapterWrapper | undefined
 
 function getStatsigApiKeyOrThrow(): string {
-  // A dummy key is used in test env b/c the wallet/mobile tests use this file instead of the statsig.native file
+  // A dummy key is used in test env b/c the wallet/mobile tests use this file
+  // instead of the statsig.native file. White-label builds with no Statsig
+  // key configured fall through to the same dummy: the client init fails
+  // silently downstream and feature gates default to off, but the app still
+  // renders. Throwing here previously broke first-paint on every brand that
+  // didn't have a Statsig project provisioned.
   const statsigApiKey = isTestEnv() ? 'dummy-test-key' : getConfig().statsigApiKey
 
   if (!statsigApiKey) {
-    throw new Error('STATSIG_API_KEY is not set')
+    return 'client-statsig-disabled'
   }
 
   return statsigApiKey
