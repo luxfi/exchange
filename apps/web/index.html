@@ -3,12 +3,11 @@
   <head>
     <meta charset="utf-8" />
 
-    <!-- Brand-neutral default; runtime brand loader (loadBrandConfig) overrides
-         document.title from /brand.json before first paint on white-label
-         deployments (zoo.exchange, lux.exchange, etc). Hardcoding the upstream
-         "Uniswap Interface" here was leaking through to every brand and is the
-         source of the brand-bleed audit failures. -->
-    <title>Lux Exchange</title>
+    <!-- Brand-neutral default. Runtime brand loader (loadBrandConfig) sets
+         document.title from /brand.json before first paint. Every deployment
+         (zoo.exchange, lux.exchange, swap.*.satschel.com) gets its real title
+         from the K8s ConfigMap. No hardcoded brand strings live here. -->
+    <title>Loading…</title>
 
     <!-- Vite uses / for public assets instead of %PUBLIC_URL% -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
