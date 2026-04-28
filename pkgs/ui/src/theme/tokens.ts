@@ -1,6 +1,6 @@
 // until the web app needs all of gui, avoid heavy imports there
 // biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
-import { type ColorTokens, createTokens } from '@hanzogui/core'
+import { type ColorTokens, createTokens } from '@hanzo/gui'
 import type { DynamicColor } from '@l.x/ui/src/hooks/useSporeColors'
 import { borderRadii } from '@l.x/ui/src/theme/borderRadii'
 import { colors as color } from '@l.x/ui/src/theme/color/colors'

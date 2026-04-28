@@ -1,5 +1,5 @@
 // biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
-import { SpaceTokens } from '@hanzogui/core'
+import { SpaceTokens } from '@hanzo/gui'
 import { PropsWithChildren } from 'react'
 import { Flex } from '@l.x/ui/src/components/layout/Flex'
 
