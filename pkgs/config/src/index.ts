@@ -1,6 +1,15 @@
 export type { Config } from './config-types'
 export { getConfig } from './getConfig'
-export { brand, loadBrandConfig, getBrandUrl, getDocsUrl, getGatewayUrl, getWsUrl } from './brand'
+export {
+  brand,
+  loadBrandConfig,
+  getBrandUrl,
+  getDocsUrl,
+  getGatewayUrl,
+  getWsUrl,
+  getRpcUrl,
+  getApiUrl,
+} from './brand'
 export type { BrandConfig, BrandTheme } from './brand'
 export { loadRuntimeConfig, getRuntimeConfig } from './runtime'
 export type { RuntimeConfig as DeploymentRuntimeConfig } from './runtime'
