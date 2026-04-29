@@ -135,7 +135,7 @@ app.get('/health', async (req, res) => {
 });
 
 // Token list — real verified addresses
-app.get('/api/tokens', (req, res) => {
+app.get('/v1/tokens', (req, res) => {
   const tokens = [
     { address: '0x0000000000000000000000000000000000000000', symbol: 'LUX', name: 'Lux', decimals: 18, logoURI: '/tokens/lux.png' },
     ...Object.values(TOKENS).map(t => ({ ...t, logoURI: `/tokens/${t.symbol.toLowerCase()}.png` })),
@@ -144,7 +144,7 @@ app.get('/api/tokens', (req, res) => {
 });
 
 // Pools — query V3 subgraph for live pool data
-app.get('/api/pools', async (req, res) => {
+app.get('/v1/pools', async (req, res) => {
   try {
     const { limit = 20, offset = 0 } = req.query;
     const data = await cached(`pools:${limit}:${offset}`, 30000, () =>
@@ -187,7 +187,7 @@ app.get('/api/pools', async (req, res) => {
 });
 
 // F1: Swaps — use GraphQL variables, not string interpolation
-app.get('/api/trades', async (req, res) => {
+app.get('/v1/trades', async (req, res) => {
   try {
     const { pool, limit = 50 } = req.query;
     const safeLimit = Math.min(Math.max(Number(limit) || 50, 1), 1000);
@@ -242,7 +242,7 @@ app.get('/api/trades', async (req, res) => {
 });
 
 // Token price — live from V3 pool slot0 on-chain
-app.get('/api/price/:symbol', async (req, res) => {
+app.get('/v1/price/:symbol', async (req, res) => {
   try {
     const sym = req.params.symbol.toUpperCase();
     const price = await cached(`price:${sym}`, 10000, async () => {
@@ -301,7 +301,7 @@ app.get('/api/price/:symbol', async (req, res) => {
 });
 
 // F1: Token day data — use GraphQL variables, not string interpolation
-app.get('/api/token/:address/history', async (req, res) => {
+app.get('/v1/token/:address/history', async (req, res) => {
   try {
     const { address } = req.params;
     // Validate token address format
@@ -332,7 +332,7 @@ app.get('/api/token/:address/history', async (req, res) => {
 });
 
 // Portfolio — query on-chain balances
-app.get('/api/portfolio/:address', async (req, res) => {
+app.get('/v1/portfolio/:address', async (req, res) => {
   try {
     const { address } = req.params;
     // Validate Ethereum address format
