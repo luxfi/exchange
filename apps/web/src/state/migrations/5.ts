@@ -4,25 +4,25 @@ import { RouterPreference } from '~/state/routing/types'
 
 export type PersistAppStateV5 = {
   _persist: PersistState
-} & { user?: PreV16UserState & { disabledUniswapX?: boolean; optedOutOfUniswapX?: boolean } }
+} & { user?: PreV16UserState & { disabledLX?: boolean; optedOutOfLX?: boolean } }
 
 /**
- * Migration to migrate users to UniswapX by default.
+ * Migration to migrate users to LX by default.
  */
 export const migration5 = (state: PersistAppStateV5 | undefined) => {
   if (!state) {
     return state
   }
   // Remove a previously-persisted variable
-  if (state.user && 'disabledUniswapX' in state.user) {
-    delete state.user.disabledUniswapX
+  if (state.user && 'disabledLX' in state.user) {
+    delete state.user.disabledLX
   }
-  const userOptedOutOfUniswapX = state.user?.optedOutOfUniswapX
-  if (state.user && 'optedOutOfUniswapX' in state.user) {
-    delete state.user.optedOutOfUniswapX
+  const userOptedOutOfLX = state.user?.optedOutOfLX
+  if (state.user && 'optedOutOfLX' in state.user) {
+    delete state.user.optedOutOfLX
   }
-  // If the the user has previously disabled UniswapX *during the opt-out rollout period*, we respect that preference.
-  if (state.user && !userOptedOutOfUniswapX) {
+  // If the the user has previously disabled LX *during the opt-out rollout period*, we respect that preference.
+  if (state.user && !userOptedOutOfLX) {
     return {
       ...state,
       user: {

@@ -41,7 +41,6 @@ export {
 export type { ExperimentProperties } from '@l.x/gating/src/experiments'
 export {
   EthAsErc20DEXProperties,
-  EthAsErc20DEXProperties as EthAsErc20UniswapXProperties,
   Experiments,
   ExploreBackendSortingProperties,
   LayerProperties,

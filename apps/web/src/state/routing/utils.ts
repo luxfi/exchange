@@ -562,8 +562,6 @@ export function isLXTrade(
 ): trade is DutchOrderTrade | V2DutchOrderTrade | V3DutchOrderTrade | LimitOrderTrade | PriorityOrderTrade {
   return isLXTradeType(trade?.fillType)
 }
-export { isLXTrade as isUniswapXTrade }
-export { isLXTradeType as isUniswapXTradeType }
 
 /* Returns true if trade is a SWAP on DEX, not a limit order */
 export function isLXSwapTrade(
@@ -577,8 +575,6 @@ export function isLXSwapTrade(
       trade.offchainOrderType === OffchainOrderType.PRIORITY_ORDER)
   )
 }
-
-export { isLXSwapTrade as isUniswapXSwapTrade }
 
 export function isLimitTrade(trade?: InterfaceTrade): trade is LimitOrderTrade {
   return isLXTrade(trade) && trade.offchainOrderType === OffchainOrderType.LIMIT_ORDER
