@@ -9,15 +9,25 @@ import store from '~/state'
 import { setOriginCountry } from '~/state/user/reducer'
 
 /**
- * Legacy Amplitude init — kept for type compatibility. Events are also forwarded to
- * Hanzo Insights (insights.hanzo.ai) via the sendAnalyticsEvent bridge in send.web.ts.
- * The Amplitude proxy URL will be removed once the migration is complete.
+ * Legacy Amplitude init. Hanzo Insights (`setupInsights()`) is the canonical
+ * analytics path for the Lux ecosystem; Amplitude only initializes when an
+ * API key is explicitly set, so white-label deploys (Liquidity, Zoo, Pars)
+ * that opt out get a clean no-op without firing requests at amplitude.com
+ * or a malformed proxy URL.
  */
 export function setupAmplitude() {
   if (isTestEnv() && !isPlaywrightEnv()) {
     // Want to skip Amplitude initialization in test envs
     // But not in playwright, since we have a Playwright fixture that intercepts Amplitude events
     logger.debug('amplitude.ts', 'setupAmplitude', 'Skipping Amplitude initialization in test environment')
+    return
+  }
+
+  // Gate on explicit API key — same pattern as setupInsights(). When the
+  // key isn't set we skip init entirely instead of pointing the SDK at a
+  // proxy URL that doesn't exist on the deploy target.
+  if (!process.env.REACT_APP_AMPLITUDE_API_KEY) {
+    logger.debug('amplitude.ts', 'setupAmplitude', 'Amplitude not configured (REACT_APP_AMPLITUDE_API_KEY unset) — skipping')
     return
   }
 
