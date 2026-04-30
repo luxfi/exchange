@@ -53,8 +53,15 @@ export function getServicePrefix(flow?: TrafficFlows): string {
 
 export function getCloudflareApiBaseUrl(params?: { flow?: TrafficFlows; postfix?: string }): string {
   const { flow, postfix } = params ?? {}
-  let baseUrl
   const gatewayHost = process.env.REACT_APP_GATEWAY_HOST || brand.gatewayDomain
+  // Guard: synthesizing a URL with an empty host produces malformed targets
+  // like `https://trading-api-labs.interface./...` that bomb CSP without ever
+  // reaching a real backend. Return empty so callers can short-circuit.
+  if (!gatewayHost) {
+    return ''
+  }
+
+  let baseUrl
   if (flow === TrafficFlows.TradingApi && !isPlaywrightEnv()) {
     // This is an exception that only applies to dev + TAPI where the order of the prefix matters
     baseUrl = `https://${isDevEnv() ? 'beta.' : ''}trading-api-labs.${getCloudflarePrefix(flow)}.${gatewayHost}`

@@ -70,8 +70,13 @@ export function getQuicknodeChainIdPathSuffix(chainId: UniverseChainId): string 
 }
 
 export function getQuicknodeEndpointUrl(chainId: UniverseChainId): string {
+  // Guard: when the deploy doesn't ship Quicknode credentials, return empty
+  // so callers/wagmi fall through to public RPCs instead of synthesizing a
+  // broken URL like `https://.quiknode.pro/` that bombs CSP and 502s.
+  if (!config.quicknodeEndpointName || !config.quicknodeEndpointToken) {
+    return ''
+  }
   const quicknodeChainId = getQuicknodeChainId(chainId)
-
   return `https://${config.quicknodeEndpointName}${quicknodeChainId ? `.${quicknodeChainId}` : ''}.quiknode.pro/${config.quicknodeEndpointToken}${getQuicknodeChainIdPathSuffix(chainId)}`
 }
 
