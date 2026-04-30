@@ -464,5 +464,3 @@ export function usePendingDEXOrders(): DEXOrderDetails[] {
     )
   }, [account.address, allTransactions])
 }
-export { useDEXOrderByOrderHash as useUniswapXOrderByOrderHash }
-export { usePendingDEXOrders as usePendingUniswapXOrders }
