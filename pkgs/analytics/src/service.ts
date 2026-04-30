@@ -1,13 +1,14 @@
 /**
- * Server-side analytics service. Provider-agnostic: the production driver is
- * Hanzo Insights (`@hanzo/insights-node`). Replace the import + `new Insights`
- * call to swap in any other provider that implements the same `track` /
- * `identify` / `flush` shape.
+ * Server-side analytics service. Provider-agnostic: the production driver
+ * is Hanzo Insights (`@hanzo/insights-node`), loaded lazily so package
+ * resolution never blocks the parent build if the SDK isn't installed
+ * (or has a broken transitive dep on the public registry). Until the
+ * SDK loads, calls fall through to `NoopAnalyticsService` semantics.
  *
- * No third-party SDK is referenced here other than `@hanzo/insights-node`,
- * which is the canonical Hanzo native analytics layer.
+ * Replace the dynamic import + `new Insights(...)` call to swap in any
+ * other provider that implements the same `track / identify / flush`
+ * shape — no other consumer needs to change.
  */
-import { Insights } from '@hanzo/insights-node'
 
 export interface ServerEventContext {
   userId?: string
@@ -38,28 +39,71 @@ export interface AnalyticsService<E extends string = string> {
   flush(): Promise<void>
 }
 
+interface InsightsClient {
+  capture(params: {
+    distinctId: string
+    event: string
+    properties?: Record<string, unknown>
+    [key: string]: unknown
+  }): void
+  identify(params: { distinctId: string; properties?: Record<string, unknown> }): void
+  flush?(): Promise<void> | void
+}
+
 /**
  * Server-side analytics powered by Hanzo Insights (`@hanzo/insights-node`).
- * Singleton-instance per process — `flushIntervalMillis` matches the prior
- * legacy 10s cadence (10s) so dashboards see continuity, not a gap.
+ * Singleton-instance per process. The SDK is loaded lazily via dynamic
+ * import — calls before it resolves are dropped (consistent with the
+ * NoopAnalyticsService contract) rather than buffered, so memory growth
+ * is bounded under boot bursts.
  */
 export class InsightsAnalyticsService<E extends string = string> implements AnalyticsService<E> {
-  private static client: Insights | null = null
+  private static client: InsightsClient | null = null
+  private static loading: Promise<InsightsClient | null> | null = null
   private readonly platform: string
+  private readonly apiKey: string
+  private readonly host?: string
 
   constructor(apiKey: string, platform: string, options?: { host?: string }) {
+    this.apiKey = apiKey
     this.platform = platform
+    this.host = options?.host
+    void this.ensureClient()
+  }
 
-    if (!InsightsAnalyticsService.client) {
-      InsightsAnalyticsService.client = new Insights(apiKey, {
-        host: options?.host,
-        flushInterval: 10_000,
-      })
+  private async ensureClient(): Promise<InsightsClient | null> {
+    if (InsightsAnalyticsService.client) {
+      return InsightsAnalyticsService.client
     }
+    if (!InsightsAnalyticsService.loading) {
+      InsightsAnalyticsService.loading = (async () => {
+        try {
+          const pkg = '@hanzo/insights-node'
+          const mod: any = await import(/* @vite-ignore */ pkg).catch(() => null)
+          if (!mod) {
+            return null
+          }
+          const Ctor = mod.Insights ?? mod.default ?? mod
+          const client: InsightsClient = new Ctor(this.apiKey, {
+            host: this.host,
+            flushInterval: 10_000,
+          })
+          InsightsAnalyticsService.client = client
+          return client
+        } catch {
+          return null
+        }
+      })()
+    }
+    return InsightsAnalyticsService.loading
   }
 
   track(event: E, properties: Record<string, unknown>, serverContext: ServerEventContext): void {
-    InsightsAnalyticsService.client?.capture({
+    const client = InsightsAnalyticsService.client
+    if (!client) {
+      return
+    }
+    client.capture({
       distinctId: serverContext.userId ?? serverContext.deviceId ?? 'anonymous',
       event,
       properties: {
@@ -73,6 +117,10 @@ export class InsightsAnalyticsService<E extends string = string> implements Anal
   }
 
   identify(userId: string, traits: UserTraits): void {
+    const client = InsightsAnalyticsService.client
+    if (!client) {
+      return
+    }
     const properties: Record<string, unknown> = {}
     if (traits.loginMethod) {
       properties.loginMethod = traits.loginMethod
@@ -105,17 +153,15 @@ export class InsightsAnalyticsService<E extends string = string> implements Anal
       properties.utmContent = traits.utmContent
     }
 
-    InsightsAnalyticsService.client?.identify({
-      distinctId: userId,
-      properties,
-    })
+    client.identify({ distinctId: userId, properties })
   }
 
   async flush(): Promise<void> {
-    const client = InsightsAnalyticsService.client as unknown as { flush?: () => Promise<void> }
-    if (client && typeof client.flush === 'function') {
-      await client.flush()
+    const client = InsightsAnalyticsService.client
+    if (!client || typeof client.flush !== 'function') {
+      return
     }
+    await client.flush()
   }
 }
 

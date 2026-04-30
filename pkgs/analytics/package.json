@@ -1,9 +1,7 @@
 {
   "name": "@l.x/analytics",
   "version": "0.0.3",
-  "dependencies": {
-    "@hanzo/insights-node": "^6.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "22.13.1",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
