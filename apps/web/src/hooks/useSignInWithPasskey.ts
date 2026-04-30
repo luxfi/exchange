@@ -13,7 +13,7 @@ import { useClaimUnitag } from '@l.x/lx/src/features/unitags/hooks/useClaimUnita
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useWagmiConnectorWithId } from '~/components/WalletModal/useWagmiConnectorWithId'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
-import { walletTypeToAmplitudeWalletType } from '~/components/Web3Provider/walletConnect'
+import { walletTypeToAnalyticsWalletType } from '~/components/Web3Provider/walletConnect'
 import { usePasskeyAuthWithHelpModal } from '~/hooks/usePasskeyAuthWithHelpModal'
 import { useEmbeddedWalletState } from '~/state/embeddedWallet/store'
 import { updateIsEmbeddedWalletBackedUp } from '~/state/user/reducer'
@@ -123,7 +123,7 @@ export function useSignInWithPasskey({
           sendAnalyticsEvent(InterfaceEventName.WalletConnected, {
             result: WalletConnectionResult.Succeeded,
             wallet_name: connector.name,
-            wallet_type: walletTypeToAmplitudeWalletType(connector.type),
+            wallet_type: walletTypeToAnalyticsWalletType(connector.type),
             wallet_address: walletAddress,
           })
         }
@@ -134,7 +134,7 @@ export function useSignInWithPasskey({
         } else {
           logger.error(error, {
             tags: { file: 'useSignInWithPasskey', function: 'onError' },
-            extra: { wallet_name: connector.name, wallet_type: walletTypeToAmplitudeWalletType(connector.type) },
+            extra: { wallet_name: connector.name, wallet_type: walletTypeToAnalyticsWalletType(connector.type) },
           })
         }
         onError?.(error)

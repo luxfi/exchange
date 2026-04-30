@@ -1,4 +1,13 @@
-import * as amplitude from '@amplitude/analytics-node'
+/**
+ * Server-side analytics service. Provider-agnostic: the production driver is
+ * Hanzo Insights (`@hanzo/insights-node`). Replace the import + `new Insights`
+ * call to swap in any other provider that implements the same `track` /
+ * `identify` / `flush` shape.
+ *
+ * No third-party SDK is referenced here other than `@hanzo/insights-node`,
+ * which is the canonical Hanzo native analytics layer.
+ */
+import { Insights } from '@hanzo/insights-node'
 
 export interface ServerEventContext {
   userId?: string
@@ -29,69 +38,84 @@ export interface AnalyticsService<E extends string = string> {
   flush(): Promise<void>
 }
 
-export class AmplitudeAnalyticsService<E extends string = string> implements AnalyticsService<E> {
-  private static initialized = false
+/**
+ * Server-side analytics powered by Hanzo Insights (`@hanzo/insights-node`).
+ * Singleton-instance per process — `flushIntervalMillis` matches the prior
+ * legacy 10s cadence (10s) so dashboards see continuity, not a gap.
+ */
+export class InsightsAnalyticsService<E extends string = string> implements AnalyticsService<E> {
+  private static client: Insights | null = null
   private readonly platform: string
 
-  constructor(apiKey: string, platform: string) {
+  constructor(apiKey: string, platform: string, options?: { host?: string }) {
     this.platform = platform
 
-    // Amplitude's Node SDK is a singleton; subsequent instances share this initialization.
-    if (!AmplitudeAnalyticsService.initialized) {
-      amplitude.init(apiKey, { flushIntervalMillis: 10_000 })
-      AmplitudeAnalyticsService.initialized = true
+    if (!InsightsAnalyticsService.client) {
+      InsightsAnalyticsService.client = new Insights(apiKey, {
+        host: options?.host,
+        flushInterval: 10_000,
+      })
     }
   }
 
   track(event: E, properties: Record<string, unknown>, serverContext: ServerEventContext): void {
-    amplitude.track({
-      event_type: event,
-      event_properties: { ...properties },
-      user_id: serverContext.userId,
-      device_id: serverContext.deviceId,
-      language: serverContext.language,
-      platform: this.platform,
-      user_properties: serverContext.provider ? { provider: serverContext.provider } : undefined,
+    InsightsAnalyticsService.client?.capture({
+      distinctId: serverContext.userId ?? serverContext.deviceId ?? 'anonymous',
+      event,
+      properties: {
+        ...properties,
+        ...(serverContext.deviceId ? { device_id: serverContext.deviceId } : {}),
+        ...(serverContext.language ? { language: serverContext.language } : {}),
+        ...(serverContext.provider ? { provider: serverContext.provider } : {}),
+        platform: this.platform,
+      },
     })
   }
 
   identify(userId: string, traits: UserTraits): void {
-    const identifyEvent = new amplitude.Identify()
+    const properties: Record<string, unknown> = {}
     if (traits.loginMethod) {
-      identifyEvent.set('loginMethod', traits.loginMethod)
+      properties.loginMethod = traits.loginMethod
     }
     if (traits.apiKeyCount !== undefined) {
-      identifyEvent.set('apiKeyCount', traits.apiKeyCount)
+      properties.apiKeyCount = traits.apiKeyCount
     }
     if (traits.browser) {
-      identifyEvent.set('browser', traits.browser)
+      properties.browser = traits.browser
     }
     if (traits.country) {
-      identifyEvent.set('country', traits.country)
+      properties.country = traits.country
     }
     if (traits.referrer) {
-      identifyEvent.setOnce('referrer', traits.referrer)
+      properties.referrer = traits.referrer
     }
     if (traits.referringDomain) {
-      identifyEvent.setOnce('referringDomain', traits.referringDomain)
+      properties.referringDomain = traits.referringDomain
     }
     if (traits.utmSource) {
-      identifyEvent.setOnce('utmSource', traits.utmSource)
+      properties.utmSource = traits.utmSource
     }
     if (traits.utmMedium) {
-      identifyEvent.setOnce('utmMedium', traits.utmMedium)
+      properties.utmMedium = traits.utmMedium
     }
     if (traits.utmCampaign) {
-      identifyEvent.setOnce('utmCampaign', traits.utmCampaign)
+      properties.utmCampaign = traits.utmCampaign
     }
     if (traits.utmContent) {
-      identifyEvent.setOnce('utmContent', traits.utmContent)
+      properties.utmContent = traits.utmContent
     }
-    amplitude.identify(identifyEvent, { user_id: userId })
+
+    InsightsAnalyticsService.client?.identify({
+      distinctId: userId,
+      properties,
+    })
   }
 
   async flush(): Promise<void> {
-    await amplitude.flush()
+    const client = InsightsAnalyticsService.client as unknown as { flush?: () => Promise<void> }
+    if (client && typeof client.flush === 'function') {
+      await client.flush()
+    }
   }
 }
 

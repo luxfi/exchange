@@ -58,7 +58,7 @@ export function ReportTokenIssueModal({
         setTokenVisibility({ currencyId: normalizeCurrencyIdForMapLookup(currencyId(currency)), isVisible: false }),
       )
 
-      // Submit report to amplitude
+      // Submit report through the analytics layer
       submitTokenIssueReport({
         source,
         chainId: currency.chainId,

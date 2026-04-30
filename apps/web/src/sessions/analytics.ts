@@ -30,7 +30,7 @@ function sanitizeErrorMessage(message: string | undefined): string | undefined {
 
 /**
  * Analytics callbacks for session initialization lifecycle.
- * Wires up the SessionInitAnalytics contract to Amplitude events.
+ * Wires up the SessionInitAnalytics contract to the analytics layer events.
  */
 export const sessionInitAnalytics: SessionInitAnalytics = {
   onInitStarted: () => sendAnalyticsEvent(SessionsEventName.SessionInitStarted),

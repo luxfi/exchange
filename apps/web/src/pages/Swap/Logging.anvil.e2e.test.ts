@@ -21,7 +21,7 @@ test.describe(
   () => {
     test('completes two swaps and verifies the TTS logging for the first, plus all intermediate steps along the way', async ({
       page,
-      amplitude,
+      analytics,
       anvil,
     }) => {
       await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
@@ -42,14 +42,14 @@ test.describe(
         await page.getByTestId(TestID.AmountInputIn).fill('.1')
 
         // Verify first swap action
-        await amplitude.waitForEvent(SwapEventName.SwapFirstAction).then((event: any) => {
+        await analytics.waitForEvent(SwapEventName.SwapFirstAction).then((event: any) => {
           expect(event.event_properties).toHaveProperty('time_to_first_swap_action')
           expect(typeof event.event_properties.time_to_first_swap_action).toBe('number')
           expect(event.event_properties.time_to_first_swap_action).toBeGreaterThanOrEqual(0)
         })
 
         // Verify Swap Quote
-        await amplitude.waitForEvent(SwapEventName.SwapQuoteFetch).then((event: any) => {
+        await analytics.waitForEvent(SwapEventName.SwapQuoteFetch).then((event: any) => {
           expect(event.event_properties).toHaveProperty('time_to_first_quote_request')
           expect(typeof event.event_properties.time_to_first_quote_request).toBe('number')
           expect(event.event_properties.time_to_first_quote_request).toBeGreaterThanOrEqual(0)
@@ -63,7 +63,7 @@ test.describe(
         await page.getByTestId(TestID.Swap).click()
 
         // Verify logging
-        await amplitude.waitForEvent(SwapEventName.SwapTransactionCompleted).then((event: any) => {
+        await analytics.waitForEvent(SwapEventName.SwapTransactionCompleted).then((event: any) => {
           expect(event.event_properties).toHaveProperty('time_to_swap')
           expect(typeof event.event_properties.time_to_swap).toBe('number')
           expect(event.event_properties.time_to_swap).toBeGreaterThanOrEqual(0)
@@ -78,7 +78,7 @@ test.describe(
         await expect(page.getByTestId(TestID.AmountInputIn)).toHaveValue(/.+/)
 
         // Verify second Swap Quote
-        await amplitude.waitForEvent(SwapEventName.SwapQuoteFetch).then((event: any) => {
+        await analytics.waitForEvent(SwapEventName.SwapQuoteFetch).then((event: any) => {
           expect(event.event_properties.time_to_first_quote_request).toBeUndefined()
           expect(event.event_properties.time_to_first_quote_request_since_first_input).toBeUndefined()
         })
@@ -88,7 +88,7 @@ test.describe(
         await page.getByTestId(TestID.Swap).click()
 
         // Verify second swap completion logging does not include TTS properties
-        await amplitude.waitForEvent(SwapEventName.SwapTransactionCompleted).then((event: any) => {
+        await analytics.waitForEvent(SwapEventName.SwapTransactionCompleted).then((event: any) => {
           expect(event.event_properties).not.toHaveProperty('time_to_swap')
           expect(event.event_properties).not.toHaveProperty('time_to_swap_since_first_input')
         })

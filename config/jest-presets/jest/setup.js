@@ -60,15 +60,6 @@ jest.mock('expo-local-authentication', () => ({
   supportedAuthenticationTypesAsync: jest.fn(() => Promise.resolve([1, 2])),
 }))
 
-// Mock Amplitde log reporting
-jest.mock('@amplitude/analytics-react-native', () => ({
-  flush: () => jest.fn(),
-  identify: () => jest.fn(),
-  init: () => jest.fn(),
-  setDeviceId: () => jest.fn(),
-  track: () => jest.fn(),
-}))
-
 jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter')
 jest.mock('react-native-device-info', () => mockRNDeviceInfo)
 

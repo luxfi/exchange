@@ -136,5 +136,5 @@ export async function initializeDatadog(appName: string): Promise<void> {
   datadogRum.setGlobalContextProperty('buildType', process.env.REACT_APP_WEB_BUILD_TYPE)
 
   // Datadog feature-flag/experiment correlation moved to `@hanzo/insights` —
-  // wire from the PostHog client there instead of evaluating gates locally.
+  // wire from the Insights client there instead of evaluating gates locally.
 }

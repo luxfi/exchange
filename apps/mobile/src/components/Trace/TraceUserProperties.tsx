@@ -99,7 +99,7 @@ export function TraceUserProperties(): null {
     setDatadogUserWithUniqueId(activeAccount?.address, uniswapIdentifier)
   }, [activeAccount?.address, uniswapIdentifier])
 
-  // Set user properties for amplitude
+  // Set user properties through the analytics layer
 
   // oxlint-disable-next-line react/exhaustive-deps -- we want to run this also when allowAnalytics changes
   useEffect(() => {

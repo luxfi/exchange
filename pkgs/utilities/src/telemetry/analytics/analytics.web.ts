@@ -1,4 +1,14 @@
-import { flush, getUserId, Identify, identify, init, setDeviceId, track } from '@amplitude/analytics-browser'
+// Provider-agnostic analytics backend (Hanzo Insights by default).
+// See ./backend.web.ts for the driver interface; no third-party analytics SDK is loaded.
+import {
+  flush,
+  getUserId,
+  Identify,
+  identify,
+  init,
+  setDeviceId,
+  track,
+} from '@l.x/utils/src/telemetry/analytics/backend'
 import { ANONYMOUS_DEVICE_ID } from '@luxamm/analytics'
 import { getChromeWithThrow } from '@l.x/utils/src/chrome/chrome'
 import {
@@ -10,7 +20,7 @@ import {
 } from '@l.x/utils/src/telemetry/analytics/analytics'
 import {
   ALLOW_ANALYTICS_ATOM_KEY,
-  AMPLITUDE_SHARED_TRACKING_OPTIONS,
+  ANALYTICS_SHARED_TRACKING_OPTIONS,
   ANONYMOUS_EVENT_NAMES,
   DUMMY_KEY,
 } from '@l.x/utils/src/telemetry/analytics/constants'
@@ -71,12 +81,12 @@ export const analytics: Analytics = {
 
     try {
       init(
-        DUMMY_KEY, // Amplitude custom reverse proxy takes care of API key
-        undefined, // User ID should be undefined to let Amplitude default to Device ID
+        DUMMY_KEY, // Reverse-proxied analytics layer derives the real key server-side
+        undefined, // User ID stays undefined so the driver defaults to Device ID
         {
-          transportProvider, // Used to support custom reverse proxy header
-          // Disable tracking of private user information by Amplitude
-          trackingOptions: AMPLITUDE_SHARED_TRACKING_OPTIONS,
+          transportProvider, // Custom transport for proxy header injection
+          // Privacy controls — driver mirrors these to disable PII tracking
+          trackingOptions: ANALYTICS_SHARED_TRACKING_OPTIONS,
         },
       )
 

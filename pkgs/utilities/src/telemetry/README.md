@@ -2,7 +2,7 @@
 
 ## Summary
 
-We use Amplitude as our logging library and it's implemented using the Trace component. We also have the ability to log single events where Trace is not possible to use.
+We use a provider-pluggable analytics layer (Hanzo Insights by default) and it's implemented using the Trace component. We also have the ability to log single events where Trace is not possible to use.
 
 A key component for analytics are the user properties, these need to be set at app start and updated every time they change during a an app session. These properties will be tied to all events logged in the app without having to manually do so. The component `<TraceUserProperties/>` keeps track of these custom properties and updates them as they change.
 

@@ -41,7 +41,7 @@ export function ReportPoolDataModal({
       checkedItems: Set<PoolDataReportOption>
       reportTexts: Map<PoolDataReportOption, string>
     }) => {
-      // Submit report to amplitude
+      // Submit report through the analytics layer
       submitPoolDataReport({
         poolId: poolInfo.poolId,
         chainId: poolInfo.chainId,

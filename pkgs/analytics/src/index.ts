@@ -15,7 +15,7 @@ export { createAttributionTracker } from './first-visit'
 
 // Service
 export type { AnalyticsService, ServerEventContext, UserTraits } from './service'
-export { AmplitudeAnalyticsService, NoopAnalyticsService } from './service'
+export { InsightsAnalyticsService, NoopAnalyticsService } from './service'
 
 // URL utilities
 export { extractDomain, stripQueryParams } from './url-utils'

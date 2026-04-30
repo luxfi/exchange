@@ -21,7 +21,6 @@ ignores: [
     "postinstall-postinstall",
     ## React Native Usage. These are modules imported by other packages in our repo,
     ## but must be declared in `apps/mobile/package.json` too for proper RN autolinking.
-    "@amplitude/analytics-react-native",
     "@react-native-masked-view/masked-view",
     "@shopify/react-native-skia",
     "react-native-asset",

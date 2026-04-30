@@ -10,7 +10,7 @@ import { FeatureFlags } from '@l.x/gating/src/flags'
 
 // Local-only flag overrides. White-label brands can flip a beta capability
 // for the current device by writing a sentinel into localStorage; the
-// canonical way to gate features is via `@hanzo/insights` (PostHog) but until
+// canonical way to gate features is via `@hanzo/insights` but until
 // the bridge ships, this lets us keep e.g. the embedded-wallet beta unlock
 // modal working without coupling to a third-party SDK.
 const LOCAL_FLAG_KEYS: Partial<Record<FeatureFlags, string>> = {

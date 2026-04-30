@@ -64,7 +64,7 @@ vi.mock('~/components/WalletModal/useWagmiConnectorWithId', () => ({
 }))
 
 vi.mock('~/components/Web3Provider/walletConnect', () => ({
-  walletTypeToAmplitudeWalletType: vi.fn(() => 'embedded'),
+  walletTypeToAnalyticsWalletType: vi.fn(() => 'embedded'),
 }))
 
 const mockOnClose = vi.fn()

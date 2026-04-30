@@ -20,7 +20,7 @@ declare module 'react-native-dotenv' {
   export const QUICKNODE_ENDPOINT_TOKEN: string
   export const TRADING_API_KEY: string
   export const FIREBASE_APP_CHECK_DEBUG_TOKEN: string
-  export const AMPLITUDE_PROXY_URL_OVERRIDE: string
+  export const ANALYTICS_PROXY_URL_OVERRIDE: string
   export const API_BASE_URL_OVERRIDE: string
   export const API_BASE_URL_V2_OVERRIDE: string
   export const FOR_API_URL_OVERRIDE: string

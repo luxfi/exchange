@@ -6,7 +6,7 @@ declare global {
     interface ProcessEnv {
       NODE_ENV?: 'development' | 'production' | 'test'
       ALCHEMY_API_KEY?: string
-      AMPLITUDE_PROXY_URL_OVERRIDE?: string
+      ANALYTICS_PROXY_URL_OVERRIDE?: string
       API_BASE_URL_OVERRIDE?: string
       API_BASE_URL_V2_OVERRIDE?: string
       APPSFLYER_API_KEY?: string

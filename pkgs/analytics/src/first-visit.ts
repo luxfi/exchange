@@ -2,7 +2,7 @@
  * First-Visit Attribution Capture
  *
  * Captures UTM params, referrer, browser, and country on the first visit.
- * Persists UTM in a cookie (first-touch attribution) and fires an Amplitude
+ * Persists UTM in a cookie (first-touch attribution) and fires an analytics-layer
  * `identify` call to set user properties.
  *
  * Called from the root loader — runs on every SSR page load but only
@@ -76,7 +76,7 @@ interface AttributionInput {
  *
  * The boundary (root loader) owns the wiring; the returned function
  * only takes per-request input. Returns a Set-Cookie header for UTM
- * persistence on first-touch, and fires an Amplitude identify call.
+ * persistence on first-touch, and fires an identify call through the analytics layer.
  */
 export function createAttributionTracker({ analyticsService, cookie }: AttributionTrackerDeps) {
   return async ({ request, userId }: AttributionInput): Promise<{ setCookieHeader: string | null }> => {
