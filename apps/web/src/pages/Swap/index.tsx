@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router'
 import type { SegmentedControlOption } from '@l.x/ui/src'
-import { Flex, SegmentedControl, styled, Text, Tooltip } from '@l.x/ui/src'
+import { Flex, SegmentedControl, styled, Text, Tooltip, TouchableArea } from '@l.x/ui/src'
 import type { AppTFunction } from '@l.x/ui/src/i18n/types'
 import { zIndexes } from '@l.x/ui/src/theme'
 import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
@@ -52,6 +52,7 @@ import { SwapAndLimitContextProvider } from '~/state/swap/SwapContext'
 import type { CurrencyState } from '~/state/swap/types'
 import { useSwapAndLimitContext } from '~/state/swap/useSwapContext'
 import { isIFramed } from '~/utils/isIFramed'
+import { isOnboarded, isRegulatedToken, onboardingUrlFor } from '~/utils/regulated'
 
 export default function SwapPage() {
   const navigate = useNavigate()
@@ -256,8 +257,21 @@ function UniversalSwapFlow({
   /** When Swap is embedded in TDP, the TDP token currency for Buy/Sell prefill */
   tdpCurrency?: Currency
 }) {
-  const { currentTab, setCurrentTab } = useSwapAndLimitContext()
+  const { currentTab, setCurrentTab, currencyState } = useSwapAndLimitContext()
   const tdpCurrencyAsset = currencyToAsset(tdpCurrency)
+
+  // Liquid EVM regulated-securities gate: route the user through Liquidity onboarding
+  // before letting them swap any token whose chain is Liquid EVM.
+  const regulatedChainId =
+    (isRegulatedToken(currencyState.inputCurrency) && currencyState.inputCurrency?.chainId) ||
+    (isRegulatedToken(currencyState.outputCurrency) && currencyState.outputCurrency?.chainId) ||
+    undefined
+  const showOnboardGate = !!regulatedChainId && !isOnboarded()
+  const onOnboardClick = useCallback(() => {
+    if (regulatedChainId) {
+      window.open(onboardingUrlFor(regulatedChainId), '_blank', 'noopener,noreferrer')
+    }
+  }, [regulatedChainId])
 
   const { pathname } = useLocation()
   const navigate = useNavigate()
@@ -342,20 +356,47 @@ function UniversalSwapFlow({
       )}
       {currentTab === SwapTab.Swap && (
         <Flex gap="$spacing16">
-          <SwapDependenciesStoreContextProvider swapHandlers={swapHandlers}>
-            <SwapFlow
-              settings={swapSettings}
-              hideHeader={hideHeader}
-              hideFooter={hideFooter}
-              onClose={noop}
-              swapRedirectCallback={swapRedirectCallback}
-              onCurrencyChange={onCurrencyChange}
-              prefilledState={prefilledState}
-              tokenColor={tokenColor}
-              onSubmitSwap={resetDisableOneClickSwap}
-              passkeyAuthStatus={passkeyAuthStatus}
-            />
-          </SwapDependenciesStoreContextProvider>
+          <Flex position="relative">
+            <SwapDependenciesStoreContextProvider swapHandlers={swapHandlers}>
+              <SwapFlow
+                settings={swapSettings}
+                hideHeader={hideHeader}
+                hideFooter={hideFooter}
+                onClose={noop}
+                swapRedirectCallback={swapRedirectCallback}
+                onCurrencyChange={onCurrencyChange}
+                prefilledState={prefilledState}
+                tokenColor={tokenColor}
+                onSubmitSwap={resetDisableOneClickSwap}
+                passkeyAuthStatus={passkeyAuthStatus}
+              />
+            </SwapDependenciesStoreContextProvider>
+            {showOnboardGate && (
+              <Flex
+                position="absolute"
+                bottom={0}
+                left={0}
+                right={0}
+                p="$spacing12"
+                zIndex={zIndexes.overlay}
+              >
+                <TouchableArea
+                  onPress={onOnboardClick}
+                  alignItems="center"
+                  justifyContent="center"
+                  borderRadius="$rounded20"
+                  backgroundColor="$accent1"
+                  py="$spacing16"
+                  hoverStyle={{ opacity: 0.9 }}
+                  pressStyle={{ opacity: 0.85 }}
+                >
+                  <Text variant="buttonLabel1" color="$white">
+                    Onboard Now
+                  </Text>
+                </TouchableArea>
+              </Flex>
+            )}
+          </Flex>
           <SwapBottomCard />
         </Flex>
       )}
