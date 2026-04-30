@@ -216,7 +216,7 @@ export function logTransactionEvent(actionData: ReturnType<typeof transactionAct
           })
           break
         default:
-          // Log to amplitude
+          // Log through the analytics layer
           sendAnalyticsEvent(SwapEventName.SwapTransactionFailed, { ...baseProperties, hash })
           // Log to datadog
           if (type === TransactionType.Swap && status === TransactionStatus.Failed) {

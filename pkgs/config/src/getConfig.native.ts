@@ -1,7 +1,7 @@
 import type { Config } from '@l.x/config/src/config-types'
 import {
   ALCHEMY_API_KEY,
-  AMPLITUDE_PROXY_URL_OVERRIDE,
+  ANALYTICS_PROXY_URL_OVERRIDE,
   API_BASE_URL_OVERRIDE,
   API_BASE_URL_V2_OVERRIDE,
   APPSFLYER_API_KEY,
@@ -59,7 +59,7 @@ export const getConfig = (): Config => {
 
   const config: Config = {
     alchemyApiKey: process.env.REACT_APP_ALCHEMY_API_KEY || process.env.ALCHEMY_API_KEY || ALCHEMY_API_KEY,
-    amplitudeProxyUrlOverride: process.env.AMPLITUDE_PROXY_URL_OVERRIDE || AMPLITUDE_PROXY_URL_OVERRIDE,
+    analyticsProxyUrlOverride: process.env.ANALYTICS_PROXY_URL_OVERRIDE || ANALYTICS_PROXY_URL_OVERRIDE,
     apiBaseUrlOverride: process.env.API_BASE_URL_OVERRIDE || API_BASE_URL_OVERRIDE,
     apiBaseUrlV2Override: process.env.API_BASE_URL_V2_OVERRIDE || API_BASE_URL_V2_OVERRIDE,
     appsflyerApiKey: process.env.APPSFLYER_API_KEY || APPSFLYER_API_KEY,

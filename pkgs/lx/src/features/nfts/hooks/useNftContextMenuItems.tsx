@@ -78,7 +78,7 @@ export function useNFTContextMenuItems({
     }
 
     try {
-      // Submit report to Amplitude to track metrics
+      // Submit report through the analytics layer to track metrics
       submitNFTSpamReport({
         chainId,
         contractAddress,

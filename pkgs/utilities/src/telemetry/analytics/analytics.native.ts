@@ -1,4 +1,16 @@
-import { flush, getUserId, Identify, identify, init, setDeviceId, track } from '@amplitude/analytics-react-native'
+// Provider-agnostic analytics backend. The native target ships the same
+// driver-pluggable shim as web — no third-party analytics SDK is loaded; events flow
+// through whichever AnalyticsDriver is registered (Hanzo Insights when
+// the React Native SDK is wired up).
+import {
+  flush,
+  getUserId,
+  Identify,
+  identify,
+  init,
+  setDeviceId,
+  track,
+} from '@l.x/utils/src/telemetry/analytics/backend'
 import { ANONYMOUS_DEVICE_ID } from '@luxamm/analytics'
 import {
   Analytics,
@@ -8,8 +20,8 @@ import {
   // biome-ignore lint/style/noRestrictedImports: needed here
 } from '@l.x/utils/src/telemetry/analytics/analytics'
 import {
-  AMPLITUDE_NATIVE_TRACKING_OPTIONS,
-  AMPLITUDE_SHARED_TRACKING_OPTIONS,
+  ANALYTICS_NATIVE_TRACKING_OPTIONS,
+  ANALYTICS_SHARED_TRACKING_OPTIONS,
   ANONYMOUS_EVENT_NAMES,
   DUMMY_KEY,
 } from '@l.x/utils/src/telemetry/analytics/constants'
@@ -41,14 +53,14 @@ export const analytics: Analytics = {
       }
 
       init(
-        DUMMY_KEY, // Amplitude custom reverse proxy takes care of API key
-        undefined, // User ID should be undefined to let Amplitude default to Device ID
+        DUMMY_KEY, // Reverse-proxied analytics layer derives the real key server-side
+        undefined, // User ID stays undefined so the driver defaults to Device ID
         {
-          transportProvider, // Used to support custom reverse proxy header
-          // Disable tracking of private user information by Amplitude
+          transportProvider, // Custom transport for proxy header injection
+          // Privacy controls — driver mirrors these to disable PII tracking
           trackingOptions: {
-            ...AMPLITUDE_SHARED_TRACKING_OPTIONS,
-            ...AMPLITUDE_NATIVE_TRACKING_OPTIONS,
+            ...ANALYTICS_SHARED_TRACKING_OPTIONS,
+            ...ANALYTICS_NATIVE_TRACKING_OPTIONS,
           },
         },
       )

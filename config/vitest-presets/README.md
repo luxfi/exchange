@@ -51,7 +51,7 @@ All mocks from jest-presets have been migrated:
 - React Native AsyncStorage
 - Redux Persist
 - Expo libraries (clipboard, blur, haptics, linear-gradient, screen-capture)
-- Amplitude Analytics
+- Hanzo Insights
 - React Native Device Info
 - NetInfo
 - WalletConnect packages

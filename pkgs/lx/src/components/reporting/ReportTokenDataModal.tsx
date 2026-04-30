@@ -42,7 +42,7 @@ export function ReportTokenDataModal({
         return
       }
 
-      // Submit report to amplitude
+      // Submit report through the analytics layer
       submitTokenDataReport({
         chainId: currency.chainId,
         tokenAddress: currency.isNative ? NATIVE_ANALYTICS_ADDRESS_VALUE : currency.address,

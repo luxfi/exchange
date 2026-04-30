@@ -57,15 +57,6 @@ vi.mock('expo-haptics', () => ({
 vi.mock('expo-linear-gradient', () => ({ LinearGradient: () => 'ExpoLinearGradient' }))
 vi.mock('expo-screen-capture', () => ({ addScreenshotListener: vi.fn() }))
 
-// Mock Amplitude log reporting
-vi.mock('@amplitude/analytics-react-native', () => ({
-  flush: () => vi.fn(),
-  identify: () => vi.fn(),
-  init: () => vi.fn(),
-  setDeviceId: () => vi.fn(),
-  track: () => vi.fn(),
-}))
-
 vi.mock('react-native/Libraries/EventEmitter/NativeEventEmitter')
 
 // Mock React Native Device Info

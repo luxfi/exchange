@@ -9,7 +9,7 @@ if (process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID === undefined) {
 }
 const WALLET_CONNECT_PROJECT_ID = <string>process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID
 
-export function walletTypeToAmplitudeWalletType(connectionType?: string): string {
+export function walletTypeToAnalyticsWalletType(connectionType?: string): string {
   switch (connectionType) {
     case 'injected': {
       return 'Browser Extension'

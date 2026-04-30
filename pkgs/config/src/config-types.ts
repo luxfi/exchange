@@ -10,7 +10,7 @@
 
 export interface Config {
   alchemyApiKey: string
-  amplitudeProxyUrlOverride: string
+  analyticsProxyUrlOverride: string
   apiBaseUrlOverride: string
   apiBaseUrlV2Override: string
   appsflyerApiKey: string

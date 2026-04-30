@@ -33,7 +33,7 @@ import { RECOVER_OAUTH_PENDING_KEY } from '~/components/Passkey/useOAuthRedirect
 import { useOAuthResult } from '~/components/Passkey/useOAuthResult'
 import { useWagmiConnectorWithId } from '~/components/WalletModal/useWagmiConnectorWithId'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
-import { walletTypeToAmplitudeWalletType } from '~/components/Web3Provider/walletConnect'
+import { walletTypeToAnalyticsWalletType } from '~/components/Web3Provider/walletConnect'
 import { useCooldownTimer } from '~/hooks/useCooldownTimer'
 import { useModalState } from '~/hooks/useModalState'
 import { useEmbeddedWalletState } from '~/state/embeddedWallet/store'
@@ -339,7 +339,7 @@ export function RecoverWalletModal() {
       sendAnalyticsEvent(InterfaceEventName.WalletConnected, {
         result: WalletConnectionResult.Succeeded,
         wallet_name: connector.name,
-        wallet_type: walletTypeToAmplitudeWalletType(connector.type),
+        wallet_type: walletTypeToAnalyticsWalletType(connector.type),
         wallet_address: recoveryResult.walletAddress,
       })
 

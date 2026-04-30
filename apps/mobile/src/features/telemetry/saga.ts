@@ -16,7 +16,7 @@ import { watchTransactionEvents } from '@luxfi/wallet/src/features/transactions/
 
 export function* telemetrySaga() {
   if (isTestEnv()) {
-    logger.debug('telemetry/saga.ts', 'telemetrySaga', 'Skipping Amplitude initialization in test environment')
+    logger.debug('telemetry/saga.ts', 'telemetrySaga', 'Skipping analytics initialization in test environment')
   } else {
     yield* delay(1)
 
@@ -24,7 +24,7 @@ export function* telemetrySaga() {
 
     yield* call(analytics.init, {
       transportProvider: new ApplicationTransport({
-        serverUrl: uniswapUrls.amplitudeProxyUrl,
+        serverUrl: uniswapUrls.analyticsProxyUrl,
         appOrigin: OriginApplication.MOBILE,
         originOverride: uniswapUrls.apiOrigin,
         appBuild: DeviceInfo.getBundleId(),

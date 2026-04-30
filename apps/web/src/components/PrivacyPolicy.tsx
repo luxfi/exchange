@@ -91,7 +91,7 @@ function PrivacyPolicy() {
         ),
       },
       {
-        name: 'Google Analytics & Amplitude',
+        name: 'Hanzo Insights',
         description: t('privacy.anonymizedLogs'),
       },
     ],

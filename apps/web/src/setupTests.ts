@@ -480,9 +480,9 @@ beforeEach(() => {
   // Mock feature flags
   mocked(useFeatureFlag).mockReturnValue(false)
 
-  // Prevent amplitude debugs from triggering failOnConsole
+  // Prevent legacy analytics debug noise from triggering failOnConsole
   console.debug = vi.fn((...args) => {
-    if (typeof args[0] === 'string' && args[0].includes('[amplitude(Identify)')) {
+    if (typeof args[0] === 'string' && args[0].includes('[analytics(Identify)')) {
       return
     }
     originalConsoleDebug(...args)

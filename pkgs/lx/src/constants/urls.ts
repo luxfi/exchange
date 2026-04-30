@@ -202,9 +202,9 @@ function buildLxUrls(): Record<string, any> {
     config.graphqlUrlOverride || getCloudflareApiBaseUrl({ flow: TrafficFlows.GraphQL, postfix: 'v1/graphql' }),
 
   // Proxies
-  amplitudeProxyUrl:
-    config.amplitudeProxyUrlOverride ||
-    getCloudflareApiBaseUrl({ flow: TrafficFlows.Metrics, postfix: 'v1/amplitude-proxy' }),
+  analyticsProxyUrl:
+    config.analyticsProxyUrlOverride ||
+    getCloudflareApiBaseUrl({ flow: TrafficFlows.Metrics, postfix: 'v1/analytics-proxy' }),
   // On web, proxy through same-origin "/config" — the BFF (Hono) rewrites to the real Cloudflare URL.
   statsigProxyUrl:
     config.statsigProxyUrlOverride ||

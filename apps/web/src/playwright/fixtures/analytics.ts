@@ -2,10 +2,10 @@
 import { test as base } from '@playwright/test'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 
-type AmplitudeFixture = {
-  amplitude: {
+type AnalyticsFixture = {
+  analytics: {
     /**
-     * Waits for a specific Amplitude event to be sent and returns it.
+     * Waits for a specific analytics event to be sent and returns it.
      *
      * @param {string} eventName - The name of the event to wait for
      * @param {string[]} [requiredProperties] - Optional array of property names that must exist on the event
@@ -15,12 +15,12 @@ type AmplitudeFixture = {
   }
 }
 
-export const test = base.extend<AmplitudeFixture>({
-  async amplitude({ page }, use) {
+export const test = base.extend<AnalyticsFixture>({
+  async analytics({ page }, use) {
     const events: any[] = []
 
-    // Intercept Amplitude events
-    await page.route(lxUrls.amplitudeProxyUrl, async (route) => {
+    // Intercept analytics proxy requests
+    await page.route(lxUrls.analyticsProxyUrl, async (route) => {
       const request = route.request()
       const postData = request.postData()
       if (!postData) {
@@ -45,7 +45,7 @@ export const test = base.extend<AmplitudeFixture>({
           },
         })
       } catch (error) {
-        console.warn('Amplitude intercept error:', error)
+        console.warn('Analytics intercept error:', error)
         return route.continue()
       }
     })

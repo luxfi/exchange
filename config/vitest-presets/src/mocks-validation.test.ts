@@ -35,15 +35,6 @@ describe('Mock validations', () => {
     })
   })
 
-  describe('Amplitude mocks', () => {
-    it('should have amplitude analytics mocked', async () => {
-      const amplitude = await import('@amplitude/analytics-react-native')
-      expect(amplitude.init).toBeDefined()
-      expect(amplitude.track).toBeDefined()
-      expect(amplitude.flush).toBeDefined()
-    })
-  })
-
   describe('WalletConnect mocks', () => {
     it('should have @reown/walletkit mocked', async () => {
       const walletKit = await import('@reown/walletkit')

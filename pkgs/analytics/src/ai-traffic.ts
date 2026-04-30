@@ -2,7 +2,7 @@
  * AI Traffic Classification & Tracking
  *
  * Classifies incoming requests into traffic types (crawler, signed-agent, ai-tool, human)
- * and fires Amplitude events for non-human traffic.
+ * and fires analytics events for non-human traffic.
  *
  * Three detection layers:
  * 1. User-Agent matching for known AI crawlers (ClaudeBot, GPTBot, etc.)

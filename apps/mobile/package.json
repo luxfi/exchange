@@ -71,7 +71,6 @@
     "includedScripts": []
   },
   "dependencies": {
-    "@amplitude/analytics-react-native": "1.4.11",
     "@apollo/client": "3.11.10",
     "@datadog/mobile-react-native": "2.12.2",
     "@datadog/mobile-react-navigation": "2.12.2",

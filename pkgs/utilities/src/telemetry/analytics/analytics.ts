@@ -1,7 +1,7 @@
 import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 import { ApplicationTransport } from '@l.x/utils/src/telemetry/analytics/ApplicationTransport'
 
-// matches amplitude supported values, not using amplitude's type to decouple from underlying library
+// matches the canonical analytics value shape, kept independent of any specific provider
 export type UserPropertyValue = number | string | boolean | Array<string | number>
 
 export interface TestnetModeConfig {

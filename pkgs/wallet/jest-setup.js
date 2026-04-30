@@ -19,7 +19,7 @@ jest.mock('@l.x/lx/src/features/gas/hooks', () => ({
 jest.mock('@l.x/lx/src/config', () => ({
   config: {
     alchemyApiKey: 'test-alchemy-key',
-    amplitudeProxyUrlOverride: '',
+    analyticsProxyUrlOverride: '',
     apiBaseUrlOverride: '',
     apiBaseUrlV2Override: '',
     appsflyerApiKey: 'test-appsflyer-key',

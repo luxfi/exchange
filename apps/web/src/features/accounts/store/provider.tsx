@@ -26,7 +26,7 @@ import {
   Connector as WagmiConnector,
 } from 'wagmi'
 import { CONNECTOR_ICON_OVERRIDE_MAP } from '~/components/Web3Provider/constants'
-import { walletTypeToAmplitudeWalletType } from '~/components/Web3Provider/walletConnect'
+import { walletTypeToAnalyticsWalletType } from '~/components/Web3Provider/walletConnect'
 import { buildCAIP25Session } from '~/features/accounts/store/buildCAIP25Session'
 import { createAccountsStoreGetters } from '~/features/accounts/store/getters'
 import type {
@@ -107,7 +107,7 @@ function buildEVMWalletInfo(params: {
     accountInfo,
     injected,
     deduplicationId,
-    analyticsWalletType: walletTypeToAmplitudeWalletType(connector.type),
+    analyticsWalletType: walletTypeToAnalyticsWalletType(connector.type),
   }
 }
 
@@ -152,7 +152,7 @@ function buildSVMWalletInfo(wallet: SolanaWallet, isCurrentWalletActive: boolean
     injected,
     accountInfo,
     deduplicationId,
-    // TODO(SWAP-17): get better amplitude type mapping for Solana wallet connectors
+    // TODO(SWAP-17): get better analytics type mapping for Solana wallet connectors
     analyticsWalletType: injected ? 'Browser Extension' : wallet.adapter.name,
   }
 }

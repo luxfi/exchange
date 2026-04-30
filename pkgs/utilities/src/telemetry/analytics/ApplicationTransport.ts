@@ -1,5 +1,24 @@
-import { BaseTransport } from '@amplitude/analytics-core'
-import { Payload, Response, Transport } from '@amplitude/analytics-types'
+/**
+ * Custom transport used by the analytics layer to forward events to a
+ * server-side proxy with a custom `Origin` header. Provider-agnostic: no
+ * third-party analytics SDK types are referenced. The active analytics
+ * driver decides whether to actually use this — Hanzo Insights handles
+ * its own transport, so on white-labels this class is generally unused.
+ */
+
+export interface AnalyticsPayload {
+  events: unknown[]
+  [key: string]: unknown
+}
+
+export interface AnalyticsResponse {
+  statusCode: number
+  body: Record<string, unknown>
+}
+
+export interface AnalyticsTransport {
+  send(serverUrl: string, payload: AnalyticsPayload): Promise<AnalyticsResponse | null>
+}
 
 interface TransportConfig {
   serverUrl: string
@@ -9,13 +28,7 @@ interface TransportConfig {
   reportOriginCountry?: (country: string) => void
 }
 
-/**
- * Custom Application Transport used to pass in custom `origin` header,
- * and override `serverUrl` (such as in case of using reverse proxy).
- *
- * Borrowed and modified from: https://github.com/Lx/analytics/blob/main/src/analytics/ApplicationTransport.ts
- */
-export class ApplicationTransport extends BaseTransport implements Transport {
+export class ApplicationTransport implements AnalyticsTransport {
   private serverUrl: string
   private appOrigin: string
   private originOverride?: string
@@ -25,22 +38,18 @@ export class ApplicationTransport extends BaseTransport implements Transport {
   private shouldReportOriginCountry = true
 
   constructor(config: TransportConfig) {
-    super()
-
     this.serverUrl = config.serverUrl
     this.appOrigin = config.appOrigin
-
     this.originOverride = config.originOverride
     this.appBuild = config.appBuild
     this.reportOriginCountry = config.reportOriginCountry
 
-    /* istanbul ignore if */
     if (typeof fetch === 'undefined') {
       throw new Error('FetchTransport is not supported')
     }
   }
 
-  async send(_serverUrl: string, payload: Payload): Promise<Response | null> {
+  async send(_serverUrl: string, payload: AnalyticsPayload): Promise<AnalyticsResponse | null> {
     const headers: Record<string, string> = {
       'x-origin-application': this.appOrigin,
       'Content-Type': 'application/json',
@@ -63,14 +72,13 @@ export class ApplicationTransport extends BaseTransport implements Transport {
     }
 
     const response = await fetch(this.serverUrl, request)
-    const responseJSON: Record<string, unknown> = await response.json()
+    const responseJSON = (await response.json()) as Record<string, unknown>
 
-    // Report origin country back
     if (response.headers.has('Origin-Country') && this.shouldReportOriginCountry) {
       this.reportOriginCountry?.(response.headers.get('Origin-Country') as string)
       this.shouldReportOriginCountry = false
     }
 
-    return this.buildResponse(responseJSON)
+    return { statusCode: response.status, body: responseJSON }
   }
 }

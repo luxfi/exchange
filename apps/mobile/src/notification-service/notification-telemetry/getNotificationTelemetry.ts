@@ -3,7 +3,7 @@ import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 
 /**
- * Creates a NotificationTelemetry implementation that sends events to Amplitude
+ * Creates a NotificationTelemetry implementation that sends events through the analytics layer
  * via the existing mobile analytics infrastructure.
  */
 export function getNotificationTelemetry(): NotificationTelemetry {

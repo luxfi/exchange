@@ -155,7 +155,7 @@ function TokenWarningModalContent({
   const showReportUI = tokenProtectionWarning > TokenProtectionWarning.NonDefault
 
   const sendReport = useEvent((reportText: string) => {
-    // send report to amplitude
+    // send report through the analytics layer
     submitTokenWarningDataReport({
       chainId: currencyInfo0.currency.chainId,
       tokenAddress: currencyIdToAddress(currencyInfo0.currencyId),

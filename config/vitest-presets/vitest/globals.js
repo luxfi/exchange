@@ -3,8 +3,8 @@ process.env.TZ = 'America/New_York'
 module.exports = {
   globals: {
     ALCHEMY_API_KEY: 'key',
-    AMPLITUDE_EXPERIMENTS_DEPLOYMENT_KEY: 'key',
-    AMPLITUDE_PROXY_URL_OVERRIDE: '',
+    ANALYTICS_EXPERIMENTS_DEPLOYMENT_KEY: 'key',
+    ANALYTICS_PROXY_URL_OVERRIDE: '',
     API_BASE_URL_OVERRIDE: '',
     API_BASE_URL_V2_OVERRIDE: '',
     APPSFLYER_API_KEY: 'key',
