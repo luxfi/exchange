@@ -288,7 +288,7 @@ import { brandThemeOverlay } from '@l.x/ui/src/theme'
 
 Promise.all([loadBrandConfig(), loadRuntimeConfig()]).then(() => {
   // Apply brand color tokens (accent1, surface1, neutral1, etc.) over the
-  // default Tamagui themes so any code that reads themes via JS sees the
+  // default @hanzo/gui themes so any code that reads themes via JS sees the
   // brand-overridden values. CSS variables are already set by loadBrandConfig.
   brandThemeOverlay(brand.theme)
 

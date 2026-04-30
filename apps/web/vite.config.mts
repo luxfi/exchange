@@ -275,7 +275,7 @@ export default defineConfig(({ mode }) => {
     '@l.x/utils': path.resolve(__dirname, '../../pkgs/utilities'),
     '@luxfi/wallet/src': path.resolve(__dirname, '../../pkgs/wallet/src'),
     '@luxfi/wallet': path.resolve(__dirname, '../../pkgs/wallet'),
-    // Bare package aliases (needed by tamagui/hanzogui bundler which bypasses vite aliases)
+    // Bare package aliases (needed by hanzogui bundler which bypasses vite aliases)
     '@l.x/utils/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
     'utilities': path.resolve(__dirname, '../../pkgs/utilities'),
     '@l.x/ui/src': path.resolve(__dirname, '../../pkgs/ui/src'),
@@ -324,8 +324,8 @@ export default defineConfig(({ mode }) => {
     'tracing': path.resolve(__dirname, 'src/tracing'),
     'types': path.resolve(__dirname, 'src/types'),
     'utils': path.resolve(__dirname, 'src/utils'),
-    // @hanzogui (Tamagui fork) bare imports
-    'gui/linear-gradient': '@tamagui/linear-gradient',
+    // @hanzogui bare imports
+    'gui/linear-gradient': '@hanzogui/linear-gradient',
     // Force JSBI to use ESM build so transform plugin can add __esModule marker
     jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
     // @luxamm/* packages resolve directly from npm (real forks, no overrides needed)
@@ -373,8 +373,7 @@ export default defineConfig(({ mode }) => {
     'process.env.REACT_APP_STAGING': JSON.stringify(mode === 'staging'),
     'process.env.REACT_APP_WEB_BUILD_TYPE': JSON.stringify('vite'),
     'process.env.IS_WEB': JSON.stringify('true'),
-    // Enable Tamagui's global z-index stacking to fix modal stacking issues
-    'process.env.TAMAGUI_STACK_Z_INDEX_GLOBAL': JSON.stringify('true'),
+    // Enable hanzogui's global z-index stacking to fix modal stacking issues
     // So getConfig().isVercelEnvironment is true in the client on Vercel; enables direct staging WS URL to match EGW
     ...(isVercelDeploy ? { 'process.env.VERCEL': JSON.stringify(process.env.VERCEL ?? '0') } : {}),
     ...envDefines,
@@ -464,7 +463,7 @@ export default defineConfig(({ mode }) => {
       reactPlugin(),
       (isProduction || isStaging) && process.env.DISABLE_EXTRACTION !== '1'
         ? guiPlugin({
-            config: '../../pkgs/ui/src/tamagui.config.ts',
+            config: '../../pkgs/ui/src/gui.config.ts',
             components: ['ui', 'lx', 'utilities'],
             optimize: true,
             importsWhitelist: ['constants.js'],
@@ -593,8 +592,8 @@ export default defineConfig(({ mode }) => {
         'expo-modules-core',
         'react-native-web',
         'react-native-gesture-handler',
-        'tamagui',
-        '@tamagui/web',
+        '@hanzo/gui',
+        '@hanzogui/core',
         'ui',
         '@luxamm/sdk-core',
         '@luxamm/v2-sdk',
@@ -679,7 +678,7 @@ export default defineConfig(({ mode }) => {
             if (id.includes('node_modules/@apollo/') || id.includes('node_modules/graphql')) {
               return 'vendor-data'
             }
-            // DO NOT split: @tanstack, @reduxjs, react-redux, tamagui, @tamagui, react-native-web
+            // DO NOT split: @tanstack, @reduxjs, react-redux, @hanzo/gui, @hanzogui, react-native-web
             // These all use CJS require('react') and MUST stay in the same chunk as React.
             // Splitting them causes the CJS interop wrapper to create a broken factory
             // function instead of the real React module, making createContext undefined.

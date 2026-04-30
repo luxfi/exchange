@@ -1,4 +1,4 @@
-export { PortalProvider } from '@hanzogui/portal'
+export { PortalProvider } from '@hanzo/gui'
 export type {
   Adapt,
   ColorTokens,

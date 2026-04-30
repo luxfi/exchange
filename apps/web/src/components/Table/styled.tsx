@@ -1,6 +1,6 @@
 import { Flex, styled } from '@l.x/ui/src'
 import { Cell } from '~/components/Table/Cell'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export const TableRowBase = styled(Flex, {
   row: true,
@@ -53,11 +53,11 @@ export const FilterHeaderRow = styled(Flex, {
   userSelect: 'none',
   gap: '$gap4',
   transition: 'all 0.1s ease-in-out',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 
   variants: {
     clickable: {
-      true: ClickableTamaguiStyle,
+      true: ClickableGuiStyle,
     },
   } as const,
 })

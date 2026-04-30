@@ -2,14 +2,14 @@ import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
 import { ArrowUp } from '@l.x/ui/src/components/icons/ArrowUp'
 import { Flex, styled, Text } from '@l.x/ui/src/index'
 import { IconSizeTokens } from '@l.x/ui/src/theme'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export const ClickableHeaderRow = styled(Flex, {
   row: true,
   alignItems: 'center',
   justifyContent: 'flex-end',
 
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 export function HeaderArrow({

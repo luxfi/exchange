@@ -1,6 +1,6 @@
 // Web stub for react-native-reanimated.
 //
-// All animation work on web goes through CSS transitions or Tamagui's
+// All animation work on web goes through CSS transitions or @hanzo/gui's
 // own animation system; reanimated is mobile-only here. Source files
 // that actually use reanimated are .native.tsx and excluded from the
 // web build by Vite's platform-extension resolution.

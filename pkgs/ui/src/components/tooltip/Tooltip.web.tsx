@@ -1,4 +1,4 @@
-import { AdaptParent } from '@hanzogui/adapt'
+import { AdaptParent } from '@hanzo/gui'
 import { useEffect, useId } from 'react'
 import { styled, Tooltip as GuiTooltip, withStaticProperties } from '@hanzo/gui'
 import { TooltipContentProps } from '@l.x/ui/src/components/tooltip/Tooltip'

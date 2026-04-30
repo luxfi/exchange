@@ -1,7 +1,29 @@
 #!/usr/bin/env node
-// Patch @hanzogui/* packages whose 7.0.0 publish shipped without dist/.
-// Rewrites their package.json main/module/exports to point at src/ so that
-// Vite/Rolldown compiles the TS source on the fly.
+// Canonical local workaround for the broken @hanzo/gui@7.0.0 + @hanzogui/*@7.0.0
+// publish: every package in those scopes shipped without a populated dist/ and
+// their src/ still references the pre-rename Hanzogui* symbols.
+//
+// What this script does, deterministically, on every install:
+//   1. For each @hanzo/{gui,theming} and @hanzogui/* package whose dist/ is
+//      empty, rewrites its package.json main/module/types/exports to point at
+//      the existing src/index.{ts,tsx,native.ts,native.tsx} and adds explicit
+//      subpath exports for every src/ file. This lets Vite/Rolldown compile
+//      the TypeScript sources on the fly.
+//   2. Renames the lingering Hanzogui* symbols (createHanzogui, HanzoguiRoot,
+//      HanzoguiProvider, HanzoguiInternalConfig, etc.) in vendored sources to
+//      their canonical Gui* equivalents. Also renames the matching .ts/.tsx
+//      files (createHanzogui.ts → createGui.ts) so cross-file imports still
+//      resolve.
+//
+// REMOVE THIS FILE the moment the @hanzo/gui SDK republishes 7.x with a real
+// dist/ (or with exports that point at src/) — there is exactly one way to
+// build this app and it MUST be that path. Until then, this is the only
+// supported way to make `pnpm install && pnpm exec vite build` succeed.
+//
+// Verified 2026-04-27: dropping this hook + running `pnpm install
+// --ignore-scripts` from a clean checkout produces
+// `Rolldown failed to resolve import "@hanzo/gui"` because the published
+// package's exports map points at a dist/ that does not exist.
 const fs = require('fs');
 const path = require('path');
 

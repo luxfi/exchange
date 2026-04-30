@@ -24,7 +24,7 @@
       "__mocks__/**",
       ".bun/**",
       ".detoxrc.js",
-      ".tamagui/**",
+      ".gui/**",
       "@types/**",
       "*.graphql",
       "*.html",
@@ -78,7 +78,7 @@
       "!**/__mocks__",
       "!**/.bun",
       "!**/.detoxrc.js",
-      "!**/.tamagui",
+      "!**/.gui",
       "!**/@types",
       "!**/*.graphql",
       "!**/*.html",
@@ -265,8 +265,8 @@
                 ],
                 "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
               },
-              "@tamagui/core": {
-                "message": "Please import from 'tamagui' directly to prevent mismatches."
+              "@hanzogui/core": {
+                "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
               }
             },
             "patterns": [
@@ -541,8 +541,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -659,8 +659,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -777,8 +777,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -895,8 +895,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -1013,8 +1013,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -1131,8 +1131,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -1249,8 +1249,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -1367,8 +1367,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -1485,8 +1485,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -1603,8 +1603,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -1721,8 +1721,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -1839,8 +1839,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -2014,8 +2014,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   },
                   "ui/src": {
                     "message": "Avoid importing directly from ui/src from within the ui package which causes circular imports."
@@ -2136,8 +2136,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   },
                   "utilities/src": {
                     "message": "Avoid importing directly from utilities/src from within the utilities package which causes circular imports."
@@ -2269,8 +2269,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   },
                   "lx/src": {
                     "message": "Avoid importing directly from lx/src from within the lx package which causes circular imports."
@@ -2419,8 +2419,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [
@@ -2591,8 +2591,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   },
                   "ethers": {
                     "message": "Please import from '@ethersproject/module' directly to support tree-shaking."
@@ -2759,8 +2759,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   },
                   "react-router": {
                     "message": "Do not import react-router in native code. Use react-navigation instead."
@@ -2984,8 +2984,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   },
                   "src/nft/components/icons": {
                     "message": "Please import icons from nft/components/iconExports instead of directly from icons.tsx"
@@ -3189,8 +3189,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   },
                   "wallet/src": {
                     "message": "Avoid importing directly from wallet/src from within the wallet package which causes circular imports."
@@ -3319,8 +3319,8 @@
                     ],
                     "message": "Please use the typed `sendAnalyticsEvent` in 'lx/src/features/telemetry/send'"
                   },
-                  "@tamagui/core": {
-                    "message": "Please import from 'tamagui' directly to prevent mismatches."
+                  "@hanzogui/core": {
+                    "message": "Please import from '@hanzo/gui' directly to prevent mismatches."
                   }
                 },
                 "patterns": [

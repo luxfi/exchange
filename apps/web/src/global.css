@@ -1,5 +1,5 @@
-/* Add styles here only for things Tamagui doesn't support. Ideally very few
-   things go here, but stuff like keyframe CSS animations that Tamagui doesn't
+/* Add styles here only for things @hanzo/gui doesn't support. Ideally very few
+   things go here, but stuff like keyframe CSS animations that @hanzo/gui doesn't
    support can be added here. Be sure to try `$platform-web` style prop first as
    that should avoid needing to add here.  */
 html {
@@ -30,7 +30,7 @@ html {
 }
 
 @media screen and (max-width: 864px) {
-  /* the :root:root:root is to have higher specificity than tamagui */
+  /* the :root:root:root is to have higher specificity than @hanzo/gui */
   :root:root:root .connect-with-us-layout {
     display: flex;
     flex-direction: column;

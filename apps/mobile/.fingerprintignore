@@ -8,7 +8,7 @@ ios/OneSignalNotificationServiceExtension/Env.swift
 # Cache/temporary files
 .expo/**/*
 coverage/**/*
-.tamagui/**/*
+.gui/**/*
 storybook-static/**/*
 dist/**/*
 build/**/*

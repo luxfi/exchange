@@ -226,7 +226,7 @@ export async function loadBrandConfig(): Promise<RuntimeConfig> {
     }
 
     // Inject brand theme colors as CSS custom property overrides.
-    // This overrides both the styled-components theme and the Tamagui/Spore
+    // This overrides both the styled-components theme and the @hanzo/gui/Spore
     // theme tokens (--accent1, --surface1, --neutral1, etc.) at runtime.
     if (typeof document !== 'undefined' && brand.theme) {
       const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches

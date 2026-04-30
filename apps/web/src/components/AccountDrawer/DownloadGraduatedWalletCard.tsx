@@ -32,7 +32,9 @@ export function DownloadGraduatedWalletCard(): JSX.Element | null {
   const isEmbeddedWallet = account.connector?.id === CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID
   const isEWBackedUp = useAppSelector((state) => state.user.isEmbeddedWalletBackedUp)
   const dismissedTimestamp = useAppSelector(
-    (state) => state.luxBehaviorHistory.embeddedWalletGraduateCardDismissed?.[account.address ?? ''],
+    // Slice is mounted as `lxBehaviorHistory` (see `luxReducer` in `@l.x/lx`); the
+    // previous `luxBehaviorHistory` key was undefined and crashed at access time.
+    (state) => state.lxBehaviorHistory.embeddedWalletGraduateCardDismissed?.[account.address ?? ''],
   )
 
   const isSessionDismissed = useAppSelector((state) =>

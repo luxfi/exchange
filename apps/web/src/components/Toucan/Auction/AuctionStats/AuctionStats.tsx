@@ -11,7 +11,7 @@ import { formatTimestampToDate } from '~/components/Toucan/Auction/utils/formatt
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { CopyHelper } from '~/theme/components/CopyHelper'
 import { ExternalLink } from '~/theme/components/Links'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 interface StatItem {
   label: string
@@ -227,7 +227,7 @@ const SocialBadge = styled(Text, {
   height: 32,
   borderRadius: '$rounded20',
   backgroundColor: '$surface3',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
   color: '$neutral1',
 })
 

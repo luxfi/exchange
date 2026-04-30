@@ -8,7 +8,7 @@ ignores: [
     "@typescript/native-preview",
     "get-graphql-schema",
     "typechain",
-    "tamagui",
+    "@hanzo/gui",
     "@shopify/react-native-skia",
     # Dependencies that depcheck thinks are missing but are actually present or never used
     ## Internal packages / workspaces

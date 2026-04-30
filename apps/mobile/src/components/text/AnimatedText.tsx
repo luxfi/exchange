@@ -89,11 +89,9 @@ const BaseAnimatedText = ({
 }
 // end of forked from https://github.com/wcandillon/react-native-redash/blob/master/src/ReText.tsx
 
-// gives you tamagui props with reanimated support
+// gives you @hanzo/gui props with reanimated support
 /**
  * @deprecated Prefer <Text animation="" />
- *
- *    See: https://tamagui.dev/docs/core/animations
  *
  * TODO(MOB-1948): Remove this
  * */

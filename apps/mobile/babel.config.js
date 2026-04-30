@@ -10,18 +10,6 @@ module.exports = function (api) {
   plugins = [
     ...plugins,
 
-    // Disable compiler to fix mobile theme issues and media queries
-    // process.env.NODE_ENV === 'test'
-    //   ? null
-    //   : [
-    //       '@tamagui/babel-plugin',
-    //       {
-    //         components: ['ui'],
-    //         // experimentalFlattenThemesOnNative: true,
-    //         config: '../../pkgs/ui/src/tamagui.config.ts',
-    //       },
-    //     ],
-
     [
       'module-resolver',
       {
@@ -60,7 +48,8 @@ module.exports = function (api) {
   return {
     ignore: [
       // speeds up compile
-      '**/@tamagui/**/dist/**',
+      '**/@hanzogui/**/dist/**',
+      '**/@hanzo/gui/**/dist/**',
     ],
     presets: ['babel-preset-expo'],
     plugins,

@@ -39,7 +39,44 @@ export const useTabsContent = (): TabsSection[] => {
   const isPortfolioDefiTabEnabled = useFeatureFlag(FeatureFlags.PortfolioDefiTab)
   const isToucanLaunchAuctionEnabled = useFeatureFlag(FeatureFlags.ToucanLaunchAuction)
 
+  // Explore is shown first so users hitting the home page see token / pool /
+  // transaction discovery before the swap surface — matches Lux Exchange IA
+  // (zoo.exchange + lux.exchange) where Explore is the default landing entry.
+  // Order: [Explore, Trade, Pool, Options, Portfolio].
   return [
+    {
+      title: t('common.explore'),
+      href: '/explore',
+      isActive: pathname.startsWith('/explore') || pathname.startsWith('/nfts'),
+      icon: <Compass color="$accent1" size="$icon.20" />,
+      elementName: ElementName.NavbarExploreTab,
+      items: [
+        {
+          label: t('common.tokens'),
+          href: '/explore/tokens',
+          internal: true,
+          elementName: ElementName.NavbarExploreDropdownTokens,
+        },
+        {
+          label: t('toucan.auctions'),
+          href: '/explore/auctions',
+          internal: true,
+          elementName: ElementName.NavbarExploreDropdownToucan,
+        },
+        {
+          label: t('common.pools'),
+          href: '/explore/pools',
+          internal: true,
+          elementName: ElementName.NavbarExploreDropdownPools,
+        },
+        {
+          label: t('common.transactions'),
+          href: '/explore/transactions',
+          internal: true,
+          elementName: ElementName.NavbarExploreDropdownTransactions,
+        },
+      ],
+    },
     {
       title: t('common.trade'),
       href: '/swap',
@@ -81,39 +118,6 @@ export const useTabsContent = (): TabsSection[] => {
           href: '/advanced',
           internal: true,
           elementName: ElementName.NavbarTradeTab,
-        },
-      ],
-    },
-    {
-      title: t('common.explore'),
-      href: '/explore',
-      isActive: pathname.startsWith('/explore') || pathname.startsWith('/nfts'),
-      icon: <Compass color="$accent1" size="$icon.20" />,
-      elementName: ElementName.NavbarExploreTab,
-      items: [
-        {
-          label: t('common.tokens'),
-          href: '/explore/tokens',
-          internal: true,
-          elementName: ElementName.NavbarExploreDropdownTokens,
-        },
-        {
-          label: t('toucan.auctions'),
-          href: '/explore/auctions',
-          internal: true,
-          elementName: ElementName.NavbarExploreDropdownToucan,
-        },
-        {
-          label: t('common.pools'),
-          href: '/explore/pools',
-          internal: true,
-          elementName: ElementName.NavbarExploreDropdownPools,
-        },
-        {
-          label: t('common.transactions'),
-          href: '/explore/transactions',
-          internal: true,
-          elementName: ElementName.NavbarExploreDropdownTransactions,
         },
       ],
     },
