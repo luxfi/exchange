@@ -70,12 +70,14 @@ export function getQuicknodeChainIdPathSuffix(chainId: UniverseChainId): string 
 }
 
 export function getQuicknodeEndpointUrl(chainId: UniverseChainId): string {
-  // Guard: when the deploy doesn't ship Quicknode credentials, return empty
-  // so callers/wagmi fall through to public RPCs instead of synthesizing a
-  // broken URL like `https://.quiknode.pro/` that bombs CSP and 502s.
-  if (!config.quicknodeEndpointName || !config.quicknodeEndpointToken) {
-    return ''
-  }
+  // Note: when the deploy ships empty Quicknode creds, this URL is malformed
+  // (`https://.quiknode.pro/...`) and CSP-blocks at fetch time. We accept the
+  // cosmetic console noise rather than returning '' — Solana web3.js's
+  // `Connection` constructor synchronously throws on empty strings (it
+  // validates `http://` / `https://` prefix), which would crash the SPA at
+  // module init and never mount React. Filtering must happen in the chain
+  // info layer (drop empty entries from `rpcUrls.{Public,Interface,...}.http`)
+  // not here.
   const quicknodeChainId = getQuicknodeChainId(chainId)
   return `https://${config.quicknodeEndpointName}${quicknodeChainId ? `.${quicknodeChainId}` : ''}.quiknode.pro/${config.quicknodeEndpointToken}${getQuicknodeChainIdPathSuffix(chainId)}`
 }
