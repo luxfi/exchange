@@ -17,10 +17,19 @@ export const getDatadogApolloLink = (): ApolloLink => {
 class DatadogLink extends ApolloLink {
   constructor() {
     super((operation, forward) => {
+      // Skip header injection when Datadog RUM isn't initialized.
+      // White-label deploys without Datadog (e.g. Liquidity) point Apollo at
+      // a graphql server whose CORS only allows Content-Type. Injecting
+      // _dd-custom-header-* headers there causes the preflight to fail and
+      // every query 0-bytes out before reaching the server.
+      // datadogRum.getInternalContext() returns undefined until init() runs.
+      if (!datadogRum.getInternalContext()) {
+        return forward(operation)
+      }
+
       const operationName = getOperationName(operation)
       const operationType = getOperationType(operation)
 
-      // Add operation tracking headers
       operation.setContext(({ headers = {} }) => {
         const newHeaders: Record<string, string | null> = {
           ...headers,
@@ -34,7 +43,6 @@ class DatadogLink extends ApolloLink {
         }
       })
 
-      // Track the operation in Datadog RUM
       datadogRum.addAction('graphql_operation', {
         operationType,
         operationName,
