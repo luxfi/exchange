@@ -3,7 +3,7 @@ import { SwapConfigKey } from '@l.x/gating'
 import { POLYGON_LOGO } from '@l.x/ui/src/assets'
 import { config } from '@l.x/lx/src/config'
 import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
-import { getQuicknodeEndpointUrl } from '@l.x/lx/src/features/chains/evm/rpc'
+import { getBootnodeRpcUrl } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import {
   GqlChainId,
@@ -61,9 +61,9 @@ export const POLYGON_CHAIN_INFO = {
   blockTimeMs: 2000,
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Polygon)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.Polygon)] },
     [RPCType.PublicAlt]: { http: ['https://polygon-rpc.com/'] },
-    [RPCType.Default]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Polygon)] },
+    [RPCType.Default]: { http: [getBootnodeRpcUrl(UniverseChainId.Polygon)] },
     [RPCType.Fallback]: { http: ['https://polygon-rpc.com/'] },
     [RPCType.Interface]: { http: [`https://polygon-mainnet.infura.io/v3/${config.infuraKey}`] },
   },

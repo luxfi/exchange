@@ -16,8 +16,15 @@ export interface Config {
   appsflyerApiKey: string
   appsflyerAppId: string
   blockaidProxyUrl: string
-  datadogClientToken: string
-  datadogProjectId: string
+  /**
+   * Optional override for the Bootnode RPC endpoint base URL. When unset
+   * (the default), `getBootnodeRpcUrl` falls back to
+   * `https://${brand.gatewayDomain}/v1/rpc/{chain}`. Set this to point at a
+   * private/staging bootnode deployment.
+   *
+   * Example: `https://bootnode.dev.satschel.com`
+   */
+  bootnodeRpcUrlOverride: string
   isE2ETest: boolean
   forApiUrlOverride: string
   graphqlUrlOverride: string
@@ -26,8 +33,6 @@ export interface Config {
   isVercelEnvironment: boolean
   jupiterProxyUrl: string
   onesignalAppId: string
-  quicknodeEndpointName: string
-  quicknodeEndpointToken: string
   scantasticApiUrlOverride: string
   statsigProxyUrlOverride: string
   statsigApiKey: string

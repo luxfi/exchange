@@ -1,3 +1,4 @@
+import { brand } from '@l.x/config'
 import { config } from '@l.x/lx/src/config'
 
 import { RetryOptions, RPCType, UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -10,76 +11,108 @@ export const DEFAULT_RETRY_OPTIONS: RetryOptions = { n: 10, minWait: 250, medWai
 
 export const DEFAULT_MS_BEFORE_WARNING = ONE_MINUTE_MS * 10
 
-// Source: https://marketplace.quicknode.com/chains_and_networks
+/**
+ * Bootnode chain slug used in `POST /v1/rpc/{chain}`. See
+ * `~/work/bootnode/api/bootnode/api/rpc` for the canonical chain list.
+ *
+ * The previous Quicknode integration used per-chain hostnames + a token in
+ * the path; bootnode uses a slug-based path with auth via the gateway. Slugs
+ * mirror the bootnode supported-chain table (Phase 1):
+ *
+ *   ethereum, polygon, arbitrum, optimism, base, avalanche, bsc, solana,
+ *   blast, celo, monad, soneium, tempo, unichain, worldchain, xlayer,
+ *   zksync, zora, sepolia, unichain-sepolia
+ *
+ * IMPORTANT: never return '' here. Solana web3.js's `Connection(url)` ctor
+ * throws synchronously on empty strings (it validates the `http(s)://`
+ * prefix), which would crash the SPA at module init. Mainnet → 'ethereum'.
+ */
 // eslint-disable-next-line complexity
-export function getQuicknodeChainId(chainId: UniverseChainId): string {
+export function getBootnodeChainSlug(chainId: UniverseChainId): string {
   switch (chainId) {
     case UniverseChainId.Mainnet:
-      return ''
+      return 'ethereum'
     case UniverseChainId.ArbitrumOne:
-      return 'arbitrum-mainnet'
+      return 'arbitrum'
     case UniverseChainId.Avalanche:
-      return 'avalanche-mainnet'
+      return 'avalanche'
     case UniverseChainId.Base:
-      return 'base-mainnet'
+      return 'base'
     case UniverseChainId.Blast:
-      return 'blast-mainnet'
+      return 'blast'
     case UniverseChainId.Bnb:
       return 'bsc'
     case UniverseChainId.Celo:
-      return 'celo-mainnet'
+      return 'celo'
     case UniverseChainId.Monad:
-      return 'monad-mainnet'
+      return 'monad'
     case UniverseChainId.Optimism:
       return 'optimism'
     case UniverseChainId.Polygon:
-      return 'matic'
+      return 'polygon'
     case UniverseChainId.Sepolia:
-      return 'ethereum-sepolia'
+      return 'sepolia'
     case UniverseChainId.Solana:
-      return 'solana-mainnet'
+      return 'solana'
     case UniverseChainId.Soneium:
-      return 'soneium-mainnet'
+      return 'soneium'
     case UniverseChainId.Tempo:
-      return 'tempo-mainnet'
+      return 'tempo'
     case UniverseChainId.Unichain:
-      return 'unichain-mainnet'
+      return 'unichain'
     case UniverseChainId.UnichainSepolia:
       return 'unichain-sepolia'
     case UniverseChainId.WorldChain:
-      return 'worldchain-mainnet'
+      return 'worldchain'
     case UniverseChainId.XLayer:
-      return 'xlayer-mainnet'
+      return 'xlayer'
     case UniverseChainId.Zksync:
-      return 'zksync-mainnet'
+      return 'zksync'
     case UniverseChainId.Zora:
-      return 'zora-mainnet'
+      return 'zora'
     default:
-      throw new Error(`Chain ${chainId} does not have a corresponding QuickNode chain ID`)
+      throw new Error(`Chain ${chainId} does not have a corresponding Bootnode chain slug`)
   }
 }
 
-// If chain requires a path suffix
-export function getQuicknodeChainIdPathSuffix(chainId: UniverseChainId): string {
-  switch (chainId) {
-    case UniverseChainId.Avalanche:
-      return '/ext/bc/C/rpc' // https://www.quicknode.com/docs/avalanche#overview
-    default:
-      return ''
-  }
+/**
+ * Some chains historically required a path suffix (e.g. Avalanche on
+ * Quicknode used `/ext/bc/C/rpc`). Bootnode normalizes this server-side, so
+ * no per-chain suffix is needed at the client. Kept as a stub for symmetry
+ * with the prior `getQuicknodeChainIdPathSuffix` so call sites that fetched
+ * the suffix do not have to change.
+ */
+export function getBootnodeChainPathSuffix(_chainId: UniverseChainId): string {
+  return ''
 }
 
-export function getQuicknodeEndpointUrl(chainId: UniverseChainId): string {
-  // Note: when the deploy ships empty Quicknode creds, this URL is malformed
-  // (`https://.quiknode.pro/...`) and CSP-blocks at fetch time. We accept the
-  // cosmetic console noise rather than returning '' — Solana web3.js's
-  // `Connection` constructor synchronously throws on empty strings (it
-  // validates `http://` / `https://` prefix), which would crash the SPA at
-  // module init and never mount React. Filtering must happen in the chain
-  // info layer (drop empty entries from `rpcUrls.{Public,Interface,...}.http`)
-  // not here.
-  const quicknodeChainId = getQuicknodeChainId(chainId)
-  return `https://${config.quicknodeEndpointName}${quicknodeChainId ? `.${quicknodeChainId}` : ''}.quiknode.pro/${config.quicknodeEndpointToken}${getQuicknodeChainIdPathSuffix(chainId)}`
+/**
+ * Resolve the Bootnode RPC URL for a chain.
+ *
+ * Resolution order:
+ *   1. `config.bootnodeRpcUrlOverride` (build-time env override)
+ *   2. `https://${brand.gatewayDomain}/v1/rpc/{chain}` (default)
+ *
+ * The override is useful for staging deployments that want to point at a
+ * private bootnode hostname (e.g. `https://bootnode.dev.satschel.com`).
+ *
+ * The function never returns '' — this is critical because Solana
+ * `Connection(url)` throws synchronously on empty strings.
+ */
+export function getBootnodeRpcUrl(chainId: UniverseChainId): string {
+  const slug = getBootnodeChainSlug(chainId)
+  const suffix = getBootnodeChainPathSuffix(chainId)
+
+  // Override wins. Strip any trailing slash so we can append `/v1/rpc/...`.
+  const override = config.bootnodeRpcUrlOverride.replace(/\/+$/, '')
+  if (override) {
+    return `${override}/v1/rpc/${slug}${suffix}`
+  }
+
+  // Default: bootnode is fronted by the gateway domain. brand.gatewayDomain
+  // is populated by loadBrandConfig before first render.
+  const host = brand.gatewayDomain || 'api.lux.exchange'
+  return `https://${host}/v1/rpc/${slug}${suffix}`
 }
 
 export function getPlaywrightRpcUrls(url: string): { [key in RPCType]: { http: string[] } } {

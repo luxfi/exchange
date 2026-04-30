@@ -1,11 +1,13 @@
-import { DdSdkReactNative } from '@datadog/mobile-react-native'
-import { getUniqueIdSync } from 'react-native-device-info'
-import { MobileUserPropertyName } from '@l.x/lx/src/features/telemetry/user'
-
-export function setDatadogUserWithUniqueId(activeAddress: Maybe<Address>, uniswapIdentifier?: string | null): void {
-  DdSdkReactNative.setUser({
-    id: getUniqueIdSync(),
-    ...(activeAddress ? { [MobileUserPropertyName.ActiveWalletAddress]: activeAddress } : {}),
-    ...(uniswapIdentifier ? { [MobileUserPropertyName.UniswapIdentifier]: uniswapIdentifier } : {}),
-  }).catch(() => undefined)
+/**
+ * Datadog mobile SDK has been removed. `setDatadogUserWithUniqueId` used to
+ * call `DdSdkReactNative.setUser` to associate a unique device id + active
+ * wallet with the RUM session. It is now a no-op so call sites do not have
+ * to change. Plug in an observability driver via `setObservabilityDriver`
+ * to restore user-correlation.
+ */
+export function setDatadogUserWithUniqueId(
+  _activeAddress: Maybe<Address>,
+  _uniswapIdentifier?: string | null,
+): void {
+  // No-op.
 }

@@ -1,66 +1,80 @@
+import { brand } from '@l.x/config'
 import { config } from '@l.x/lx/src/config'
 import {
-  getQuicknodeChainId,
-  getQuicknodeChainIdPathSuffix,
-  getQuicknodeEndpointUrl,
+  getBootnodeChainPathSuffix,
+  getBootnodeChainSlug,
+  getBootnodeRpcUrl,
 } from '@l.x/lx/src/features/chains/evm/rpc'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 vi.mock('@l.x/lx/src/config', () => ({
   config: {
-    quicknodeEndpointName: 'test-endpoint',
-    quicknodeEndpointToken: 'test-token-123',
+    bootnodeRpcUrlOverride: '',
   },
 }))
 
-describe('getQuicknodeChainIdPathSuffix', () => {
-  const testCases: Array<[UniverseChainId, string, string]> = [
-    [UniverseChainId.Avalanche, '/ext/bc/C/rpc', 'Avalanche chain'],
-    [UniverseChainId.Mainnet, '', 'Mainnet chain'],
-    [UniverseChainId.ArbitrumOne, '', 'Arbitrum chain'],
-    [UniverseChainId.Base, '', 'Base chain'],
-    [UniverseChainId.Blast, '', 'Blast chain'],
-    [UniverseChainId.Bnb, '', 'BNB chain'],
-    [UniverseChainId.Celo, '', 'Celo chain'],
-    [UniverseChainId.Monad, '', 'Monad'],
-    [UniverseChainId.Optimism, '', 'Optimism chain'],
-    [UniverseChainId.Polygon, '', 'Polygon chain'],
-    [UniverseChainId.Sepolia, '', 'Sepolia testnet'],
-    [UniverseChainId.UnichainSepolia, '', 'Unichain Sepolia testnet'],
-    [UniverseChainId.WorldChain, '', 'World chain'],
-    [UniverseChainId.XLayer, '', 'XLayer chain'],
-    [UniverseChainId.Zksync, '', 'ZkSync chain'],
-    [UniverseChainId.Zora, '', 'Zora chain'],
+vi.mock('@l.x/config', () => ({
+  brand: {
+    gatewayDomain: 'api.lux.exchange',
+  },
+}))
+
+describe('getBootnodeChainPathSuffix', () => {
+  // Bootnode normalizes per-chain path suffixes server-side, so the client
+  // helper always returns ''. Kept for parity with the prior Quicknode
+  // helper so call sites can still concatenate the suffix harmlessly.
+  const testCases: Array<[UniverseChainId, string]> = [
+    [UniverseChainId.Avalanche, ''],
+    [UniverseChainId.Mainnet, ''],
+    [UniverseChainId.ArbitrumOne, ''],
+    [UniverseChainId.Base, ''],
+    [UniverseChainId.Blast, ''],
+    [UniverseChainId.Bnb, ''],
+    [UniverseChainId.Celo, ''],
+    [UniverseChainId.Monad, ''],
+    [UniverseChainId.Optimism, ''],
+    [UniverseChainId.Polygon, ''],
+    [UniverseChainId.Sepolia, ''],
+    [UniverseChainId.UnichainSepolia, ''],
+    [UniverseChainId.WorldChain, ''],
+    [UniverseChainId.XLayer, ''],
+    [UniverseChainId.Zksync, ''],
+    [UniverseChainId.Zora, ''],
   ]
 
-  // eslint-disable-next-line max-params
-  it.each(testCases)('returns correct path suffix for %s', (chainId, expectedSuffix, _testName) => {
-    expect(getQuicknodeChainIdPathSuffix(chainId)).toBe(expectedSuffix)
+  it.each(testCases)('returns empty path suffix for %s', (chainId, expectedSuffix) => {
+    expect(getBootnodeChainPathSuffix(chainId)).toBe(expectedSuffix)
   })
 })
 
-describe('getQuicknodeEndpointUrl', () => {
-  it('constructs URL with different config values', () => {
-    // Override config mock for this test
-    vi.mocked(config).quicknodeEndpointName = 'different-endpoint'
-    vi.mocked(config).quicknodeEndpointToken = 'different-token'
+describe('getBootnodeRpcUrl', () => {
+  it('uses brand.gatewayDomain by default', () => {
+    vi.mocked(config).bootnodeRpcUrlOverride = ''
+    vi.mocked(brand).gatewayDomain = 'api.lux.exchange'
 
-    const url = getQuicknodeEndpointUrl(UniverseChainId.Base)
-    expect(url).toBe('https://different-endpoint.base-mainnet.quiknode.pro/different-token')
-
-    // Reset mock to original values
-    vi.mocked(config).quicknodeEndpointName = 'test-endpoint'
-    vi.mocked(config).quicknodeEndpointToken = 'test-token-123'
+    expect(getBootnodeRpcUrl(UniverseChainId.Base)).toBe('https://api.lux.exchange/v1/rpc/base')
   })
 
-  it('throws error for unsupported chain', () => {
+  it('honors the bootnodeRpcUrlOverride config (with trailing slash)', () => {
+    vi.mocked(config).bootnodeRpcUrlOverride = 'https://bootnode.dev.satschel.com/'
+
+    expect(getBootnodeRpcUrl(UniverseChainId.Polygon)).toBe('https://bootnode.dev.satschel.com/v1/rpc/polygon')
+
+    vi.mocked(config).bootnodeRpcUrlOverride = ''
+  })
+
+  it('throws for unsupported chain', () => {
+    vi.mocked(config).bootnodeRpcUrlOverride = ''
     // @ts-expect-error testing invalid chain id
-    expect(() => getQuicknodeEndpointUrl(999999)).toThrow(
-      'Chain 999999 does not have a corresponding QuickNode chain ID',
+    expect(() => getBootnodeRpcUrl(999999)).toThrow(
+      'Chain 999999 does not have a corresponding Bootnode chain slug',
     )
   })
 
   it('handles all supported chains without throwing', () => {
+    vi.mocked(config).bootnodeRpcUrlOverride = ''
+    vi.mocked(brand).gatewayDomain = 'api.lux.exchange'
+
     const supportedChains = [
       UniverseChainId.ArbitrumOne,
       UniverseChainId.Avalanche,
@@ -81,37 +95,36 @@ describe('getQuicknodeEndpointUrl', () => {
     ]
 
     supportedChains.forEach((chainId) => {
-      const url = getQuicknodeEndpointUrl(chainId)
-
-      expect(url).toEqual(
-        `https://test-endpoint${chainId === UniverseChainId.Mainnet ? '' : `.${getQuicknodeChainId(chainId)}`}.quiknode.pro/test-token-123${getQuicknodeChainIdPathSuffix(chainId)}`,
-      )
+      const url = getBootnodeRpcUrl(chainId)
+      expect(url).toBe(`https://api.lux.exchange/v1/rpc/${getBootnodeChainSlug(chainId)}`)
+      expect(url).not.toBe('')
+      expect(url.startsWith('https://')).toBe(true)
     })
   })
 })
 
-describe('getQuicknodeChainId', () => {
-  it('returns correct quicknode subdomain for each chain', () => {
-    expect(getQuicknodeChainId(UniverseChainId.Mainnet)).toBe('')
-    expect(getQuicknodeChainId(UniverseChainId.ArbitrumOne)).toBe('arbitrum-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.Avalanche)).toBe('avalanche-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.Base)).toBe('base-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.Blast)).toBe('blast-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.Bnb)).toBe('bsc')
-    expect(getQuicknodeChainId(UniverseChainId.Celo)).toBe('celo-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.Monad)).toBe('monad-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.Optimism)).toBe('optimism')
-    expect(getQuicknodeChainId(UniverseChainId.Polygon)).toBe('matic')
-    expect(getQuicknodeChainId(UniverseChainId.Sepolia)).toBe('ethereum-sepolia')
-    expect(getQuicknodeChainId(UniverseChainId.UnichainSepolia)).toBe('unichain-sepolia')
-    expect(getQuicknodeChainId(UniverseChainId.WorldChain)).toBe('worldchain-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.Zksync)).toBe('zksync-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.Zora)).toBe('zora-mainnet')
-    expect(getQuicknodeChainId(UniverseChainId.XLayer)).toBe('xlayer-mainnet')
+describe('getBootnodeChainSlug', () => {
+  it('returns correct bootnode slug for each chain', () => {
+    expect(getBootnodeChainSlug(UniverseChainId.Mainnet)).toBe('ethereum')
+    expect(getBootnodeChainSlug(UniverseChainId.ArbitrumOne)).toBe('arbitrum')
+    expect(getBootnodeChainSlug(UniverseChainId.Avalanche)).toBe('avalanche')
+    expect(getBootnodeChainSlug(UniverseChainId.Base)).toBe('base')
+    expect(getBootnodeChainSlug(UniverseChainId.Blast)).toBe('blast')
+    expect(getBootnodeChainSlug(UniverseChainId.Bnb)).toBe('bsc')
+    expect(getBootnodeChainSlug(UniverseChainId.Celo)).toBe('celo')
+    expect(getBootnodeChainSlug(UniverseChainId.Monad)).toBe('monad')
+    expect(getBootnodeChainSlug(UniverseChainId.Optimism)).toBe('optimism')
+    expect(getBootnodeChainSlug(UniverseChainId.Polygon)).toBe('polygon')
+    expect(getBootnodeChainSlug(UniverseChainId.Sepolia)).toBe('sepolia')
+    expect(getBootnodeChainSlug(UniverseChainId.UnichainSepolia)).toBe('unichain-sepolia')
+    expect(getBootnodeChainSlug(UniverseChainId.WorldChain)).toBe('worldchain')
+    expect(getBootnodeChainSlug(UniverseChainId.Zksync)).toBe('zksync')
+    expect(getBootnodeChainSlug(UniverseChainId.Zora)).toBe('zora')
+    expect(getBootnodeChainSlug(UniverseChainId.XLayer)).toBe('xlayer')
   })
 
   it('throws error for unsupported chain', () => {
     // @ts-expect-error testing invalid chain id
-    expect(() => getQuicknodeChainId(999999)).toThrow('Chain 999999 does not have a corresponding QuickNode chain ID')
+    expect(() => getBootnodeChainSlug(999999)).toThrow('Chain 999999 does not have a corresponding Bootnode chain slug')
   })
 })

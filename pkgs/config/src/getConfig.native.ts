@@ -7,8 +7,7 @@ import {
   APPSFLYER_API_KEY,
   APPSFLYER_APP_ID,
   BLOCKAID_PROXY_URL,
-  DATADOG_CLIENT_TOKEN,
-  DATADOG_PROJECT_ID,
+  BOOTNODE_RPC_URL_OVERRIDE,
   ENABLE_ENTRY_GATEWAY_PROXY,
   ENABLE_SESSION_SERVICE,
   ENABLE_SESSION_UPGRADE_AUTO,
@@ -21,8 +20,6 @@ import {
   JUPITER_PROXY_URL,
   LIQUIDITY_SERVICE_URL_OVERRIDE,
   ONESIGNAL_APP_ID,
-  QUICKNODE_ENDPOINT_NAME,
-  QUICKNODE_ENDPOINT_TOKEN,
   SCANTASTIC_API_URL_OVERRIDE,
   STATSIG_API_KEY,
   STATSIG_PROXY_URL_OVERRIDE,
@@ -47,16 +44,6 @@ export const getConfig = (): Config => {
     return cachedConfig
   }
 
-  /**
-   * Naming requirements for different environments:
-   * - Web ENV vars: must have process.env.REACT_APP_<var_name>
-   * - Extension ENV vars: must have process.env.<var_name>
-   * - Mobile ENV vars: must have BOTH process.env.<var_name> and <var_name>
-   *
-   *  The CI requires web vars to have the required 'REACT_APP_' prefix. The react-dot-env library doesnt integrate with CI correctly,
-   *  so we pull from github secrets directly with process.env.<var_name> for both extension and mobile. <var_name> is used for local mobile builds.
-   */
-
   const config: Config = {
     alchemyApiKey: process.env.REACT_APP_ALCHEMY_API_KEY || process.env.ALCHEMY_API_KEY || ALCHEMY_API_KEY,
     analyticsProxyUrlOverride: process.env.ANALYTICS_PROXY_URL_OVERRIDE || ANALYTICS_PROXY_URL_OVERRIDE,
@@ -65,9 +52,7 @@ export const getConfig = (): Config => {
     appsflyerApiKey: process.env.APPSFLYER_API_KEY || APPSFLYER_API_KEY,
     appsflyerAppId: process.env.APPSFLYER_APP_ID || APPSFLYER_APP_ID,
     blockaidProxyUrl: process.env.BLOCKAID_PROXY_URL || BLOCKAID_PROXY_URL,
-    datadogClientToken:
-      process.env.REACT_APP_DATADOG_CLIENT_TOKEN || process.env.DATADOG_CLIENT_TOKEN || DATADOG_CLIENT_TOKEN,
-    datadogProjectId: process.env.REACT_APP_DATADOG_PROJECT_ID || process.env.DATADOG_PROJECT_ID || DATADOG_PROJECT_ID,
+    bootnodeRpcUrlOverride: process.env.BOOTNODE_RPC_URL_OVERRIDE || BOOTNODE_RPC_URL_OVERRIDE,
     enableEntryGatewayProxy: process.env.ENABLE_ENTRY_GATEWAY_PROXY === 'true' || ENABLE_ENTRY_GATEWAY_PROXY === 'true',
     enableSessionService: process.env.ENABLE_SESSION_SERVICE === 'true' || ENABLE_SESSION_SERVICE === 'true',
     enableSessionUpgradeAuto:
@@ -78,15 +63,9 @@ export const getConfig = (): Config => {
     graphqlUrlOverride: process.env.GRAPHQL_URL_OVERRIDE || GRAPHQL_URL_OVERRIDE,
     infuraKey: process.env.REACT_APP_INFURA_KEY || INFURA_KEY,
     includePrototypeFeatures: process.env.INCLUDE_PROTOTYPE_FEATURES || INCLUDE_PROTOTYPE_FEATURES,
-    isVercelEnvironment: false, // never set to true for native
+    isVercelEnvironment: false,
     jupiterProxyUrl: process.env.JUPITER_PROXY_URL || JUPITER_PROXY_URL,
     onesignalAppId: process.env.ONESIGNAL_APP_ID || ONESIGNAL_APP_ID,
-    quicknodeEndpointName:
-      process.env.REACT_APP_QUICKNODE_ENDPOINT_NAME || process.env.QUICKNODE_ENDPOINT_NAME || QUICKNODE_ENDPOINT_NAME,
-    quicknodeEndpointToken:
-      process.env.REACT_APP_QUICKNODE_ENDPOINT_TOKEN ||
-      process.env.QUICKNODE_ENDPOINT_TOKEN ||
-      QUICKNODE_ENDPOINT_TOKEN,
     scantasticApiUrlOverride: process.env.SCANTASTIC_API_URL_OVERRIDE || SCANTASTIC_API_URL_OVERRIDE,
     statsigApiKey: process.env.REACT_APP_STATSIG_API_KEY || process.env.STATSIG_API_KEY || STATSIG_API_KEY,
     statsigProxyUrlOverride: process.env.STATSIG_PROXY_URL_OVERRIDE || STATSIG_PROXY_URL_OVERRIDE,
@@ -118,7 +97,6 @@ export const getConfig = (): Config => {
     console.debug('Using app config:', config)
   }
 
-  // Cache and return frozen config
   cachedConfig = Object.freeze(config)
   return cachedConfig
 }

@@ -6,7 +6,7 @@ import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   DEFAULT_RETRY_OPTIONS,
-  getQuicknodeEndpointUrl,
+  getBootnodeRpcUrl,
 } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
@@ -62,9 +62,9 @@ export const XLAYER_CHAIN_INFO = {
   blockTimeMs: 3000,
   pendingTransactionsRetryOptions: DEFAULT_RETRY_OPTIONS,
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.XLayer)] },
-    [RPCType.Default]: { http: [getQuicknodeEndpointUrl(UniverseChainId.XLayer)] },
-    [RPCType.Interface]: { http: [getQuicknodeEndpointUrl(UniverseChainId.XLayer)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.XLayer)] },
+    [RPCType.Default]: { http: [getBootnodeRpcUrl(UniverseChainId.XLayer)] },
+    [RPCType.Interface]: { http: [getBootnodeRpcUrl(UniverseChainId.XLayer)] },
   },
   tokens,
   statusPage: undefined,

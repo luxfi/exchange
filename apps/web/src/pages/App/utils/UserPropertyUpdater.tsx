@@ -1,4 +1,3 @@
-import { datadogRum } from '@datadog/browser-rum'
 import { useQuery } from '@tanstack/react-query'
 import { getBrowser, SharedEventName } from '@luxamm/analytics-events'
 import { provideLXIdentifierService } from '@l.x/api'
@@ -24,7 +23,6 @@ export function UserPropertyUpdater() {
   useEffect(() => {
     if (luxIdentifier) {
       setUserProperty(InterfaceUserPropertyName.LuxIdentifier, luxIdentifier)
-      datadogRum.setUserProperty(InterfaceUserPropertyName.LuxIdentifier, luxIdentifier)
     }
   }, [luxIdentifier])
 

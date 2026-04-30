@@ -4,8 +4,7 @@ declare module 'react-native-dotenv' {
   export const ALCHEMY_API_KEY: string
   export const APPSFLYER_API_KEY: string
   export const APPSFLYER_APP_ID: string
-  export const DATADOG_CLIENT_TOKEN: string
-  export const DATADOG_PROJECT_ID: string
+  export const BOOTNODE_RPC_URL_OVERRIDE: string
   export const IS_E2E_TEST: string
   export const LX_API_KEY: string
   export const INFURA_KEY: string
@@ -16,8 +15,6 @@ declare module 'react-native-dotenv' {
   export const WALLETCONNECT_PROJECT_ID: string
   export const WALLETCONNECT_PROJECT_ID_BETA: string
   export const WALLETCONNECT_PROJECT_ID_DEV: string
-  export const QUICKNODE_ENDPOINT_NAME: string
-  export const QUICKNODE_ENDPOINT_TOKEN: string
   export const TRADING_API_KEY: string
   export const FIREBASE_APP_CHECK_DEBUG_TOKEN: string
   export const ANALYTICS_PROXY_URL_OVERRIDE: string

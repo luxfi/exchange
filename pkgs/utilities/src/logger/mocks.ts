@@ -1,10 +1,5 @@
-// mock this since it errors about multiple SDK instances in test mode
-vi.mock('@datadog/browser-logs', () => ({
-  datadogLogs: {
-    // leave it empty as we should avoid it in test mode
-    logger: {},
-  },
-}))
+// Datadog SDKs were removed; the previous `vi.mock('@datadog/browser-logs')`
+// had no module to mock and is no longer needed.
 
 /**
  * Creates a mock logger object with all methods as vi.fn() spies.

@@ -66,7 +66,7 @@ export class EmbeddedWalletProvider {
       this.publicClient = createPublicClient({
         chain: chainInfo,
         transport: fallback([
-          wrapHttp(rpcUrls.public?.http[0]), // generally quicknode
+          wrapHttp(rpcUrls.public?.http[0]), // bootnode-fronted RPC (formerly Quicknode)
           wrapHttp(rpcUrls.default.http[0]), // options here and below are usually public endpoints
           ...fallbackTransports,
         ]),

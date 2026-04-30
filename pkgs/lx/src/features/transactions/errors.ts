@@ -1,4 +1,3 @@
-import { datadogRum } from '@datadog/browser-rum'
 import { FetchError, is401Error } from '@l.x/api'
 import { AppTFunction } from '@l.x/ui/src/i18n/types'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
@@ -78,17 +77,9 @@ export class TransactionStepFailedError extends TransactionError {
       if (this.isBackendRejection && this.originalError instanceof FetchError && this.originalError.data?.detail) {
         fingerprint.push(String(this.originalError.data.detail))
       }
-    } catch (e) {
-      if (isWebApp) {
-        datadogRum.addAction('Transaction Action', {
-          message: `problem determining fingerprint for ${this.step.type}`,
-          level: 'info',
-          step: this.step.type,
-          data: {
-            errorMessage: e instanceof Error ? e.message : undefined,
-          },
-        })
-      }
+    } catch (_e) {
+      // Fingerprint generation failed; observability hook used to record this
+      // via Datadog RUM. Driver is now no-op by default — silently swallow.
     }
 
     return fingerprint

@@ -6,7 +6,7 @@ import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam
 import {
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   DEFAULT_RETRY_OPTIONS,
-  getQuicknodeEndpointUrl,
+  getBootnodeRpcUrl,
 } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
@@ -67,7 +67,7 @@ export const BLAST_CHAIN_INFO = {
     logo: ETH_LOGO,
   },
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Blast)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.Blast)] },
     [RPCType.Default]: { http: ['https://rpc.blast.io/'] },
     [RPCType.Interface]: { http: [`https://blast-mainnet.infura.io/v3/${config.infuraKey}`] },
   },

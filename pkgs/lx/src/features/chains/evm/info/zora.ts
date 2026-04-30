@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@luxfi/api'
 import { ETH_LOGO, ZORA_LOGO } from '@l.x/ui/src/assets'
 import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY, getQuicknodeEndpointUrl } from '@l.x/lx/src/features/chains/evm/rpc'
+import { DEFAULT_NATIVE_ADDRESS_LEGACY, getBootnodeRpcUrl } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
 import {
@@ -56,9 +56,9 @@ export const ZORA_CHAIN_INFO = {
   },
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Zora)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.Zora)] },
     [RPCType.Default]: { http: ['https://rpc.zora.energy/'] },
-    [RPCType.Interface]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Zora)] },
+    [RPCType.Interface]: { http: [getBootnodeRpcUrl(UniverseChainId.Zora)] },
   },
   tokens,
   statusPage: undefined,

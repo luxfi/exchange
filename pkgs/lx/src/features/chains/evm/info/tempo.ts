@@ -4,7 +4,7 @@ import { TEMPO_LOGO } from '@l.x/ui/src/assets'
 import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS,
-  getQuicknodeEndpointUrl,
+  getBootnodeRpcUrl,
 } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
@@ -59,9 +59,9 @@ export const TEMPO_CHAIN_INFO = {
   supportsNFTs: false,
   urlParam: 'tempo',
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Tempo)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.Tempo)] },
     [RPCType.Default]: { http: ['https://rpc.tempo.xyz'] },
-    [RPCType.Interface]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Tempo)] },
+    [RPCType.Interface]: { http: [getBootnodeRpcUrl(UniverseChainId.Tempo)] },
   },
   // wrappedNativeCurrency points to pathUSD — structurally required but functionally inert.
   // There is no wrapped native currency on Tempo.

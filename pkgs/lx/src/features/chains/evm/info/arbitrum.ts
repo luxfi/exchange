@@ -6,7 +6,7 @@ import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   DEFAULT_RETRY_OPTIONS,
-  getQuicknodeEndpointUrl,
+  getBootnodeRpcUrl,
 } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
@@ -71,13 +71,13 @@ export const ARBITRUM_CHAIN_INFO = {
   supportsNFTs: true,
   urlParam: CHAIN_ID_TO_URL_PARAM[UniverseChainId.ArbitrumOne],
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.ArbitrumOne)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.ArbitrumOne)] },
     [RPCType.Default]: { http: ['https://arb1.arbitrum.io/rpc'] },
     [RPCType.Fallback]: { http: ['https://arbitrum.public-rpc.com'] },
     [RPCType.Interface]: {
       http: [
         `https://arbitrum-mainnet.infura.io/v3/${config.infuraKey}`,
-        getQuicknodeEndpointUrl(UniverseChainId.ArbitrumOne),
+        getBootnodeRpcUrl(UniverseChainId.ArbitrumOne),
       ],
     },
     [RPCType.PublicAlt]: { http: ['https://arb1.arbitrum.io/rpc'] },

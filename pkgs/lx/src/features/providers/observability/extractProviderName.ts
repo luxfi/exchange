@@ -1,5 +1,8 @@
 const PROVIDER_PATTERNS: [RegExp, string][] = [
-  // Paid providers
+  // Bootnode (multi-chain RPC proxy fronted by the gateway domain)
+  [/\/v1\/rpc\//, 'bootnode'],
+  [/bootno\.de/, 'bootnode'],
+  // Paid providers (legacy)
   [/quiknode\.pro/, 'quicknode'],
   [/infura\.io/, 'infura'],
   [/alchemy\.com/, 'alchemy'],

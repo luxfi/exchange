@@ -96,15 +96,21 @@ interface AnvilManager {
 }
 
 /**
- * Build fork URL from environment variables
+ * Build fork URL from environment variables.
+ *
+ * In CI, the bootnode RPC is reachable directly. Honor an explicit
+ * `ANVIL_FORK_URL` if set (e.g. for an archive-node fork the bootnode
+ * currently lacks), otherwise default to the bootnode mainnet endpoint.
  */
 function buildForkUrl(): string {
-  const endpoint = process.env.REACT_APP_QUICKNODE_ENDPOINT_NAME
-  const token = process.env.REACT_APP_QUICKNODE_ENDPOINT_TOKEN
-  if (!endpoint || !token) {
-    throw new Error('Missing QuickNode credentials for Anvil fork')
+  const explicit = process.env.ANVIL_FORK_URL
+  if (explicit) {
+    return explicit
   }
-  return `https://${endpoint}.quiknode.pro/${token}`
+  const override = (process.env.REACT_APP_BOOTNODE_RPC_URL_OVERRIDE || process.env.BOOTNODE_RPC_URL_OVERRIDE || '')
+    .replace(/\/+$/, '')
+  const base = override || 'https://api.lux.exchange'
+  return `${base}/v1/rpc/ethereum`
 }
 
 /**

@@ -11,7 +11,6 @@ ignores: [
     "babel-plugin-react-native-web",
     "babel-plugin-transform-remove-console",
     "cross-fetch",
-    "@datadog/datadog-ci",
     "dotenv",
     "expo-image",
     "expo-localization",

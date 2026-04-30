@@ -14,9 +14,7 @@ import {
 import { getInstantTokenBalanceUpdateApolloLink } from '@l.x/lx/src/features/portfolio/portfolioUpdates/getInstantTokenBalanceUpdateApolloLink'
 import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { getDatadogApolloLink } from '@l.x/utils/src/logger/datadog/datadogLink'
 import { logger } from '@l.x/utils/src/logger/logger'
-import { isMobileApp } from '@l.x/utils/src/platform'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { initAndPersistCache } from '@luxfi/wallet/src/data/apollo/cache'
 import { useWalletSigners } from '@luxfi/wallet/src/features/wallet/context'
@@ -153,9 +151,6 @@ function makeApolloClientInit(ctx: {
       getInstantTokenBalanceUpdateApolloLink({ reduxStore }),
       restLink,
     ]
-    if (isMobileApp) {
-      linkList.push(getDatadogApolloLink())
-    }
 
     const newClient = new ApolloClient({
       assumeImmutableResults: true,
