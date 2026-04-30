@@ -1,4 +1,5 @@
 import { Trans } from 'react-i18next'
+import { brand } from '@l.x/config'
 import { Flex, FlexProps, styled, Text } from '@l.x/ui/src'
 import { ExternalLink } from '~/theme/components/Links'
 
@@ -15,7 +16,7 @@ export function LimitDisclaimer(props: FlexProps) {
       </DisclaimerText>
       <DisclaimerText>Canceling a limit has a network cost.</DisclaimerText>
       <DisclaimerText>
-        <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/24300813697933">
+        <ExternalLink href={`${brand.helpUrl || 'https://docs.lux.exchange'}/help/limit-orders`}>
           <Trans i18nKey="common.button.learn" />
         </ExternalLink>
       </DisclaimerText>

@@ -1,5 +1,5 @@
 // oxlint-disable-next-line no-restricted-imports -- Test utilities need direct access to format functions
-import { UseMediaState } from '@hanzogui/core'
+import { UseMediaState } from '@hanzo/gui'
 import { useMedia } from '@l.x/ui/src'
 import { mocked } from '~/test-utils/mocked'
 

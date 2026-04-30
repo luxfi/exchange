@@ -1,8 +1,8 @@
 ignores: [
     # Dependencies that depcheck thinks are unused but are actually used / lock explicit versions
-    '@tamagui/animations-react-native',
-    '@tamagui/font-inter',
-    '@tamagui/theme-base',
+    '@hanzogui/animations-motion',
+    '@hanzogui/font-inter',
+    '@hanzogui/themes',
     'jest-presets',
     'typescript',
     '@typescript/native-preview',

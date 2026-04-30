@@ -1,4 +1,4 @@
-import type { IconProps as GuiIconProps } from '@hanzogui/helpers-icon'
+import type { IconProps as GuiIconProps } from '@hanzo/gui'
 import { createElement, forwardRef, useState } from 'react'
 import { Svg, SvgProps } from 'react-native-svg'
 import { ColorTokens, SpecificTokens, View as Stack, styled, ThemeKeys, usePropsAndStyle, View } from '@hanzo/gui'

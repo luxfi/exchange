@@ -1,6 +1,7 @@
 // until the web app needs all of gui, avoid heavy imports there
 // biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
-import { createFont, isAndroid } from '@hanzogui/core'
+import { createFont } from '@hanzo/gui'
+import { isAndroid } from '@hanzogui/constants'
 import { needsSmallFont } from '@l.x/ui/src/utils/needs-small-font'
 import { isWebApp, isWebPlatform } from '@l.x/utils/src/platform'
 

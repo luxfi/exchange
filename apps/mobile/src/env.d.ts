@@ -1,12 +1,12 @@
-import { config, TamaguiGroupNames } from '@l.x/ui/src/tamagui.config'
+import { config, GuiGroupNames } from '@l.x/ui/src/gui.config'
 
 type Conf = typeof config
 
-declare module 'tamagui' {
+declare module '@hanzogui/core' {
   // oxlint-disable-next-line typescript/no-empty-interface
-  interface TamaguiCustomConfig extends Conf {}
+  interface GuiCustomConfig extends Conf {}
 
   interface TypeOverride {
-    groupNames(): TamaguiGroupNames
+    groupNames(): GuiGroupNames
   }
 }

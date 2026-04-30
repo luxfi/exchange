@@ -1,6 +1,6 @@
 // until the web app needs all of gui, avoid heavy imports there
 // biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
-import { ColorTokens, ThemeKeys, ThemeProps, useTheme } from '@hanzogui/core'
+import { ColorTokens, ThemeKeys, ThemeProps, useTheme } from '@hanzo/gui'
 import { useMemo } from 'react'
 
 // copied from react-native (avoiding import for web)

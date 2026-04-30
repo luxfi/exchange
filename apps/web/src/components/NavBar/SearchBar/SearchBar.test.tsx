@@ -2,8 +2,8 @@ import { SearchBar } from '~/components/NavBar/SearchBar'
 import mockMediaSize from '~/test-utils/mockMediaSize'
 import { render, screen } from '~/test-utils/render'
 
-vi.mock('tamagui', async () => {
-  const actual = await vi.importActual('tamagui')
+vi.mock('@hanzo/gui', async () => {
+  const actual = await vi.importActual('@hanzo/gui')
   return {
     ...actual,
     useMedia: vi.fn(),

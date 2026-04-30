@@ -1,10 +1,14 @@
 import process from 'process'
 import type { ProxyOptions } from 'vite'
 
-// Entry Gateway API URLs
-const DEV_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-dev.api.uniswap.org'
-const STAGING_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-staging.api.uniswap.org'
-const PROD_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-prod.api.uniswap.org'
+// Entry Gateway API URLs.
+// White-label deployments (zoo.exchange, lux.exchange, pars.market) override
+// these via ENTRY_GATEWAY_API_URL_OVERRIDE; the upstream-fork uniswap.org
+// hostnames were leaking into shipped JS as the dev fallback. Default to
+// brand-neutral lux.exchange, which is the canonical upstream brand.
+const DEV_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-dev.api.lux.exchange'
+const STAGING_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-staging.api.lux.exchange'
+const PROD_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-prod.api.lux.exchange'
 
 /**
  * Returns the appropriate Entry Gateway API URL for the proxy target.

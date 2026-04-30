@@ -91,9 +91,14 @@ export function createLegacyBannersNotificationDataSource(
         localStorage.removeItem(LEGACY_SOLANA_PROMO_STORAGE_KEY)
       }
 
-      // Migrate BridgingBanner dismissal from Redux
-      const state = store.getState()
-      const bridgingWasDismissed = state.luxBehaviorHistory.hasDismissedBridgedAssetsBannerV2
+      // Migrate BridgingBanner dismissal from Redux.
+      // Read from `lxBehaviorHistory` (matches the slice name registered by
+      // `@l.x/lx`'s `luxReducer.lxReducers`). The previous `luxBehaviorHistory`
+      // key is undefined in the actual store and threw `TypeError: cannot read
+      // property 'hasDismissedBridgedAssetsBannerV2' of undefined` at boot. The
+      // optional chaining keeps this resilient if the slice is renamed again.
+      const state = store.getState() as { lxBehaviorHistory?: { hasDismissedBridgedAssetsBannerV2?: boolean } }
+      const bridgingWasDismissed = state.lxBehaviorHistory?.hasDismissedBridgedAssetsBannerV2 === true
       if (bridgingWasDismissed) {
         logger.info(
           'createLegacyBannersNotificationDataSource',

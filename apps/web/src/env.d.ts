@@ -5,15 +5,15 @@
 // oxlint-disable-next-line typescript/triple-slash-reference
 /// <reference path="../../../pkgs/ui/src/env.d.ts" />
 
-import { config, TamaguiGroupNames } from '~/tamagui.config'
+import { config, GuiGroupNames } from '~/gui.config'
 
 type Conf = typeof config
 
-declare module 'tamagui' {
+declare module '@hanzogui/core' {
   // oxlint-disable-next-line typescript/no-empty-interface
-  interface TamaguiCustomConfig extends Conf {}
+  interface GuiCustomConfig extends Conf {}
 
   interface TypeOverride {
-    groupNames(): TamaguiGroupNames
+    groupNames(): GuiGroupNames
   }
 }

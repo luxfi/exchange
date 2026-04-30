@@ -6,9 +6,9 @@ const nextConfig = {
     '@luxfi/exchange',
     '@luxfi/api',
     '@luxfi/config',
-    'tamagui',
-    '@tamagui/core',
-    '@tamagui/animations-react-native',
+    '@hanzo/gui',
+    '@hanzogui/core',
+    '@hanzogui/animations-motion',
   ],
 
   // Output mode: standalone for Docker, export for GitHub Actions

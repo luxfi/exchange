@@ -1,7 +1,7 @@
 import { type BaseSyntheticEvent, useMemo } from 'react'
 import { I18nManager, type Role } from 'react-native'
 import { type YStackProps } from '@hanzo/gui'
-import { Spacer } from '@hanzogui/spacer'
+import { Spacer } from '@hanzo/gui'
 import { getMenuItemColor } from '@l.x/ui/src/components/dropdownMenuSheet/utils'
 import { CheckCircleFilled, ExternalLink } from '@l.x/ui/src/components/icons'
 import { Flex, type FlexProps } from '@l.x/ui/src/components/layout'
