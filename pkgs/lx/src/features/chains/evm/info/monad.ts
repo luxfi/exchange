@@ -6,7 +6,7 @@ import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam
 import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS_LEGACY,
-  getQuicknodeEndpointUrl,
+  getBootnodeRpcUrl,
 } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import {
@@ -57,9 +57,9 @@ export const MONAD_CHAIN_INFO = {
   supportsNFTs: false,
   urlParam: CHAIN_ID_TO_URL_PARAM[UniverseChainId.Monad],
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Monad)] },
-    [RPCType.Default]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Monad)] },
-    [RPCType.Interface]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Monad)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.Monad)] },
+    [RPCType.Default]: { http: [getBootnodeRpcUrl(UniverseChainId.Monad)] },
+    [RPCType.Interface]: { http: [getBootnodeRpcUrl(UniverseChainId.Monad)] },
   },
   wrappedNativeCurrency: {
     name: 'Wrapped Monad',

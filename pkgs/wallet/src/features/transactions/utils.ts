@@ -182,7 +182,10 @@ export function getRPCErrorCategory(error: Error): string {
 export function getRPCProvider(error: Error): string {
   const message = error.message
   switch (true) {
+    case message.includes('bootno') || message.includes('/v1/rpc/'):
+      return 'bootnode'
     case message.includes('quicknode'):
+      // Legacy: errors from third-party RPC pools may still surface here.
       return 'quicknode'
     case message.includes('infura'):
       return 'infura'

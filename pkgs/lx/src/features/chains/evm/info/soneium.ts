@@ -5,7 +5,7 @@ import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam
 import {
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   DEFAULT_RETRY_OPTIONS,
-  getQuicknodeEndpointUrl,
+  getBootnodeRpcUrl,
 } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
@@ -69,10 +69,10 @@ export const SONEIUM_CHAIN_INFO = {
   blockTimeMs: 2000,
   pendingTransactionsRetryOptions: DEFAULT_RETRY_OPTIONS,
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Soneium)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.Soneium)] },
     [RPCType.Default]: { http: ['https://rpc.soneium.org'] },
     [RPCType.Interface]: {
-      http: [getQuicknodeEndpointUrl(UniverseChainId.Soneium)],
+      http: [getBootnodeRpcUrl(UniverseChainId.Soneium)],
     },
   },
   tokens,

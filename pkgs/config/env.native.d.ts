@@ -9,8 +9,7 @@ declare module 'react-native-dotenv' {
   export const APPSFLYER_API_KEY: string
   export const APPSFLYER_APP_ID: string
   export const BLOCKAID_PROXY_URL: string
-  export const DATADOG_CLIENT_TOKEN: string
-  export const DATADOG_PROJECT_ID: string
+  export const BOOTNODE_RPC_URL_OVERRIDE: string
   export const ENABLE_ENTRY_GATEWAY_PROXY: string
   export const ENABLE_SESSION_SERVICE: string
   export const ENABLE_SESSION_UPGRADE_AUTO: string
@@ -23,8 +22,6 @@ declare module 'react-native-dotenv' {
   export const JUPITER_PROXY_URL: string
   export const LIQUIDITY_SERVICE_URL_OVERRIDE: string
   export const ONESIGNAL_APP_ID: string
-  export const QUICKNODE_ENDPOINT_NAME: string
-  export const QUICKNODE_ENDPOINT_TOKEN: string
   export const SCANTASTIC_API_URL_OVERRIDE: string
   export const STATSIG_API_KEY: string
   export const STATSIG_PROXY_URL_OVERRIDE: string

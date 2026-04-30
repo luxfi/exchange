@@ -4,7 +4,7 @@ import { SwapConfigKey } from '@l.x/gating'
 import { AVALANCHE_LOGO } from '@l.x/ui/src/assets'
 import { config } from '@l.x/lx/src/config'
 import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY, getQuicknodeEndpointUrl } from '@l.x/lx/src/features/chains/evm/rpc'
+import { DEFAULT_NATIVE_ADDRESS_LEGACY, getBootnodeRpcUrl } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import {
   GqlChainId,
@@ -63,7 +63,7 @@ export const AVALANCHE_CHAIN_INFO = {
   blockTimeMs: 2000,
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Avalanche)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.Avalanche)] },
     [RPCType.Default]: { http: ['https://api.avax.network/ext/bc/C/rpc'] },
     [RPCType.Interface]: { http: [`https://avalanche-mainnet.infura.io/v3/${config.infuraKey}`] },
   },

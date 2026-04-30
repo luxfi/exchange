@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@luxfi/api'
 import { SOLANA_LOGO } from '@l.x/ui/src/assets'
 import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
-import { getQuicknodeEndpointUrl } from '@l.x/lx/src/features/chains/evm/rpc'
+import { getBootnodeRpcUrl } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import { SOLANA_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
 import { DEFAULT_NATIVE_ADDRESS_SOLANA, WRAPPED_SOL_ADDRESS_SOLANA } from '@l.x/lx/src/features/chains/svm/defaults'
@@ -63,7 +63,7 @@ export const SOLANA_CHAIN_INFO = {
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
     [RPCType.Default]: {
-      http: [getQuicknodeEndpointUrl(UniverseChainId.Solana)],
+      http: [getBootnodeRpcUrl(UniverseChainId.Solana)],
     },
     [RPCType.Interface]: {
       http: [''], // Not used for Solana; defined for type compatibility with EVM chains

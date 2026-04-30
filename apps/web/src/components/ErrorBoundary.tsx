@@ -1,5 +1,4 @@
-import { ErrorBoundary as DatadogErrorBoundary } from '@datadog/browser-rum-react'
-import { type PropsWithChildren, useCallback, useState } from 'react'
+import { Component, type PropsWithChildren, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Switch, Text, TouchableArea } from '@l.x/ui/src'
 import { CopyAlt } from '@l.x/ui/src/components/icons/CopyAlt'
@@ -173,18 +172,54 @@ function ErrorDetailsSection({ errorDetails, eventId }: { errorDetails: string; 
   )
 }
 
-export default function ErrorBoundary({
-  children,
-  fallback,
-}: PropsWithChildren & {
-  fallback?: React.ComponentType<{
-    error: Error
-    resetError: () => void
-  }>
-}): JSX.Element {
-  return (
-    <DatadogErrorBoundary fallback={fallback ?? (({ error }) => <Fallback error={error} eventId={null} />)}>
-      {children}
-    </DatadogErrorBoundary>
-  )
+type FallbackComponent = React.ComponentType<{ error: Error; resetError: () => void }>
+
+interface ErrorBoundaryProps extends PropsWithChildren {
+  fallback?: FallbackComponent
+}
+
+interface ErrorBoundaryState {
+  error: Error | null
+}
+
+/**
+ * Plain React error boundary. Used to wrap Datadog's `ErrorBoundary` from
+ * `@datadog/browser-rum-react`; the SDK was removed and we now use a stock
+ * `componentDidCatch` boundary. Errors are surfaced to the active logger
+ * via `logger.error`, which routes through whatever observability driver
+ * is active (no-op by default).
+ */
+class ErrorBoundaryImpl extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  public override state: ErrorBoundaryState = { error: null }
+
+  public static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { error }
+  }
+
+  public override componentDidCatch(error: Error, info: React.ErrorInfo): void {
+    logger.error(error, {
+      tags: { file: 'ErrorBoundary', function: 'componentDidCatch' },
+      extra: { componentStack: info.componentStack ?? null },
+    })
+  }
+
+  public resetError = (): void => {
+    this.setState({ error: null })
+  }
+
+  public override render(): React.ReactNode {
+    const { error } = this.state
+    if (error) {
+      const FallbackComp = this.props.fallback
+      if (FallbackComp) {
+        return <FallbackComp error={error} resetError={this.resetError} />
+      }
+      return <Fallback error={error} eventId={null} />
+    }
+    return this.props.children
+  }
+}
+
+export default function ErrorBoundary(props: ErrorBoundaryProps): JSX.Element {
+  return <ErrorBoundaryImpl {...props} />
 }

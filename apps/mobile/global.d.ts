@@ -9,11 +9,3 @@ declare let chrome: {
   // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
   [key: string]: any
 }
-
-/**
- * Module augmentation to @datadog deep import for tsgo compatibility
- */
-declare module '@datadog/mobile-react-native/lib/typescript/rum/eventMappers/errorEventMapper' {
-  // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
-  export type ErrorEventMapper = (event: any) => any | null
-}

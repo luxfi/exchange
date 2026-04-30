@@ -2,7 +2,6 @@
 import '~/sideEffects'
 
 import { ApolloProvider } from '@apollo/client'
-import { datadogRum } from '@datadog/browser-rum'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
 import {
   getIsHashcashSolverEnabled,
@@ -195,19 +194,17 @@ function GraphqlProviders({ children }: { children: React.ReactNode }) {
 function TelemetryProvider({ children }: PropsWithChildren) {
   const account = useAccount()
 
-  // Datadog gets the connection metadata that used to be a Statsig user
-  // property. Gating is now local-only — no SDK init, no provider wrapper.
+  // Wallet-connection metadata used to be propagated to a third-party RUM
+  // (Datadog). The SDK was removed; the active observability driver is now
+  // a no-op by default. White-labels can plug in their own driver via
+  // `setObservabilityDriver`. We still track the account to keep the hook
+  // dependency-stable for future drivers, but emit nothing here.
   useEffect(() => {
-    datadogRum.setUserProperty('connection', {
-      type: account.connector?.type,
-      name: account.connector?.name,
-      rdns: account.connector?.id,
-      address: account.address,
-      status: account.status,
-    })
+    void account
   }, [account])
 
   useEffect(() => {
+    // Driver is no-op by default; init kept as a hook for future drivers.
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!isDevEnv() || localDevDatadogEnabled) {
       initializeDatadog('web').catch(() => undefined)

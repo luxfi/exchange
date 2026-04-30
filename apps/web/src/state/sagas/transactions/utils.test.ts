@@ -36,9 +36,7 @@ vi.mock('~/components/Popups/types', () => ({
   PopupType: { Plan: 'Plan' },
 }))
 
-vi.mock('@datadog/browser-rum', () => ({
-  datadogRum: { addAction: vi.fn() },
-}))
+// Datadog SDK was removed; nothing to mock here anymore.
 
 vi.mock('~/state/activity/utils', () => ({
   getRoutingForTransaction: vi.fn().mockReturnValue('CLASSIC'),

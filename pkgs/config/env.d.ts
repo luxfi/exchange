@@ -12,9 +12,8 @@ declare global {
       APPSFLYER_API_KEY?: string
       APPSFLYER_APP_ID?: string
       BLOCKAID_PROXY_URL?: string
+      BOOTNODE_RPC_URL_OVERRIDE?: string
       CI?: string
-      DATADOG_CLIENT_TOKEN?: string
-      DATADOG_PROJECT_ID?: string
       ENABLE_ENTRY_GATEWAY_PROXY?: string
       ENABLE_SESSION_SERVICE?: string
       ENABLE_SESSION_UPGRADE_AUTO?: string
@@ -26,18 +25,13 @@ declare global {
       JUPITER_PROXY_URL?: string
       LIQUIDITY_SERVICE_URL_OVERRIDE?: string
       ONESIGNAL_APP_ID?: string
-      QUICKNODE_ENDPOINT_NAME?: string
-      QUICKNODE_ENDPOINT_TOKEN?: string
       REACT_APP_ALCHEMY_API_KEY?: string
       REACT_APP_BLOCKAID_PROXY_URL?: string
-      REACT_APP_DATADOG_CLIENT_TOKEN?: string
-      REACT_APP_DATADOG_PROJECT_ID?: string
+      REACT_APP_BOOTNODE_RPC_URL_OVERRIDE?: string
       REACT_APP_ENABLE_SESSION_UPGRADE_AUTO?: string
       REACT_APP_INFURA_KEY?: string
       REACT_APP_JUPITER_PROXY_URL?: string
       REACT_APP_LIQUIDITY_SERVICE_URL_OVERRIDE?: string
-      REACT_APP_QUICKNODE_ENDPOINT_NAME?: string
-      REACT_APP_QUICKNODE_ENDPOINT_TOKEN?: string
       REACT_APP_STATSIG_API_KEY?: string
       REACT_APP_TRADING_API_KEY?: string
       REACT_APP_TRADING_API_TEST_ENV?: string

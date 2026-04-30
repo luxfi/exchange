@@ -24,8 +24,8 @@ export const getConfig = (): Config => {
     appsflyerApiKey: process.env.APPSFLYER_API_KEY || '',
     appsflyerAppId: process.env.APPSFLYER_APP_ID || '',
     blockaidProxyUrl: process.env.REACT_APP_BLOCKAID_PROXY_URL || process.env.BLOCKAID_PROXY_URL || '',
-    datadogClientToken: process.env.REACT_APP_DATADOG_CLIENT_TOKEN || process.env.DATADOG_CLIENT_TOKEN || '',
-    datadogProjectId: process.env.REACT_APP_DATADOG_PROJECT_ID || process.env.DATADOG_PROJECT_ID || '',
+    bootnodeRpcUrlOverride:
+      process.env.REACT_APP_BOOTNODE_RPC_URL_OVERRIDE || process.env.BOOTNODE_RPC_URL_OVERRIDE || '',
     enableEntryGatewayProxy: process.env.VITE_ENABLE_ENTRY_GATEWAY_PROXY === 'true',
     enableSessionService: process.env.ENABLE_SESSION_SERVICE === 'true',
     enableSessionUpgradeAuto:
@@ -39,9 +39,6 @@ export const getConfig = (): Config => {
     isVercelEnvironment: process.env.VERCEL === '1',
     jupiterProxyUrl: process.env.REACT_APP_JUPITER_PROXY_URL || process.env.JUPITER_PROXY_URL || '',
     onesignalAppId: process.env.ONESIGNAL_APP_ID || '',
-    quicknodeEndpointName: process.env.REACT_APP_QUICKNODE_ENDPOINT_NAME || process.env.QUICKNODE_ENDPOINT_NAME || '',
-    quicknodeEndpointToken:
-      process.env.REACT_APP_QUICKNODE_ENDPOINT_TOKEN || process.env.QUICKNODE_ENDPOINT_TOKEN || '',
     scantasticApiUrlOverride: process.env.SCANTASTIC_API_URL_OVERRIDE || '',
     statsigApiKey: process.env.REACT_APP_STATSIG_API_KEY || process.env.STATSIG_API_KEY || '',
     statsigProxyUrlOverride: process.env.STATSIG_PROXY_URL_OVERRIDE || '',

@@ -2,7 +2,7 @@ import { CurrencyAmount, Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@luxfi/api'
 import { BNB_LOGO } from '@l.x/ui/src/assets'
 import { CHAIN_ID_TO_URL_PARAM } from '@l.x/lx/src/features/chains/chainUrlParam'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY, getQuicknodeEndpointUrl } from '@l.x/lx/src/features/chains/evm/rpc'
+import { DEFAULT_NATIVE_ADDRESS_LEGACY, getBootnodeRpcUrl } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
 import {
@@ -60,9 +60,9 @@ export const BNB_CHAIN_INFO = {
   blockTimeMs: 3000,
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
-    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Bnb)] },
+    [RPCType.Public]: { http: [getBootnodeRpcUrl(UniverseChainId.Bnb)] },
     [RPCType.Default]: { http: ['https://bsc-dataseed1.bnbchain.org'] },
-    [RPCType.Interface]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Bnb)] },
+    [RPCType.Interface]: { http: [getBootnodeRpcUrl(UniverseChainId.Bnb)] },
   },
   spotPriceStablecoinAmountOverride: CurrencyAmount.fromRawAmount(tokens.USDC, 100e18),
   tokens,

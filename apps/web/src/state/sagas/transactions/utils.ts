@@ -1,5 +1,4 @@
 /* eslint-disable max-lines */
-import { datadogRum } from '@datadog/browser-rum'
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import type { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { TradeType } from '@luxamm/sdk-core'
@@ -603,9 +602,9 @@ export function getSwapTransactionInfo({
 }
 
 export function addTransactionBreadcrumb({
-  step,
-  data = {},
-  status = TransactionBreadcrumbStatus.Initiated,
+  step: _step,
+  data: _data = {},
+  status: _status = TransactionBreadcrumbStatus.Initiated,
 }: {
   step: TransactionStep
   data?: {
@@ -613,12 +612,9 @@ export function addTransactionBreadcrumb({
   }
   status?: TransactionBreadcrumbStatus
 }) {
-  datadogRum.addAction('Transaction Action', {
-    message: `${step.type} ${status}`,
-    step: step.type,
-    level: 'info',
-    data,
-  })
+  // Transaction breadcrumbs used to be forwarded to Datadog RUM as custom
+  // actions. The SDK was removed; the active observability driver is no-op
+  // by default. Plug in a driver via `setObservabilityDriver` to restore.
 }
 
 export function getDisplayableError({

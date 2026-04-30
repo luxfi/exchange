@@ -9,7 +9,7 @@ import {
   DEFAULT_MS_BEFORE_WARNING,
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   getPlaywrightRpcUrls,
-  getQuicknodeEndpointUrl,
+  getBootnodeRpcUrl,
 } from '@l.x/lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
 import {
@@ -79,16 +79,16 @@ export const MAINNET_CHAIN_INFO = {
           http: ['https://rpc.mevblocker.io/?referrer=luxwallet'],
         },
         [RPCType.Public]: {
-          http: [getQuicknodeEndpointUrl(UniverseChainId.Mainnet)],
+          http: [getBootnodeRpcUrl(UniverseChainId.Mainnet)],
         },
         [RPCType.Default]: {
-          http: [getQuicknodeEndpointUrl(UniverseChainId.Mainnet)],
+          http: [getBootnodeRpcUrl(UniverseChainId.Mainnet)],
         },
         [RPCType.Fallback]: {
           http: ['https://rpc.ankr.com/eth', 'https://eth-mainnet.public.blastapi.io'],
         },
         [RPCType.Interface]: {
-          http: [`https://mainnet.infura.io/v3/${config.infuraKey}`, getQuicknodeEndpointUrl(UniverseChainId.Mainnet)],
+          http: [`https://mainnet.infura.io/v3/${config.infuraKey}`, getBootnodeRpcUrl(UniverseChainId.Mainnet)],
         },
       },
   urlParam: CHAIN_ID_TO_URL_PARAM[UniverseChainId.Mainnet],
@@ -159,7 +159,7 @@ export const SEPOLIA_CHAIN_INFO = {
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
     [RPCType.Public]: {
-      http: [getQuicknodeEndpointUrl(UniverseChainId.Sepolia)],
+      http: [getBootnodeRpcUrl(UniverseChainId.Sepolia)],
     },
     [RPCType.Default]: {
       http: ['https://sepolia.gateway.tenderly.co'],

@@ -21,7 +21,6 @@ ignores: [
     'react-compiler-runtime',
     '@vitest/coverage-v8',
     'expo-crypto',
-    '@datadog/datadog-ci',
     'typescript',
     '@typescript/native-preview',
     'playwright',
@@ -75,6 +74,4 @@ ignores: [
     '~',
     'functions',
     'global.css',
-    # needed for ci
-    'dd-trace',
   ]

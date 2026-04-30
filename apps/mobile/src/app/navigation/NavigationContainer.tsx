@@ -1,4 +1,3 @@
-import { DdRumReactNavigationTracking } from '@datadog/mobile-react-navigation'
 import {
   DefaultTheme,
   NavigationContainer as NativeNavigationContainer,
@@ -19,7 +18,6 @@ import { useSporeColors } from '@l.x/ui/src'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { MobileNavScreen } from '@l.x/lx/src/types/screens/mobile'
-import { datadogEnabledBuild } from '@l.x/utils/src/environment/constants'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { sleep } from '@l.x/utils/src/time/timing'
@@ -55,9 +53,8 @@ export const NavigationContainer: FC<PropsWithChildren<Props>> = ({ children, on
         const initialRoute = navigationRef.getCurrentRoute()?.name as MobileNavScreen
         setRouteName(initialRoute)
 
-        if (datadogEnabledBuild) {
-          DdRumReactNavigationTracking.startTrackingViews(navigationRef.current)
-        }
+        // Datadog mobile RUM navigation tracking has been removed. Plug in
+        // an observability driver via `setObservabilityDriver` to restore.
       }}
       onStateChange={(): void => {
         const previousRouteName = routeName
