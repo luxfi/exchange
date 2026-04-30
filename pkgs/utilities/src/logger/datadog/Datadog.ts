@@ -1,50 +1,110 @@
-/* biome-ignore-all lint/suspicious/noExplicitAny: Third-party types not available */
+/* biome-ignore-all lint/suspicious/noExplicitAny: Driver surface is platform-agnostic */
 import { StoreEnhancerStoreCreator } from 'redux'
-import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 import { LoggerErrorContext, LogLevel } from '@l.x/utils/src/logger/types'
 
 export interface ReduxEnhancerConfig {
   shouldLogReduxState: (state: any) => boolean
 }
 
-export function createDatadogReduxEnhancer(
-  _config: ReduxEnhancerConfig,
-): (next: StoreEnhancerStoreCreator) => StoreEnhancerStoreCreator {
-  throw new PlatformSplitStubError('createDatadogReduxEnhancer')
+/**
+ * ObservabilityDriver — pluggable RUM/log sink.
+ *
+ * Default driver is a no-op. White-labels can plug in Hanzo Insights, Sentry,
+ * or any other observability backend by calling `setObservabilityDriver`.
+ *
+ * This file replaces the previous Datadog-specific implementation. The legacy
+ * `logToDatadog` / `logErrorToDatadog` etc. function names are kept for
+ * backward compatibility — they now route through the driver.
+ */
+export interface ObservabilityDriver {
+  log: (
+    message: string,
+    options: {
+      level: LogLevel
+      args: unknown[]
+      fileName: string
+      functionName: string
+    },
+  ) => void
+  warn: (
+    message: string,
+    options: {
+      level: LogLevel
+      args: unknown[]
+      fileName: string
+      functionName: string
+    },
+  ) => void
+  error: (error: Error, context?: LoggerErrorContext) => void
+  attachUnhandledRejectionHandler: () => void
+  setAttributes: (attributes: { [key: string]: unknown }) => Promise<void>
+  reduxEnhancer: (
+    config: ReduxEnhancerConfig,
+  ) => (next: StoreEnhancerStoreCreator) => StoreEnhancerStoreCreator
 }
 
+const noopDriver: ObservabilityDriver = {
+  log: () => {},
+  warn: () => {},
+  error: () => {},
+  attachUnhandledRejectionHandler: () => {},
+  setAttributes: async () => {},
+  reduxEnhancer:
+    () =>
+    (next: StoreEnhancerStoreCreator): StoreEnhancerStoreCreator =>
+      next,
+}
+
+let driver: ObservabilityDriver = noopDriver
+
+export function setObservabilityDriver(next: ObservabilityDriver): void {
+  driver = next
+}
+
+export function getObservabilityDriver(): ObservabilityDriver {
+  return driver
+}
+
+// Legacy API surface — kept so call sites do not have to change.
+// Each just routes to the active driver.
 export function logToDatadog(
-  _message: string,
-  _options: {
+  message: string,
+  options: {
     level: LogLevel
     args: unknown[]
     fileName: string
     functionName: string
   },
 ): void {
-  throw new PlatformSplitStubError('logToDatadog')
+  driver.log(message, options)
 }
 
 export function logWarningToDatadog(
-  _message: string,
-  _options: {
+  message: string,
+  options: {
     level: LogLevel
     args: unknown[]
     fileName: string
     functionName: string
   },
 ): void {
-  throw new PlatformSplitStubError('logWarningToDatadog')
+  driver.warn(message, options)
 }
 
-export function logErrorToDatadog(_error: Error, _context?: LoggerErrorContext): void {
-  throw new PlatformSplitStubError('logErrorToDatadog')
+export function logErrorToDatadog(error: Error, context?: LoggerErrorContext): void {
+  driver.error(error, context)
 }
 
 export function attachUnhandledRejectionHandler(): void {
-  throw new PlatformSplitStubError('attachUnhandledRejectionHandler')
+  driver.attachUnhandledRejectionHandler()
 }
 
-export async function setAttributesToDatadog(_attributes: { [key: string]: unknown }): Promise<void> {
-  throw new PlatformSplitStubError('setAttributes')
+export async function setAttributesToDatadog(attributes: { [key: string]: unknown }): Promise<void> {
+  await driver.setAttributes(attributes)
+}
+
+export function createDatadogReduxEnhancer(
+  config: ReduxEnhancerConfig,
+): (next: StoreEnhancerStoreCreator) => StoreEnhancerStoreCreator {
+  return driver.reduxEnhancer(config)
 }
