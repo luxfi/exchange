@@ -2,6 +2,7 @@ import { forwardRef } from 'react'
 import { Flex } from '@l.x/ui/src'
 import { AppsOverview } from '~/pages/Landing/sections/AppsOverview'
 import { Footer } from '~/pages/Landing/sections/Footer'
+import { LiquidityBanner } from '~/pages/Landing/sections/LiquidityBanner'
 import { NewsletterEtc } from '~/pages/Landing/sections/NewsletterEtc'
 import { Stats } from '~/pages/Landing/sections/Stats'
 
@@ -18,6 +19,7 @@ const Fold = forwardRef<HTMLDivElement>(function Fold(_props, scrollAnchor) {
       ref={scrollAnchor}
     >
       <Stats />
+      <LiquidityBanner />
       <AppsOverview />
       <NewsletterEtc />
       <Footer />
