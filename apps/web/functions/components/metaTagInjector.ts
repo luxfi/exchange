@@ -198,7 +198,7 @@ export async function metaTagInjectionMiddleware(c: Context, next: Next): Promis
     } else {
       const imageUri = requestURL.origin + '/images/1200x630_Rich_Link_Preview_Image.png'
       data = {
-        title: brand.name || 'Exchange',
+        title: brand.name || 'Lux Exchange',
         image: imageUri,
         url: c.req.url,
         description: brand.description || 'Swap and trade crypto across multiple networks. Decentralized exchange.',

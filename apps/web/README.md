@@ -1,10 +1,10 @@
-# Uniswap Labs Web Interface
+# Lux Exchange Web Interface
 
-## Accessing the Uniswap Interface
+## Accessing the Lux Exchange Interface
 
-To access the Uniswap Interface, use an IPFS gateway link from the
-[latest release](https://github.com/Uniswap/uniswap-interface/releases/latest),
-or visit [app.uniswap.org](https://app.uniswap.org).
+Visit [app.lux.exchange](https://app.lux.exchange), or run a local build per
+the instructions below. Releases are tagged on
+[luxfi/exchange](https://github.com/luxfi/exchange/releases) (`web/*` tags).
 
 ## Tech Stack
 
@@ -27,7 +27,7 @@ bun web dev
 
 The dev server runs on port 3000 by default.
 
-Using a different port may cause CORS errors for certain Uniswap Backend services.
+Using a different port may cause CORS errors for certain backend services.
 
 ## Development Commands
 

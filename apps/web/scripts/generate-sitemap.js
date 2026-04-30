@@ -2,7 +2,7 @@ const fs = require('fs')
 const { parseStringPromise, Builder } = require('xml2js')
 
 // Inline version of normalizeTokenAddressForCache to avoid PNG import issues
-// Copied from uniswap/src/data/cache.ts
+// Copied from pkgs/lx/src/data/cache.ts
 function normalizeTokenAddressForCache(address) {
   if (address === 'NATIVE' || address === 'native') {
     return 'native'
@@ -64,6 +64,7 @@ fs.readFile('./public/tokens-sitemap.xml', 'utf8', async (_err, data) => {
     }
 
     const GATEWAY_HOST = process.env.REACT_APP_GATEWAY_HOST || 'https://dex.lux.network'
+    const APP_ORIGIN = process.env.REACT_APP_SITEMAP_ORIGIN || 'https://app.lux.exchange'
     const tokensResponse = await fetch(
       `${GATEWAY_HOST}/v2/uniswap.explore.v1.ExploreStatsService/TokenRankings?connect=v1&encoding=json&message=` +
         encodeURIComponent(JSON.stringify({ chainId: 'ALL_NETWORKS' })),
@@ -71,7 +72,7 @@ fs.readFile('./public/tokens-sitemap.xml', 'utf8', async (_err, data) => {
         method: 'GET',
         headers: {
           accept: '*/*',
-          origin: 'https://app.uniswap.org',
+          origin: APP_ORIGIN,
           'content-type': 'application/json',
         },
       },
@@ -83,7 +84,7 @@ fs.readFile('./public/tokens-sitemap.xml', 'utf8', async (_err, data) => {
     })
 
     tokenAddresses.forEach(({ chainName, address }) => {
-      const tokenURL = `https://app.uniswap.org/explore/tokens/${chainName}/${normalizeTokenAddressForCache(address)}`
+      const tokenURL = `${APP_ORIGIN}/explore/tokens/${chainName}/${normalizeTokenAddressForCache(address)}`
       if (!(tokenURL in tokenURLs)) {
         sitemap.urlset.url.push({
           loc: [tokenURL],
@@ -128,12 +129,14 @@ fs.readFile('./public/pools-sitemap.xml', 'utf8', async (_err, data) => {
       })
     }
 
+    const POOLS_GRAPHQL = process.env.REACT_APP_POOLS_GRAPHQL_URL || 'https://dex.lux.network/v1/graphql'
+    const APP_ORIGIN = process.env.REACT_APP_SITEMAP_ORIGIN || 'https://app.lux.exchange'
     for (const chainName of chains) {
-      const poolsResponse = await fetch('https://api.uniswap.org/v1/graphql', {
+      const poolsResponse = await fetch(POOLS_GRAPHQL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Origin: 'https://app.uniswap.org',
+          Origin: APP_ORIGIN,
         },
         body: JSON.stringify({ query: getTopPoolsQuery(chainName) }),
       })
@@ -143,7 +146,7 @@ fs.readFile('./public/pools-sitemap.xml', 'utf8', async (_err, data) => {
       const poolAddresses = v3PoolAddresses.concat(v2PoolAddresses)
 
       poolAddresses.forEach((address) => {
-        const poolUrl = `https://app.uniswap.org/explore/pools/${chainName.toLowerCase()}/${normalizeTokenAddressForCache(address)}`
+        const poolUrl = `${APP_ORIGIN}/explore/pools/${chainName.toLowerCase()}/${normalizeTokenAddressForCache(address)}`
         if (!(poolUrl in poolURLs)) {
           sitemap.urlset.url.push({
             loc: [poolUrl],
