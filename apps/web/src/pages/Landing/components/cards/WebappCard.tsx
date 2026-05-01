@@ -1,4 +1,5 @@
-import { GraphQLApi } from '@l.x/api'
+// `@l.x/api` dropped — see Ticker.tsx for rationale.
+const useTokenPromoQuery = (_args: any) => ({ data: undefined as any, loading: false, error: undefined })
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -49,7 +50,7 @@ function Token({ chainId, address }: { chainId: UniverseChainId; address: string
     address,
     chainId,
   })
-  const tokenPromoQuery = GraphQLApi.useTokenPromoQuery({
+  const tokenPromoQuery = useTokenPromoQuery({
     variables: {
       address: currency?.wrapped.address,
       chain: toGraphQLChain(chainId),

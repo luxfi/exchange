@@ -1,4 +1,8 @@
-import { GraphQLApi } from '@l.x/api'
+// `@l.x/api` import dropped — its npm publish ships unresolved __generated__/* files
+// which break the TokenCloud chunk's dynamic import at runtime. We stub the
+// useTokenPromoQuery hook with a no-op that returns no price data — the cloud
+// still renders the logos; only the price-delta badge stays empty.
+const useTokenPromoQuery = (_args: any) => ({ data: undefined as any, loading: false, error: undefined })
 import { useMemo } from 'react'
 import { Flex, Text } from '@l.x/ui/src'
 import { ItemPoint } from '@l.x/lx/src/components/IconCloud/IconCloud'
@@ -13,7 +17,7 @@ export function Ticker({ itemPoint }: { itemPoint: ItemPoint<InteractiveToken> }
   const { color, size, floatingElementPosition, itemData } = itemPoint
   const { address, chain, symbol } = itemData
 
-  const tokenPromoQuery = GraphQLApi.useTokenPromoQuery({
+  const tokenPromoQuery = useTokenPromoQuery({
     variables: {
       address: address !== NATIVE_CHAIN_ID ? address : undefined,
       chain,
