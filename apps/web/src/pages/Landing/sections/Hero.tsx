@@ -103,7 +103,7 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
         <source src={`/videos/${brand.appDomain?.split('.')[0] || 'lux'}-hero.mp4`} type="video/mp4" />
       </video>
 
-      {!media.sm && <TokenCloud />}
+      <TokenCloud />
 
       <Flex
         alignSelf="center"
