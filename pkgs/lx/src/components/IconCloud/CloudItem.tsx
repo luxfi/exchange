@@ -114,21 +114,18 @@ const TokenIconRing = styled(Flex, {
   } as const,
 })
 
+// `logoUrl` is passed via inline `style` (not a Tamagui :string variant)
+// because the @hanzo/gui v7 runtime does not lift dynamic-string variants
+// into computed styles — they emit no backgroundImage at all and the
+// landing TokenCloud renders 0 visible sprites.
 const ItemContainer = styled(Flex, {
-  backgroundSize: 'cover',
+  backgroundSize: 'contain',
   backgroundPosition: 'center center',
+  backgroundRepeat: 'no-repeat',
   transition: 'filter 0.15s ease-in-out',
   transformOrigin: 'center center',
 
   variants: {
-    logoUrl: {
-      ':string': (val) => ({
-        backgroundImage: `url(${val})`,
-        backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat',
-      }),
-    },
-
     blur: {
       ':number': (val) => ({
         filter: `blur(${val}px)`,
@@ -202,7 +199,7 @@ export function CloudItem<T extends ItemData>({
                 blur={blur}
                 backgroundColor={validColor(color)}
                 rounded={getElementRounded?.(point)}
-                logoUrl={point.itemData.logoUrl}
+                style={{ backgroundImage: `url(${point.itemData.logoUrl})` }}
                 opacity={opacity}
                 borderRadius={borderRadius}
                 $group-item-hover={{
