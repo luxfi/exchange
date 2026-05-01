@@ -199,7 +199,6 @@ export function CloudItem<T extends ItemData>({
                 blur={blur}
                 backgroundColor={validColor(color)}
                 rounded={getElementRounded?.(point)}
-                style={{ backgroundImage: `url(${point.itemData.logoUrl})` }}
                 opacity={opacity}
                 borderRadius={borderRadius}
                 $group-item-hover={{
@@ -211,6 +210,27 @@ export function CloudItem<T extends ItemData>({
                 }}
                 onPress={onPress ? (): void => onPress(point) : undefined}
               >
+                {/* Render the logo via a native <img> element. The Tamagui
+                    `:string` variant on `logoUrl` and the `style` prop on a
+                    styled Flex are both swallowed by the @hanzo/gui v7
+                    runtime — neither makes it to the rendered DOM, leaving
+                    every sprite as an invisible colored box. A plain <img>
+                    bypasses Tamagui entirely and is rendered by React. */}
+                <img
+                  src={point.itemData.logoUrl}
+                  alt=""
+                  aria-hidden
+                  loading="lazy"
+                  draggable={false}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                    borderRadius: getElementRounded?.(point) ? '50%' : borderRadius,
+                  }}
+                />
                 {getElementRounded && (
                   <>
                     <TokenIconRing
