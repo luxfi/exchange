@@ -175,15 +175,6 @@ export const TOKENS_LUX_LIST = {
         },
         {
             "chainId": 200200,
-            "address": "0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e",
-            "name": "Wrapped Bitcoin (Teleport)",
-            "symbol": "WBTC.e",
-            "decimals": 18,
-            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zbtc.svg",
-            "extensions": { "teleportFrom": 1 }
-        },
-        {
-            "chainId": 200200,
             "address": "0x60E0a8167FC13dE89348978860466C9ceC24B9ba",
             "name": "Zoo ETH",
             "symbol": "ZETH",
@@ -193,30 +184,12 @@ export const TOKENS_LUX_LIST = {
         },
         {
             "chainId": 200200,
-            "address": "0x60E0a8167FC13dE89348978860466C9ceC24B9ba",
-            "name": "Wrapped Ether (Teleport)",
-            "symbol": "WETH.e",
-            "decimals": 18,
-            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zeth.svg",
-            "extensions": { "teleportFrom": 1 }
-        },
-        {
-            "chainId": 200200,
             "address": "0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2",
             "name": "Zoo Dollar",
             "symbol": "ZUSD",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zusd.svg",
             "extensions": {}
-        },
-        {
-            "chainId": 200200,
-            "address": "0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2",
-            "name": "USD Coin (Teleport)",
-            "symbol": "USDC.e",
-            "decimals": 18,
-            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zusd.svg",
-            "extensions": { "teleportFrom": 1 }
         },
         {
             "chainId": 200200,
