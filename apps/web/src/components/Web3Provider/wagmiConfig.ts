@@ -58,10 +58,18 @@ export const orderedTransportUrls = (chain: ReturnType<typeof getChainInfo>): st
 
 function createWagmiConnectors(params: { includeMockConnector: boolean }): any[] {
   const { includeMockConnector } = params
+  // Gate WalletConnect/Reown init behind a configured projectId.
+  // An empty REACT_APP_WALLET_CONNECT_PROJECT_ID makes
+  // api.web3modal.org return 403 ("Project ID Not Configured") and
+  // pollutes the console on every page load. White-label deploys that
+  // haven't provisioned a Reown project should ship with no projectId
+  // and the WC connector should simply not register.
+  const wcProjectId = WC_PARAMS.projectId
+  const wcEnabled = Boolean(wcProjectId) && !(isTestEnv() && !isPlaywrightEnv())
   const baseConnectors = [
     porto(),
     getBinanceConnector(),
-    ...(isTestEnv() && !isPlaywrightEnv() ? [] : [walletConnect(WC_PARAMS)]),
+    ...(wcEnabled ? [walletConnect(WC_PARAMS)] : []),
     embeddedWallet(),
     coinbaseWallet({
       appName: brand.shortName || 'Exchange',
