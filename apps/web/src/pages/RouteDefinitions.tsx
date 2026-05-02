@@ -471,6 +471,19 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
   }),
+  // /teleport is the Lux-native term for cross-subnet ICTT transfers.
+  // Renders the same Bridge component; the underlying call into
+  // useCrossChainMint already uses Teleport (LP-6010) for Lux <-> subnet hops.
+  createRouteDefinition({
+    path: '/teleport',
+    getTitle: () => 'Teleport | Cross-Chain Transfer',
+    getDescription: () => 'Teleport tokens between Lux and subnets via ICTT',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <Bridge />
+      </Suspense>
+    ),
+  }),
   createRouteDefinition({
     path: '/preview',
     getTitle: () => `${brand.shortName || 'LX'} Preview`,

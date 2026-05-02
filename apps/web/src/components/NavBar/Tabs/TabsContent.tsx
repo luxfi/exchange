@@ -80,7 +80,13 @@ export const useTabsContent = (): TabsSection[] => {
     {
       title: t('common.trade'),
       href: '/swap',
-      isActive: pathname.startsWith('/swap') || pathname.startsWith('/limit') || pathname.startsWith('/send') || pathname.startsWith('/advanced'),
+      isActive:
+        pathname.startsWith('/swap') ||
+        pathname.startsWith('/limit') ||
+        pathname.startsWith('/send') ||
+        pathname.startsWith('/advanced') ||
+        pathname.startsWith('/bridge') ||
+        pathname.startsWith('/teleport'),
       icon: <CoinConvert color="$accent1" size="$icon.20" />,
       elementName: ElementName.NavbarTradeTab,
       items: [
@@ -116,6 +122,13 @@ export const useTabsContent = (): TabsSection[] => {
           label: t('common.advanced', { defaultValue: 'Advanced' }),
           icon: <Chart color="$neutral2" size="$icon.24" />,
           href: '/advanced',
+          internal: true,
+          elementName: ElementName.NavbarTradeTab,
+        },
+        {
+          label: t('common.teleport', { defaultValue: 'Teleport' }),
+          icon: <CoinConvert color="$neutral2" size="$icon.24" />,
+          href: '/teleport',
           internal: true,
           elementName: ElementName.NavbarTradeTab,
         },
