@@ -59,8 +59,8 @@ export const LIQUIDITY_CHAIN_INFO = {
   supportsNFTs: false,
   urlParam: 'liquidity',
   rpcUrls: {
-    [RPCType.Default]: { http: ['https://rpc.main.satschel.com/rpc'] },
-    [RPCType.Interface]: { http: ['https://rpc.main.satschel.com/rpc'] },
+    [RPCType.Default]: { http: ['https://rpc.main.satschel.com/'] },
+    [RPCType.Interface]: { http: ['https://rpc.main.satschel.com/'] },
   },
   wrappedNativeCurrency: {
     name: 'Wrapped LQDTY',
@@ -111,8 +111,8 @@ export const LIQUIDITY_TESTNET_CHAIN_INFO = {
   supportsNFTs: false,
   urlParam: 'liquidity_testnet',
   rpcUrls: {
-    [RPCType.Default]: { http: ['https://rpc.test.satschel.com/rpc'] },
-    [RPCType.Interface]: { http: ['https://rpc.test.satschel.com/rpc'] },
+    [RPCType.Default]: { http: ['https://rpc.test.satschel.com/'] },
+    [RPCType.Interface]: { http: ['https://rpc.test.satschel.com/'] },
   },
   wrappedNativeCurrency: {
     name: 'Wrapped LQDTY',
@@ -163,8 +163,8 @@ export const LIQUIDITY_DEV_CHAIN_INFO = {
   supportsNFTs: false,
   urlParam: 'liquidity_dev',
   rpcUrls: {
-    [RPCType.Default]: { http: ['https://rpc.dev.satschel.com/rpc'] },
-    [RPCType.Interface]: { http: ['https://rpc.dev.satschel.com/rpc'] },
+    [RPCType.Default]: { http: ['https://rpc.dev.satschel.com/'] },
+    [RPCType.Interface]: { http: ['https://rpc.dev.satschel.com/'] },
   },
   wrappedNativeCurrency: {
     name: 'Wrapped LQDTY',
