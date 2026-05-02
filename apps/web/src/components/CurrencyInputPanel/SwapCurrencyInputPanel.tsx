@@ -14,6 +14,7 @@ import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { NumberType } from '@l.x/utils/src/format/types'
 import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { ReactComponent as DropDown } from '~/assets/images/dropdown.svg'
+import { SecuritiesBadge } from '~/components/Badge/SecuritiesBadge'
 import { FiatValue } from '~/components/CurrencyInputPanel/FiatValue'
 import { formatCurrencySymbol } from '~/components/CurrencyInputPanel/utils'
 import { AutoColumn } from '~/components/deprecated/Column'
@@ -369,6 +370,9 @@ const SwapCurrencyInputPanel = forwardRef<HTMLInputElement, SwapCurrencyInputPan
                             >
                               {currency ? formatCurrencySymbol(currency) : t('tokens.selector.button.choose')}
                             </StyledTokenName>
+                          )}
+                          {currency?.isToken && (
+                            <SecuritiesBadge address={currency.address} chainId={currency.chainId} />
                           )}
                         </Flex>
                       </AnimatePresence>
