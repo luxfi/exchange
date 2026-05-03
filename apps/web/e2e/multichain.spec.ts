@@ -161,12 +161,12 @@ test.describe("Multi-Chain @multichain", () => {
     await expect(main.getByText("LUX").first()).toBeVisible()
   })
 
-  test("should show LUSD as default receive token on Lux chain", async ({
+  test("should show USDC as default receive token on Lux chain", async ({
     page,
   }) => {
     const main = page.locator("main")
-    // LUSD is the default receive token on Lux mainnet
-    await expect(main.getByText("LUSD").first()).toBeVisible()
+    // bridged USDC (bare symbol) is the default receive token on Lux mainnet
+    await expect(main.getByText("USDC").first()).toBeVisible()
   })
 
   // =========================================================================

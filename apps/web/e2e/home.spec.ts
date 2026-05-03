@@ -66,10 +66,10 @@ test.describe("Swap Widget", () => {
     await expect(swapWidget.getByText("LUX").first()).toBeVisible()
   })
 
-  test("should display LUSD token selector", async ({ page }) => {
-    // Default receive token on Lux is LUSD
+  test("should display USDC token selector", async ({ page }) => {
+    // Default receive token on Lux is bridged USDC (bare symbol)
     const swapWidget = page.locator("main")
-    await expect(swapWidget.getByText("LUSD").first()).toBeVisible()
+    await expect(swapWidget.getByText("USDC").first()).toBeVisible()
   })
 
   test("should have swap action button", async ({ page }) => {

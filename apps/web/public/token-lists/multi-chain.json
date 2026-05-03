@@ -29,24 +29,24 @@
     {
       "chainId": 96369,
       "address": "0x5a88986958ea76Dd043f834542724F081cA1443B",
-      "name": "Lux Ether",
-      "symbol": "LETH",
+      "name": "Bridged ETH",
+      "symbol": "ETH",
       "decimals": 18,
       "logoURI": "/tokens/leth.svg"
     },
     {
       "chainId": 96369,
       "address": "0x8a3fad1c7FB94461621351aa6A983B6f814F039c",
-      "name": "Lux Bitcoin",
-      "symbol": "LBTC",
+      "name": "Bridged BTC",
+      "symbol": "BTC",
       "decimals": 8,
       "logoURI": "/tokens/lbtc.svg"
     },
     {
       "chainId": 96369,
       "address": "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96",
-      "name": "Lux USD",
-      "symbol": "LUSDC",
+      "name": "Bridged USDC",
+      "symbol": "USDC",
       "decimals": 6,
       "logoURI": "/tokens/lusdc.svg"
     },
@@ -69,24 +69,24 @@
     {
       "chainId": 200200,
       "address": "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
-      "name": "Lux Ether",
-      "symbol": "LETH",
+      "name": "Bridged ETH",
+      "symbol": "ETH",
       "decimals": 18,
       "logoURI": "/tokens/leth.svg"
     },
     {
       "chainId": 200200,
       "address": "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
-      "name": "Lux Bitcoin",
-      "symbol": "LBTC",
+      "name": "Bridged BTC",
+      "symbol": "BTC",
       "decimals": 8,
       "logoURI": "/tokens/lbtc.svg"
     },
     {
       "chainId": 200200,
       "address": "0x6aab89551e94e393185e77537f89c7d3834afae1",
-      "name": "Lux USD",
-      "symbol": "LUSDC",
+      "name": "Bridged USDC",
+      "symbol": "USDC",
       "decimals": 6,
       "logoURI": "/tokens/lusdc.svg"
     },
@@ -109,24 +109,24 @@
     {
       "chainId": 36963,
       "address": "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
-      "name": "Lux Ether",
-      "symbol": "LETH",
+      "name": "Bridged ETH",
+      "symbol": "ETH",
       "decimals": 18,
       "logoURI": "/tokens/leth.svg"
     },
     {
       "chainId": 36963,
       "address": "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
-      "name": "Lux Bitcoin",
-      "symbol": "LBTC",
+      "name": "Bridged BTC",
+      "symbol": "BTC",
       "decimals": 8,
       "logoURI": "/tokens/lbtc.svg"
     },
     {
       "chainId": 36963,
       "address": "0x6aab89551e94e393185e77537f89c7d3834afae1",
-      "name": "Lux USD",
-      "symbol": "LUSDC",
+      "name": "Bridged USDC",
+      "symbol": "USDC",
       "decimals": 6,
       "logoURI": "/tokens/lusdc.svg"
     },
@@ -149,24 +149,24 @@
     {
       "chainId": 36911,
       "address": "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
-      "name": "Lux Ether",
-      "symbol": "LETH",
+      "name": "Bridged ETH",
+      "symbol": "ETH",
       "decimals": 18,
       "logoURI": "/tokens/leth.svg"
     },
     {
       "chainId": 36911,
       "address": "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
-      "name": "Lux Bitcoin",
-      "symbol": "LBTC",
+      "name": "Bridged BTC",
+      "symbol": "BTC",
       "decimals": 8,
       "logoURI": "/tokens/lbtc.svg"
     },
     {
       "chainId": 36911,
       "address": "0x6aab89551e94e393185e77537f89c7d3834afae1",
-      "name": "Lux USD",
-      "symbol": "LUSDC",
+      "name": "Bridged USDC",
+      "symbol": "USDC",
       "decimals": 6,
       "logoURI": "/tokens/lusdc.svg"
     },
@@ -189,24 +189,24 @@
     {
       "chainId": 494949,
       "address": "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
-      "name": "Lux Ether",
-      "symbol": "LETH",
+      "name": "Bridged ETH",
+      "symbol": "ETH",
       "decimals": 18,
       "logoURI": "/tokens/leth.svg"
     },
     {
       "chainId": 494949,
       "address": "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
-      "name": "Lux Bitcoin",
-      "symbol": "LBTC",
+      "name": "Bridged BTC",
+      "symbol": "BTC",
       "decimals": 8,
       "logoURI": "/tokens/lbtc.svg"
     },
     {
       "chainId": 494949,
       "address": "0x6aab89551e94e393185e77537f89c7d3834afae1",
-      "name": "Lux USD",
-      "symbol": "LUSDC",
+      "name": "Bridged USDC",
+      "symbol": "USDC",
       "decimals": 6,
       "logoURI": "/tokens/lusdc.svg"
     }

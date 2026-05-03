@@ -4,20 +4,19 @@ import * as React from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
-// Token icon mapping for known tokens
+// Token icon mapping for known tokens. Bridged tokens display bare symbols
+// (ETH/BTC/USDC) and reuse the L-prefixed asset files.
 const TOKEN_ICONS: Record<string, string> = {
   // Lux ecosystem
   LUX: "/tokens/lux.svg",
   WLUX: "/tokens/wlux.svg",
-  LETH: "/tokens/leth.svg",
-  LBTC: "/tokens/lbtc.svg",
-  LUSD: "/tokens/lusd.svg",
   // Zoo ecosystem
   ZOO: "/tokens/zoo.svg",
   WZOO: "/tokens/wzoo.svg",
-  // Ethereum ecosystem
+  // Ethereum ecosystem (also used for bridged variants on Lux/Zoo/subnets)
   ETH: "/tokens/eth.svg",
   WETH: "/tokens/weth.svg",
+  BTC: "/tokens/wbtc.svg",
   USDC: "/tokens/usdc.svg",
   USDT: "/tokens/usdt.svg",
   DAI: "/tokens/dai.svg",

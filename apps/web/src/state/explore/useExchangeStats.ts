@@ -33,30 +33,29 @@ function chainIdToGqlChain(chainId: number): string {
   return CHAIN_TO_GQL[chainId] ?? GraphQLApi.Chain.Ethereum
 }
 
+// Bridged tokens display bare symbols (ETH/BTC/USDC) but keep the L-prefixed
+// logo files so we don't have to re-render every icon asset.
 const TOKEN_LOGOS: Record<string, string> = {
   LUX: '/tokens/lux.svg',
   WLUX: '/tokens/wlux.svg',
   ZOO: '/tokens/zoo.svg',
   WZOO: '/tokens/wzoo.svg',
-  USDC: '/tokens/usdc.svg',
+  USDC: '/tokens/lusdc.svg',
   USDT: '/tokens/usdt.svg',
   WETH: '/tokens/weth.svg',
   WBTC: '/tokens/wbtc.svg',
   DAI: '/tokens/dai.svg',
-  ETH: '/tokens/eth.svg',
-  LETH: '/tokens/leth.svg',
-  LBTC: '/tokens/lbtc.svg',
-  LUSD: '/tokens/lusd.svg',
-  LSOL: '/tokens/lsol.svg',
-  LTON: '/tokens/lton.svg',
-  LBNB: '/tokens/lbnb.svg',
-  LPOL: '/tokens/lpol.svg',
-  LCELO: '/tokens/lcelo.svg',
-  LFTM: '/tokens/lftm.svg',
-  LXDAI: '/tokens/lxdai.svg',
-  LBLAST: '/tokens/lblast.svg',
-  LAVAX: '/tokens/lavax.svg',
-  LZOO: '/tokens/lzoo.svg',
+  ETH: '/tokens/leth.svg',
+  BTC: '/tokens/lbtc.svg',
+  SOL: '/tokens/lsol.svg',
+  TON: '/tokens/lton.svg',
+  BNB: '/tokens/lbnb.svg',
+  POL: '/tokens/lpol.svg',
+  CELO: '/tokens/lcelo.svg',
+  FTM: '/tokens/lftm.svg',
+  xDAI: '/tokens/lxdai.svg',
+  BLAST: '/tokens/lblast.svg',
+  AVAX: '/tokens/lavax.svg',
 }
 
 // ============================================================================
@@ -209,7 +208,7 @@ async function fetchSubgraph(chainId: number): Promise<SubgraphData | null> {
 // AMM price derivation from pool reserves
 // ============================================================================
 
-const STABLECOINS = new Set(['LUSD', 'USDC', 'USDT', 'DAI'])
+const STABLECOINS = new Set(['USDC', 'USDT', 'DAI'])
 
 /**
  * Derive token USD prices from pool data.

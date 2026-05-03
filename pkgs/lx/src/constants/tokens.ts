@@ -498,65 +498,65 @@ export const LUSD_LUX = new Token(
   UniverseChainId.Lux,
   '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96',
   6,
-  'LUSD',
-  'Lux USD',
+  'USDC',
+  'Bridged USDC',
 )
 
 export const LETH_LUX = new Token(
   UniverseChainId.Lux,
   '0xaA3AE950442618E12e4A920A4dC34dE43285e4A1',
   18,
-  'LETH',
-  'Lux ETH',
+  'ETH',
+  'Bridged ETH',
 )
 
 export const LBTC_LUX = new Token(
   UniverseChainId.Lux,
   '0x526903EF129C6b56E1A8dF7E2B57F0924E040E82',
   8,
-  'LBTC',
-  'Lux BTC',
+  'BTC',
+  'Bridged BTC',
 )
 
 export const LSOL_LUX = new Token(
   UniverseChainId.Lux,
   '0x4a2be2aFCb2614e6f31c2881b944CD1053De2E40',
   9,
-  'LSOL',
-  'Lux SOL',
+  'SOL',
+  'Bridged SOL',
 )
 
 export const LTON_LUX = new Token(
   UniverseChainId.Lux,
   '0x5b2be2AFCB2614E6f31C2881B944cD1053dE3F51',
   9,
-  'LTON',
-  'Lux TON',
+  'TON',
+  'Bridged TON',
 )
 
 export const LBNB_LUX = new Token(
   UniverseChainId.Lux,
   '0x6c3ce2afcb2614E6f31C2881b944cD1053dE4062',
   18,
-  'LBNB',
-  'Lux BNB',
+  'BNB',
+  'Bridged BNB',
 )
 
 export const LPOL_LUX = new Token(
   UniverseChainId.Lux,
   '0x7D4DF2aFcB2614e6f31C2881B944cd1053de5173',
   18,
-  'LPOL',
-  'Lux POL',
+  'POL',
+  'Bridged POL',
 )
 
 // Placeholder L-tokens (not yet deployed — addresses are deterministic placeholders)
-export const LCELO_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000000006284', 18, 'LCELO', 'Lux CELO')
-export const LFTM_LUX = new Token(UniverseChainId.Lux, '0x8e5e000000000000000000000000000011116284', 18, 'LFTM', 'Lux FTM')
-export const LXDAI_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000022226284', 18, 'LXDAI', 'Lux xDAI')
-export const LBLAST_LUX = new Token(UniverseChainId.Lux, '0x8E5e000000000000000000000000000033336284', 18, 'LBLAST', 'Lux BLAST')
-export const LAVAX_LUX = new Token(UniverseChainId.Lux, '0x8e5e000000000000000000000000000044446284', 18, 'LAVAX', 'Lux AVAX')
-export const LZOO_LUX = new Token(UniverseChainId.Lux, '0x8E5E000000000000000000000000000055556284', 18, 'LZOO', 'Lux ZOO')
+export const LCELO_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000000006284', 18, 'CELO', 'Bridged CELO')
+export const LFTM_LUX = new Token(UniverseChainId.Lux, '0x8e5e000000000000000000000000000011116284', 18, 'FTM', 'Bridged FTM')
+export const LXDAI_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000022226284', 18, 'xDAI', 'Bridged xDAI')
+export const LBLAST_LUX = new Token(UniverseChainId.Lux, '0x8E5e000000000000000000000000000033336284', 18, 'BLAST', 'Bridged BLAST')
+export const LAVAX_LUX = new Token(UniverseChainId.Lux, '0x8e5e000000000000000000000000000044446284', 18, 'AVAX', 'Bridged AVAX')
+export const LZOO_LUX = new Token(UniverseChainId.Lux, '0x8E5E000000000000000000000000000055556284', 18, 'ZOO', 'Bridged ZOO')
 
 // Placeholder S-tokens (synthetic assets, not yet deployed)
 export const SLUX_LUX = new Token(UniverseChainId.Lux, '0x8E5E000000000000000000000000000066666284', 18, 'sLUX', 'Staked LUX')
@@ -582,24 +582,24 @@ export const LUSD_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
   '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
   6,
-  'LUSD',
-  'Lux USD',
+  'USDC',
+  'Bridged USDC',
 )
 
 export const LETH_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
   '0x1234567890AbcdEF1234567890aBcdef12345678',
   18,
-  'LETH',
-  'Lux ETH',
+  'ETH',
+  'Bridged ETH',
 )
 
 export const LBTC_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
   '0xabCDEF1234567890ABcDEF1234567890aBCDeF12',
   8,
-  'LBTC',
-  'Lux BTC',
+  'BTC',
+  'Bridged BTC',
 )
 
 // --- L-tokens: LuxDev (1337) - Deterministic CREATE addresses from DeployFullStack.s.sol ---
@@ -608,24 +608,24 @@ export const LETH_LUXDEV = new Token(
   UniverseChainId.LuxDev,
   '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512', // nonce 1
   18,
-  'LETH',
-  'Lux ETH',
+  'ETH',
+  'Bridged ETH',
 )
 
 export const LBTC_LUXDEV = new Token(
   UniverseChainId.LuxDev,
   '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', // nonce 2
   8,
-  'LBTC',
-  'Lux BTC',
+  'BTC',
+  'Bridged BTC',
 )
 
 export const LUSD_LUXDEV = new Token(
   UniverseChainId.LuxDev,
   '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9', // nonce 3
   6,
-  'LUSD',
-  'Lux USD',
+  'USDC',
+  'Bridged USDC',
 )
 
 // --- Z-tokens: Bridged assets on Zoo Network (200200) ---
