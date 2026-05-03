@@ -27,7 +27,6 @@ COPY pkgs/websocket/package.json pkgs/websocket/
 COPY pkgs/logger/package.json pkgs/logger/
 COPY pkgs/privacy/package.json pkgs/privacy/
 COPY pkgs/analytics/package.json pkgs/analytics/
-COPY pkgs/datadog-cloud/package.json pkgs/datadog-cloud/
 COPY pkgs/biome-config/package.json pkgs/biome-config/
 COPY pkgs/eslint-config/package.json pkgs/eslint-config/
 COPY pkgs/react-query/package.json pkgs/react-query/
