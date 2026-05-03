@@ -34,11 +34,11 @@ function token(id: string, symbol: string, name: string, decimals: string) {
 
 const T = {
   WLUX: token(WLUX, 'WLUX', 'Wrapped LUX', '18'),
-  LETH: token(LETH, 'LETH', 'Lux ETH', '18'),
-  LBTC: token(LBTC, 'LBTC', 'Lux BTC', '8'),
-  LUSD: token(LUSD, 'LUSD', 'Lux USD', '18'),
-  LSOL: token(LSOL, 'LSOL', 'Lux SOL', '18'),
-  LUSDC: token(LUSDC, 'LUSDC', 'USDC', '6'),
+  LETH: token(LETH, 'ETH', 'Bridged ETH', '18'),
+  LBTC: token(LBTC, 'BTC', 'Bridged BTC', '8'),
+  LUSD: token(LUSD, 'USDC', 'Bridged USDC', '18'),
+  LSOL: token(LSOL, 'SOL', 'Bridged SOL', '18'),
+  LUSDC: token(LUSDC, 'USDC', 'USD Coin', '6'),
 }
 
 // ─── Pools ────────────────────────────────────────────────────────

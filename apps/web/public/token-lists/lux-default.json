@@ -30,7 +30,7 @@
       "chainId": 1337,
       "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
       "name": "Bridged ETH",
-      "symbol": "LETH",
+      "symbol": "ETH",
       "decimals": 18,
       "logoURI": "/tokens/leth.svg"
     },
@@ -38,15 +38,15 @@
       "chainId": 1337,
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
       "name": "Bridged BTC",
-      "symbol": "LBTC",
+      "symbol": "BTC",
       "decimals": 8,
       "logoURI": "/tokens/lbtc.svg"
     },
     {
       "chainId": 1337,
       "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-      "name": "Lux USD",
-      "symbol": "LUSD",
+      "name": "Bridged USDC",
+      "symbol": "USDC",
       "decimals": 6,
       "logoURI": "/tokens/lusd.svg"
     },
@@ -69,24 +69,24 @@
     {
       "chainId": 96369,
       "address": "0x5a88986958ea76Dd043f834542724F081cA1443B",
-      "name": "Lux Ether",
-      "symbol": "LETH",
+      "name": "Bridged ETH",
+      "symbol": "ETH",
       "decimals": 18,
       "logoURI": "/tokens/leth.svg"
     },
     {
       "chainId": 96369,
       "address": "0x8a3fad1c7FB94461621351aa6A983B6f814F039c",
-      "name": "Lux Bitcoin",
-      "symbol": "LBTC",
+      "name": "Bridged BTC",
+      "symbol": "BTC",
       "decimals": 8,
       "logoURI": "/tokens/lbtc.svg"
     },
     {
       "chainId": 96369,
       "address": "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96",
-      "name": "Lux USD",
-      "symbol": "LUSDC",
+      "name": "Bridged USDC",
+      "symbol": "USDC",
       "decimals": 6,
       "logoURI": "/tokens/lusdc.svg"
     }

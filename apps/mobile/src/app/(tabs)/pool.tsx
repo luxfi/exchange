@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 
 const POOLS = [
-  { id: 1, name: 'LUX/LETH', tvl: '$2.4M', apr: '12.5%' },
-  { id: 2, name: 'LUX/LUSD', tvl: '$1.8M', apr: '8.2%' },
-  { id: 3, name: 'LETH/LUSD', tvl: '$890K', apr: '6.8%' },
-  { id: 4, name: 'LUX/LBTC', tvl: '$560K', apr: '15.3%' },
+  { id: 1, name: 'LUX/ETH', tvl: '$2.4M', apr: '12.5%' },
+  { id: 2, name: 'LUX/USDC', tvl: '$1.8M', apr: '8.2%' },
+  { id: 3, name: 'ETH/USDC', tvl: '$890K', apr: '6.8%' },
+  { id: 4, name: 'LUX/BTC', tvl: '$560K', apr: '15.3%' },
 ]
 
 export default function PoolScreen() {

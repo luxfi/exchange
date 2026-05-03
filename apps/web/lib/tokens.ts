@@ -76,96 +76,96 @@ export const LUX_MAINNET_TOKENS: Token[] = [
   },
   // Bridge tokens — verified on-chain 2026-03-03
   {
-    symbol: "LETH",
-    name: "Lux Ether",
+    symbol: "ETH",
+    name: "Bridged ETH",
     decimals: 18,
     address: "0x5a88986958ea76Dd043f834542724F081cA1443B",
     logoUri: "/tokens/leth.svg",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LUSDC",
-    name: "Lux USD",
+    symbol: "USDC",
+    name: "Bridged USDC",
     decimals: 6,
     address: "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96",
     logoUri: "/tokens/lusdc.svg",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LBTC",
-    name: "Lux Bitcoin",
+    symbol: "BTC",
+    name: "Bridged BTC",
     decimals: 8,
     address: "0x8a3fad1c7FB94461621351aa6A983B6f814F039c",
     logoUri: "/tokens/lbtc.svg",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LSOL",
-    name: "Liquid SOL",
+    symbol: "SOL",
+    name: "Bridged SOL",
     decimals: 18,
     address: "0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lsol.png",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LTON",
-    name: "Liquid TON",
+    symbol: "TON",
+    name: "Bridged TON",
     decimals: 18,
     address: "0x3141b94b89691009b950c96e97Bff48e0C543E3C",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lton.png",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LBNB",
-    name: "Liquid BNB",
+    symbol: "BNB",
+    name: "Bridged BNB",
     decimals: 18,
     address: "0x6EdcF3645DeF09DB45050638c41157D8B9FEa1cf",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lbnb.png",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LPOL",
-    name: "Liquid POL",
+    symbol: "POL",
+    name: "Bridged POL",
     decimals: 18,
     address: "0x28BfC5DD4B7E15659e41190983e5fE3df1132bB9",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lpol.png",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LCELO",
-    name: "Liquid CELO",
+    symbol: "CELO",
+    name: "Bridged CELO",
     decimals: 18,
     address: "0x3078847F879A33994cDa2Ec1540ca52b5E0eE2e5",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lcelo.png",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LFTM",
-    name: "Liquid FTM",
+    symbol: "FTM",
+    name: "Bridged FTM",
     decimals: 18,
     address: "0x8B982132d639527E8a0eAAD385f97719af8f5e04",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lftm.png",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LXDAI",
-    name: "Liquid XDAI",
+    symbol: "xDAI",
+    name: "Bridged xDAI",
     decimals: 18,
     address: "0x7dfb3cBf7CF9c96fd56e3601FBA50AF45C731211",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lxdai.png",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LBLAST",
-    name: "Liquid BLAST",
+    symbol: "BLAST",
+    name: "Bridged BLAST",
     decimals: 18,
     address: "0x94f49D0F4C62bbE4238F4AaA9200287bea9F2976",
     logoUri: "https://cdn.lux.network/bridge/currencies/lux/lblast.svg",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LZOO",
-    name: "Liquid ZOO",
+    symbol: "ZOO",
+    name: "Bridged ZOO",
     decimals: 18,
     address: "0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lzoo.png",
@@ -230,24 +230,24 @@ export const LUX_TESTNET_TOKENS: Token[] = [
     isWrappedNative: true,
   },
   {
-    symbol: "LETH",
-    name: "Lux Ether",
+    symbol: "ETH",
+    name: "Bridged ETH",
     decimals: 18,
     address: "0xA695a8A66fbe3E32d15a531db04185313595771A",
     logoUri: "https://cdn.lux.network/exchange/icon-png/leth.png",
     chainId: luxTestnet.id,
   },
   {
-    symbol: "LUSD",
-    name: "Liquid USD",
+    symbol: "USDC",
+    name: "Bridged USDC",
     decimals: 18,
     address: "0x8a3fad1c7FB94461621351aa6A983B6f814F039c",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lusd.png",
     chainId: luxTestnet.id,
   },
   {
-    symbol: "LBTC",
-    name: "Lux Bitcoin",
+    symbol: "BTC",
+    name: "Bridged BTC",
     decimals: 8,
     address: "0x5a88986958ea76Dd043f834542724F081cA1443B",
     logoUri: "https://cdn.lux.network/exchange/icon-png/lbtc.png",
@@ -615,24 +615,24 @@ export const HANZO_MAINNET_TOKENS: Token[] = [
     chainId: hanzoMainnet.id,
   },
   {
-    symbol: "LETH",
-    name: "Lux Ether",
+    symbol: "ETH",
+    name: "Bridged ETH",
     decimals: 18,
     address: "0x9378b62fC172d2A4f715d7ecF49DE0362f1BB702",
     logoUri: "/tokens/leth.svg",
     chainId: hanzoMainnet.id,
   },
   {
-    symbol: "LBTC",
-    name: "Lux Bitcoin",
+    symbol: "BTC",
+    name: "Bridged BTC",
     decimals: 8,
     address: "0x7fC4f8a926E47Fa3587C0d7658C00E7489e67916",
     logoUri: "/tokens/lbtc.svg",
     chainId: hanzoMainnet.id,
   },
   {
-    symbol: "LUSDC",
-    name: "Lux USD",
+    symbol: "USDC",
+    name: "Bridged USDC",
     decimals: 6,
     address: "0x51c3408B9A6a0B2446CCB78c72C846CEB76201FA",
     logoUri: "/tokens/lusdc.svg",
@@ -664,24 +664,24 @@ export const SPC_MAINNET_TOKENS: Token[] = [
     chainId: spcMainnet.id,
   },
   {
-    symbol: "LETH",
-    name: "Lux Ether",
+    symbol: "ETH",
+    name: "Bridged ETH",
     decimals: 18,
     address: "0x0000000000000000000000000000000000000000",
     logoUri: "/tokens/leth.svg",
     chainId: spcMainnet.id,
   },
   {
-    symbol: "LBTC",
-    name: "Lux Bitcoin",
+    symbol: "BTC",
+    name: "Bridged BTC",
     decimals: 8,
     address: "0x0000000000000000000000000000000000000000",
     logoUri: "/tokens/lbtc.svg",
     chainId: spcMainnet.id,
   },
   {
-    symbol: "LUSDC",
-    name: "Lux USD",
+    symbol: "USDC",
+    name: "Bridged USDC",
     decimals: 6,
     address: "0x0000000000000000000000000000000000000000",
     logoUri: "/tokens/lusdc.svg",
@@ -713,24 +713,24 @@ export const PARS_MAINNET_TOKENS: Token[] = [
     chainId: parsMainnet.id,
   },
   {
-    symbol: "LETH",
-    name: "Lux Ether",
+    symbol: "ETH",
+    name: "Bridged ETH",
     decimals: 18,
     address: "0xe0f7E9A0cB1688ccA453995fd6e19AE4fbD9cBfd",
     logoUri: "/tokens/leth.svg",
     chainId: parsMainnet.id,
   },
   {
-    symbol: "LBTC",
-    name: "Lux Bitcoin",
+    symbol: "BTC",
+    name: "Bridged BTC",
     decimals: 8,
     address: "0x7d7cC8D05BB0F38D80b5Ce44b4b069A6FB769468",
     logoUri: "/tokens/lbtc.svg",
     chainId: parsMainnet.id,
   },
   {
-    symbol: "LUSDC",
-    name: "Lux USD",
+    symbol: "USDC",
+    name: "Bridged USDC",
     decimals: 6,
     address: "0xC5e4A6f54Be469551a342872C1aB83AB46f61b22",
     logoUri: "/tokens/lusdc.svg",
@@ -910,20 +910,20 @@ export function getDefaultInputToken(chainId: number): Token | undefined {
 
 /**
  * Get default output token for a chain
- * - Lux chains: LUSD
+ * - Lux chains: USDC (bridged)
  * - Zoo chains: WZOO
  * - Ethereum: USDC
  */
 export function getDefaultOutputToken(chainId: number): Token | undefined {
   if (isLuxChain(chainId)) {
-    return getTokenBySymbol(chainId, "LUSDC") || getTokenBySymbol(chainId, "LUSD")
+    return getTokenBySymbol(chainId, "USDC")
   }
   if (isZooChain(chainId)) {
     return getTokenBySymbol(chainId, "WZOO")
   }
-  // Subnet chains (Hanzo, SPC, Pars) -- try LUSDC first, then wrapped native
+  // Subnet chains (Hanzo, SPC, Pars) -- try USDC first, then wrapped native
   if (isLuxEcosystem(chainId)) {
-    return getTokenBySymbol(chainId, "LUSDC") || getWrappedNativeToken(chainId)
+    return getTokenBySymbol(chainId, "USDC") || getWrappedNativeToken(chainId)
   }
   // Ethereum/Sepolia
   return getTokenBySymbol(chainId, "USDC")

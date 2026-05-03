@@ -4,9 +4,9 @@ import { useState } from 'react'
 
 const TOKENS = [
   { symbol: 'LUX', name: 'Lux', balance: '0.00' },
-  { symbol: 'LETH', name: 'Lux ETH', balance: '0.00' },
-  { symbol: 'LBTC', name: 'Lux BTC', balance: '0.00' },
-  { symbol: 'LUSD', name: 'Lux USD', balance: '0.00' },
+  { symbol: 'ETH', name: 'Bridged ETH', balance: '0.00' },
+  { symbol: 'BTC', name: 'Bridged BTC', balance: '0.00' },
+  { symbol: 'USDC', name: 'Bridged USDC', balance: '0.00' },
   { symbol: 'ZOO', name: 'Zoo', balance: '0.00' },
 ]
 

@@ -41,8 +41,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x60E0a8167FC13dE89348978860466C9ceC24B9ba",
-            "name": "Liquid ETH",
-            "symbol": "LETH",
+            "name": "Bridged ETH",
+            "symbol": "ETH",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/leth.png",
             "extensions": {}
@@ -50,8 +50,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2",
-            "name": "Liquid USD",
-            "symbol": "LUSD",
+            "name": "Bridged USDC",
+            "symbol": "USDC",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lusd.png",
             "extensions": {}
@@ -59,8 +59,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e",
-            "name": "Liquid BTC",
-            "symbol": "LBTC",
+            "name": "Bridged BTC",
+            "symbol": "BTC",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lbtc.png",
             "extensions": {}
@@ -68,8 +68,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x6EdcF3645DeF09DB45050638c41157D8B9FEa1cf",
-            "name": "Liquid BNB",
-            "symbol": "LBNB",
+            "name": "Bridged BNB",
+            "symbol": "BNB",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lbnb.png",
             "extensions": {}
@@ -77,8 +77,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x28BfC5DD4B7E15659e41190983e5fE3df1132bB9",
-            "name": "Liquid POL",
-            "symbol": "LPOL",
+            "name": "Bridged POL",
+            "symbol": "POL",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lpol.png",
             "extensions": {}
@@ -86,8 +86,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x3078847F879A33994cDa2Ec1540ca52b5E0eE2e5",
-            "name": "Liquid CELO",
-            "symbol": "LCELO",
+            "name": "Bridged CELO",
+            "symbol": "CELO",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lcelo.png",
             "extensions": {}
@@ -95,8 +95,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x8B982132d639527E8a0eAAD385f97719af8f5e04",
-            "name": "Liquid FTM",
-            "symbol": "LFTM",
+            "name": "Bridged FTM",
+            "symbol": "FTM",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lftm.png",
             "extensions": {}
@@ -104,8 +104,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x7dfb3cBf7CF9c96fd56e3601FBA50AF45C731211",
-            "name": "Liquid XDAI",
-            "symbol": "LXDAI",
+            "name": "Bridged xDAI",
+            "symbol": "xDAI",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lxdai.png",
             "extensions": {}
@@ -113,8 +113,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7",
-            "name": "Liquid SOL",
-            "symbol": "LSOL",
+            "name": "Bridged SOL",
+            "symbol": "SOL",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lsol.png",
             "extensions": {}
@@ -122,8 +122,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x3141b94b89691009b950c96e97Bff48e0C543E3C",
-            "name": "Liquid TON",
-            "symbol": "LTON",
+            "name": "Bridged TON",
+            "symbol": "TON",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lton.png",
             "extensions": {}
@@ -131,8 +131,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x94f49D0F4C62bbE4238F4AaA9200287bea9F2976",
-            "name": "Liquid BLAST",
-            "symbol": "LBLAST",
+            "name": "Bridged BLAST",
+            "symbol": "BLAST",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/bridge/currencies/lux/lblast.svg",
             "extensions": {}
@@ -149,8 +149,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88",
-            "name": "Liquid ZOO",
-            "symbol": "LZOO",
+            "name": "Bridged ZOO",
+            "symbol": "ZOO",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lzoo.png",
             "extensions": {}
@@ -509,8 +509,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96368,
             "address": "0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4",
-            "name": "Liquid USD",
-            "symbol": "LUSD",
+            "name": "Bridged USDC",
+            "symbol": "USDC",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lusd.png",
             "extensions": {}
@@ -527,8 +527,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96368,
             "address": "0x60E0a8167FC13dE89348978860466C9ceC24B9ba",
-            "name": "Liquid ETH",
-            "symbol": "LETH",
+            "name": "Bridged ETH",
+            "symbol": "ETH",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/leth.png",
             "extensions": {}
@@ -536,8 +536,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96368,
             "address": "0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e",
-            "name": "Liquid BTC",
-            "symbol": "LBTC",
+            "name": "Bridged BTC",
+            "symbol": "BTC",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/exchange/icon-png/lbtc.png",
             "extensions": {}

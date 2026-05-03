@@ -69,8 +69,8 @@ export const LUSD: Token = {
   address: '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
   chainId: 96369,
   decimals: 18,
-  symbol: 'LUSD',
-  name: 'Lux USD',
+  symbol: 'USDC',
+  name: 'Bridged USDC',
 }
 
 /**
@@ -81,40 +81,40 @@ export const LETH: Token = {
   address: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
   chainId: 96369,
   decimals: 18,
-  symbol: 'LETH',
-  name: 'Lux ETH',
+  symbol: 'ETH',
+  name: 'Bridged ETH',
 }
 
 export const LBTC: Token = {
   address: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
   chainId: 96369,
   decimals: 8,
-  symbol: 'LBTC',
-  name: 'Lux BTC',
+  symbol: 'BTC',
+  name: 'Bridged BTC',
 }
 
 export const LSOL: Token = {
   address: '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7',
   chainId: 96369,
   decimals: 18,
-  symbol: 'LSOL',
-  name: 'Lux SOL',
+  symbol: 'SOL',
+  name: 'Bridged SOL',
 }
 
 export const LTON: Token = {
   address: '0x3141b94b89691009b950c96e97Bff48e0C543E3C',
   chainId: 96369,
   decimals: 9,
-  symbol: 'LTON',
-  name: 'Lux TON',
+  symbol: 'TON',
+  name: 'Bridged TON',
 }
 
 export const LAVAX: Token = {
   address: '0x0e4bD0DD67c15dECfBBBdbbE07FC9d51D737693D',
   chainId: 96369,
   decimals: 18,
-  symbol: 'LAVAX',
-  name: 'Lux AVAX',
+  symbol: 'AVAX',
+  name: 'Bridged AVAX',
 }
 
 /**
@@ -124,24 +124,24 @@ export const LETH_TESTNET: Token = {
   address: '0xA695a8A66fbe3E32d15a531db04185313595771A',
   chainId: 96368,
   decimals: 18,
-  symbol: 'LETH',
-  name: 'Lux ETH',
+  symbol: 'ETH',
+  name: 'Bridged ETH',
 }
 
 export const LBTC_TESTNET: Token = {
   address: '0x5a88986958ea76Dd043f834542724F081cA1443B',
   chainId: 96368,
   decimals: 8,
-  symbol: 'LBTC',
-  name: 'Lux BTC',
+  symbol: 'BTC',
+  name: 'Bridged BTC',
 }
 
 export const LUSD_TESTNET: Token = {
   address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
   chainId: 96368,
   decimals: 6,
-  symbol: 'LUSDC',
-  name: 'Lux USDC',
+  symbol: 'USDC',
+  name: 'Bridged USDC',
 }
 
 /**
@@ -151,24 +151,24 @@ export const LETH_DEV: Token = {
   address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
   chainId: 1337,
   decimals: 18,
-  symbol: 'LETH',
-  name: 'Lux ETH',
+  symbol: 'ETH',
+  name: 'Bridged ETH',
 }
 
 export const LBTC_DEV: Token = {
   address: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0',
   chainId: 1337,
   decimals: 8,
-  symbol: 'LBTC',
-  name: 'Lux BTC',
+  symbol: 'BTC',
+  name: 'Bridged BTC',
 }
 
 export const LUSD_DEV: Token = {
   address: '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9',
   chainId: 1337,
   decimals: 6,
-  symbol: 'LUSD',
-  name: 'Lux Dollar',
+  symbol: 'USDC',
+  name: 'Bridged USDC',
 }
 
 /**
@@ -229,24 +229,24 @@ export const LETH_ZOO: Token = {
   address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2',
   chainId: 200200,
   decimals: 18,
-  symbol: 'LETH',
-  name: 'Lux ETH',
+  symbol: 'ETH',
+  name: 'Bridged ETH',
 }
 
 export const LBTC_ZOO: Token = {
   address: '0x6fc44509a32E513bE1aa00d27bb298e63830C6A8',
   chainId: 200200,
   decimals: 8,
-  symbol: 'LBTC',
-  name: 'Lux BTC',
+  symbol: 'BTC',
+  name: 'Bridged BTC',
 }
 
 export const LUSD_ZOO: Token = {
   address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D',
   chainId: 200200,
   decimals: 18,
-  symbol: 'LUSD',
-  name: 'Lux USD',
+  symbol: 'USDC',
+  name: 'Bridged USDC',
 }
 
 /**

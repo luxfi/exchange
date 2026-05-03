@@ -47,10 +47,10 @@ describe("Token definitions", () => {
 })
 
 describe("getDefaultOutputToken", () => {
-  it("returns LUSDC for Lux mainnet", () => {
+  it("returns USDC for Lux mainnet", () => {
     const token = getDefaultOutputToken(luxMainnet.id)
     expect(token).toBeDefined()
-    expect(token!.symbol).toBe("LUSDC")
+    expect(token!.symbol).toBe("USDC")
   })
 
   it("returns WZOO for Zoo mainnet", () => {
@@ -59,21 +59,21 @@ describe("getDefaultOutputToken", () => {
     expect(token!.symbol).toBe("WZOO")
   })
 
-  it("returns LUSDC for Hanzo mainnet (subnet fallback)", () => {
+  it("returns USDC for Hanzo mainnet (subnet fallback)", () => {
     const token = getDefaultOutputToken(hanzoMainnet.id)
     expect(token).toBeDefined()
-    expect(token!.symbol).toBe("LUSDC")
+    expect(token!.symbol).toBe("USDC")
   })
 
-  it("returns LUSDC for Pars mainnet (subnet fallback)", () => {
+  it("returns USDC for Pars mainnet (subnet fallback)", () => {
     const token = getDefaultOutputToken(parsMainnet.id)
     expect(token).toBeDefined()
-    expect(token!.symbol).toBe("LUSDC")
+    expect(token!.symbol).toBe("USDC")
   })
 
   it("returns something for SPC mainnet (subnet fallback to wrapped native)", () => {
     const token = getDefaultOutputToken(spcMainnet.id)
-    // SPC has LUSDC with zero address, so getTokenBySymbol should find it
+    // SPC has USDC with zero address, so getTokenBySymbol should find it
     expect(token).toBeDefined()
   })
 
@@ -89,7 +89,7 @@ describe("getDefaultTokenPair", () => {
     const pair = getDefaultTokenPair(luxMainnet.id)
     expect(pair).toBeDefined()
     expect(pair!.input.symbol).toBe("LUX")
-    expect(pair!.output.symbol).toBe("LUSDC")
+    expect(pair!.output.symbol).toBe("USDC")
   })
 
   it("returns input/output pair for Zoo mainnet", () => {
@@ -103,13 +103,13 @@ describe("getDefaultTokenPair", () => {
     const pair = getDefaultTokenPair(hanzoMainnet.id)
     expect(pair).toBeDefined()
     expect(pair!.input.symbol).toBe("HANZO")
-    expect(pair!.output.symbol).toBe("LUSDC")
+    expect(pair!.output.symbol).toBe("USDC")
   })
 
   it("returns input/output pair for Pars mainnet", () => {
     const pair = getDefaultTokenPair(parsMainnet.id)
     expect(pair).toBeDefined()
     expect(pair!.input.symbol).toBe("PARS")
-    expect(pair!.output.symbol).toBe("LUSDC")
+    expect(pair!.output.symbol).toBe("USDC")
   })
 })

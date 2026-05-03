@@ -71,21 +71,19 @@ export function SwapWidget({ className }: SwapWidgetProps) {
       return
     }
 
-    // Mock exchange rates
+    // Mock exchange rates (symbol-only; bridged tokens share symbols across chains)
     const rates: Record<string, Record<string, number>> = {
-      LUX: { LUSD: 2.5, WLUX: 1, LETH: 0.0008, LBTC: 0.00003 },
-      LUSD: { LUX: 0.4, WLUX: 0.4, LETH: 0.00032, LBTC: 0.000012 },
-      WLUX: { LUSD: 2.5, LUX: 1, LETH: 0.0008, LBTC: 0.00003 },
-      LETH: { LUX: 1250, LUSD: 3125, WLUX: 1250, LBTC: 0.0375 },
-      LBTC: { LUX: 33333, LUSD: 83333, WLUX: 33333, LETH: 26.67 },
+      LUX: { USDC: 2.5, WLUX: 1, ETH: 0.0008, BTC: 0.00003 },
+      WLUX: { USDC: 2.5, LUX: 1, ETH: 0.0008, BTC: 0.00003 },
+      ETH: { LUX: 1250, USDC: 3125, WLUX: 1250, BTC: 0.0375, WETH: 1, USDT: 3125, DAI: 3125 },
+      BTC: { LUX: 33333, USDC: 83333, WLUX: 33333, ETH: 26.67 },
+      USDC: { LUX: 0.4, WLUX: 0.4, ETH: 0.00032, BTC: 0.000012, WETH: 0.00032, USDT: 1, DAI: 1 },
       ZOO: { WZOO: 1, WLUX: 0.5, ZUSD: 0.15, ZETH: 0.00005 },
       WZOO: { ZOO: 1, WLUX: 0.5, ZUSD: 0.15, ZETH: 0.00005 },
-      HANZO: { WLUX: 0.1, LUSDC: 0.25, LETH: 0.00008 },
-      PARS: { WLUX: 0.05, LUSDC: 0.125, LETH: 0.00004 },
-      SPC: { WLUX: 0.01, LUSDC: 0.025 },
-      ETH: { WETH: 1, USDC: 3125, USDT: 3125, DAI: 3125 },
+      HANZO: { WLUX: 0.1, USDC: 0.25, ETH: 0.00008 },
+      PARS: { WLUX: 0.05, USDC: 0.125, ETH: 0.00004 },
+      SPC: { WLUX: 0.01, USDC: 0.025 },
       WETH: { ETH: 1, USDC: 3125, USDT: 3125, DAI: 3125 },
-      USDC: { ETH: 0.00032, WETH: 0.00032, USDT: 1, DAI: 1 },
       USDT: { ETH: 0.00032, WETH: 0.00032, USDC: 1, DAI: 1 },
       DAI: { ETH: 0.00032, WETH: 0.00032, USDC: 1, USDT: 1 },
     }

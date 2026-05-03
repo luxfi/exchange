@@ -131,21 +131,20 @@ export const CHAIN_TOKENS: Record<number, PublicToken[]> = {
   [UniverseChainId.Lux]: [
     { address: '0x0000000000000000000000000000000000000000', name: 'LUX', symbol: 'LUX', decimals: 18, coingeckoId: 'lux-network', logoUrl: '/tokens/lux.svg' },
     { address: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18, coingeckoId: 'lux-wlux', logoUrl: '/tokens/wlux.svg' },
-    { address: '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', name: 'Lux USD', symbol: 'LUSD', decimals: 18, coingeckoId: 'lux-lusd', logoUrl: '/tokens/lusd.svg' },
+    { address: '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', name: 'Bridged USDC', symbol: 'USDC', decimals: 18, coingeckoId: 'usd-coin', logoUrl: '/tokens/lusd.svg' },
     { address: '0xdf1de693c31e2a5eb869c329529623556b20abf3', name: 'Tether', symbol: 'USDT', decimals: 18, coingeckoId: 'tether', logoUrl: 'https://assets.coingecko.com/coins/images/325/small/Tether.png' },
-    { address: '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', name: 'USD Coin', symbol: 'USDC', decimals: 18, coingeckoId: 'usd-coin', logoUrl: 'https://assets.coingecko.com/coins/images/6319/small/usdc.png' },
-    { address: '0x60e0a8167fc13de89348978860466c9cec24b9ba', name: 'Lux Ether', symbol: 'LETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: '/tokens/leth.svg' },
-    { address: '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e', name: 'Lux Bitcoin', symbol: 'LBTC', decimals: 8, coingeckoId: 'bitcoin', logoUrl: '/tokens/lbtc.svg' },
-    { address: '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88', name: 'Lux ZOO', symbol: 'LZOO', decimals: 18, coingeckoId: 'lux-lzoo', logoUrl: '/tokens/lzoo.svg' },
-    { address: '0x26b40f650156c7ebf9e087dd0dca181fe87625b7', name: 'Lux SOL', symbol: 'LSOL', decimals: 18, coingeckoId: 'solana', logoUrl: '/tokens/lsol.svg' },
+    { address: '0x60e0a8167fc13de89348978860466c9cec24b9ba', name: 'Bridged ETH', symbol: 'ETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: '/tokens/leth.svg' },
+    { address: '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e', name: 'Bridged BTC', symbol: 'BTC', decimals: 8, coingeckoId: 'bitcoin', logoUrl: '/tokens/lbtc.svg' },
+    { address: '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88', name: 'Bridged ZOO', symbol: 'ZOO', decimals: 18, coingeckoId: 'zoo-token', logoUrl: '/tokens/lzoo.svg' },
+    { address: '0x26b40f650156c7ebf9e087dd0dca181fe87625b7', name: 'Bridged SOL', symbol: 'SOL', decimals: 18, coingeckoId: 'solana', logoUrl: '/tokens/lsol.svg' },
   ],
   // Zoo Network (200200) — V2 factory 0xF034942c
   [UniverseChainId.Zoo]: [
     { address: '0x0000000000000000000000000000000000000000', name: 'ZOO', symbol: 'ZOO', decimals: 18, coingeckoId: 'zoo-token', logoUrl: '/tokens/zoo.svg' },
     { address: '0x5491216406daB99b7032b83765F36790E27F8A61', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18, coingeckoId: 'zoo-wlux', logoUrl: '/tokens/wlux.svg' },
-    { address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6, coingeckoId: 'zoo-lusdc', logoUrl: '/tokens/lusd.svg' },
-    { address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2', name: 'Lux ETH', symbol: 'LETH', decimals: 18, coingeckoId: 'zoo-leth', logoUrl: '/tokens/leth.svg' },
-    { address: '0x6fc44509a32E513bE1aa00d27bb298e63830C6A8', name: 'Lux BTC', symbol: 'LBTC', decimals: 8, coingeckoId: 'zoo-lbtc', logoUrl: '/tokens/lbtc.svg' },
+    { address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', name: 'Bridged USDC', symbol: 'USDC', decimals: 6, coingeckoId: 'usd-coin', logoUrl: '/tokens/lusd.svg' },
+    { address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2', name: 'Bridged ETH', symbol: 'ETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: '/tokens/leth.svg' },
+    { address: '0x6fc44509a32E513bE1aa00d27bb298e63830C6A8', name: 'Bridged BTC', symbol: 'BTC', decimals: 8, coingeckoId: 'bitcoin', logoUrl: '/tokens/lbtc.svg' },
   ],
 }
 

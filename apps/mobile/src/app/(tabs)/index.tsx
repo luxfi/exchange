@@ -49,7 +49,7 @@ export default function SwapScreen() {
             style={styles.tokenButton}
             onPress={() => router.push('/token-select?type=output')}
           >
-            <Text style={styles.tokenText}>LETH</Text>
+            <Text style={styles.tokenText}>ETH</Text>
           </TouchableOpacity>
         </View>
       </View>
