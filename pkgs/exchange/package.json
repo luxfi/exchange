@@ -1,7 +1,7 @@
 {
   "name": "@luxfi/exchange",
-  "version": "1.0.8",
-  "description": "Lux Exchange SDK - React hooks and utilities for Lux DEX",
+  "version": "1.1.0",
+  "description": "Lux Exchange SDK — chains, V2/V3/V4 contracts, hooks, asset-class extension API, regulated-provider hook, feature flags. Powers lux/zoo/liquidity/vccross/mlc exchanges.",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -38,6 +38,22 @@
     "./bridge": {
       "types": "./dist/bridge/index.d.ts",
       "import": "./dist/bridge/index.js"
+    },
+    "./asset-class": {
+      "types": "./dist/asset-class.d.ts",
+      "import": "./dist/asset-class.js"
+    },
+    "./regulated-provider": {
+      "types": "./dist/regulated-provider.d.ts",
+      "import": "./dist/regulated-provider.js"
+    },
+    "./featured": {
+      "types": "./dist/featured.d.ts",
+      "import": "./dist/featured.js"
+    },
+    "./features": {
+      "types": "./dist/features.d.ts",
+      "import": "./dist/features.js"
     }
   },
   "files": [
