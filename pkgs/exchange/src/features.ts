@@ -10,11 +10,11 @@
 
 export interface Features {
   // ─── Trading surfaces ─────────────────────────────────────────────
-  /** Spot swap (V2/V3). */
+  /** Spot swap (V2/V3/V4). */
   swap: boolean
   /** Limit orders. */
   limit: boolean
-  /** Liquidity pool LP-token mint/burn. */
+  /** AMM pool LP-token mint/burn. */
   pool: boolean
   /** Cross-chain bridge (Teleport / Warp / Z-Chain). */
   bridge: boolean
@@ -68,8 +68,8 @@ export interface Features {
   regSTrading: boolean
   /** Reg A+ flow enabled (Tier 1/Tier 2 mini-IPO). */
   regAPlusTrading: boolean
-  /** VC Cross order types — bilateral private secondary matching. */
-  vcCrossTrading: boolean
+  /** Bilateral private secondary matching (counter-offer / RoFR / share-transfer flow). */
+  bilateralPrivateMatching: boolean
   /** Primary issuance (subscription/allocation flows). */
   primaryIssuance: boolean
   /** DvP (Delivery vs Payment) atomic settlement. */
@@ -86,8 +86,8 @@ export interface Features {
   // ─── UI / layout customization ────────────────────────────────────
   /** Show the private-securities details panel (Valuation, RR, Funding, CEO). */
   privSecDetailsPanel: boolean
-  /** Show the Liquidity-Pro marketing banner. */
-  liquidityProBanner: boolean
+  /** Show the pro-tier marketing banner. */
+  proBanner: boolean
   /** Allow admins to switch between accounts (operator-only). */
   adminAccountSwitcher: boolean
 
@@ -98,7 +98,7 @@ export interface Features {
   // ─── Theme ──────────────────────────────────────────────────────────
   /**
    * Theme key — used as a CSS class prefix when a tenant ships its own scoped
-   * theme bundle (e.g. `themeKey: 'mlc'` → `mlc_VariablePieChart`). Empty
+   * theme bundle (e.g. `themeKey: 'foo'` → `foo_VariablePieChart`). Empty
    * string = use the default theme classes.
    */
   themeKey: string
@@ -135,7 +135,7 @@ export const DEFAULT_FEATURES: Features = {
   regD506cTrading: false,
   regSTrading: false,
   regAPlusTrading: false,
-  vcCrossTrading: false,
+  bilateralPrivateMatching: false,
   primaryIssuance: false,
   dvpRequest: false,
   preIpoVerification: false,
@@ -144,7 +144,7 @@ export const DEFAULT_FEATURES: Features = {
   shortKycWindow: false,
 
   privSecDetailsPanel: false,
-  liquidityProBanner: false,
+  proBanner: false,
   adminAccountSwitcher: false,
 
   dateFormatUS: true,

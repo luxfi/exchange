@@ -89,18 +89,18 @@ export function isNativeCurrency(currency: Currency): boolean {
 /**
  * DEX backend kind — selects which contracts the swap router targets.
  *
- *   v4         — Lux PoolManager precompile (0x0400). Singleton manager,
+ *   v4         — PoolManager precompile (0x0400). Singleton manager,
  *                hooks per pool, native currency, flash accounting.
- *                Cheapest gas. Default for native Lux/Liquid chains.
+ *                Cheapest gas. Default for chains that ship the precompile.
  *   v3         — Concentrated liquidity (factory + non-fungible position
  *                manager + swap router). Use for chains that don't have
  *                the precompile (Ethereum mainnet, Arbitrum, etc.).
  *   v2         — Constant-product (factory + router). Fallback for
- *                long-tail liquidity that hasn't migrated.
+ *                long-tail pools that haven't migrated.
  *   precompile — Alias of v4 (kept for back-compat).
- *   gateway    — Off-chain gateway (dex.lux.network) that internally
- *                layers v4 → v3 → v2 → cross-chain Warp routing and
- *                returns the best path. Default for whitelabels.
+ *   gateway    — Off-chain gateway URL that internally layers
+ *                v4 → v3 → v2 → cross-chain routing and returns the best
+ *                path. Default for whitelabels.
  */
 export type DexBackend =
   | { kind: 'v4'; chainId?: number }

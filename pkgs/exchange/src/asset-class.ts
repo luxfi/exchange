@@ -1,20 +1,19 @@
 /**
- * Asset class extension — declarative asset categorization for Lux Exchange.
+ * Asset class extension — declarative asset categorization for LX.
  *
- * `AssetClass` is the single enum every consumer (lux.exchange, zoo.exchange,
- * liquidity.exchange, mlc.exchange, vccross.exchange, ...) shares. New asset
- * classes are added here; downstream UIs render them by binding to the class
- * id. NO tenant-specific branching.
+ * `AssetClass` is the single enum every consumer (LX and any
+ * whitelabel that consumes this SDK) shares. New asset classes are added
+ * here; downstream UIs render by class id, never by tenant identity.
  *
  * Regulated asset classes (REG_CF, REG_D_506B, REG_D_506C, REG_S, RULE_144A,
  * STOCK, BOND) require a `RegulatedProvider` configured at mount time. Trades
  * for those assets route through the provider's `onboardingUrl` for KYC/AML
- * before settlement (the Liquidity provider redirects to id.{env}.liquidity.io
- * for accreditation + KYC).
+ * before settlement, then settle through the provider's on-chain adapter
+ * (ERC-3643 IRegulatedProvider).
  *
  * Unregulated classes (CRYPTO, STABLECOIN, FRACTIONAL_HORSE_RACE_POOL — the
  * latter being a chain-native fractional pool with no securities wrapper) trade
- * directly via the configured DEX (`gateway`, V3, V2, or precompile).
+ * directly via the configured DEX (`gateway`, V4, V3, V2).
  */
 
 /** Top-level asset categories. Extend by adding here. */
@@ -39,7 +38,7 @@ export const AssetClass = {
   COMMODITY: 'commodity',
   /** Forex pairs. Unregulated for retail under most jurisdictions. */
   FOREX: 'forex',
-  /** Native crypto (ETH, BTC, LUX, ZOO, USDL, ...). Unregulated. */
+  /** Native crypto (LUX, ETH, BTC, ...). Unregulated. */
   CRYPTO: 'crypto',
   /** Stablecoins. Generally unregulated; some are issuer-securitized. */
   STABLECOIN: 'stablecoin',

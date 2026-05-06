@@ -13,33 +13,30 @@
  *      contract (`adapter` address) which enforces transfer restrictions
  *      on-chain (ERC-3643 / IRegulatedProvider interface).
  *
- * Liquidity is the canonical regulated provider for the Liquidity EVM chain.
- * Other providers (Anchorage, Anchorage Digital, BitGo for institutional
- * custody, OmniSub for Alpaca-routed equity) plug in via the same interface.
+ * Multiple providers can be registered at runtime; the Exchange selects by
+ * chain id from `endpoints`. Implementations: any KYC + ATS + custody stack
+ * that exposes the on-chain adapter + off-chain onboarding URL.
  *
- * Example (zoo.exchange consumes Liquidity):
+ * Example:
  *
  *   <Exchange
  *     provider={{
- *       name: 'Liquidity',
+ *       name: 'Provider',
  *       endpoints: {
- *         [LIQUID_MAINNET]: {
- *           adapter: '0xLiquidityAdapter...',
- *           router: '0xLuxProviderRouter...',
- *           onboardingUrl: 'https://id.liquidity.io/onboarding',
+ *         [REGULATED_MAINNET]: {
+ *           adapter: '0x...IRegulatedProvider',
+ *           router:  '0x...ProviderRouter',
+ *           onboardingUrl: 'https://id.example.com/onboarding',
  *         },
- *         [LIQUID_TESTNET]: { ... },
- *         [LIQUID_DEVNET]: { ... },
  *       },
  *     }}
  *   />
  *
- * Then a regulated featured token routes through Liquidity automatically:
+ * Then a regulated featured token routes through the provider automatically:
  *
  *   featured={[
- *     { chainId: LIQUID_MAINNET, address: '0xVCC-VCF...', symbol: 'VCC-VCF',
- *       name: 'Venture Cross Capital Fund', class: AssetClass.VENTURE_CAPITAL,
- *       offering: 'reg_cf' },
+ *     { chainId: REGULATED_MAINNET, address: '0x...', symbol: 'PRIV-A',
+ *       class: AssetClass.VENTURE_CAPITAL, offering: 'reg_cf' },
  *   ]}
  */
 
@@ -49,7 +46,7 @@ import type { Address } from 'viem'
 export interface RegulatedEndpoint {
   /** On-chain ERC-3643 IRegulatedProvider adapter (asset transfer gate). */
   adapter: Address
-  /** Lux ProviderRouter (multi-provider router). */
+  /** ProviderRouter — multi-provider router on this chain. */
   router: Address
   /** Off-chain KYC/AML onboarding URL the UI redirects unverified users to. */
   onboardingUrl: string
@@ -63,7 +60,7 @@ export interface RegulatedProvider {
   name: string
   /** Per-chain endpoints. Trades on a chain not in this map fall back to public DEX. */
   endpoints: Record<number, RegulatedEndpoint>
-  /** Branding for the provider redirect screen (overrides default "Liquidity Logo"). */
+  /** Branding for the provider redirect screen (overrides default provider logo). */
   brandLogoUrl?: string
 }
 

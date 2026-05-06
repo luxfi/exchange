@@ -1,7 +1,7 @@
 {
   "name": "@luxfi/exchange",
   "version": "1.1.0",
-  "description": "Lux Exchange SDK — chains, V2/V3/V4 contracts, hooks, asset-class extension API, regulated-provider hook, feature flags. Powers lux/zoo/liquidity/vccross/mlc exchanges.",
+  "description": "LX SDK — chains, V2/V3/V4 contracts, hooks, asset-class extension API, regulated-provider hook, feature flags. Consumed by LX and any whitelabel that builds on top.",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
