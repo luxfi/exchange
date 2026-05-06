@@ -39,9 +39,9 @@ describe('runtime config', () => {
   })
 
   it('picks up idHost and strips trailing slashes', async () => {
-    mockFetchJson({ idHost: 'https://id.dev.satschel.com/' })
+    mockFetchJson({ idHost: 'https://id.dev.example.com/' })
     const cfg = await loadRuntimeConfig()
-    expect(cfg.idHost).toBe('https://id.dev.satschel.com')
+    expect(cfg.idHost).toBe('https://id.dev.example.com')
     expect(cfg.onboardingUrl).toBeUndefined()
   })
 

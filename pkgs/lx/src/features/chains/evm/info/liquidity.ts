@@ -40,7 +40,7 @@ export const LIQUIDITY_CHAIN_INFO = {
     nativeTokenBackendAddress: undefined,
   },
   bridge: undefined,
-  docs: 'https://docs.liquidity.io',
+  docs: 'https://docs.example.com',
   label: 'Liquidity',
   logo: LIQUIDITY_LOGO,
   name: 'Liquidity',
@@ -59,8 +59,8 @@ export const LIQUIDITY_CHAIN_INFO = {
   supportsNFTs: false,
   urlParam: 'liquidity',
   rpcUrls: {
-    [RPCType.Default]: { http: ['https://rpc.main.satschel.com/'] },
-    [RPCType.Interface]: { http: ['https://rpc.main.satschel.com/'] },
+    [RPCType.Default]: { http: ['https://rpc.main.example.com/'] },
+    [RPCType.Interface]: { http: ['https://rpc.main.example.com/'] },
   },
   wrappedNativeCurrency: {
     name: 'Wrapped LQDTY',
@@ -73,7 +73,7 @@ export const LIQUIDITY_CHAIN_INFO = {
   elementName: ElementName.ChainLiquidity,
   explorer: {
     name: 'Liquidity Explorer',
-    url: 'https://explore.main.satschel.com/',
+    url: 'https://explore.main.example.com/',
   },
   interfaceName: 'liquidity',
   tokens: liquidityTokens,
@@ -92,7 +92,7 @@ export const LIQUIDITY_TESTNET_CHAIN_INFO = {
     nativeTokenBackendAddress: undefined,
   },
   bridge: undefined,
-  docs: 'https://docs.liquidity.io',
+  docs: 'https://docs.example.com',
   label: 'Liquidity Testnet',
   logo: LIQUIDITY_LOGO,
   name: 'Liquidity Testnet',
@@ -111,8 +111,8 @@ export const LIQUIDITY_TESTNET_CHAIN_INFO = {
   supportsNFTs: false,
   urlParam: 'liquidity_testnet',
   rpcUrls: {
-    [RPCType.Default]: { http: ['https://rpc.test.satschel.com/'] },
-    [RPCType.Interface]: { http: ['https://rpc.test.satschel.com/'] },
+    [RPCType.Default]: { http: ['https://rpc.test.example.com/'] },
+    [RPCType.Interface]: { http: ['https://rpc.test.example.com/'] },
   },
   wrappedNativeCurrency: {
     name: 'Wrapped LQDTY',
@@ -125,7 +125,7 @@ export const LIQUIDITY_TESTNET_CHAIN_INFO = {
   elementName: ElementName.ChainLiquidityTestnet,
   explorer: {
     name: 'Liquidity Testnet Explorer',
-    url: 'https://explore.test.satschel.com/',
+    url: 'https://explore.test.example.com/',
   },
   interfaceName: 'liquidity_testnet',
   tokens: liquidityTestnetTokens,
@@ -144,7 +144,7 @@ export const LIQUIDITY_DEV_CHAIN_INFO = {
     nativeTokenBackendAddress: undefined,
   },
   bridge: undefined,
-  docs: 'https://docs.liquidity.io',
+  docs: 'https://docs.example.com',
   label: 'Liquidity Devnet',
   logo: LIQUIDITY_LOGO,
   name: 'Liquidity Devnet',
@@ -163,8 +163,8 @@ export const LIQUIDITY_DEV_CHAIN_INFO = {
   supportsNFTs: false,
   urlParam: 'liquidity_dev',
   rpcUrls: {
-    [RPCType.Default]: { http: ['https://rpc.dev.satschel.com/'] },
-    [RPCType.Interface]: { http: ['https://rpc.dev.satschel.com/'] },
+    [RPCType.Default]: { http: ['https://rpc.dev.example.com/'] },
+    [RPCType.Interface]: { http: ['https://rpc.dev.example.com/'] },
   },
   wrappedNativeCurrency: {
     name: 'Wrapped LQDTY',
@@ -177,7 +177,7 @@ export const LIQUIDITY_DEV_CHAIN_INFO = {
   elementName: ElementName.ChainLiquidityDev,
   explorer: {
     name: 'Liquidity Devnet Explorer',
-    url: 'https://explore.dev.satschel.com/',
+    url: 'https://explore.dev.example.com/',
   },
   interfaceName: 'liquidity_dev',
   tokens: liquidityDevTokens,

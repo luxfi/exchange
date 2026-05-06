@@ -23,7 +23,7 @@ const Card = styled(Flex, {
 })
 
 // Static, non-animated statement. The $113T figure references global asset liquidity now
-// reachable on-chain through Liquidity.io (regulated ATS routing).
+// reachable on-chain through the regulated provider (regulated ATS routing).
 export function LiquidityBanner() {
   return (
     <Container>
@@ -31,11 +31,11 @@ export function LiquidityBanner() {
         <Flex gap="$spacing4" flex={1}>
           <Text variant="heading3" $md={{ variant: 'subheading1' }}>$113T in regulated asset liquidity</Text>
           <Text variant="body2" color="$neutral2">
-            Trade against $113 trillion in global regulated asset liquidity, settled on-chain through Liquidity.io.
+            Trade against $113 trillion in global regulated asset liquidity, settled on-chain through the regulated provider.
           </Text>
         </Flex>
         <a
-          href="https://liquidity.io"
+          href="https://example.com"
           target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'none' }}
