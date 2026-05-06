@@ -60,7 +60,7 @@ export function setupSharedApolloCache(): InMemoryCache {
          *       in order for the result to be normalized properly in the cache.
          *
          * White-label deploys whose graph returns Token records without a chain enum (e.g. brand-new
-         * subgraphs on the Liquid EVM family that aren't in the canonical GraphQL Chain enum) fall back
+         * subgraphs that aren't in the canonical GraphQL Chain enum) fall back
          * to leaving the object un-normalized rather than throwing Invariant Violation #4 from the
          * setState-in-render path. The Token still renders; it just isn't deduplicated across queries.
          */

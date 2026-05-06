@@ -52,7 +52,6 @@ import { SwapAndLimitContextProvider } from '~/state/swap/SwapContext'
 import type { CurrencyState } from '~/state/swap/types'
 import { useSwapAndLimitContext } from '~/state/swap/useSwapContext'
 import { isIFramed } from '~/utils/isIFramed'
-import { isOnboarded, isRegulatedToken, onboardingUrlFor } from '~/utils/regulated'
 
 export default function SwapPage() {
   const navigate = useNavigate()
@@ -260,19 +259,6 @@ function UniversalSwapFlow({
   const { currentTab, setCurrentTab, currencyState } = useSwapAndLimitContext()
   const tdpCurrencyAsset = currencyToAsset(tdpCurrency)
 
-  // Liquid EVM regulated-securities gate: route the user through Liquidity onboarding
-  // before letting them swap any token whose chain is Liquid EVM.
-  const regulatedChainId =
-    (isRegulatedToken(currencyState.inputCurrency) && currencyState.inputCurrency?.chainId) ||
-    (isRegulatedToken(currencyState.outputCurrency) && currencyState.outputCurrency?.chainId) ||
-    undefined
-  const showOnboardGate = !!regulatedChainId && !isOnboarded()
-  const onOnboardClick = useCallback(() => {
-    if (regulatedChainId) {
-      window.open(onboardingUrlFor(regulatedChainId), '_blank', 'noopener,noreferrer')
-    }
-  }, [regulatedChainId])
-
   const { pathname } = useLocation()
   const navigate = useNavigate()
   const { t } = useTranslation()
@@ -371,31 +357,6 @@ function UniversalSwapFlow({
                 passkeyAuthStatus={passkeyAuthStatus}
               />
             </SwapDependenciesStoreContextProvider>
-            {showOnboardGate && (
-              <Flex
-                position="absolute"
-                bottom={0}
-                left={0}
-                right={0}
-                p="$spacing12"
-                zIndex={zIndexes.overlay}
-              >
-                <TouchableArea
-                  onPress={onOnboardClick}
-                  alignItems="center"
-                  justifyContent="center"
-                  borderRadius="$rounded20"
-                  backgroundColor="$accent1"
-                  py="$spacing16"
-                  hoverStyle={{ opacity: 0.9 }}
-                  pressStyle={{ opacity: 0.85 }}
-                >
-                  <Text variant="buttonLabel1" color="$white">
-                    Onboard Now
-                  </Text>
-                </TouchableArea>
-              </Flex>
-            )}
           </Flex>
           <SwapBottomCard />
         </Flex>
