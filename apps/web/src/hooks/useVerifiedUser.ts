@@ -3,11 +3,11 @@
 // Upstream-neutral: we don't know or care *how* the tenant determines
 // verification. We just look up a single localStorage boolean key (name
 // supplied by runtime config). The downstream app (e.g. Liquidity's login
-// app at id.*.satschel.com) is responsible for writing `true` on
+// app at id.*.example.com) is responsible for writing `true` on
 // verification success and clearing on sign-out.
 //
 // Why localStorage and not a cookie: the login app and the swap app
-// share an eTLD+1 (`satschel.com` etc.) and the login app owns the
+// share an eTLD+1 (`example.com` etc.) and the login app owns the
 // session cookie it actually uses for API auth. The verified flag is a
 // *UI signal*, not an authorization token — any security-sensitive
 // check happens at the API gateway on actual swap submission, not here.

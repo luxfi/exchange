@@ -22,7 +22,7 @@ export interface Config {
    * `https://${brand.gatewayDomain}/v1/rpc/{chain}`. Set this to point at a
    * private/staging bootnode deployment.
    *
-   * Example: `https://bootnode.dev.satschel.com`
+   * Example: `https://bootnode.dev.example.com`
    */
   bootnodeRpcUrlOverride: string
   isE2ETest: boolean

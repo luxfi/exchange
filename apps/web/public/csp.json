@@ -1,6 +1,12 @@
 {
-  "defaultSrc": ["'self'"],
-  "scriptSrc": ["'self'", "'wasm-unsafe-eval'", "https://challenges.cloudflare.com"],
+  "defaultSrc": [
+    "'self'"
+  ],
+  "scriptSrc": [
+    "'self'",
+    "'wasm-unsafe-eval'",
+    "https://challenges.cloudflare.com"
+  ],
   "styleSrc": [
     "'self'",
     "'unsafe-inline'",
@@ -14,7 +20,11 @@
     "https://fonts.gstatic.com",
     "https://fonts.gstatic.com/s/inter/v18/*"
   ],
-  "imgSrc": ["*", "blob:", "data:"],
+  "imgSrc": [
+    "*",
+    "blob:",
+    "data:"
+  ],
   "frameSrc": [
     "'self'",
     "https://buy.moonpay.com/",
@@ -25,12 +35,15 @@
     "https://wrapped.lux.exchange",
     "https://*.lux.exchange",
     "https://*.zoo.exchange",
-    "https://*.pars.market",
-    "https://*.satschel.com",
-    "https://*.liquidity.io"
+    "https://*.pars.market"
   ],
-  "mediaSrc": ["'self'", "*"],
-  "formAction": ["'none'"],
+  "mediaSrc": [
+    "'self'",
+    "*"
+  ],
+  "formAction": [
+    "'none'"
+  ],
   "connectSrc": [
     "'self'",
     "blob:",
@@ -57,10 +70,6 @@
     "https://*.lux.network",
     "https://*.zoo.network",
     "https://*.zoo-test.network",
-    "https://*.satschel.com",
-    "https://*.liquidity.io",
-    "wss://*.satschel.com",
-    "wss://*.liquidity.io",
     "https://api.opensea.io",
     "https://bsc-dataseed.bnbchain.org",
     "https://bsc-dataseed1.bnbchain.org",
@@ -113,5 +122,8 @@
     "wss://nbstream.binance.com",
     "wss://nbstream.binance.info"
   ],
-  "workerSrc": ["'self'", "blob:"]
+  "workerSrc": [
+    "'self'",
+    "blob:"
+  ]
 }

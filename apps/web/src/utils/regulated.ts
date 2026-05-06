@@ -4,9 +4,9 @@
 const LIQUID_EVM_CHAIN_IDS = new Set<number>([8675309, 8675310, 8675311])
 
 const ONBOARDING_BY_CHAIN: Record<number, string> = {
-  8675309: 'https://id.satschel.com/onboarding',
-  8675310: 'https://id.test.satschel.com/onboarding',
-  8675311: 'https://id.dev.satschel.com/onboarding',
+  8675309: 'https://id.example.com/onboarding',
+  8675310: 'https://id.test.example.com/onboarding',
+  8675311: 'https://id.dev.example.com/onboarding',
 }
 
 export function isRegulatedToken(token: { chainId?: number } | undefined | null): boolean {

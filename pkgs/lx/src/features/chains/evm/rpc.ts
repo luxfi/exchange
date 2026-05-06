@@ -94,7 +94,7 @@ export function getBootnodeChainPathSuffix(_chainId: UniverseChainId): string {
  *   2. `https://${brand.gatewayDomain}/v1/rpc/{chain}` (default)
  *
  * The override is useful for staging deployments that want to point at a
- * private bootnode hostname (e.g. `https://bootnode.dev.satschel.com`).
+ * private bootnode hostname (e.g. `https://bootnode.dev.example.com`).
  *
  * The function never returns '' — this is critical because Solana
  * `Connection(url)` throws synchronously on empty strings.

@@ -29,7 +29,7 @@ export type SecurityDisclosureConfig = {
 }
 
 export type RuntimeConfig = {
-  /** Identity provider host, e.g. https://id.dev.satschel.com.
+  /** Identity provider host, e.g. https://id.dev.example.com.
    *  If set, the NavBar onboarding gate redirects to `${idHost}/signup`. */
   readonly idHost?: string
   /** Exact onboarding redirect URL. Wins over idHost if both are set. */

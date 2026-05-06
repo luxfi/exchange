@@ -56,9 +56,9 @@ describe('getBootnodeRpcUrl', () => {
   })
 
   it('honors the bootnodeRpcUrlOverride config (with trailing slash)', () => {
-    vi.mocked(config).bootnodeRpcUrlOverride = 'https://bootnode.dev.satschel.com/'
+    vi.mocked(config).bootnodeRpcUrlOverride = 'https://bootnode.dev.example.com/'
 
-    expect(getBootnodeRpcUrl(UniverseChainId.Polygon)).toBe('https://bootnode.dev.satschel.com/v1/rpc/polygon')
+    expect(getBootnodeRpcUrl(UniverseChainId.Polygon)).toBe('https://bootnode.dev.example.com/v1/rpc/polygon')
 
     vi.mocked(config).bootnodeRpcUrlOverride = ''
   })
