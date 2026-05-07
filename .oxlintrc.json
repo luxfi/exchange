@@ -190,7 +190,7 @@
             "message": "Use our internal HapticFeedback wrapper instead: import { HapticFeedback } from packages/uniswap/src/features/settings/useHapticFeedback/types"
           },
           {
-            "name": "@uniswap/analytics",
+            "name": "@luxamm/analytics",
             "importNames": ["sendAnalyticsEvent"],
             "message": "Please use the typed `sendAnalyticsEvent` in 'uniswap/src/features/telemetry/send'"
           }

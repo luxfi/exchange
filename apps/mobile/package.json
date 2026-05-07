@@ -110,7 +110,7 @@
     "@luxamm/client-data-api": "0.0.164",
     "@luxamm/client-explore": "0.0.121",
     "@luxamm/client-notification-service": "0.0.116",
-    "@uniswap/ethers-rs-mobile": "0.0.5",
+    "@luxamm/ethers-rs-mobile": "0.0.5",
     "@luxamm/sdk-core": "7.12.4",
     "@l.x/api": "^1.0.8",
     "@l.x/gating": "^1.0.7",

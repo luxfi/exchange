@@ -12,7 +12,7 @@ const StyledLink = deprecatedStyled(ExternalLink)`
 export default function PrivacyPolicyNotice() {
   // Pull terms / privacy URLs from runtime brand config so each white-label
   // (zoo.exchange, pars.market, etc.) shows its own legal links instead of
-  // leaking the upstream uniswap.org URLs.
+  // leaking the upstream lux.network URLs.
   const termsHref = brand.termsUrl || 'https://lux.exchange/terms'
   const privacyHref = brand.privacyUrl || 'https://lux.exchange/privacy'
   return (

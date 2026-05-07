@@ -86,7 +86,7 @@ describe('getSupportedURI', () => {
   })
 
   it('should return correct values for uniswap app URL v2 URI', async () => {
-    const result = await getSupportedURI('https://uniswap.org/app/wc?uri=' + VALID_WC_V2_URI)
+    const result = await getSupportedURI('https://lux.network/app/wc?uri=' + VALID_WC_V2_URI)
     expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
   })
 

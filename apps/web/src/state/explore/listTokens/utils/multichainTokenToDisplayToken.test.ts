@@ -1,4 +1,4 @@
-import { ChainToken, MultichainToken, TokenStats, TokenType } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { ChainToken, MultichainToken, TokenStats, TokenType } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { GraphQLApi } from '@l.x/api'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { createDataApiMultichainToken } from '@l.x/lx/src/test/fixtures/dataApi/multichainToken'

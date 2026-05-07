@@ -1,4 +1,4 @@
-import { ChainToken, MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { ChainToken, MultichainToken } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { describe, expect, it } from 'vitest'
 import { filterMultichainTokensByChainId } from '~/state/explore/listTokens/utils/filterMultichainTokensByChainId'
 

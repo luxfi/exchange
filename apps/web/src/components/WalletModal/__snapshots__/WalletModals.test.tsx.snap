@@ -269,10 +269,10 @@ exports[`EmbeddedWalletConnectionsModal > renders correctly 1`] = `
               class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral3 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-micr111 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh1263414315 _textAlign-center"
               data-disable-theme="true"
             >
-              By connecting a wallet, you agree to Uniswap Labs’ 
+              By connecting a wallet, you agree to Lux Labs Inc.’ 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/terms-of-service/"
+                href="https://lux.network/terms-of-service/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -281,7 +281,7 @@ exports[`EmbeddedWalletConnectionsModal > renders correctly 1`] = `
                and consent to its 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/privacy-policy"
+                href="https://lux.network/privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -460,10 +460,10 @@ exports[`OtherWalletsModal > renders correctly with EW disabled 1`] = `
               class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral3 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-micr111 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh1263414315 _textAlign-center"
               data-disable-theme="true"
             >
-              By connecting a wallet, you agree to Uniswap Labs’ 
+              By connecting a wallet, you agree to Lux Labs Inc.’ 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/terms-of-service/"
+                href="https://lux.network/terms-of-service/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -472,7 +472,7 @@ exports[`OtherWalletsModal > renders correctly with EW disabled 1`] = `
                and consent to its 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/privacy-policy"
+                href="https://lux.network/privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -651,10 +651,10 @@ exports[`OtherWalletsModal > renders correctly with EW enabled 1`] = `
               class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral3 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-micr111 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh1263414315 _textAlign-center"
               data-disable-theme="true"
             >
-              By connecting a wallet, you agree to Uniswap Labs’ 
+              By connecting a wallet, you agree to Lux Labs Inc.’ 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/terms-of-service/"
+                href="https://lux.network/terms-of-service/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -663,7 +663,7 @@ exports[`OtherWalletsModal > renders correctly with EW enabled 1`] = `
                and consent to its 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/privacy-policy"
+                href="https://lux.network/privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -845,7 +845,7 @@ exports[`StandardWalletModal > renders correctly 1`] = `
                       class="font_button _display-inline _boxSizing-border-box _mt-0px _mr-0px _mb-0px _ml-0px _color-white _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-medi3736 _fontWeight-f-weight-me3083741 _lineHeight-f-lineHeigh507465454 _whiteSpace-nowrap"
                       data-disable-theme="true"
                     >
-                      Get Uniswap Wallet
+                      Get Lux Wallet
                     </span>
                     <span
                       class="font_body _display-inline _boxSizing-border-box _mt-0px _mr-0px _mb-0px _ml-0px _color-white _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-micr111 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh1263414315 _whiteSpace-nowrap"
@@ -953,10 +953,10 @@ exports[`StandardWalletModal > renders correctly 1`] = `
               class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral3 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-micr111 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh1263414315 _textAlign-center"
               data-disable-theme="true"
             >
-              By connecting a wallet, you agree to Uniswap Labs’ 
+              By connecting a wallet, you agree to Lux Labs Inc.’ 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/terms-of-service/"
+                href="https://lux.network/terms-of-service/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -965,7 +965,7 @@ exports[`StandardWalletModal > renders correctly 1`] = `
                and consent to its 
               <a
                 class="c0 c1"
-                href="https://uniswap.org/privacy-policy"
+                href="https://lux.network/privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
               >

@@ -1,4 +1,4 @@
-import minimal from '@uniswap/eslint-config/minimal-native'
+import minimal from '@luxamm/eslint-config/minimal-native'
 
 export default [
   {

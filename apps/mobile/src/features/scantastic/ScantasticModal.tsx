@@ -126,7 +126,7 @@ export function ScantasticModal({ route }: AppStackScreenProp<typeof ModalName.S
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Origin: 'https://uniswap.org',
+          Origin: 'https://lux.network',
         },
         body: JSON.stringify({
           uuid,
@@ -185,7 +185,7 @@ export function ScantasticModal({ route }: AppStackScreenProp<typeof ModalName.S
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          Origin: 'https://uniswap.org',
+          Origin: 'https://lux.network',
         },
       })
       if (!response.ok) {

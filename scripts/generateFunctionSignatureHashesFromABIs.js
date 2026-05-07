@@ -58,11 +58,11 @@ async function processABIFiles(directory) {
 }
 
 const packages = [
-  '@uniswap/v3-periphery/artifacts',
-  '@uniswap/v3-core/artifacts',
-  '@uniswap/v2-core/build',
-  '@uniswap/universal-router/artifacts',
-  '@uniswap/swap-router-contracts/artifacts',
+  '@luxamm/v3-periphery/artifacts',
+  '@luxamm/v3-core/artifacts',
+  '@luxamm/v2-core/build',
+  '@luxamm/universal-router/artifacts',
+  '@luxamm/swap-router-contracts/artifacts',
 ]
 
 function mapHashesToSignatures(data) {

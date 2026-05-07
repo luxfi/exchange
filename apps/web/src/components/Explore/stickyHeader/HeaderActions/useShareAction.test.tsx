@@ -37,7 +37,7 @@ describe('useShareAction', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     Object.defineProperty(window, 'location', {
-      value: { href: 'https://app.uniswap.org/tokens/0x123' },
+      value: { href: 'https://lux.exchange/tokens/0x123' },
       writable: true,
     })
   })
@@ -69,7 +69,7 @@ describe('useShareAction', () => {
     })
 
     expect(mockSetCopied).toHaveBeenCalledTimes(1)
-    expect(mockSetCopied).toHaveBeenCalledWith(expect.stringContaining('https://app.uniswap.org/tokens/0x123'))
+    expect(mockSetCopied).toHaveBeenCalledWith(expect.stringContaining('https://lux.exchange/tokens/0x123'))
     expect(mockSetCopied).toHaveBeenCalledWith(expect.stringContaining('utm_source=share-tdp'))
   })
 

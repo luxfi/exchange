@@ -1,6 +1,6 @@
 # Deep Link Support
 
-This guide explains how to create URLs that link directly to specific pages and features on the Uniswap web application (`app.uniswap.org`). These URLs work seamlessly with the mobile app through universal links.
+This guide explains how to create URLs that link directly to specific pages and features on the Uniswap web application (`lux.exchange`). These URLs work seamlessly with the mobile app through universal links.
 
 ## Trading Interfaces
 
@@ -11,7 +11,7 @@ Opens the swap interface with pre-filled token pairs, amounts, and chain selecti
 **Format:**
 
 ```url
-https://app.uniswap.org/swap?inputCurrency={address}&outputCurrency={address}&chain={network}&outputChain={network}&value={amount}&field={INPUT|OUTPUT}
+https://lux.exchange/swap?inputCurrency={address}&outputCurrency={address}&chain={network}&outputChain={network}&value={amount}&field={INPUT|OUTPUT}
 ```
 
 **Parameters:**
@@ -26,9 +26,9 @@ https://app.uniswap.org/swap?inputCurrency={address}&outputCurrency={address}&ch
 **Examples:**
 
 ```url
-https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum
-https://app.uniswap.org/swap?inputCurrency=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&outputCurrency=NATIVE&chain=ethereum&value=100&field=INPUT
-https://app.uniswap.org/swap?inputCurrency=NATIVE&outputCurrency=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359&chain=polygon&outputChain=base
+https://lux.exchange/swap?inputCurrency=ETH&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum
+https://lux.exchange/swap?inputCurrency=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&outputCurrency=NATIVE&chain=ethereum&value=100&field=INPUT
+https://lux.exchange/swap?inputCurrency=NATIVE&outputCurrency=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359&chain=polygon&outputChain=base
 ```
 
 ### Buy (Fiat On-Ramp)
@@ -38,7 +38,7 @@ Opens the fiat on-ramp interface for purchasing crypto with fiat currency.
 **Format:**
 
 ```url
-https://app.uniswap.org/buy?value={amount}&currencyCode={code}&isTokenInputMode={boolean}&providers={providers}
+https://lux.exchange/buy?value={amount}&currencyCode={code}&isTokenInputMode={boolean}&providers={providers}
 ```
 
 **Parameters:**
@@ -53,10 +53,10 @@ https://app.uniswap.org/buy?value={amount}&currencyCode={code}&isTokenInputMode=
 **Examples:**
 
 ```url
-https://app.uniswap.org/buy
-https://app.uniswap.org/buy?value=100&currencyCode=ETH
-https://app.uniswap.org/buy?value=0.5&currencyCode=UNI_UNICHAIN&providers=moonpay,coinbasepay
-https://app.uniswap.org/buy?value=1000&currencyCode=USDC_BASE&isTokenInputMode=false
+https://lux.exchange/buy
+https://lux.exchange/buy?value=100&currencyCode=ETH
+https://lux.exchange/buy?value=0.5&currencyCode=UNI_UNICHAIN&providers=moonpay,coinbasepay
+https://lux.exchange/buy?value=1000&currencyCode=USDC_BASE&isTokenInputMode=false
 ```
 
 ### Sell (Fiat Off-Ramp)
@@ -66,7 +66,7 @@ Opens the fiat off-ramp interface for selling crypto for fiat currency.
 **Format:**
 
 ```url
-https://app.uniswap.org/sell
+https://lux.exchange/sell
 ```
 
 **Note:** Parameters are typically added by the provider when users return from completing a transaction.
@@ -78,7 +78,7 @@ Opens the limit orders trading interface with optional pre-filled token pairs.
 **Format:**
 
 ```url
-https://app.uniswap.org/limit?inputCurrency={address}&outputCurrency={address}&chain={network}
+https://lux.exchange/limit?inputCurrency={address}&outputCurrency={address}&chain={network}
 ```
 
 **Parameters:**
@@ -92,8 +92,8 @@ https://app.uniswap.org/limit?inputCurrency={address}&outputCurrency={address}&c
 **Examples:**
 
 ```url
-https://app.uniswap.org/limit
-https://app.uniswap.org/limit?inputCurrency=NATIVE&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum
+https://lux.exchange/limit
+https://lux.exchange/limit?inputCurrency=NATIVE&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum
 ```
 
 ### Send (Web Only)
@@ -103,7 +103,7 @@ Opens the send tokens interface for transferring tokens to another address.
 **Format:**
 
 ```url
-https://app.uniswap.org/send
+https://lux.exchange/send
 ```
 
 **Note:** Currently doesn't support pre-filled parameters via URL.
@@ -117,15 +117,15 @@ Browse tokens, pools, and trending assets.
 **Format:**
 
 ```url
-https://app.uniswap.org/explore
+https://lux.exchange/explore
 ```
 
 **With specific tab:**
 
 ```url
-https://app.uniswap.org/explore/tokens
-https://app.uniswap.org/explore/pools
-https://app.uniswap.org/explore/transactions
+https://lux.exchange/explore/tokens
+https://lux.exchange/explore/pools
+https://lux.exchange/explore/transactions
 ```
 
 ### Token Pages
@@ -137,7 +137,7 @@ Opens a token's detail page with charts, price information, and trading options.
 **Format:**
 
 ```url
-https://app.uniswap.org/explore/tokens/{chainName}/{tokenAddress}
+https://lux.exchange/explore/tokens/{chainName}/{tokenAddress}
 ```
 
 **Parameters:**
@@ -148,15 +148,15 @@ https://app.uniswap.org/explore/tokens/{chainName}/{tokenAddress}
 **Examples:**
 
 ```url
-https://app.uniswap.org/explore/tokens/ethereum/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
-https://app.uniswap.org/explore/tokens/unichain/NATIVE
-https://app.uniswap.org/explore/tokens/base/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+https://lux.exchange/explore/tokens/ethereum/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
+https://lux.exchange/explore/tokens/unichain/NATIVE
+https://lux.exchange/explore/tokens/base/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
 ```
 
 **Legacy Format (also supported):**
 
 ```url
-https://app.uniswap.org/tokens/{chainName}/{tokenAddress}
+https://lux.exchange/tokens/{chainName}/{tokenAddress}
 ```
 
 #### Browse Tokens by Network
@@ -166,7 +166,7 @@ Opens the token explorer page filtered to a specific network.
 **Format:**
 
 ```url
-https://app.uniswap.org/explore/tokens/{chainName}
+https://lux.exchange/explore/tokens/{chainName}
 ```
 
 **Note:** If no chain name is provided, defaults to all chains.
@@ -174,9 +174,9 @@ https://app.uniswap.org/explore/tokens/{chainName}
 **Examples:**
 
 ```url
-https://app.uniswap.org/explore/tokens/ethereum
-https://app.uniswap.org/explore/tokens/unichain
-https://app.uniswap.org/explore/tokens
+https://lux.exchange/explore/tokens/ethereum
+https://lux.exchange/explore/tokens/unichain
+https://lux.exchange/explore/tokens
 ```
 
 ### Pool Pages (Web Only)
@@ -188,7 +188,7 @@ Opens a liquidity pool's detail page with trading information and liquidity data
 **Format:**
 
 ```url
-https://app.uniswap.org/explore/pools/{chainName}/{poolAddress}
+https://lux.exchange/explore/pools/{chainName}/{poolAddress}
 ```
 
 **Parameters:**
@@ -199,7 +199,7 @@ https://app.uniswap.org/explore/pools/{chainName}/{poolAddress}
 **Example:**
 
 ```url
-https://app.uniswap.org/explore/pools/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640
+https://lux.exchange/explore/pools/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640
 ```
 
 ## Tips for Creating Deep Links
@@ -237,8 +237,8 @@ You can specify native currencies (ETH, MATIC, etc.) in several ways:
 
 Both domains work identically:
 
-- `https://app.uniswap.org/...`
-- `https://uniswap.org/...`
+- `https://lux.exchange/...`
+- `https://lux.network/...`
 
 ### Mobile Compatibility
 

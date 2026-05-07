@@ -1,8 +1,8 @@
-# Uniswap Wallet
+# Lux Wallet
 
-[Uniswap Wallet](https://wallet.uniswap.org/) is the simplest, safest, and most powerful self-custodial crypto wallet. It is developed by the Uniswap Labs team, inventors of the Uniswap Protocol.
+[Lux Wallet](https://wallet.lux.exchange/) is the simplest, safest, and most powerful self-custodial crypto wallet. It is developed by the Lux Labs Inc. team, inventors of the Uniswap Protocol.
 
-If you have suggestions on how we can improve the app, or would like to report a bug or a problem, check out the [Uniswap Help Center](https://support.uniswap.org/).
+If you have suggestions on how we can improve the app, or would like to report a bug or a problem, check out the [Uniswap Help Center](https://support.lux.exchange/).
 
 ## Table of contents
 
@@ -242,7 +242,7 @@ Or you can use one command to run them all one after the other: `bun install && 
 
 You can also run the app from Xcode, which is necessary for any Swift related changes. Xcode will automatically start the metro bundler.
 
-Hopefully you now (after a few minutes) see the Uniswap Wallet running in the iOS Simulator!
+Hopefully you now (after a few minutes) see the Lux Wallet running in the iOS Simulator!
 
 ### Using Radon IDE (VSCode/Cursor Extension)
 
@@ -261,7 +261,7 @@ In `.vscode/launch.json`, you will see configurations for each platform. This is
 #### Running on a Physical iOS Device
 
 1. Follow all steps listed above.
-2. Sign into your `@uniswap.org` Apple ID (`Cmd + ,` -> Accounts tab) + download provisioning profiles
+2. Sign into your `@lux.network` Apple ID (`Cmd + ,` -> Accounts tab) + download provisioning profiles
 3. Connect your iOS device + follow the on-screen prompts to trust your computer
 4. Select the Uniswap target + your connect device, then `Cmd + R` or use the ▶️ button the start the build
 5. You may get an error about your device not yet being added to the Uniswap Apple Developer account; if so, click `Register` and restart the build
