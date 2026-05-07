@@ -9,14 +9,14 @@ Lux Exchange is a full-featured, cross-chain DEX for the Lux Network ecosystem. 
 - **Standard AMM Contracts** (`~/work/lux/standard`) - V2/V3 pools deployed on Lux chains
 - **DEX Precompiles** (LP-9010 to LP-9040) - Native Lux v4-style pools for sub-microsecond execution
 - **Omni-chain Routing** - Cross-chain swaps via Warp/Teleport
-- **Modern Frontend** - Tamagui + Zustand (Lux interface patterns)
+- **Modern Frontend** - @hanzo/gui + Zustand (Lux interface patterns)
 
 ## Technology Stack
 
 - **Framework**: Next.js 15.5 (App Router) with Nx monorepo
 - **React**: 19.x
 - **Web3**: wagmi v3, viem
-- **UI**: Tamagui (cross-platform) + Tailwind CSS (web)
+- **UI**: @hanzo/gui (cross-platform) + Tailwind CSS (web)
 - **State**: Zustand stores
 - **Data**: React Query
 - **Testing**: Playwright (e2e), Vitest (unit)
@@ -51,7 +51,7 @@ Lux Exchange is a full-featured, cross-chain DEX for the Lux Network ecosystem. 
 │   │       ├── hooks/          # React hooks (useSwap, usePools, etc.)
 │   │       └── stores/         # Zustand stores
 │   │
-│   ├── ui/                     # Tamagui UI components
+│   ├── ui/                     # @hanzo/gui UI components
 │   │   └── src/
 │   │       ├── theme/          # Design tokens, themes
 │   │       └── components/     # Button, Card, TokenLogo, etc.
@@ -253,7 +253,7 @@ These require Lux backend infrastructure to replace.
 - Migrated to Nx monorepo with pnpm workspaces
 - Created 4 packages: config, exchange, ui, api
 - Moved web app to apps/web/
-- Added Tamagui UI components (Button, Card, TokenLogo)
+- Added @hanzo/gui UI components (Button, Card, TokenLogo)
 - Added comprehensive ABIs for V2, V3, and DEX precompiles
 - Added Zustand stores for swap state management
 - Added React hooks for swap, pools, positions, balances
@@ -274,7 +274,7 @@ These require Lux backend infrastructure to replace.
 - Stores: swapStore, tokenStore, settingsStore
 
 **@l.x/ui**
-- Tamagui design tokens and themes (light/dark)
+- @hanzo/gui design tokens and themes (light/dark)
 - Components: Button, Card, IconButton, TokenLogo
 
 **@luxfi/api**
@@ -928,7 +928,7 @@ Subnet chains (Hanzo/SPC/Pars) all use `LUSDC`. Keep this in mind when writing t
 ### Package Rename: @luxfi/ui to @l.x/ui (2026-03-31)
 
 Renamed `@luxfi/ui` to `@l.x/ui` across the entire monorepo (1314 files). The exchange's UI package
-is a Tamagui/React Native cross-platform library (forked from Uniswap) that collided with the real
+is a @hanzo/gui / React Native cross-platform library (forked from Uniswap) that collided with the real
 `@luxfi/ui` npm package (Radix+Tailwind library from `~/work/lux/ui`). Other exchange packages already
 use the `@l.x/` namespace (`@l.x/extension`, `@l.x/api`, `@l.x/lx`, etc.).
 

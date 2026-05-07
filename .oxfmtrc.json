@@ -32,7 +32,6 @@
     "__generated__/**",
     "__mocks__/**",
     ".bun/**",
-    ".tamagui/**",
     "@types/**",
     "types/**",
     "**/lcov-report/**",

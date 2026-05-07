@@ -136,21 +136,8 @@ async function processAddChanges() {
     .concat(danger.git.created_files)
     .filter((file) => (file.endsWith('.ts') || file.endsWith('.tsx')) && !file.includes('dangerfile.ts'))
 
-  const updatedNonUITsFiles = updatedTsFiles.filter((file) => !file.includes('packages/ui'))
-
   const linesAddedByFile = await getLinesAddedByFile(updatedTsFiles)
   const allLinesAdded = linesAddedByFile.flatMap((x) => x)
-
-  // Check for non-UI package lines for tamagui imports
-  const allNonUILinesAddedByFile = await getLinesAddedByFile(updatedNonUITsFiles, {
-    exclude: ['env.d.ts', 'tamaguiProvider.tsx', 'setupTests.ts'],
-  })
-  const allNonUILinesAdded = allNonUILinesAddedByFile.flatMap((x) => x)
-  allNonUILinesAdded.forEach((change) => {
-    if (change.content.includes(`from 'tamagui`)) {
-      fail(`Please import any tamagui exports via the ui package. Found an import at ${change.content}`)
-    }
-  })
 
   // Checks for any logging and reminds the developer not to log sensitive data
   if (allLinesAdded.some((change) => change.content.includes('logMessage') || change.content.includes('logger.'))) {

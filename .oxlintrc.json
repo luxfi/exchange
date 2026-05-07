@@ -18,7 +18,6 @@
     "__generated__/**",
     "__mocks__/**",
     ".bun/**",
-    ".tamagui/**",
     "@types/**",
     "types/**",
     "**/lcov-report/**",
@@ -194,10 +193,6 @@
             "name": "@uniswap/analytics",
             "importNames": ["sendAnalyticsEvent"],
             "message": "Please use the typed `sendAnalyticsEvent` in 'uniswap/src/features/telemetry/send'"
-          },
-          {
-            "name": "@tamagui/core",
-            "message": "Please import from 'tamagui' directly to prevent mismatches."
           }
         ],
         "patterns": [

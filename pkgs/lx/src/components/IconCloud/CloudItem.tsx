@@ -114,7 +114,7 @@ const TokenIconRing = styled(Flex, {
   } as const,
 })
 
-// `logoUrl` is passed via inline `style` (not a Tamagui :string variant)
+// `logoUrl` is passed via inline `style` (not a styled :string variant)
 // because the @hanzo/gui v7 runtime does not lift dynamic-string variants
 // into computed styles — they emit no backgroundImage at all and the
 // landing TokenCloud renders 0 visible sprites.
@@ -210,12 +210,12 @@ export function CloudItem<T extends ItemData>({
                 }}
                 onPress={onPress ? (): void => onPress(point) : undefined}
               >
-                {/* Render the logo via a native <img> element. The Tamagui
+                {/* Render the logo via a native <img> element. The
                     `:string` variant on `logoUrl` and the `style` prop on a
                     styled Flex are both swallowed by the @hanzo/gui v7
                     runtime — neither makes it to the rendered DOM, leaving
                     every sprite as an invisible colored box. A plain <img>
-                    bypasses Tamagui entirely and is rendered by React. */}
+                    bypasses the GUI runtime entirely and is rendered by React. */}
                 <img
                   src={point.itemData.logoUrl}
                   alt=""
