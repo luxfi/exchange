@@ -5,7 +5,7 @@
  * Features:
  * - Auto-spawns luxd in dev mode (K=1 consensus, instant finality)
  * - Uses random available port (isolated from existing networks)
- * - Supports LUX_NODE_PATH env var for custom binary location
+ * - Supports NODE_PATH env var for custom binary location
  * - Anvil-compatible API on port 8545 (or custom port)
  * - Pre-funded test accounts in genesis
  *
@@ -196,11 +196,11 @@ async function isPortAvailable(port: number): Promise<boolean> {
 }
 
 /**
- * Find the luxd binary - checks LUX_NODE_PATH, common locations, and PATH
+ * Find the luxd binary - checks NODE_PATH, common locations, and PATH
  */
 async function findLuxdBinary(): Promise<string | null> {
-  // 1. Check LUX_NODE_PATH env var
-  const envPath = process.env.LUX_NODE_PATH
+  // 1. Check NODE_PATH env var
+  const envPath = process.env.NODE_PATH
   if (envPath && fs.existsSync(envPath)) {
     return envPath
   }
@@ -260,7 +260,7 @@ function buildLuxdConfig(overrides?: Partial<LuxdConfig>): LuxdConfig {
     // Tests run up to 120s and RPC may be slow during heavy operations
     healthCheckInterval: overrides?.healthCheckInterval ?? 120_000,
     logFile: overrides?.logFile ?? path.join(process.cwd(), `luxd-test-${process.pid}.log`),
-    nodePath: overrides?.nodePath ?? process.env.LUX_NODE_PATH,
+    nodePath: overrides?.nodePath ?? process.env.NODE_PATH,
   }
 }
 
@@ -437,7 +437,7 @@ function createLuxdManager(configOverrides?: Partial<LuxdConfig>): LuxdManager {
       // Find the luxd binary
       const luxdPath = cfg.nodePath || await findLuxdBinary()
       if (!luxdPath) {
-        throw new Error('luxd binary not found. Set LUX_NODE_PATH env var or install luxd.')
+        throw new Error('luxd binary not found. Set NODE_PATH env var or install luxd.')
       }
 
       if (childProcess) {
