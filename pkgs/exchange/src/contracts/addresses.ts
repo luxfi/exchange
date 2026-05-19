@@ -52,29 +52,57 @@ export const LUX_TESTNET_CONTRACTS = {
 
 /**
  * DEX Precompile addresses (native AMM - Lux v4 style singleton PoolManager)
- * These provide sub-microsecond execution via native Go implementation
  *
- * Address format: 0x0000...00LPNUMBER (addresses end with LP number)
- * LP-9010: DEX Precompile - Native HFT Order Book (PoolManager)
- * LP-9011: Oracle Precompile - Multi-Source Price Aggregation
- *
- * @see ~/work/lux/precompile/registry/registry.go for the full address scheme
- * @see ~/work/lux/dex/pkg/gateway/lux/provider.go for gateway implementation
+ * Canonical address scheme: 0x0400-0x04FF DEX block.
+ * See ~/work/lux/precompile/CLAUDE.md "Complete Precompile Registry"
+ * and ~/work/lux/precompile/dex/ for the implementation.
  */
 export const DEX_PRECOMPILES = {
-  // Core DEX (LP-9010 series - Lux v4 style)
-  POOL_MANAGER: '0x0000000000000000000000000000000000009010' as Address,   // LP-9010
-  SWAP_ROUTER: '0x0000000000000000000000000000000000009012' as Address,    // LP-9012
-  HOOKS_REGISTRY: '0x0000000000000000000000000000000000009013' as Address, // LP-9013
-  FLASH_LOAN: '0x0000000000000000000000000000000000009014' as Address,     // LP-9014
+  // Core DEX (0x0400-0x040F)
+  POOL_MANAGER: '0x0000000000000000000000000000000000000400' as Address,   // Uniswap v4 singleton PoolManager
+  SWAP_ROUTER: '0x0000000000000000000000000000000000000401' as Address,    // Optimized swap routing
+  HOOKS_REGISTRY: '0x0000000000000000000000000000000000000402' as Address, // Custom hook contracts
+  FLASH_LOAN: '0x0000000000000000000000000000000000000403' as Address,     // Flash loan facility
 
-  // DeFi Extensions
-  ORACLE_HUB: '0x0000000000000000000000000000000000009011' as Address,     // LP-9011
-  CLOB: '0x0000000000000000000000000000000000009020' as Address,           // LP-9020
-  VAULT: '0x0000000000000000000000000000000000009030' as Address,          // LP-9030
+  // Lending (0x0410-0x041F)
+  LENDING_POOL: '0x0000000000000000000000000000000000000410' as Address,   // Supply/borrow with collateral
+  INTEREST_RATE: '0x0000000000000000000000000000000000000411' as Address,  // Dynamic interest rate curves
+  LIQUIDATOR: '0x0000000000000000000000000000000000000412' as Address,     // Liquidation engine
 
-  // Bridges (LP-6xxx)
-  TELEPORT: '0x0000000000000000000000000000000000006010' as Address,       // LP-6010
+  // Perpetuals (0x0420-0x042F)
+  PERP_ENGINE: '0x0000000000000000000000000000000000000420' as Address,    // Perpetuals (up to 1111x leverage)
+  FUNDING_RATE: '0x0000000000000000000000000000000000000421' as Address,   // Funding rate calculation
+  INSURANCE_FUND: '0x0000000000000000000000000000000000000422' as Address, // Insurance and ADL
+
+  // Liquid Vaults (0x0430-0x043F)
+  LIQUID_VAULT: '0x0000000000000000000000000000000000000430' as Address,   // Self-repaying loans
+  LIQUID_FX: '0x0000000000000000000000000000000000000431' as Address,      // L* token conversion
+  LIQUID_TOKEN: '0x0000000000000000000000000000000000000432' as Address,   // Liquid token registry
+  YIELD_ROUTER: '0x0000000000000000000000000000000000000433' as Address,   // Yield strategy routing
+
+  // Bridges (0x0440-0x044F)
+  TELEPORT_BRIDGE: '0x0000000000000000000000000000000000000440' as Address,    // Cross-chain transfer engine
+  OMNICHAIN_ROUTER: '0x0000000000000000000000000000000000000441' as Address,   // Multi-chain liquidity routing
+} as const
+
+/**
+ * LP-4200 unified PQCrypto precompile block.
+ *
+ * Single source of truth for all post-quantum crypto operations across Lux chains.
+ * Replaces the legacy 0x0600 (PQ) and 0x0800 (Threshold) per-VM scheme.
+ *
+ * See ~/work/lux/precompile/{mldsa,mlkem,slhdsa,pulsar,p3q,corona,magnetar,hqc}/contract.go
+ * for canonical address constants.
+ */
+export const PQ_CRYPTO_PRECOMPILES = {
+  ML_KEM: '0x0000000000000000000000000000000000012201' as Address,    // FIPS 203 KEM (Module-LWE)
+  ML_DSA: '0x0000000000000000000000000000000000012202' as Address,    // FIPS 204 signature (Module-LWE)
+  SLH_DSA: '0x0000000000000000000000000000000000012203' as Address,   // FIPS 205 hash-based signature
+  PULSAR: '0x0000000000000000000000000000000000012204' as Address,    // Threshold ML-DSA-65 (FIPS 204 byte-equal)
+  P3Q: '0x0000000000000000000000000000000000012205' as Address,       // Strict-PQ STARK verify
+  CORONA: '0x0000000000000000000000000000000000012206' as Address,    // Ring-LWE threshold signatures
+  MAGNETAR: '0x0000000000000000000000000000000000012207' as Address,  // Public-DKG MPC threshold SLH-DSA
+  HQC: '0x0000000000000000000000000000000000012208' as Address,       // Code-based KEM (NIST PQC4 backup)
 } as const
 
 /**

@@ -8,6 +8,7 @@ import {
   SPC_MAINNET_CONTRACTS,
   PARS_MAINNET_CONTRACTS,
   DEX_PRECOMPILES,
+  PQ_CRYPTO_PRECOMPILES,
   getContracts,
 } from '../src/contracts/addresses'
 
@@ -44,6 +45,7 @@ describe('contract set exports', () => {
     ['SPC_MAINNET_CONTRACTS', SPC_MAINNET_CONTRACTS],
     ['PARS_MAINNET_CONTRACTS', PARS_MAINNET_CONTRACTS],
     ['DEX_PRECOMPILES', DEX_PRECOMPILES],
+    ['PQ_CRYPTO_PRECOMPILES', PQ_CRYPTO_PRECOMPILES],
   ])('%s is a non-empty object', (_name, contracts) => {
     expect(contracts).toBeDefined()
     expect(typeof contracts).toBe('object')
@@ -87,6 +89,7 @@ describe('address format validation', () => {
     ['SPC_MAINNET_CONTRACTS', SPC_MAINNET_CONTRACTS],
     ['PARS_MAINNET_CONTRACTS', PARS_MAINNET_CONTRACTS],
     ['DEX_PRECOMPILES', DEX_PRECOMPILES],
+    ['PQ_CRYPTO_PRECOMPILES', PQ_CRYPTO_PRECOMPILES],
   ]
 
   it.each(ALL_SETS)('%s has valid hex addresses (0x + 40 hex chars)', (_name, contracts) => {
@@ -158,37 +161,77 @@ describe('mainnet addresses are not known-empty legacy', () => {
   })
 })
 
-// ---- 8. DEX_PRECOMPILES addresses match LP numbering scheme ----
+// ---- 8. DEX_PRECOMPILES addresses match canonical 0x04xx block ----
 
-describe('DEX_PRECOMPILES LP numbering', () => {
+describe('DEX_PRECOMPILES canonical 0x04xx addresses', () => {
   const EXPECTED_SUFFIXES: [string, string][] = [
-    ['POOL_MANAGER', '9010'],
-    ['SWAP_ROUTER', '9012'],
-    ['HOOKS_REGISTRY', '9013'],
-    ['FLASH_LOAN', '9014'],
-    ['ORACLE_HUB', '9011'],
-    ['CLOB', '9020'],
-    ['VAULT', '9030'],
-    ['TELEPORT', '6010'],
+    // Core DEX (0x0400-0x040F)
+    ['POOL_MANAGER', '0400'],
+    ['SWAP_ROUTER', '0401'],
+    ['HOOKS_REGISTRY', '0402'],
+    ['FLASH_LOAN', '0403'],
+    // Lending (0x0410-0x041F)
+    ['LENDING_POOL', '0410'],
+    ['INTEREST_RATE', '0411'],
+    ['LIQUIDATOR', '0412'],
+    // Perpetuals (0x0420-0x042F)
+    ['PERP_ENGINE', '0420'],
+    ['FUNDING_RATE', '0421'],
+    ['INSURANCE_FUND', '0422'],
+    // Liquid Vaults (0x0430-0x043F)
+    ['LIQUID_VAULT', '0430'],
+    ['LIQUID_FX', '0431'],
+    ['LIQUID_TOKEN', '0432'],
+    ['YIELD_ROUTER', '0433'],
+    // Bridges (0x0440-0x044F)
+    ['TELEPORT_BRIDGE', '0440'],
+    ['OMNICHAIN_ROUTER', '0441'],
   ]
 
   it.each(EXPECTED_SUFFIXES)(
-    'DEX_PRECOMPILES.%s ends with LP-%s',
+    'DEX_PRECOMPILES.%s ends with 0x%s',
     (name, suffix) => {
       const addr = (DEX_PRECOMPILES as Record<string, string>)[name]
       expect(addr).toBeDefined()
-      // Precompile addresses are zero-padded with the LP number at the end
       expect(addr.toLowerCase()).toBe(
         `0x${'0'.repeat(40 - suffix.length)}${suffix}`,
       )
     },
   )
 
-  it('all precompile addresses have leading zeros (low address space)', () => {
+  it('all DEX precompile addresses have leading zeros (low address space)', () => {
     for (const [key, addr] of addressEntries(DEX_PRECOMPILES)) {
-      // First 30 hex chars after 0x should be zero
       const body = addr.slice(2, 32)
       expect(body, `DEX_PRECOMPILES.${key} should have leading zeros`).toMatch(/^0+$/)
+    }
+  })
+})
+
+// ---- 8b. PQ_CRYPTO_PRECOMPILES match LP-4200 unified PQCrypto block ----
+
+describe('PQ_CRYPTO_PRECOMPILES LP-4200 unified block', () => {
+  const EXPECTED: [string, string][] = [
+    ['ML_KEM', '012201'],
+    ['ML_DSA', '012202'],
+    ['SLH_DSA', '012203'],
+    ['PULSAR', '012204'],
+    ['P3Q', '012205'],
+    ['CORONA', '012206'],
+    ['MAGNETAR', '012207'],
+    ['HQC', '012208'],
+  ]
+
+  it.each(EXPECTED)('PQ_CRYPTO_PRECOMPILES.%s = 0x..%s', (name, suffix) => {
+    const addr = (PQ_CRYPTO_PRECOMPILES as Record<string, string>)[name]
+    expect(addr).toBeDefined()
+    expect(addr.toLowerCase()).toBe(
+      `0x${'0'.repeat(40 - suffix.length)}${suffix}`,
+    )
+  })
+
+  it('PQ precompiles are non-empty, well-formed hex', () => {
+    for (const [key, addr] of addressEntries(PQ_CRYPTO_PRECOMPILES)) {
+      expect(addr, `PQ_CRYPTO_PRECOMPILES.${key} = "${addr}"`).toMatch(ADDRESS_RE)
     }
   })
 })

@@ -7,6 +7,7 @@ export {
   LUX_TESTNET_CONTRACTS,
   LUX_DEV_CONTRACTS,
   DEX_PRECOMPILES,
+  PQ_CRYPTO_PRECOMPILES,
   getContracts,
   type ContractAddresses,
 } from './addresses'
